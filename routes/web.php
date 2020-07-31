@@ -26,6 +26,7 @@ Route::get('/clientes', 'ClientesController@index');
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/visita', 'VisitaController@index');
 
+Route::get('/cotizacion', 'CotizacionController@index');
 
 
 });
