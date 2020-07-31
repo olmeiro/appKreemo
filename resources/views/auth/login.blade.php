@@ -59,13 +59,13 @@
               <div class="card-body">
                 <h1>Login</h1>
                 <p class="text-muted">Sign In to your account</p>
-                <form method="POST" action="{{ route('login') }}">
+                <form class="form-signin" method="POST" action="{{ route('login') }}">
                         @csrf
 
                         <div class="form-group row">
                             <label for="email" class="">{{ __('E-Mail Address') }}</label>
 
-                            
+
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
@@ -73,13 +73,13 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            
+
                         </div>
 
                         <div class="form-group row">
                             <label for="password" class="">{{ __('Password') }}</label>
 
-                    
+
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -87,7 +87,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            
+
                         </div>
 
                         <div class="form-group row">
