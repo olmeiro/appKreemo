@@ -4,7 +4,7 @@
     <p>Cotizacion</p>
     <div class="container">
 
-        <h1 align="center">CREACION COTIZACIÓN</h1>
+        <h1 align="center">COTIZACIÓN</h1>
         <br>
         <form class="form-signin col-md-12" action="../Controlador/ControladorCotizacion.php" method="post" id="FrmCrearCotizacion" name="FrmCrearCotizacion">
 
