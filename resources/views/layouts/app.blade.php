@@ -57,7 +57,7 @@
         <i class="fas fa-home"></i> Usuario</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/clientes">
         <i class="fas fa-home"></i> Clientes</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
         <i class="fas fa-home"></i> Visitas</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
         <i class="fas fa-home"></i> Cotizaciones</a></li>
