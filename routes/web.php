@@ -28,4 +28,6 @@ Route::get('/visita', 'VisitaController@index');
 
 Route::get('/cotizacion', 'CotizacionController@index');
 
+Route::get('/maquinaria', 'MaquinariaController@index');
+
 });

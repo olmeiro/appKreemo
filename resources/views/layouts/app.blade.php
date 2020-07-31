@@ -61,7 +61,7 @@
         <i class="fas fa-home"></i> Visitas</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion">
         <i class="fas fa-home"></i> Cotizaciones</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria">
         <i class="fas fa-home"></i> Maquinaria</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta">
         <i class="fas fa-home"></i> Encuesta</a></li>
