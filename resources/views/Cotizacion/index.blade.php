@@ -8,7 +8,7 @@
     <form class="form-signin col-md-12" action="../Controlador/ControladorCotizacion.php" method="post" id="FrmCrearCotizacion" name="FrmCrearCotizacion">
 
          <div class="form-row" >
-              <div class="form-group col-md-8">
+            <div class="form-group col-md-4">
                    <label for="">Empresa</label>
                    <label class="validacion" id="validacion_empresa"></label>
                    <select id="IdEmpresa"  name= "IdEmpresa" class="form-control">
@@ -17,9 +17,7 @@
                    </select>
                    <label class="validacion" id="validacion_empresa2"></label>
               </div>
-         </div>
-         <div class="form-row" >
-              <div class="form-group col-md-8">
+              <div class="form-group col-md-4">
                    <label for="">Estado</label>
                    <label class="validacion" id="validacion_Estado"></label>
                    <select id="IdEstado"  name= "IdEstado" class="form-control">
