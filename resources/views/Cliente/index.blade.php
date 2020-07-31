@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('body')
-    <p>Hola clientes</p>
+    <p>Hola clientes cansones</p>
 @endsection
