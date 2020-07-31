@@ -2,6 +2,7 @@
 
 @section('body')
 <body style="background-color: rgb(0, 0, 0);">
+<h1>Bienvenido</h1>
     <div style="background-color: #B52407;" class="card text-white mb-3">
         <div class="card-header">Ingrese los datos para la encuesta</div>
         <div class="card-body">
