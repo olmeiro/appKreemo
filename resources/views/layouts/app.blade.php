@@ -42,7 +42,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
   <body class="c-app">
-  <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show kreemo-sidebar" id="sidebar">
+    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show kreemo-sidebar" id="sidebar">
       <div class="c-sidebar-brand d-lg-down-none">
         <svg class="c-sidebar-brand-full align-justify " width="118" height="46" alt="CoreUI Logo">
           <use xlink:href="assets/brand/coreui.svg#full"></use>
@@ -61,7 +61,7 @@
         <i class="fas fa-home"></i> Visitas</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion">
         <i class="fas fa-home"></i> Cotizaciones</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
         <i class="fas fa-home"></i> Maquinaria</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta">
         <i class="fas fa-home"></i> Encuesta</a></li>
