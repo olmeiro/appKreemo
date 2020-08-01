@@ -104,7 +104,7 @@
                     </form>
               </div>
             </div>
-            <div class="card text-white bg-danger py-5 d-md-down-none" style="width:30%">
+            <div class="card text-white bg-secondary py-5 d-md-down-none" style="width:30%">
             <img src="{{ asset('img/kreemo.png') }}" style="width:350px;">
               <div class="card-body text-center">
                 <!-- <div>
