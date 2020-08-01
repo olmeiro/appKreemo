@@ -16,9 +16,9 @@
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
     <title>CoreUI Free Bootstrap Admin Template</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="assets/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('dashboard/assets/favicon/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('dashboard/assets/favicon/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('dashboard/assets/favicon/apple-icon-72x72.png') }}">
     <link rel="apple-touch-icon" sizes="76x76" href="assets/favicon/apple-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="114x114" href="assets/favicon/apple-icon-114x114.png">
     <link rel="apple-touch-icon" sizes="120x120" href="assets/favicon/apple-icon-120x120.png">
@@ -42,9 +42,9 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   </head>
   <body class="c-app">
-    <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show kreemo-sidebar" id="sidebar">
+  <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show kreemo-sidebar" id="sidebar">
       <div class="c-sidebar-brand d-lg-down-none">
-        <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+        <svg class="c-sidebar-brand-full align-justify " width="118" height="46" alt="CoreUI Logo">
           <use xlink:href="assets/brand/coreui.svg#full"></use>
         </svg>
         <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
@@ -52,18 +52,18 @@
         </svg>
       </div>
       <ul class="c-sidebar-nav">
-    
+
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
-        <i class="fas fa-home"></i> Usuario</a></li>
+        <i class="fas fa-home "></i> Usuario</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/clientes">
         <i class="fas fa-home"></i> Clientes</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
         <i class="fas fa-home"></i> Visitas</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion">
         <i class="fas fa-home"></i> Cotizaciones</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria">
         <i class="fas fa-home"></i> Maquinaria</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta">
         <i class="fas fa-home"></i> Encuesta</a></li>
 
       </ul>
@@ -72,43 +72,40 @@
     <div class="c-wrapper c-fixed-components">
       <header class="c-header c-header-light c-header-fixed c-header-with-subheader">
         <button class="c-header-toggler c-class-toggler d-lg-none mfe-auto" type="button" data-target="#sidebar" data-class="c-sidebar-show">
-          <svg class="c-icon c-icon-lg">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
-          </svg>
+          <i class="fas fa-align-justify"></i>
         </button><a class="c-header-brand d-lg-none" href="#">
           <svg width="118" height="46" alt="CoreUI Logo">
             <use xlink:href="assets/brand/coreui.svg#full"></use>
           </svg></a>
         <button class="c-header-toggler c-class-toggler mfs-3 d-md-down-none" type="button" data-target="#sidebar" data-class="c-sidebar-lg-show" responsive="true">
-          <svg class="c-icon c-icon-lg">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
-          </svg>
+          <i class="fas fa-align-justify"></i>
         </button>
         <ul class="c-header-nav d-md-down-none">
           <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Kreemo</a></li>
-          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Users</a></li>
-          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Settings</a></li>
+          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="">Bienvenido {{ Auth::user()->name }}</a></li>
+          <!-- <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Settings</a></li> -->
         </ul>
         <ul class="c-header-nav ml-auto mr-4">
-          <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link" href="#">
+          <!-- <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link" href="#">
               <svg class="c-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+                <use xlink:href="{{ asset('assets/dashboard/vendors/@coreui/icons/svg/free.svg#cil-bell') }}"></use>
               </svg></a></li>
           <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link" href="#">
               <svg class="c-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
+                <use xlink:href="{{ asset('assets/dashboard/vendors/@coreui/icons/svg/free.svg#cil-list-rich')}}"></use>
               </svg></a></li>
           <li class="c-header-nav-item d-md-down-none mx-2"><a class="c-header-nav-link" href="#">
               <svg class="c-icon">
-                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-              </svg></a></li>
+                <use xlink:href="{{ asset(asset('assets/dashboard/vendors/@coreui/icons/svg/free.svg#cil-envelope-open')) }}"></use>
+              </svg></a></li> -->
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <div class="c-avatar"><img class="c-avatar-img" src="assets/img/avatars/6.jpg" alt="user@email.com"></div>
+              <div class="c-avatar"><i class="fas fa-user-alt"></i></div>
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-0">
-              <div class="dropdown-header bg-light py-2"><strong>Account</strong></div><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
+              <!-- <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>
+              <a class="dropdown-item" href="#"> -->
+                <!-- <svg class="c-icon mr-2">
+                  <use xlink:href="{{ asset('assets/dashboar/vendors/@coreui/icons/svg/free.svg#cil-bell') }}"></use>
                 </svg> Updates<span class="badge badge-info ml-auto">42</span></a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
@@ -118,36 +115,29 @@
                 </svg> Tasks<span class="badge badge-danger ml-auto">42</span></a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                </svg> Comments<span class="badge badge-warning ml-auto">42</span></a>
-              <div class="dropdown-header bg-light py-2"><strong>Settings</strong></div><a class="dropdown-item" href="#">
+                </svg> Comments<span class="badge badge-warning ml-auto">42</span></a> -->
+              <div class="dropdown-header bg-light py-2"><strong>Configuración</strong></div><a class="dropdown-item" href="">
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                </svg> Profile</a><a class="dropdown-item" href="#">
+                </svg> Perfil</a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
-                </svg> Settings</a><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
-                </svg> Payments<span class="badge badge-secondary ml-auto">42</span></a><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-file"></use>
-                </svg> Projects<span class="badge badge-primary ml-auto">42</span></a>
+                </svg> Configuración</a><a class="dropdown-item" href="#">
+                
               <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
-                  <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                </svg> Lock Account</a><a class="dropdown-item" href="#">
+                
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg> Logout</a>
+                </svg>  Salir</a>
             </div>
           </li>
         </ul>
         <div class="c-subheader px-3">
           <!-- Breadcrumb-->
-          <ol class="breadcrumb border-0 m-0">
+          <!-- <ol class="breadcrumb border-0 m-0">
             <li class="breadcrumb-item">Home</li>
             <li class="breadcrumb-item"><a href="#">Admin</a></li>
-            <li class="breadcrumb-item active">Dashboard</li>
+            <li class="breadcrumb-item active">Dashboard</li> -->
             <!-- Breadcrumb Menu-->
           </ol>
         </div>
@@ -161,8 +151,8 @@
           </div>
         </main>
         <footer class="c-footer">
-          <div><a href="https://coreui.io">CoreUI</a> © 2020 creativeLabs.</div>
-          <div class="ml-auto">Powered by&nbsp;<a href="https://coreui.io/">CoreUI</a></div>
+          <div><a href="https://coreui.io"></a> Kreemo app 2020 </div>
+          <div class="ml-auto">Desarrollado por&nbsp;Kreemo</div>
         </footer>
       </div>
     </div>
