@@ -43,9 +43,18 @@
   </head>
   <body class="c-app">
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show kreemo-sidebar" id="sidebar">
-      <div class="c-sidebar-brand d-lg-down-none">
-       
-        <strong>Kreemo App</strong>
+      <div class="c-sidebar-brand d-lg-down-none" style="center">
+        {{-- <img src="{{ asset('img/kreemo.png') }}" style="width:50px;"> --}}
+        <img src="{{ asset('img/vinicol.png') }}" style="width:50px;">
+        {{-- <img src="{{ asset('img/vinicol2.png') }}" style="width:210px;"> --}}
+        <svg class="c-sidebar-brand-full align-justify " width="118" height="46" alt="CoreUI Logo">
+          <use xlink:href="assets/brand/coreui.svg#full"></use>
+        </svg>
+
+
+        <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
+          <use xlink:href="assets/brand/coreui.svg#signet"></use>
+        </svg>
       </div>
       <ul class="c-sidebar-nav">
 
@@ -77,8 +86,9 @@
           <i class="fas fa-align-justify"></i>
         </button>
         <ul class="c-header-nav d-md-down-none">
+
           <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Kreemo</a></li>
-          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="">Bienvenido {{ Auth::user()->name }}</a></li>
+          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="">Bienvenid@ {{ Auth::user()->name }}</a></li>
           <!-- <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Settings</a></li> -->
         </ul>
         <ul class="c-header-nav ml-auto mr-4">
@@ -95,7 +105,8 @@
                 <use xlink:href="{{ asset(asset('assets/dashboard/vendors/@coreui/icons/svg/free.svg#cil-envelope-open')) }}"></use>
               </svg></a></li> -->
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-              <div class="c-avatar"><i class="fas fa-user-alt"></i></div>
+              <div class="c-avatar"></div>
+              <img src="{{ asset('img/vinicol3.png') }}" style="width:80px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-0">
               <!-- <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>
@@ -119,9 +130,9 @@
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
                 </svg> Configuración</a><a class="dropdown-item" href="#">
-                
+
               <div class="dropdown-divider"></div><a class="dropdown-item" href="#">
-                
+
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                 </svg>  Salir</a>
