@@ -29,6 +29,8 @@ Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/visita', 'VisitaController@index');
 
 Route::get('/cotizacion', 'CotizacionController@index');
+Route::get('/cotizacion/crear', 'CotizacionController@create'
+)->name('Cotizacion.create');
 
 Route::get('/maquinaria', 'MaquinariaController@index');
 
