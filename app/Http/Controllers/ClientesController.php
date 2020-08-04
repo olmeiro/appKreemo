@@ -9,4 +9,7 @@ class ClientesController extends Controller
     public function index(){
         return view('cliente.index');
     }
+    public function create(){
+        return view('cliente.contacto');
+    }
 }
