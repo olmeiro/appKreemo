@@ -22,6 +22,8 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/clientes', 'ClientesController@index');
+Route::get('/clientes/crear', 'ClientesController@create'
+)->name('Cliente.contacto');
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/visita', 'VisitaController@index');
