@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('dashboard/assets/favicon/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('dashboard/assets/favicon/apple-icon-72x72.png') }}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/dashboard/assets/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/dashboard/assets/favicon/apple-icon-114x114.png') }}">  
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/dashboard/assets/favicon/apple-icon-114x114.png') }}">
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('dashboard/assets/favicon/apple-icon-120x120.png') }}">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('dashboard/assets/favicon/apple-icon-144x144.png') }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('dashboard/assets/favicon/apple-icon-152x152.png') }}">
@@ -46,7 +46,7 @@
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show kreemo-sidebar" id="sidebar">
       <div class="c-sidebar-brand d-lg-down-none" style="center">
         {{-- <img src="{{ asset('img/kreemo.png') }}" style="width:50px;"> --}}
-        <img src="{{ asset('img/vinicol.png') }}" style="width:50px;">
+        <img src="{{ asset('img/vinicol3.png') }}" style="width:55px;">
         {{-- <img src="{{ asset('img/vinicol2.png') }}" style="width:210px;"> --}}
         <svg class="c-sidebar-brand-full align-justify " width="118" height="46" alt="CoreUI Logo">
           <use xlink:href="assets/brand/coreui.svg#full"></use>
@@ -60,7 +60,7 @@
       <ul class="c-sidebar-nav">
 
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/usuarios">
-        <i class="fas fa-home "></i> Usuario</a></li>
+        <i class="fas fa-home"></i> Usuario</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/clientes">
         <i class="fas fa-home"></i> Clientes</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
@@ -107,7 +107,7 @@
               </svg></a></li> -->
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <div class="c-avatar"></div>
-              <img src="{{ asset('img/vinicol3.png') }}" style="width:80px;">
+              <img src="{{ asset('img/vinicol.png') }}" style="width:50px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-0">
               <!-- <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>

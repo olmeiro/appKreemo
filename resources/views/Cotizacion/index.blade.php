@@ -9,9 +9,7 @@
                 <a class="btn btn-danger" href="{{route('Cotizacion.create')}}">CREAR COTIZACIÓN</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-danger" href="">GENERAR REPORTE</a>
-            </li>
-
+                <a class="btn btn-danger" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
         </ul>
         <br>
         <div class="class-responsive">
