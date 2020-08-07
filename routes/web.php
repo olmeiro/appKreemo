@@ -26,6 +26,9 @@ Route::get('/clientes/crear', 'ClientesController@create'
 )->name('Cliente.contacto');
 
 Route::get('/encuesta', 'EncuestaController@index');
+Route::get('/encuesta/crear', 'EncuestaController@create'
+)->name('Encuesta.create');
+
 Route::get('/visita', 'VisitaController@index');
 
 Route::get('/cotizacion', 'CotizacionController@index');

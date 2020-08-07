@@ -9,4 +9,7 @@ class EncuestaController extends Controller
     public function index(){
         return view('encuesta.index');
     }
+    public function create(){
+        return view('encuesta.create');
+    }
 }

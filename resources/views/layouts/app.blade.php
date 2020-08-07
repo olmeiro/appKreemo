@@ -20,7 +20,7 @@
     <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('dashboard/assets/favicon/apple-icon-60x60.png') }}">
     <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('dashboard/assets/favicon/apple-icon-72x72.png') }}">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/dashboard/assets/favicon/apple-icon-76x76.png') }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/dashboard/assets/favicon/apple-icon-114x114.png') }}">  
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/dashboard/assets/favicon/apple-icon-114x114.png') }}">
     <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('dashboard/assets/favicon/apple-icon-120x120.png') }}">
     <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('dashboard/assets/favicon/apple-icon-144x144.png') }}">
     <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('dashboard/assets/favicon/apple-icon-152x152.png') }}">
@@ -141,15 +141,15 @@
             </div>
           </li>
         </ul>
-        <div class="c-subheader px-3">
-          <!-- Breadcrumb-->
-          <!-- <ol class="breadcrumb border-0 m-0">
+        <!-- <div class="c-subheader px-3">
+          Breadcrumb
+            <ol class="breadcrumb border-0 m-0">
             <li class="breadcrumb-item">Home</li>
             <li class="breadcrumb-item"><a href="#">Admin</a></li>
-            <li class="breadcrumb-item active">Dashboard</li> -->
-            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-item active">Dashboard</li>
+            Breadcrumb Menu
           </ol>
-        </div>
+        </div> -->
       </header>
       <div class="c-body">
         <main class="c-main">
