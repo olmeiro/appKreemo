@@ -61,8 +61,26 @@
 
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/usuarios">
         <i class="fas fa-home"></i> Usuario</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/clientes">
-        <i class="fas fa-home"></i> Clientes</a></li>
+
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fas fa-home"></i>Contactos</a>
+          <ul class="c-sidebar-nav-dropdown-items">
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/tipocontacto"><span class="c-sidebar-nav-icon"></span> Tipo Contacto</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cliente"><span class="c-sidebar-nav-icon"></span> Contactos</a></li>
+            <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">Obras</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Obras</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obracontacto"><span class="c-sidebar-nav-icon"></span> Crear Contactos de Obra</a></li>
+        </ul>
+          
+          </li>
+          
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/empresa"><span class="c-sidebar-nav-icon"></span> Empresa</a></li>
+          </ul>
+        </li>
+
+   
+
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
         <i class="fas fa-home"></i> Visitas</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion">
