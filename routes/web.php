@@ -72,3 +72,5 @@ Route::get('/cotizacion/crear', 'CotizacionController@create'
 Route::get('/maquinaria', 'MaquinariaController@index');
 
 });
+
+
