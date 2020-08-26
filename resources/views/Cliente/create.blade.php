@@ -10,10 +10,10 @@
         <div class="card-body">
         @include('flash::message')
         <form action="/cliente/guardar" method="POST" enctype="multipart/form-data">
-        @csrf  
-            <div class="row">  
+        @csrf
+            <div class="row">
             <div class="col-6">
-            
+
                     <div class="form-group">
                         <label for="">Tipo Contacto</label>
                         <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
@@ -21,13 +21,13 @@
                             @foreach($tipoContacto as $key =>$value)
                                 <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
                             @endforeach
-                        </select>   
+                        </select>
                         @error('idtipocontacto')
                             <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror                 
+                        @enderror
                     </div>
-            
-                </div>          
+
+                </div>
 
                 <div class="col-6">
                     <div class="form-group">
@@ -38,7 +38,7 @@
                         @enderror
                     </div>
                 </div>
-              
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Primer Apellido</label>
@@ -110,7 +110,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success float-lg-right">Guardar</button>
-            </form>   
+            </form>
         </div>
     </div>
 @endsection
