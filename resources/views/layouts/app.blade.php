@@ -72,14 +72,14 @@
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#"><span class="c-sidebar-nav-icon"></span> Obras</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obracontacto"><span class="c-sidebar-nav-icon"></span> Crear Contactos de Obra</a></li>
         </ul>
-          
+
           </li>
-          
+
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/empresa"><span class="c-sidebar-nav-icon"></span> Empresa</a></li>
           </ul>
         </li>
 
-   
+
 
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
         <i class="fas fa-home"></i> Visitas</a></li>
@@ -89,6 +89,8 @@
         <i class="fas fa-home"></i> Maquinaria</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta">
         <i class="fas fa-home"></i> Encuesta</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio">
+        <i class="fas fa-home"></i> Servicio</a></li>
 
       </ul>
       <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
