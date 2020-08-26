@@ -60,8 +60,16 @@ Route::get('/obracontacto/editar', 'ObraContactoController@edit');
 
 
 Route::get('/encuesta', 'EncuestaController@index');
-Route::get('/encuesta/crear', 'EncuestaController@create'
-)->name('Encuesta.create');
+Route::get('/encuesta/listar', 'EncuestaController@listar');
+Route::get('/encuesta/crear', 'EncuestaController@create');
+Route::post('/encuesta/guardar', 'EncuestaController@save');
+
+Route::get('/servicio', 'ServicioController@index');
+Route::get('/servicio/listar', 'ServicioController@listar');
+Route::get('/servicio/crear', 'ServicioController@create');
+Route::post('/servicio/guardar', 'ServicioController@save');
+
+
 
 Route::get('/visita', 'VisitaController@index');
 
@@ -87,3 +95,5 @@ Route::post('/operario/actualizar', 'OperarioController@update');
 Route::get('/operario/eliminar/{id}', 'OperarioController@destroy');
 
 });
+
+

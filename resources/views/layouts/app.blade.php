@@ -89,6 +89,8 @@
         </li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta">
         <i class="fas fa-home"></i> Encuesta</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio">
+        <i class="fas fa-home"></i> Servicio</a></li>
 
       </ul>
       <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
@@ -107,7 +109,6 @@
         <ul class="c-header-nav d-md-down-none">
 
           <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Kreemo</a></li>
-          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="">Bienvenid@ {{ Auth::user()->name }}</a></li>
           <!-- <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Settings</a></li> -->
         </ul>
         <ul class="c-header-nav ml-auto mr-4">

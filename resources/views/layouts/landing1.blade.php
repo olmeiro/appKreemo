@@ -107,11 +107,11 @@
             <div class="card text-white bg-secondary py-5 d-md-down-none" style="width:30%">
             <img src="{{ asset('img/kreemo.png') }}" style="width:350px;">
               <div class="card-body text-center">
-                <div>
-                  <h2>Registrar!</h2>
-                  <p>Registrar nuevo usuario.</p>
+                <!-- <div>
+                  <h2>Sign up</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                   <a href="/register" class="btn btn-lg btn-outline-light mt-3">Register Now!</a>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
