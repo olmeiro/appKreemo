@@ -23,6 +23,7 @@
         "vue-template-compiler": "^2.6.11"
     },
     "dependencies": {
-        "@coreui/icons": "^1.0.1"
+        "@coreui/icons": "^1.0.1",
+        "datatables.net": "^1.10.21"
     }
 }

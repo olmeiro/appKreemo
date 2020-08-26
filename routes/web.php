@@ -74,8 +74,14 @@ Route::post('/servicio/guardar', 'ServicioController@save');
 Route::get('/visita', 'VisitaController@index');
 
 Route::get('/cotizacion', 'CotizacionController@index');
-Route::get('/cotizacion/crear', 'CotizacionController@create'
-)->name('Cotizacion.create');
+Route::get('/cotizacion/listar', 'CotizacionController@listar');
+Route::get('/cotizacion/crear', 'CotizacionController@create');
+Route::post('/cotizacion/guardar', 'CotizacionController@save');
+Route::get('/cotizacion/editar/{id}', 'CotizacionController@edit');
+Route::post('/cotizacion/actualizar', 'CotizacionController@update');
+Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
+Route::post('/cotizacion/cambioEstado', 'CotizacionController@updateEstado');
+
 
 Route::get('/maquinaria', 'MaquinariaController@index');
 Route::get('/maquinaria/listar', 'MaquinariaController@listar');

@@ -19,7 +19,7 @@ class EmpresaController extends Controller
 
         $empresa = Empresa::all();
 
-        return DataTables::of($empresa)    
+        return DataTables::of($empresa)
         ->addColumn('editar', function ($empresa) {
             return '<a class="btn btn-primary btn-sm" href="/empresa/editar/'.$empresa->id.'">Editar</a>';
         })
@@ -48,7 +48,7 @@ class EmpresaController extends Controller
                 "direccion" =>$input["direccion"],
                 "telefono1" =>$input["telefono1"],
                 "correo1" =>$input["correo1"],
-              
+
             ]);
 
             Flash::success("Registro éxitoso de empresa");
@@ -57,22 +57,22 @@ class EmpresaController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/empresa/crear");
-        } 
+        }
     }
 
     public function edit($id){
-        
-      
+
+
         $empresa = Empresa::find($id);
 
         if ($empresa==null) {
-            
+
             Flash::error("Empresa no encontrada");
             return redirect("/empresa");
         }
-      
+
         return view("empresa.edit", compact("empresa"));
-      
+
     }
 
     public function update(Request $request){
@@ -96,7 +96,7 @@ class EmpresaController extends Controller
                 "direccion" =>$input["direccion"],
                 "telefono1" =>$input["telefono1"],
                 "correo1" =>$input["correo1"],
-              
+
             ]);
 
             Flash::success("Se modifico la empresa");
@@ -105,6 +105,6 @@ class EmpresaController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/empresa");
-        }   
+        }
     }
 }

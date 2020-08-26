@@ -20,7 +20,7 @@ class TipoContactoController extends Controller
 
         $tipoContacto = tipoContacto::all();
 
-        //dd($tipoContacto);
+        // dd($tipoContacto);
 
         return DataTables::of($tipoContacto)
         ->addColumn('editar', function ($tipoContacto) {

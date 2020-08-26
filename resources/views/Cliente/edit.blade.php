@@ -8,11 +8,11 @@
         <div class="card-body">
         @include('flash::message')
         <form action="/cliente/actualizar" method="POST" enctype="multipart/form-data">
-        @csrf  
+        @csrf
         <input type="hidden" name="id" value="{{$cliente->id}}"/>
-            <div class="row">  
+            <div class="row">
             <div class="col-6">
-            
+
                     <div class="form-group">
                         <label for="">Tipo Contacto</label>
                         <select class="form-control" name="idtipocontacto" id="idtipocontacto">
@@ -20,10 +20,10 @@
                             @foreach($tipoContacto as $key =>$value)
                                 <option {{$value->id == $cliente->idtipocontacto ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
                             @endforeach
-                        </select>                    
+                        </select>
                     </div>
-            
-                </div>          
+
+                </div>
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Nombre</label>
@@ -33,7 +33,7 @@
                         @enderror
                     </div>
                 </div>
-              
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Primer Apellido</label>
@@ -105,7 +105,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success float-lg-right">Guardar</button>
-            </form>   
+            </form>
         </div>
     </div>
 @endsection
