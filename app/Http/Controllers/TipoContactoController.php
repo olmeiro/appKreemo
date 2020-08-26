@@ -10,7 +10,7 @@ use App\Models\tipoContacto;
 
 class TipoContactoController extends Controller
 {
-   
+
     public function index()
     {
         return view('tipocontacto.index');
@@ -22,7 +22,7 @@ class TipoContactoController extends Controller
 
         //dd($tipoContacto);
 
-        return DataTables::of($tipoContacto)    
+        return DataTables::of($tipoContacto)
         ->addColumn('editar', function ($tipoContacto) {
             return '<a class="btn btn-primary btn-sm" href="/tipocontacto/editar/'.$tipoContacto->id.'">Editar</a>';
         })
@@ -31,7 +31,7 @@ class TipoContactoController extends Controller
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);
-    
+
     }
     public function create()
     {
@@ -49,7 +49,7 @@ class TipoContactoController extends Controller
 
 
                 "tipocontacto" => $input["tipocontacto"],
-               
+
             ]);
 
             Flash::success("Registro éxitoso de Tipo de Contacto");
@@ -58,17 +58,17 @@ class TipoContactoController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/tipocontacto/crear");
-        }   
+        }
     }
-     
+
 
     public function edit($id){
-        
+
         //$categorias = Categoria::all();
         $tipoContacto = tipoContacto::find($id);
 
         if ($tipoContacto==null) {
-            
+
             Flash::error("Tipo Contacto no encontrado");
             return redirect("/tipocontacto");
         }
@@ -102,7 +102,7 @@ class TipoContactoController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/tipocontacto");
-        }   
+        }
     }
 
     public function destroy($id)
@@ -122,5 +122,5 @@ class TipoContactoController extends Controller
         return redirect('/tipocontacto');
     }
 
-    
+
 }

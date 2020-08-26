@@ -78,6 +78,21 @@ Route::get('/cotizacion/crear', 'CotizacionController@create'
 )->name('Cotizacion.create');
 
 Route::get('/maquinaria', 'MaquinariaController@index');
+Route::get('/maquinaria/listar', 'MaquinariaController@listar');
+Route::get('/maquinaria/crear', 'MaquinariaController@create');
+Route::post('/maquinaria/guardar', 'MaquinariaController@save');
+Route::get('/maquinaria/editar/{id}', 'MaquinariaController@edit');
+Route::post('/maquinaria/actualizar', 'MaquinariaController@update');
+Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@updateState');
+Route::get('/maquinaria/eliminar/{id}', 'MaquinariaController@destroy');
+
+Route::get('/operario', 'OperarioController@index');
+Route::get('/operario/listar', 'OperarioController@listar');
+Route::get('/operario/crear', 'OperarioController@create');
+Route::post('/operario/guardar', 'OperarioController@save');
+Route::get('/operario/editar/{id}', 'OperarioController@edit');
+Route::post('/operario/actualizar', 'OperarioController@update');
+Route::get('/operario/eliminar/{id}', 'OperarioController@destroy');
 
 });
 

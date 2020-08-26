@@ -59,7 +59,6 @@
                         data: 'apellido2',
                         name: 'apellido2'
                     },
-                   
                     {
                         data: 'estado',
                         name: 'estado'
