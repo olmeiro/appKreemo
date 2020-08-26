@@ -24,8 +24,8 @@ class ClientesController extends Controller
         ->join("tipocontacto", "contacto.idtipocontacto", "=", "tipocontacto.id")
         ->get();
 
-        return DataTables::of($cliente)    
-        ->editColumn("estado", function($cliente){ 
+        return DataTables::of($cliente)
+        ->editColumn("estado", function($cliente){
             return $cliente->estado == 1 ? "Activo" : "Inactivo";
         })
         ->addColumn('editar', function ($cliente) {
@@ -46,14 +46,12 @@ class ClientesController extends Controller
     }
 
     public function create(){
-        
+
         $tipoContacto = tipoContacto::all();
         $cliente = Cliente::all();
-       
+
         return view('cliente.create', compact("tipoContacto"));
     }
-
-
 
     public function save(Request $request){
           //dd('ruta ok');
@@ -74,9 +72,9 @@ class ClientesController extends Controller
             ]);
 
           $input = $request->all();
-  
+
           try {
-  
+
               Cliente::create([
                   "idtipocontacto" => $input["idtipocontacto"],
                   "nombre" => $input["nombre"],
@@ -88,26 +86,26 @@ class ClientesController extends Controller
                   "telefono2" =>$input["telefono2"],
                   "correo1" =>$input["correo1"],
                   "correo2" =>$input["correo2"],
-                
+
               ]);
-  
+
               Flash::success("Registro éxitoso de contacto");
               return redirect("/cliente");
-  
+
           } catch (\Exception $e ) {
               Flash::error($e->getMessage());
               return redirect("/cliente/crear");
-          } 
+          }
     }
 
-    
+
     public function edit($id){
-        
+
         $tipoContacto = tipoContacto::all();
         $cliente = Cliente::find($id);
 
         if ($cliente==null) {
-            
+
             Flash::error("cliente no encontrado");
             return redirect("/cliente");
         }
@@ -148,11 +146,11 @@ class ClientesController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/cliente");
-        }   
+        }
     }
 
     public function updateState($id, $estado){
-        
+
         $cliente = Cliente::find($id);
 
         if ($cliente==null) {
@@ -161,16 +159,16 @@ class ClientesController extends Controller
         }
 
         try {
-            
+
             $cliente->update(["estado"=>$estado]);
             Flash::success("Se modifico el estado del cliente");
             return redirect("/cliente");
 
         } catch (\Exception $e) {
-            
+
             Flash::error($e->getMessage());
             return redirect("/cliente");
         }
     }
-   
+
 }

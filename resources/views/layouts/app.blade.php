@@ -72,23 +72,26 @@
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obra"><span class="c-sidebar-nav-icon"></span> Obras</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obracontacto"><span class="c-sidebar-nav-icon"></span> Crear Contactos de Obra</a></li>
         </ul>
-
           </li>
-
+          </li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/empresa"><span class="c-sidebar-nav-icon"></span> Empresa</a></li>
           </ul>
         </li>
-
-
-
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
         <i class="fas fa-home"></i> Visitas</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion">
         <i class="fas fa-home"></i> Cotizaciones</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria">
-        <i class="fas fa-home"></i> Maquinaria</a></li>
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fas fa-home"></i> Maquinaria</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria"><span class="c-sidebar-nav-icon"></span> Maquinaria</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/operario"><span class="c-sidebar-nav-icon"></span> Operario</a></li>
+        </ul>
+        </li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta">
         <i class="fas fa-home"></i> Encuesta</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio">
+        <i class="fas fa-home"></i> Servicio</a></li>
 
       </ul>
       <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
@@ -107,7 +110,6 @@
         <ul class="c-header-nav d-md-down-none">
 
           <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Kreemo</a></li>
-          <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="">Bienvenid@ {{ Auth::user()->name }}</a></li>
           <!-- <li class="c-header-nav-item px-3"><a class="c-header-nav-link" href="#">Settings</a></li> -->
         </ul>
         <ul class="c-header-nav ml-auto mr-4">
