@@ -18,7 +18,6 @@
                             @foreach($empresa as $key =>$value)
                                 <option value="{{ $value->id }}">{{ $value->nombre}}</option>
                             @endforeach
-
                         </select>
                         @error('IdEmpresa')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -27,11 +26,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Estado</label>
                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
-                            {{-- <option value="0" >Seleccione un Estado</option> --}}
                             <option selected>Seleccione un Estado</option>
-                            <option value="1">En Proceso</option>
-                            <option value="2">Aceptada</option>
-                            <option value="3">Perdida</option>
+                            @foreach($estadocotizacion as $key =>$value)
+                                <option value="{{ $value->id }}">{{ $value->estado_cotizacion}}</option>
+                            @endforeach
                         </select>
                         @error('IdEstado')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -40,9 +38,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Modalidad</label>
                         <select id="IdModalidad"  name= "IdModalidad" class="form-control @error('IdModalidad') is-invalid @enderror">
-                            <option selected >Seleccione un Modalidad</option>
-                            <option value="1">Semanal</option>
-                            <option value="2">Mensual</option>
+                            <option selected>Seleccione una Modalidad</option>
+                            @foreach($modalidad as $key =>$value)
+                                <option value="{{ $value->id }}">{{ $value->modalidad}}</option>
+                            @endforeach
                         </select>
                         @error('IdModalidad')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -51,10 +50,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Etapa</label>
                         <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
-                                <option selected >Seleccione una Etapa</option>
-                                <option value="1">Pilas</option>
-                                <option value="2">Cimientos</option>
-
+                                <option selected>Seleccione una Etapa</option>
+                            @foreach($etapa as $key =>$value)
+                                <option value="{{ $value->id }}">{{ $value->etapa}}</option>
+                            @endforeach
                         </select>
                         @error('IdEtapa')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -65,10 +64,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Jornada</label>
                         <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
-                                <option selected >Seleccione un Jornada</option>
-                                <option value="1">Diurna</option>
-                                <option value="2">Nocturna</option>
-
+                                <option selected>Seleccione una Jornada</option>
+                            @foreach($jornada as $key =>$value)
+                                <option value="{{ $value->id }}">{{ $value->jornada_nombre}}</option>
+                            @endforeach
                         </select>
                         @error('IdJornada')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -77,10 +76,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Tipo de Concreto</label>
                         <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
-                            <option selected >Seleccione un tipo de concreto</option>
-                            <option value="1">Arena</option>
-                            <option value="2">Triturado</option>
-
+                            <option selected>Seleccione un Tipo de Concreto</option>
+                            @foreach($tipoconcreto as $key =>$value)
+                            <option value="{{ $value->id }}">{{ $value->tipo_concreto}}</option>
+                            @endforeach
                         </select>
                         @error('IdTipo_Concreto')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -92,7 +91,7 @@
                                 <option selected >Seleccione una Obra</option>
                                 @foreach($obra as $key =>$value)
                                 <option value="{{ $value->id }}">{{ $value->nombre}}</option>
-                            @endforeach
+                                @endforeach
                         </select>
                         @error('IdObra')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -101,10 +100,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Maquinaria</label>
                         <select id="IdMaquinaria"  name= "IdMaquinaria" class="form-control @error('IdMaquinaria') is-invalid @enderror">
-                                <option selected >Seleccione una maquina</option>
-                                <option value="1">Maquina 1</option>
-                                <option value="2">Maquina 2</option>
-
+                            <option selected>Seleccione una Maquinaria</option>
+                            @foreach($maquinaria as $key =>$value)
+                            <option value="{{ $value->id }}">{{ $value->modelo}}</option>
+                            @endforeach
                         </select>
                         @error('IdMaquinaria')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -115,10 +114,10 @@
                     <div class="form-group col-md-3">
                         <label for="">Operario</label>
                         <select id="IdOperario"  name= "IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
-                                <option selected >Seleccione un Operario</option>
-                                <option value="1">Operario 1</option>
-                                <option value="2">Operario 2</option>
-
+                                <option selected>Seleccione un Operario</option>
+                            @foreach($operario as $key =>$value)
+                            <option value="{{ $value->id }}">{{ $value->nombre}}</option>
+                            @endforeach
                         </select>
                         @error('IdOperario')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -205,9 +204,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
                 </div>
-
                 <div class="mb-3">
                     <label for="validationTextarea">Observaciones</label>
                     <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa las observaciones" ></textarea>
@@ -221,7 +218,5 @@
         </div>
     </div>
 </div>
-<br>
-
 </body>
 @endsection

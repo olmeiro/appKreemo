@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
             @include('flash::message')
-            <table id="tbl_cotizacion" class="table table-bordered table-responsive"" style="width: 100%;">
+            <table id="tbl_cotizacion" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead class="" align="center">
                 <tr>
                     <th>Cotizacion N°</th>
@@ -61,36 +61,36 @@
                         name: 'nombre_empresa',
                     },
                     {
-                        data: 'idEstado',
-                        name: 'idEstado',
+                        data: 'estado_cotizacion',
+                        name: 'estado_cotizacion',
                     },
                     {
-                        data: 'idModalidad',
-                        name: 'idModalidad',
+                        data: 'modalidad',
+                        name: 'modalidad',
                     },
                     {
-                        data: 'idEtapa',
-                        name: 'idEtapa',
+                        data: 'etapa',
+                        name: 'etapa',
                     },
                     {
-                        data: 'idJornada',
-                        name: 'idJornada',
+                        data: 'jornada_nombre',
+                        name: 'jornada_nombre',
                     },
                     {
-                        data: 'idTipo_Concreto',
-                        name: 'idTipo_Concreto',
+                        data: 'tipo_concreto',
+                        name: 'tipo_concreto',
                     },
                     {
                         data: 'nombre_obra',
                         name: 'nombre_obra',
                     },
                     {
-                        data: 'idMaquinaria',
-                        name: 'idMaquinaria',
+                        data: 'modelo',
+                        name: 'modelo',
                     },
                     {
-                        data: 'idOperario',
-                        name: 'idOperario',
+                        data: 'nombre',
+                        name: 'nombre',
                     },
                     {
                         data: 'fechaCotizacion',

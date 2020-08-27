@@ -19,7 +19,6 @@
                             @foreach($empresa as $key =>$value)
                                 <option {{$value->id == $cotizacion->idEmpresa ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
                             @endforeach
-
                         </select>
                         @error('IdEmpresa')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -29,11 +28,13 @@
                         <label for="">Estado</label>
                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
                             <option value="">Seleccione Estado</option>
-                            <option value="1" {{ $cotizacion->idEstado == 1 ? 'selected' : '' }}>En proceso</option>
+                            {{-- <option value="1" {{ $cotizacion->idEstado == 1 ? 'selected' : '' }}>En proceso</option>
                             <option value="2" {{ $cotizacion->idEstado == 2 ? 'selected' : '' }}>Aceptada</option>
-                            <option value="3" {{ $cotizacion->idEstado == 3 ? 'selected' : '' }}>Perdida</option>
+                            <option value="3" {{ $cotizacion->idEstado == 3 ? 'selected' : '' }}>Perdida</option> --}}
+                            @foreach($estadocotizacion as $key =>$value)
+                                <option {{$value->id == $cotizacion->idEstado ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->estado_cotizacion}}</option>
+                            @endforeach
                         </select>
-
                         @error('IdEstado')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -42,8 +43,9 @@
                         <label for="">Modalidad</label>
                         <select id="IdModalidad"  name= "IdModalidad" class="form-control @error('IdModalidad') is-invalid @enderror">
                             <option selected >Seleccione un Modalidad</option>
-                            <option value="1" {{ $cotizacion->idModalidad == 1 ? 'selected' : '' }}>Semanal</option>
-                            <option value="2" {{ $cotizacion->idModalidad == 2 ? 'selected' : '' }}>Mensual</option>
+                            @foreach($modalidad as $key =>$value)
+                                <option {{$value->id == $cotizacion->idModalidad ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->modalidad}}</option>
+                            @endforeach
                         </select>
                         @error('IdModalidad')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -53,8 +55,9 @@
                         <label for="">Etapa</label>
                         <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
                                 <option selected >Seleccione una Etapa</option>
-                                <option value="1" {{ $cotizacion->idEtapa == 1 ? 'selected' : '' }}>Pilas</option>
-                                <option value="2" {{ $cotizacion->idEtapa == 2 ? 'selected' : '' }}>Cimientos</option>
+                                @foreach($etapa as $key =>$value)
+                                <option {{$value->id == $cotizacion->idEtapa ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->etapa}}</option>
+                                @endforeach
                         </select>
                         @error('IdEtapa')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -66,9 +69,9 @@
                         <label for="">Jornada</label>
                         <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
                                 <option selected >Seleccione un Jornada</option>
-                                <option value="1" {{ $cotizacion->idJornada == 1 ? 'selected' : '' }}>Diurna</option>
-                                <option value="2" {{ $cotizacion->idJornada == 2 ? 'selected' : '' }}>Nocturna</option>
-
+                                @foreach($jornada as $key =>$value)
+                                <option {{$value->id == $cotizacion->idJornada ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->jornada_nombre}}</option>
+                                @endforeach
                         </select>
                         @error('IdJornada')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -78,8 +81,9 @@
                         <label for="">Tipo de Concreto</label>
                         <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
                             <option selected >Seleccione un tipo de concreto</option>
-                            <option value="1" {{ $cotizacion->idTipo_Concreto == 1 ? 'selected' : '' }}>Arena</option>
-                            <option value="2" {{ $cotizacion->idTipo_Concreto == 2 ? 'selected' : '' }}>Triturado</option>
+                            @foreach($tipoconcreto as $key =>$value)
+                                <option {{$value->id == $cotizacion->idTipo_Concreto ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->tipo_concreto}}</option>
+                            @endforeach
                         </select>
                         @error('IdTipo_Concreto')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -101,8 +105,9 @@
                         <label for="">Maquinaria</label>
                         <select id="IdMaquinaria"  name= "IdMaquinaria" class="form-control @error('IdMaquinaria') is-invalid @enderror">
                                 <option selected >Seleccione una maquina</option>
-                                <option value="1" {{ $cotizacion->idMaquinaria == 1 ? 'selected' : '' }}>Maquinaria 1</option>
-                                <option value="2" {{ $cotizacion->idMaquinaria == 2 ? 'selected' : '' }}>Maquinaria 2</option>
+                                @foreach($maquinaria as $key =>$value)
+                                <option {{$value->id == $cotizacion->idMaquinaria ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->modelo}}</option>
+                                @endforeach
                         </select>
                         @error('IdMaquinaria')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -114,9 +119,9 @@
                         <label for="">Operario</label>
                         <select id="IdOperario"  name= "IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
                                 <option selected >Seleccione un Operario</option>
-                                <option value="1" {{ $cotizacion->idOperario == 1 ? 'selected' : '' }}>Operario 1</option>
-                                <option value="2" {{ $cotizacion->idOperario == 2 ? 'selected' : '' }}>Operario 2</option>
-
+                                @foreach($operario as $key =>$value)
+                                <option {{$value->id == $cotizacion->idOperario ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
+                                @endforeach
                         </select>
                         @error('IdOperario')
                         <div class="invalid-feedback">{{ $message }}</div>

@@ -80,8 +80,23 @@ Route::post('/cotizacion/guardar', 'CotizacionController@save');
 Route::get('/cotizacion/editar/{id}', 'CotizacionController@edit');
 Route::post('/cotizacion/actualizar', 'CotizacionController@update');
 Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
-Route::post('/cotizacion/cambioEstado', 'CotizacionController@updateEstado');
+Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
 
+Route::get('/estadocotizacion', 'EstadoCotizacionController@index');
+Route::get('/estadocotizacion/listar', 'EstadoCotizacionController@listar');
+Route::get('/estadocotizacion/crear', 'EstadoCotizacionController@create');
+Route::post('/estadocotizacion/guardar', 'EstadoCotizacionController@save');
+Route::get('/estadocotizacion/editar/{id}', 'EstadoCotizacionController@edit');
+Route::post('/estadocotizacion/actualizar', 'EstadoCotizacionController@update');
+
+Route::get('/componentes', 'EtapaController@index');
+Route::get('/componentes/listar1', 'EtapaController@listar');
+Route::get('/componentes', 'JornadaController@index');
+Route::get('/componentes/listar2', 'JornadaController@listar');
+Route::get('/componentes', 'ModalidadController@index');
+Route::get('/componentes/listar3', 'ModalidadController@listar');
+Route::get('/componentes', 'TipoConcretoController@index');
+Route::get('/componentes/listar', 'TipoConcretoController@listar');
 
 Route::get('/maquinaria', 'MaquinariaController@index');
 Route::get('/maquinaria/listar', 'MaquinariaController@listar');

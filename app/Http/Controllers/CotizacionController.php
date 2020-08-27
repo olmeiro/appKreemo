@@ -8,6 +8,13 @@ use DataTables;
 use App\Models\Cotizacion;
 use App\Models\Empresa;
 use App\Models\Obra;
+use App\Models\Jornada;
+use App\Models\Etapa;
+use App\Models\Modalidad;
+use App\Models\TipoConcreto;
+use App\Models\EstadoCotizacion;
+use App\Models\Maquinaria;
+use App\Models\Operario;
 
 class CotizacionController extends Controller
 {
@@ -17,9 +24,16 @@ class CotizacionController extends Controller
 
     public function listar(Request $request){
 
-        $cotizacion = Cotizacion::select("cotizacion.*","empresa.nombre as nombre_empresa", "obra.nombre as nombre_obra")
-        ->join("empresa","cotizacion.IdEmpresa", "=", "empresa.id")
-        ->join("obra", "cotizacion.IdObra", "=", "obra.id")
+        $cotizacion = Cotizacion::select("cotizacion.*","empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto", "obra.nombre as nombre_obra", "maquinaria.modelo", "operario.nombre")
+        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+        ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
+        ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
+        ->join("etapa", "cotizacion.idEtapa", "=", "etapa.id")
+        ->join("jornada", "cotizacion.idJornada", "=", "jornada.id")
+        ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
+        ->join("obra", "cotizacion.idObra", "=", "obra.id")
+        ->join("maquinaria", "cotizacion.idMaquinaria", "=", "maquinaria.id")
+        ->join("operario", "cotizacion.idOperario", "=", "operario.id")
         ->get();
 
         return Datatables::of($cotizacion)
@@ -34,14 +48,20 @@ class CotizacionController extends Controller
 
     }
 
-
     public function create(){
 
         $cotizacion = Cotizacion::all();
         $empresa = Empresa::all();
         $obra = Obra::all();
+        $estadocotizacion = EstadoCotizacion::all();
+        $jornada = Jornada::all();
+        $etapa = Etapa::all();
+        $modalidad = Modalidad::all();
+        $tipoconcreto = TipoConcreto::all();
+        $maquinaria = Maquinaria::all();
+        $operario = Operario::all();
 
-        return view('cotizacion.create', compact('empresa', 'obra'));
+        return view('cotizacion.create', compact('empresa', 'obra', 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto', 'maquinaria', 'operario'));
     }
 
     public function save(Request $request){
@@ -87,15 +107,21 @@ class CotizacionController extends Controller
 
         $empresa = Empresa::all();
         $obra = Obra::all();
+        $estadocotizacion = EstadoCotizacion::all();
+        $jornada = Jornada::all();
+        $etapa = Etapa::all();
+        $modalidad = Modalidad::all();
+        $tipoconcreto = TipoConcreto::all();
+        $maquinaria = Maquinaria::all();
+        $operario = Operario::all();
         $cotizacion = Cotizacion::find($id);
-
 
         if($cotizacion==null){
 
             Flash::error("Cotización NO encontrada");
             return redirect("/cotizacion");
         }
-        return view("cotizacion.edit", compact("cotizacion", "empresa", "obra"));
+        return view("cotizacion.edit", compact("cotizacion", "empresa", "obra", 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto', 'maquinaria', 'operario'));
     }
 
     public function update(Request $request){
@@ -103,7 +129,6 @@ class CotizacionController extends Controller
         $request->validate(Cotizacion::$rules);
         $input = $request->all();
 
-        dd($input);
         try {
 
             $cotizacion = Cotizacion::find($input["id"]);
@@ -113,7 +138,6 @@ class CotizacionController extends Controller
             Flash::error("Cotización NO encontrada");
             return redirect("/cotizacion");
             }
-
 
             $cotizacion->update([
 
@@ -150,52 +174,23 @@ class CotizacionController extends Controller
 
     public function editEstado($id){
 
-
+        $estadocotizacion = EstadoCotizacion::all();
         $cotizacion = Cotizacion::find($id);
-
 
         if($cotizacion==null){
 
             Flash::error("Cotización  NO encontrada");
             return redirect("/cotizacion");
         }
-        return view("cotizacion.editEstado", compact("cotizacion"));
+        return view("cotizacion.editEstado", compact("cotizacion", 'estadocotizacion'));
     }
 
-    // public function updateEstado($id, $idEstado){
-
-    //     $cotizacion= Cotizacion::find($id);
-
-    //     if($cotizacion==null){
-
-    //         Flash::error("Cotización uu NO encontrada");
-    //         return redirect("/cotizacion");
-    //         }
-
-    //     try {
-
-    //         $cotizacion->update([
-
-
-    //             'idEstado' =>$idEstado,
-
-    //         ]);
-    //         Flash::success("Estado Cotización Modificada");
-    //         return redirect("/cotizacion");
-
-    //     }catch(\Exception $e){
-    //         Flash::error($e->getMessage());
-    //         return redirect("/cotizacion");
-    //     }
-    // }
-
-
-    public function updateEstado(Request $request){
+    public function actualizarestado(Request $request){
 
         $request->validate(Cotizacion::$rules);
         $input = $request->all();
 
-
+        dd($input);
         try {
 
             $cotizacion = Cotizacion::find($input["id"]);
@@ -206,9 +201,7 @@ class CotizacionController extends Controller
             return redirect("/cotizacion");
             }
 
-
             $cotizacion->update([
-
 
                 'idEstado' =>$input["IdEstado"],
 
