@@ -7,10 +7,9 @@
             <a href="/maquinaria/crear" class="btn btn-link">Crear Maquina</a>
 
         </div>
-        </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_maquinaria" class="table table-striped table-responsive" style="width: 100%;">
+            <table id="tbl_maquinaria" class="table table-striped   table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
                     <th>Id Maquina</th>
@@ -30,7 +29,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+</div>
 
 @endsection
 
