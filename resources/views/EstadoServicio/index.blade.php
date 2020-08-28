@@ -3,20 +3,16 @@
 @section('body')
     <div class="card">
         <div class="card-header">
-            <strong>Servicios</strong>
-            <a href="/servicio/crear" class="btn btn-link">Crear Servicio</a>
-            <a href="/estadoservicio" class="btn btn-link">Estados</a>
+            <strong>Estado del servicio</strong>
+            <a href="/estadoservicio/crear" class="btn btn-link">Crear Estado</a>
         </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_servicio" style="width: 100%;" class="table table-striped table-bordered">
+            <table id="tbl_estadoservicio" class="table table-striped table-bordered" style="width: 100%;">
                 <thead class="" align="center">
                 <tr>
-                    <th>N° Servicio</th>
-                    <th>N° Cotización</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Fin</th>
-                    <th>Estado Servicio</th>
+                    <th>N°</th>
+                    <th>Estado</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -29,42 +25,30 @@
 @endsection
 @section("scripts")
     <script>
-        $('#tbl_servicio').DataTable({
+        $('#tbl_estadoservicio').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '/servicio/listar',
+                ajax: '/estadoservicio/listar',
                 columns: [
                     {
                     data: 'id',
                     name: 'id'
                     },
                     {
-                    data: 'idcotizacion',
-                    name: 'idcotizacion'
-                    },
-                    {
-                    data: 'fechainicio',
-                    name: 'fechainicio'
-                    },
-                    {
-                    data: 'fechafin',
-                    name: 'fechafin'
-                    },
-                    {
                     data: 'estado',
-                    name: 'estado',
+                    name: 'estado'
                     },
                     {
-                        data: 'editar',
-                        name: 'editar',
-                        orderable: false,
-                        searchable: false
+                    data: 'editar',
+                    name: 'editar',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                        data: 'eliminar',
-                        name: 'eliminar',
-                        orderable: false,
-                        searchable: false
+                    data: 'eliminar',
+                    name: 'eliminar',
+                    orderable: false,
+                    searchable: false
                     }
                 ],
                 "language":{
@@ -98,3 +82,4 @@
             });
     </script>
 @endsection
+

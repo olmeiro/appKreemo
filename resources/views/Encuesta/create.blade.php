@@ -1,10 +1,12 @@
 @extends('layouts.app')
 
 @section('body')
-<div class="container">
-
-    <h1 align="center">Encuesta</h1>
-    <br>
+    <div class="card">
+        <div class="card-header">
+            <strong>Crear Encuesta</strong>
+        </div>
+        <div class="card-body">
+        @include('flash::message')
     <form action="/encuesta/guardar" method="POST" enctype="multipart/form-data">
     @csrf
         <h2>Información del cliente</h2>
@@ -12,13 +14,15 @@
         <div class="form-row" >
             <div class="form-group col-md-4">
                 <label for="">Id del servicio</label>
-                <input type="text" class="form-control @error('idservicio') is-invalid @enderror" id="idservicio" name="idservicio">
+                <select id="idservicio"  name= "idservicio" class="form-control @error('idservicio') is-invalid @enderror">
+                    <option selected>Seleccione un servicio</option>
+                    @foreach($servicio as $key =>$value)
+                        <option value="{{ $value->id }}">{{ $value->id}}</option>
+                    @endforeach
+                </select>
                 @error('idservicio')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
-                <!-- <select id="IdObra"  name= "IdObra" class="form-control">
-                <option value="0" >Seleccione una Empresa</option>
-                </select> -->
             </div>
             <div class="form-group col-md-4">
                 <label for="">Nombre del director de la obra</label>
@@ -151,10 +155,10 @@
                 @enderror
             </div>
             </div>
+            <button type="submit" class="btn btn-success">Guardar Encuesta</button>
+            <a href="/encuesta" class="btn btn-outline-primary" >Volver</a>
         </div>
-        <button type="submit" class="btn btn-success">Guardar Encuesta</button>
     </form>
-<br>
-
-</body>
+    </div>
+</div>
 @endsection
