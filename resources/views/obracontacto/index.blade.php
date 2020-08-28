@@ -19,28 +19,28 @@
         
                 <div class="form-group col-6">
                         <label for="">Nombre</label>
-                        <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre">
+                        <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre"value="{{old('nombre')}}">
                         @error('nombre')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-6">
                         <label for="">Dirección</label>
-                        <input type="text" class="form-control @error('direccion') is-invalid @enderror"  name="direccion" id="direccion">
+                        <input type="text" class="form-control @error('direccion') is-invalid @enderror"  name="direccion" id="direccion" value="{{old('direccion')}}">
                         @error('direccion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-6">
                         <label for="">Telefono</label>
-                        <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
+                        <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}">
                         @error('telefono1')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-6">
                         <label for="">Correo Electrónico</label>
-                        <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1">
+                        <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1" value="{{old('correo1')}}">
                         @error('correo1')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
