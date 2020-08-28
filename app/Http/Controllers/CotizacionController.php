@@ -189,8 +189,6 @@ class CotizacionController extends Controller
 
         $request->validate(Cotizacion::$rules);
         $input = $request->all();
-
-        dd($input);
         try {
 
             $cotizacion = Cotizacion::find($input["id"]);
