@@ -49,7 +49,7 @@ class Cotizacion extends Model
         'Tuberia' =>'required|numeric|between: 1,2147483646',
         'MetrosCubicos' =>'required|numeric|between: 1,2147483646',
         'ValorMetro' =>'required|numeric|between: 1,2147483646',
-        'AIU' =>'required|numeric|between:0,99.99',
+        'AIU' =>'required|numeric|between: 1,2147483646',
         'Subtotal' =>'required|numeric|between: 1,2147483646',
         'IvaAIU' =>'required|numeric|between: 1,2147483646',
         'ValorTotal' =>'required|numeric|between: 1,2147483646',

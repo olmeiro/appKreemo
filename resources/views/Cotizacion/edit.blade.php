@@ -173,7 +173,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="">Valor Metro <sup>3</sup></label>
-                        <input value="{{$cotizacion->valorMetro}}"  type="text" class="form-control @error('ValorMetro') is-invalid @enderror  solo_numeros" id="ValorMetro" name="ValorMetro" >
+                        <input value="{{$cotizacion->valorMetro}}"  type="text" class="form-control @error('ValorMetro') is-invalid @enderror  solo_numeros" id="ValorMetro" name="ValorMetro" onchange="valor_total()">
                         @error('ValorMetro')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -182,28 +182,28 @@
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="">AIU</label>
-                        <input value="{{$cotizacion->AIU}}"  type="text" class="form-control @error('AIU') is-invalid @enderror solo_numeros" id="AIU" name="AIU" >
+                        <input value="{{$cotizacion->AIU}}"  type="text" class="form-control @error('AIU') is-invalid @enderror solo_numeros" id="AIU" name="AIU" readonly>
                         @error('AIU')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label for="">SubTotal</label>
-                        <input value="{{$cotizacion->subtotal}}"  type="text" class="form-control @error('Subtotal') is-invalid @enderror solo_numeros" id="Subtotal" name="Subtotal">
+                        <input value="{{$cotizacion->subtotal}}"  type="text" class="form-control @error('Subtotal') is-invalid @enderror solo_numeros" id="Subtotal" name="Subtotal" readonly>
                         @error('Subtotal')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label for="">IVA al AIU</label>
-                        <input value="{{$cotizacion->ivaAIU}}"  type="text" class="form-control @error('IvaAIU') is-invalid @enderror  solo_numeros" id="IvaAIU" name="IvaAIU">
+                        <input value="{{$cotizacion->ivaAIU}}"  type="text" class="form-control @error('IvaAIU') is-invalid @enderror  solo_numeros" id="IvaAIU" name="IvaAIU" readonly>
                         @error('IvaAIU')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
                         <label  for="">Valor Total</label>
-                        <input value="{{$cotizacion->valorTotal}}" type="text" class="form-control @error('ValorTotal') is-invalid @enderror solo_numeros" id="ValorTotal" name="ValorTotal">
+                        <input value="{{$cotizacion->valorTotal}}" type="text" class="form-control @error('ValorTotal') is-invalid @enderror solo_numeros" id="ValorTotal" name="ValorTotal" readonly>
                         @error('ValorTotal')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -224,7 +224,18 @@
         </div>
     </div>
 </div>
-<br>
-
 </body>
+@endsection
+@section("scripts")
+<script>
+    function valor_total()
+{
+    var cantidad = document.getElementById('MetrosCubicos').value;
+    var valor = document.getElementById('ValorMetro').value;
+    document.getElementById('AIU').value= (cantidad*valor)*(0.05);
+    document.getElementById('Subtotal').value= (cantidad*valor);
+    document.getElementById('IvaAIU').value= ((cantidad*valor)*(0.05))*(0.19);
+    document.getElementById('ValorTotal').value= ((cantidad*valor)*(0.05))*(0.19)+(cantidad*valor);
+}
+</script>
 @endsection

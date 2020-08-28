@@ -30,7 +30,7 @@
             </div>
             <div class="card-body">
                 @include('flash::message')
-                <table id="tbl_jornada" class="table table-bordered table-striped" style="width: 100%;">
+                <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
                         <th>Jornada N°</th>
