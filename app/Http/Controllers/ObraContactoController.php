@@ -6,7 +6,6 @@ use App\Models\ObraContacto;
 use App\Models\Cliente;
 use App\Models\Obra;
 use App\Models\tipoContacto;
-use App\Models\Empresa;
 
 use Illuminate\Http\Request;
 use Flash;
@@ -19,10 +18,9 @@ class ObraContactoController extends Controller
 
         $tipocontacto = tipoContacto::all();
         $obra = Obra::all();
-        $empresa = Empresa::all();
         $cliente = Cliente::all();
 
-        return view("obracontacto.index", compact("tipocontacto","obra","empresa","cliente"));
+        return view("obracontacto.index", compact("tipocontacto","obra","cliente"));
     }
 
     public function save(Request $request)
@@ -37,7 +35,6 @@ class ObraContactoController extends Controller
             DB::beginTransaction();
 
         $obra = Obra::create([
-            "idempresa" => $input["idempresa"],
             "nombre" => $input["nombre"],
             "direccion" => $input["direccion"],
             "telefono1" => $input["telefono1"],

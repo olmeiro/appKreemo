@@ -18,15 +18,6 @@
             <div class="row card-body">
         
                 <div class="form-group col-6">
-                    <label for="">Empresa</label>
-                    <select name="idempresa" id="idobra" class="form-control">
-                        <option value="">Seleccion</option>
-                        @foreach($empresa as $value)
-                            <option value="{{ $value->id }}">{{ $value->nombre }}</option>
-                        @endforeach
-                    </select>           
-                </div>
-                <div class="form-group col-6">
                         <label for="">Nombre</label>
                         <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre">
                         @error('nombre')

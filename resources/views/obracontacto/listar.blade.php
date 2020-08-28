@@ -24,7 +24,6 @@
                 <thead>
                     <tr>
                         <th>#ID</th>
-                        <th>Id empresa</th>
                         <th>Nombre obra</th>
                         <th>Dirrección</th>
                         <th>Teléfono</th>
@@ -36,7 +35,6 @@
                     @foreach($obras as $value)
                         <tr>
                             <td>{{ $value->id }}</td>
-                            <td>{{ $value->idempresa}}</td>
                             <td>{{ $value->nombre }}</td>
                             <td>{{ $value->direccion }}</td>
                             <td>{{ $value->telefono1 }}</td>

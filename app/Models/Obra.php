@@ -9,7 +9,6 @@ class Obra extends Model
     protected $table = "obra";
 
     protected $fillable = [
-        "idempresa",
         "nombre",
         "direccion",
         "telefono1",
@@ -17,10 +16,9 @@ class Obra extends Model
     ];
 
     public static $rules = [
-        'idempresa' => 'integer',
-        'nombre' =>    'required|string|max:20',
+        'nombre' =>    'required|string|max:50',
         'direccion' =>  'required|string|max:100',
-        'telefono1' => 'numeric|required|digits_between:7,10',
+        'telefono1' => 'string|required|between:7,10',
         'correo1' => 'email:rfc,dns',
     ];
 }

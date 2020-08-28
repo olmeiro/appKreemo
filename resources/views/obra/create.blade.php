@@ -35,7 +35,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Telefono</label>
-                        <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
+                        <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
                         @error('telefono1')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
