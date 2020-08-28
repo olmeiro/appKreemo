@@ -85,6 +85,13 @@ Route::get('/estadoservicio/eliminar/{id}', 'EstadoServicioController@destroy');
 
 Route::get('/visita', 'VisitaController@index');
 
+Route::get('/listachequeo', 'ListaChequeoController@index');
+Route::get('/listachequeo/listar', 'ListaChequeoController@listar');
+Route::get('/listachequeo/crear', 'ListaChequeoController@create');
+Route::post('/listachequeo/guardar', 'ListaChequeoController@save');
+Route::get('/listachequeo/editar/{id}', 'ListaChequeoController@edit');
+Route::post('/listachequeo/actualizar', 'ListaChequeoController@update');
+
 Route::get('/cotizacion', 'CotizacionController@index');
 Route::get('/cotizacion/listar', 'CotizacionController@listar');
 Route::get('/cotizacion/crear', 'CotizacionController@create');
