@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <strong>Editar Cotización</strong>
+            <strong>Editar Cotización</strong><strong class="float-right" >Cotizacion N° {{$cotizacion->id}}</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Operario</label>
                         <select id="IdOperario"  name= "IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
                                 <option selected >Seleccione un Operario</option>
@@ -127,90 +127,86 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Fecha de Cotización</label>
                         <input value="{{$cotizacion->fechaCotizacion}}" type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion">
                         @error('FechaCotizacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Fecha de Inicio Bombeo</label>
                         <input value="{{$cotizacion->inicioBombeo}}" type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" >
                         @error('InicioBombeo')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Ciudad</label>
                         <input value="{{$cotizacion->ciudad}}" type="text" class="form-control @error('Ciudad') is-invalid @enderror" id="Ciudad" name="Ciudad">
                         @error('Ciudad')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Cantidad de losas</label>
                         <input  value="{{$cotizacion->losas}}" type="text" class="form-control @error('Losas') is-invalid @enderror" id="Losas" name="Losas">
                         @error('Losas')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Cantidad de tuberia</label>
                         <input value="{{$cotizacion->tuberia}}"  type="text" class="form-control @error('Tuberia') is-invalid @enderror" id="Tuberia" name="Tuberia">
                         @error('Tuberia')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
                         <label for="">Cantidad de metros<sup>3</sup></label>
                         <input value="{{$cotizacion->metrosCubicos}}"  type="text" class="form-control @error('MetrosCubicos') is-invalid @enderror" id="MetrosCubicos" name="MetrosCubicos">
                         @error('MetrosCubicos')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Valor Metro <sup>3</sup></label>
                         <input value="{{$cotizacion->valorMetro}}"  type="text" class="form-control @error('ValorMetro') is-invalid @enderror  solo_numeros" id="ValorMetro" name="ValorMetro" onchange="valor_total()">
                         @error('ValorMetro')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">AIU</label>
                         <input value="{{$cotizacion->AIU}}"  type="text" class="form-control @error('AIU') is-invalid @enderror solo_numeros" id="AIU" name="AIU" readonly>
                         @error('AIU')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">SubTotal</label>
                         <input value="{{$cotizacion->subtotal}}"  type="text" class="form-control @error('Subtotal') is-invalid @enderror solo_numeros" id="Subtotal" name="Subtotal" readonly>
                         @error('Subtotal')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">IVA al AIU</label>
                         <input value="{{$cotizacion->ivaAIU}}"  type="text" class="form-control @error('IvaAIU') is-invalid @enderror  solo_numeros" id="IvaAIU" name="IvaAIU" readonly>
                         @error('IvaAIU')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label  for="">Valor Total</label>
                         <input value="{{$cotizacion->valorTotal}}" type="text" class="form-control @error('ValorTotal') is-invalid @enderror solo_numeros" id="ValorTotal" name="ValorTotal" readonly>
                         @error('ValorTotal')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
                 </div>
-
                 <div class="mb-3">
                     <label for="validationTextarea">Observaciones</label>
                     <textarea   class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="{{$cotizacion->observaciones}}" ></textarea>
