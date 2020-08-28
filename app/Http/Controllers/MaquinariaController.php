@@ -52,14 +52,6 @@ class MaquinariaController extends Controller
     {
         $request->validate(Maquinaria::$rules);
 
-        $request->validate([
-        'estado' => 'in:1,0',
-        'serialequipo' =>  'required|integer|max:20',
-        'modelo' => 'required|string|max:50',
-        'serialmotor' => 'string|required|max:50',
-        'observacion' => 'string|required|max:100'
-        ]);
-
         $input = $request->all();
 
         try {
