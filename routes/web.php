@@ -63,11 +63,23 @@ Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');
 Route::get('/encuesta/crear', 'EncuestaController@create');
 Route::post('/encuesta/guardar', 'EncuestaController@save');
+Route::get('/encuesta/eliminar/{id}', 'EncuestaController@destroy');
 
 Route::get('/servicio', 'ServicioController@index');
 Route::get('/servicio/listar', 'ServicioController@listar');
 Route::get('/servicio/crear', 'ServicioController@create');
 Route::post('/servicio/guardar', 'ServicioController@save');
+Route::get('/servicio/editar/{id}', 'ServicioController@edit');
+Route::post('/servicio/actualizar', 'ServicioController@update');
+Route::get('/servicio/eliminar/{id}', 'ServicioController@destroy');
+
+Route::get('/estadoservicio', 'EstadoServicioController@index');
+Route::get('/estadoservicio/listar', 'EstadoServicioController@listar');
+Route::get('/estadoservicio/crear', 'EstadoServicioController@create');
+Route::post('/estadoservicio/guardar', 'EstadoServicioController@save');
+Route::get('/estadoservicio/editar/{id}', 'EstadoServicioController@edit');
+Route::post('/estadoservicio/actualizar', 'EstadoServicioController@update');
+Route::get('/estadoservicio/eliminar/{id}', 'EstadoServicioController@destroy');
 
 
 

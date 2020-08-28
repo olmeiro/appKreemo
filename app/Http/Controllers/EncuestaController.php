@@ -7,7 +7,10 @@ use Flash;
 use DataTables;
 
 use App\Models\Encuesta;
-//use App\Models\Obra;
+use App\Models\Obra;
+use App\Models\Clientes;
+use App\Models\Servicio;
+
 
 class EncuestaController extends Controller
 {
@@ -22,6 +25,10 @@ class EncuestaController extends Controller
 
         return DataTables::of($encuesta)
 
+        ->addColumn('eliminar', function ($encuesta) {
+            return '<a class="btn btn-danger btn-sm" href="/encuesta/eliminar/'.$encuesta->id.'">Eliminar</a>';
+        })
+        ->rawColumns(['eliminar'])
         ->make(true);
 
     }
@@ -29,33 +36,17 @@ class EncuestaController extends Controller
     public function create(){
 
         $encuesta = Encuesta::all();
-        //$obra = Obra::all();
+        $servicio = Servicio::all();
+        $obra = Obra::all();
+        //$clientes = Cliente::all();
 
-        return view('encuesta.create');
+        //return view('encuesta.create');
+        return view('encuesta.create', compact("servicio"));
     }
 
     public function save(Request $request){
 
         $request->validate(Encuesta::$rules);
-
-        // $request->validate([
-        //     'idservicio' => 'integer|max:10',
-        //     'directorobra' => 'required|string|max:30',
-        //     'constructora' =>  'required|string|max:20',
-        //     'correo' => 'required|string|max:30',
-        //     'celular' => 'required|numeric|digits_between:7,11',
-        //     'mes' => 'required|date',
-        //     'respuesta1_1' => 'required|integer|max:1',
-        //     'respuesta1_2' => 'required|integer|max:1',
-        //     'respuesta1_3' => 'required|integer|max:1',
-        //     'respuesta1_4' => 'required|integer|max:1',
-        //     'respuesta2' => 'required|string|max:1',
-        //     'respuesta3' => 'required|string|max:100',
-        //     'respuesta4' => 'required|string|max:2',
-        //     'respuesta5' => 'required|string|max:100',
-        //     'respuesta6' => 'required|string|max:2',
-        //     'respuesta7' => 'required|string|max:2'
-        //   ]);
 
         $input = $request->all();
 
@@ -87,5 +78,22 @@ class EncuestaController extends Controller
             Flash::error($e->getMessage());
             return redirect("/encuesta/crear");
         }
+    }
+
+    public function destroy($id)
+    {
+        $encuesta = Encuesta::find($id);
+
+        if (empty($encuesta)) {
+            Flash::error('Encuesta no encontrado');
+
+            return redirect('/encuesta');
+        }
+
+        $encuesta->delete($id);
+
+        Flash::success('Encuesta eliminado.');
+
+        return redirect('/encuesta');
     }
 }
