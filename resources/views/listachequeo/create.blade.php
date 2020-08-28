@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">
             <strong>Crear Lista de chequeo</strong>
-            <a href="/listachequeo/crear" class="btn btn-link">Crear Empresa</a>
+
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -42,19 +42,29 @@
 
                 <div class="col-12">
                     <div class="form-group">
-                    <label class="radio-inline">Estado de la vía para ingreso en grúa 
-                   {!! Form::radio('estadovia', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('estadovia', "NO", null,['required']) !!} NO</label> -->
+                    <label   class="radio-inline">Estado de la vía para ingreso en grúa     
+                    <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('estadovia')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label class="radio-inline">Necesidad PH 
-                    {!! Form::radio('ph', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('ph', "NO", null,['required']) !!} NO</label>
+                    <label class="radio-inline">Necesidad PH  
+                    <select class="form-control @error('ph') is-invalid @enderror" name="ph" id="ph">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('ph')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -66,38 +76,59 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label class="radio-inline">Hueco (debe tener como mínimo 6x3 metros) 
-                    {!! Form::radio('hueco', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('hueco', "NO", null,['required']) !!} NO</label>
+                    <label class="radio-inline">Hueco (debe tener como mínimo 6x3 metros)  
+                    <select class="form-control @error('hueco') is-invalid @enderror" name="hueco" id="hueco">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('hueco')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Techo 3 metros de altura como mínimo
-                    {!! Form::radio('techo', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('techo', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('techo') is-invalid @enderror" name="techo" id="techo">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('techo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-                
+
+
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Desarenadero 
-                    {!! Form::radio('desarenadero', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('desarenadero', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('desarenadero') is-invalid @enderror" name="desarenadero" id="desarenadero">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('desarenadero')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
-
+                
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Desague
-                     {!! Form::radio('desague', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('desague', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('desague') is-invalid @enderror" name="desague" id="desague">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('desague')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -105,12 +136,16 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Agua abastecimiento suficiente
-                    {!! Form::radio('agua', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('agua', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('agua') is-invalid @enderror" name="agua" id="agua">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('agua')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-        
 
                 <div class="col-12"align="center">
                     <div class="form-group">
@@ -118,43 +153,59 @@
                     </div>
                 </div>
 
-
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Líneas eléctricas
-                     {!! Form::radio('lineaelectrica', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('lineaelectrica', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('lineaelectrica') is-invalid @enderror" name="lineaelectrica" id="lineaelectrica">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('lineaelectrica')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Señalización de escalas, volados, pilas 
-                    {!! Form::radio('senializacion', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('senializacion', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('senializacion') is-invalid @enderror" name="senializacion" id="senializacion">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('senializacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Iluminación nocturna
-                     {!! Form::radio('iluminacion', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('iluminacion', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('iluminacion') is-invalid @enderror" name="iluminacion" id="iluminacion">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('iluminacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
-                
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Baños  
-                    {!! Form::radio('banios', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('banios', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('banios') is-invalid @enderror" name="banios" id="banios">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('banios')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -162,12 +213,16 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Condiciones inseguras 
-                    {!! Form::radio('condicioninsegura', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('condicioninsegura', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('condicioninsegura') is-invalid @enderror" name="condicioninsegura" id="condicioninsegura">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('condicioninsegura')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-
 
                 <div class="col-12"align="center">
                     <div class="form-group">
@@ -175,58 +230,78 @@
                     </div>
                 </div>
 
-
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Orden público 
-                    {!! Form::radio('ordenpublico', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('ordenpublico', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('ordenpublico') is-invalid @enderror" name="ordenpublico" id="ordenpublico">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('ordenpublico')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Vigilancia nocturna 
-                    {!! Form::radio('vigilancia', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('vigilancia', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('vigilancia') is-invalid @enderror" name="vigilancia" id="vigilancia">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('vigilancia')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
-
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Caspete
-                     {!! Form::radio('caspete', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('caspete', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('caspete') is-invalid @enderror" name="caspete" id="caspete">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('caspete')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
-
+                
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Entrega de informacion de seguridad y salud en el trabajo: Plegable 
-                    {!! Form::radio('infoSST', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('infoSST', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('infoSST')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
-                
+
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Políticas de horas extras, trabajo nocturno
-                     {!! Form::radio('politicashoras', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('politicashoras', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('politicashoras') is-invalid @enderror" name="politicashoras" id="politicashoras">
+                    <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('politicashoras')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
-
-                
                 <div class="col-3" align="center">
                     <div class="form-group">
                         <label for="">Encargado Visita</label>
@@ -237,13 +312,17 @@
                     </div>
                 </div>
 
-
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Viabilidad 
-                    {!! Form::radio('viabilidad', "SI", null,['required']) !!} SI</label>
-                    <label class="radio-inline">
-                    {!! Form::radio('viabilidad', "NO", null,['required']) !!} NO</label>
+                    <select class="form-control @error('viabilidad') is-invalid @enderror" name="viabilidad" id="viabilidad">
+                            <option value="">Seleccione</option>
+                            <option value="SI">SI</option>
+                            <option value="NO">NO</option>
+                        </select>   
+                        @error('viabilidad')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 

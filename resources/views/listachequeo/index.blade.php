@@ -4,6 +4,7 @@
     <div class="card">
         <div class="card-header">
             <strong>Lista de chequeo</strong>
+            <a href="/listachequeo/crear" class="btn btn-link">Crear listachequeo</a>
 
         </div>
         <div class="card-body">

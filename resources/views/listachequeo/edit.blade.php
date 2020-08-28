@@ -31,17 +31,28 @@
                 <div class="col-12">
                     <div class="form-group">
                     <label   class="radio-inline">Estado de la vía para ingreso en grúa     
-                    <input type="radio" name="estadovia" id="estadovia"  
-                    {{ $listachequeo->estadovia == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="estadovia" id="estadovia"  
-                    {{ $listachequeo->estadovia == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->estadovia == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->estadovia == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('estadovia')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label class="radio-inline">Necesidad PH  <input type="radio" name="ph" id="ph"  {{ $listachequeo->ph == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="ph" id="ph"  {{ $listachequeo->ph == 'NO' ? 'checked' : ''}}>NO</label>
+                    <label class="radio-inline">Necesidad PH  
+                    <select class="form-control @error('ph') is-invalid @enderror" name="ph" id="ph">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->ph == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->ph == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('ph')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -53,16 +64,29 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                    <label class="radio-inline">Hueco (debe tener como mínimo 6x3 metros)  <input type="radio" name="hueco" id="hueco"  {{ $listachequeo->hueco == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="hueco" id="hueco"  {{ $listachequeo->hueco == 'NO' ? 'checked' : ''}}>NO</label>
+                    <label class="radio-inline">Hueco (debe tener como mínimo 6x3 metros)  
+                    <select class="form-control @error('hueco') is-invalid @enderror" name="hueco" id="hueco">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->hueco == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->hueco == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('hueco')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Techo 3 metros de altura como mínimo
-                    <input type="radio" name="techo" id="techo"  {{ $listachequeo->techo == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="techo" id="techo"  {{ $listachequeo->techo == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('techo') is-invalid @enderror" name="techo" id="techo">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->techo == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->techo == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('techo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -70,8 +94,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Desarenadero 
-                    <input type="radio" name="desarenadero" id="desarenadero"  {{ $listachequeo->desarenadero == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="desarenadero" id="desarenadero"  {{ $listachequeo->desarenadero == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('desarenadero') is-invalid @enderror" name="desarenadero" id="desarenadero">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->desarenadero == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->desarenadero == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('desarenadero')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -79,8 +109,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Desague
-                    <input type="radio" name="desague" id="desague"  {{ $listachequeo->desague == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="desague" id="desague"  {{ $listachequeo->desague == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('desague') is-invalid @enderror" name="desague" id="desague">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->desague == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->desague == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('desague')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -88,8 +124,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Agua abastecimiento suficiente
-                    <input type="radio" name="agua" id="agua"  {{ $listachequeo->agua == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="agua" id="agua"  {{ $listachequeo->agua == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('agua') is-invalid @enderror" name="agua" id="agua">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->agua == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->agua == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('agua')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -102,32 +144,56 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Líneas eléctricas
-                    <input type="radio" name="lineaelectrica" id="lineaelectrica"  {{ $listachequeo->lineaelectrica == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="lineaelectrica" id="lineaelectrica"  {{ $listachequeo->lineaelectrica == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('lineaelectrica') is-invalid @enderror" name="lineaelectrica" id="lineaelectrica">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->lineaelectrica == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->lineaelectrica == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('lineaelectrica')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Señalización de escalas, volados, pilas 
-                    <input type="radio" name="senializacion" id="senializacion"  {{ $listachequeo->senializacion == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="senializacion" id="senializacion"  {{ $listachequeo->senializacion == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('senializacion') is-invalid @enderror" name="senializacion" id="senializacion">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->senializacion == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->senializacion == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('senializacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Iluminación nocturna
-                    <input type="radio" name="iluminacion" id="iluminacion"  {{ $listachequeo->iluminacion == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="iluminacion" id="iluminacion"  {{ $listachequeo->iluminacion == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('iluminacion') is-invalid @enderror" name="iluminacion" id="iluminacion">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->iluminacion == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->iluminacion == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('iluminacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Baños  
-                    <input type="radio" name="banios" id="banios"  {{ $listachequeo->banios == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="banios" id="banios"  {{ $listachequeo->banios == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('banios') is-invalid @enderror" name="banios" id="banios">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->banios == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->banios == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('banios')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -135,8 +201,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Condiciones inseguras 
-                    <input type="radio" name="condicioninsegura" id="condicioninsegura"  {{ $listachequeo->condicioninsegura == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="condicioninsegura" id="condicioninsegura"  {{ $listachequeo->condicioninsegura == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('condicioninsegura') is-invalid @enderror" name="condicioninsegura" id="condicioninsegura">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->condicioninsegura == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->condicioninsegura == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('condicioninsegura')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -149,24 +221,42 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Orden público 
-                    <input type="radio" name="ordenpublico" id="ordenpublico"  {{ $listachequeo->ordenpublico == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="ordenpublico" id="ordenpublico"  {{ $listachequeo->ordenpublico == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('ordenpublico') is-invalid @enderror" name="ordenpublico" id="ordenpublico">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->ordenpublico == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->ordenpublico == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('ordenpublico')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Vigilancia nocturna 
-                    <input type="radio" name="vigilancia" id="vigilancia"  {{ $listachequeo->vigilancia == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="vigilancia" id="vigilancia"  {{ $listachequeo->vigilancia == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('vigilancia') is-invalid @enderror" name="vigilancia" id="vigilancia">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->vigilancia == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->vigilancia == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('vigilancia')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Caspete
-                    <input type="radio" name="caspete" id="caspete"  {{ $listachequeo->caspete == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="caspete" id="caspete"  {{ $listachequeo->caspete == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('caspete') is-invalid @enderror" name="caspete" id="caspete">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->caspete == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->caspete == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('caspete')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -174,8 +264,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Entrega de informacion de seguridad y salud en el trabajo: Plegable 
-                    <input type="radio" name="infoSST" id="infoSST"  {{ $listachequeo->infoSST == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="infoSST" id="infoSST"  {{ $listachequeo->infoSST == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->infoSST == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->infoSST == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('infoSST')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -183,8 +279,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Políticas de horas extras, trabajo nocturno
-                    <input type="radio" name="politicashoras" id="politicashoras"  {{ $listachequeo->politicashoras == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="politicashoras" id="politicashoras"  {{ $listachequeo->politicashoras == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('politicashoras') is-invalid @enderror" name="politicashoras" id="politicashoras">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->politicashoras == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->politicashoras == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('politicashoras')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
@@ -201,8 +303,14 @@
                 <div class="col-md-12">
                     <div class="form-group">
                     <label class="radio-inline">Viabilidad 
-                    <input type="radio" name="viabilidad" id="viabilidad"  {{ $listachequeo->viabilidad == 'SI' ? 'checked' : ''}}>SI</label>
-                    <label   class="radio-inline"><input type="radio" name="viabilidad" id="viabilidad"  {{ $listachequeo->viabilidad == 'NO' ? 'checked' : ''}}>NO</label>
+                    <select class="form-control @error('viabilidad') is-invalid @enderror" name="viabilidad" id="viabilidad">
+                            <option value="">Seleccione</option>
+                            <option value="SI"{{ $listachequeo->viabilidad == 'SI' ? 'selected' : ''}}>SI</option>
+                            <option value="NO"{{ $listachequeo->viabilidad == 'NO' ? 'selected' : ''}}>NO</option>
+                        </select>   
+                        @error('viabilidad')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror   
                     </div>
                 </div>
 
