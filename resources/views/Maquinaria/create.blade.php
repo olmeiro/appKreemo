@@ -16,28 +16,40 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Serial Equipo</label>
-                        <input type="text" class="form-control @error('serialequipo') is-invalid @enderror"  name="serialequipo" id="serialequipo">
+                        <input value="{{old('serialequipo')}}" type="text" class="form-control @error('serialequipo') is-invalid @enderror"  name="serialequipo" id="serialequipo">
+                        @error('serialequipo')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Modelo</label>
-                        <input type="text" class="form-control @error('modelo') is-invalid @enderror"  name="modelo" id="modelo">
+                        <input value="{{old('modelo')}}" type="text" class="form-control @error('modelo') is-invalid @enderror"  name="modelo" id="modelo">
+                        @error('modelo')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Serial Motor</label>
-                        <input type="text" class="form-control @error('serialmotor') is-invalid @enderror"  name="serialmotor" id="serialmotor">
+                        <input value="{{old('serialmotor')}}" type="text" class="form-control @error('serialmotor') is-invalid @enderror"  name="serialmotor" id="serialmotor">
+                        @error('serialmotor')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Observación</label>
-                        <input type="text" class="form-control @error('observacion') is-invalid @enderror"  name="observacion" id="observacion">
+                        <input value="{{old('observacion')}}" type="text" class="form-control @error('observacion') is-invalid @enderror"  name="observacion" id="observacion">
+                        @error('observacion')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
                 </div>
 
