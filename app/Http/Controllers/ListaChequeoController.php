@@ -25,62 +25,26 @@ class ListaChequeoController extends Controller
         $listachequeo = ListaChequeo::all();
 
         return DataTables::of($listachequeo)    
-        // ->editColumn("viabilidad", function($listachequeo){ 
-        //     return $listachequeo->viabilidad == 0 ? "Inactivo" : "Activo";
-        // })
+        
         ->addColumn('editar', function ($listachequeo) {
             return '<a class="btn btn-primary btn-sm" href="/listachequeo/editar/'.$listachequeo->id.'">Editar</a>';
         })
-        // ->addColumn('cambiar', function ($listachequeo) {
-        //     if($listachequeo->viabilidad == 0)
-        //     {
-        //         return '<a class="btn btn-danger btn-sm" href="/cliente/cambiar/estado/'.$listachequeo->id.'/0">NO Viable</a>';
-        //     }
-        //     else
-        //     {
-        //         return '<a class="btn btn-success btn-sm" href="/cliente/cambiar/estado/'.$listachequeo->id.'/1">Viable</a>';
-        //     }
-        // })
+      
         ->rawColumns(['editar'])
         ->make(true);
     }
     public function create(){
         
-       
+       $visita = Visita::all();
         $listachequeo = ListaChequeo::all();
        
-        return view('listachequeo.create');
+        return view('listachequeo.create', compact ('visita'));
     }
 
     public function save(Request $request){
         //dd('ruta ok');
 
         $request->validate(ListaChequeo::$rules);
-
-        $request->validate([
-
-            'idvisita' => 'integer',
-            'numeroplanilla' =>'required|string|max:45',
-            'estadovia'=> 'required|string|max:2',
-            'ph'=> 'required|string|max:2',
-            'hueco'=> 'required|string|max:2',
-            'techo'=> 'required|string|max:2',
-            'desarenadero'=> 'required|string|max:2',
-            'desague'=> 'required|string|max:2',
-            'agua'=> 'required|string|max:2',
-            'lineaelectrica'=> 'required|string|max:2',
-            'senializacion'=> 'required|string|max:2',
-            'iluminacion'=> 'required|string|max:2',
-            'banios'=> 'required|string|max:2',
-            'condicioninsegura'=> 'required|string|max:2',
-            'ordenpublico'=> 'required|string|max:2',
-            'vigilancia'=> 'required|string|max:2',
-            'caspete'=> 'required|string|max:2',
-            'infoSST'=> 'required|string|max:2',
-            'politicashoras'=>'required|string|max:2',
-            'encargadovisita'=> 'required|string|max:45',
-            'viabilidad'=> 'required|string|max:2',
-          ]);
 
         $input = $request->all();
 
@@ -112,7 +76,7 @@ class ListaChequeoController extends Controller
               
             ]);
 
-            Flash::success("Registro éxitoso la lista de chequeo");
+            Flash::success("Lista de chequeo Registrada");
             return redirect("/listachequeo");
 
         } catch (\Exception $e ) {
@@ -125,6 +89,7 @@ class ListaChequeoController extends Controller
         
     
     $listachequeo = ListaChequeo::find($id);
+
 
     if ($listachequeo==null) {
         
@@ -155,7 +120,6 @@ public function update(Request $request){
 
         $listachequeo->update([
             "numeroplanilla" => $input["numeroplanilla"],
-
                 "estadovia" =>$input["estadovia"],
                 "ph" =>$input["ph"],
                 "hueco" =>$input["hueco"],

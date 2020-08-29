@@ -12,7 +12,7 @@
             <table id="tbl_listachequeo" class="table table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>Visita No</th>
+                    <th>Lista Chequeo No</th>
                     <th>Id Visita</th>
                     <th>Número Planilla</th>
                     <th>Estado Via para ingreso grúa</th>
