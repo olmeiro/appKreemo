@@ -17,7 +17,7 @@
                 <select id="idservicio"  name= "idservicio" class="form-control @error('idservicio') is-invalid @enderror">
                     <option selected>Seleccione un servicio</option>
                     @foreach($servicio as $key =>$value)
-                        <option value="{{ $value->id }}">{{ $value->id}}</option>
+                        <option value="{{ $value->id }}" {{(old('idservicio')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                     @endforeach
                 </select>
                 @error('idservicio')
@@ -26,14 +26,14 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="">Nombre del director de la obra</label>
-                <input type="text" class="form-control @error('directorobra') is-invalid @enderror" id="directorobra" name="directorobra">
+                <input type="text" class="form-control @error('directorobra') is-invalid @enderror" id="directorobra" name="directorobra" value="{{old('directorobra')}}">
                 @error('directorobra')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
                 <label for="">Constructora</label>
-                <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora">
+                <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{old('contructora')}}">
                 @error('constructora')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -42,21 +42,21 @@
             <div class="form-row" >
             <div class="form-group col-md-4">
                 <label for="">Correo</label>
-                <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo">
+                <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{old('correo')}}">
                 @error('correo')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
                 <label for="">Celular</label>
-                <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Ejm: 3212345678">
+                <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Ejm: 3212345678" value="{{old('celular')}}">
                 @error('celular')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
                 <label for="">Fecha</label>
-                <input type="date" class="form-control @error('mes') is-invalid @enderror" id="mes" name="mes" >
+                <input type="date" class="form-control @error('mes') is-invalid @enderror" id="mes" name="mes" value="{{old('mes')}}" >
                 @error('mes')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -70,28 +70,28 @@
             <div class="form-row" >
             <div class="form-group col-md-3">
                 <label for="">Puntualidad</label>
-                <input type="text" class="form-control @error('respuesta1_1') is-invalid @enderror" id="respuesta1_1" name="respuesta1_1">
+                <input type="text" class="form-control @error('respuesta1_1') is-invalid @enderror" id="respuesta1_1" name="respuesta1_1" value="{{old('respuesta1_1')}}">
                 @error('respuesta1_1')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-3">
                 <label for="">Solución de problemas</label>
-                <input type="text" class="form-control @error('respuesta1_2') is-invalid @enderror" id="respuesta1_2" name="respuesta1_2">
+                <input type="text" class="form-control @error('respuesta1_2') is-invalid @enderror" id="respuesta1_2" name="respuesta1_2" value="{{old('respuesta1_2')}}">
                 @error('respuesta1_2')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-3">
                 <label for="">Orden y aseo</label>
-                <input type="text" class="form-control @error('respuesta1_3') is-invalid @enderror" id="respuesta1_3" name="respuesta1_3">
+                <input type="text" class="form-control @error('respuesta1_3') is-invalid @enderror" id="respuesta1_3" name="respuesta1_3" value="{{old('respuesta1_3')}}">
                 @error('respuesta1_3')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-3">
                 <label for="">Cumplimiento en requisitos</label>
-                <input type="text" class="form-control @error('respuesta1_4') is-invalid @enderror" id="respuesta1_4" name="respuesta1_4">
+                <input type="text" class="form-control @error('respuesta1_4') is-invalid @enderror" id="respuesta1_4" name="respuesta1_4" value="{{old('respuesta1_4')}}">
                 @error('respuesta1_4')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -101,7 +101,7 @@
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI(1) - NO(2)</label>
-                <input type="text" class="form-control @error('respuesta2') is-invalid @enderror" id="respuesta2" name="respuesta2">
+                <input type="text" class="form-control @error('respuesta2') is-invalid @enderror" id="respuesta2" name="respuesta2" value="{{old('respuesta2')}}">
                 @error('respuesta2')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -110,7 +110,7 @@
                 <p><b>3.</b> Si la <u>respuesta 2</u> fue SI(1), describa la situación:</p>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                <textarea class="form-control @error('respuesta3') is-invalid @enderror" id="respuesta3" name="respuesta3" placeholder="Ingresa las observaciones" ></textarea>
+                <textarea class="form-control @error('respuesta3') is-invalid @enderror" id="respuesta3" name="respuesta3" placeholder="Ingresa las observaciones" value="{{old('respuesta3')}}"></textarea>
                 @error('respuesta3')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -120,7 +120,7 @@
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI(1) - NO(2)</label>
-                <input type="text" class="form-control @error('respuesta4') is-invalid @enderror" id="respuesta4" name="respuesta4">
+                <input type="text" class="form-control @error('respuesta4') is-invalid @enderror" id="respuesta4" name="respuesta4" value="{{old('respuesta4')}}">
                 @error('respuesta4')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -129,7 +129,7 @@
                 <p><b>5.</b> Que aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado. </p>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                <textarea class="form-control @error('respuesta5') is-invalid @enderror " id="respuesta5" name="respuesta5" placeholder="Ingresa las observaciones" ></textarea>
+                <textarea class="form-control @error('respuesta5') is-invalid @enderror " id="respuesta5" name="respuesta5" placeholder="Ingresa las observaciones" value="{{old('respuesta5')}}"></textarea>
                 @error('respuesta5')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -139,7 +139,7 @@
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI(1) - NO(2)</label>
-                <input type="text" class="form-control @error('respuesta6') is-invalid @enderror" id="respuesta6" name="respuesta6">
+                <input type="text" class="form-control @error('respuesta6') is-invalid @enderror" id="respuesta6" name="respuesta6" value="{{old('respuesta6')}}">
                 @error('respuesta6')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -149,7 +149,7 @@
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI(1) - NO(2)</label>
-                <input type="text" class="form-control @error('respuesta7') is-invalid @enderror" id="respuesta7" name="respuesta7">
+                <input type="text" class="form-control @error('respuesta7') is-invalid @enderror" id="respuesta7" name="respuesta7" value="{{old('respuesta7')}}">
                 @error('respuesta7')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

@@ -14,7 +14,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Estado</label>
-                        <input type="text" class="form-control @error('estado') is-invalid @enderror"  name="estado" id="estado">
+                        <input type="text" class="form-control @error('estado') is-invalid @enderror"  name="estado" id="estado" value="{{old('directorobra')}}">
                         @error('estado')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
