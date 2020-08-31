@@ -77,8 +77,16 @@
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/empresa"><span class="c-sidebar-nav-icon"></span> Empresa</a></li>
           </ul>
         </li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita">
-        <i class="fas fa-home"></i> Visitas</a></li>
+
+        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+        <i class="fas fa-home"></i> Visitas</a>
+        <ul class="c-sidebar-nav-dropdown-items">
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita"><span class="c-sidebar-nav-icon"></span> Crear Cita</a></li>
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/listachequeo"><span class="c-sidebar-nav-icon"></span> Lista de chequeo</a></li>
+            </li>
+        </ul>
+        </li>
+       
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
         <i class="fas fa-home"></i> Cotizaciones</a>
         <ul class="c-sidebar-nav-dropdown-items">
