@@ -8,7 +8,7 @@
                 <a class="btn btn-link" href="/cotizacion/crear">CREAR COTIZACIÓN</a>
                 <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
                 <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"> Launch multistep Wizard </button> </div>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Cotización </button> </div>
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -49,15 +49,18 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Smart Wizard modal</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                <h5 class="modal-title" id="exampleModalLabel">Crear Cotización</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
+                @include('flash::message')
+            <form class="form-signin col-md-12" action="/cotizacion/wizardModal" method="POST" name="FrmCrearCotizacion">
+            @csrf
                 <div id="smartwizard">
                     <ul>
-                        <li><a href="#step-1">Step 1<br /><small>Account Info</small></a></li>
-                        <li><a href="#step-2">Step 2<br /><small>Personal Info</small></a></li>
-                        <li><a href="#step-3">Step 3<br /><small>Payment Info</small></a></li>
-                        <li><a href="#step-4">Step 4<br /><small>Confirm details</small></a></li>
+                        <li><a href="#step-1">Paso 1<br /><small>Account Info</small></a></li>
+                        <li><a href="#step-2">Paso 2<br /><small>Personal Info</small></a></li>
+                        <li><a href="#step-3">Paso 3<br /><small>Payment Info</small></a></li>
+                        <li><a href="#step-4">Paso 4<br /><small>Confirm details</small></a></li>
                     </ul>
                     <div>
                         <div id="step-1">
@@ -97,6 +100,8 @@
                         </div>
                     </div>
                 </div>
+                <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
+            </form>
             </div>
         </div>
     </div>

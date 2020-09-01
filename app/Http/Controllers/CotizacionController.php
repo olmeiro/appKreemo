@@ -22,8 +22,13 @@ class CotizacionController extends Controller
         return view('cotizacion.index');
     }
 
-    public function modal(){
-        return view('cotizacion.wizardModal');
+    public function modal(Request $request){
+
+        $input = $request->all();
+
+        dd($input);
+        // return view('cotizacion.wizardModal');
+
     }
 
     public function listar(Request $request){
