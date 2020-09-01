@@ -3,7 +3,7 @@
 @section('body')
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: black">
             <strong>LISTADO DE COTIZACIONES</strong>
                 <a class="btn btn-link" href="/cotizacion/crear">CREAR COTIZACIÓN</a>
                 <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>

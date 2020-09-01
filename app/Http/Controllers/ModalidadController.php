@@ -18,12 +18,9 @@ class ModalidadController extends Controller
         $modalidad = Modalidad::all();
         return Datatables::of($modalidad)
             ->addColumn('editar', function ($modalidad) {
-                return '<a class="btn btn-xs btn-primary" href="/componentes/editar/'.$modalidad->id.'">Editar</a>';
+                return '<a class="btn btn-xs btn-secondary" href="/componentes/editar/'.$modalidad->id.'">Editar</a>';
             })
-            ->addColumn('eliminar', function ($modalidad) {
-                return '<a class="btn btn-danger btn-sm" href="/componentes/eliminar/'.$modalidad->id.'">Eliminar</a>';
-            })
-            ->rawColumns(['editar', 'eliminar'])
+            ->rawColumns(['editar'])
             ->make(true);
     }
 }

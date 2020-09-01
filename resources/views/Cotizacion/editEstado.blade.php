@@ -2,8 +2,8 @@
 
 @section('body')
 <div class="container row justify-content-center">
-    <div class="card col-md-4">
-        <div class="card-header">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: black">
             <strong>Cambio de Estado</strong>
 
         </div>

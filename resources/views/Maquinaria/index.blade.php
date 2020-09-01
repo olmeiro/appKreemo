@@ -2,14 +2,14 @@
 
 @section('body')
 <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: black">
             <strong>Maquinaria</strong>
             <a href="/maquinaria/crear" class="btn btn-link">Crear Maquina</a>
 
         </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_maquinaria" class="table table-striped   table-responsive" style="width: 100%;">
+            <table id="tbl_maquinaria" class="table table-striped table-bordered table-responsive " style="width: 100%;">
                 <thead>
                 <tr>
                     <th>Id Maquina</th>
@@ -17,10 +17,10 @@
                     <th>Serial Equipo</th>
                     <th>Modelo</th>
                     <th>Serial Motor</th>
-                    <th>observación</th>
+                    <th>Observación</th>
                     <th>Editar</th>
                     <th>Cambiar Estado</th>
-                    <th>eliminar</th>
+                    <th>Eliminar</th>
 
                 </tr>
                 </thead>

@@ -1,14 +1,15 @@
 @extends('layouts.app')
 
 @section('body')
+<div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: black">
             <strong>Operario</strong>
             <a href="/operario/crear" class="btn btn-link">Crear Operario</a>
         </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_operario" class="table table-bordered table-responsive" style="width: 100px;">
+            <table id="tbl_operario" class="table table-bordered table-striped table-responsive" style="width: 100px;">
                 <thead>
                 <tr>
                     <th>Nombre</th>
@@ -26,7 +27,7 @@
             </table>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section("scripts")

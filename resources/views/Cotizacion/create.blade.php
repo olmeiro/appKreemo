@@ -3,7 +3,7 @@
 @section('body')
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: black">
             <strong>Crear Cotización</strong>
         </div>
         <div class="card-body">

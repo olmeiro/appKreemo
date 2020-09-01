@@ -5,18 +5,17 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
-            <div class="card-header bg-info">
+            <div class="card-header text-white" style="background-color: black">
                 <strong>ETAPAS</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
-                <table id="tbl_etapa" class="table table-bordered table-striped table-responsive" style="width: 100%;">
+                <table id="tbl_etapa" class="table table-bordered table-striped " style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
                         <th>Etapa N°</th>
                         <th>Etapa</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                 </table>
@@ -25,7 +24,7 @@
     </div>
     <div class="col-sm-6">
         <div class="card">
-            <div class="card-header bg-light">
+            <div class="card-header text-white " style="background-color: black">
                 <strong>JORNADAS</strong>
             </div>
             <div class="card-body">
@@ -36,7 +35,6 @@
                         <th>Jornada N°</th>
                         <th>Jornada</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                 </table>
@@ -47,7 +45,7 @@
 <div class="row">
     <div class="col-sm-6">
         <div class="card">
-            <div class="card-header text-white bg-dark">
+            <div class="card-header text-white" style="background-color: black">
                 <strong>MODALIDAD</strong>
             </div>
             <div class="card-body">
@@ -58,7 +56,6 @@
                         <th>Modalidad N°</th>
                         <th>Modalidad</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                 </table>
@@ -67,7 +64,7 @@
     </div>
     <div class="col-sm-6">
         <div class="card">
-            <div class="card-header text-white bg-secondary">
+            <div class="card-header text-white" style="background-color: black">
                 <strong>TIPO DE CONCRETOS</strong>
             </div>
             <div class="card-body">
@@ -78,7 +75,6 @@
                         <th>Concreto tipo N°</th>
                         <th>Concreto tipo</th>
                         <th>Editar</th>
-                        <th>Eliminar</th>
                     </tr>
                     </thead>
                 </table>
@@ -106,12 +102,6 @@
                     {
                         data: 'editar',
                         name: 'editar',
-                        orderable: false,
-                        searchable: false,
-                    },
-                    {
-                        data: 'eliminar',
-                        name: 'eliminar',
                         orderable: false,
                         searchable: false,
                     },
@@ -166,12 +156,6 @@
                         orderable: false,
                         searchable: false,
                     },
-                    {
-                        data: 'eliminar',
-                        name: 'eliminar',
-                        orderable: false,
-                        searchable: false,
-                    },
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",
@@ -223,12 +207,6 @@
                         orderable: false,
                         searchable: false,
                     },
-                    {
-                        data: 'eliminar',
-                        name: 'eliminar',
-                        orderable: false,
-                        searchable: false,
-                    },
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",
@@ -277,12 +255,6 @@
                     {
                         data: 'editar',
                         name: 'editar',
-                        orderable: false,
-                        searchable: false,
-                    },
-                    {
-                        data: 'eliminar',
-                        name: 'eliminar',
                         orderable: false,
                         searchable: false,
                     },

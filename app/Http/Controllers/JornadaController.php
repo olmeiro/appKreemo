@@ -18,12 +18,9 @@ class JornadaController extends Controller
         $jornada = Jornada::all();
         return Datatables::of($jornada)
             ->addColumn('editar', function ($jornada) {
-                return '<a class="btn btn-xs btn-primary" href="/componentes/editar/'.$jornada->id.'">Editar</a>';
+                return '<a class="btn btn-xs btn-secondary" href="/componentes/editar/'.$jornada->id.'">Editar</a>';
             })
-            ->addColumn('eliminar', function ($jornada) {
-                return '<a class="btn btn-danger btn-sm" href="/componentes/eliminar/'.$jornada->id.'">Eliminar</a>';
-            })
-            ->rawColumns(['editar', 'eliminar'])
+            ->rawColumns(['editar'])
             ->make(true);
     }
 }
