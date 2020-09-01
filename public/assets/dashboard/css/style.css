@@ -10547,7 +10547,7 @@ html:not([dir="rtl"]) .c-sidebar.c-sidebar-show.c-sidebar-right, html:not([dir="
 }
 
 .c-sidebar.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown > .c-sidebar-nav-dropdown-items {
-  background: #3c4b64;
+  background: #7c7c7c;
 }
 
 .c-sidebar.c-sidebar-minimized .c-sidebar-nav > .c-sidebar-nav-dropdown:hover {

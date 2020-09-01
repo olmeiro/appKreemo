@@ -2,14 +2,14 @@
 
 @section('body')
 <div class="container row justify-content-center">
-    <div class="card col-md-7">
-        <div class="card-header">
+    <div class="card">
+        <div class="card-header text-white" style="background-color: black">
             <strong>LISTADO DE ESTADOS</strong>
                 <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a>
         </div>
         <div class="card-body">
             @include('flash::message')
-            <table id="tbl_estadocotizacion" class="table table-bordered table-striped" style="width: 100%;">
+            <table id="tbl_estadocotizacion" class="table table-bordered table-striped " style="width: 100%;">
                 <thead class="" align="center">
                 <tr>
                     <th>Estado N°</th>
