@@ -22,6 +22,10 @@ class CotizacionController extends Controller
         return view('cotizacion.index');
     }
 
+    public function modal(){
+        return view('cotizacion.wizardModal');
+    }
+
     public function listar(Request $request){
 
         $cotizacion = Cotizacion::select("cotizacion.*","empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto", "obra.nombre as nombre_obra", "maquinaria.modelo", "operario.nombre")
