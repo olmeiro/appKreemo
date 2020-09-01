@@ -16,7 +16,7 @@
                     <th>Constructora</th>
                     <th>Correo</th>
                     <th>Celular</th>
-                    <th>Mes</th>
+                    <th>Fecha encuesta</th>
                     <th>Puntualidad</th>
                     <th>Solucion problemas</th>
                     <th>Orden Aseo</th>

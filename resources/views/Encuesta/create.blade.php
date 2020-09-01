@@ -33,7 +33,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="">Constructora</label>
-                <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{old('contructora')}}">
+                <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{old('constructora')}}">
                 @error('constructora')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -100,8 +100,12 @@
                 <p><b>2.</b> tuvo algun inconveniente durante la prestación del servicio</p>
             <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="">SI(1) - NO(2)</label>
-                <input type="text" class="form-control @error('respuesta2') is-invalid @enderror" id="respuesta2" name="respuesta2" value="{{old('respuesta2')}}">
+                <label for="">SI - NO</label>
+                <select id="respuesta2"  name= "respuesta2" class="form-control @error('respuesta2') is-invalid @enderror">
+                    <option selected>Seleccione la respuesta</option>
+                        <option value="SI">SI</option>
+                        <option value="NO">NO</option>
+                </select>
                 @error('respuesta2')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
@@ -120,7 +124,11 @@
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI(1) - NO(2)</label>
-                <input type="text" class="form-control @error('respuesta4') is-invalid @enderror" id="respuesta4" name="respuesta4" value="{{old('respuesta4')}}">
+                <select id="respuesta4"  name= "respuesta4" class="form-control @error('respuesta4') is-invalid @enderror">
+                    <option selected>Seleccione la respuesta</option>
+                        <option value="SI">SI</option>
+                        <option value="NO">NO</option>
+                </select>
                 @error('respuesta4')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
