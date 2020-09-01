@@ -53,37 +53,41 @@
             </div>
             <div class="modal-body">
                 @include('flash::message')
-            <form class="form-signin col-md-12" action="/cotizacion/wizardModal" method="POST" name="FrmCrearCotizacion">
+            <form class="form-signin col-md-12" action="/cotizacion/wizardModal" method="POST" name="">
             @csrf
                 <div id="smartwizard">
                     <ul>
                         <li><a href="#step-1">Paso 1<br /><small>Account Info</small></a></li>
                         <li><a href="#step-2">Paso 2<br /><small>Personal Info</small></a></li>
-                        <li><a href="#step-3">Paso 3<br /><small>Payment Info</small></a></li>
-                        <li><a href="#step-4">Paso 4<br /><small>Confirm details</small></a></li>
+                        <!-- <li><a href="#step-3">Paso 3<br /><small>Payment Info</small></a></li>
+                        <li><a href="#step-4">Paso 4<br /><small>Confirm details</small></a></li> -->
                     </ul>
                     <div>
                         <div id="step-1">
                             <div class="row">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Name" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Email" required> </div>
+                                <div class="col-md-6"> <input type="text" id="name" name="name" class="form-control" placeholder="Name" required> </div>
+                                <!-- <div class="col-md-6"> <input type="text" class="form-control" placeholder="Email" required> </div> -->
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Password" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Repeat password" required> </div>
+                                <div class="col-md-6"> <input type="text" id="password" name="password" class="form-control" placeholder="Password" required> </div>
+                                <!-- <div class="col-md-6"> <input type="text" class="form-control" placeholder="Repeat password" required> </div> -->
                             </div>
                         </div>
                         <div id="step-2">
                             <div class="row">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Address" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="City" required> </div>
+                                <div class="col-md-6"> <input type="text" id="address" name="address" class="form-control" placeholder="Address" required> </div>
+                                <!-- <div class="col-md-6"> <input type="text" class="form-control" placeholder="City" required> </div> -->
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="State" required> </div>
-                                <div class="col-md-6"> <input type="text" class="form-control" placeholder="Country" required> </div>
+                                <div class="col-md-6"> <input type="text" id="state" name="state" class="form-control" placeholder="State" required> </div>
+                                <!-- <div class="col-md-6"> <input type="text" class="form-control" placeholder="Country" required> </div> -->
+                            </div>
+                            <div class="row mt-3">
+                            <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
+
                             </div>
                         </div>
-                        <div id="step-3" class="">
+                        <!-- <div id="step-3" class="">
                             <div class="row">
                                 <div class="col-md-6"> <input type="text" class="form-control" placeholder="Card Number" required> </div>
                                 <div class="col-md-6"> <input type="text" class="form-control" placeholder="Card Holder Name" required> </div>
@@ -97,10 +101,10 @@
                             <div class="row">
                                 <div class="col-md-12"> <span>Thanks For submitting your details with BBBootstrap.com. we will send you a confirmation email. We will review your details and revert back.</span> </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
+               
             </form>
             </div>
         </div>

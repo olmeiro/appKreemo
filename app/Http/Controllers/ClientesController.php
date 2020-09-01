@@ -12,7 +12,8 @@ use App\Models\tipoContacto;
 class ClientesController extends Controller
 {
     public function index(){
-        return view('cliente.index');
+        $tipoContacto = tipoContacto::all();
+        return view('cliente.index', compact('tipoContacto'));
     }
 
     public function listar(Request $request){

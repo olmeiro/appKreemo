@@ -98,7 +98,7 @@ Route::post('/listachequeo/guardar', 'ListaChequeoController@save');
 Route::get('/listachequeo/editar/{id}', 'ListaChequeoController@edit');
 Route::post('/listachequeo/actualizar', 'ListaChequeoController@update');
 
-Route::get('/cotizacion/wizardModal', 'CotizacionController@modal');
+Route::post('/cotizacion/wizardModal', 'CotizacionController@modal');
 
 Route::get('/cotizacion', 'CotizacionController@index');
 Route::get('/cotizacion/listar', 'CotizacionController@listar');
