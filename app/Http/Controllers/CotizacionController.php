@@ -23,7 +23,8 @@ class CotizacionController extends Controller
     }
 
     public function modal(Request $request){
-
+        
+        $request->validate(Cotizacion::$rules);
         $input = $request->all();
 
         dd($input);
