@@ -58,7 +58,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                      
                     </div>
                     </form>
                     <button type="button" id="crearTipoContacto" class="btn btn-primary">Crear</button>
@@ -66,7 +65,7 @@
             </div>
         </div>
 
-    <div class="modal fade" data-backdrop="" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal fade" data-backdrop="static" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
