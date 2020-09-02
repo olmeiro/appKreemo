@@ -19,11 +19,23 @@ use App\Models\Operario;
 class CotizacionController extends Controller
 {
     public function index(){
-        return view('cotizacion.index');
+
+        $cotizacion = Cotizacion::all();
+        $empresa = Empresa::all();
+        $obra = Obra::all();
+        $estadocotizacion = EstadoCotizacion::all();
+        $jornada = Jornada::all();
+        $etapa = Etapa::all();
+        $modalidad = Modalidad::all();
+        $tipoconcreto = TipoConcreto::all();
+        $maquinaria = Maquinaria::all();
+        $operario = Operario::all();
+
+        return view('cotizacion.index', compact('empresa', 'obra', 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto', 'maquinaria', 'operario'));
     }
 
     public function modal(Request $request){
-        
+
         $request->validate(Cotizacion::$rules);
         $input = $request->all();
 

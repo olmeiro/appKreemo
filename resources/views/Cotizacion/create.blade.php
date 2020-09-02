@@ -210,8 +210,8 @@
                     <label for="validationTextarea">Observaciones</label>
                     <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa las observaciones" ></textarea>
                     @error('Observaciones')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
+                    <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
                 <a href="/cotizacion" class="btn btn-outline-primary float-right" >Volver</a>
