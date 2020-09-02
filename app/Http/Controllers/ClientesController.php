@@ -91,11 +91,13 @@ class ClientesController extends Controller
               ]);
 
               Flash::success("Registro éxitoso de contacto");
-              return redirect("/cliente");
+              return response()->json(["ok"=>true]);
+              //return redirect("/cliente");
 
           } catch (\Exception $e ) {
               Flash::error($e->getMessage());
-              return redirect("/cliente/crear");
+              return response()->json(["ok"=>false]);
+              //return redirect("/cliente/crear");
           }
     }
 
