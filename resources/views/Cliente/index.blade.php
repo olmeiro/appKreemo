@@ -32,11 +32,13 @@
         </div>
     </div>
 
+    <p id="mensaje"></p>
+
         <div class="modal" tabindex="-1" id="exampleModal1">
             <div class="modal-dialog">
                 <div class="modal-content">
                     @include('flash::message')
-                    <form class="col-md-12" action="/tipocontacto/guardar" method="POST" name="">
+                    <form class="col-md-12" action="" method="POST" id="frmTipoContacto">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title">Crear Tipo Contacto</h5>
@@ -56,9 +58,10 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Crear</button>
+                      
                     </div>
                     </form>
+                    <button type="button" id="crearTipoContacto" class="btn btn-primary">Crear</button>
                 </div>
             </div>
         </div>
@@ -71,7 +74,7 @@
                 </div>
                 <div class="modal-body">
                     @include('flash::message')
-                <form class="form-signin col-md-12" action="/cliente/guardar" method="POST" name="">
+                <form class="form-signin col-md-12" action="/cliente/guardar" method="POST" name="" id="frmContacto">
                 @csrf
                     <div id="smartwizard">
                         <ul>
@@ -155,20 +158,14 @@
                                         @enderror
                                     </div>
                                     <br>
-                                    <div class="col-md-6">
-                                        <button type="submit" class="btn btn-success float-left">Crear Contacto</button>
-                                    </div>
                                 </div>
                             </div>
-                            <!-- <div id="step-4" class="">
-                                <div class="row">
-                                    <div class="col-md-12"> <span>Thanks For submitting your details with BBBootstrap.com. we will send you a confirmation email. We will review your details and revert back.</span> </div>
-                                </div>
-                            </div> -->
                         </div>
                     </div>
-
                 </form>
+                <div class="col-md-6">
+                    <button type="button" id="crearContacto" class="btn btn-primary">Crear Contacto</button>
+                </div>
                 </div>
             </div>
         </div>
@@ -238,8 +235,11 @@
             });
 
     </script>
-    <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+        <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
+    <script src="{{ asset('js/tipoContactoVal.js') }}"></script>
+
 
 @endsection
 
