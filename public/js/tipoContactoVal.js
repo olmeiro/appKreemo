@@ -118,15 +118,7 @@ $(document).ready(function() {
              validado++;
          }
 
-         if($("#Estado").val().length == 0 )
-         {
-             $("#valEstado").text("* Seleccione un estado para el cliente.");
-         }
-         else
-         {
-             $("#valEstado").text("");
-             validado++;
-         }
+ 
  
          console.log("validado: " + validado);
  
