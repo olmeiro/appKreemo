@@ -32,7 +32,7 @@
         </div>
     </div>
 
-    <p id="mensaje"></p>
+    <!-- <p id="mensaje"></p> -->
 
         <div class="modal" tabindex="-1" id="exampleModal1">
             <div class="modal-dialog">
@@ -66,15 +66,15 @@
             </div>
         </div>
 
-    <div class="modal fade" data-backdrop="static" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal fade" data-backdrop="" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Crear Contacto</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="exampleModalLabel2">Crear Contacto</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
                     @include('flash::message')
-                <form class="form-signin col-md-12" action="/cliente/guardar" method="POST" name="" id="frmContacto">
+                <form class="form-signin col-md-12" action="" method="POST" name="" id="frmContacto">
                 @csrf
                     <div id="smartwizard">
                         <ul>
@@ -98,6 +98,7 @@
                                             @error('idtipocontacto')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label for="idtipocontacto" id="valTipoContacto"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -106,30 +107,35 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="">Nombre</label>
-                                        <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre">
+                                        <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras"  name="nombre" id="nombre">
                                         @error('nombre')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label for="nombre" id="valNombre"></label>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Primer Apellido</label>
-                                        <input type="text" class="form-control @error('apellido1') is-invalid @enderror"  name="apellido1" id="apellido1">
+                                        <input type="text" class="form-control @error('apellido1') is-invalid @enderror solo_letras"  name="apellido1" id="apellido1">
                                         @error('apellido1')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label for="apellido1" id="valApellido1"></label>
                                     </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-6"><label for="">Segundo Apellido</label>
-                                        <input type="text" class="form-control @error('apellido2') is-invalid @enderror"  name="apellido2" id="apellido2">
+                                        <input type="text" class="form-control @error('apellido2') is-invalid @enderror solo_letras"  name="apellido2" id="apellido2">
                                         @error('apellido2')
                                             <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror </div>
+                                        @enderror
+                                        <label for="apellido2" id="valApellido2"></label>
+                                    </div>
                                     <div class="col-md-6"><label for="">Documento</label>
-                                        <input type="number" class="form-control @error('documento') is-invalid @enderror"  name="documento" id="documento">
+                                        <input type="number" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="documento" id="documento">
                                         @error('documento')
                                             <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror</div>
+                                        @enderror <label for="documento" id="valDocumento"></label></div>
+                                        
                                 </div>
                             </div>
                             <div id="step-3" class="">
@@ -138,24 +144,29 @@
                                         <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
                                         @error('telefono1')
                                             <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror </div>
+                                        @enderror 
+                                        <label for="telefono1" id="valTelefono1"></label>
+                                    </div>
                                     <div class="col-md-6"> <label for="">Teléfono #2</label>
                                         <input type="number" class="form-control @error('telefono2') is-invalid @enderror"  name="telefono2" id="telefono2">
                                         @error('telefono2')
                                             <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror </div>
+                                        @enderror 
+                                        <label for="telefono2" id="valTelefono2"></label>
+                                    </div>
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-6">  <label for="">Correo #1</label>
                                         <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1">
                                         @error('correo1')
                                             <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror </div>
+                                        @enderror <label for="correo1" id="valCorreo1"></label></div>
                                     <div class="col-md-6"> <label for="">Correo #2</label>
                                         <input type="text" class="form-control @error('correo2') is-invalid @enderror"  name="correo2" id="correo2">
                                         @error('correo2')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label for="correo2" id="valCorreo2"></label>
                                     </div>
                                     <br>
                                 </div>
