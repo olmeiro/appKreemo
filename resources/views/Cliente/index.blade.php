@@ -7,9 +7,7 @@
             <a href="/cliente/crear" class="btn btn-link">Crear Contacto</a>
             <a href="/tipocontacto/crear" class="btn btn-link">Crear Tipo Contacto</a>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Tipo Contacto </button>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Crear Contacto </button>   
-            
-
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Crear Contacto </button>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -85,7 +83,7 @@
                         <div>
                             <div id="step-1">
                                 <div class="row mt-3">
-                                    <div class="col-md-6"> 
+                                    <div class="col-md-6">
                                           <div class="form-group">
                                             <label for="">Tipo Contacto</label>
                                             <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
@@ -97,7 +95,7 @@
                                             @error('idtipocontacto')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                        </div> 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -154,7 +152,7 @@
                                         <input type="text" class="form-control @error('correo2') is-invalid @enderror"  name="correo2" id="correo2">
                                         @error('correo2')
                                             <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror 
+                                        @enderror
                                     </div>
                                     <br>
                                     <div class="col-md-6">
