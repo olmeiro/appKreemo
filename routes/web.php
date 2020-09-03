@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -109,7 +108,6 @@ Route::get('/cotizacion/editar/{id}', 'CotizacionController@edit');
 Route::post('/cotizacion/actualizar', 'CotizacionController@update');
 Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
 Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
-Route::get('/cotizacion/eliminar/{id}', 'CotizacionController@destroy');
 
 Route::get('/estadocotizacion', 'EstadoCotizacionController@index');
 Route::get('/estadocotizacion/listar', 'EstadoCotizacionController@listar');
@@ -117,7 +115,6 @@ Route::get('/estadocotizacion/crear', 'EstadoCotizacionController@create');
 Route::post('/estadocotizacion/guardar', 'EstadoCotizacionController@save');
 Route::get('/estadocotizacion/editar/{id}', 'EstadoCotizacionController@edit');
 Route::post('/estadocotizacion/actualizar', 'EstadoCotizacionController@update');
-Route::get('/estadocotizacion/eliminar/{id}', 'EstadoCotizacionController@destroy');
 
 Route::get('/componentes', 'EtapaController@index');
 Route::get('/componentes/listar1', 'EtapaController@listar');
