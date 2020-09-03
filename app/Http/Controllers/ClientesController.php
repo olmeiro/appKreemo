@@ -12,7 +12,8 @@ use App\Models\tipoContacto;
 class ClientesController extends Controller
 {
     public function index(){
-        return view('cliente.index');
+        $tipoContacto = tipoContacto::all();
+        return view('cliente.index', compact('tipoContacto'));
     }
 
     public function listar(Request $request){
@@ -90,11 +91,13 @@ class ClientesController extends Controller
               ]);
 
               Flash::success("Registro éxitoso de contacto");
-              return redirect("/cliente");
+              return response()->json(["ok"=>true]);
+              //return redirect("/cliente");
 
           } catch (\Exception $e ) {
               Flash::error($e->getMessage());
-              return redirect("/cliente/crear");
+              return response()->json(["ok"=>false]);
+              //return redirect("/cliente/crear");
           }
     }
 

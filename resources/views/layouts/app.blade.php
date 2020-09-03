@@ -212,5 +212,8 @@
     @yield("scripts")
     <!--<![endif]-->
 
+    @include('sweetalert::alert')
+
+
   </body>
 </html>

@@ -10936,3 +10936,15 @@ a.text-dark:focus {
   margin-right: 25px;
 }
 
+.fa-book {
+  margin-left: 25px;
+}
+
+.mihover {
+  background-color: yellow;
+}
+
+ul li a .c-sidebar-nav-link {
+  color: #fc3232;
+}
+

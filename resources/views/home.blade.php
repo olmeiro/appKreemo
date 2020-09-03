@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">{{ __('Vinicol Bombeos') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,6 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
+
+                    <h4>Kreemo app gestiona tu informacio comercial.</h4>
+                    <img src="{{ asset('assets/dashboard/public/assets/img/Vinicol.PNG') }}" alt="">
 
                  <!-- {{ var_dump(Auth::user()->name) }} -->
                 </div>

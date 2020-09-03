@@ -18,12 +18,9 @@ class EtapaController extends Controller
         $etapa = Etapa::all();
         return Datatables::of($etapa)
             ->addColumn('editar', function ($etapa) {
-                return '<a class="btn btn-xs btn-primary" href="/componentes/editar/'.$etapa->id.'">Editar</a>';
+                return '<a class="btn btn-xs btn-secondary" href="/componentes/editar/'.$etapa->id.'">Editar</a>';
             })
-            ->addColumn('eliminar', function ($etapa) {
-                return '<a class="btn btn-danger btn-sm" href="/componentes/eliminar/'.$etapa->id.'">Eliminar</a>';
-            })
-            ->rawColumns(['editar', 'eliminar'])
+            ->rawColumns(['editar'])
             ->make(true);
     }
 }

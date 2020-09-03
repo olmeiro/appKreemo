@@ -18,12 +18,9 @@ class TipoConcretoController extends Controller
         $tipoconcreto = TipoConcreto::all();
         return Datatables::of($tipoconcreto)
             ->addColumn('editar', function ($tipoconcreto) {
-                return '<a class="btn btn-xs btn-primary" href="/componentes/editar/'.$tipoconcreto->id.'">Editar</a>';
+                return '<a class="btn btn-xs btn-secondary" href="/componentes/editar/'.$tipoconcreto->id.'">Editar</a>';
             })
-            ->addColumn('eliminar', function ($tipoconcreto) {
-                return '<a class="btn btn-danger btn-sm" href="/componentes/eliminar/'.$tipoconcreto->id.'">Eliminar</a>';
-            })
-            ->rawColumns(['editar', 'eliminar'])
+            ->rawColumns(['editar'])
             ->make(true);
     }
 }

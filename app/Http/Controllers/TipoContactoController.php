@@ -52,12 +52,14 @@ class TipoContactoController extends Controller
 
             ]);
 
-            Flash::success("Registro éxitoso de Tipo de Contacto");
-            return redirect("/tipocontacto");
+            //Flash::success("Registro éxitoso de Tipo de Contacto");
+            return response()->json(["ok"=>true]);
+            //return redirect("/tipocontacto");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/tipocontacto/crear");
+            //Flash::error($e->getMessage());
+            return response()->json(["ok"=>false]);
+            //return redirect("/tipocontacto/crear");
         }
     }
 
