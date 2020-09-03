@@ -55,7 +55,6 @@
     </div>
 </div>
 
-@include('sweet::alert')
 @endsection
 @section("scripts")
 
@@ -117,6 +116,4 @@
             });
     </script>
 <script src="{{ asset('js/validacionEstadoCotizacion.js') }}"></script>
-<script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection

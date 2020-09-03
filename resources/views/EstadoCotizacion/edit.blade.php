@@ -9,7 +9,7 @@
         <div class="card-body">
         @include('flash::message')
         <strong>Estado N° {{$estadocotizacion->id}}</strong>
-            <form class="form-signin col-md-12" action="/estadocotizacion/actualizar" method="POST" name="FrmEditarEstado">
+            <form class="form-signin col-md-12" action="/estadocotizacion/actualizar" method="POST" name="FrmCrearEstado">
             @csrf
             <input type="hidden" name="id" value="{{$estadocotizacion->id}}"/>
                 <div class="form-row" >

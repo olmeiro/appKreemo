@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Flash;
 use DataTables;
-use SweetAlert;
 
 use App\Models\EstadoCotizacion;
 
 class EstadoCotizacionController extends Controller
 {
     public function index(){
-
         return view('estadocotizacion.index');
     }
 
@@ -20,10 +18,7 @@ class EstadoCotizacionController extends Controller
         $estadocotizacion = EstadoCotizacion::all();
         return Datatables::of($estadocotizacion)
             ->addColumn('editar', function ($estadocotizacion) {
-                return '<a class="btn btn-xs btn-secondary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'">Editar</a>';
-            // ->addColumn('editar', function ($estadocotizacion) {
-            //     return '<a class="btn btn-xs btn-primary" data-toggle="modal" data-target="#exampleModal2" href="/estadocotizacion/editar/'.$estadocotizacion->id.'">Editar</a>'
-            //     ;
+                return '<a class="btn btn-xs btn-primary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'">Editar</a>';
             })
             ->addColumn('eliminar', function ($estadocotizacion) {
                 return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'">Eliminar</a>';
@@ -85,7 +80,7 @@ class EstadoCotizacionController extends Controller
                 'estado_cotizacion' =>$input["Estado_Cotizacion"],
             ]);
             Flash::success("Estado de Cotizacion Modificada");
-            return redirect("/estadocotizacion")->with('success', 'Estado de Cotizacion actualizado');
+            return redirect("/estadocotizacion");
 
         }catch(\Exception $e){
             Flash::error($e->getMessage());
