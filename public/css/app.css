@@ -5286,8 +5286,8 @@ input[type=button].btn-block {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: grey;
-  border-color: grey;
+  background-color: #3490dc;
+  border-color: #3490dc;
 }
 
 .page-item.disabled .page-link {
@@ -10934,5 +10934,17 @@ a.text-dark:focus {
 
 .fa-home {
   margin-right: 25px;
+}
+
+.fa-book {
+  margin-left: 25px;
+}
+
+.mihover {
+  background-color: yellow;
+}
+
+ul li a .c-sidebar-nav-link {
+  color: #fc3232;
 }
 

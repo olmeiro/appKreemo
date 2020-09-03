@@ -60,10 +60,10 @@ class CotizacionController extends Controller
 
         return Datatables::of($cotizacion)
             ->addColumn('editar', function ($cotizacion) {
-                return '<a class="btn btn-xs btn-primary" href="/cotizacion/editar/'.$cotizacion->id.'">Editar</a>';
+                return '<a class="btn btn-xs btn-secondary" href="/cotizacion/editar/'.$cotizacion->id.'">Editar</a>';
             })
             ->addColumn('editarEstado', function ($cotizacion) {
-                return '<a class="btn btn-xs btn-secondary" href="/cotizacion/editarEstado/'.$cotizacion->id.'" >Cambiar Estado</a>';
+                return '<a class="btn btn-xs btn-dark" href="/cotizacion/editarEstado/'.$cotizacion->id.'" >Cambiar Estado</a>';
             })
             ->rawColumns(['editar', 'editarEstado'])
             ->make(true);
@@ -233,6 +233,19 @@ class CotizacionController extends Controller
             Flash::error($e->getMessage());
             return redirect("/cotizacion");
         }
+    }
+
+    public function destroy($id){
+        $cotizacion = Cotizacion::find($id);
+
+        if (empty($cotizacion)) {
+            Flash::error('Cotizacion no encontrada');
+            return redirect('/cotizacion');
+        }
+
+        $cotizacion->delete($id);
+        Flash::success('Cotizacion eliminada.');
+        return redirect('/cotizacion');
     }
 
 
