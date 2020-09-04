@@ -14,7 +14,7 @@
 
                     <div class="form-group col-md-12">
                         <label for="">Estado</label>
-                        <input type="text" class="form-control @error('Estado_Cotizacion') is-invalid @enderror " id="Estado_Cotizacion" name="Estado_Cotizacion">
+                        <input type="text" class="form-control @error('Estado_Cotizacion') is-invalid @enderror " id="Estado_Cotizacion" name="Estado_Cotizacion" onkeypress="return soloLetras(event)" onblur="limpia()">
                         @error('Estado_Cotizacion')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -31,4 +31,34 @@
 <br>
 
 </body>
+@endsection
+@section("scripts")
+<script>
+    function soloLetras(e) {
+        key = e.keyCode || e.which;
+        tecla = String.fromCharCode(key).toLowerCase();
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+        especiales = [8, 37, 39, 46];
+
+        tecla_especial = false
+        for(var i in especiales) {
+            if(key == especiales[i]) {
+                tecla_especial = true;
+                break;
+            }
+        }
+
+        if(letras.indexOf(tecla) == -1 && !tecla_especial)
+            return false;
+    }
+
+    function limpia() {
+        var val = document.getElementById("Estado_Cotizacion").value;
+        var tam = val.length;
+        for(i = 0; i < tam; i++) {
+            if(!isNaN(val[i]))
+                document.getElementById("Estado_Cotizacion").value = '';
+        }
+    }
+    </script>
 @endsection
