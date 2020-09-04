@@ -10,7 +10,7 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-    $("#FrmMaquinaria").submit(function(event){
+    $("#FrmCrearMaquinaria").submit(function(event){
         event.preventDefault();
 
         let validado = 0;
@@ -50,5 +50,29 @@ $(document).ready(function(){
             $("#validacion_observacion2").text("");
             validado++;
         }
+
+        if(validado==4){
+            Swal.fire({
+                title:'Registro exitoso',text:'Maquina creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+                    });
+
+            document.FrmCrearMaquinaria.submit();
+        }else{
+            Swal.fire({
+                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
+        }
     });
-})
+});
