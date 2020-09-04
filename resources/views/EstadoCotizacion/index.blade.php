@@ -55,6 +55,7 @@
     </div>
 </div>
 
+@include('sweet::alert')
 @endsection
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
@@ -121,5 +122,8 @@
                             }
             });
     </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script src="{{ asset('js/validacionEstadoCotizacion.js') }}"></script>
+<script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @endsection
