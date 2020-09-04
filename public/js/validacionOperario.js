@@ -78,3 +78,71 @@ $("#FrmCrearOperario").submit(function(event){
     });
 });
 
+$(document).ready(function(){
+    $("#FrmEditarOperario").submit(function(event){
+        event.preventDefault();
+
+        let validado = 0;
+
+        if($("#nombre").val()==0){
+            $("#validacion_nombre").text("*");
+            $("#validacion_nombre2").text("Debe Ingresar el Nombre");
+        }else{
+            $("#validacion_nombre").text("");
+            $("#validacion_nombre2").text("");
+            validado++;
+        }
+
+
+        if($("#apellido").val()==0){
+            $("#validacion_apellido").text("*");
+            $("#validacion_apellido2").text("Debe Ingresar el Apellido");
+        }else{
+            $("#validacion_apellido").text("");
+            $("#validacion_apellido2").text("");
+            validado++;
+        }
+
+        if($("#documento").val()==0){
+            $("#validacion_documento").text("*");
+            $("#validacion_documento2").text("Debe Ingresar el Documento");
+        }else{
+            $("#validacion_documento").text("");
+            $("#validacion_documento2").text("");
+            validado++;
+        }
+
+        if($("#celular").val()==0){
+            $("#validacion_celular").text("*");
+            $("#validacion_celular2").text("Debe Ingresar el Celular");
+        }else{
+            $("#validacion_celular").text("");
+            $("#validacion_celular2").text("");
+            validado++;
+        }
+
+        if(validado==4){
+            Swal.fire({
+                title:'Modificación exitosa',text:'Operaio Modificado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+                    });
+
+            document.FrmEditarOperario.submit();
+        }else{
+            Swal.fire({
+                title:'Error en la Modificación',text:'Error en los campos',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
+        }
+        });
+    });
