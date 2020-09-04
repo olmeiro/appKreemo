@@ -44,14 +44,14 @@
                 <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="">Nombre</label>
-                            <input value="{{old('nombre')}}" type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre">
+                            <input value="{{old('nombre')}}" type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras"  name="nombre" id="nombre">
                             @error('nombre')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Apellido</label>
-                            <input value="{{old('apellido')}}" type="text" class="form-control @error('apellido') is-invalid @enderror"  name="apellido" id="apellido">
+                            <input value="{{old('apellido')}}" type="text" class="form-control @error('apellido') is-invalid @enderror solo_letras"  name="apellido" id="apellido">
                             @error('apellido')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -60,14 +60,14 @@
                 <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="">Documento</label>
-                            <input value="{{old('documento')}}" type="text" class="form-control @error('documento') is-invalid @enderror"  name="documento" id="documento">
+                            <input value="{{old('documento')}}" type="text" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="documento" id="documento">
                             @error('documento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                         </div>
                         <div class="form-group col-md-6">
                             <label for="">Celular</label>
-                            <input value="{{old('celular')}}" type="text" class="form-control @error('celular') is-invalid @enderror"  name="celular" id="celular">
+                            <input value="{{old('celular')}}" type="text" class="form-control @error('celular') is-invalid @enderror solo_numeros"  name="celular" id="celular">
                             @error('celular')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -159,5 +159,7 @@
     </script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
+    <script src="{{ asset('js/validacionOperario.js') }}"></script>
+
 @endsection
 
