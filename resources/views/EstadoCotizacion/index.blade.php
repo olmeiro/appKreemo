@@ -40,7 +40,7 @@
                         <div class="form-group col-md-12">
                             <label for="">Estado</label>
                             <label class="validacion" id="val_estado_coti"></label>
-                            <input type="text" class="form-control @error('Estado_Cotizacion') is-invalid @enderror " id="Estado_Cotizacion" name="Estado_Cotizacion">
+                            <input type="text" class="form-control @error('Estado_Cotizacion') is-invalid @enderror " id="Estado_Cotizacion" name="Estado_Cotizacion" onkeypress="return soloLetras(event)" onblur="limpia()>
                             @error('Estado_Cotizacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -54,8 +54,37 @@
         </div>
     </div>
 </div>
-
-@include('sweet::alert')
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar Estado</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                @include('flash::message')
+                <form class="form-signin col-md-12" action="/estadocotizacion/guardar" method="POST" name="FrmCrearEstado" id="FrmCrearEstado">
+                @csrf
+                    <div class="form-row" >
+                        <div class="form-group col-md-12">
+                            <label for="">Estado</label>
+                            <label class="validacion" id="val_estado_coti"></label>
+                            <input type="text" class="form-control @error('Estado_Cotizacion') is-invalid @enderror " id="Estado_Cotizacion" name="Estado_Cotizacion" onkeypress="return soloLetras(event)" onblur="limpia()>
+                            @error('Estado_Cotizacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <label class="validacion" id="val_estado_coti2"></label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success float-left">Crear Estado</button>
+                    <a href="/estadocotizacion" class="btn btn-outline-primary float-right" >Volver</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />

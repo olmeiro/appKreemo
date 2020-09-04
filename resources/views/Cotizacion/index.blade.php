@@ -231,7 +231,7 @@
                                 <div class="col-md-4">
                                     <label for="">Ciudad</label>
                                     <label class="validacion" id="val_ciudad"></label>
-                                    <input type="text" class="form-control @error('Ciudad') is-invalid @enderror solo_letras" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
+                                    <input type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
                                     @error('Ciudad')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -240,7 +240,7 @@
                                 <div class="col-md-4">
                                     <label for="">Cantidad de losas</label>
                                     <label class="validacion" id="val_Losas"></label>
-                                    <input type="text" class="form-control @error('Losas') is-invalid @enderror solo_numeros" id="Losas" name="Losas" value="{{old('Losas')}}">
+                                    <input type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas" value="{{old('Losas')}}">
                                     @error('Losas')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -249,7 +249,7 @@
                                 <div class="col-md-4">
                                     <label for="">Cantidad de tuberia</label>
                                     <label class="validacion" id="val_Tuberia"></label>
-                                    <input type="text" class="form-control @error('Tuberia') is-invalid @enderror solo_numeros" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
+                                    <input type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
                                     @error('Tuberia')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -262,7 +262,7 @@
                                 <div class="col-md-4">
                                     <label for="">Cantidad de metros<sup>3</sup></label>
                                     <label class="validacion" id="val_Metros"></label>
-                                    <input type="text" class="form-control @error('MetrosCubicos') is-invalid @enderror solo_numeros" id="MetrosCubicos" name="MetrosCubicos" >
+                                    <input type="text" class="form-control @error('MetrosCubicos') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="MetrosCubicos" name="MetrosCubicos" >
                                     @error('MetrosCubicos')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -271,7 +271,7 @@
                                 <div class="col-md-4">
                                     <label for="">Valor Metro <sup>3</sup></label>
                                     <label class="validacion" id="val_ValorMetro"></label>
-                                    <input type="text" class="form-control @error('ValorMetro') is-invalid @enderror  solo_numeros" id="ValorMetro" name="ValorMetro"  onchange="valor_total()">
+                                    <input type="text" class="form-control @error('ValorMetro') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorMetro" name="ValorMetro"  onchange="valor_total()">
                                     @error('ValorMetro')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -280,7 +280,7 @@
                                 <div class="col-md-4">
                                     <label for="">AIU</label>
                                     <label class="validacion" id="val_AIU"></label>
-                                    <input type="text" class="form-control @error('AIU') is-invalid @enderror solo_numeros" id="AIU" name="AIU" readonly>
+                                    <input type="text" class="form-control @error('AIU') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIU" name="AIU" readonly>
                                     @error('AIU')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -291,7 +291,7 @@
                                 <div class="col-md-4">
                                     <label for="">SubTotal</label>
                                     <label class="validacion" id="val_SubTotal"></label>
-                                    <input type="text" class="form-control @error('Subtotal') is-invalid @enderror solo_numeros" id="Subtotal" name="Subtotal" readonly>
+                                    <input type="text" class="form-control @error('Subtotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Subtotal" name="Subtotal" readonly>
                                     @error('Subtotal')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -300,7 +300,7 @@
                                 <div class="col-md-4">
                                     <label for="">IVA al AIU</label>
                                     <label class="validacion" id="val_IvaAIU"></label>
-                                    <input type="text" class="form-control @error('IvaAIU') is-invalid @enderror  solo_numeros" id="IvaAIU" name="IvaAIU" readonly>
+                                    <input type="text" class="form-control @error('IvaAIU') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIU" name="IvaAIU" readonly>
                                     @error('IvaAIU')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -309,7 +309,7 @@
                                 <div class="col-md-4">
                                     <label for="">Valor Total</label>
                                     <label class="validacion" id="val_ValorTotal"></label>
-                                    <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror solo_numeros" id="ValorTotal" name="ValorTotal" readonly>
+                                    <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotal" name="ValorTotal" readonly>
                                     @error('ValorTotal')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
