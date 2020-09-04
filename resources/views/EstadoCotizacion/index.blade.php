@@ -85,6 +85,7 @@
         </div>
     </div>
 </div>
+
 @endsection
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
