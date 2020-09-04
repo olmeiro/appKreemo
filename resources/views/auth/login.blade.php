@@ -35,8 +35,9 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Main styles for this application-->
     <link href="{{ asset('assets/dashboard/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/dashboard/css/styleimg.css') }}" rel="stylesheet">
   </head>
-  <body class="c-app flex-row align-items-center">
+  <body class="c-app flex-row align-items-center miImg">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-md-8">
