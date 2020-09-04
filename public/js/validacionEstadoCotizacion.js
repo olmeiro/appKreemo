@@ -29,6 +29,15 @@ $(document).ready(function() {
 
         if (validado==1)
         {
+            Swal.fire({
+                title:'Registro exitoso',text:'Estado de Cotización creado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+                    });
 
             document.FrmCrearEstado.submit();
         }

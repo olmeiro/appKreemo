@@ -35,7 +35,8 @@
     <meta name="theme-color" content="#ffffff">
     <!-- Main styles for this application-->
     <link href="{{ asset('assets/dashboard/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/dashboard/css/styleimg.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('assets/dashboard/css/styleimg.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/styleLand.css') }}" rel="stylesheet">
   </head>
   <body class="c-app flex-row align-items-center miImg">
     <div class="container">
@@ -94,24 +95,23 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Ingresar') }}
                                 </button>
-
-                                @if (Route::has('password.request'))
+                            </div>
+                            @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Olvidó su contraseña?') }}
                                     </a>
                                 @endif
-                            </div>
                         </div>
                     </form>
               </div>
             </div>
-            <div class="card text-white bg-secondary py-5 d-md-down-none" style="width:30%">
-            <img src="{{ asset('img/kreemo.png') }}" style="width:350px;">
+            <div class="card text-white bg-secondary py-5 d-md-down-none" style="width:20%">
               <div class="card-body text-center">
+                <img src="{{ asset('img/kreemo.png') }}" style="width:200px;">
                 <div>
-                  <h2>Registrar!</h2>
-                  <p>Registrar nuevo usuario.</p>
-                  <a href="/register" class="btn btn-lg btn-outline-light mt-3">Register Now!</a>
+                  <h2 class="text-body">Registrar!</h2>
+                  <p class="text-dark">Registrar nuevo usuario.</p>
+                  <a href="/register" class="btn btn-lg btn-outline-dark mt-3">Register Now!</a>
                 </div>
               </div>
             </div>
