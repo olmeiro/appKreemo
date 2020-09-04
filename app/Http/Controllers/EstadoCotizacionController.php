@@ -79,7 +79,7 @@ class EstadoCotizacionController extends Controller
 
                 'estado_cotizacion' =>$input["Estado_Cotizacion"],
             ]);
-            Flash::success("Estado de Cotizacion Modificada");
+            Flash::success('Estado de Cotizacion ('.$estadocotizacion->estado_cotizacion. ') Modificada');
             return redirect("/estadocotizacion");
 
         }catch(\Exception $e){
@@ -97,7 +97,7 @@ class EstadoCotizacionController extends Controller
         }
 
         $estadocotizacion->delete($id);
-        Flash::success('Estado de Cotizacion eliminada.');
+        Flash::success('Estado de Cotizacion ('.$estadocotizacion->estado_cotizacion. ') a sido eliminada');
         return redirect('/estadocotizacion');
     }
 }

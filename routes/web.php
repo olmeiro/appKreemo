@@ -118,6 +118,8 @@ Route::get('/estadocotizacion/crear', 'EstadoCotizacionController@create');
 Route::post('/estadocotizacion/guardar', 'EstadoCotizacionController@save');
 Route::get('/estadocotizacion/editar/{id}', 'EstadoCotizacionController@edit');
 Route::post('/estadocotizacion/actualizar', 'EstadoCotizacionController@update');
+Route::get('/estadocotizacion/eliminar/{id}', 'EstadoCotizacionController@destroy');
+
 
 Route::get('/componentes', 'EtapaController@index');
 Route::get('/componentes/listar1', 'EtapaController@listar');

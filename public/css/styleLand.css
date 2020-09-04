@@ -1,0 +1,11 @@
+.miImg {
+    padding-top: 3rem;
+    padding-bottom: calc(7rem - 4.5rem);
+    background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('../img/vinicol4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+
+    /* background-image: url('../img/vinicol4.png'); */
+  }
