@@ -42,7 +42,7 @@
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
-                                <div class="form-group col-md-8"">
+                                <div class="form-group col-md-8">
                                 <label class="radio-inline">Estado de la vía para ingreso en grúa</label>
                                 <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
                                 <option value="">Seleccione</option>
@@ -53,7 +53,7 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
                                 </div>
-                                <div class="form-group col-md-4"">
+                                <div class="form-group col-md-4">
                                 <label class="radio-inline">Necesidad PH</label>
                                 <select class="form-control @error('ph') is-invalid @enderror" name="ph" id="ph">
                                 <option value="">Seleccione</option>
@@ -286,7 +286,7 @@
                         <strong>Personal</strong>
                     </div>
                     <div class="card-body">
-                        {{-- <div class="form-row" > --}}
+                      
                             <div class="form-group col-md-12">
                                 <label for="">Encargado Visita</label>
                                 <input type="text" class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
@@ -305,7 +305,7 @@
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
-                        {{-- </div> --}}
+                       
                     </div>
                 </div>
             </div>
