@@ -27,7 +27,7 @@ class ListaChequeoController extends Controller
         return DataTables::of($listachequeo)    
         
         ->addColumn('editar', function ($listachequeo) {
-            return '<a class="btn btn-primary btn-sm" href="/listachequeo/editar/'.$listachequeo->id.'">Editar</a>';
+            return '<a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" href="/listachequeo/editar/'.$listachequeo->id.'">Editar</a>';
         })
       
         ->rawColumns(['editar'])
