@@ -1,11 +1,10 @@
 @extends('layouts.app')
 
 @section('body')
+
     <div class="card">
         <div class="card-header">
             <strong>Contactos</strong>
-            <a href="/cliente/crear" class="btn btn-link">Crear Contacto</a>
-            <a href="/tipocontacto/crear" class="btn btn-link">Crear Tipo Contacto</a>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Tipo Contacto </button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Crear Contacto </button>
         </div>
@@ -32,10 +31,7 @@
         </div>
     </div>
 
-    <!-- <p id="mensaje"></p> -->
-
-        <div class="modal" tabindex="-1" id="exampleModal1">
-            <div class="modal-dialog">
+    <div class="modal fade" id="exampleModal1" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">            <div class="modal-dialog">
                 <div class="modal-content">
                     @include('flash::message')
                     <form class="col-md-12" action="" method="POST" id="frmTipoContacto">
@@ -50,7 +46,7 @@
                         <h5>Defina el tipo de contacto</h5>
                         <div class="form-group">
                             <label for="">Tipo Contacto</label>
-                            <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror"  name="tipocontacto" id="tipocontacto">
+                            <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror solo_letras sin_especiales"  name="tipocontacto" id="tipocontacto">
                             @error('tipocontacto')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -58,9 +54,9 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" id="crearTipoContacto" class="btn btn-primary">Crear</button>
                     </div>
                     </form>
-                    <button type="button" id="crearTipoContacto" class="btn btn-primary">Crear</button>
                 </div>
             </div>
         </div>
@@ -80,7 +76,6 @@
                             <li><a href="#step-1">Paso 1<br /><small>Defina el tipo de contacto</small></a></li>
                             <li><a href="#step-2">Paso 2<br /><small>Datos Del Contacto</small></a></li>
                             <li><a href="#step-3">Paso 3<br /><small>Télefono Y Correo del Contacto</small></a></li>
-                            <!-- <li><a href="#step-4">Paso 4<br /><small>Correo Electrónico</small></a></li> -->
                         </ul>
                         <div>
                             <div id="step-1">
@@ -181,8 +176,6 @@
         </div>
     </div>
 
-
-
 @endsection
 
 @section('style')
@@ -248,8 +241,6 @@
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
         <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
-    <script src="{{ asset('js/tipoContactoVal.js') }}"></script>
-
-
+    <script src="{{ asset('js/validacionTipoContacto.js') }}"></script>
 @endsection
 

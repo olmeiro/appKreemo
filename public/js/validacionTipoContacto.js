@@ -2,8 +2,9 @@ $(document).ready(function() {
     $("#crearTipoContacto").click(function(event){
          event.preventDefault();
 
-         if ($("#tipocontacto").val().length==0 ) {
-              alert(" No se ingreso Tipo Contacto alguno.");
+         if ($("#tipocontacto").val() == null || $("#tipocontacto").val().length==0) {
+              Swal.fire("Ingrese Tipo Contacto correcto.");
+              $("#tipocontacto").val("");
          }
          else
          {
@@ -18,13 +19,15 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    
-                    alert("Se registro el nuevo tipo contacto");
-                    //limpiar();
-        
+                    Swal.fire('Se registro el nuevo tipo contacto');
+                    $("#exampleModal1").modal('hide');//ocultamos el modal
+                    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+                    //CierraPopup();
+             
                   }
                   else{
-                    alert("No se puedo crear el nuevo tipo contacto");
+                    Swal.fire('Ingrese nuevo tipo de contacto');
                   }
                 })
          }
@@ -144,6 +147,9 @@ $(document).ready(function() {
                   if(respuesta.ok)
                   {
                     Swal.fire('Se registro el nuevo tipo contacto.');
+                    $("#exampleModal1").modal('hide');//ocultamos el modal
+                    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
                     limpiar();
                     
                     
@@ -162,6 +168,7 @@ $(document).ready(function() {
     });
 });
 
+
 function limpiar()
 {
     $('#exampleModal2').modal('hide');
@@ -169,8 +176,6 @@ function limpiar()
     $("select").val("");
     $("span").val("");
     window.location.href = "/cliente";
-
-  
 }
 
 $(document).ready(function(){
@@ -183,6 +188,17 @@ $(document).ready(function(){
          this.value = this.value.replace(/[0-9]/g,'');
     });
 
+    $(".sin_especiales").on("keyup",function(){
+        this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,''); 
+   });
+
 
 });
+
+function CierraPopup() {
+    $("#exampleModal1").modal('hide');//ocultamos el modal
+    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+  }
+
 
