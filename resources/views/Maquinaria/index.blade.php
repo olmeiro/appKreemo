@@ -35,7 +35,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
             @include('flash::message')
-            <form action="/maquinaria/guardar" method="POST" enctype="multipart/form-data" name="FrmMaquinaria" id="FrmMaquinaria">
+            <form action="/maquinaria/guardar" method="POST" enctype="multipart/form-data" name="FrmCrearMaquinaria" id="FrmCrearMaquinaria">
             @csrf
             <div class="modal-header">
                         <h5 class="modal-title">Crear Maquina</h5>
@@ -185,6 +185,7 @@
             });
 
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
         <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
     <script src="{{ asset('js/validacionMaquinaria.js') }}"></script>

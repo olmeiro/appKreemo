@@ -8,3 +8,73 @@ $(document).ready(function(){
         this.value = this.value.replace(/[0-9]/g,'');
     });
 });
+
+$(document).ready(function(){
+$("#FrmCrearOperario").submit(function(event){
+    event.preventDefault();
+
+    let validado = 0;
+
+    if($("#nombre").val()==0){
+        $("#validacion_nombre").text("*");
+        $("#validacion_nombre2").text("Debe Ingresar el Nombre");
+    }else{
+        $("#validacion_nombre").text("");
+        $("#validacion_nombre2").text("");
+        validado++;
+    }
+
+
+    if($("#apellido").val()==0){
+        $("#validacion_apellido").text("*");
+        $("#validacion_apellido2").text("Debe Ingresar el Apellido");
+    }else{
+        $("#validacion_apellido").text("");
+        $("#validacion_apellido2").text("");
+        validado++;
+    }
+
+    if($("#documento").val()==0){
+        $("#validacion_documento").text("*");
+        $("#validacion_documento2").text("Debe Ingresar el Documento");
+    }else{
+        $("#validacion_documento").text("");
+        $("#validacion_documento2").text("");
+        validado++;
+    }
+
+    if($("#celular").val()==0){
+        $("#validacion_celular").text("*");
+        $("#validacion_celular2").text("Debe Ingresar el Celular");
+    }else{
+        $("#validacion_celular").text("");
+        $("#validacion_celular2").text("");
+        validado++;
+    }
+
+    if(validado==4){
+        Swal.fire({
+            title:'Registro exitoso',text:'Operaio creado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+               //width: '50%',
+            padding:'1rem',
+               //background:'#000',
+            backdrop:true,
+               //toast: true,
+            position:'center',
+                });
+
+        document.FrmCrearOperario.submit();
+    }else{
+        Swal.fire({
+            title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+               //width: '50%',
+            padding:'1rem',
+               //background:'#000',
+            backdrop:true,
+               //toast: true,
+            position:'center',
+        });
+    }
+    });
+});
+
