@@ -6,6 +6,7 @@
         <div class="card-header">
             <strong>Contactos</strong>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Tipo Contacto </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">Lista Tipo Contacto </button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">Crear Contacto </button>
         </div>
         <div class="card-body">
@@ -84,7 +85,7 @@
                                     <div class="col-md-6">
                                           <div class="form-group">
                                             <label for="">Tipo Contacto</label>
-                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="contacto" id="contacto">
+                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
                                                 <option value="0">Seleccione</option>
                                                 @foreach($tipoContacto as $key =>$value)
                                                     <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
@@ -93,7 +94,7 @@
                                             @error('idtipocontacto')
                                                 <div class="invalid-feedback">{{ $message }} ></div>
                                             @enderror
-                                            <label class="validacion" for="contacto" id="valContacto"></label>
+                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -177,6 +178,40 @@
         </div>
     </div>
 
+    <div class="modal fade" id="exampleModal3" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal3" aria-hidden="true">            
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4>Lista Tipos De Contactos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="card-header">
+                            <strong>x</strong>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                        @include('flash::message')
+                            <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>Tipo Contacto</th>
+                                    <th>Fecha Creación</th>
+                                    <th>Editar</th>
+                                    <th>eliminar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 @endsection
 
 @section('style')
@@ -238,6 +273,38 @@
                 ]
             });
 
+            $('#tbl_tipocontacto').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '/tipocontacto/listar',
+                columns: [
+                    {
+                     data: 'id',
+                     name: 'id'
+                    },
+                    {
+                     data: 'tipocontacto',
+                     name: 'tipocontacto'
+                    },
+                    {
+                        data: 'created_at',
+                        name: 'created_at'
+                    },
+                    {
+                        data: 'editar',
+                        name: 'editar',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'eliminar',
+                        name: 'eliminar',
+                        orderable: false,
+                        searchable: false
+                    }
+                ]
+            });
+
     </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
         <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
@@ -245,4 +312,5 @@
     <script src="{{ asset('js/validacionTipoContacto.js') }}"></script>
     <script src="{{ asset('js/validacionCliente.js') }}"></script>
 @endsection
+
 
