@@ -1,6 +1,3 @@
-jQuery('.soloNumeros').keypress(function (tecla) {
-    if (tecla.charCode < 48 || tecla.charCode > 57) return false;
-  });
 
   $(document).ready(function() {
     $("#crearContacto").click(function(event){
@@ -8,7 +5,7 @@ jQuery('.soloNumeros').keypress(function (tecla) {
 
          let validado = 0;
 
-         if( $("#contacto").val() == 0 )
+         if( $("#idtipocontacto").val() == 0 )
          {
              $("#valContacto").text("* Debe elegir un tipo de contacto");
          }
@@ -125,6 +122,8 @@ jQuery('.soloNumeros').keypress(function (tecla) {
                     $("#exampleModal2").modal('hide');//ocultamos el modal
                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+                    var table = $('#tbl_contacto').DataTable();
+                    table.ajax.reload();
                     limpiar();
                   }
                   else{

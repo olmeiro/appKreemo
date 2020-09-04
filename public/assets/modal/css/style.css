@@ -25,3 +25,8 @@ body {
 .validacion{
     color: rgb(255, 115, 0);
 }
+
+.alink {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
