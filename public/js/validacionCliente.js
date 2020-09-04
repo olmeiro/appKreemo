@@ -1,50 +1,20 @@
-$(document).ready(function() {
-    $("#crearTipoContacto").click(function(event){
-         event.preventDefault();
+jQuery('.soloNumeros').keypress(function (tecla) {
+    if (tecla.charCode < 48 || tecla.charCode > 57) return false;
+  });
 
-         if ($("#tipocontacto").val().length==0 ) {
-              alert(" No se ingreso Tipo Contacto alguno.");
-         }
-         else
-         {
-            var fd = new FormData(document.getElementById("frmTipoContacto"));
-
-            $.ajax({
-                url: "/tipocontacto/guardar",
-                type: "POST",
-                data: fd,
-                processData: false,  // tell jQuery not to process the data
-                contentType: false   // tell jQuery not to set contentType
-                }).done(function(respuesta){
-                  if(respuesta.ok)
-                  {
-                    
-                    alert("Se registro el nuevo tipo contacto");
-                    //limpiar();
-        
-                  }
-                  else{
-                    alert("No se puedo crear el nuevo tipo contacto");
-                  }
-                })
-         }
-    });
-});
-
-$(document).ready(function() {
+  $(document).ready(function() {
     $("#crearContacto").click(function(event){
-        Swal.fire('Any fool can use a computer')
          event.preventDefault();
 
          let validado = 0;
 
-         if( $("#idtipocontacto").val().length == 0 )
+         if( $("#contacto").val() == 0 )
          {
-             $("#valTipoContacto").text("* Debe elegir un tipo de contacto");
+             $("#valContacto").text("* Debe elegir un tipo de contacto");
          }
          else
          {
-             $("#valTipoContacto").text("");
+             $("#valContacto").text("");
              validado++;
          }
 
@@ -92,6 +62,10 @@ $(document).ready(function() {
          {
              $("#valTelefono1").text("* Ingrese un número de telefono valido");
          }
+         else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
+         {
+          $("#valTelefono1").text("* Ingrese un número de celular de 10 dígitos.");
+         }
          else{
              $("#valTelefono1").text("");
              validado++;
@@ -100,6 +74,10 @@ $(document).ready(function() {
          if($("#telefono2").val().length == 0 || isNaN($("#telefono2").val()))
          {
              $("#valTelefono2").text("* Ingrese un número de telefono valido");
+         }
+         else if(!(/^\d{7,10}$/.test($("#telefono2").val())))
+         {
+          $("#valTelefono2").text("* Ingrese un número de celular de 10 dígitos.");
          }
          else{
              $("#valTelefono2").text("");
@@ -144,9 +122,10 @@ $(document).ready(function() {
                   if(respuesta.ok)
                   {
                     Swal.fire('Se registro el nuevo tipo contacto.');
+                    $("#exampleModal2").modal('hide');//ocultamos el modal
+                    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
                     limpiar();
-                    
-                    
                   }
                   else{
                     Swal.fire('No se puedo crear el nuevo tipo contacto.');
@@ -164,25 +143,49 @@ $(document).ready(function() {
 
 function limpiar()
 {
-    $('#exampleModal2').modal('hide');
     $("input").val("");
     $("select").val("");
-    $("span").val("");
-    window.location.href = "/cliente";
-
-  
+    $("#valContacto").text("");
+    $("#valNombre").text("");
+    $("#valApellido1").text("");
+    $("#valApellido2").text("");
+    $("#valDocumento").text("");
+    $("#valTelefono1").text("");
+    $("#valTelefono2").text("");
+    $("#valCorreo1").text("");
+    $("#valCorreo2").text("");
 }
 
 $(document).ready(function(){
 
-    $(".solo_numeros").on("keyup",function(){
-         this.value = this.value.replace(/[^0-9]/g,'');
-    });
+  $(".solo_numeros").on("keyup",function(){
+       this.value = this.value.replace(/[^0-9]/g,'');
+  });
 
-    $(".solo_letras").on("keyup",function(){
-         this.value = this.value.replace(/[0-9]/g,'');
-    });
+  
+
+  $(".sin_especiales").on("keyup",function(){
+      this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,''); 
+ });
 
 
 });
 
+function soloLetras(e) {
+  var key = e.keyCode || e.which,
+  tecla = String.fromCharCode(key).toLowerCase(),
+  letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+  especiales = [8, 37, 39, 46],
+  tecla_especial = false;
+  
+  for (var i in especiales) {
+  if (key == especiales[i]) {
+    tecla_especial = true;
+    break;
+  }
+  }
+  
+  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+  return false;
+  }
+  }
