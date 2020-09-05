@@ -16,7 +16,7 @@
                     <div class="form-group col-md-6">
                         <label for="">Serial Equipo</label>
                         <label class="validacion" id="validacion_serialequipo"></label>
-                        <input value="{{$maquinaria->serialequipo}}" type="text" class="form-control @error('serialequipo') is-invalid @enderror solo_numeros"  name="serialequipo" id="serialequipo">
+                        <input value="{{$maquinaria->serialequipo}}" type="text" class="form-control @error('serialequipo') is-invalid @enderror solo_numeros"  name="serialequipo" id="serialequipo" onkeypress="return soloNumeros(event)">
                         @error('serialequipo')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -25,7 +25,7 @@
                     <div class="form-group col-md-6">
                         <label for="">Modelo</label>
                         <label class="validacion" id="validacion_modelo"></label>
-                        <input value="{{$maquinaria->modelo}}" type="text" class="form-control @error('modelo') is-invalid @enderror solo_letras"  name="modelo" id="modelo">
+                        <input value="{{$maquinaria->modelo}}" type="text" class="form-control @error('modelo') is-invalid @enderror"  name="modelo" id="modelo">
                         @error('modelo')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -45,7 +45,7 @@
                     <div class="form-group col-md-6">
                         <label for="">Observación</label>
                         <label class="validacion" id="validacion_observacion"></label>
-                        <input value="{{$maquinaria->observacion}}" type="text" class="form-control @error('observacion') is-invalid @enderror solo_letras"  name="observacion" id="observacion">
+                        <input value="{{$maquinaria->observacion}}" type="text" class="form-control @error('observacion') is-invalid @enderror solo_letras"  name="observacion" id="observacion" onkeypress="return soloLetras(event)">
                         @error('observacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
