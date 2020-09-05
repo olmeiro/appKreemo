@@ -27,14 +27,6 @@ function soloLetras(e) {
         return false;
 }
 
-function limpia() {
-    var val = document.getElementById("Estado_Cotizacion").value;
-    var tam = val.length;
-    for(i = 0; i < tam; i++) {
-        if(!isNaN(val[i]))
-            document.getElementById("Estado_Cotizacion").value = '';
-    }
-}
 
 
 $(document).ready(function() {

@@ -24,7 +24,7 @@
 
 
                 </div>
-                <button type="submit" class="btn btn-success float-left">Crear Estado</button>
+                <button type="submit" class="btn btn-success float-left">Editar Estado</button>
                 <a href="/estadocotizacion" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>

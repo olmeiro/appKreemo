@@ -17,11 +17,9 @@ class EstadoCotizacionController extends Controller
     public function listar(Request $request){
         $estadocotizacion = EstadoCotizacion::all();
         return Datatables::of($estadocotizacion)
-            // ->addColumn('editar', function ($estadocotizacion) {
-            //     return '<a class="btn btn-xs btn-primary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'">Editar</a>';
-
             ->addColumn('editar', function ($estadocotizacion) {
-                return '<button type="button" class="btn btn-dark" href="/estadocotizacion/editar/'.$estadocotizacion->id.'" data-toggle="modal" data-target="#exampleModal2">EDITAR ESTADO </button';
+                return '<a class="btn btn-xs btn-primary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'">Editar</a>';
+
             })
             ->addColumn('eliminar', function ($estadocotizacion) {
                 return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'">Eliminar</a>';
