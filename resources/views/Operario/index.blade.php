@@ -65,7 +65,7 @@
                         <div class="form-group col-md-6">
                             <label for="">Documento</label>
                             <label class="validacion" id="validacion_documento"></label>
-                            <input value="{{old('documento')}}" type="text" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="documento" id="documento">
+                            <input value="{{old('documento')}}" type="text" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="documento" id="documento" onkeypress="return soloNumeros(event)">
                             @error('documento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -74,7 +74,7 @@
                         <div class="form-group col-md-6">
                             <label for="">Celular</label>
                             <label class="validacion" id="validacion_celular"></label>
-                            <input value="{{old('celular')}}" type="text" class="form-control @error('celular') is-invalid @enderror solo_numeros"  name="celular" id="celular">
+                            <input value="{{old('celular')}}" type="text" class="form-control @error('celular') is-invalid @enderror solo_numeros"  name="celular" id="celular" onkeypress="return soloNumeros(event)">
                             @error('celular')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

@@ -48,7 +48,7 @@
                         <div class="form-group col-md-6">
                             <label for="">Serial Equipo</label>
                             <label class="validacion" id="validacion_serialequipo"></label>
-                            <input value="{{old('serialequipo')}}" type="text" class="form-control @error('serialequipo') is-invalid @enderror solo_numeros"  name="serialequipo" id="serialequipo">
+                            <input value="{{old('serialequipo')}}" type="text" class="form-control @error('serialequipo') is-invalid @enderror solo_numeros"  name="serialequipo" id="serialequipo" onkeypress="return soloNumeros(event)">
                             @error('serialequipo')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -57,7 +57,7 @@
                         <div class="form-group col-md-6">
                             <label for="">Modelo</label>
                             <label class="validacion" id="validacion_modelo"></label>
-                            <input value="{{old('modelo')}}" type="text" class="form-control @error('modelo') is-invalid @enderror solo_letras"  name="modelo" id="modelo" onkeypress="return soloLetras(event)">
+                            <input value="{{old('modelo')}}" type="text" class="form-control @error('modelo') is-invalid @enderror"  name="modelo" id="modelo">
                             @error('modelo')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

@@ -17,8 +17,9 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{{ asset('assets/landing/css/styles.css') }}" rel="stylesheet" />
+        <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
     </head>
-    <body id="page-top">
+    <body id="page-top" onload="mensaje_index()">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
@@ -27,6 +28,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Ingresar</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/home">Ir a Home</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -37,7 +40,7 @@
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
                         <!-- <h1 class="text-uppercase text-white font-weight-bold">Kreemo App</h1> -->
-                        <hr class="divider my-4" />
+                        <hr class="divider my-4"/>
                     </div>
                     <!-- <div class="col-lg-8 align-self-baseline">
                         <p class="text-white-75 font-weight-light mb-5">Ayudamos con la gestión de su información empresarial.</p>
@@ -61,5 +64,30 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
         <!-- Core theme JS-->
         <script src="{{ asset('assets/landing/js/scripts.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+
+        <script>
+function mensaje_index()
+{
+     Swal.fire({
+          title:'Bienvenido ',
+          // icon:'success',
+          text:'Ingresaste a Sistema de Información Bombeos',
+          footer:'<span class="validacion">KREEMO',
+          padding:'1rem',
+          //background:
+          backdrop:true,
+          // toast: true,
+          position:'center',
+          allowOutsideClick:true,
+	     allowEscapeKey:true,
+	     allowEnterKey:true,
+
+          imageUrl:'/public/assets/landing/img/kreemo.png',
+          imageWidth:'80px',
+          imageAlt:'Logo Kreemo',
+     });
+}
+        </script>
     </body>
 </html>
