@@ -41,7 +41,8 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Crear Encuesta</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="exampleModalLabel">Crear Encuesta</h5>
+                    <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
                     @include('flash::message')
@@ -70,6 +71,7 @@
                                             @error('idservicio')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="idservicio" id="valIdServicio"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Nombre del director de la obra</label>
@@ -77,6 +79,7 @@
                                             @error('directorobra')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="directorobra" id="valDirectorObra"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Constructora</label>
@@ -84,6 +87,7 @@
                                             @error('constructora')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="constructora" id="valConstructora"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Correo</label>
@@ -91,6 +95,7 @@
                                             @error('correo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="correo" id="valCorreo"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Celular</label>
@@ -98,6 +103,7 @@
                                             @error('celular')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="celular" id="valCelular"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Fecha</label>
@@ -105,6 +111,7 @@
                                             @error('mes')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="mes" id="valMes"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -118,6 +125,7 @@
                                             @error('respuesta1_1')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="respuesta1_1" id="valRespuesta1_1"></label>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="">Solución de problemas</label>
@@ -125,6 +133,7 @@
                                             @error('respuesta1_2')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="respuesta1_2" id="valRespuesta1_2"></label>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="">Orden y aseo</label>
@@ -132,6 +141,7 @@
                                             @error('respuesta1_3')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="respuesta1_3" id="valRespuesta1_3"></label>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="">Cumplimiento en requisitos</label>
@@ -139,6 +149,7 @@
                                             @error('respuesta1_4')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="respuesta1_4" id="valRespuesta1_4"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -155,6 +166,7 @@
                                             @error('respuesta2')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="respuesta2" id="valRespuesta2"></label>
                                         </div>
                                         </div>
                                             <p><b>3.</b> Si la <u>respuesta 2</u> fue SI, describa la situación:</p>
@@ -164,6 +176,7 @@
                                             @error('respuesta3')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
+                                            <label class="validacion" for="respuesta3" id="valRespuesta3"></label>
                                         </div>
                                     </div>
                             </div>
@@ -180,6 +193,7 @@
                                         @error('respuesta4')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label class="validacion" for="respuesta4" id="valRespuesta4"></label>
                                     </div>
                                     </div>
                                         <p><b>5.</b> ¿Qué aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado? </p>
@@ -189,6 +203,7 @@
                                         @error('respuesta5')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label class="validacion" for="respuesta5" id="valRespuesta5"></label>
                                     </div>
                                     </div>
                             </div>
@@ -205,6 +220,7 @@
                                         @error('respuesta6')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label class="validacion" for="respuesta6" id="valRespuesta6"></label>
                                     </div>
                                     </div>
                                         <p><b>7.</b> ¿Recomendaría A VINICOL BOMBEOS para que otras empresas contrataran nuestros servicios?</p>
@@ -219,6 +235,7 @@
                                         @error('respuesta7')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
+                                        <label class="validacion" for="respuesta7 id="valRespuesta7"></label>
                                     </div>
                                     </div>
                                     <button type="submit" class="btn btn-success">Guardar Encuesta</button>
@@ -235,7 +252,6 @@
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
     <script>
@@ -349,6 +365,5 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
 <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
-<script src="{{ asset('assets/modal/js/cotizacion.js') }}"></script>
-<script src="{{ asset('js/validacionCotizacion.js') }}"></script>
+<script src="{{ asset('js/validacionEncuesta.js') }}"></script>
 @endsection
