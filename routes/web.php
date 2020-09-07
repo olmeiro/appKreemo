@@ -22,6 +22,9 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
+Route::resource('users','UserController');
+Route::get('users/{id}/edit/','UserController@edit');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/tipocontacto', 'TipoContactoController@index');

@@ -6,7 +6,7 @@
 @section('body')
 
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Contactos</strong>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Tipo Contacto </button>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3">Lista Tipo Contacto </button>

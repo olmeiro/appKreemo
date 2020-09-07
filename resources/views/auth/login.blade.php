@@ -107,12 +107,12 @@
             </div>
             <div class="card text-white bg-secondary py-5 d-md-down-none" style="width:20%">
               <div class="card-body text-center">
-                <img src="{{ asset('img/kreemo.png') }}" style="width:200px;">
-                <div>
+                <img src="{{ asset('img/kreemo.png') }}" style="width:300px;">
+                {{-- <div>
                   <h2 class="text-body">Registrar!</h2>
                   <p class="text-dark">Registrar nuevo usuario.</p>
                   <a href="/register" class="btn btn-lg btn-outline-dark mt-3">Register Now!</a>
-                </div>
+                </div> --}}
               </div>
             </div>
           </div>
