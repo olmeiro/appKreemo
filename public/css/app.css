@@ -10932,7 +10932,27 @@ a.text-dark:focus {
   background-color: #B52507;
 }
 
-.fa-home {
-  margin-right: 25px;
+.fa-trailer {
+  margin-right: 24px;
+}
+
+.fa-tasks {
+    margin-right: 28px;
+}
+
+.fa-hand-holding-usd {
+    margin-right: 25px;
+}
+
+.fa-calendar-alt {
+    margin-right: 28px;
+}
+
+.fa-id-card {
+    margin-right: 23px;
+}
+
+.fa-users {
+    margin-right: 23px;
 }
 

@@ -61,7 +61,7 @@
       <ul class="c-sidebar-nav">
 
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ url('/users') }}">
-            <i class="fas fa-users"></i> Usuario</a></li>
+            <i class="fas fa-users"></i>Usuario</a></li>
 
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
             <i class="fas fa-id-card"></i>Contactos</a>
@@ -90,7 +90,7 @@
        </li>
 
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-hand-holding-usd"></i> Cotizaciones</a>
+            <i class="fas fa-hand-holding-usd"></i>Cotizaciones</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion"><span class="c-sidebar-nav-icon"></span> Cotizacion</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/estadocotizacion"><span class="c-sidebar-nav-icon"></span> Estado Cotizacion</a></li>
@@ -98,14 +98,14 @@
         </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-trailer"></i> Maquinaria</a>
+            <i class="fas fa-trailer"></i>Maquinaria</a>
         <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria"><span class="c-sidebar-nav-icon"></span> Maquinaria</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/operario"><span class="c-sidebar-nav-icon"></span> Operario</a></li>
         </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-tasks"></i> Servicio</a>
+            <i class="fas fa-tasks"></i>Servicio</a>
         <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio"><span class="c-sidebar-nav-icon"></span> Servicio</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta"><span class="c-sidebar-nav-icon"></span> Encuesta</a></li>
