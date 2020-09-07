@@ -23,6 +23,15 @@ $(document).ready(function() {
 
         let validado=0;
 
+        if ($("#idvisita").val() == 0) {
+            $("#val_idvisita").text("*");
+            $("#val_idvisita2").text("Debe seleccionar una visita");
+        }else{
+            $("#val_idvisita").text("");
+            $("#val_idvisita2").text("");
+            validado++;
+        }
+
         if ($("#numeroplanilla").val() == 0) {
             $("#val_numeroplanilla").text("*");
             $("#val_numeroplanilla2").text("Debe ingresar el número de planilla");
@@ -34,7 +43,7 @@ $(document).ready(function() {
 
         if ($("#estadovia").val() == 'NS') {
             $("#val_estadovia").text("*");
-            $("#val_estadovia2").text("Debe Seleccionar una opción");
+            $("#val_estadovia2").text("Debe seleccionar una opción");
         }else{
             $("#val_estadovia").text("");
             $("#val_estadovia2").text("");
@@ -43,7 +52,7 @@ $(document).ready(function() {
 
         if ($("#ph").val() == 'NS') {
             $("#val_ph").text("*");
-            $("#val_ph2").text("Debe Seleccionar una opción");
+            $("#val_ph2").text("Debe seleccionar una opción");
         }else{
             $("#val_ph").text("");
             $("#val_ph2").text("");
@@ -52,7 +61,7 @@ $(document).ready(function() {
 
         if ($("#hueco").val() == 'NS') {
             $("#val_hueco").text("*");
-            $("#val_hueco2").text("Debe Seleccionar una opción");
+            $("#val_hueco2").text("Debe seleccionar una opción");
         }else{
             $("#val_hueco").text("");
             $("#val_hueco2").text("");
@@ -61,7 +70,7 @@ $(document).ready(function() {
 
         if ($("#techo").val() == 'NS') {
             $("#val_techo").text("*");
-            $("#val_techo2").text("Debe Seleccionar una opción");
+            $("#val_techo2").text("Debe seleccionar una opción");
         }else{
             $("#val_techo").text("");
             $("#val_techo2").text("");
@@ -69,7 +78,7 @@ $(document).ready(function() {
         }
         if ($("#desarenadero").val() == 'NS') {
             $("#val_desarenadero").text("*");
-            $("#val_desarenadero2").text("Debe Seleccionar una opción");
+            $("#val_desarenadero2").text("Debe seleccionar una opción");
         }else{
             $("#val_desarenadero").text("");
             $("#val_desarenadero2").text("");
@@ -77,7 +86,7 @@ $(document).ready(function() {
         }
         if ($("#desague").val() == 'NS') {
             $("#val_desague").text("*");
-            $("#val_desague2").text("Debe Seleccionar una opción");
+            $("#val_desague2").text("Debe seleccionar una opción");
         }else{
             $("#val_desague").text("");
             $("#val_desague2").text("");
@@ -86,7 +95,7 @@ $(document).ready(function() {
 
         if ($("#agua").val() == 'NS') {
             $("#val_agua").text("*");
-            $("#val_agua2").text("Debe Seleccionar una opción");
+            $("#val_agua2").text("Debe seleccionar una opción");
         }else{
             $("#val_agua").text("");
             $("#val_agua2").text("");
@@ -95,7 +104,7 @@ $(document).ready(function() {
 
         if ($("#lineaelectrica").val() == 'NS') {
             $("#val_lineaelectrica").text("*");
-            $("#val_lineaelectrica2").text("Debe Seleccionar una opción");
+            $("#val_lineaelectrica2").text("Debe seleccionar una opción");
         }else{
             $("#val_lineaelectrica").text("");
             $("#val_lineaelectrica2").text("");
@@ -104,7 +113,7 @@ $(document).ready(function() {
 
         if ($("#senializacion").val() == 'NS') {
             $("#val_senializacion").text("*");
-            $("#val_senializacion2").text("Debe Seleccionar una opción");
+            $("#val_senializacion2").text("Debe seleccionar una opción");
         }else{
             $("#val_senializacion").text("");
             $("#val_senializacion2").text("");
@@ -113,7 +122,7 @@ $(document).ready(function() {
 
         if ($("#iluminacion").val() == 'NS') {
             $("#val_iluminacion").text("*");
-            $("#val_iluminacion2").text("Debe Seleccionar una opción");
+            $("#val_iluminacion2").text("Debe seleccionar una opción");
         }else{
             $("#val_iluminacion").text("");
             $("#val_iluminacioneco2").text("");
@@ -122,7 +131,7 @@ $(document).ready(function() {
 
         if ($("#banios").val() == 'NS') {
             $("#val_banios").text("*");
-            $("#val_banios2").text("Debe Seleccionar una opción");
+            $("#val_banios2").text("Debe seleccionar una opción");
         }else{
             $("#val_banios").text("");
             $("#val_banios2").text("");
@@ -131,7 +140,7 @@ $(document).ready(function() {
 
         if ($("#condicioninsegura").val() == 'NS') {
             $("#val_condicioninsegura").text("*");
-            $("#val_condicioninsegura2").text("Debe Seleccionar una opción");
+            $("#val_condicioninsegura2").text("Debe seleccionar una opción");
         }else{
             $("#val_condicioninsegura").text("");
             $("#val_condicioninsegura").text("");
@@ -139,7 +148,7 @@ $(document).ready(function() {
         }
         if ($("#ordenpublico").val() == 'NS') {
             $("#val_ordenpublico").text("*");
-            $("#val_ordenpublico2").text("Debe Seleccionar una opción");
+            $("#val_ordenpublico2").text("Debe seleccionar una opción");
         }else{
             $("#val_ordenpublicoo").text("");
             $("#val_ordenpublico2").text("");
@@ -147,7 +156,7 @@ $(document).ready(function() {
         }
         if ($("#vigilancia").val() == 'NS') {
             $("#val_vigilancia").text("*");
-            $("#val_vigilancia2").text("Debe Seleccionar una opción");
+            $("#val_vigilancia2").text("Debe seleccionar una opción");
         }else{
             $("#val_vigilancia").text("");
             $("#val_vigilancia2").text("");
@@ -156,7 +165,7 @@ $(document).ready(function() {
 
         if ($("#caspete").val() == 'NS') {
             $("#val_caspete").text("*");
-            $("#val_caspete2").text("Debe Seleccionar una opción");
+            $("#val_caspete2").text("Debe seleccionar una opción");
         }else{
             $("#val_caspete").text("");
             $("#val_caspete2").text("");
@@ -165,7 +174,7 @@ $(document).ready(function() {
 
         if ($("#infoSST").val() == 'NS') {
             $("#val_infoSST").text("*");
-            $("#val_infoSST2").text("Debe Seleccionar una opción");
+            $("#val_infoSST2").text("Debe seleccionar una opción");
         }else{
             $("#val_infoSST").text("");
             $("#val_infoSST2").text("");
@@ -174,7 +183,7 @@ $(document).ready(function() {
 
         if ($("#politicashoras").val() == 'NS') {
             $("#val_politicashoras").text("*");
-            $("#val_politicashoras2").text("Debe Seleccionar una opción");
+            $("#val_politicashoras2").text("Debe seleccionar una opción");
         }else{
             $("#val_politicashoras").text("");
             $("#val_politicashoras2").text("");
@@ -191,7 +200,7 @@ $(document).ready(function() {
         }
         if ($("#viabilidad").val() == 'NS') {
             $("#val_viabilidad").text("*");
-            $("#val_viabilidad2").text("Debe Seleccionar una opción");
+            $("#val_viabilidad2").text("Debe seleccionar una opción");
         }else{
             $("#val_viabilidad").text("");
             $("#val_viabilidad2").text("");
@@ -199,7 +208,7 @@ $(document).ready(function() {
         }
 
 
-        if (validado==20)
+        if (validado==21)
         {
             Swal.fire({
                 title:'Registro exitoso',text:'Cita creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -215,7 +224,7 @@ $(document).ready(function() {
         }
         else{
             Swal.fire({
-                title:'Error en la modificación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',

@@ -29,6 +29,7 @@ return Datatables::of($data)
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <a id="delete-user" data-id='.$row->id.' class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></a>';
 
+
 return $action;
 
 })

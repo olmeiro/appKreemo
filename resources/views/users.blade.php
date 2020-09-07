@@ -8,6 +8,8 @@
 
 @section('body')
 <div class="container">
+
+
     <div class="card">
         <div class="card-header text-white" style="background-color: black">
             <strong>Crear Usuarios</strong>
@@ -28,6 +30,7 @@
             </tbody>
             </table>
         </div>
+
     </div>
 </div>
 
@@ -45,7 +48,7 @@
     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
-    <strong>Name:</strong>
+    <strong>Nombre:</strong>
     <input type="text" name="name" id="name" class="form-control" placeholder="Name" onchange="validate()" >
     </div>
     </div>
@@ -57,7 +60,7 @@
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-            <strong>Contreseña:</strong>
+            <strong>Contraseña:</strong>
             <input type="password" name="pw" id="pw" class="form-control" placeholder="contraseña" onchange="validate()" >
             </div>
         </div>
@@ -70,8 +73,8 @@
 
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Save</button>
-    <a href="{{ route('users.index') }}" class="btn btn-danger">Cancel</a>
+    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+    <a href="{{ route('users.index') }}" class="btn btn-danger">Cancelar</a>
     </div>
     </div>
     </form>
@@ -93,7 +96,7 @@
     <div class="col-xs-10 col-sm-10 col-md-10 ">
 
     <table class="table-responsive ">
-    <tr height="50px"><td><strong>Name:</strong></td><td id="sname"></td></tr>
+    <tr height="50px"><td><strong>Nombre:</strong></td><td id="sname"></td></tr>
     <tr height="50px"><td><strong>Email:</strong></td><td id="semail"></td></tr>
 
     <tr><td></td><td style="text-align: right "><a href="{{ route('users.index') }}" class="btn btn-danger">OK</a> </td></tr>

@@ -13,13 +13,18 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">
-                        <strong>Informacion inicial</strong>
+                        <strong>Informacion Inicial</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
                                 <div class="form-group col-md-6">
                                     <label for="">Id Visita</label>
-                                    <input type="text" class="form-control @error('idvisita') is-invalid @enderror"  name="idvisita" id="idvisita">
+                                    <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
+                            <option selected>Seleccione una visita</option>
+                            @foreach($visita as $key =>$value)
+                                <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
+                            @endforeach
+                        </select>
                                     @error('idvisita')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
