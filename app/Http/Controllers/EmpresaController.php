@@ -21,7 +21,7 @@ class EmpresaController extends Controller
 
         return DataTables::of($empresa)
         ->addColumn('editar', function ($empresa) {
-            return '<a class="btn btn-primary btn-sm" href="/empresa/editar/'.$empresa->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/empresa/editar/'.$empresa->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->rawColumns(['editar'])
         ->make(true);
