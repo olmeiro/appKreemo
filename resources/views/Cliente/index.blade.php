@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('meta')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
 @section('body')
 
     <div class="card">
@@ -11,9 +14,11 @@
         </div>
         <div class="card-body">
         @include('flash::message')
+        <h4 id="mensaje"></h4>
             <table id="tbl_contacto" class="table table-bordered" style="width: 100%;">
                 <thead>
                 <tr>
+                    <th>id</th>
                     <th>Tipo Contacto</th>
                     <th>Nombre</th>
                     <th>Primer Apellido</th>
@@ -36,7 +41,7 @@
         <div class="modal-dialog">
                 <div class="modal-content">
                     @include('flash::message')
-                    <form class="col-md-12" action="" method="POST" id="frmTipoContacto">
+                    <form class="col-md-12 " action="" method="POST" id="frmTipoContacto">
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title">Crear Tipo Contacto</h5>
@@ -211,6 +216,133 @@
             </div>
         </div>
 
+       
+
+        <div class="modal fade" id="exampleModal4" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal4" aria-hidden="true">     
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="clienteCrudModal"></h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="card-header">
+                            <strong>x</strong>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                        <form class="editContact" name="clienteForm" action="/cliente/guardar" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" name="cliente_id" id="cliente_id" >
+
+                            <div class="row">
+                            <div class="col-6">
+
+                                    <div class="form-group">
+                                        <label for="">Tipo Contacto</label>
+                                        <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidtipocontacto" id="cidtipocontacto" onchange="validate()">
+                                            <option value="">Seleccione</option>
+                                            @foreach($tipoContacto as $key =>$value)
+                                                <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('idtipocontacto')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Nombre</label>
+                                        <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="cnombre" id="cnombre" onchange="validate()">
+                                        @error('nombre')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Primer Apellido</label>
+                                        <input type="text" class="form-control @error('apellido1') is-invalid @enderror"  name="capellido1" id="capellido1" onchange="validate()">
+                                        @error('apellido1')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Segundo Apellido</label>
+                                        <input type="text" class="form-control @error('apellido2') is-invalid @enderror"  name="capellido2" id="capellido2" onchange="validate()">
+                                        @error('apellido2')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Documento</label>
+                                        <input type="number" class="form-control @error('documento') is-invalid @enderror"  name="cdocumento" id="cdocumento" onchange="validate()">
+                                        @error('documento')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Telefono #1</label>
+                                        <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="ctelefono1" id="ctelefono1" onchange="validate()">
+                                        @error('telefono1')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Teléfono #2</label>
+                                        <input type="number" class="form-control @error('telefono2') is-invalid @enderror"  name="ctelefono2" id="ctelefono2" onchange="validate()">
+                                        @error('telefono2')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label for="">Correo #1</label>
+                                        <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="ccorreo1" id="ccorreo1" onchange="validate()">
+                                        @error('correo1')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                <div class="form-group">
+                                        <label for="">Correo #2</label>
+                                        <input type="text" class="form-control @error('correo2') is-invalid @enderror"  name="ccorreo2" id="ccorreo2" onchange="validate()">
+                                        @error('correo2')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                </div>
+                            </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+                                    <a href="/cliente" class="btn btn-danger">Cancelar</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
 @endsection
 
@@ -229,8 +361,12 @@
                 ajax: '/cliente/listar',
                 columns: [
                     {
-                     data: 'tipocontacto',
-                     name: 'tipocontacto',
+                     data: 'id',
+                     name: 'id'
+                    },
+                    {
+                     data: 'idtipocontacto',
+                     name: 'idtipocontacto',
                      orderable: false,
                      searchable: false
                     },
@@ -304,6 +440,43 @@
                     }
                 ]
             });
+
+            $('body').on('click', '#editar-Cliente', function () {
+                var cliente_id = $(this).data('id');
+                $.get('cliente/'+cliente_id+'/edit', function (data) {
+                $('#clienteCrudModal').html("Editar Cliente");
+                $('#btn-update').val("Update");
+                $('#btn-save').prop('disabled',false);
+                $('#exampleModal4').modal('show');
+                $('#cliente_id').val(data.id);
+                $('#cidtipocontacto').val(data.idtipocontacto);
+                $('#cnombre').val(data.nombre);
+                $('#capellido1').val(data.apellido1);
+                $('#capellido2').val(data.apellido2);
+                $('#cdocumento').val(data.documento);
+                $('#cestado').val(data.estado);
+                $('#ctelefono1').val(data.telefono1);
+                $('#ctelefono2').val(data.telefono2);
+                $('#ccorreo1').val(data.correo1);
+                $('#ccorreo2').val(data.correo2);
+
+            })
+            });
+
+        function validate()
+        {
+            if(document.clienteForm.cidtipocontacto.value !='' && document.clienteForm.cnombre.value !='' && document.clienteForm.capellido1.value !=''
+            && document.clienteForm.capellido2.value !='' && document.clienteForm.cdocumento.value !='' && document.clienteForm.ctelefono1.value !=''
+            && document.clienteForm.ctelefono2.value !='' && document.clienteForm.ccorreo1.value !='' && document.clienteForm.ccorreo2.value !='')
+            {
+                document.clienteForm.btnsave.disabled=false
+            }
+            else
+            {
+                document.clienteForm.btnsave.disabled=true
+            }
+        }
+  
 
     </script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
