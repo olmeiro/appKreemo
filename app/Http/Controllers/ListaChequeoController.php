@@ -31,7 +31,7 @@ class ListaChequeoController extends Controller
         
         ->addColumn('editar', function ($listachequeo) {
             // return '<a type="button" class="btn btn-primary"  data-toggle="modal" data-target="#edit" href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
-            return '<a type="button" class="btn btn-primary"   href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
+            return '<a type="button" class="btn btn-primary"   href="/listachequeo/editar/'.$listachequeo->id.'" ><i class="fas fa-trash-alt"></i></a>';
         })
       
         ->rawColumns(['editar'])

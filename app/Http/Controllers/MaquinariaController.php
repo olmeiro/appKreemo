@@ -24,7 +24,7 @@ class MaquinariaController extends Controller
             return $maquinaria->estado == 1 ? "Activa" : "Inactiva";
         })
         ->addColumn('editar', function ($maquinaria) {
-            return '<a class="btn btn-primary btn-sm" href="/maquinaria/editar/'.$maquinaria->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/maquinaria/editar/'.$maquinaria->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->addColumn('cambiar', function ($maquinaria) {
             if($maquinaria->estado == 1)
@@ -37,7 +37,7 @@ class MaquinariaController extends Controller
             }
         })
         ->addColumn('eliminar', function ($maquinaria) {
-            return '<a class="btn btn-danger btn-sm" href="/maquinaria/eliminar/'.$maquinaria->id.'">Eliminar</a>';
+            return '<a class="btn btn-danger btn-sm" href="/maquinaria/eliminar/'.$maquinaria->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar', 'cambiar', 'eliminar'])
         ->make(true);
