@@ -24,11 +24,11 @@ class OperarioController extends Controller
         return DataTables::of($operario)
 
         ->addColumn('editar', function ($operario) {
-            return '<a class="btn btn-primary btn-sm" href="/operario/editar/'.$operario->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/operario/editar/'.$operario->id.'"><i class="fas fa-edit"></i></a>';
         })
 
         ->addColumn('eliminar', function ($operario) {
-            return '<a class="btn btn-danger btn-sm" href="/operario/eliminar/'.$operario->id.'">Eliminar</a>';
+            return '<a class="btn btn-danger btn-sm" href="/operario/eliminar/'.$operario->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar', 'eliminar'])
         ->make(true);
