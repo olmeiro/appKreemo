@@ -8,9 +8,9 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>CONTACTOS</strong>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal1">CREAR TIPO CONTACTO</button>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal3">LISTA TIPO CONTACTOS</button>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal2">CREAR CONTACTO</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">CREAR TIPO CONTACTO</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal3">LISTA TIPO CONTACTOS</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">CREAR CONTACTO</button>
         </div>
         <div class="card-body">
         @include('flash::message')

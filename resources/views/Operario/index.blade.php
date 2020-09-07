@@ -6,7 +6,7 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>OPERARIOS</strong>
             <a href="/operario/crear" class="btn btn-link">Crear Operario</a>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal1">CREAR OPERARIO</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">CREAR OPERARIO</button>
         </div>
         <div class="card-body">
         @include('flash::message')

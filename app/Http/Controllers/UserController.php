@@ -24,7 +24,7 @@ return Datatables::of($data)
 ->addColumn('action', function($row){
 
 
-    $action = '<a class="btn btn-info" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-search"></i></a>
+    $action = '<a class="btn btn-info" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye"></i></a>
     <a class="btn btn-success" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <a id="delete-user" data-id='.$row->id.' class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></a>';

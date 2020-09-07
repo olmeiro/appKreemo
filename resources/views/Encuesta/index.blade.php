@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header">
             <strong>ENCUESTAS</strong>
-            <a href="/encuesta/crear" class="btn btn-outline-light">CREAR ENCUESTA</a>
+            <a href="/encuesta/crear" class="btn btn-outline-light float-right">CREAR ENCUESTA</a>
         </div>
         <div class="card-body">
         @include('flash::message')
