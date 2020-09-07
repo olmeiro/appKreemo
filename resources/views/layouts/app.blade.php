@@ -67,6 +67,8 @@
             <i class="fas fa-id-card"></i>Contactos</a>
           <ul class="c-sidebar-nav-dropdown-items">
 
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/tipocontacto"><span class="c-sidebar-nav-icon"></span> Tipo Contacto</a></li>
+
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cliente"><span class="c-sidebar-nav-icon"></span> Contactos</a></li>
             <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">Obras</a>
             <ul class="c-sidebar-nav-dropdown-items">

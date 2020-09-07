@@ -24,6 +24,7 @@ $(document).ready(function() {
                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
                     limpiar();
+                    window.location.reload('/clientes');
              
                   }
                   else{

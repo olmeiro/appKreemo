@@ -38,15 +38,18 @@ Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 Route::get('/cliente', 'ClientesController@index');
 Route::get('/cliente/listar', 'ClientesController@listar');
 Route::get('/cliente/crear', 'ClientesController@create');
-Route::post('/cliente/guardar', 'ClientesController@save');
-Route::get('/cliente/editar/{id}', 'ClientesController@edit');
-Route::post('/cliente/actualizar', 'ClientesController@update');
+
+Route::post('/cliente/guardar', 'ClientesController@store');
+Route::post('/cliente/guardarNuevo', 'ClientesController@save');
+Route::get('/cliente/{id}/edit', 'ClientesController@edit');
+
+//Route::post('/cliente/actualizar', 'ClientesController@update');
 Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
 
 Route::get('/obra', 'ObraController@index');
 Route::get('/obra/listar', 'ObraController@listar');
 Route::get('/obra/crear', 'ObraController@create');
-Route::get('/obra/crearcontactos', 'ObraContactosController@create');
+Route::get('/obra/crearcontactos', 'ObraContactoController@create');
 Route::post('/obra/guardar', 'ObraController@save');
 Route::get('/obra/editar/{id}', 'ObraController@edit');
 Route::post('/obra/actualizar', 'ObraController@update');
