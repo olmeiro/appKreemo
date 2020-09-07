@@ -110,6 +110,9 @@
             var fd = new FormData(document.getElementById("frmContacto"));
 
             $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/cliente/guardarNuevo",
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                 type: "POST",
@@ -123,7 +126,7 @@
                     $("#exampleModal2").modal('hide');//ocultamos el modal
                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
-                    $("#mensaje").text("Nuevo contacto Creado")
+                    $("#mensaje").text("Nueno contacto Creado")
                     var table = $('#tbl_contacto').DataTable();
                     table.ajax.reload();
                     
