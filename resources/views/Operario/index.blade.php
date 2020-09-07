@@ -4,9 +4,9 @@
 <div class="container row justify-content-center">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Operario</strong>
+            <strong>OPERARIOS</strong>
             <a href="/operario/crear" class="btn btn-link">Crear Operario</a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Operario</button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal1">CREAR OPERARIO</button>
         </div>
         <div class="card-body">
         @include('flash::message')

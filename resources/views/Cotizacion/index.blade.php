@@ -4,11 +4,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>LISTADO DE COTIZACIONES</strong>
+            <strong>COTIZACIONES</strong>
                 <a class="btn btn-link" href="/cotizacion/crear">CREAR COTIZACIÓN</a>
                 <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
                 <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">Crear Cotización </button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
         </div>
         <div class="card-body">
             @include('flash::message')

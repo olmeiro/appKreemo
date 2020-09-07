@@ -4,7 +4,7 @@
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Obras</strong>
-            {{-- <a href="/obra/crear" class="btn btn-link">Crear Obra</a> --}}
+            {{-- <a href="/obra/crear" class="btn btn-outline-light">CREAR OBRA</a> --}}
         </div>
         <div class="card-body">
         @include('flash::message')

@@ -13,7 +13,7 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: black">
             <strong>Crear Usuarios</strong>
-            <a class="btn btn-primary mb-2" id="new-user" data-toggle="modal">Nuevo Usuario</a>
+            <a class="btn btn-outline-light" id="new-user" data-toggle="modal">NUEVO USUARIO</a>
         </div>
         <div class="card-body">
             <table class="table table-bordered table-striped data-table" >
