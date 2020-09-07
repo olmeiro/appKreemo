@@ -3,9 +3,9 @@
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Maquinaria</strong>
+            <strong>MÁQUINARIA</strong>
             <a href="/maquinaria/crear" class="btn btn-link">Crear Maquina</a>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal1">CREAR MÁQUINA</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">CREAR MÁQUINA</button>
 
         </div>
         <div class="card-body">

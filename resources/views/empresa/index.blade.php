@@ -4,7 +4,7 @@
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>EMPRESAS</strong>
-            <a href="/empresa/crear" class="btn btn-outline-light">CREAR EMPRESA</a>
+            <a href="/empresa/crear" class="btn btn-outline-light float-right">CREAR EMPRESA</a>
         </div>
         <div class="card-body">
         @include('flash::message')
