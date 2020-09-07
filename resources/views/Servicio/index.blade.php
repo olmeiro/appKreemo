@@ -3,7 +3,7 @@
 @section('body')
     <div class="card">
         <div class="card-header">
-            <strong>Servicios</strong>
+            <strong>SERVICIOS</strong>
             <a href="/servicio/crear" class="btn btn-link">Crear Servicio</a>
             <a href="/estadoservicio" class="btn btn-link">Estados</a>
         </div>

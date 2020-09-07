@@ -3,7 +3,7 @@
 @section('body')
     <div class="card">
         <div class="card-header">
-            <strong>Tipo Contactos</strong>
+            <strong>TIPO CONTACTOS</strong>
             <a href="/tipocontacto/crear" class="btn btn-link">Crear Tipo Contacto</a>
         </div>
         <div class="card-body">

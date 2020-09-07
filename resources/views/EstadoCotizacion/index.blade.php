@@ -6,7 +6,7 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTADO DE ESTADOS</strong>
                 <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a>
-                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">CREAR ESTADO </button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR ESTADO </button>
         </div>
         <div class="card-body">
             @include('flash::message')

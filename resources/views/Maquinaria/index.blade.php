@@ -5,7 +5,7 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Maquinaria</strong>
             <a href="/maquinaria/crear" class="btn btn-link">Crear Maquina</a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Maquinaria </button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal1">CREAR MÁQUINA</button>
 
         </div>
         <div class="card-body">
