@@ -8,30 +8,31 @@
 
 @section('body')
 <div class="container">
-    <h1 align="center">Usuarios App Kreemo <i class="fas fa-users"></i></h1>
-    <br/>
-    <div class="row">
-    <div class="col-lg-12 margin-tb">
-    <div class="pull-right">
-    <a class="btn btn-success mb-2" id="new-user" data-toggle="modal">Nuevo</a>
-    </div>
-    </div>
-    </div>
 
-    <table class="table table-bordered data-table" >
-    <thead>
-    <tr id="">
-    <th width="5%">No</th>
-    <th width="5%">Id</th>
-    <th width="30%">Nombre</th>
-    <th width="30%">Email</th>
-    <th width="20%">Acción</th>
-    </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    </table>
+
+    <div class="card">
+        <div class="card-header text-white" style="background-color: black">
+            <strong>Crear Usuarios</strong>
+            <a class="btn btn-primary mb-2" id="new-user" data-toggle="modal">Nuevo Usuario</a>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered table-striped data-table" >
+            <thead align="center">
+            <tr id="">
+            <th width="5%">No</th>
+            <th width="5%">Id</th>
+            <th width="35%">Nombre</th>
+            <th width="35%">Email</th>
+            <th width="20%">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+            </table>
+        </div>
+
     </div>
+</div>
 
     <!-- Add and Edit customer modal -->
     <div class="modal fade" id="crud-modal" aria-hidden="true" >
