@@ -3,8 +3,8 @@
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Empresas</strong>
-            <a href="/empresa/crear" class="btn btn-link">Crear Empresa</a>
+            <strong>EMPRESAS</strong>
+            <a href="/empresa/crear" class="btn btn-outline-light">CREAR EMPRESA</a>
         </div>
         <div class="card-body">
         @include('flash::message')

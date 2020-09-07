@@ -3,8 +3,8 @@
 @section('body')
     <div class="card">
         <div class="card-header">
-            <strong>Encuestas</strong>
-            <a href="/encuesta/crear" class="btn btn-link">Crear Encuesta</a>
+            <strong>ENCUESTAS</strong>
+            <a href="/encuesta/crear" class="btn btn-outline-light">CREAR ENCUESTA</a>
         </div>
         <div class="card-body">
         @include('flash::message')

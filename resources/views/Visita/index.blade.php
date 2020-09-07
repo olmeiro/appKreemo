@@ -3,8 +3,8 @@
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Cita</strong>
-            <a href="/listachequeo" class="btn btn-link">listachequeo</a>
+            <strong>CITAS</strong>
+            <a href="/listachequeo" class="btn btn-outline-light">LISTA DE CHEQUEO</a>
         </div>
 
         <div class="card-body">
