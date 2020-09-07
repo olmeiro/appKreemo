@@ -8,12 +8,12 @@
 
 @section('body')
 <div class="container">
-    <h1 align="center">Laravel 7 CRUD using Datatables</h1>
+    <h1 align="center">Usuarios App Kreemo <i class="fas fa-users"></i></h1>
     <br/>
     <div class="row">
     <div class="col-lg-12 margin-tb">
     <div class="pull-right">
-    <a class="btn btn-success mb-2" id="new-user" data-toggle="modal">New User</a>
+    <a class="btn btn-success mb-2" id="new-user" data-toggle="modal">Nuevo</a>
     </div>
     </div>
     </div>
@@ -23,9 +23,9 @@
     <tr id="">
     <th width="5%">No</th>
     <th width="5%">Id</th>
-    <th width="30%">Name</th>
+    <th width="30%">Nombre</th>
     <th width="30%">Email</th>
-    <th width="20%">Action</th>
+    <th width="20%">Acción</th>
     </tr>
     </thead>
     <tbody>
@@ -47,7 +47,7 @@
     <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
     <div class="form-group">
-    <strong>Name:</strong>
+    <strong>Nombre:</strong>
     <input type="text" name="name" id="name" class="form-control" placeholder="Name" onchange="validate()" >
     </div>
     </div>
@@ -59,7 +59,7 @@
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-            <strong>Contreseña:</strong>
+            <strong>Contraseña:</strong>
             <input type="password" name="pw" id="pw" class="form-control" placeholder="contraseña" onchange="validate()" >
             </div>
         </div>
@@ -72,8 +72,8 @@
 
 
     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Save</button>
-    <a href="{{ route('users.index') }}" class="btn btn-danger">Cancel</a>
+    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+    <a href="{{ route('users.index') }}" class="btn btn-danger">Cancelar</a>
     </div>
     </div>
     </form>
@@ -95,7 +95,7 @@
     <div class="col-xs-10 col-sm-10 col-md-10 ">
 
     <table class="table-responsive ">
-    <tr height="50px"><td><strong>Name:</strong></td><td id="sname"></td></tr>
+    <tr height="50px"><td><strong>Nombre:</strong></td><td id="sname"></td></tr>
     <tr height="50px"><td><strong>Email:</strong></td><td id="semail"></td></tr>
 
     <tr><td></td><td style="text-align: right "><a href="{{ route('users.index') }}" class="btn btn-danger">OK</a> </td></tr>

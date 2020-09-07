@@ -3,7 +3,7 @@
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTADO DE ESTADOS</strong>
                 <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a>
                 <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">CREAR ESTADO </button>

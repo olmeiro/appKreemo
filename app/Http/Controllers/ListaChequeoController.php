@@ -14,7 +14,9 @@ use App\Models\Visita;
 class ListaChequeoController extends Controller
 {
     public function index(){
-        return view('listachequeo.index');
+        $listachequeo= ListaChequeo::all();
+        $visita = Visita::all();
+        return view('listachequeo.index', compact('visita'));
         
     }
 
@@ -89,7 +91,7 @@ class ListaChequeoController extends Controller
 
   public function edit($id){
         
-    
+    $visita = Visita::all();
     $listachequeo = ListaChequeo::find($id);
 
 
@@ -99,7 +101,7 @@ class ListaChequeoController extends Controller
         return redirect("/listachequeo");
     }
     //else{
-        return view("listachequeo.edit", compact("listachequeo"));
+        return view("listachequeo.edit", compact("listachequeo","visita"));
     // }
 }
 
