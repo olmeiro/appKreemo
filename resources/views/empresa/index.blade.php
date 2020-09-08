@@ -305,7 +305,7 @@
             $('#edireccion').val(data.direccion);
             $('#etelefono1').val(data.telefono1);
             $('#ecorreo1').val(data.correo1);
-        
+
 
     })
     });
@@ -327,8 +327,6 @@
 
     </script>
 
-@endsection
-=======
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('js/validacionEmpresa.js') }}"></script>

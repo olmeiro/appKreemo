@@ -3,17 +3,16 @@
 @section('body')
 <div class="container">
     <div class="card">
-        <div class="card-header text-white" style="background-color: #616A6B">
+        <div class="card-header text-white float-right" style="background-color: #616A6B">
             <strong>COTIZACIONES</strong>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">VER JORNADAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">VER MODALIDAD</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">VER TIPO CONCRETO</button>
-
                 {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
                 {{-- <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
                 <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
-                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -335,20 +334,6 @@
                                     @enderror
                                 </div>
                             </div>
-                            <br>
-                            {{-- <div class="row">
-                                <div class="col-md-4">
-                                    <div class="col-md-12"><label class="validacion" id="val_FechaCotizacion3"></label></div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="col-md-12"><label class="validacion" id="val_FechaInicio3"></label></div>
-                                    <div class="col-md-12"><label class="validacion" id="val_ciudad3"></label></div>
-                                    <div class="col-md-12"><label class="validacion" id="val_Losas3"></label></div>
-                                    <div class="col-md-12"><label class="validacion" id="val_Tuberia3"></label></div>
-                                    <div class="col-md-12"><label class="validacion" id="val_Metros3"></label></div>
-                                    <div class="col-md-12"><label class="validacion" id="val_ValorMetro3"></label></div>
-                                </div>
-                            </div> --}}
                             <br>
                             <div class="row">
                                 <div class="col-md-3">

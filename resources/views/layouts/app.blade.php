@@ -94,7 +94,7 @@
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion"><span class="c-sidebar-nav-icon"></span> Cotizacion</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/estadocotizacion"><span class="c-sidebar-nav-icon"></span> Estado Cotizacion</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/componentes"><span class="c-sidebar-nav-icon"></span> Componentes cotizacion</a></li>
+            {{-- <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/componentes"><span class="c-sidebar-nav-icon"></span> Componentes cotizacion</a></li> --}}
         </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
