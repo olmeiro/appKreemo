@@ -7,6 +7,7 @@
         <meta name="author" content="" />
         <title>Kreemo</title>
         <!-- Favicon-->
+
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
@@ -16,6 +17,7 @@
         <!-- Third party plugin CSS-->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
+
         <link href="{{ asset('assets/landing/css/styles.css') }}" rel="stylesheet" />
         <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
     </head>
@@ -57,6 +59,8 @@
             <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Kreemo App</div></div>
         </footer>
         <!-- Bootstrap core JS-->
+
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
@@ -66,7 +70,7 @@
         <script src="{{ asset('assets/landing/js/scripts.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 
-        <script>
+        {{-- <script>
 function mensaje_index()
 {
      Swal.fire({
@@ -88,6 +92,6 @@ function mensaje_index()
           imageAlt:'Logo Kreemo',
      });
 }
-        </script>
+        </script> --}}
     </body>
 </html>

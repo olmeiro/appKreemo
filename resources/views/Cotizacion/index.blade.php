@@ -8,6 +8,7 @@
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">VER JORNADAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">VER MODALIDAD</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">VER TIPO CONCRETO</button>
 
                 {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
                 {{-- <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
@@ -214,18 +215,18 @@
                                     <label class="validacion" id="val_Operario2"></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="">Fecha de Cotización</label>
+                                    <label for="FechaCotizacion">Fecha de Cotización</label>
                                     <label class="validacion" id="val_FechaCotizacion"></label>
-                                    <input type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
-                                    @error('FechaCotizacion')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
+                        @error('FechaCotizacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                                     <label class="validacion" id="val_FechaCotizacion2"></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="">Fecha de Inicio Bombeo</label>
+                                    <label for="InicioBombeo">Fecha de Inicio Bombeo</label>
                                     <label class="validacion" id="val_FechaInicio"></label>
-                                    <input type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
+                                    <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
                                     @error('InicioBombeo')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -438,7 +439,31 @@
                         <th>Editar</th>
                     </tr>
                     </thead>
-                </table
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="card-header text-white" style="background-color: #616A6B">
+                <strong>TIPO DE CONCRETOS</strong>
+            </div>
+            <div class="card-body">
+                @include('flash::message')
+                <table id="tbl_tipoconcreto" class="table table-bordered table-striped" style="width: 100%;">
+                    <thead class="" align="center">
+                    <tr>
+                        <th>Concreto tipo N°</th>
+                        <th>Concreto tipo</th>
+                        <th>Editar</th>
+                    </tr>
+                    </thead>
+                </table>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -449,13 +474,26 @@
 
 @endsection
 @section('style')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#FechaCotizacion", {
+            minDate: "today",
+            maxDate: ""
+        });
 
+        flatpickr("#InicioBombeo", {
+            minDate: "today",
+            maxDate: ""
+        });
+    </script>
     <script>
         $('#tbl_cotizacion').DataTable({
                 processing: true,

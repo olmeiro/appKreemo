@@ -13,7 +13,7 @@
                 <div class="form-row" >
                     <div class="form-group col-md-3">
                         <label for="">Empresa</label>
-                    <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror">
+                        <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror">
                             <option selected>Seleccione una Empresa</option>
                             @foreach($empresa as $key =>$value)
                                 <option value="{{ $value->id }}" {{(old('IdEmpresa')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
@@ -124,15 +124,15 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="">Fecha de Cotización</label>
-                        <input type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
+                        <label for="FechaCotizacion">Fecha de Cotización</label>
+                        <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
                         @error('FechaCotizacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="">Fecha de Inicio Bombeo</label>
-                        <input type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
+                        <label for="InicioBombeo">Fecha de Inicio</label>
+                        <input type="data" data-date-format="yy-m-d"  class="form-control calendarioI @error('InicioBombeo') is-invalid @enderror " id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
                         @error('InicioBombeo')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -221,29 +221,49 @@
 </div>
 </body>
 @endsection
+@section("style")
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
+@endsection
+
+
 @section("scripts")
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    function valor_total()
-{
-    var cantidad = document.getElementById('MetrosCubicos').value;
-    var valor = document.getElementById('ValorMetro').value;
-    document.getElementById('AIU').value= (cantidad*valor)*(0.05);
-    document.getElementById('Subtotal').value= (cantidad*valor);
-    document.getElementById('IvaAIU').value= ((cantidad*valor)*(0.05))*(0.19);
-    document.getElementById('ValorTotal').value= ((cantidad*valor)*(0.05))*(0.19)+(cantidad*valor);
-}
+    flatpickr("#FechaCotizacion", {
+        minDate: "today",
+        maxDate: ""
+    });
+
+    flatpickr("#InicioBombeo", {
+        minDate: "today",
+        maxDate: ""
+    });
+</script>
+
+<script>
+        function valor_total()
+    {
+        var cantidad = document.getElementById('MetrosCubicos').value;
+        var valor = document.getElementById('ValorMetro').value;
+        document.getElementById('AIU').value= (cantidad*valor)*(0.05);
+        document.getElementById('Subtotal').value= (cantidad*valor);
+        document.getElementById('IvaAIU').value= ((cantidad*valor)*(0.05))*(0.19);
+        document.getElementById('ValorTotal').value= ((cantidad*valor)*(0.05))*(0.19)+(cantidad*valor);
+    }
 </script>
 <script>
-$(document).ready(function(){
+    $(document).ready(function(){
 
-    $(".solo_numeros").on("keyup",function(){
-        this.value = this.value.replace(/[^0-9]/g,'');
-    });
+        $(".solo_numeros").on("keyup",function(){
+            this.value = this.value.replace(/[^0-9]/g,'');
+        });
 
-    $(".solo_letras").on("keyup",function(){
-        this.value = this.value.replace(/[0-9]/g,'');
+        $(".solo_letras").on("keyup",function(){
+            this.value = this.value.replace(/[0-9]/g,'');
+        });
     });
-});
 </script>
 
 <script>
@@ -287,4 +307,6 @@ $(document).ready(function(){
         }
     }
 </script>
+
+
 @endsection
