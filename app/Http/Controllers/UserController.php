@@ -98,8 +98,8 @@ return Response::json($user);
 
 public function destroy($id)
 {
-$user = User::where('id',$id)->delete();
-return Response::json($user);
-//return redirect()->route('users.index');
+    $user = User::where('id',$id)->delete();
+    return Response::json($user);
+    //return redirect()->route('users.index');
 }
 }

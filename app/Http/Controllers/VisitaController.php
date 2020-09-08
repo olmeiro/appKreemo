@@ -21,13 +21,13 @@ class VisitaController extends Controller
         $visita = Visita::select("visita.*", "obra.nombre as nombre_obra")
         ->join("obra", "visita.idobra", "=", "obra.id")
         ->get();
-        return DataTables::of($visita)    
-       
+        return DataTables::of($visita)
+
         ->addColumn('editar', function ($visita) {
-            return '<a class="btn btn-xs btn-primary" href="/visita/editar/'.$visita->id.'">Editar</a>';
+            return '<a class="btn btn-xs btn-primary" href="/visita/editar/'.$visita->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($visita) {
-            return '<a class="btn btn-danger btn-xs" href="/visita/eliminar/'.$visita->id.'">Eliminar</a>';
+            return '<a class="btn btn-danger btn-xs" href="/visita/eliminar/'.$visita->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar', 'eliminar'])
         ->make(true);
@@ -85,37 +85,37 @@ class VisitaController extends Controller
 
         $request->validate(Visita::$rules);
         $input = $request->all();
-        
-    
-        
+
+
+
         //dd($input);
         try {
-    
+
             $visita = Visita::find($input["id"]);
-    
+
             if ($visita==null) {
                 Flash::error("Visita no encontrada");
                 return redirect("/visita");
             }
-    
+
             $visita->update([
                 "tipovisita"=>$input["tipovisita"],
                 "idobra"=>$input["idobra"],
                 "encargadovisita"=>$input["encargadovisita"],
                 "Fecha_Hora"=>$input["Fecha_Hora"],
                 "viabilidad"=>$input["viabilidad"],
-                
+
             ]);
-    
+
             Flash::success("Se modificò la visita");
             return redirect("/visita");
-    
+
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/visita");
-        }   
+        }
     }
-    
+
     public function destroy($id)
     {
         $visita = Visita::find($id);

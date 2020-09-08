@@ -24,10 +24,10 @@ class TipoContactoController extends Controller
 
         return DataTables::of($tipoContacto)
         ->addColumn('editar', function ($tipoContacto) {
-            return '<a class="btn btn-primary btn-sm" href="/tipocontacto/editar/'.$tipoContacto->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($tipoContacto) {
-            return '<a class="btn btn-danger btn-sm" href="/tipocontacto/eliminar/'.$tipoContacto->id.'">Eliminar</a>';
+            return '<a class="btn btn-danger btn-sm" href="/tipocontacto/eliminar/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);

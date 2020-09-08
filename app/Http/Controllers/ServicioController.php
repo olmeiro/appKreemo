@@ -24,11 +24,11 @@ class ServicioController extends Controller
 
         return DataTables::of($servicio)
         ->addColumn('editar', function ($servicio) {
-            return '<a class="btn btn-primary btn-sm" href="/servicio/editar/'.$servicio->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/servicio/editar/'.$servicio->id.'"><i class="fas fa-edit"></i></a>';
         })
 
         ->addColumn('eliminar', function ($servicio) {
-            return '<a class="btn btn-danger btn-sm" href="/servicio/eliminar/'.$servicio->id.'">Eliminar</a>';
+            return '<a class="btn btn-danger btn-sm" href="/servicio/eliminar/'.$servicio->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar', 'eliminar'])
         ->make(true);

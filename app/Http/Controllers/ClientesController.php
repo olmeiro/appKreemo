@@ -39,7 +39,7 @@ class ClientesController extends Controller
         })
         ->addColumn('editar', function ($cliente) {
             return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
-            <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Cliente" data-id='.$cliente->id.' >Editar</a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+            <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Cliente" data-id='.$cliente->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
            
         })
         ->addColumn('cambiar', function ($cliente) {
@@ -54,7 +54,12 @@ class ClientesController extends Controller
               
             }
         })
-        ->rawColumns(['editar', 'cambiar'])
+        ->addColumn('eliminar', function ($cliente) {
+            return ' <button type="button" class="btn btn-danger">
+            <a id="delete-cliente" data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'">Eliminar</a></button>';
+           
+        })
+        ->rawColumns(['editar', 'cambiar','eliminar'])
         ->make(true);
         }   
         return view('cliente/listar');
@@ -186,6 +191,7 @@ class ClientesController extends Controller
     {
         $where = array('id' => $id);
         $cliente = Cliente::where($where)->first();
+        Flash::success("Se modifico el cliente.");
         return Response::json($cliente);
     }
 
@@ -253,6 +259,19 @@ class ClientesController extends Controller
             Flash::error($e->getMessage());
             return redirect("/cliente");
         }
+    }
+
+    public function destroy($id){
+        $cliente = Cliente::find($id);
+
+        if (empty($cliente)) {
+            Flash::error('Cliente no encontrado');
+            return redirect('/cliente');
+        }
+
+        $cliente->delete($id);
+        Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
+        return redirect('/cliente');
     }
 
 }
