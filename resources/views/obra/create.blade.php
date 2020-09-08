@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Crear Obra</strong>
             <a href="/obra/crearcontactos" class="btn btn-link">Crear Contactos Obra</a>
             <!-- <a href="/tipocontacto/listar" class="btn btn-link">Listar Contacto</a> -->
@@ -10,8 +10,8 @@
         <div class="card-body">
         @include('flash::message')
         <form action="/obra/guardar" method="POST">
-        @csrf  
-            <div class="row">  
+        @csrf
+            <div class="row">
             <div class="col-6">
                     <div class="form-group">
                         <label for="">Nombre</label>
@@ -21,7 +21,7 @@
                         @enderror
                     </div>
                 </div>
-      
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Dirección</label>
@@ -31,7 +31,7 @@
                         @enderror
                     </div>
                 </div>
-              
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Telefono</label>
@@ -54,7 +54,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success float-lg-right">Guardar</button>
-            </form>   
+            </form>
         </div>
     </div>
 @endsection

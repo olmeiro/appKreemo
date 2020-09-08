@@ -44,7 +44,7 @@
                     @include('flash::message')
                     <form class="col-md-12 " action="" method="POST" id="frmTipoContacto">
                     @csrf
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title">Crear Tipo Contacto</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar1()">
                         <span aria-hidden="true">&times;</span>
@@ -72,7 +72,7 @@
     <div class="modal fade" data-backdrop="static" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-white" style="background-color: #616A6B">
                     <h5 class="modal-title" id="exampleModalLabel2">Crear Contacto</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
@@ -191,7 +191,7 @@
     <div class="modal fade" id="exampleModal3" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal3" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background-color: #616A6B">
                         <h4>Lista Tipos De Contactos</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <div class="card-header">
@@ -219,14 +219,14 @@
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
 
 
 
-        <div class="modal fade" id="exampleModal4" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal4" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal fade" id="exampleModal4" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal4" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header text-white" style="background-color: #616A6B">
                         <h4 class="modal-title" id="clienteCrudModal"></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <div class="card-header">
@@ -346,7 +346,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
 
 
 @endsection
@@ -417,7 +417,35 @@
                         orderable: false,
                         searchable: false
                     }
-                ]
+                ],
+                "language":{
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            },
+                            "oAria": {
+                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            },
+                            "buttons": {
+                                "copy": "Copiar",
+                                "colvis": "Visibilidad"
+                            }
+                            }
             });
 
             $('#tbl_tipocontacto').DataTable({
@@ -449,7 +477,35 @@
                         orderable: false,
                         searchable: false
                     }
-                ]
+                ],
+                "language":{
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            },
+                            "oAria": {
+                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            },
+                            "buttons": {
+                                "copy": "Copiar",
+                                "colvis": "Visibilidad"
+                            }
+                            }
             });
 
             $('body').on('click', '#editar-Cliente', function () {

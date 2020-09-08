@@ -5,9 +5,14 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>COTIZACIONES</strong>
-                <a class="btn btn-link" href="/cotizacion/crear">CREAR COTIZACIÓN</a>
-                <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
-                <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">VER JORNADAS</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">VER MODALIDAD</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">VER TIPO CONCRETO</button>
+
+                {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
+                {{-- <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
+                <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
                 <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
         </div>
         <div class="card-body">
@@ -43,13 +48,16 @@
                 </thead>
             </table>
         </div>
+        <div class="card-footer text-white" style="background-color: #616A6B">
+
+        </div>
     </div>
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title" id="exampleModalLabel">Crear Cotización</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
@@ -207,18 +215,18 @@
                                     <label class="validacion" id="val_Operario2"></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="">Fecha de Cotización</label>
+                                    <label for="FechaCotizacion">Fecha de Cotización</label>
                                     <label class="validacion" id="val_FechaCotizacion"></label>
-                                    <input type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
-                                    @error('FechaCotizacion')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                                    <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
+                        @error('FechaCotizacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                                     <label class="validacion" id="val_FechaCotizacion2"></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="">Fecha de Inicio Bombeo</label>
+                                    <label for="InicioBombeo">Fecha de Inicio Bombeo</label>
                                     <label class="validacion" id="val_FechaInicio"></label>
-                                    <input type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
+                                    <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
                                     @error('InicioBombeo')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -358,15 +366,134 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="exampleModalE" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background-color: #616A6B">
+                <h5 class="modal-title" id="exampleModalLabel">ETAPAS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    @include('flash::message')
+                    <table id="tbl_etapa" class="table table-bordered table-striped " style="width: 100%;">
+                        <thead class="" align="center">
+                        <tr>
+                            <th>Etapa N°</th>
+                            <th>Etapa</th>
+                            <th>Editar</th>
+                        </tr>
+                        </thead>
+                    </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalJ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background-color: #616A6B">
+                <h5 class="modal-title" id="exampleModalLabel">JORNADAS</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @include('flash::message')
+                <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
+                    <thead class="" align="center">
+                    <tr>
+                        <th>Jornada N°</th>
+                        <th>Jornada</th>
+                        <th>Editar</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-white" style="background-color: #616A6B">
+                <h5 class="modal-title" id="exampleModalLabel">MODALIDAD</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @include('flash::message')
+                <table id="tbl_modalidad" class="table table-bordered table-striped" style="width: 100%;">
+                    <thead class="" align="center">
+                    <tr>
+                        <th>Modalidad N°</th>
+                        <th>Modalidad</th>
+                        <th>Editar</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="card-header text-white" style="background-color: #616A6B">
+                <strong>TIPO DE CONCRETOS</strong>
+            </div>
+            <div class="card-body">
+                @include('flash::message')
+                <table id="tbl_tipoconcreto" class="table table-bordered table-striped" style="width: 100%;">
+                    <thead class="" align="center">
+                    <tr>
+                        <th>Concreto tipo N°</th>
+                        <th>Concreto tipo</th>
+                        <th>Editar</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 @section('style')
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#FechaCotizacion", {
+            minDate: "today",
+            maxDate: ""
+        });
 
+        flatpickr("#InicioBombeo", {
+            minDate: "today",
+            maxDate: ""
+        });
+    </script>
     <script>
         $('#tbl_cotizacion').DataTable({
                 processing: true,
@@ -511,6 +638,7 @@
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
     <script src="{{ asset('assets/modal/js/cotizacion.js') }}"></script>
     <script src="{{ asset('js/validacionCotizacion.js') }}"></script>
+    <script src="{{ asset('js/modalesCotizacion.js') }}"></script>
 @endsection
 
 

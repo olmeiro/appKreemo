@@ -3,7 +3,7 @@
 @section('body')
 <div class="container">
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Editar Cotización</strong><strong class="float-right" >Cotizacion N° {{$cotizacion->id}}</strong>
         </div>
         <div class="card-body">

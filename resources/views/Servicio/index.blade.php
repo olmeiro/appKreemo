@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>SERVICIOS</strong>
             <a href="/servicio/crear" class="btn btn-link">Crear Servicio</a>
             <a href="/estadoservicio" class="btn btn-link">Estados</a>

@@ -196,14 +196,24 @@ class CotizacionController extends Controller
 
     public function editEstado($id){
 
+        $empresa = Empresa::all();
+        $obra = Obra::all();
+        $jornada = Jornada::all();
+        $etapa = Etapa::all();
+        $modalidad = Modalidad::all();
+        $tipoconcreto = TipoConcreto::all();
+        $maquinaria = Maquinaria::all();
+        $operario = Operario::all();
         $estadocotizacion = EstadoCotizacion::all();
         $cotizacion = Cotizacion::find($id);
+
 
         if($cotizacion==null){
 
             Flash::error("Cotización  NO encontrada");
             return redirect("/cotizacion");
         }
+
         return view("cotizacion.editEstado", compact("cotizacion", 'estadocotizacion'));
     }
 
@@ -211,6 +221,7 @@ class CotizacionController extends Controller
 
         $request->validate(Cotizacion::$rules);
         $input = $request->all();
+
         try {
 
             $cotizacion = Cotizacion::find($input["id"]);
@@ -223,7 +234,27 @@ class CotizacionController extends Controller
 
             $cotizacion->update([
 
+                'idEmpresa' =>$input["IdEmpresa"],
                 'idEstado' =>$input["IdEstado"],
+                'idModalidad' =>$input["IdModalidad"],
+                'idEtapa' =>$input["IdEtapa"],
+                'idJornada' =>$input["IdJornada"],
+                'idTipo_Concreto' =>$input["IdTipo_Concreto"],
+                'idObra' =>$input["IdObra"],
+                'idMaquinaria' =>$input["IdMaquinaria"],
+                'idOperario' =>$input["IdOperario"],
+                'fechaCotizacion' =>$input["FechaCotizacion"],
+                'inicioBombeo' =>$input["InicioBombeo"],
+                'ciudad' =>$input["Ciudad"],
+                'losas' =>$input["Losas"],
+                'tuberia' =>$input["Tuberia"],
+                'metrosCubicos' =>$input["MetrosCubicos"],
+                'valorMetro' =>$input["ValorMetro"],
+                'AIU' =>$input["AIU"],
+                'subtotal' =>$input["Subtotal"],
+                'ivaAIU' =>$input["IvaAIU"],
+                'valorTotal' =>$input["ValorTotal"],
+                'observaciones' =>$input["Observaciones"],
 
             ]);
             Flash::success("Estado Cotización Modificada");

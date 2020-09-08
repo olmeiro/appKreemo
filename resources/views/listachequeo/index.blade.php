@@ -6,9 +6,9 @@
             <strong>LISTA DE CHEQUEO</strong>
             <a href="/listachequeo/crear" class="btn btn-link">Crear listachequeo</a>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">CREAR LISTA DE CHEQUEO</button>
-            
+
         </div>
-        
+
         <div class="card-body">
                  @include('flash::message')
             <table id="tbl_listachequeo" class="table table-striped table-responsive" style="width: 100%;">
@@ -45,7 +45,7 @@
             </table>
         </div>
     </div>
-    
+
 
         <div class="modal fade" id="crear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -85,7 +85,7 @@
                                                             @enderror
                                                             <label class="validacion" id="val_idvisita"></label>
                                                     </div>
-                                    
+
                                                     <div class="form-group col-md-6">
                                                         <label for="">Numero Planilla</label>
                                                         <label class="validacion" id="val_numeroplanilla"></label>
@@ -100,10 +100,10 @@
                                                         <strong>ACCESO MÁQUINA</strong>
                                             </div>
                                             <div class="row mt-3">
-                                            
+
                                                 <div class="form-group col-md-6">
                                                             <label class="radio-inline">Estado de la vía para ingreso en grúa</label>
-                                                            <label class="validacion"id="val_estadovia"></label>  
+                                                            <label class="validacion"id="val_estadovia"></label>
                                                             <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
                                                             <option value="NS">Seleccione</option>
                                                                     <option value="SI">SI CUMPLE</option>
@@ -129,7 +129,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                       
+
                                         <div id="step-2">
                                             <div class="card-header">
                                                 <strong>UBICACIÓN MÁQUINA</strong>
@@ -281,7 +281,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                         <div id="step-4" class="">
                                                 <div class="card-header">
                                                      <strong>SUMINISTROS</strong>
@@ -385,13 +385,13 @@
                                                     <label class="validacion" id="val_viabilidad2"></label>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-success float-left">Guardar</button>
                                                 </div>
                                             </div>
-                                            
+
                                         </div>
 
                                     </div>
@@ -442,7 +442,7 @@
                         data: 'ph',
                         name: 'ph'
                     },
-                   
+
                     {
                         data: 'hueco',
                         name: 'hueco'
@@ -459,7 +459,7 @@
                         data: 'desague',
                         name: 'desague'
                     },
-                   
+
                     {
                         data: 'agua',
                         name: 'agua'
@@ -488,7 +488,7 @@
                         data: 'vigilancia',
                         name: 'vigilancia'
                     },
-                   
+
                     {
                         data: 'caspete',
                         name: 'caspete'
@@ -521,7 +521,34 @@
                     //     orderable: false,
                     //     searchable: false
                     // }
-                ]
+                ], "language":{
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            },
+                            "oAria": {
+                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            },
+                            "buttons": {
+                                "copy": "Copiar",
+                                "colvis": "Visibilidad"
+                            }
+                            }
             });
 
     </script>
@@ -533,6 +560,6 @@
 
 
 
-   
+
 @endsection
 

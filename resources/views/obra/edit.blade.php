@@ -2,17 +2,17 @@
 
 @section('body')
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Editar Obra</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
         <form action="/obra/actualizar" method="POST">
-        @csrf  
+        @csrf
         <input type="hidden" name="id" value="{{$obra->id}}"/>
-            <div class="row">  
+            <div class="row">
             <div class="col-6">
-                     
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Nombre</label>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-         
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Correo #1</label>
@@ -54,12 +54,12 @@
                         @enderror
                     </div>
                 </div>
-         
+
 
                 </div>
             </div>
             <button type="submit" class="btn btn-success float-lg-right">Actualizar</button>
-            </form>   
+            </form>
         </div>
     </div>
 @endsection

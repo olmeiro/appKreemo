@@ -2,15 +2,15 @@
 
 @section('body')
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Crear Empresa</strong>
             <a href="/empresa/crear" class="btn btn-link">Crear Empresa</a>
         </div>
         <div class="card-body">
         @include('flash::message')
         <form action="/empresa/guardar" method="POST" enctype="multipart/form-data">
-        @csrf  
-            <div class="row">         
+        @csrf
+            <div class="row">
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">NIT</label>
@@ -30,7 +30,7 @@
                         @enderror
                     </div>
                 </div>
-      
+
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Nombre Representante</label>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-success float-lg-right">Crear</button>
-            </form>   
+            </form>
         </div>
     </div>
 @endsection
