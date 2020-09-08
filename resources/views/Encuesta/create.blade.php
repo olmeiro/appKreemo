@@ -2,7 +2,7 @@
 
 @section('body')
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Crear Encuesta</strong>
         </div>
         <div class="card-body">

@@ -1,91 +1,4 @@
-@extends('layouts.app')
 
-@section('body')
-
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>ETAPAS</strong>
-            </div>
-            <div class="card-body">
-                @include('flash::message')
-                <table id="tbl_etapa" class="table table-bordered table-striped " style="width: 100%;">
-                    <thead class="" align="center">
-                    <tr>
-                        <th>Etapa N°</th>
-                        <th>Etapa</th>
-                        <th>Editar</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-header text-white " style="background-color: #616A6B">
-                <strong>JORNADAS</strong>
-            </div>
-            <div class="card-body">
-                @include('flash::message')
-                <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
-                    <thead class="" align="center">
-                    <tr>
-                        <th>Jornada N°</th>
-                        <th>Jornada</th>
-                        <th>Editar</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>MODALIDAD</strong>
-            </div>
-            <div class="card-body">
-                @include('flash::message')
-                <table id="tbl_modalidad" class="table table-bordered table-striped" style="width: 100%;">
-                    <thead class="" align="center">
-                    <tr>
-                        <th>Modalidad N°</th>
-                        <th>Modalidad</th>
-                        <th>Editar</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>TIPO DE CONCRETOS</strong>
-            </div>
-            <div class="card-body">
-                @include('flash::message')
-                <table id="tbl_tipoconcreto" class="table table-bordered table-striped" style="width: 100%;">
-                    <thead class="" align="center">
-                    <tr>
-                        <th>Concreto tipo N°</th>
-                        <th>Concreto tipo</th>
-                        <th>Editar</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
-@section("scripts")
-
-    <script>
         $('#tbl_jornada').DataTable({
                 processing: true,
                 serverSide: true,
@@ -135,8 +48,7 @@
                             }
                             }
             });
-    </script>
-    <script>
+
         $('#tbl_etapa').DataTable({
                 processing: true,
                 serverSide: true,
@@ -186,8 +98,7 @@
                             }
                             }
             });
-    </script>
-    <script>
+
         $('#tbl_modalidad').DataTable({
                 processing: true,
                 serverSide: true,
@@ -237,8 +148,7 @@
                             }
                             }
             });
-    </script>
-    <script>
+
         $('#tbl_tipoconcreto').DataTable({
                 processing: true,
                 serverSide: true,
@@ -288,5 +198,3 @@
                             }
                             }
             });
-    </script>
-@endsection

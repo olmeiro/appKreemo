@@ -3,7 +3,7 @@
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Crear Maquina</strong>
                 <!-- <a href="/tipocontacto/listar" class="btn btn-link">Listar Contacto</a> -->
         </div>

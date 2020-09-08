@@ -37,7 +37,7 @@
             @include('flash::message')
             <form action="/maquinaria/guardar" method="POST" enctype="multipart/form-data" name="FrmCrearMaquinaria" id="FrmCrearMaquinaria">
             @csrf
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title">Crear Maquina</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
