@@ -69,7 +69,13 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
             <strong>Rol:</strong>
-            <input type="text" name="rol" id="rol" class="form-control" placeholder="Rol" onchange="validate()" >
+            <select name="rol" id="rol" onchange="validate()">
+                <option value="0">Seleccione</option>
+                <option value="1">Administrador</option>
+                <option value="2">Auxiliar</option>
+                <option value="3">Supervisor</option>
+            </select>
+            <!-- <input type="text" name="rol" id="rol" class="form-control" placeholder="Rol" onchange="validate()" > -->
             </div>
         </div>
 
@@ -171,6 +177,8 @@ document.userForm.btnsave.disabled=true
     $('#user_id').val(data.id);
     $('#name').val(data.name);
     $('#email').val(data.email);
+    $('#pw').val(data.password);
+    $('#rol').val(data.rol_id);
 
     })
     });
@@ -195,7 +203,7 @@ document.userForm.btnsave.disabled=true
 
     $.ajax({
     type: "DELETE",
-    url: "http://localhost/laravelpro/public/users/"+user_id,
+    url: "/users/"+user_id,
     data: {
     "id": user_id,
     "_token": token,

@@ -28,6 +28,7 @@
                     <th>Correo 1</th>
                     <th>Editar</th>
                     <th>Cambiar Estado</th>
+                    <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -407,6 +408,12 @@
                     {
                         data: 'cambiar',
                         name: 'cambiar',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'eliminar',
+                        name: 'eliminar',
                         orderable: false,
                         searchable: false
                     }

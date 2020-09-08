@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 use Flash;
 use DataTables;
+use Redirect,Response;
 
 use Illuminate\Http\Request;
 
 use App\Models\Empresa;
+use Laracasts\Flash\Flash as FlashFlash;
 
 class EmpresaController extends Controller
 {
@@ -19,19 +21,33 @@ class EmpresaController extends Controller
 
         $empresa = Empresa::all();
 
-        return DataTables::of($empresa)
+        if ($request->ajax()) {
+            $data = Empresa::latest()->get();
+   
+        return DataTables::of($data)
+        ->addIndexColumn()
         ->addColumn('editar', function ($empresa) {
-            return '<a class="btn btn-primary btn-sm" href="/empresa/editar/'.$empresa->id.'"><i class="fas fa-edit"></i></a>';
+
+            return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
+            <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Empresa" data-id='.$empresa->id.' >Editar</a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+
         })
-        ->rawColumns(['editar'])
+        ->addColumn('eliminar', function ($empresa) {
+            return ' <button type="button" class="btn btn-danger">
+            <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa" href="/empresa/eliminar/'.$empresa->id.'">Eliminar</a></button>';
+           
+        })
+        ->rawColumns(['editar','eliminar'])
         ->make(true);
     }
-
-    public function create(){
-        $empresa = Empresa::all();
-
-        return view('empresa.create', compact('empresa'));
+        return view('empresa/listar');
     }
+
+    // public function create(){
+    //     $empresa = Empresa::all();
+
+    //     return view('empresa.create', compact('empresa'));
+    // }
 
     public function save(Request $request){
         //dd('ruta ok');
@@ -52,59 +68,90 @@ class EmpresaController extends Controller
             ]);
 
             Flash::success("Registro éxitoso de empresa");
-            return redirect("/empresa");
+            return response()->json(["ok"=>true]);
+            //return redirect("/empresa");
 
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
-            return redirect("/empresa/crear");
+            return response()->json(["ok"=>false]);
+            //return redirect("/empresa/crear");
         }
     }
 
-    public function edit($id){
+    public function edit($id)
+    {
+        $where = array('id' => $id);
+        $empresa = Empresa::where($where)->first();
+        Flash::success("Se modifico empresa.");
+        return Response::json($empresa);
+    }
 
+    public function store(Request $request)
+    {
+        $eId = $request->empresa_id;
+        Empresa::updateOrCreate(['id' => $eId],[
+            "nit" => $request->enit,
+            "nombre" => $request->enombre,
+            "nombrerepresentante" => $request->enombrerepresentante,
+            "direccion" => $request->edireccion,
+            "telefono1" => $request->etelefono1,
+            "correo1" => $request->ecorreo1,
+            
+        ]);
+        if(empty($request->empresa_id))
+        {
+            //$msg = 'Cliente created successfully.';
+            Flash::success("Creación éxitosa de empresa");
+            return redirect("/empresa");
+            //return response()->json(["ok"=>true]);
+        }
+       
+        else{
+            //$msg = 'Client data is updated successfully';
+            Flash::success("Actuliazación éxitosa de empresa");
+            return redirect("/empresa");
+            //return redirect('cliente')->with('success',$msg);
+            //return response()->json(["ok"=>false]);
+            
+        }
+   
+    }
 
+   
+
+        /**
+    * Remove the specified resource from storage.
+    *
+    * @param int $id
+    * @return \Illuminate\Http\Response
+    */
+
+    // public function destroy($id)
+    // {
+    //     $empresa = Empresa::where('id',$id)->delete();
+    //     return response()->json(["ok"=>true]);
+    //     //return Response::json($empresa);
+    //     //return redirect()->route('users.index');
+    // }
+
+    public function destroy($id){
         $empresa = Empresa::find($id);
 
-        if ($empresa==null) {
-
-            Flash::error("Empresa no encontrada");
-            return redirect("/empresa");
+        if (empty($empresa)) {
+            Flash::error('Empresa no encontrada');
+            return redirect('/empresa');
         }
 
-        return view("empresa.edit", compact("empresa"));
-
+        $empresa->delete($id);
+        Flash::success('Empresa ('.$empresa->nombre. ') eliminada');
+        return redirect('/empresa');
     }
 
-    public function update(Request $request){
-
-        $request->validate(Empresa::$rules);
-        $input = $request->all();
-
-        try {
-
-            $empresa = Empresa::find($input["id"]);
-
-            if ($empresa==null) {
-                Flash::error("Empresa no encontrada");
-                return redirect("/empresa");
-            }
-
-            $empresa->update([
-                "nit" => $input["nit"],
-                "nombre" => $input["nombre"],
-                "nombrerepresentante" => $input["nombrerepresentante"],
-                "direccion" =>$input["direccion"],
-                "telefono1" =>$input["telefono1"],
-                "correo1" =>$input["correo1"],
-
-            ]);
-
-            Flash::success("Se modifico la empresa");
-            return redirect("/empresa");
-
-        } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/empresa");
-        }
-    }
 }
+
+
+// ->addColumn('eliminar', function ($empresa) {
+//     return ' <button type="button" class="btn btn-danger">
+//     <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa" href="/empresa/'.$empresa->id.'">Eliminar</a></button>';
+   
+// })
