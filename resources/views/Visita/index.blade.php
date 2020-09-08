@@ -4,7 +4,7 @@
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>CITAS</strong>
-            <a href="/listachequeo" class="btn btn-outline-light">LISTA DE CHEQUEO</a>
+            <a href="/listachequeo" class="btn btn-outline-light float-right">LISTA DE CHEQUEO</a>
         </div>
 
         <div class="card-body">

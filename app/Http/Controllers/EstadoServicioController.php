@@ -21,10 +21,10 @@ class EstadoServicioController extends Controller
 
         return DataTables::of($estadoservicio)
         ->addColumn('editar', function ($estadoservicio) {
-            return '<a class="btn btn-primary btn-sm" href="/estadoservicio/editar/'.$estadoservicio->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/estadoservicio/editar/'.$estadoservicio->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($estadoservicio) {
-            return '<a class="btn btn-danger btn-sm" href="/estadoservicio/eliminar/'.$estadoservicio->id.'">Eliminar</a>';
+            return '<a class="btn btn-danger btn-sm" href="/estadoservicio/eliminar/'.$estadoservicio->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);

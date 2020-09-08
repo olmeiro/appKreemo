@@ -11,10 +11,12 @@
 
 
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
-            <strong>Crear Usuarios</strong>
-            <a class="btn btn-outline-light" id="new-user" data-toggle="modal">NUEVO USUARIO</a>
+        <div class="card-header text-white" style="background-color: #616A6B">
+            <strong>USUARIOS</strong>
+            <button type="button" class="btn btn-outline-light float-right" id="new-user" data-toggle="modal">NUEVO USUARIO</button>
+
         </div>
+        
         <div class="card-body">
             <table class="table table-bordered table-striped data-table" >
             <thead align="center">

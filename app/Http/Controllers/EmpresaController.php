@@ -27,8 +27,10 @@ class EmpresaController extends Controller
         return DataTables::of($data)
         ->addIndexColumn()
         ->addColumn('editar', function ($empresa) {
+
             return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
             <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Empresa" data-id='.$empresa->id.' >Editar</a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+
         })
         ->addColumn('eliminar', function ($empresa) {
             return ' <button type="button" class="btn btn-danger">

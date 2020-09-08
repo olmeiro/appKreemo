@@ -5,7 +5,7 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTA DE CHEQUEO</strong>
             <a href="/listachequeo/crear" class="btn btn-link">Crear listachequeo</a>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#crear">CREAR LISTA DE CHEQUEO</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">CREAR LISTA DE CHEQUEO</button>
             
         </div>
         

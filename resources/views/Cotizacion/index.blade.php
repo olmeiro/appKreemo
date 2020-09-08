@@ -8,7 +8,7 @@
                 <a class="btn btn-link" href="/cotizacion/crear">CREAR COTIZACIÓN</a>
                 <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
                 <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
+                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
         </div>
         <div class="card-body">
             @include('flash::message')
