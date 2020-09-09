@@ -18,17 +18,21 @@ class ObraContactoController extends Controller
 
         $tipocontacto = tipoContacto::all();
         $obra = Obra::all();
-        $cliente = Cliente::all();
+
+        $cliente = cliente::select("contacto.*","tipocontacto.tipocontacto")
+        ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
+        ->get();
 
         return view("obracontacto.index", compact("tipocontacto","obra","cliente"));
     }
 
     public function save(Request $request)
     {
+        $input = $request->all();
+        //dd($input);
+
         $request->validate(Obra::$rules);
         $input = $request->all();
-
-       // dd($input);
       
         try {
 

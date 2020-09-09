@@ -135,16 +135,24 @@ class EmpresaController extends Controller
     // }
 
     public function destroy($id){
-        $empresa = Empresa::find($id);
+     
+         try 
+        {
+            $empresa = Empresa::find($id);
 
-        if (empty($empresa)) {
-            Flash::error('Empresa no encontrada');
+            if (empty($empresa)) {
+                Flash::error('Empresa no encontrada');
+                return redirect('/empresa');
+            }
+            
+            $empresa->delete($id);
+            Flash::success('Empresa ('.$empresa->nombre. ') eliminada');
             return redirect('/empresa');
-        }
-
-        $empresa->delete($id);
-        Flash::success('Empresa ('.$empresa->nombre. ') eliminada');
-        return redirect('/empresa');
+        } 
+        catch (\Throwable $th) {
+            Flash::success('No puedes eliminar este cliente.');
+            return redirect("/empresa");
+        } 
     }
 
 }

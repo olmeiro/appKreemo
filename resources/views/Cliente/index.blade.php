@@ -18,7 +18,6 @@
             <table id="tbl_contacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>id</th>
                     <th>Tipo Contacto</th>
                     <th>Nombre</th>
                     <th>Primer Apellido</th>
@@ -366,12 +365,8 @@
                 ajax: '/cliente/listar',
                 columns: [
                     {
-                     data: 'id',
-                     name: 'id'
-                    },
-                    {
-                     data: 'idtipocontacto',
-                     name: 'idtipocontacto',
+                     data: 'tipocontacto',
+                     name: 'tipocontacto',
                      orderable: false,
                      searchable: false
                     },
