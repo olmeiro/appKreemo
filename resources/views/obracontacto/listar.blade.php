@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col">
             <h4 class="text-center">Obras</h4>
-            <a href="/obracontacto/crear">Crear</a>
+            <a class="btn btn-info" href="/obracontacto">Crear</a>
+            
                 @if (session('status'))
                 @if(session('status') == '1')
                     <div class="alert alert-success">
@@ -28,7 +29,7 @@
                         <th>Dirrección</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
-                        <th>Insumos</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
