@@ -4,7 +4,7 @@
  <div class="row">
     <div class="col">
         <h3>Crear Contactos De Obra</h1>
-        <a href="/obracontacto/listar">Listar</a>
+        <a class="btn btn-info" href="/obracontacto/listar">Listar</a>
     </div>
 </div>
 <form action="/obracontacto/guardar" method="POST">
