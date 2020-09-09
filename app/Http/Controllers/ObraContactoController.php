@@ -70,7 +70,8 @@ class ObraContactoController extends Controller
         $contactos = [];
         if($id != null)
         {
-            $contactos = Cliente::select("contacto.*", "obracontacto.idcontacto as contactos")
+            $contactos = Cliente::select("contacto.*", "obracontacto.idcontacto as contactos","tipocontacto.tipocontacto")
+            ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
             ->join("obracontacto", "contacto.id", "=", "obracontacto.idcontacto")
             ->where("obracontacto.idobra", $id)
             ->get();
