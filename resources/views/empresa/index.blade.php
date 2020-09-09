@@ -14,7 +14,7 @@
         <div class="card-body">
         @include('flash::message')
         <h4 id="msg"></h4>
-            <table id="tbl_empresa" class="table table-bordered" style="width: 100%;">
+            <table id="tbl_empresa" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
                 <tr>
                     <th>NIT</th>

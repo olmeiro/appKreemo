@@ -109,19 +109,29 @@ class TipoContactoController extends Controller
 
     public function destroy($id)
     {
-        $tipoContacto = tipoContacto::find($id);
+        
 
-        if (empty($tipoContacto)) {
-            Flash::error('Tipo contacto no encontrado');
+        
 
-            return redirect('/tipocontacto');
-        }
-
-        $tipoContacto->delete($id);
-
-        Flash::success('Tipo contacto eliminado.');
-
-        return redirect('/tipocontacto');
+        try 
+        {
+            $tipoContacto = tipoContacto::find($id);
+            if (empty($tipoContacto)) {
+                Flash::error('Tipo contacto no encontrado');
+    
+                return redirect('/tipocontacto');
+            }
+    
+            $tipoContacto->delete($id);
+    
+            Flash::success('Tipo contacto eliminado.');
+    
+            return redirect('/cliente');
+        } 
+        catch (\Throwable $th) {
+            Flash::success('No puedes eliminar este tipo Contacto.');
+            return redirect("/cliente");
+        }  
     }
 
 
