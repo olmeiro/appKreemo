@@ -211,7 +211,7 @@ function editarEmpresa()
             validado++;
         }
 
-        if($("#enombrerepresentante").val().length == 0 || $("#enombrerepresentante").val().length > 30)
+        if($("#enombrerepresentante").val().length == 0 || $("#enombrerepresentante").val().length < 2 || $("#enombrerepresentante").val() == 0)
         {
             $("#valENombreRep").text("* Ingresar nombre del representante.");
         }
@@ -221,7 +221,7 @@ function editarEmpresa()
             validado++;
         }
 
-        if($("#edireccion").val().length == 0 || $("#edireccion").val().length > 30)
+        if($("#edireccion").val().length == 0 || $("#edireccion").val().length < 2 || $("#edireccion").val() == 0)
         {
             $("#valEDireccion").text("* Debe ingresar dirección de la empresa.")
         }
@@ -295,4 +295,23 @@ $('body').on('click', '#delete-empresa', function () {
         }
     });
 });
+
+function soloNumeros(e) {
+    var key = e.keyCode || e.which,
+    tecla = String.fromCharCode(key).toLowerCase(),
+    letras = " 0123456789",
+    especiales = [45],
+    tecla_especial = false;
+    
+    for (var i in especiales) {
+    if (key == especiales[i]) {
+      tecla_especial = true;
+      break;
+    }
+    }
+    
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+    return false;
+    }
+    }
 
