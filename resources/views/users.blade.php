@@ -37,59 +37,59 @@
 </div>
 
     <!-- Add and Edit customer modal -->
-    <div class="modal fade" id="crud-modal" aria-hidden="true" >
+<div class="modal fade" id="crud-modal" aria-hidden="true" >
     <div class="modal-dialog">
-    <div class="modal-content">
-    <div class="modal-header">
-    <h4 class="modal-title" id="userCrudModal"></h4>
-    </div>
-    <div class="modal-body">
-    <form name="userForm" action="{{ route('users.store') }}" method="POST">
-    <input type="hidden" name="user_id" id="user_id" >
-    @csrf
-    <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-    <strong>Nombre:</strong>
-    <input type="text" name="name" id="name" class="form-control" placeholder="Name" onchange="validate()" >
-    </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-    <strong>Email:</strong>
-    <input type="text" name="email" id="email" class="form-control" placeholder="Email" onchange="validate()">
-    </div>
-    </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-            <strong>Contraseña:</strong>
-            <input type="password" name="pw" id="pw" class="form-control" placeholder="contraseña" onchange="validate()" >
-            </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-            <strong>Rol:</strong>
-            <select name="rol" id="rol" onchange="validate()">
-                <option value="0">Seleccione</option>
-                <option value="1">Administrador</option>
-                <option value="2">Auxiliar</option>
-                <option value="3">Supervisor</option>
-            </select>
-            <!-- <input type="text" name="rol" id="rol" class="form-control" placeholder="Rol" onchange="validate()" > -->
-            </div>
-        </div>
+        <div class="modal-content">
+                    <div class="modal-header">
+                    <h4 class="modal-title" id="userCrudModal"></h4>
+                    </div>
+            <div class="modal-body">
+                <form name="userForm" action="{{ route('users.store') }}" method="POST">
+                    <input type="hidden" name="user_id" id="user_id" >
+                    @csrf
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Nombre:</strong>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Name" onchange="validate()" >
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Email:</strong>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Email" onchange="validate()">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                            <strong>Contraseña:</strong>
+                            <input type="password" name="pw" id="pw" class="form-control" placeholder="contraseña" onchange="validate()" >
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <strong>Rol:</strong>
+                                <select class="form-control" name="rol" id="rol" onchange="validate()">
+                                    <option value="0">Seleccione</option>
+                                    <option value="1">Administrador</option>
+                                    <option value="2">Auxiliar</option>
+                                    <option value="3">Supervisor</option>
+                                </select>
+                            <!-- <input type="text" name="rol" id="rol" class="form-control" placeholder="Rol"onchange="validate()" > -->
+                            </div>
+                        </div>
 
 
-    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
-    <a href="{{ route('users.index') }}" class="btn btn-danger">Cancelar</a>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+                            <a href="{{ route('users.index') }}" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    </div>
-    </form>
-    </div>
-    </div>
-    </div>
-    </div>
+</div>
 
     <!-- Show user modal -->
     <div class="modal fade" id="crud-modal-show" aria-hidden="true" >

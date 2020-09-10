@@ -113,6 +113,7 @@ class TipoContactoController extends Controller
 
         
 
+
         try 
         {
             $tipoContacto = tipoContacto::find($id);
@@ -132,6 +133,7 @@ class TipoContactoController extends Controller
             Flash::success('No puedes eliminar este tipo Contacto.');
             return redirect("/cliente");
         }  
+
     }
 
 

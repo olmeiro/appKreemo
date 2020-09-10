@@ -24,7 +24,9 @@ class ClientesController extends Controller
 
     public function listar(Request $request){
 
+
         $cliente = Cliente::select("contacto.*","tipocontacto.tipocontacto")
+
         ->join("tipocontacto", "contacto.idtipocontacto", "=", "tipocontacto.id")
         ->get();
 
@@ -39,27 +41,28 @@ class ClientesController extends Controller
         ->addColumn('editar', function ($cliente) {
             return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
             <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Cliente" data-id='.$cliente->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
-           
+
         })
         ->addColumn('cambiar', function ($cliente) {
             if($cliente->estado == 1)
             {
                 return '<button type="button" class="btn btn-danger" data-toggle="modal"><a class="btn btn-danger btn-sm" href="/cliente/cambiar/estado/'.$cliente->id.'/0">Inactivar</a></button>';
-                
+
             }
             else
             {
                 return  '<button type="button" class="btn btn-success" data-toggle="modal"><a class="btn btn-success btn-sm" href="/cliente/cambiar/estado/'.$cliente->id.'/1">Activar</a></button>';
-              
+
             }
         })
         ->addColumn('eliminar', function ($cliente) {
+
             return '<a id="delete-cliente" data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
         ->rawColumns(['editar', 'cambiar','eliminar'])
         ->make(true);
-        }   
+        }
         return view('cliente/listar');
     }
 
@@ -85,8 +88,9 @@ class ClientesController extends Controller
     //     'telefono2' => 'numeric|required',
     //     'correo1' => 'email:rfc,dns',
     //     'correo2' => 'email:rfc,dns',
-        
+
     //     ]);
+
  
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
@@ -112,6 +116,7 @@ class ClientesController extends Controller
                 return redirect('cliente')->with('success',$msg);
                 return response()->json(["ok"=>false]);
             }   
+
     }
 
     public function save(Request $request){
@@ -198,7 +203,7 @@ class ClientesController extends Controller
 * @return \Illuminate\Http\Response
 */
 
-  
+
 
     // public function update(Request $request){
 
