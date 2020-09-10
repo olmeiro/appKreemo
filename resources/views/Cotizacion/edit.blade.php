@@ -209,7 +209,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="validationTextarea">Observaciones</label>
-                    <textarea   class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="{{$cotizacion->observaciones}}" ></textarea>
+                    <textarea   class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="" >{{$cotizacion->observaciones}}</textarea>
                     @error('Observaciones')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
