@@ -3,24 +3,23 @@
 @section('body')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Vinicol Bombeos') }}</div>
-
-                <div class="card-body">
+        
+            <div class="card" style="margin-top:90px">
+               
+    
+                <div class="card-body" align="center" >
+                <h2><b>BIENVENIDO</b></h2>
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <h4>Kreemo app gestiona tu informacio comercial.</h4>
-                    <img src="{{ asset('assets/dashboard/public/assets/img/Vinicol.PNG') }}" alt="">
+                    <img src="img/logovinicol.jpg"> 
 
                  <!-- {{ var_dump(Auth::user()->name) }} -->
                 </div>
-            </div>
-        </div>
+            
+       
     </div>
 </div>
 @endsection

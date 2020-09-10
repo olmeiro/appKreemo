@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTA DE CHEQUEO</strong>
-            <a href="/listachequeo/crear" class="btn btn-link">Crear listachequeo</a>
+           
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">CREAR LISTA DE CHEQUEO</button>
 
         </div>
@@ -51,7 +51,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Crear Lista de Chequeo</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                        <h5 class="modal-title" id="exampleModalLabel">CREAR LISTA DE CHEQUEO</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                     </div>
                     <div class="modal-body">
                         @include('flash::message')
@@ -75,7 +75,7 @@
                                                             <label for="">Id Visita</label>
                                                             <label class="validacion" id="val_idvisita"></label>
                                                             <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
-                                                            <option selected>Seleccione una visita</option>
+                                                            <option value="0">Seleccione una visita</option>
                                                             @foreach($visita as $key =>$value)
                                                                 <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                                             @endforeach
@@ -83,7 +83,7 @@
                                                             @error('idvisita')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
-                                                            <label class="validacion" id="val_idvisita"></label>
+                                                            <label class="validacion" id="val_idvisita2"></label>
                                                     </div>
 
                                                     <div class="form-group col-md-6">
@@ -106,8 +106,8 @@
                                                             <label class="validacion"id="val_estadovia"></label>
                                                             <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
                                                             <option value="NS">Seleccione</option>
-                                                                    <option value="SI">SI CUMPLE</option>
-                                                                    <option value="NO">NO CUMPLE</option>
+                                                                    <option value="SI">SI</option>
+                                                                    <option value="NO">NO</option>
                                                                 </select>
                                                                 @error('estadovia')
                                                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -153,8 +153,8 @@
                                                     <label class="validacion" id="val_techo"></label>
                                                     <select class="form-control @error('techo') is-invalid @enderror" name="techo" id="techo">
                                                     <option value="NS">Seleccione</option>
-                                                            <option value="SI">SI CUMPLE</option>
-                                                            <option value="NO">NO CUMPLE</option>
+                                                            <option value="SI">SI</option>
+                                                            <option value="NO">NO</option>
                                                         </select>
                                                         @error('techo')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -169,8 +169,8 @@
                                                         <label class="validacion" id="val_desarenadero"></label>
                                                         <select class="form-control @error('desarenadero') is-invalid @enderror" name="desarenadero" id="desarenadero">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('desarenadero')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -182,8 +182,8 @@
                                                         <label class="validacion" id="val_desague"></label>
                                                         <select class="form-control @error('desague') is-invalid @enderror" name="desague" id="desague">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('desague')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -195,8 +195,8 @@
                                                         <label class="validacion" id="val_agua"></label>
                                                         <select class="form-control @error('agua') is-invalid @enderror" name="agua" id="agua">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('agua')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -216,8 +216,8 @@
                                                         <label class="validacion" id="val_lineaelectrica"></label>
                                                         <select class="form-control @error('lineaelectrica') is-invalid @enderror" name="lineaelectrica" id="lineaelectrica">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('lineaelectrica')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -229,8 +229,8 @@
                                                         <label class="validacion" id="val_senializacion"></label>
                                                         <select class="form-control @error('senializacion') is-invalid @enderror" name="senializacion" id="senializacion">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('senializacion')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -244,8 +244,8 @@
                                                     <label class="validacion" id="val_iluminacion"></label>
                                                     <select class="form-control @error('iluminacion') is-invalid @enderror" name="iluminacion" id="iluminacion">
                                                     <option value="NS">Seleccione</option>
-                                                            <option value="SI">SI CUMPLE</option>
-                                                            <option value="NO">NO CUMPLE</option>
+                                                            <option value="SI">SI</option>
+                                                            <option value="NO">NO</option>
                                                         </select>
                                                         @error('iluminacion')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -257,8 +257,8 @@
                                                     <label class="validacion" id="val_banios"></label>
                                                     <select class="form-control @error('banios') is-invalid @enderror" name="banios" id="banios">
                                                     <option value="NS">Seleccione</option>
-                                                            <option value="SI">SI CUMPLE</option>
-                                                            <option value="NO">NO CUMPLE</option>
+                                                            <option value="SI">SI</option>
+                                                            <option value="NO">NO</option>
                                                         </select>
                                                         @error('banios')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -271,8 +271,8 @@
                                                     <label class="validacion" id="val_condicioninsegura"></label>
                                                     <select class="form-control @error('condicioninsegura') is-invalid @enderror" name="condicioninsegura" id="condicioninsegura">
                                                     <option value="NS">Seleccione</option>
-                                                            <option value="SI">SI CUMPLE</option>
-                                                            <option value="NO">NO CUMPLE</option>
+                                                            <option value="SI">SI</option>
+                                                            <option value="NO">NO</option>
                                                         </select>
                                                         @error('condicioninsegura')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -305,8 +305,8 @@
                                                         <label class="validacion" id="val_vigilancia"></label>
                                                         <select class="form-control @error('vigilancia') is-invalid @enderror" name="vigilancia" id="vigilancia">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('vigilancia')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -333,8 +333,8 @@
                                                         <label class="validacion" id="val_infoSST"></label>
                                                         <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
                                                         <option value="NS">Seleccione</option>
-                                                                <option value="SI">SI CUMPLE</option>
-                                                                <option value="NO">NO CUMPLE</option>
+                                                                <option value="SI">SI</option>
+                                                                <option value="NO">NO</option>
                                                             </select>
                                                             @error('infoSST')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -346,8 +346,8 @@
                                                     <label class="validacion" id="val_politicashoras"></label>
                                                     <select class="form-control @error('politicashoras') is-invalid @enderror" name="politicashoras" id="politicashoras">
                                                     <option value="NS">Seleccione</option>
-                                                            <option value="SI">SI CUMPLE</option>
-                                                            <option value="NO">NO CUMPLE</option>
+                                                            <option value="SI">SI</option>
+                                                            <option value="NO">NO</option>
                                                         </select>
                                                         @error('politicashoras')
                                                             <div class="invalid-feedback">{{ $message }}</div>

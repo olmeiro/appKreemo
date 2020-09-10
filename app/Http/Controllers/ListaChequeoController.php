@@ -123,6 +123,7 @@ public function update(Request $request){
         }
 
         $listachequeo->update([
+            "idvisita" => $input["idvisita"],
             "numeroplanilla" => $input["numeroplanilla"],
                 "estadovia" =>$input["estadovia"],
                 "ph" =>$input["ph"],
@@ -145,7 +146,7 @@ public function update(Request $request){
                  "viabilidad" =>$input["viabilidad"],
         ]);
 
-        Flash::success("Se modificò la lista de chequeo");
+        Flash::success("Se modificó la lista de chequeo");
         return redirect("/listachequeo");
 
     } catch (\Exception $e ) {

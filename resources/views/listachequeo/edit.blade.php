@@ -2,8 +2,8 @@
 
 @section('body')
 <div class="card">
-        <div class="card-header">
-            <strong>Actualizar Lista de chequeo</strong>
+        <div class="card-header text-white" style="background-color: #616A6B">
+            <strong>ACTUALIZAR LISTA DE CHEQUEO</strong>
         </div>
     <div class="card-body">
         @include('flash::message')
@@ -13,8 +13,8 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header">
-                        <strong>Informacion inicial</strong>
+                    <div class="card-header text-white" style="background-color: #616A6B">
+                        <strong>INFORMACIÓN INICIAL</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
@@ -22,7 +22,7 @@
                                     <label for="">Id Visita</label>
                                     <label class="validacion" id="val_idvisita"></label>
                                                             <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
-                                                            <option selected>Seleccione una visita</option>
+                                                            <option value="0">Seleccione una visita</option>
                                                             @foreach($visita as $key =>$value)
                                 <option {{$value->id == $listachequeo->idvisita ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->id}}</option>
                             @endforeach
@@ -30,6 +30,7 @@
                                     @error('idvisita')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
+                                    <label class="validacion" id="val_idvisita2"></label>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">Numero Planilla</label>
@@ -46,7 +47,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-white"style="background-color: #616A6B">
                         <strong>ACCESO MÁQUINA</strong>
                     </div>
                     <div class="card-body">
@@ -85,7 +86,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-white" style="background-color: #616A6B">
                         <strong>UBICACIÓN MÁQUINA</strong>
                     </div>
                     <div class="card-body">
@@ -163,7 +164,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-white" style="background-color: #616A6B">
                         <strong>SEGURIDAD DE LA OBRA</strong>
                     </div>
                     <div class="card-body">
@@ -247,7 +248,7 @@
         <div class="row">
             <div class="col-sm-8">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header text-white" style="background-color: #616A6B">
                         <strong>SUMINISTROS</strong>
                     </div>
                     <div class="card-body">
@@ -325,15 +326,15 @@
             </div>
             <div class="col-sm-4">
                 <div class="card">
-                    <div class="card-header">
-                        <strong>Personal</strong>
+                    <div class="card-header text-white" style="background-color: #616A6B">
+                        <strong>INFORMACIÓN CIERRE DE VISITA</strong>
                     </div>
                     <div class="card-body">
                       
                             <div class="form-group col-md-12">
                                 <label for="">Encargado Visita</label>
                                 <label class="validacion"id="val_encargadovisita"></label>
-                                <input type="text" value= "{{$listachequeo->encargadovisita}}" onkeypress="return soloLetras(event)"  class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
+                                <input onkeypress="return soloLetras(event)" type="text" value= "{{$listachequeo->encargadovisita}}" class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
                                 @error('encargadovisita')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -366,11 +367,12 @@
 
 
 
-<script>
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
-    <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
-<script src="{{ asset('js/validacionListaChequeo.js') }}">
-</script>
+<script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
+ <script src="{{ asset('js/validacionListaChequeo.js') }}"></script>
 
+@endsection
+@section('style')
+ 
+    <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection
