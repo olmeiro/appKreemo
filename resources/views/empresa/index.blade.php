@@ -8,7 +8,7 @@
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>EMPRESAS</strong>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal2">CREAR EMPRESAL</button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal2">CREAR EMPRESA</button>
 
         </div>
         <div class="card-body">
@@ -33,6 +33,8 @@
             </table>
         </div>
     </div>
+
+    <!-- Modal Crear Empresa -->
 
     <div class="modal fade" data-backdrop="static" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -61,7 +63,7 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="">Nombre</label>
-                                            <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="nombre" id="nombre">
+                                            <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="nombre" id="nombre" onchange="validate()" onkeypress="return soloLetras(event)">
                                             @error('nombre')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -71,7 +73,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                         <label for="">Nombre Representante</label>
-                                        <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="nombrerepresentante" id="nombrerepresentante">
+                                        <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="nombrerepresentante" id="nombrerepresentante" onchange="validate()" onkeypress="return soloLetras(event)">
                                         @error('nombrerepresentante')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -116,6 +118,8 @@
         </div>
     </div>
 
+    <!-- Modal Editar Empresa -->
+
     <div class="modal fade" data-backdrop="static" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -127,7 +131,7 @@
                         </div>
                     </div>
                 <div class="modal-body">
-                    <form class="editEmpresa" name="empresaForm" action="/empresa/guardar" method="POST">
+                    <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar" method="POST">
                     @csrf
                     <input type="hidden" name="empresa_id" id="empresa_id" >
                         <div id="smartwizard">
@@ -139,29 +143,29 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="">NIT</label>
-                                            <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="enit" id="enit">
+                                            <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="enit" id="enit" onchange="validate()">
                                             @error('nit')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion solo_numeros" for="nit" id="valNit"></label>
+                                            <label class="validacion" for="enit" id="valENit"></label>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="">Nombre</label>
-                                            <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="enombre" id="enombre">
+                                            <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="enombre" id="enombre" onchange="validate()" onkeypress="return soloLetras(event)">
                                             @error('nombre')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="nombre" id="valNombre"></label>
+                                            <label class="validacion" for="enombre" id="valENombre"></label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                         <label for="">Nombre Representante</label>
-                                        <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="enombrerepresentante" id="enombrerepresentante">
+                                        <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="enombrerepresentante" id="enombrerepresentante" onchange="validate()" onkeypress="return soloLetras(event)">
                                         @error('nombrerepresentante')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                            <label class="validacion" for="nombrerepresentante" id="valNombreRep"></label>
+                                            <label class="validacion" for="enombrerepresentante" id="valENombreRep"></label>
                                         </div>
                                         <div class="col-md-6">
                                         <label for="">Dirección</label>
@@ -169,7 +173,7 @@
                                         @error('direccion')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                            <label class="validacion" for="direccion" id="valDireccion"></label>
+                                            <label class="validacion" for="edireccion" id="valEDireccion"></label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -179,7 +183,7 @@
                                             @error('telefono1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="telefono1" id="valTelefono1"></label>
+                                            <label class="validacion" for="etelefono1" id="valETelefono1"></label>
                                         </div>
                                         <div class="col-md-6">
                                             <label for="">Correo #1</label>
@@ -187,14 +191,14 @@
                                             @error('correo1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="correo1" id="valCorreo1"></label>
+                                            <label class="validacion" for="ecorreo1" id="valECorreo1"></label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+                                <button type="button" id="btn-save" name="btnsave" class="btn btn-primary" onclick="editarEmpresa()" disabled>Guardar</button>
                                 <a href="/empresa" class="btn btn-danger">Cancelar</a>
                             </div>
                     </form>

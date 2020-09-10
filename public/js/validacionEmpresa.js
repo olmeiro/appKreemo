@@ -71,6 +71,8 @@ function soloLetras(e) {
   }
   }
 
+//   Validacion Crear Empresa
+
 $(document).ready(function(){
     $("#crearEmpresa").click(function(event){
         event.preventDefault();
@@ -182,6 +184,91 @@ $(document).ready(function(){
          }
     });
 });
+
+// Validacion Editar Empresa
+
+function editarEmpresa()
+{
+         let validado = 0;
+
+        if( $("#enit").val().length == 0 || $("#enit").val().length > 30)
+        {
+            $("#valNit").text("* Debe ingresar el nit de la empresa.");
+        }
+        else
+        {
+            $("#valENit").text("");
+            validado++;
+        }
+
+        if( $("#enombre").val().length == 0 || $("#enombre").val().length > 30)
+        {
+            $("#valENombre").text("* Debe ingresar Razón Social.");
+        }
+        else
+        {
+            $("#valENombre").text("");
+            validado++;
+        }
+
+        if($("#enombrerepresentante").val().length == 0 || $("#enombrerepresentante").val().length > 30)
+        {
+            $("#valENombreRep").text("* Ingresar nombre del representante.");
+        }
+        else
+        {
+            $("#valENombreRep").text("");
+            validado++;
+        }
+
+        if($("#edireccion").val().length == 0 || $("#edireccion").val().length > 30)
+        {
+            $("#valEDireccion").text("* Debe ingresar dirección de la empresa.")
+        }
+        else{
+            $("#valEDireccion").text("");
+            validado++;
+        }
+
+        if($("#etelefono1").val().length == 0 || isNaN($("#etelefono1").val()) || $("#etelefono1").val().length < 7 || $("#etelefono1").val().length > 10 )
+         {
+             $("#valETelefono1").text("* Ingrese un número de telefono válido.");
+         }
+         else{
+             $("#valETelefono1").text("");
+             validado++;
+         }
+
+        //  else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
+        //  {
+        //   $("#valETelefono1").text("* Ingrese un número de celular de 10 dígitos.");
+        //  }
+
+         const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
+ 
+         if($("#ecorreo1").val().length == 0 || !emailRegex.test($("#ecorreo1").val()))
+         {
+             $("#valECorreo1").text("* Ingrese un correo valido.");
+         }
+         else
+         {
+             $("#valECorreo1").text("");
+             validado++;
+         }
+ 
+         console.log("validado: " + validado);
+ 
+         if(validado == 6)
+         {
+            $("#editEmpresaFrm").submit();
+            Swal.fire('Empresa Editada.');
+         }
+         else
+         {
+             Swal.fire('Faltan campos por diligenciar.');
+             validado = 0;
+         }
+}
 
 
 /* Delete customer */

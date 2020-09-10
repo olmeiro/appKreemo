@@ -76,7 +76,7 @@ class ClientesController extends Controller
 
     public function store(Request $request)
     {
-       //$request->validate(Cliente::$rules);
+    //    $request->validate(Cliente::$rules);
     //    $r=$request->validate([
     //     'idtipocontacto' => 'required|integer',
     //     'nombre' => 'required|string|max:20',
@@ -121,14 +121,12 @@ class ClientesController extends Controller
 
     public function save(Request $request){
 
-          $request->validate(Cliente::$rules);
-
           $request->validate([
             'idtipocontacto' => 'integer',
             'nombre' =>    'required|string|max:20',
             'apellido1' =>  'required|string|max:20',
             'apellido2' => 'required|string|max:20',
-            'documento' => 'numeric|required|digits_between:7,10',
+            'documento' => 'required|numeric',
             'estado' => 'in:1,0',
             'telefono1' => 'numeric|required|digits_between:7,13',
             'telefono2' => 'numeric|required|digits_between:7,13',

@@ -1,4 +1,4 @@
-
+//Validacion Crear Contacto::
   $(document).ready(function() {
     $("#crearContacto").click(function(event){
          event.preventDefault();
@@ -44,10 +44,10 @@
              validado++;
          }
  
-         var tipodocumento = document.getElementById("documento");
-         if(tipodocumento.value == "" || tipodocumento.value == null)
+         var documento = document.getElementById("documento");
+         if(documento.value == "" || documento.value == null || $("#documento").val().length > 10 || $("#documento").val().length < 7)
          {
-             $("#valDocumento").text("* Debe ingresar el número de documento del contacto.");
+             $("#valDocumento").text("* Debe ingresar el número válido documento del contacto.");
          }
          else
          {
@@ -146,6 +146,126 @@
     });
 });
 
+//Validación Editar 
+
+function editar()
+{
+
+         let validado = 0;
+
+         if( $("#cidtipocontacto").val() == 0 )
+         {
+             $("#valCTipoContacto").text("* Debe elegir un tipo de contacto");
+         }
+         else
+         {
+             $("#valCTipoContacto").text("");
+             validado++;
+         }
+
+         if( $("#cnombre").val().length == 0 || $("#cnombre").val().length > 30)
+         {
+             $("#valCNombre").text("* Debe ingresar el nombre del contacto");
+         }
+         else
+         {
+             $("#valCNombre").text("");
+             validado++;
+         }
+ 
+         if($("#capellido1").val().length == 0 || $("#capellido1").val().length > 30)
+         {
+             $("#valCApellido1").text("* Ingresar primer apellido del contacto");
+         }
+         else
+         {
+             $("#valCApellido1").text("");
+             validado++;
+         }
+ 
+         if($("#capellido2").val().length == 0 || $("#capellido2").val().length > 30)
+         {
+             $("#valCApellido2").text("* Debe ingresar el segundo apellido del contacto.")
+         }
+         else{
+             $("#valCApellido2").text("");
+             validado++;
+         }
+ 
+         var documento = document.getElementById("cdocumento");
+         if(documento.value == "" || documento.value == null || $("#cdocumento").val().length > 10 || $("#cdocumento").val().length < 7)
+         {
+             $("#valCDocumento").text("* Debe ingresar el número válido documento del contacto.");
+         }
+         else
+         {
+             $("#valCDocumento").text("");
+             validado++;
+         }
+
+         if($("#ctelefono1").val().length == 0 || isNaN($("#ctelefono1").val()))
+         {
+             $("#valTel1").text("* Ingrese un número de telefono valido");
+         }
+         else if(!(/^\d{7,10}$/.test($("#ctelefono1").val())))
+         {
+          $("#valTel1").text("* Ingrese un número de celular de 10 dígitos.");
+         }
+         else{
+             $("#valTel1").text("");
+             validado++;
+         }
+
+         if($("#ctelefono2").val().length == 0 || isNaN($("#ctelefono2").val()))
+         {
+             $("#valTel2").text("* Ingrese un número de telefono valido");
+         }
+         else if(!(/^\d{7,10}$/.test($("#ctelefono2").val())))
+         {
+          $("#valTel2").text("* Ingrese un número de celular de 10 dígitos.");
+         }
+         else{
+             $("#valTel2").text("");
+             validado++;
+         }
+ 
+         const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
+ 
+         if($("#ccorreo1").val().length == 0 || !emailRegex.test($("#ccorreo1").val()))
+         {
+             $("#valCCorreo1").text("* Ingrese un correo valido.");
+         }
+         else
+         {
+             $("#valCCorreo1").text("");
+             validado++;
+         }
+ 
+         if($("#ccorreo2").val().length == 0 || !emailRegex.test($("#ccorreo2").val()))
+         {
+             $("#valCCorreo2").text("* Ingrese un correo valido.");
+         }
+         else
+         {
+             $("#valCCorreo2").text("");
+             validado++;
+         }
+ 
+         console.log("validado: " + validado);
+ 
+         if(validado == 9)
+         {
+            $("#editForm").submit();
+            Swal.fire('Contacto Editado.');
+         }
+         else
+         {
+             Swal.fire('Faltan campos por diligenciar.');
+             validado = 0;
+         }
+
+}
+
 function limpiar()
 {
     $("input").val("");
@@ -180,7 +300,7 @@ function soloLetras(e) {
   var key = e.keyCode || e.which,
   tecla = String.fromCharCode(key).toLowerCase(),
   letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-  especiales = [8, 37, 39, 46],
+  especiales = [8, 39, 46],
   tecla_especial = false;
   
   for (var i in especiales) {

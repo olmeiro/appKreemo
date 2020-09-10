@@ -73,9 +73,10 @@
                     </div>
                     <div class="form-group col-6">
                     <label for="">Seleccione tipo de contacto</label>
-                            <select name="tipocontacto" id="tipoContacto" class="form-control">
+                    <!-- <input type="text" id="tipoContacto" readonly> -->
+                            <select name="tipocontacto" id="tipoContacto" class="form-control" readonly>
                             <option value="0">Seleccione  Contacto</option>
-                            @foreach($cliente as $idtipocontacto)
+                            @foreach($cliente as $value)
                             <option value="{{ $value->id }}">{{ $value->tipocontacto }}</option>
                             @endforeach
                         </select>

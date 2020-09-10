@@ -113,7 +113,7 @@ function eliminar_contacto(id){
 
 function dartipo()
 {
-   id = document.getElementById("contactos").val = "2";
+   id = document.getElementById("contactos").selectedIndex;
    console.log("id es_"+id);
 
    tipo = document.getElementById("tipoContacto").selectedIndex = id;
