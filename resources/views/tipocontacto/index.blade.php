@@ -5,6 +5,7 @@
         <div class="card-header">
             <strong>TIPO CONTACTOS</strong>
             <a href="/tipocontacto/crear" class="btn btn-link">Crear Tipo Contacto</a>
+            <a href="/cliente" class="btn btn-link">Volver a contactos</a>
         </div>
         <div class="card-body">
         @include('flash::message')

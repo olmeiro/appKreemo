@@ -23,15 +23,15 @@ class Cliente extends Model
     ];
 
     public static $rules = [
-        // 'idtipocontacto' => 'required|integer',
-        // 'nombre' => 'required|string|max:20',
-        // 'apellido1' =>  'required|string|max:20',
-        // 'apellido2' => 'string|max:20',
-        // 'documento' => 'numeric|required',
-        // 'estado' => 'in:1,0',
-        // 'telefono1' => 'required|numeric|required',
-        // 'telefono2' => 'numeric|required',
-        // 'correo1' => 'email:rfc,dns',
-        // 'correo2' => 'email:rfc,dns',
+        'idtipocontacto' => 'required|integer',
+        'nombre' => 'required|string|max:20',
+        'apellido1' =>  'required|string|max:20',
+        'apellido2' => 'string|max:20',
+        'documento' => 'numeric|required',
+        'estado' => 'in:1,0',
+        'telefono1' => 'required|numeric|required',
+        'telefono2' => 'numeric|required',
+        'correo1' => 'email:rfc,dns',
+        'correo2' => 'email:rfc,dns',
     ];
 }
