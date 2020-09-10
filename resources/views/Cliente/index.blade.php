@@ -250,7 +250,7 @@
                                     <div class="form-group">
                                         <label for="">Tipo Contacto</label>
                                         <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidtipocontacto" id="cidtipocontacto" onchange="validate()">
-                                            <option value="">Seleccione</option>
+                                            <option value="0">Seleccione</option>
                                             @foreach($tipoContacto as $key =>$value)
                                                 <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
                                             @endforeach
