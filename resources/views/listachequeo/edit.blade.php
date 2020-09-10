@@ -20,8 +20,13 @@
                         <div class="form-row" >
                                 <div class="form-group col-md-6">
                                     <label for="">Id Visita</label>
-                    
-                                    <input type="text" class="form-control @error('idvisita') is-invalid @enderror"  name="idvisita" id="idvisita">
+                                    <label class="validacion" id="val_idvisita"></label>
+                                                            <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
+                                                            <option selected>Seleccione una visita</option>
+                                                            @foreach($visita as $key =>$value)
+                                <option {{$value->id == $listachequeo->idvisita ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->id}}</option>
+                            @endforeach
+                                                         </select>
                                     @error('idvisita')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -288,7 +293,7 @@
                             </div>
                         </div>
                         <div class="form-row" >
-                            <div class="form-group col-md-7">
+                            <div class="form-group col-md-6">
                             <label class="radio-inline">Informacion de seguridad y salud en el trabajo</label>
                             <label class="validacion" id="val_infoSST"></label>
                             <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
@@ -301,8 +306,8 @@
                                 @enderror
                                 <label class="validacion" id="val_infoSST"></label>
                             </div>
-                            <div class="form-group col-md-5">
-                            <label class="radio-inline">Políticas Horas extras, trabajo nocturno</label>
+                            <div class="form-group col-md-6">
+                            <label class="radio-inline">Políticas horas extras, trabajo nocturno</label>
                             <label class="validacion" id="val_politicashoras"></label>
                             <select class="form-control @error('politicashoras') is-invalid @enderror" name="politicashoras" id="politicashoras">
                             <option value="NS">Seleccione</option>
