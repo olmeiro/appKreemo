@@ -121,7 +121,7 @@ class TipoContactoController extends Controller
 
         Flash::success('Tipo contacto eliminado.');
 
-        return redirect('/tipocontacto');
+        return redirect('/cliente');
     }
 
 
