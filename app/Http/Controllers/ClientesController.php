@@ -13,29 +13,30 @@ use App\Models\tipoContacto;
 class ClientesController extends Controller
 {
     public function index(){
-        $cliente = Cliente::all();
+        
+        $cliente = cliente::select("contacto.*","tipocontacto.tipocontacto")
+        ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
+        ->get();
+
         $tipoContacto = tipoContacto::all();
         return view('cliente.index', compact('cliente','tipoContacto'));
     }
 
     public function listar(Request $request){
 
-        // $cliente = Cliente::all();
-        // $tipoContacto = tipoContacto::all();
-        // //dd($cliente);
-        // $tipoContacto = tipoContacto::all();
 
-        $cliente = Cliente::select("contacto.*","tipocontacto.tipocontacto as tipo")
+        $cliente = Cliente::select("contacto.*","tipocontacto.tipocontacto")
+
         ->join("tipocontacto", "contacto.idtipocontacto", "=", "tipocontacto.id")
         ->get();
 
         if ($request->ajax()) {
             $data = Cliente::latest()->get();
 
-        return DataTables::of($data)
+        return DataTables::of($cliente)
         ->addIndexColumn()
         ->editColumn("estado", function($cliente){
-            return $cliente->estado == 1 ? "Activo" : "Inactivo";
+            return $cliente->estado == 1 ? "Activo" : "Pasivo";
         })
         ->addColumn('editar', function ($cliente) {
             return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
@@ -55,9 +56,9 @@ class ClientesController extends Controller
             }
         })
         ->addColumn('eliminar', function ($cliente) {
-            return ' <button type="button" class="btn btn-danger">
-            <a id="delete-cliente" data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'">Eliminar</a></button>';
 
+            return '<a id="delete-cliente" data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
+           
         })
         ->rawColumns(['editar', 'cambiar','eliminar'])
         ->make(true);
@@ -90,31 +91,31 @@ class ClientesController extends Controller
 
     //     ]);
 
-        $cId = $request->cliente_id;
-        Cliente::updateOrCreate(['id' => $cId],[
-            "idtipocontacto" => $request->cidtipocontacto,
-            "nombre" => $request->cnombre,
-            "apellido1" => $request->capellido1,
-            "apellido2" => $request->capellido2,
-            "documento" => $request->cdocumento,
-            "estado" => 1,
-            "telefono1" => $request->ctelefono1,
-            "telefono2" => $request->ctelefono2,
-            "correo1" => $request->ccorreo1,
-            "correo2" => $request->ccorreo2,
-        ]);
-        if(empty($request->cliente_id))
-        {
-            $msg = 'Cliente created successfully.';
-            return response()->json(["ok"=>true]);
-        }
-
-        else{
-            $msg = 'Client data is updated successfully';
-            return redirect('cliente')->with('success',$msg);
-            return response()->json(["ok"=>false]);
-
-        }
+ 
+            $cId = $request->cliente_id;
+            Cliente::updateOrCreate(['id' => $cId],[
+                "idtipocontacto" => $request->cidtipocontacto,
+                "nombre" => $request->cnombre,
+                "apellido1" => $request->capellido1,
+                "apellido2" => $request->capellido2,
+                "documento" => $request->cdocumento,
+                "estado" => 1,
+                "telefono1" => $request->ctelefono1,
+                "telefono2" => $request->ctelefono2,
+                "correo1" => $request->ccorreo1,
+                "correo2" => $request->ccorreo2,
+                ]);
+            if(empty($request->cliente_id))
+            {
+                $msg = 'Cliente created successfully.';
+                return response()->json(["ok"=>true]);
+            }
+        
+            else{
+                $msg = 'Client data is updated successfully';
+                return redirect('cliente')->with('success',$msg);
+                return response()->json(["ok"=>false]);
+            }   
 
     }
 
@@ -262,16 +263,23 @@ class ClientesController extends Controller
     }
 
     public function destroy($id){
-        $cliente = Cliente::find($id);
+        try 
+        {
+            $cliente = Cliente::find($id);
 
-        if (empty($cliente)) {
-            Flash::error('Cliente no encontrado');
+            if (empty($cliente)) {
+                Flash::error('Cliente no encontrado');
+                return redirect('/cliente');
+            }
+    
+            $cliente->delete($id);
+            Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
             return redirect('/cliente');
-        }
-
-        $cliente->delete($id);
-        Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
-        return redirect('/cliente');
+        } 
+        catch (\Throwable $th) {
+            Flash::success('No puedes eliminar este cliente.');
+            return redirect("/cliente");
+        }       
     }
 
 }

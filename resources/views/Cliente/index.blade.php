@@ -18,7 +18,6 @@
             <table id="tbl_contacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>id</th>
                     <th>Tipo Contacto</th>
                     <th>Nombre</th>
                     <th>Primer Apellido</th>
@@ -190,35 +189,35 @@
 
     <div class="modal fade" id="exampleModal3" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal3" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h4>Lista Tipos De Contactos</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <div class="card-header">
-                            <strong>x</strong>
-                        </div>
+            <div class="modal-content">
+                <div class="modal-header text-white" style="background-color: #616A6B">
+                    <h4>Lista Tipos De Contactos</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div class="card-header">
+                        <strong>x</strong>
                     </div>
-                    <div class="modal-body">
-                        <div class="card-body">
-                        @include('flash::message')
-                            <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
-                                <thead>
-                                <tr>
-                                    <th>id</th>
-                                    <th>Tipo Contacto</th>
-                                    <th>Fecha Creación</th>
-                                    <th>Editar</th>
-                                    <th>eliminar</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                    @include('flash::message')
+                        <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Tipo Contacto</th>
+                                <th>Fecha Creación</th>
+                                <th>Editar</th>
+                                <th>eliminar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
 
-                                </tbody>
-                            </table>
-                        </div>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 
 
@@ -366,12 +365,8 @@
                 ajax: '/cliente/listar',
                 columns: [
                     {
-                     data: 'id',
-                     name: 'id'
-                    },
-                    {
-                     data: 'idtipocontacto',
-                     name: 'idtipocontacto',
+                     data: 'tipocontacto',
+                     name: 'tipocontacto',
                      orderable: false,
                      searchable: false
                     },

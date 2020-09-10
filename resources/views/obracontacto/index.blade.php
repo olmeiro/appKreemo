@@ -2,27 +2,27 @@
 
 @section('body')
  <div class="row">
-    <div class="col">
+    <div class="col" style="padding: 15px">
         <h3>Crear Contactos De Obra</h1>
-        <a href="/obracontacto/listar">Listar</a>
+        <a class="btn btn-info"  href="/obracontacto/listar">Listar</a>
     </div>
 </div>
-<form action="/obracontacto/guardar" method="POST">
+<form action="/obracontacto/guardar" method="POST" id="formObraContacto" name="formObraContacto">
     @csrf
 <div class="row">
     <div class="col-6">
         <div class="card">
-            <div class="car-head">
-                <h4 class="text-center">1. Información Obra</h4>
+            <div class="card-header">
+                <h2>1. Información Obra</h2>
             </div>
             <div class="row card-body">
-        
-                <div class="form-group col-6">
+                    <div class="form-group col-6">
                         <label for="">Nombre</label>
                         <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre"value="{{old('nombre')}}">
                         @error('nombre')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <label class="validacion" for="nombre" id="valNombre"></label>
                     </div>
                     <div class="form-group col-6">
                         <label for="">Dirección</label>
@@ -30,6 +30,7 @@
                         @error('direccion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <label class="validacion" for="direccion" id="valDireccion"></label>
                     </div>
                     <div class="form-group col-6">
                         <label for="">Telefono</label>
@@ -37,6 +38,7 @@
                         @error('telefono1')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <label class="validacion" for="telefono1" id="valTelefono1"></label>
                     </div>
                     <div class="form-group col-6">
                         <label for="">Correo Electrónico</label>
@@ -44,34 +46,41 @@
                         @error('correo1')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <label class="validacion" for="correo1" id="valCorreo1"></label>
+                    </div>
+                    <div class="col-12" style="margin-top: 5%">
+                        <button type="button" id="crearObraContacto" class="btn btn-primary btn-block">Guardar</button>
                     </div>
             </div>
         </div>
-
-        
-        <div class="col-12" style="margin-top: 5%">
-            <button type="submit" class="btn btn-success btn-block">Guardar</button>
-        </div>
     </div>
-
 
     <div class="col-6">
         <div class="card">
-            <div class="card-head">
-            <h4 class="text-center">2. Información del contacto</h4>
+            <div class="card-header">
+                <h2>2. Información del contacto</h2>
             </div>
             <div class="row card-body">
-                <div class="col-6">
-                    <div class="form-group">
+                    <div class="form-group col-6">
                         <label for="">Seleccione Contacto</label>
-                        <select name="contactos" id="contactos" class="form-control">
-                            <option value="">Seleccione  Contacto</option>
+                            <select name="contactos" id="contactos" class="form-control" onchange="dartipo()">
+                            <option value="0">Seleccione  Contacto</option>
                             @foreach($cliente as $value)
                             <option value="{{ $value->id }}">{{ $value->nombre }}</option>
                             @endforeach
                         </select>
+                        <label class="validacion" for="contactos" id="valContactos"></label>
                     </div>
-                </div>
+                    <div class="form-group col-6">
+                    <label for="">Seleccione tipo de contacto</label>
+                            <select name="tipocontacto" id="tipoContacto" class="form-control">
+                            <option value="0">Seleccione  Contacto</option>
+                            @foreach($cliente as $idtipocontacto)
+                            <option value="{{ $value->id }}">{{ $value->tipocontacto }}</option>
+                            @endforeach
+                        </select>
+                        <label class="validacion" for="contactos" id="valContactos"></label>
+                    </div>
             
                 <div class="col-12">
                     <button type="button" class="btn btn-success float-right" onclick="agregar_contacto()" >Agregar</button>
@@ -93,33 +102,12 @@
 </form>
 @endsection
 
+@section('style')
+    <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
+@endsection
+
 @section("scripts")
-    <script>
-   
-
-        function agregar_contacto(){
-
-            let contacto_id = $("#contactos option:selected").val();
-            let contacto_text = $("#contactos option:selected").text();
-
-
-            $("#tblContactos").append(`
-
-                <tr id="tr-${contacto_id}">
-                    <td>
-                        <input type="hidden" name="contacto_id[]" value="${contacto_id}" />
-                        ${contacto_text}
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-danger" onclick="eliminar_contacto(${contacto_id})">X</button>
-                    </td>
-                </tr>
-            `);
-        }
-
-        function eliminar_contacto(id){
-            $("#tr-"+id).remove();
-        }
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>    
+    <script src="{{ asset('js/validacionObraContacto.js') }}"></script>
 @endsection
 

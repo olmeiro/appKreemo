@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col">
             <h4 class="text-center">Obras</h4>
-            <a href="/obracontacto/crear">Crear</a>
+            <a class="btn btn-info" href="/obracontacto">Crear</a>
+            
                 @if (session('status'))
                 @if(session('status') == '1')
                     <div class="alert alert-success">
@@ -23,24 +24,23 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#ID</th>
                         <th>Nombre obra</th>
                         <th>Dirrección</th>
                         <th>Teléfono</th>
                         <th>Correo</th>
-                        <th>Insumos</th>
+                        <th>Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach($obras as $value)
                         <tr>
-                            <td>{{ $value->id }}</td>
                             <td>{{ $value->nombre }}</td>
                             <td>{{ $value->direccion }}</td>
                             <td>{{ $value->telefono1 }}</td>
                             <td>{{ $value->correo1 }}</td>
                             <td>
-                                <a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a> 
+                            <a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a>
+                                <!-- <button type="button" class="btn btn-info-light float-right" data-toggle="modal" data-target="#exampleModal3"><a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a> </button> -->
                             </td>
                         </tr>
                     @endforeach
@@ -48,8 +48,42 @@
             </table>
         </div>
     </div>
-    @if(count($contactos) > 0)
-        <div class="row">
+        @if(count($contactos) > 0)
+
+        <div class="card">
+            <div class="card-header">
+                <h2>Información Contactos de Obra</h2>
+            </div>
+            <div class="row card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="4" class="text-center">Contactos</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo Contacto</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($contactos as $value)
+                        <tr>
+                            <td>{{ $value->tipocontacto}}</td>
+                            <td>{{ $value->nombre }}</td>
+                            <td>{{ $value->apellido1 }}</td>
+                            <td>{{ $value->telefono1 }}</td>
+                            <td>{{ $value->correo1 }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- <div class="row">
             <div class="col">
                 <table class="table">
                     <thead>
@@ -67,7 +101,7 @@
                     <tbody>
                         @foreach($contactos as $value)
                         <tr>
-                            <td>{{ $value->contactos}}</td>
+                            <td>{{ $value->tipocontacto}}</td>
                             <td>{{ $value->nombre }}</td>
                             <td>{{ $value->apellido1 }}</td>
                             <td>{{ $value->telefono1 }}</td>
@@ -77,6 +111,54 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> -->
+    
+        <!-- <div class="modal fade" id="exampleModal3" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal3" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-white" style="background-color: #616A6B">
+                        <h4>Lista Contactos de Obra</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <div class="card-header">
+                            <strong>x</strong>
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="card-body">
+                        @include('flash::message')
+                        <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="4" class="text-center">Contactos</th>
+                        </tr>
+                        <tr>
+                            <th>Tipo Contacto</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>Telefono</th>
+                            <th>Correo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($contactos as $value)
+                        <tr>
+                            <td>{{ $value->tipocontacto}}</td>
+                            <td>{{ $value->nombre }}</td>
+                            <td>{{ $value->apellido1 }}</td>
+                            <td>{{ $value->telefono1 }}</td>
+                            <td>{{ $value->correo1 }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div> -->
     @endif
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
 @endsection

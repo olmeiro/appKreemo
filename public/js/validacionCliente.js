@@ -195,4 +195,31 @@ function soloLetras(e) {
   }
   }
 
+
+  /* Delete customer */
+$('body').on('click', '#delete-cliente', function () {
+    var cliente_id = $(this).data("id");
+    var token = $("meta[name='csrf-token']").attr("content");
+    confirm("Esta seguro de eliminar !");
+    
+    $.ajax({
+        type: "DELETE", 
+        url: "/cliente/eliminar/"+cliente_id,
+        data: {
+        "id": cliente_id,
+        "_token": token,
+        },
+        success: function (data) {
+
+        // $('#msg').html('Customer entry deleted successfully');
+        // $("#empresa_id_" + empresa_id).remove();
+        var table = $('#tbl_contacto').DataTable();
+        table.ajax.reload();
+        },
+        error: function (data) {
+        console.log('Error:', data);
+        }
+    });
+});
+
   

@@ -8,7 +8,7 @@
         </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
+            <table id="tbl_tipocontacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
                     <th>id</th>

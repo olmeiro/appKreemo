@@ -24,7 +24,7 @@ class MaquinariaController extends Controller
             return $maquinaria->estado == 1 ? "Activa" : "Inactiva";
         })
         ->addColumn('editar', function ($maquinaria) {
-            return '<a class="btn btn-primary btn-sm" href="/maquinaria/editar/'.$maquinaria->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a class="btn btn-primary btn-sm" href="/maquinaria/editar/'.$maquinaria->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('cambiar', function ($maquinaria) {
             if($maquinaria->estado == 1)
