@@ -302,29 +302,39 @@ function editarEmpresa()
 
 
 /* Delete customer */
-$('body').on('click', '#delete-empresa', function () {
-    var empresa_id = $(this).data("id");
-    var token = $("meta[name='csrf-token']").attr("content");
-    confirm("Esta seguro de eliminar !");
-    
-    $.ajax({
-        type: "DELETE", 
-        url: "/empresa/eliminar/"+empresa_id,
-        data: {
-        "id": empresa_id,
-        "_token": token,
-        },
-        success: function (data) {
+$('body').on('click', '#delete-empresa', function (e) {
+    e.preventDefault();
 
-        // $('#msg').html('Customer entry deleted successfully');
-        // $("#empresa_id_" + empresa_id).remove();
-        table.ajax.reload();
-        },
-        error: function (data) {
-        console.log('Error:', data);
-        }
-    });
+    x = confirm("Esta seguro de eliminar !");
+
+    if(x){
+        var empresa_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        $.ajax({
+            type: "POST", 
+            url: "/empresa/eliminar/"+empresa_id,
+            data: {
+            "id": empresa_id,
+            "_token": token,
+            },
+            success: function (data) {
+    
+            // $('#msg').html('Customer entry deleted successfully');
+            // $("#empresa_id_" + empresa_id).remove();
+            var table = $('#tbl_empresa').DataTable();
+            table.ajax.reload();
+            },
+            error: function (data) {
+            console.log('Error:', data);
+            }
+        });
+    }else
+    {
+        return false;
+    } 
 });
+
+
 
 
 

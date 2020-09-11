@@ -45,7 +45,7 @@ Route::get('/cliente/{id}/edit', 'ClientesController@edit');
 
 //Route::post('/cliente/actualizar', 'ClientesController@update');
 Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
-Route::get('/cliente/eliminar/{id}', 'ClientesController@destroy');
+Route::post('/cliente/eliminar/{id}', 'ClientesController@destroy');
 
 Route::get('/obra', 'ObraController@index');
 Route::get('/obra/listar', 'ObraController@listar');
@@ -64,7 +64,7 @@ Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
 Route::get('/empresa/{id}/edit', 'EmpresaController@edit');
 
 //Route::post('/empresa/actualizar', 'EmpresaController@update');
-Route::get('/empresa/eliminar/{id}', 'EmpresaController@destroy');
+Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
 
 Route::get('/obracontacto', 'ObraContactoController@index');
 Route::post('/obracontacto/guardar', 'ObraContactoController@save');

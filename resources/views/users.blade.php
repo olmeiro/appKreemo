@@ -224,29 +224,38 @@ document.userForm.btnsave.disabled=true
     });
 
     /* Delete customer */
-    $('body').on('click', '#delete-user', function () {
-    var user_id = $(this).data("id");
-    var token = $("meta[name='csrf-token']").attr("content");
-    confirm("Are You sure want to delete !");
 
-    $.ajax({
-    type: "DELETE",
-    url: "/users/"+user_id,
-    data: {
-    "id": user_id,
-    "_token": token,
-    },
-    success: function (data) {
+    $('body').on('click', '#delete-user', function (e) {
+        e.preventDefault();
+        
+            x =  confirm("Are You sure want to delete !");
 
-    //$('#msg').html('Customer entry deleted successfully');
-    //$("#customer_id_" + user_id).remove();
-    table.ajax.reload();
-    },
-    error: function (data) {
-    console.log('Error:', data);
-    }
-    });
-    });
+            if (x){
+                var user_id = $(this).data("id");
+                var token = $("meta[name='csrf-token']").attr("content");
+                $.ajax({
+                type: "DELETE",
+                url: "/users/"+user_id,
+                data: {
+                "id": user_id,
+                "_token": token,
+                },
+                success: function (data) {
+
+                //$('#msg').html('Customer entry deleted successfully');
+                //$("#customer_id_" + user_id).remove();
+                table.ajax.reload();
+                },
+                error: function (data) {
+                console.log('Error:', data);
+                }
+                });
+            }
+            else
+            {
+            return false;
+            }
+        });
 
     });
 
