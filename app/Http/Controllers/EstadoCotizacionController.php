@@ -22,7 +22,7 @@ class EstadoCotizacionController extends Controller
 
             })
             ->addColumn('eliminar', function ($estadocotizacion) {
-                return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'"><i class="fas fa-trash-alt"></i></a>';
+                return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'"onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
             })
             ->rawColumns(['editar', 'eliminar'])
             ->make(true);
