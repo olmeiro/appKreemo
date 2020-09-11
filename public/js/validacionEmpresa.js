@@ -71,7 +71,37 @@ function soloLetras(e) {
   }
   }
 
+  function validaVacio(valor) {
+    valor = valor.replace("&nbsp;", "");
+    valor = valor == undefined ? "" : valor;
+    if (!valor || 0 === valor.trim().length) {
+        return true;
+        }
+    else {
+        return false;
+        }
+    }
+
 //   Validacion Crear Empresa
+
+function soloNumeros(e) {
+    var key = e.keyCode || e.which,
+    tecla = String.fromCharCode(key).toLowerCase(),
+    letras = " 0123456789",
+    especiales = [45],
+    tecla_especial = false;
+    
+    for (var i in especiales) {
+    if (key == especiales[i]) {
+      tecla_especial = true;
+      break;
+    }
+    }
+    
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+    return false;
+    }
+    }
 
 $(document).ready(function(){
     $("#crearEmpresa").click(function(event){
@@ -79,7 +109,7 @@ $(document).ready(function(){
 
         let validado = 0;
 
-        if( $("#nit").val().length == 0 || $("#nit").val().length > 30)
+        if( validaVacio($("#nit").val()) || $("#nit").val().length == 0 || $("#nit").val().length < 6)
         {
             $("#valNit").text("* Debe ingresar el nit de la empresa.");
         }
@@ -89,7 +119,7 @@ $(document).ready(function(){
             validado++;
         }
 
-        if( $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
+        if(validaVacio($("#nombre").val()) || $("#nombre").val().length < 3 || $("#nombre").val().length ==  0)
         {
             $("#valNombre").text("* Debe ingresar Razón Social.");
         }
@@ -99,7 +129,7 @@ $(document).ready(function(){
             validado++;
         }
 
-        if($("#nombrerepresentante").val().length == 0 || $("#nombrerepresentante").val().length > 30)
+        if(validaVacio($("#nombrerepresentante").val()) || $("#nombrerepresentante").val().length == 0 ||  $("#nombrerepresentante").val().length < 2)
         {
             $("#valNombreRep").text("* Ingresar nombre del representante.");
         }
@@ -109,7 +139,7 @@ $(document).ready(function(){
             validado++;
         }
 
-        if($("#direccion").val().length == 0 || $("#direccion").val().length > 30)
+        if(validaVacio($("#direccion").val()) || $("#direccion").val().length == 0)
         {
             $("#valDireccion").text("* Debe ingresar dirección de la empresa.")
         }
@@ -118,7 +148,7 @@ $(document).ready(function(){
             validado++;
         }
 
-        if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
+        if(validaVacio($("#telefono1").val()) || isNaN($("#telefono1").val()))
          {
              $("#valTelefono1").text("* Ingrese un número de telefono válido.");
          }
@@ -133,7 +163,7 @@ $(document).ready(function(){
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
  
-         if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
+         if(validaVacio($("#correo1").val()) || !emailRegex.test($("#correo1").val()))
          {
              $("#valCorreo1").text("* Ingrese un correo valido.");
          }
@@ -191,9 +221,9 @@ function editarEmpresa()
 {
          let validado = 0;
 
-        if( $("#enit").val().length == 0 || $("#enit").val().length > 30)
+        if(validaVacio($("#enit").val()) || $("#enit").val().length == 0 || $("#enit").val().length < 6)
         {
-            $("#valNit").text("* Debe ingresar el nit de la empresa.");
+            $("#valENit").text("* Debe ingresar el nit de la empresa.");
         }
         else
         {
@@ -201,7 +231,7 @@ function editarEmpresa()
             validado++;
         }
 
-        if( $("#enombre").val().length == 0 || $("#enombre").val().length > 30)
+        if(validaVacio($("#enombre").val()) || $("#enombre").val().length < 3 || $("#enombre").val().length == 0)
         {
             $("#valENombre").text("* Debe ingresar Razón Social.");
         }
@@ -211,7 +241,7 @@ function editarEmpresa()
             validado++;
         }
 
-        if($("#enombrerepresentante").val().length == 0 || $("#enombrerepresentante").val().length < 2 || $("#enombrerepresentante").val() == 0)
+        if(validaVacio($("#enombrerepresentante").val()) || $("#enombrerepresentante").val().length == 0 || $("#enombrerepresentante").val().length < 2)
         {
             $("#valENombreRep").text("* Ingresar nombre del representante.");
         }
@@ -221,16 +251,16 @@ function editarEmpresa()
             validado++;
         }
 
-        if($("#edireccion").val().length == 0 || $("#edireccion").val().length < 2 || $("#edireccion").val() == 0)
+        if(validaVacio($("#edireccion").val()) || $("#edireccion").val().length == 0 || $("#edireccion").val().length < 5 )
         {
-            $("#valEDireccion").text("* Debe ingresar dirección de la empresa.")
+            $("#valEDireccion").text("* Debe ingresar dirección de la empresa válida.")
         }
         else{
             $("#valEDireccion").text("");
             validado++;
         }
 
-        if($("#etelefono1").val().length == 0 || isNaN($("#etelefono1").val()) || $("#etelefono1").val().length < 7 || $("#etelefono1").val().length > 10 )
+        if(validaVacio($("#etelefono1").val()) || $("#etelefono1").val().length == 0 || isNaN($("#etelefono1").val()) || $("#etelefono1").val().length < 7 || $("#etelefono1").val().length > 10 )
          {
              $("#valETelefono1").text("* Ingrese un número de telefono válido.");
          }
@@ -296,22 +326,5 @@ $('body').on('click', '#delete-empresa', function () {
     });
 });
 
-function soloNumeros(e) {
-    var key = e.keyCode || e.which,
-    tecla = String.fromCharCode(key).toLowerCase(),
-    letras = " 0123456789",
-    especiales = [45],
-    tecla_especial = false;
-    
-    for (var i in especiales) {
-    if (key == especiales[i]) {
-      tecla_especial = true;
-      break;
-    }
-    }
-    
-    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
-    }
-    }
+
 
