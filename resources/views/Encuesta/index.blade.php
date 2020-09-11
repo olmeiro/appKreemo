@@ -62,6 +62,7 @@
                                     <div class="form-row" >
                                         <div class="form-group col-md-6">
                                             <label for="">Id del servicio</label>
+                                            <label class="validacion" for="idservicio" id="valIdServicio"></label>
                                             <select id="idservicio"  name= "idservicio" class="form-control @error('idservicio') is-invalid @enderror">
                                                 <option value="0">Seleccione un servicio</option>
                                                 @foreach($servicio as $key =>$value)
@@ -71,39 +72,43 @@
                                             @error('idservicio')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="idservicio" id="valIdServicio"></label>
+                                            <label class="validacion" for="idservicio" id="valIdServicio2"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Nombre del director de la obra</label>
+                                            <label class="validacion" for="directorobra" id="valDirectorObra"></label>
                                             <input type="text" class="form-control @error('directorobra') is-invalid @enderror" id="directorobra" name="directorobra" value="{{old('directorobra')}}">
                                             @error('directorobra')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="directorobra" id="valDirectorObra"></label>
+                                            <label class="validacion" for="directorobra" id="valDirectorObra2"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Constructora</label>
+                                            <label class="validacion" for="constructora" id="valConstructora"></label>
                                             <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{old('constructora')}}">
                                             @error('constructora')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="constructora" id="valConstructora"></label>
+                                            <label class="validacion" for="constructora" id="valConstructora2"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Correo</label>
+                                            <label class="validacion" for="correo" id="valCorreo"></label>
                                             <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{old('correo')}}">
                                             @error('correo')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="correo" id="valCorreo"></label>
+                                            <label class="validacion" for="correo" id="valCorreo2"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Celular</label>
+                                            <label class="validacion" for="celular" id="valCelular"></label>
                                             <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Ejm: 3212345678" value="{{old('celular')}}">
                                             @error('celular')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="celular" id="valCelular"></label>
+                                            <label class="validacion" for="celular" id="valCelular2"></label>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <label for="">Fecha</label>
@@ -121,35 +126,39 @@
                                     <div class="form-row" >
                                         <div class="form-group col-md-3">
                                             <label for="">Puntualidad</label>
+                                            <label class="validacion" for="respuesta1_1" id="valRespuesta1_1"></label>
                                             <input type="text" class="form-control @error('respuesta1_1') is-invalid @enderror" id="respuesta1_1" name="respuesta1_1" value="{{old('respuesta1_1')}}">
                                             @error('respuesta1_1')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="respuesta1_1" id="valRespuesta1_1"></label>
+                                            <label class="validacion" for="respuesta1_1" id="valRespuesta1_12"></label>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="">Solución de problemas</label>
+                                            <label class="validacion" for="respuesta1_1" id="valRespuesta1_2"></label>
                                             <input type="text" class="form-control @error('respuesta1_2') is-invalid @enderror" id="respuesta1_2" name="respuesta1_2" value="{{old('respuesta1_2')}}">
                                             @error('respuesta1_2')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="respuesta1_2" id="valRespuesta1_2"></label>
+                                            <label class="validacion" for="respuesta1_2" id="valRespuesta1_22"></label>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="">Orden y aseo</label>
+                                            <label class="validacion" for="respuesta1_1" id="valRespuesta1_3"></label>
                                             <input type="text" class="form-control @error('respuesta1_3') is-invalid @enderror" id="respuesta1_3" name="respuesta1_3" value="{{old('respuesta1_3')}}">
                                             @error('respuesta1_3')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="respuesta1_3" id="valRespuesta1_3"></label>
+                                            <label class="validacion" for="respuesta1_3" id="valRespuesta1_32"></label>
                                         </div>
                                         <div class="form-group col-md-3">
                                             <label for="">Cumplimiento en requisitos</label>
+                                            <label class="validacion" for="respuesta1_4" id="valRespuesta1_4"></label>
                                             <input type="text" class="form-control @error('respuesta1_4') is-invalid @enderror" id="respuesta1_4" name="respuesta1_4" value="{{old('respuesta1_4')}}">
                                             @error('respuesta1_4')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="respuesta1_4" id="valRespuesta1_4"></label>
+                                            <label class="validacion" for="respuesta1_4" id="valRespuesta1_42"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -158,6 +167,7 @@
                                     <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="">SI - NO</label>
+                                        <label class="validacion" for="respuesta2" id="valRespuesta2"></label>
                                         <select id="respuesta2"  name= "respuesta2" class="form-control @error('respuesta2') is-invalid @enderror">
                                             <option selected>Seleccione la respuesta</option>
                                                 <option value="SI">SI</option>
@@ -166,22 +176,24 @@
                                             @error('respuesta2')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="respuesta2" id="valRespuesta2"></label>
+                                            <label class="validacion" for="respuesta2" id="valRespuesta22"></label>
                                         </div>
                                         </div>
                                             <p><b>3.</b> Si la <u>respuesta 2</u> fue SI, describa la situación:</p>
+                                            <label class="validacion" for="respuesta3" id="valRespuesta3"></label>
                                         <div class="form-row">
-                                            <div class="form-group col-md-12">
+                                        <div class="form-group col-md-12">
                                             <textarea class="form-control @error('respuesta3') is-invalid @enderror" id="respuesta3" name="respuesta3" placeholder="Ingresa las observaciones" value="{{old('respuesta3')}}"></textarea>
                                             @error('respuesta3')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
-                                            <label class="validacion" for="respuesta3" id="valRespuesta3"></label>
+                                            <label class="validacion" for="respuesta3" id="valRespuesta32"></label>
                                         </div>
                                     </div>
                             </div>
                             <div id="step-4">
                                 <p><b>4.</b> El trato que recibe del personal en general de VINICOL BOMBEOS es adecuado, amable y se ajusta a lo que usted espera como cliente.</p>
+                                <label class="validacion" for="respuesta4" id="valRespuesta4"></label>
                                     <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="">SI - NO</label>
@@ -193,22 +205,24 @@
                                         @error('respuesta4')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" for="respuesta4" id="valRespuesta4"></label>
+                                        <label class="validacion" for="respuesta4" id="valRespuesta42"></label>
                                     </div>
                                     </div>
-                                        <p><b>5.</b> ¿Qué aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado? </p>
+                                <p><b>5.</b> ¿Qué aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado? </p>
+                                <label class="validacion" for="respuesta5" id="valRespuesta5"></label>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                         <textarea class="form-control @error('respuesta5') is-invalid @enderror " id="respuesta5" name="respuesta5" placeholder="Ingresa las observaciones" value="{{old('respuesta5')}}"></textarea>
                                         @error('respuesta5')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" for="respuesta5" id="valRespuesta5"></label>
+                                        <label class="validacion" for="respuesta5" id="valRespuesta52"></label>
                                     </div>
                                     </div>
                             </div>
                             <div id="step-5">
                                 <p><b>6.</b> ¿Volvería usted a utilizar los servicios de VINICOL BOMBEOS?</p>
+                                <label class="validacion" for="respuesta6" id="valRespuesta6"></label>
                                     <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="">SI - NO</label>
@@ -220,10 +234,11 @@
                                         @error('respuesta6')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" for="respuesta6" id="valRespuesta6"></label>
+                                        <label class="validacion" for="respuesta6" id="valRespuesta62"></label>
                                     </div>
                                     </div>
-                                        <p><b>7.</b> ¿Recomendaría A VINICOL BOMBEOS para que otras empresas contrataran nuestros servicios?</p>
+                                <p><b>7.</b> ¿Recomendaría A VINICOL BOMBEOS para que otras empresas contrataran nuestros servicios?</p>
+                                <label class="validacion" for="respuesta7" id="valRespuesta7"></label>
                                     <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="">SI - NO</label>
@@ -235,10 +250,13 @@
                                         @error('respuesta7')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" for="respuesta7" id="valRespuesta7"></label>
+                                        <label class="validacion" for="respuesta7" id="valRespuesta72"></label>
                                     </div>
                                     </div>
-                                    <button type="submit" class="btn btn-success">Guardar Encuesta</button>
+                                    <div class="modal-footer">
+                                        <button type="submit" class="btn btn-success-lg-left">Guardar</button>
+                                        <a href="/encuesta" class="btn btn-outline-primary" >Volver</a>
+                                    </div>
                             </div>
                         </div>
                 </form>
@@ -365,5 +383,5 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
 <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
-<script src="{{ asset('js/validacionEncuesta.js') }}"></script>
+<!-- <script src="{{ asset('js/validacionEncuesta.js') }}"></script> -->
 @endsection
