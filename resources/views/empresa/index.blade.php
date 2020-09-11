@@ -55,7 +55,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="">NIT</label>
-                                            <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit">
+                                            <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit" onkeypress="return soloNumeros(event)">
                                             @error('nit')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
@@ -143,7 +143,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="">NIT</label>
-                                            <input type="text" class="form-control @error('nit') is-invalid @enderror" onkeypress="return soloNumeros(event)"  name="enit" id="enit" onchange="validate()">
+                                            <input type="text" class="form-control @error('nit') is-invalid @enderror" onkeypress="return soloNumeros(event)"  name="enit" id="enit" onchange="validate()" >
                                             @error('nit')
                                                 <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror

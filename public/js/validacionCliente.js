@@ -15,7 +15,7 @@
              validado++;
          }
 
-         if( $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
+         if(validaVacio($("#nombre").val()) || $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
          {
              $("#valNombre").text("* Debe ingresar el nombre del contacto");
          }
@@ -25,7 +25,7 @@
              validado++;
          }
  
-         if($("#apellido1").val().length == 0 || $("#apellido1").val().length > 30)
+         if(validaVacio($("#apellido1").val()) || $("#apellido1").val().length == 0 || $("#apellido1").val().length > 30)
          {
              $("#valApellido1").text("* Ingresar primer apellido del contacto");
          }
@@ -35,7 +35,7 @@
              validado++;
          }
  
-         if($("#apellido2").val().length == 0 || $("#apellido2").val().length > 30)
+         if(validaVacio($("#apellido2").val()) || $("#apellido2").val().length == 0 || $("#apellido2").val().length > 30)
          {
              $("#valApellido2").text("* Debe ingresar el segundo apellido del contacto.")
          }
@@ -163,7 +163,7 @@ function editar()
              validado++;
          }
 
-         if( $("#cnombre").val().length == 0 || $("#cnombre").val().length > 30)
+         if(validaVacio($("#cnombre").val()) || $("#cnombre").val().length == 0 || $("#cnombre").val().length > 30)
          {
              $("#valCNombre").text("* Debe ingresar el nombre del contacto");
          }
@@ -173,7 +173,7 @@ function editar()
              validado++;
          }
  
-         if($("#capellido1").val().length == 0 || $("#capellido1").val().length > 30)
+         if(validaVacio($("#capellido1").val()) || $("#capellido1").val().length == 0 || $("#capellido1").val().length > 30)
          {
              $("#valCApellido1").text("* Ingresar primer apellido del contacto");
          }
@@ -183,7 +183,7 @@ function editar()
              validado++;
          }
  
-         if($("#capellido2").val().length == 0 || $("#capellido2").val().length > 30)
+         if(validaVacio($("#capellido2").val()) || $("#capellido2").val().length == 0 || $("#capellido2").val().length > 30)
          {
              $("#valCApellido2").text("* Debe ingresar el segundo apellido del contacto.")
          }
@@ -314,6 +314,17 @@ function soloLetras(e) {
   return false;
   }
   }
+
+  function validaVacio(valor) {
+    valor = valor.replace("&nbsp;", "");
+    valor = valor == undefined ? "" : valor;
+    if (!valor || 0 === valor.trim().length) {
+        return true;
+        }
+    else {
+        return false;
+        }
+    }
 
 
   /* Delete customer */
