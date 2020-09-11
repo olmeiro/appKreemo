@@ -67,7 +67,7 @@ function limpiar()
 
 
 $(document).ready(function() {
-    $("#frmEncuesta").click(function(event){
+    $("#frmEncuesta").submit(function(event){
          event.preventDefault();
 
          let validado = 0;
@@ -119,12 +119,18 @@ $(document).ready(function() {
             validado++;
         }
 
-        if($("#respuesta1_1").val()==0){
+        if ($("#mes").val().length == 0) {
+            $("#valMes").text("*");
+            $("#valMes2").text("Debe Seleccionar una fecha");
+        }else{
+            $("#valMes").text("");
+            $("#valMes2").text("");
+            validado++;
+        }
+
+        if($("#respuesta1_1").val() == 0){
             $("#valRespuesta1_1").text("*");
             $("#valRespuesta1_12").text("Este campo es obligatorio");
-        }else if($("#respuesta1_1").val().length <= 1 || $("#respuesta1_1").val().length >= 5){
-            $("#valRespuesta1_1").text("*");
-            $("#valRespuesta1_12").text("El valor debe estar entre 1 y 5");
         }else{
             $("#valRespuesta1_1").text("");
             $("#valRespuesta1_12").text("");
@@ -134,9 +140,6 @@ $(document).ready(function() {
         if($("#respuesta1_2").val()==0){
             $("#valRespuesta1_2").text("*");
             $("#valRespuesta1_22").text("Este campo es obligatorio");
-        }else if($("#respuesta1_2").val().length <= 1 || $("#respuesta1_2").val().length >= 5){
-            $("#valRespuesta1_2").text("*");
-            $("#valRespuesta1_22").text("El valor debe estar entre 1 y 5");
         }else{
             $("#valRespuesta1_2").text("");
             $("#valRespuesta1_22").text("");
@@ -146,9 +149,6 @@ $(document).ready(function() {
         if($("#respuesta1_3").val()==0){
             $("#valRespuesta1_3").text("*");
             $("#valRespuesta1_32").text("Este campo es obligatorio");
-        }else if($("#respuesta1_3").val().length <= 1 || $("#respuesta1_3").val().length >= 5){
-            $("#valRespuesta1_3").text("*");
-            $("#valRespuesta1_32").text("El valor debe estar entre 1 y 5");
         }else{
             $("#valRespuesta1_3").text("");
             $("#valRespuesta1_32").text("");
@@ -158,9 +158,6 @@ $(document).ready(function() {
         if($("#respuesta1_4").val()==0){
             $("#valRespuesta1_4").text("*");
             $("#valRespuesta1_42").text("Este campo es obligatorio");
-        }else if($("#respuesta1_4").val().length <= 1 || $("#respuesta1_4").val().length >= 5){
-            $("#valRespuesta1_4").text("*");
-            $("#valRespuesta1_42").text("El valor debe estar entre 1 y 5");
         }else{
             $("#valRespuesta1_4").text("");
             $("#valRespuesta1_42").text("");
@@ -231,33 +228,33 @@ $(document).ready(function() {
 
         console.log("validado: " + validado);
 
-        // if (validado == 13)
-        // {
-        //     Swal.fire({
-        //         title:'Registro exitoso',text:'Encuesta creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-        //            //width: '50%',
-        //         padding:'1rem',
-        //            //background:'#000',
-        //         backdrop:true,
-        //            //toast: true,
-        //         position:'center',
-        //             });
+        if (validado == 14)
+        {
+            Swal.fire({
+                title:'Registro exitoso',text:'Encuesta creada',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+                    });
 
-        //     document.FrmEncuesta.submit();
-        // }
-        // else{
-        //     Swal.fire({
-        //         title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-        //            //width: '50%',
-        //         padding:'1rem',
-        //            //background:'#000',
-        //         backdrop:true,
-        //            //toast: true,
-        //         position:'center',
-        //     });
-        //     // alert("Campos pendientes por validar");
-        //     validado = 0;
-        // }
+            document.FrmEncuesta.submit();
+        }
+        else{
+            Swal.fire({
+                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
+            // alert("Campos pendientes por validar");
+            validado = 0;
+        }
 
     });
 });

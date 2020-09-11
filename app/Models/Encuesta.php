@@ -31,22 +31,22 @@ class Encuesta extends Model
 
     public static $rules = [
 
-        'idservicio' => 'required|numeric|digits_between:1,10000',
-        'directorobra' => 'required|string|max:20',
-        'constructora' => 'required|string|max:30',
-        'correo' => 'required|string|max:30',
-        'celular' => 'required|numeric|digits_between:7,11',
-        'mes' => 'required|date',
-        'respuesta1_1' => 'required|integer|min:1, max:5',
-        'respuesta1_2' => 'required|integer|min:1, max:5',
-        'respuesta1_3' => 'required|integer|min:1, max:5',
-        'respuesta1_4' => 'required|integer|min:1, max:5',
-        'respuesta2' => 'required|string',
-        'respuesta3' => 'max:300',
-        'respuesta4' => 'required|string',
-        'respuesta5' => 'max:300',
-        'respuesta6' => 'required|string',
-        'respuesta7' => 'required|string',
+        // 'idservicio' => 'required|numeric|digits_between:1,10000',
+        // 'directorobra' => 'required|string|max:20',
+        // 'constructora' => 'required|string|max:30',
+        // 'correo' => 'required|string|max:30',
+        // 'celular' => 'required|numeric|digits_between:7,11',
+        // 'mes' => 'required|date',
+        // 'respuesta1_1' => 'required|integer|min:1, max:5',
+        // 'respuesta1_2' => 'required|integer|min:1, max:5',
+        // 'respuesta1_3' => 'required|integer|min:1, max:5',
+        // 'respuesta1_4' => 'required|integer|min:1, max:5',
+        // 'respuesta2' => 'required|string',
+        // 'respuesta3' => 'max:300',
+        // 'respuesta4' => 'required|string',
+        // 'respuesta5' => 'max:300',
+        // 'respuesta6' => 'required|string',
+        // 'respuesta7' => 'required|string',
 
     ];
 }
