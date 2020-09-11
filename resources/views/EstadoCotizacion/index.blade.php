@@ -123,6 +123,21 @@
                             }
             });
     </script>
+    <script type="text/javascript">
+        function ConfirmDelete()
+        {
+            var respuesta = confirm("Estas seguro de eliminar el Uuario?");
+
+            if(respuesta == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script src="{{ asset('js/validacionEstadoCotizacion.js') }}"></script>
 <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>
