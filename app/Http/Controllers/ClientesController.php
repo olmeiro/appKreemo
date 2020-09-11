@@ -57,7 +57,7 @@ class ClientesController extends Controller
         })
         ->addColumn('eliminar', function ($cliente) {
 
-            return '<a id="delete-cliente" data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a id="delete-cliente"  data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
         ->rawColumns(['editar', 'cambiar','eliminar'])
