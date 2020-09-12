@@ -1,14 +1,3 @@
-$(document).ready(function(){
-
-    $(".solo_numeros").on("keyup",function(){
-        this.value = this.value.replace(/[^0-9]/g,'');
-    });
-
-    $(".solo_letras").on("keyup",function(){
-        this.value = this.value.replace(/[0-9]/g,'');
-    });
-});
-
 function soloLetras(e) {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toLowerCase();
@@ -30,7 +19,7 @@ function soloLetras(e) {
 
 
 $(document).ready(function() {
-    $("#FrmCrearEstado").submit(function(event){
+    $("#FrmEditarEstado").submit(function(event){
         event.preventDefault();
         // alert("llega");
         let validado=0;
@@ -49,7 +38,7 @@ $(document).ready(function() {
         if (validado==1)
         {
             Swal.fire({
-                title:'Registro exitoso',text:'Estado de Cotización creado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Registro exitoso',text:'Estado de Cotización Editado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -58,11 +47,11 @@ $(document).ready(function() {
                 position:'center',
                     });
 
-            document.FrmCrearEstado.submit();
+            document.FrmEditarEstado.submit();
         }
         else{
             Swal.fire({
-                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en la edicion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',

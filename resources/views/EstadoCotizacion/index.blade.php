@@ -5,8 +5,8 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTADO DE ESTADOS</strong>
-                <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a>
-                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">CREAR ESTADO </button>
+                {{-- <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a> --}}
+                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm">CREAR ESTADO </button>
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -23,8 +23,8 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
             <h5 class="modal-title" id="exampleModalLabel" >Crear Estado</h5>

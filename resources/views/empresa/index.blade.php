@@ -123,17 +123,14 @@
     <div class="modal fade" data-backdrop="static" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-            <div class="modal-header">
-                        <h4 class="modal-title" id="empresaCrudModal"></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <div class="card-header">
-                            <strong>x</strong>
-                        </div>
-                    </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="empresaCrudModal">Editar Empresa</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+                </div>
                 <div class="modal-body">
                     <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar" method="POST">
-                    @csrf
-                    <input type="hidden" name="empresa_id" id="empresa_id" >
+                        @csrf
+                        <input type="hidden" name="empresa_id" id="empresa_id" >
                         <div id="smartwizard">
                             <ul>
                                 <li><a>Paso 1<br /><small>Editar Empresa</small></a></li>

@@ -1,64 +1,66 @@
 @extends('layouts.app')
 
 @section('body')
-    <div class="row">
-        <div class="col">
-            <h4 class="text-center">Obras</h4>
-            <a class="btn btn-info" href="/obracontacto">Crear</a>
-            
-                @if (session('status'))
-                @if(session('status') == '1')
-                    <div class="alert alert-success">
-                        Se guardo correctamente
-                    </div>
-                    @else
-                    <div class="alert alert-danger">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-                @endif
-        </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Nombre obra</th>
-                        <th>Dirrección</th>
-                        <th>Teléfono</th>
-                        <th>Correo</th>
-                        <th>Acción</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($obras as $value)
-                        <tr>
-                            <td>{{ $value->nombre }}</td>
-                            <td>{{ $value->direccion }}</td>
-                            <td>{{ $value->telefono1 }}</td>
-                            <td>{{ $value->correo1 }}</td>
-                            <td>
-                            <a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a>
-                                <!-- <button type="button" class="btn btn-info-light float-right" data-toggle="modal" data-target="#exampleModal3"><a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a> </button> -->
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>
-        @if(count($contactos) > 0)
+<div class="container">
+    <div class="card">
 
+        <div class="card-header text-white" style="background-color: #616A6B">
+                    <strong>Obras</strong>
+                    <strong class="float-right"><a type="button" class="btn btn-outline-light float-rigth" href="/obracontacto">Crear Contactos de Obra</a></strong>
+                        @if (session('status'))
+                        @if(session('status') == '1')
+                            <div class="alert alert-success">
+                                Se guardo correctamente
+                            </div>
+                            @else
+                            <div class="alert alert-danger">
+                                {{ session('status') }}
+                            </div>
+                            @endif
+                        @endif
+        </div>
+        <div class="card-body">
+
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>Nombre obra</th>
+                                <th>Dirrección</th>
+                                <th>Teléfono</th>
+                                <th>Correo</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($obras as $value)
+                                <tr>
+                                    <td>{{ $value->nombre }}</td>
+                                    <td>{{ $value->direccion }}</td>
+                                    <td>{{ $value->telefono1 }}</td>
+                                    <td>{{ $value->correo1 }}</td>
+                                    <td>
+                                    <a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a>
+                                        <!-- <button type="button" class="btn btn-info-light float-right" data-toggle="modal" data-target="#exampleModal3"><a class="btn btn-info" href="/obracontacto/listar?id={{ $value->id }}">Ver</a> </button> -->
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+
+        </div>
+    </div>
+</div>
+        @if(count($contactos) > 0)
+    <div class="container">
         <div class="card">
-            <div class="card-header">
-                <h2>Información Contactos de Obra</h2>
+            <div class="card-header text-white" style="background-color: #616A6B">
+                <strong>Información Contactos de Obra</strong>
             </div>
-            <div class="row card-body">
-                <table class="table">
+            <div class="card-body">
+                <table class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th colspan="4" class="text-center">Contactos</th>
+                            <th colspan="5" class="text-center">Contactos</th>
                         </tr>
                         <tr>
                             <th>Tipo Contacto</th>
@@ -82,7 +84,7 @@
                 </table>
             </div>
         </div>
-
+    </div>
         <!-- <div class="row">
             <div class="col">
                 <table class="table">
@@ -112,7 +114,7 @@
                 </table>
             </div>
         </div> -->
-    
+
         <!-- <div class="modal fade" id="exampleModal3" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal3" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
