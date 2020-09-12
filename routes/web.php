@@ -27,6 +27,9 @@ Route::get('users/{id}/edit/','UserController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('ajaxmaquinaria','MaquinariaController');
+Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@updateState');
+
 Route::get('/tipocontacto', 'TipoContactoController@index');
 Route::get('/tipocontacto/listar', 'TipoContactoController@listar');
 Route::get('/tipocontacto/crear', 'TipoContactoController@create');
@@ -58,7 +61,7 @@ Route::post('/obra/actualizar', 'ObraController@update');
 Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/listar', 'EmpresaController@listar');
 //Route::get('/empresa/crear', 'EmpresaController@create');
- 
+
 Route::post('/empresa/guardar', 'EmpresaController@store');
 Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
 Route::get('/empresa/{id}/edit', 'EmpresaController@edit');
@@ -140,15 +143,6 @@ Route::get('/componentes', 'ModalidadController@index');
 Route::get('/componentes/listar3', 'ModalidadController@listar');
 Route::get('/componentes', 'TipoConcretoController@index');
 Route::get('/componentes/listar', 'TipoConcretoController@listar');
-
-Route::get('/maquinaria', 'MaquinariaController@index');
-Route::get('/maquinaria/listar', 'MaquinariaController@listar');
-Route::get('/maquinaria/crear', 'MaquinariaController@create');
-Route::post('/maquinaria/guardar', 'MaquinariaController@save');
-Route::get('/maquinaria/editar/{id}', 'MaquinariaController@edit');
-Route::post('/maquinaria/actualizar', 'MaquinariaController@update');
-Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@updateState');
-Route::get('/maquinaria/eliminar/{id}', 'MaquinariaController@destroy');
 
 Route::get('/operario', 'OperarioController@index');
 Route::get('/operario/listar', 'OperarioController@listar');
