@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('body')
+<div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header">
-            <strong>Tipo Contactos</strong>
-            <a href="/tipocontacto/crear" class="btn btn-link">Crear Tipo Contacto</a>
+        <div class="card-header text-white float-right" style="background-color: #616A6B" >
+            <strong>TIPO CONTACTOS</strong>
+            <a href="/tipocontacto/crear" class="btn btn-outline-light">Crear Tipo Contacto</a>
+            <a href="/cliente" class="btn btn-outline-light">Volver a contactos</a>
         </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
+            <table id="tbl_tipocontacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
                     <th>id</th>
@@ -24,7 +26,7 @@
             </table>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section("scripts")

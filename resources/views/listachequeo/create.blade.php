@@ -13,13 +13,18 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header">
-                        <strong>Informacion inicial</strong>
+                        <strong>Informacion Inicial</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
                                 <div class="form-group col-md-6">
                                     <label for="">Id Visita</label>
-                                    <input type="text" class="form-control @error('idvisita') is-invalid @enderror"  name="idvisita" id="idvisita">
+                                    <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
+                            <option selected>Seleccione una visita</option>
+                            @foreach($visita as $key =>$value)
+                                <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
+                            @endforeach
+                        </select>
                                     @error('idvisita')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -45,7 +50,7 @@
                                 <div class="form-group col-md-8">
                                 <label class="radio-inline">Estado de la vía para ingreso en grúa</label>
                                 <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
-                                <option value="">Seleccione</option>
+                                <option value="NS">Seleccione</option>
                                         <option value="SI">SI</option>
                                         <option value="NO">NO</option>
                                     </select>
@@ -56,7 +61,7 @@
                                 <div class="form-group col-md-4">
                                 <label class="radio-inline">Necesidad PH</label>
                                 <select class="form-control @error('ph') is-invalid @enderror" name="ph" id="ph">
-                                <option value="">Seleccione</option>
+                                <option value="NS">Seleccione</option>
                                         <option value="SI">SI</option>
                                         <option value="NO">NO</option>
                                     </select>
@@ -80,7 +85,7 @@
                             <div class="form-group col-md-6">
                             <label class="radio-inline">Hueco (mínimo 6x3 metros)</label>
                             <select class="form-control @error('hueco') is-invalid @enderror" name="hueco" id="hueco">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -91,7 +96,7 @@
                             <div class="form-group col-md-6">
                             <label class="radio-inline">Techo mínimo 3 mt altura</label>
                             <select class="form-control @error('techo') is-invalid @enderror" name="techo" id="techo">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -104,7 +109,7 @@
                             <div class="form-group col-md-3">
                             <label class="radio-inline">Desarenadero</label>
                             <select class="form-control @error('desarenadero') is-invalid @enderror" name="desarenadero" id="desarenadero">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -115,7 +120,7 @@
                             <div class="form-group col-md-3">
                             <label class="radio-inline">Desague</label>
                             <select class="form-control @error('desague') is-invalid @enderror" name="desague" id="desague">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -126,7 +131,7 @@
                             <div class="form-group col-md-6">
                             <label class="radio-inline">Agua abastecimiento suficiente</label>
                             <select class="form-control @error('agua') is-invalid @enderror" name="agua" id="agua">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -148,7 +153,7 @@
                             <div class="form-group col-md-4">
                             <label class="radio-inline">Líneas eléctricas</label>
                             <select class="form-control @error('lineaelectrica') is-invalid @enderror" name="lineaelectrica" id="lineaelectrica">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -186,7 +191,7 @@
                             <div class="form-group col-md-3">
                             <label class="radio-inline">Baños</label>
                             <select class="form-control @error('banios') is-invalid @enderror" name="banios" id="banios">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -198,7 +203,7 @@
                             <div class="form-group col-md-5">
                             <label class="radio-inline">Condiciones inseguras</label>
                             <select class="form-control @error('condicioninsegura') is-invalid @enderror" name="condicioninsegura" id="condicioninsegura">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -222,7 +227,7 @@
                             <div class="form-group col-md-4">
                             <label class="radio-inline">Orden público</label>
                             <select class="form-control @error('ordenpublico') is-invalid @enderror" name="ordenpublico" id="ordenpublico">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -233,7 +238,7 @@
                             <div class="form-group col-md-4">
                             <label class="radio-inline">Vigilancia nocturna</label>
                             <select class="form-control @error('vigilancia') is-invalid @enderror" name="vigilancia" id="vigilancia">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -244,7 +249,7 @@
                             <div class="form-group col-md-4">
                             <label class="radio-inline">Caspete</label>
                             <select class="form-control @error('caspete') is-invalid @enderror" name="caspete" id="caspete">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -257,7 +262,7 @@
                             <div class="form-group col-md-7">
                             <label class="radio-inline">Informacion de seguridad y salud en el trabajo</label>
                             <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -268,7 +273,7 @@
                             <div class="form-group col-md-5">
                             <label class="radio-inline">Horas extras, trabajo nocturno</label>
                             <select class="form-control @error('politicashoras') is-invalid @enderror" name="politicashoras" id="politicashoras">
-                            <option value="">Seleccione</option>
+                            <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -289,7 +294,7 @@
                       
                             <div class="form-group col-md-12">
                                 <label for="">Encargado Visita</label>
-                                <input type="text" class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
+                                <input type="text" onkeypress="return soloLetras(event)"  class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
                                 @error('encargadovisita')
                                     <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -297,7 +302,7 @@
                             <div class="form-group col-md-12">
                             <label class="radio-inline">Viabilidad</label>
                             <select class="form-control @error('viabilidad') is-invalid @enderror" name="viabilidad" id="viabilidad">
-                                    <option value="">Seleccione</option>
+                                    <option value="NS">Seleccione</option>
                                     <option value="SI">SI</option>
                                     <option value="NO">NO</option>
                                 </select>
@@ -314,4 +319,31 @@
         </form>
     </div>
 </div>
+@endsection
+@section("scripts")
+
+<script>
+
+</script>
+
+<script>
+    function soloLetras(e) {
+        var key = e.keyCode || e.which,
+        tecla = String.fromCharCode(key).toLowerCase(),
+        letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+        especiales = [8, 37, 39, 46],
+        tecla_especial = false;
+
+        for (var i in especiales) {
+        if (key == especiales[i]) {
+            tecla_especial = true;
+            break;
+            }
+        }
+
+        if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+        }
+    }
+</script>
 @endsection

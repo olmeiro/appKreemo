@@ -2,10 +2,10 @@
 
 @section('body')
 <div class="card">
-        <div class="card-header text-white" style="background-color: black">
-            <strong>Maquinaria</strong>
+        <div class="card-header text-white" style="background-color: #616A6B">
+            <strong>MÁQUINARIA</strong>
             <a href="/maquinaria/crear" class="btn btn-link">Crear Maquina</a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Maquinaria </button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">CREAR MÁQUINA</button>
 
         </div>
         <div class="card-body">
@@ -37,7 +37,7 @@
             @include('flash::message')
             <form action="/maquinaria/guardar" method="POST" enctype="multipart/form-data" name="FrmCrearMaquinaria" id="FrmCrearMaquinaria">
             @csrf
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title">Crear Maquina</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

@@ -1,15 +1,12 @@
-$(document).ready(function(){
-
-    $(".solo_numeros").on("keyup",function(){
-        this.value = this.value.replace(/[^0-9]/g,'');
-    });
-
-    $(".solo_letras").on("keyup",function(){
-        this.value = this.value.replace(/[0-9]/g,'');
-    });
-});
-
-
+function valor_total()
+{
+    var cantidad = document.getElementById('MetrosCubicos').value;
+    var valor = document.getElementById('ValorMetro').value;
+    document.getElementById('AIU').value= (cantidad*valor)*(0.05);
+    document.getElementById('Subtotal').value= (cantidad*valor);
+    document.getElementById('IvaAIU').value= ((cantidad*valor)*(0.05))*(0.19);
+    document.getElementById('ValorTotal').value= ((cantidad*valor)*(0.05))*(0.19)+(cantidad*valor);
+}
 function soloLetras(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
@@ -33,7 +30,7 @@ function soloNumeros(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
     letras = " 0123456789",
-    especiales = [8, 37, 39, 46],
+    especiales = [],
     tecla_especial = false;
 
     for (var i in especiales) {
@@ -48,8 +45,10 @@ function soloNumeros(e) {
     }
 }
 
+
+
 $(document).ready(function() {
-    $("#FrmCrearCotizacion").submit(function(event){
+    $("#FrmEditarCotizacion").submit(function(event){
         event.preventDefault();
 
         let validado=0;
@@ -250,7 +249,7 @@ $(document).ready(function() {
         if (validado==20)
         {
             Swal.fire({
-                title:'Registro exitoso',text:'Cotización creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Actualizacion exitosa',text:'Cotización Actualizada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -259,11 +258,11 @@ $(document).ready(function() {
                 position:'center',
                     });
 
-            document.FrmCrearCotizacion.submit();
+            document.FrmEditarCotizacion.submit();
         }
         else{
             Swal.fire({
-                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en la Actualizacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -277,3 +276,4 @@ $(document).ready(function() {
 
     });
 });
+

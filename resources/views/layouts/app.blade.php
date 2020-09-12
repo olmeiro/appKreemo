@@ -33,6 +33,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
+    @yield("meta")
     <!-- Main styles for this application-->
     <link href="{{ asset('assets/dashboard/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/dashboard/css/datatables.min.css') }}" rel="stylesheet">
@@ -59,17 +60,18 @@
       </div>
       <ul class="c-sidebar-nav">
 
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/home">
-        <i class="fas fa-home"></i> Usuario</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ url('/users') }}">
+            <i class="fas fa-users"></i>Usuario</a></li>
 
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-        <i class="fas fa-home"></i>Contactos</a>
+            <i class="fas fa-id-card usario"></i>Contactos</a>
           <ul class="c-sidebar-nav-dropdown-items">
-          <!-- <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/tipocontacto"><span class="c-sidebar-nav-icon"></span> Tipo Contacto</a></li> -->
+
+
+
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cliente"><span class="c-sidebar-nav-icon"></span> Contactos</a></li>
             <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">Obras</a>
             <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obra"><span class="c-sidebar-nav-icon"></span> Obras</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obracontacto"><span class="c-sidebar-nav-icon"></span> Crear Contactos de Obra</a></li>
         </ul>
           </li>
@@ -78,7 +80,7 @@
           </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-       <i class="fas fa-home"></i> Visitas</a>
+            <i class="fas fa-calendar-alt"></i> Visitas</a>
        <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita"><span class="c-sidebar-nav-icon"></span> Crear Cita</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/listachequeo"><span class="c-sidebar-nav-icon"></span> Lista de chequeo</a></li>
@@ -87,7 +89,7 @@
        </li>
 
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-        <i class="fas fa-home"></i> Cotizaciones</a>
+            <i class="fas fa-hand-holding-usd"></i>Cotizaciones</a>
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion"><span class="c-sidebar-nav-icon"></span> Cotizacion</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/estadocotizacion"><span class="c-sidebar-nav-icon"></span> Estado Cotizacion</a></li>
@@ -95,14 +97,14 @@
         </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-        <i class="fas fa-home"></i> Maquinaria</a>
+            <i class="fas fa-trailer"></i>Maquinaria</a>
         <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria"><span class="c-sidebar-nav-icon"></span> Maquinaria</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/operario"><span class="c-sidebar-nav-icon"></span> Operario</a></li>
         </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-        <i class="fas fa-home"></i> Servicio</a>
+            <i class="fas fa-tasks"></i>Servicio</a>
         <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio"><span class="c-sidebar-nav-icon"></span> Servicio</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta"><span class="c-sidebar-nav-icon"></span> Encuesta</a></li>

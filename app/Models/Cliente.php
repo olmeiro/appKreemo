@@ -23,7 +23,7 @@ class Cliente extends Model
     ];
 
     public static $rules = [
-        'idtipocontacto' => 'integer',
+        'idtipocontacto' => 'required|integer',
         'nombre' => 'required|string|max:20',
         'apellido1' =>  'required|string|max:20',
         'apellido2' => 'string|max:20',

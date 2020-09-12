@@ -3,10 +3,10 @@
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
-            <strong>Operario</strong>
+        <div class="card-header text-white" style="background-color: #616A6B">
+            <strong>OPERARIOS</strong>
             <a href="/operario/crear" class="btn btn-link">Crear Operario</a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal1">Crear Operario</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">CREAR OPERARIO</button>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -34,7 +34,7 @@
         @include('flash::message')
             <form action="/operario/guardar" method="POST" enctype="multipart/form-data" name="FrmCrearOperario" id="FrmCrearOperario">
             @csrf
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title">Crear Operario</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>

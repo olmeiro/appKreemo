@@ -2,9 +2,9 @@
 
 @section('body')
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Estado del servicio</strong>
-            <a href="/estadoservicio/crear" class="btn btn-link">Crear Estado</a>
+            <a href="/estadoservicio/crear" class="btn btn-outline-light">CREAR ESTADO</a>
         </div>
         <div class="card-body">
         @include('flash::message')

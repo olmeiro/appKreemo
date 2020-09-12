@@ -22,9 +22,9 @@ class ObraController extends Controller
         $obra = Obra::all();
         //dd($obra);
 
-        return DataTables::of($obra)    
+        return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
-            return '<a class="btn btn-primary btn-sm" href="/obra/editar/'.$obra->id.'">Editar</a>';
+            return '<a class="btn btn-primary btn-sm" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('ver', function ($obra) {
             return '<a class="btn btn-secondary btn-sm" href="/obracontacto/">Ver Contactos</a>';
@@ -53,7 +53,7 @@ class ObraController extends Controller
                 "direccion" =>$input["direccion"],
                 "telefono1" =>$input["telefono1"],
                 "correo1" =>$input["correo1"],
-              
+
             ]);
 
             Flash::success("Registro éxitoso de obra");
@@ -62,16 +62,16 @@ class ObraController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/obra/crear");
-        } 
+        }
     }
 
     public function edit($id){
-        
+
         // $tipoContacto = tipoContacto::all();
         $obra = Obra::find($id);
 
         if ($obra==null) {
-            
+
             Flash::error("Obra no encontrada");
             return redirect("/obra");
         }
@@ -107,7 +107,7 @@ class ObraController extends Controller
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return redirect("/obra");
-        }   
+        }
     }
 
 

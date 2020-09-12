@@ -3,10 +3,10 @@
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTADO DE ESTADOS</strong>
-                <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a>
-                <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal">CREAR ESTADO </button>
+                {{-- <a class="btn btn-link" href="/estadocotizacion/crear">CREAR ESTADO</a> --}}
+                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm">CREAR ESTADO </button>
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -23,11 +23,11 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Crear Estado</h5>
+            <div class="modal-header text-white" style="background-color: #616A6B">
+            <h5 class="modal-title" id="exampleModalLabel" >Crear Estado</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -91,6 +91,7 @@
                         orderable: false,
                         searchable: false,
                     },
+
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",
@@ -121,6 +122,21 @@
                             }
                             }
             });
+    </script>
+    <script type="text/javascript">
+        function ConfirmDelete()
+        {
+            var respuesta = confirm("Estas seguro de eliminar el Uuario?");
+
+            if(respuesta == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script src="{{ asset('js/validacionEstadoCotizacion.js') }}"></script>

@@ -18,11 +18,11 @@ class EstadoCotizacionController extends Controller
         $estadocotizacion = EstadoCotizacion::all();
         return Datatables::of($estadocotizacion)
             ->addColumn('editar', function ($estadocotizacion) {
-                return '<a class="btn btn-xs btn-primary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'">Editar</a>';
+                return '<a class="btn btn-xs btn-primary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'"><i class="fas fa-edit"></i></a>';
 
             })
             ->addColumn('eliminar', function ($estadocotizacion) {
-                return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'">Eliminar</a>';
+                return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'"onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
             })
             ->rawColumns(['editar', 'eliminar'])
             ->make(true);

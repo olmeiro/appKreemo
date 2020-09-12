@@ -3,7 +3,7 @@
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header text-white" style="background-color: black">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Cambio de Estado</strong>
 
         </div>
@@ -36,3 +36,4 @@
 </div>
 </body>
 @endsection
+

@@ -22,6 +22,9 @@ Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
 
+Route::resource('users','UserController');
+Route::get('users/{id}/edit/','UserController@edit');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/tipocontacto', 'TipoContactoController@index');
@@ -35,25 +38,33 @@ Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 Route::get('/cliente', 'ClientesController@index');
 Route::get('/cliente/listar', 'ClientesController@listar');
 Route::get('/cliente/crear', 'ClientesController@create');
-Route::post('/cliente/guardar', 'ClientesController@save');
-Route::get('/cliente/editar/{id}', 'ClientesController@edit');
-Route::post('/cliente/actualizar', 'ClientesController@update');
+
+Route::post('/cliente/guardar', 'ClientesController@store');
+Route::post('/cliente/guardarNuevo', 'ClientesController@save');
+Route::get('/cliente/{id}/edit', 'ClientesController@edit');
+
+//Route::post('/cliente/actualizar', 'ClientesController@update');
 Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
+Route::post('/cliente/eliminar/{id}', 'ClientesController@destroy');
 
 Route::get('/obra', 'ObraController@index');
 Route::get('/obra/listar', 'ObraController@listar');
 Route::get('/obra/crear', 'ObraController@create');
-Route::get('/obra/crearcontactos', 'ObraContactosController@create');
+Route::get('/obra/crearcontactos', 'ObraContactoController@create');
 Route::post('/obra/guardar', 'ObraController@save');
 Route::get('/obra/editar/{id}', 'ObraController@edit');
 Route::post('/obra/actualizar', 'ObraController@update');
 
 Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/listar', 'EmpresaController@listar');
-Route::get('/empresa/crear', 'EmpresaController@create');
-Route::post('/empresa/guardar', 'EmpresaController@save');
-Route::get('/empresa/editar/{id}', 'EmpresaController@edit');
-Route::post('/empresa/actualizar', 'EmpresaController@update');
+//Route::get('/empresa/crear', 'EmpresaController@create');
+ 
+Route::post('/empresa/guardar', 'EmpresaController@store');
+Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
+Route::get('/empresa/{id}/edit', 'EmpresaController@edit');
+
+//Route::post('/empresa/actualizar', 'EmpresaController@update');
+Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
 
 Route::get('/obracontacto', 'ObraContactoController@index');
 Route::post('/obracontacto/guardar', 'ObraContactoController@save');

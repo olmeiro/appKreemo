@@ -14,7 +14,9 @@ use App\Models\Visita;
 class ListaChequeoController extends Controller
 {
     public function index(){
-        return view('listachequeo.index');
+        $listachequeo= ListaChequeo::all();
+        $visita = Visita::all();
+        return view('listachequeo.index', compact('visita'));
         
     }
 
@@ -28,8 +30,8 @@ class ListaChequeoController extends Controller
         return DataTables::of($listachequeo)    
         
         ->addColumn('editar', function ($listachequeo) {
-            return '<a type="button" class="btn btn-primary"  data-toggle="modal" data-target="#edit" href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
-            // return '<a type="button" class="btn btn-primary"   href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
+            // return '<a type="button" class="btn btn-primary"  data-toggle="modal" data-target="#edit" href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
+            return '<a type="button" class="btn btn-primary"   href="/listachequeo/editar/'.$listachequeo->id.'" ><i class="fas fa-edit"></i></a>';
         })
       
         ->rawColumns(['editar'])
@@ -89,7 +91,7 @@ class ListaChequeoController extends Controller
 
   public function edit($id){
         
-    
+    $visita = Visita::all();
     $listachequeo = ListaChequeo::find($id);
 
 
@@ -99,7 +101,7 @@ class ListaChequeoController extends Controller
         return redirect("/listachequeo");
     }
     //else{
-        return view("listachequeo.edit", compact("listachequeo"));
+        return view("listachequeo.edit", compact("listachequeo","visita"));
     // }
 }
 
@@ -121,6 +123,7 @@ public function update(Request $request){
         }
 
         $listachequeo->update([
+            "idvisita" => $input["idvisita"],
             "numeroplanilla" => $input["numeroplanilla"],
                 "estadovia" =>$input["estadovia"],
                 "ph" =>$input["ph"],
@@ -143,7 +146,7 @@ public function update(Request $request){
                  "viabilidad" =>$input["viabilidad"],
         ]);
 
-        Flash::success("Se modificò la lista de chequeo");
+        Flash::success("Se modificó la lista de chequeo");
         return redirect("/listachequeo");
 
     } catch (\Exception $e ) {

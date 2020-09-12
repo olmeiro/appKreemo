@@ -2,13 +2,13 @@
 
 @section('body')
 <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Obras</strong>
-            {{-- <a href="/obra/crear" class="btn btn-link">Crear Obra</a> --}}
+            {{-- <a href="/obra/crear" class="btn btn-outline-light">CREAR OBRA</a> --}}
         </div>
         <div class="card-body">
         @include('flash::message')
-            <table id="tbl_obra" class="table table-bordered" style="width: 100%;">
+            <table id="tbl_obra" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
                     <th>Nombre</th>
@@ -64,7 +64,35 @@
                         orderable: false,
                         searchable: false
                     },
-                ]
+                ],
+                "language":{
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            },
+                            "oAria": {
+                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            },
+                            "buttons": {
+                                "copy": "Copiar",
+                                "colvis": "Visibilidad"
+                            }
+                            }
             });
 
     </script>
