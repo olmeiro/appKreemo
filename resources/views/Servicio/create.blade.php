@@ -16,7 +16,7 @@
                             <select id="idcotizacion"  name= "idcotizacion" class="form-control @error('idcotizacion') is-invalid @enderror">
                                 <option selected>Seleccione una cotización</option>
                                 @foreach($cotizacion as $key =>$value)
-                                    <option value="{{ $value->id }}">{{ $value->id}}</option>
+                                    <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                 @endforeach
                             </select>
                             @error('idcotizacion')
@@ -28,7 +28,7 @@
                         <select id="idestadoservicio"  name= "idestadoservicio" class="form-control @error('idestadoservicio') is-invalid @enderror">
                             <option selected>Seleccione un Estado</option>
                             @foreach($estadoservicio as $key =>$value)
-                                <option value="{{ $value->id }}">{{ $value->estado}}</option>
+                                <option value="{{ $value->id }}" {{(old('idestadoservicio')==$value->id)? 'selected':''}}>{{ $value->estado}}</option>
                             @endforeach
                         </select>
                         @error('idestadoservicio')
@@ -39,14 +39,14 @@
                 <div class="form-row" >
                     <div class="form-group col-md-6">
                         <label for="">Fecha: Inicio del servicio</label>
-                        <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" name="fechainicio">
+                        <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" name="fechainicio" value="{{old('fechainicio')}}">
                         @error('fechainicio')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="form-group col-md-6">
                         <label for="">Fecha: Fin del servicio</label>
-                        <input type="date" class="form-control @error('fechafin') is-invalid @enderror" id="fechafin" name="fechafin" >
+                        <input type="date" class="form-control @error('fechafin') is-invalid @enderror" id="fechafin" name="fechafin" value="{{old('fechafin')}}">
                         @error('fechafin')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror

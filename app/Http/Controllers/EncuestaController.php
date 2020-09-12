@@ -15,7 +15,10 @@ use App\Models\Servicio;
 class EncuestaController extends Controller
 {
     public function index(){
-        return view('encuesta.index');
+
+        $servicio = Servicio::all();
+        return view('encuesta.index', compact('servicio'));
+
     }
 
     public function listar(Request $request){
