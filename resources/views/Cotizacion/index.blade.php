@@ -4,15 +4,17 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white float-right" style="background-color: #616A6B">
-            <strong>COTIZACIONES</strong>
+            <strong>COTIZACIONE</strong>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
+            <div class="float-right" style="background-color: #616A6B">
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">VER JORNADAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">VER MODALIDAD</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">VER TIPO CONCRETO</button>
-                {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
-                {{-- <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
-                <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
+                    {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
+                    {{-- <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
+                    <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
+            </div>
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -61,292 +63,289 @@
             </div>
             <div class="modal-body">
                 @include('flash::message')
-            <form class="form-signin col-md-12" action="/cotizacion/guardar" method="POST" name="FrmCrearCotizacion" id="FrmCrearCotizacion">
-            @csrf
-                <div id="smartwizard">
-                    <ul>
-                        <li><a href="#step-1">Paso 1<br /><small>Account Info</small></a></li>
-                        <li><a href="#step-2">Paso 2<br /><small>Personal Info</small></a></li>
-                        <li><a href="#step-3">Paso 3<br /><small>Payment Info</small></a></li>
-                        <li><a href="#step-4">Paso 4<br /><small>Calculos</small></a></li>
-                        <li><a href="#step-5">Paso 5<br /><small>Observaciones</small></a></li>
-
-                    </ul>
-                    <div>
-                        <div id="step-1">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="">Empresa</label>
-                                    <label class="validacion" id="val_empresa"></label>
-                                    <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror">
-                                        <option value="0">Seleccione una Empresa</option>
-                                        @foreach($empresa as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdEmpresa')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdEmpresa')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_empresa2"></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="">Estado</label>
-                                    <label class="validacion" id="val_Estado"></label>
-                                    <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
-                                        <option value="0">Seleccione un Estado</option>
-                                        @foreach($estadocotizacion as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdEstado')==$value->id)? 'selected':''}}>{{ $value->estado_cotizacion}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdEstado')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Estado2"></label>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <label for="">Modalidad</label>
-                                    <label class="validacion" id="val_Modalidad"></label>
-                                    <select id="IdModalidad"  name= "IdModalidad" class="form-control @error('IdModalidad') is-invalid @enderror">
-                                        <option value="0">Seleccione una Modalidad</option>
-                                        @foreach($modalidad as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdModalidad')==$value->id)? 'selected':''}}>{{ $value->modalidad}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdModalidad')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Modalidad2"></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="">Etapa</label>
-                                    <label class="validacion" id="val_Etapa"></label>
-                                    <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
-                                        <option value="0">Seleccione una Etapa</option>
-                                        @foreach($etapa as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdEtapa')==$value->id)? 'selected':''}}>{{ $value->etapa}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdEtapa')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Etapa2"></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="step-2">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label for="">Jornada</label>
-                                    <label class="validacion" id="val_Jornada"></label>
-                                    <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
-                                        <option value="0">Seleccione una Jornada</option>
-                                        @foreach($jornada as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdJornada')==$value->id)? 'selected':''}}>{{ $value->jornada_nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdJornada')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Jornada2"></label>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="">Tipo de Concreto</label>
-                                    <label class="validacion" id="val_TipoConcreto"></label>
-                                        <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
-                                            <option value="0">Seleccione un Tipo de Concreto</option>
-                                            @foreach($tipoconcreto as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdTipo_Concreto')==$value->id)? 'selected':''}}>{{ $value->tipo_concreto}}</option>
+                <form class="form-signin col-md-12" action="/cotizacion/guardar" method="POST" name="FrmCrearCotizacion" id="FrmCrearCotizacion">
+                    @csrf
+                    <div id="smartwizard">
+                        <ul>
+                            <li><a href="#step-1">Paso 1<br /><small>Account Info</small></a></li>
+                            <li><a href="#step-2">Paso 2<br /><small>Personal Info</small></a></li>
+                            <li><a href="#step-3">Paso 3<br /><small>Payment Info</small></a></li>
+                            <li><a href="#step-4">Paso 4<br /><small>Calculos</small></a></li>
+                            <li><a href="#step-5">Paso 5<br /><small>Observaciones</small></a></li>
+                        </ul>
+                        <div>
+                            <div id="step-1">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Empresa</label>
+                                        <label class="validacion" id="val_empresa"></label>
+                                        <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror">
+                                            <option value="0">Seleccione una Empresa</option>
+                                            @foreach($empresa as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdEmpresa')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
                                             @endforeach
                                         </select>
-                                        @error('IdTipo_Concreto')
+                                        @error('IdEmpresa')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" id="val_TipoConcreto2"></label>
+                                        <label class="validacion" id="val_empresa2"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Estado</label>
+                                        <label class="validacion" id="val_Estado"></label>
+                                        <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
+                                            <option value="0">Seleccione un Estado</option>
+                                            @foreach($estadocotizacion as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdEstado')==$value->id)? 'selected':''}}>{{ $value->estado_cotizacion}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdEstado')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Estado2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <label for="">Modalidad</label>
+                                        <label class="validacion" id="val_Modalidad"></label>
+                                        <select id="IdModalidad"  name= "IdModalidad" class="form-control @error('IdModalidad') is-invalid @enderror">
+                                            <option value="0">Seleccione una Modalidad</option>
+                                            @foreach($modalidad as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdModalidad')==$value->id)? 'selected':''}}>{{ $value->modalidad}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdModalidad')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Modalidad2"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Etapa</label>
+                                        <label class="validacion" id="val_Etapa"></label>
+                                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
+                                            <option value="0">Seleccione una Etapa</option>
+                                            @foreach($etapa as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdEtapa')==$value->id)? 'selected':''}}>{{ $value->etapa}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdEtapa')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Etapa2"></label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <label for="">Obra</label>
-                                    <label class="validacion" id="val_Obra"></label>
-                                    <select id="IdObra"  name= "IdObra" class="form-control @error('IdObra') is-invalid @enderror">
-                                        <option value="0" >Seleccione una Obra</option>
-                                        @foreach($obra as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdObra')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdObra')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Obra2"></label>
+                            <div id="step-2">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Jornada</label>
+                                        <label class="validacion" id="val_Jornada"></label>
+                                        <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
+                                            <option value="0">Seleccione una Jornada</option>
+                                            @foreach($jornada as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdJornada')==$value->id)? 'selected':''}}>{{ $value->jornada_nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdJornada')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Jornada2"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Tipo de Concreto</label>
+                                        <label class="validacion" id="val_TipoConcreto"></label>
+                                            <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
+                                                <option value="0">Seleccione un Tipo de Concreto</option>
+                                                @foreach($tipoconcreto as $key =>$value)
+                                                <option value="{{ $value->id }}" {{(old('IdTipo_Concreto')==$value->id)? 'selected':''}}>{{ $value->tipo_concreto}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('IdTipo_Concreto')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" id="val_TipoConcreto2"></label>
+                                    </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <label for="">Maquinaria</label>
-                                    <label class="validacion" id="val_Maquinaria"></label>
-                                    <select id="IdMaquinaria"  name= "IdMaquinaria" class="form-control @error('IdMaquinaria') is-invalid @enderror">
-                                        <option value="0">Seleccione una Maquinaria</option>
-                                        @foreach($maquinaria as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdMaquinaria')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdMaquinaria')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Maquinaria2"></label>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <label for="">Obra</label>
+                                        <label class="validacion" id="val_Obra"></label>
+                                        <select id="IdObra"  name= "IdObra" class="form-control @error('IdObra') is-invalid @enderror">
+                                            <option value="0" >Seleccione una Obra</option>
+                                            @foreach($obra as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdObra')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdObra')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Obra2"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Maquinaria</label>
+                                        <label class="validacion" id="val_Maquinaria"></label>
+                                        <select id="IdMaquinaria"  name= "IdMaquinaria" class="form-control @error('IdMaquinaria') is-invalid @enderror">
+                                            <option value="0">Seleccione una Maquinaria</option>
+                                            @foreach($maquinaria as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdMaquinaria')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdMaquinaria')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Maquinaria2"></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="step-3" class="">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="">Operario</label>
-                                    <label class="validacion" id="val_Operario"></label>
-                                    <select id="IdOperario"  name="IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
-                                        <option value="0">Seleccione un Operario</option>
-                                        @foreach($operario as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('IdOperario')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                    @error('IdOperario')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Operario2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="FechaCotizacion">Fecha de Cotización</label>
-                                    <label class="validacion" id="val_FechaCotizacion"></label>
-                                    <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
-                        @error('FechaCotizacion')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                                    <label class="validacion" id="val_FechaCotizacion2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="InicioBombeo">Fecha de Inicio Bombeo</label>
-                                    <label class="validacion" id="val_FechaInicio"></label>
-                                    <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
-                                    @error('InicioBombeo')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_FechaInicio2"></label>
-                                </div>
+                            <div id="step-3" class="">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="">Operario</label>
+                                        <label class="validacion" id="val_Operario"></label>
+                                        <select id="IdOperario"  name="IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
+                                            <option value="0">Seleccione un Operario</option>
+                                            @foreach($operario as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdOperario')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdOperario')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Operario2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="FechaCotizacion">Fecha de Cotización</label>
+                                        <label class="validacion" id="val_FechaCotizacion"></label>
+                                        <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
+                                        @error('FechaCotizacion')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_FechaCotizacion2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="InicioBombeo">Fecha de Inicio Bombeo</label>
+                                        <label class="validacion" id="val_FechaInicio"></label>
+                                        <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
+                                        @error('InicioBombeo')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_FechaInicio2"></label>
+                                    </div>
 
-                            </div>
-                            <div class="row mt-3">
+                                </div>
+                                <div class="row mt-3">
 
-                                <div class="col-md-4">
-                                    <label for="">Ciudad</label>
-                                    <label class="validacion" id="val_ciudad"></label>
-                                    <input type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
-                                    @error('Ciudad')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_ciudad2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Cantidad de losas</label>
-                                    <label class="validacion" id="val_Losas"></label>
-                                    <input type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas" value="{{old('Losas')}}">
-                                    @error('Losas')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Losas2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Cantidad de tuberia</label>
-                                    <label class="validacion" id="val_Tuberia"></label>
-                                    <input type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
-                                    @error('Tuberia')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Tuberia2"></label>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="step-4" class="">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <label for="">Cantidad de metros<sup>3</sup></label>
-                                    <label class="validacion" id="val_Metros"></label>
-                                    <input type="text" class="form-control @error('MetrosCubicos') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="MetrosCubicos" name="MetrosCubicos" >
-                                    @error('MetrosCubicos')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_Metros2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Valor Metro <sup>3</sup></label>
-                                    <label class="validacion" id="val_ValorMetro"></label>
-                                    <input type="text" class="form-control @error('ValorMetro') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorMetro" name="ValorMetro"  onchange="valor_total()">
-                                    @error('ValorMetro')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_ValorMetro2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">AIU</label>
-                                    <label class="validacion" id="val_AIU"></label>
-                                    <input type="text" class="form-control @error('AIU') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIU" name="AIU" readonly>
-                                    @error('AIU')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_AIU2"></label>
+                                    <div class="col-md-4">
+                                        <label for="">Ciudad</label>
+                                        <label class="validacion" id="val_ciudad"></label>
+                                        <input type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
+                                        @error('Ciudad')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_ciudad2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">Cantidad de losas</label>
+                                        <label class="validacion" id="val_Losas"></label>
+                                        <input type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas" value="{{old('Losas')}}">
+                                        @error('Losas')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Losas2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">Cantidad de tuberia</label>
+                                        <label class="validacion" id="val_Tuberia"></label>
+                                        <input type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
+                                        @error('Tuberia')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Tuberia2"></label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row mt-3">
-                                <div class="col-md-4">
-                                    <label for="">SubTotal</label>
-                                    <label class="validacion" id="val_SubTotal"></label>
-                                    <input type="text" class="form-control @error('Subtotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Subtotal" name="Subtotal" readonly>
-                                    @error('Subtotal')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_SubTotal2"></label>
+                            <div id="step-4" class="">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="">Cantidad de metros<sup>3</sup></label>
+                                        <label class="validacion" id="val_Metros"></label>
+                                        <input type="text" class="form-control @error('MetrosCubicos') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="MetrosCubicos" name="MetrosCubicos" >
+                                        @error('MetrosCubicos')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Metros2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">Valor Metro <sup>3</sup></label>
+                                        <label class="validacion" id="val_ValorMetro"></label>
+                                        <input type="text" class="form-control @error('ValorMetro') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorMetro" name="ValorMetro"  onchange="valor_total()">
+                                        @error('ValorMetro')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_ValorMetro2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">AIU</label>
+                                        <label class="validacion" id="val_AIU"></label>
+                                        <input type="text" class="form-control @error('AIU') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIU" name="AIU" readonly>
+                                        @error('AIU')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_AIU2"></label>
+                                    </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <label for="">IVA al AIU</label>
-                                    <label class="validacion" id="val_IvaAIU"></label>
-                                    <input type="text" class="form-control @error('IvaAIU') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIU" name="IvaAIU" readonly>
-                                    @error('IvaAIU')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_IvaAIU2"></label>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Valor Total</label>
-                                    <label class="validacion" id="val_ValorTotal"></label>
-                                    <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotal" name="ValorTotal" readonly>
-                                    @error('ValorTotal')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                    <label class="validacion" id="val_ValorTotal2"></label>
+                                <div class="row mt-3">
+                                    <div class="col-md-4">
+                                        <label for="">SubTotal</label>
+                                        <label class="validacion" id="val_SubTotal"></label>
+                                        <input type="text" class="form-control @error('Subtotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Subtotal" name="Subtotal" readonly>
+                                        @error('Subtotal')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_SubTotal2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">IVA al AIU</label>
+                                        <label class="validacion" id="val_IvaAIU"></label>
+                                        <input type="text" class="form-control @error('IvaAIU') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIU" name="IvaAIU" readonly>
+                                        @error('IvaAIU')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_IvaAIU2"></label>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="">Valor Total</label>
+                                        <label class="validacion" id="val_ValorTotal"></label>
+                                        <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotal" name="ValorTotal" readonly>
+                                        @error('ValorTotal')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_ValorTotal2"></label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="step-5" class="">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <label for="validationTextarea">Observaciones</label>
-                                    <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa las observaciones" ></textarea>
-                                    @error('Observaciones')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
+                            <div id="step-5" class="">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationTextarea">Observaciones</label>
+                                        <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa las observaciones" ></textarea>
+                                        @error('Observaciones')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
-                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
+                                    </div>
 
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                </div>
-
-            </form>
+                </form>
             </div>
         </div>
     </div>
@@ -467,7 +466,7 @@
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script>
         flatpickr("#FechaCotizacion", {
             minDate: "today",

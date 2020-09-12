@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('body')
+<div class="container row justify-content-center">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header text-white float-right" style="background-color: #616A6B" >
             <strong>TIPO CONTACTOS</strong>
-            <a href="/tipocontacto/crear" class="btn btn-link">Crear Tipo Contacto</a>
-            <a href="/cliente" class="btn btn-link">Volver a contactos</a>
+            <a href="/tipocontacto/crear" class="btn btn-outline-light">Crear Tipo Contacto</a>
+            <a href="/cliente" class="btn btn-outline-light">Volver a contactos</a>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -25,7 +26,7 @@
             </table>
         </div>
     </div>
-
+</div>
 @endsection
 
 @section("scripts")
