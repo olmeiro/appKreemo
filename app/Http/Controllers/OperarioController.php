@@ -10,115 +10,49 @@ use App\Models\Operario;
 
 class OperarioController extends Controller
 {
-    public function index(){
-        return view('operario.index');
-    }
-
-    public function listar(Request $request){
-
-        //$cliente = Cliente::all();
-        //dd($cliente);
-
-        $operario = Operario::all();
-
-        return DataTables::of($operario)
-
-        ->addColumn('editar', function ($operario) {
-            return '<a class="btn btn-primary btn-sm" href="/operario/editar/'.$operario->id.'"><i class="fas fa-edit"></i></a>';
-        })
-
-        ->addColumn('eliminar', function ($operario) {
-            return '<a class="btn btn-danger btn-sm" href="/operario/eliminar/'.$operario->id.'"><i class="fas fa-trash-alt"></i></a>';
-        })
-        ->rawColumns(['editar', 'eliminar'])
-        ->make(true);
-    }
-    public function create()
+    public function index(Request $request)
     {
-        $maquinaria = Operario::all();
-        return view('operario.create');
-    }
-    public function save(Request $request)
-    {
-        $request->validate(Operario::$rules);
 
-        $input = $request->all();
+        if ($request->ajax()) {
+            $data = Operario::latest()->get();
+            return DataTables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('acciones', function($row){
 
-        try {
-            Operario::create([
+                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editOperario" style="margin: 2px"><i class="fas fa-edit"></i></a>';
 
-                "nombre" =>$input["nombre"],
-                "apellido" =>$input["apellido"],
-                "documento" =>$input["documento"],
-                "celular" =>$input["celular"]
-            ]);
+                           $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteOperario" id="deleteOperario" onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
 
-            Flash::success("Registro éxitoso de Operario");
-            return redirect("/operario");
-
-        } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/operario/crear");
+                            return $btn;
+                    })
+                    ->rawColumns(['acciones'])
+                    ->make(true);
         }
+
+        return view('operario/operarioajax');
     }
 
-    public function edit($id){
+    public function store(Request $request)
+    {
+        Operario::updateOrCreate(['id' => $request->operario_id],
+                ['nombre' => $request->nombre,
+                 'apellido' => $request->apellido,
+                 'documento' => $request->documento,
+                 'celular' => $request->celular ]);
 
-        //$categorias = Categoria::all();
+        return response()->json(['success'=>'Operario guardado satisfactoriamente']);
+    }
+
+    public function edit($id)
+    {
         $operario = Operario::find($id);
-
-        if ($operario==null) {
-
-            Flash::error("operario no encontrado");
-            return redirect("/operario");
-        }
-        //else{
-            return view("operario.edit", compact("operario"));
-        // }
+        return response()->json($operario);
     }
-    public function update(Request $request){
 
-        $request->validate(Operario::$rules);
-        $input = $request->all();
-
-        try {
-
-            $operario = Operario::find($input["id"]);
-
-            if ($operario==null) {
-                Flash::error("Operario no encontrado");
-                return redirect("/operario");
-            }
-
-            $operario->update([
-                "nombre" =>$input["nombre"],
-                "apellido" =>$input["apellido"],
-                "documento" =>$input["documento"],
-                "celular" =>$input["celular"]
-            ]);
-
-            Flash::success("Se modificó el operario");
-            return redirect("/operario");
-
-        } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/operario");
-        }
-    }
     public function destroy($id)
     {
-        $operario = Operario::find($id);
+        Operario::find($id)->delete();
 
-        if (empty($operario)) {
-            Flash::error('Operario no encontrado');
-
-            return redirect('/operario');
-        }
-
-        $operario->delete($id);
-
-        Flash::success('Operario eliminado.');
-
-        return redirect('/operario');
+        return response()->json(['success'=>'Operario borrado satisfactoriamente.']);
     }
 }

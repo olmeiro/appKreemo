@@ -27,9 +27,6 @@ Route::get('users/{id}/edit/','UserController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('ajaxmaquinaria','MaquinariaController');
-Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@updateState');
-
 Route::get('/tipocontacto', 'TipoContactoController@index');
 Route::get('/tipocontacto/listar', 'TipoContactoController@listar');
 Route::get('/tipocontacto/crear', 'TipoContactoController@create');
@@ -144,13 +141,12 @@ Route::get('/componentes/listar3', 'ModalidadController@listar');
 Route::get('/componentes', 'TipoConcretoController@index');
 Route::get('/componentes/listar', 'TipoConcretoController@listar');
 
+Route::get('/maquinaria', 'MaquinariaController@index');
+Route::resource('ajaxmaquinaria','MaquinariaController');
+Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@updateState');
+
 Route::get('/operario', 'OperarioController@index');
-Route::get('/operario/listar', 'OperarioController@listar');
-Route::get('/operario/crear', 'OperarioController@create');
-Route::post('/operario/guardar', 'OperarioController@save');
-Route::get('/operario/editar/{id}', 'OperarioController@edit');
-Route::post('/operario/actualizar', 'OperarioController@update');
-Route::get('/operario/eliminar/{id}', 'OperarioController@destroy');
+Route::resource('ajaxoperario','OperarioController');
 
 });
 
