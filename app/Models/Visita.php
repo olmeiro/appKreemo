@@ -9,21 +9,22 @@ class Visita extends Model
     protected $table = "visita";
 
     protected $fillable = [
-        "id",
+    
         "tipovisita",
         "idobra",
-        "encargadovisita",
-        "Fecha_Hora",
-        "viabilidad",
+        "fecha",
+        "horainicio",
+        "horafinal",
+        "estado",
+        
         
     ];
 
     public static $rules = [
-        'id'=> 'integer',
-        'tipovisita' =>'required|string|max:10',
+        'tipovisita' =>'required',
         'idobra' =>'integer',
-        'encargadovisita' =>'required|string|max:45',
-        'Fecha_Hora'=> 'required',
-        'viabilidad'=> 'string',
+        'fecha' =>'required',
+        'horainicio'=> 'required',
+        'horafinal'=> 'required',
     ];
 }
