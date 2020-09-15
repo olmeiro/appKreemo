@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('body')
-    <div class="row">
+    
         <div class="card col">
 
                 <div id='calendar'>
@@ -9,7 +9,7 @@
                 </div>
         </div>
         
-    </div>
+    
     <div class="modal fade" id="agenda_modal" tabindex="-1" role="dialog" data-backdrop="static">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

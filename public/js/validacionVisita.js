@@ -8,6 +8,17 @@ $(function(){
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
+      slotLabelFormat:{
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+        },//se visualizara de esta manera 01:00 AM en la columna de horas
+      eventTimeFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: true
+         },
+         
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectMirror: true,
