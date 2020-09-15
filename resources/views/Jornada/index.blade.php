@@ -2,7 +2,6 @@
 
 @section('body')
 
-
 <html>
 <head>
     <title>Crud laravel Ajax con datatables</title>
@@ -19,20 +18,19 @@
 </head>
 <body>
 
-    <div class="container justify-content-center col-md-6">
+    <div class="container justify-content-cente col-md-6">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>ESTADOS</strong>
+                <strong>JORNADA</strong>
 
-                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEstado">Crear un Estado</a>
+                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewJornada">Crear Nueva Jornada</a>
             </div>
             <div class="card-body">
-                @include('flash::message')
                 <table class="table data-table table-bordered table-striped table-responsive">
                     <thead>
                         <tr>
                             <th>Id N°</th>
-                            <th>Estado</th>
+                            <th>Jornada</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -56,15 +54,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="estadoForm" name="estadoForm" class="form-horizontal">
-                    <input type="hidden" name="estadoCotizacion_id" id="estadoCotizacion_id">
+                    <form id="jornadaForm" name="jornadaForm" class="form-horizontal">
+                    <input type="hidden" name="jornada_id" id="jornada_id">
                         <div class="form-group">
-                            <label for="name" class="col-sm-12 control-label">Estado</label>
-                            <label class="validacion col-sm-12 control-label" id="val_Estado"></label>
+                            <label for="name" class="col-sm-12 control-label">Jornada</label>
+                            <label class="validacion col-sm-12 control-label" id="val_jorna"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="estado_cotizacion" name="estado_cotizacion" placeholder="Digita la Estado" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
+                                <input type="text" class="form-control" id="jornada_nombre" name="jornada_nombre" placeholder="Digite la Jornada" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
-                            <label class="validacion col-sm-12 control-label" id="val_Estado2"></label>
+                            <label class="validacion col-sm-12 control-label" id="val_jorna2"></label>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar Cambios
@@ -90,10 +88,10 @@
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('ajaxestado.index') }}",
+            ajax: "{{ route('ajaxjornada.index') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'estado_cotizacion', name: 'estado_cotizacion'},
+                {data: 'jornada_nombre', name: 'jornada_nombre'},
                 {data: 'acciones', name: 'acciones', orderable: false, searchable: false},
             ],
             "language":{
@@ -126,22 +124,22 @@
                                 }
         });
 
-        $('#createNewEstado').click(function () {
+        $('#createNewJornada').click(function () {
             $('#saveBtn').val("create-product");
-            $('#estadoCotizacion_id').val('');
-            $('#estadoForm').trigger("reset");
-            $('#modelHeading').html("Crear Nuevo estado");
+            $('#jornada_id').val('');
+            $('#jornadaForm').trigger("reset");
+            $('#modelHeading').html("Crear Nueva Jornada");
             $('#ajaxModel').modal('show');
         });
 
-        $('body').on('click', '.editEstadoCotizacion', function () {
-            var estadoCotizacion_id = $(this).data('id');
-            $.get("{{ route('ajaxestado.index') }}" +'/' + estadoCotizacion_id +'/edit', function (data) {
-                $('#modelHeading').html("Editar el Estado");
+        $('body').on('click', '.editJornada', function () {
+            var jornada_id = $(this).data('id');
+            $.get("{{ route('ajaxjornada.index') }}" +'/' + jornada_id +'/edit', function (data) {
+                $('#modelHeading').html("Editar Jornada");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');
-                $('#estadoCotizacion_id').val(data.id);
-                $('#estado_cotizacion').val(data.estado_cotizacion);
+                $('#jornada_id').val(data.id);
+                $('#jornada_nombre').val(data.jornada_nombre);
             })
         });
 
@@ -150,24 +148,24 @@
             $(this).html('Sending..');
             let validado = 0;
 
-            if($("#estado_cotizacion").val()==0){
-                $("#val_Estado").text("*");
-                $("#val_Estado2").text("Debe Ingresar la Estado");
+            if($("#jornada_nombre").val()==0){
+                $("#val_jorna").text("*");
+                $("#val_jorna2").text("Debe Ingresar la Jornada");
             }else{
-                $("#val_Estado").text("");
-                $("#val_Estado2").text("");
+                $("#val_jorna").text("");
+                $("#val_jorna2").text("");
                 validado++;
             }
 
             if(validado==1){
             $.ajax({
-                data: $('#estadoForm').serialize(),
-                url: "{{ route('ajaxestado.store') }}",
+                data: $('#jornadaForm').serialize(),
+                url: "{{ route('ajaxjornada.store') }}",
                 type: "POST",
                 dataType: 'json',
                 success: function (data) {
 
-                    $('#estadoForm').trigger("reset");
+                    $('#jornadaForm').trigger("reset");
                     $('#ajaxModel').modal('hide');
                     table.draw();
 
@@ -178,7 +176,7 @@
                 }
             });
             Swal.fire({
-                    title:'Registro exitoso',text:'Estado de Cotizacion !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'Registro exitoso',text:'Tipo de Concreto !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
                     padding:'1rem',
                     //background:'#000',
@@ -200,14 +198,14 @@
 
         });
 
-        $('body').on('click', '.deleteEstadoCotizacion', function (e) {
+        $('body').on('click', '.deleteJornada', function (e) {
             e.preventDefault();
             var x = confirm("Estas seguro de eliminar el resgistro !");
             if(x){
-            var estadoCotizacion_id = $(this).data("id");
+            var jornada_id = $(this).data("id");
             $.ajax({
                 type: "DELETE",
-                url: "{{ route('ajaxestado.store') }}"+'/'+estadoCotizacion_id,
+                url: "{{ route('ajaxjornada.store') }}"+'/'+jornada_id,
                 success: function (data) {
                     table.draw();
                 },
@@ -223,8 +221,28 @@
     });
 </script>
 </html>
-@endsection
 
+{{-- <div class="container row justify-content-center">
+        <div class="card">
+            <div class="card-header text-white " style="background-color: #616A6B">
+                <strong>JORNADAS</strong>
+            </div>
+            <div class="card-body">
+                @include('flash::message')
+                <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
+                    <thead class="" align="center">
+                    <tr>
+                        <th>Jornada N°</th>
+                        <th>Jornada</th>
+                        <th>Editar</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+</div> --}}
+
+@endsection
 @section('style')
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
@@ -249,4 +267,57 @@
         return false;
     }
 </script>
+
+    {{-- <script>
+        $('#tbl_jornada').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '/jornada/listar',
+                columns: [
+                    {
+                        data: 'id',
+                        name: 'id',
+                    },
+                    {
+                        data: 'jornada_nombre',
+                        name: 'jornada_nombre',
+                    },
+                    {
+                        data: 'editar',
+                        name: 'editar',
+                        orderable: false,
+                        searchable: false,
+                    },
+                ],
+                "language":{
+                            "sProcessing":     "Procesando...",
+                            "sLengthMenu":     "Mostrar _MENU_ registros",
+                            "sZeroRecords":    "No se encontraron resultados",
+                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                            "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                            "sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
+                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                            "sInfoPostFix":    "",
+                            "sSearch":         "Buscar:",
+                            "sUrl":            "",
+                            "sInfoThousands":  ",",
+                            "sLoadingRecords": "Cargando...",
+                            "oPaginate": {
+                                "sFirst":    "Primero",
+                                "sLast":     "Último",
+                                "sNext":     "Siguiente",
+                                "sPrevious": "Anterior"
+                            },
+                            "oAria": {
+                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                            },
+                            "buttons": {
+                                "copy": "Copiar",
+                                "colvis": "Visibilidad"
+                            }
+                            }
+            });
+    </script> --}}
+
 @endsection

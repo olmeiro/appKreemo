@@ -22,9 +22,9 @@
     <div class="container justify-content-center col-md-6">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>ESTADOS</strong>
+                <strong>ETAPAS</strong>
 
-                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEstado">Crear un Estado</a>
+                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEtapa">Crear una Etapa</a>
             </div>
             <div class="card-body">
                 @include('flash::message')
@@ -32,7 +32,7 @@
                     <thead>
                         <tr>
                             <th>Id N°</th>
-                            <th>Estado</th>
+                            <th>Etapa</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -56,15 +56,15 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="estadoForm" name="estadoForm" class="form-horizontal">
-                    <input type="hidden" name="estadoCotizacion_id" id="estadoCotizacion_id">
+                    <form id="etapaForm" name="etapaForm" class="form-horizontal">
+                    <input type="hidden" name="etapa_id" id="etapa_id">
                         <div class="form-group">
-                            <label for="name" class="col-sm-12 control-label">Estado</label>
-                            <label class="validacion col-sm-12 control-label" id="val_Estado"></label>
+                            <label for="name" class="col-sm-12 control-label">Etapa</label>
+                            <label class="validacion col-sm-12 control-label" id="val_Etapa"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="estado_cotizacion" name="estado_cotizacion" placeholder="Digita la Estado" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
+                                <input type="text" class="form-control" id="etapa" name="etapa" placeholder="Digita la Etapa" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
-                            <label class="validacion col-sm-12 control-label" id="val_Estado2"></label>
+                            <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar Cambios
@@ -90,10 +90,10 @@
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('ajaxestado.index') }}",
+            ajax: "{{ route('ajaxetapa.index') }}",
             columns: [
                 {data: 'id', name: 'id'},
-                {data: 'estado_cotizacion', name: 'estado_cotizacion'},
+                {data: 'etapa', name: 'etapa'},
                 {data: 'acciones', name: 'acciones', orderable: false, searchable: false},
             ],
             "language":{
@@ -126,22 +126,22 @@
                                 }
         });
 
-        $('#createNewEstado').click(function () {
+        $('#createNewEtapa').click(function () {
             $('#saveBtn').val("create-product");
-            $('#estadoCotizacion_id').val('');
-            $('#estadoForm').trigger("reset");
-            $('#modelHeading').html("Crear Nuevo estado");
+            $('#etapa_id').val('');
+            $('#etapaForm').trigger("reset");
+            $('#modelHeading').html("Crear Nueva Etapa");
             $('#ajaxModel').modal('show');
         });
 
-        $('body').on('click', '.editEstadoCotizacion', function () {
-            var estadoCotizacion_id = $(this).data('id');
-            $.get("{{ route('ajaxestado.index') }}" +'/' + estadoCotizacion_id +'/edit', function (data) {
-                $('#modelHeading').html("Editar el Estado");
+        $('body').on('click', '.editEtapa', function () {
+            var etapa_id = $(this).data('id');
+            $.get("{{ route('ajaxetapa.index') }}" +'/' + etapa_id +'/edit', function (data) {
+                $('#modelHeading').html("Editar la Etapa");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');
-                $('#estadoCotizacion_id').val(data.id);
-                $('#estado_cotizacion').val(data.estado_cotizacion);
+                $('#etapa_id').val(data.id);
+                $('#etapa').val(data.etapa);
             })
         });
 
@@ -150,24 +150,24 @@
             $(this).html('Sending..');
             let validado = 0;
 
-            if($("#estado_cotizacion").val()==0){
-                $("#val_Estado").text("*");
-                $("#val_Estado2").text("Debe Ingresar la Estado");
+            if($("#etapa").val()==0){
+                $("#val_Etapa").text("*");
+                $("#val_Etapa2").text("Debe Ingresar la Etapa");
             }else{
-                $("#val_Estado").text("");
-                $("#val_Estado2").text("");
+                $("#val_Etapa").text("");
+                $("#val_Etapa2").text("");
                 validado++;
             }
 
             if(validado==1){
             $.ajax({
-                data: $('#estadoForm').serialize(),
-                url: "{{ route('ajaxestado.store') }}",
+                data: $('#etapaForm').serialize(),
+                url: "{{ route('ajaxetapa.store') }}",
                 type: "POST",
                 dataType: 'json',
                 success: function (data) {
 
-                    $('#estadoForm').trigger("reset");
+                    $('#etapaForm').trigger("reset");
                     $('#ajaxModel').modal('hide');
                     table.draw();
 
@@ -178,7 +178,7 @@
                 }
             });
             Swal.fire({
-                    title:'Registro exitoso',text:'Estado de Cotizacion !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'Registro exitoso',text:'Tipo de Concreto !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
                     padding:'1rem',
                     //background:'#000',
@@ -200,14 +200,14 @@
 
         });
 
-        $('body').on('click', '.deleteEstadoCotizacion', function (e) {
+        $('body').on('click', '.deleteEtapa', function (e) {
             e.preventDefault();
             var x = confirm("Estas seguro de eliminar el resgistro !");
             if(x){
-            var estadoCotizacion_id = $(this).data("id");
+            var etapa_id = $(this).data("id");
             $.ajax({
                 type: "DELETE",
-                url: "{{ route('ajaxestado.store') }}"+'/'+estadoCotizacion_id,
+                url: "{{ route('ajaxetapa.store') }}"+'/'+etapa_id,
                 success: function (data) {
                     table.draw();
                 },

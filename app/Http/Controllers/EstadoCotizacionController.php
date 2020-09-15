@@ -10,95 +10,48 @@ use App\Models\EstadoCotizacion;
 
 class EstadoCotizacionController extends Controller
 {
-    public function index(){
+    public function index(Request $request)
+    {
+
+        if ($request->ajax()) {
+            $data = EstadoCotizacion::latest()->get();
+            return Datatables::of($data)
+                    ->addIndexColumn()
+                    ->addColumn('acciones', function($row){
+
+                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editEstadoCotizacion"><i class="fas fa-edit"></i></a>';
+
+                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteEstadoCotizacion"><i class="fas fa-trash-alt"></i></a>';
+
+                            return $btn;
+                    })
+                    ->rawColumns(['acciones'])
+                    ->make(true);
+        }
+
         return view('estadocotizacion.index');
     }
 
-    public function listar(Request $request){
-        $estadocotizacion = EstadoCotizacion::all();
-        return Datatables::of($estadocotizacion)
-            ->addColumn('editar', function ($estadocotizacion) {
-                return '<a class="btn btn-xs btn-primary" href="/estadocotizacion/editar/'.$estadocotizacion->id.'"><i class="fas fa-edit"></i></a>';
 
-            })
-            ->addColumn('eliminar', function ($estadocotizacion) {
-                return '<a class="btn btn-danger btn-xs" href="/estadocotizacion/eliminar/'.$estadocotizacion->id.'"onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
-            })
-            ->rawColumns(['editar', 'eliminar'])
-            ->make(true);
+    public function store(Request $request)
+    {
+        EstadoCotizacion::updateOrCreate(['id' => $request->estadoCotizacion_id],
+                ['estado_cotizacion' => $request->estado_cotizacion]);
+
+        return response()->json(['success'=>'Estado de cotizacion guardado correctamente.']);
     }
 
-    public function create(){
-        $estadocotizacion = EstadoCotizacion::all();
-        return view('estadocotizacion.create');
+    public function edit($id)
+    {
+        $estadoCotizacion = EstadoCotizacion::find($id);
+        return response()->json($estadoCotizacion);
     }
 
-    public function save(Request $request){
 
-        $request->validate(EstadoCotizacion::$rules);
-        $input = $request->all();
+    public function destroy($id)
+    {
+        EstadoCotizacion::find($id)->delete();
 
-        try {
-            EstadoCotizacion::create([
-
-                'estado_cotizacion' =>$input["Estado_Cotizacion"],
-
-            ]);
-            Flash::success("Estado de Cotizacion Registrada");
-            return redirect("/estadocotizacion");
-
-        }catch(\Exception $e){
-            Flash::error($e->getMessage());
-            return redirect("/estadocotizacion/crear");
-        }
-    }
-
-    public function edit($id){
-        $estadocotizacion = EstadoCotizacion::find($id);
-        if($estadocotizacion==null){
-            Flash::error("Estado de Cotizacion NO encontrada");
-            return redirect("/estadocotizacion");
-        }
-        return view("estadocotizacion.edit", compact("estadocotizacion"));
-    }
-
-    public function update(Request $request){
-
-        $request->validate(EstadoCotizacion::$rules);
-        $input = $request->all();
-
-        try {
-
-            $estadocotizacion = EstadoCotizacion::find($input["id"]);
-            if($estadocotizacion==null){
-
-            Flash::error("Estado de Cotizacion NO encontrada");
-            return redirect("/estadocotizacion");
-            }
-
-            $estadocotizacion->update([
-
-                'estado_cotizacion' =>$input["Estado_Cotizacion"],
-            ]);
-            Flash::success('Estado de Cotizacion ('.$estadocotizacion->estado_cotizacion. ') Modificada');
-            return redirect("/estadocotizacion");
-
-        }catch(\Exception $e){
-            Flash::error($e->getMessage());
-            return redirect("/estadocotizacion");
-        }
-    }
-
-    public function destroy($id){
-        $estadocotizacion = EstadoCotizacion::find($id);
-
-        if (empty($estadocotizacion)) {
-            Flash::error('Estado de Cotizacion no encontrada');
-            return redirect('/estadocotizacion');
-        }
-
-        $estadocotizacion->delete($id);
-        Flash::success('Estado de Cotizacion ('.$estadocotizacion->estado_cotizacion. ') a sido eliminada');
-        return redirect('/estadocotizacion');
+        return response()->json(['success'=>'Estado de cotizacion eliminado correctamente.']);
     }
 }
