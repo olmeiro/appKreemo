@@ -45,6 +45,13 @@ $(function(){
       calendar.render();
 
 })
+function tiempofinal(){
+  let fecha = $("#fecha").val();
+  let  hora = $("#horainicio").val();
+  let tiempo = $("#tiempo").val();
+  let horafinal= moment(fecha + " "+hora).add(tiempo, 'm').format('HH:mm:ss');
+  document.getElementById("horafinal").value=(horafinal);
+}
 
 function guardar(){
     var formulario = new FormData(document.getElementById("FrmAgenda"));

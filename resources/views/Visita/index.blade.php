@@ -23,25 +23,35 @@
       <form id="FrmAgenda">
       @csrf
             <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                     <div class="form-group">
                         <label for="">Fecha</label>
                         <input type="date" class="form-control" id="fecha" name="fecha">
                     </div>
                 </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label for="">Hora inicial</label>
-                        <input type="time" class="form-control" id="horainicio">
-                    </div>
-                </div>
+              
                 <div class="col">
                     <div class="form-group">
                         <label for="">Tiempo (minutos)</label>
-                        <input type="number" class="form-control" id="tiempo">
+                        <input type="number" class="form-control" id="tiempo" onchange="tiempofinal()">
                     </div>
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Hora inicial</label>
+                        <input type="time" class="form-control" id="horainicio" onchange="tiempofinal()">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Hora final</label>
+                        <input type="time" class="form-control" id="horafinal" readonly>
+                    </div>
+                </div>
+          </div>
             <div class="row">
             <div class="col-6">
                     <div class="form-group">
