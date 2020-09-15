@@ -123,6 +123,7 @@ Route::post('/cotizacion/actualizar', 'CotizacionController@update');
 Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
 Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
 
+Route::resource('ajaxestado','EstadoCotizacionController');
 Route::get('/estadocotizacion', 'EstadoCotizacionController@index');
 Route::get('/estadocotizacion/listar', 'EstadoCotizacionController@listar');
 Route::get('/estadocotizacion/crear', 'EstadoCotizacionController@create');
@@ -131,15 +132,21 @@ Route::get('/estadocotizacion/editar/{id}', 'EstadoCotizacionController@edit');
 Route::post('/estadocotizacion/actualizar', 'EstadoCotizacionController@update');
 Route::get('/estadocotizacion/eliminar/{id}', 'EstadoCotizacionController@destroy');
 
+Route::resource('ajaxetapa','EtapaController');
+Route::get('/etapa', 'EtapaController@index');
+Route::get('/etapa/listar', 'EtapaController@listar');
 
-Route::get('/componentes', 'EtapaController@index');
-Route::get('/componentes/listar1', 'EtapaController@listar');
-Route::get('/componentes', 'JornadaController@index');
-Route::get('/componentes/listar2', 'JornadaController@listar');
-Route::get('/componentes', 'ModalidadController@index');
-Route::get('/componentes/listar3', 'ModalidadController@listar');
-Route::get('/componentes', 'TipoConcretoController@index');
-Route::get('/componentes/listar', 'TipoConcretoController@listar');
+Route::resource('ajaxjornada','JornadaController');
+Route::get('/jornada', 'JornadaController@index');
+Route::get('/jornada/listar', 'JornadaController@listar');
+
+Route::resource('ajaxmodalidad','ModalidadController');
+Route::get('/modalidad', 'ModalidadController@index');
+Route::get('/modalidad/listar', 'ModalidadController@listar');
+
+Route::resource('ajaxtipoConcreto','TipoConcretoController');
+Route::get('/tipoConcreto', 'TipoConcretoController@index');
+Route::get('/tipoConcreto/listar', 'TipoConcretoController@listar');
 
 Route::get('/maquinaria', 'MaquinariaController@index');
 Route::resource('ajaxmaquinaria','MaquinariaController');

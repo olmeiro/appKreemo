@@ -363,16 +363,16 @@
                     @include('flash::message')
                     <table id="tbl_etapa" class="table table-bordered table-striped " style="width: 100%;">
                         <thead class="" align="center">
-                        <tr>
-                            <th>Etapa N°</th>
-                            <th>Etapa</th>
-                            <th>Editar</th>
+                        <tr >
+                            <th align="center">Id N°</th>
+                            <th align="center">Etapa</th>
                         </tr>
                         </thead>
                     </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">CERRAR</button>
+                <button type="button" class="btn btn-outline-light" data-dismiss="modal" style="background-color: #616A6B">CERRAR</button>
+                <a href="/etapa" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Etapas</a>
             </div>
         </div>
     </div>
@@ -391,15 +391,15 @@
                 <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Jornada N°</th>
+                        <th>Id N°</th>
                         <th>Jornada</th>
-                        <th>Editar</th>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
+                <a href="/jornada" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Jornadas</a>
             </div>
         </div>
     </div>
@@ -418,15 +418,15 @@
                 <table id="tbl_modalidad" class="table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Modalidad N°</th>
+                        <th>Id N°</th>
                         <th>Modalidad</th>
-                        <th>Editar</th>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
+                <a href="/modalidad" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Modalidad</a>
             </div>
         </div>
     </div>
@@ -435,7 +435,10 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>TIPO DE CONCRETOS</strong>
+                <strong>TIPO DE CONCRETOS</strong><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
             </div>
             <div class="card-body">
                 @include('flash::message')
@@ -444,13 +447,13 @@
                     <tr>
                         <th>Concreto tipo N°</th>
                         <th>Concreto tipo</th>
-                        <th>Editar</th>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
+                <a href="/tipoConcreto" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Tipo Concreto</a>
             </div>
         </div>
     </div>

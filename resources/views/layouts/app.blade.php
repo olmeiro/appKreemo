@@ -93,7 +93,15 @@
         <ul class="c-sidebar-nav-dropdown-items">
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion"><span class="c-sidebar-nav-icon"></span> Cotizacion</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/estadocotizacion"><span class="c-sidebar-nav-icon"></span> Estado Cotizacion</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/componentes"><span class="c-sidebar-nav-icon"></span> Componentes cotizacion</a></li>
+            <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fas fa-chevron-circle-right"></i>Componentes</a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/etapa"><span class="c-sidebar-nav-icon"></span> Etapa</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/jornada"><span class="c-sidebar-nav-icon"></span> Jornada</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/modalidad"><span class="c-sidebar-nav-icon"></span> Modalidad</a></li>
+                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/tipoConcreto"><span class="c-sidebar-nav-icon"></span> Tipo Concreto</a></li>
+            </ul>
+            </li>
         </ul>
         </li>
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
