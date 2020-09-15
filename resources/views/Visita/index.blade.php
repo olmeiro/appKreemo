@@ -1,116 +1,95 @@
 @extends('layouts.app')
 
 @section('body')
-<div class="card">
-        <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>CITAS</strong>
-            <a href="/listachequeo" class="btn btn-outline-light float-right">LISTA DE CHEQUEO</a>
-        </div>
+    <div class="row">
+        <div class="card col">
 
-        <div class="card-body">
-        @include('flash::message')
-            <table id="tbl_visita" class="table table-striped table-responsive" style="width: 100%;">
-                <thead>
-                <tr>
-                    <th>Visita No</th>
-                    <th>Tipo Visita</th>
-                    <th>Obra</th>
-                    <th>Encargado Visita</th>
-                    <th>Fecha</th>
-                    <th>Viabilidad</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
-                </thead>
-                <tbody>
-
-                </tbody>
-            </table>
+                <div id='calendar'>
+                
+                </div>
         </div>
+        
     </div>
-
+    <div class="modal fade" id="agenda_modal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">AGENDA DE CITAS</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form id="FrmAgenda">
+      @csrf
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="">Fecha</label>
+                        <input type="date" class="form-control" id="fecha" name="fecha">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Hora inicial</label>
+                        <input type="time" class="form-control" id="horainicio">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="">Tiempo (minutos)</label>
+                        <input type="number" class="form-control" id="tiempo">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            <div class="col-6">
+                    <div class="form-group">
+                        <label for="">Obra</label>
+                        <select class="form-control"name= "idobra" id="idobra">
+                        <option value="0">Seleccione una Obra</option>
+                       @foreach($obra as $key =>$value)
+                          <option value="{{ $value->id }}" {{(old('idobra')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                        @endforeach
+                        </select>
+                    </div>
+            </div>
+            <div class="col-6">
+                    <div class="form-group">
+                        <label for="">Tipo de Visita</label>
+                        <select class="form-control"id="tipovisita" name="tipovisita">
+                        <option value="0">Seleccione</option>
+                        <option value="Técnica">Técnica</option>
+                        <option value="Comercial">Comercial</option>
+                        </select>
+                    </div>
+            </div>
+        </form>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">CANCELAR</button>
+        <button onclick="guardar()" type="button" class="btn btn-success">GUARDAR</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endsection
+@section("style")
+<link href='{{ asset("assets/dashboard/assets/fullcalendar/main.css")}}'rel='stylesheet'/>
+<link href='{{ asset("assets/dashboard/assets/fullcalendar/main.min.css")}}'rel='stylesheet'/>
 @endsection
 
 @section("scripts")
+<script src='{{ asset("assets/dashboard/assets/fullcalendar/main.js")}}'></script>
+<script src='{{ asset("assets/dashboard/assets/fullcalendar/main.min.js")}}'></script>
+<script src='{{ asset("assets/dashboard/assets/fullcalendar/locales/es.js")}}'></script>
+<script src='{{ asset("assets/dashboard/assets/fullcalendar/moment.min.js")}}'></script>
 
-    <script>
-        $('#tbl_visita').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '/visita/listar',
-                columns: [
-                    {
-                     data: 'id',
-                     name: 'id',
-                     orderable: false,
-                     searchable: false
-                    },
-                    {
-                     data: 'tipovisita',
-                     name: 'tipovisita',
-                     orderable: false,
-                     searchable: false
-                    },
-                    {
-                     data: 'nombre_obra',
-                     name: 'nombre_obra'
-                    },
-                    {
-                        data: 'encargadovisita',
-                        name: 'encargadovisita'
-                    },
-                    {
-                        data: 'Fecha_Hora',
-                        name: 'Fecha_Hora'
-                    },
 
-                    {
-                        data: 'viabilidad',
-                        name: 'viabilidad'
-                    },
-                    {
-                        data: 'editar',
-                        name: 'editar',
-                        orderable: false,
-                        searchable: false
-                     }, {
-                        data: 'eliminar',
-                        name: 'eliminar',
-                        orderable: false,
-                        searchable: false
-                     }
-                ],
-                "language":{
-                            "sProcessing":     "Procesando...",
-                            "sLengthMenu":     "Mostrar _MENU_ registros",
-                            "sZeroRecords":    "No se encontraron resultados",
-                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                            "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                            "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                            "sInfoPostFix":    "",
-                            "sSearch":         "Buscar:",
-                            "sUrl":            "",
-                            "sInfoThousands":  ",",
-                            "sLoadingRecords": "Cargando...",
-                            "oPaginate": {
-                                "sFirst":    "Primero",
-                                "sLast":     "Último",
-                                "sNext":     "Siguiente",
-                                "sPrevious": "Anterior"
-                            },
-                            "oAria": {
-                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                            },
-                            "buttons": {
-                                "copy": "Copiar",
-                                "colvis": "Visibilidad"
-                            }
-                            }
-            });
-
-    </script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
+    <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
+<script src="{{ asset('js/validacionVisita.js') }}"></script>
 
 @endsection
