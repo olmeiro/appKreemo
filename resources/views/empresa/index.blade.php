@@ -195,7 +195,7 @@
                             </div>
                         </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="button" id="btn-save" name="btnsave" class="btn btn-primary" onclick="editarEmpresa()" disabled>Guardar</button>
+                                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
                                 <a href="/empresa" class="btn btn-danger">Cancelar</a>
                             </div>
                     </form>

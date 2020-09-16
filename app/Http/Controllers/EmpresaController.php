@@ -98,23 +98,7 @@ class EmpresaController extends Controller
             "correo1" => $request->ecorreo1,
             
         ]);
-        if(empty($request->empresa_id))
-        {
-            //$msg = 'Cliente created successfully.';
-            Flash::success("Creación éxitosa de empresa");
-            return redirect("/empresa");
-            //return response()->json(["ok"=>true]);
-        }
-       
-        else{
-            //$msg = 'Client data is updated successfully';
-            Flash::success("Actuliazación éxitosa de empresa");
-            return redirect("/empresa");
-            //return redirect('cliente')->with('success',$msg);
-            //return response()->json(["ok"=>false]);
-            
-        }
-   
+        return response()->json(["ok"=>true]);  
     }
 
    

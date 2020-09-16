@@ -76,21 +76,6 @@ class ClientesController extends Controller
 
     public function store(Request $request)
     {
-    //    $request->validate(Cliente::$rules);
-    //    $r=$request->validate([
-    //     'idtipocontacto' => 'required|integer',
-    //     'nombre' => 'required|string|max:20',
-    //     'apellido1' =>  'required|string|max:20',
-    //     'apellido2' => 'string|max:20',
-    //     'documento' => 'numeric|required',
-    //     'estado' => 'in:1,0',
-    //     'telefono1' => 'required|numeric|required',
-    //     'telefono2' => 'numeric|required',
-    //     'correo1' => 'email:rfc,dns',
-    //     'correo2' => 'email:rfc,dns',
-
-    //     ]);
-
  
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
@@ -105,17 +90,9 @@ class ClientesController extends Controller
                 "correo1" => $request->ccorreo1,
                 "correo2" => $request->ccorreo2,
                 ]);
-            if(empty($request->cliente_id))
-            {
-                $msg = 'Cliente created successfully.';
-                return response()->json(["ok"=>true]);
-            }
-        
-            else{
-                $msg = 'Client data is updated successfully';
-                return redirect('cliente')->with('success',$msg);
-                return response()->json(["ok"=>false]);
-            }   
+
+                
+                return response()->json(["ok"=>true]);  
 
     }
 

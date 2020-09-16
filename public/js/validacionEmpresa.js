@@ -217,8 +217,9 @@ $(document).ready(function(){
 
 // Validacion Editar Empresa
 
-function editarEmpresa()
-{
+$(document).ready(function() {
+    $("#editEmpresaFrm").submit(function(event){
+         event.preventDefault();
          let validado = 0;
 
         if(validaVacio($("#enit").val()) || $("#enit").val().length == 0 || $("#enit").val().length < 6)
@@ -290,15 +291,37 @@ function editarEmpresa()
  
          if(validado == 6)
          {
-            $("#editEmpresaFrm").submit();
-            Swal.fire('Empresa Editada.');
+            var fd = new FormData(document.getElementById("editEmpresaFrm"));
+
+            $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                url: "/empresa/guardar",
+                type: "POST",
+                data: fd,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false ,  // tell jQuery not to set contentType
+                }).done(function(respuesta){
+                  if(respuesta.ok)
+                  {
+                    Swal.fire('Se edito la empresa.');
+                     $("#exampleModal4").modal('hide');//ocultamos el modal
+                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+                    var table = $('#tbl_empresa').DataTable();
+                    table.ajax.reload();
+                  }
+                  else{
+                    Swal.fire('Empresa no editada.');
+                  }
+                })
          }
          else
          {
              Swal.fire('Faltan campos por diligenciar.');
              validado = 0;
          }
-}
+    });
+});
 
 
 /* Delete customer */
