@@ -148,8 +148,9 @@
 
 //Validación Editar 
 
-function editar()
-{
+$(document).ready(function() {
+    $("#editForm").submit(function(event){
+         event.preventDefault();
 
          let validado = 0;
 
@@ -255,8 +256,30 @@ function editar()
  
          if(validado == 9)
          {
-            $("#editForm").submit();
-            Swal.fire('Contacto Editado.');
+            var fd = new FormData(document.getElementById("editForm"));
+
+            $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                url: "/cliente/guardar",
+                type: "POST",
+                data: fd,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false ,  // tell jQuery not to set contentType
+                }).done(function(respuesta){
+                  if(respuesta.ok)
+                  {
+                    Swal.fire('Se edito el contacto contacto.');
+                     $("#exampleModal4").modal('hide');//ocultamos el modal
+                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+                     $("#mensaje").text("Nuevo contacto Creado")
+                    var table = $('#tbl_contacto').DataTable();
+                    table.ajax.reload();
+                  }
+                  else{
+                    Swal.fire('Contacto no editado.');
+                  }
+                })
          }
          else
          {
@@ -264,7 +287,9 @@ function editar()
              validado = 0;
          }
 
-}
+        
+    });
+});
 
 function limpiar()
 {

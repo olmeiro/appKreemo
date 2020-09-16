@@ -240,7 +240,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="card-body">
-                        <form class="editContact" name="clienteForm" id="editForm" action="/cliente/guardar" method="POST" enctype="multipart/form-data">
+                        <form class="editContact" name="clienteForm" id="editForm" action="/cliente/guardar" method="POST" >
                         @csrf
                         <input type="hidden" name="cliente_id" id="cliente_id" >
 
@@ -352,8 +352,8 @@
                                 </div>
                             </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                    <!-- <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button> -->
-                                    <button type="button" id="btn-save" name="btnsave" class="btn btn-primary" onclick="editar()">Guardar</button>
+                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+                                    <!-- <button type="button" id="btn-save" name="btnsave" class="btn btn-primary" onclick="editar()">Guardar</button> -->
                                     <a href="/cliente" class="btn btn-danger">Cancelar</a>
                                 </div>
                             </form>
@@ -541,19 +541,19 @@
             })
             });
 
-        function validate()
-        {
-            if(document.clienteForm.cidtipocontacto.value !='' && document.clienteForm.cnombre.value !='' && document.clienteForm.capellido1.value !=''
-            && document.clienteForm.capellido2.value !='' && document.clienteForm.cdocumento.value !='' && document.clienteForm.ctelefono1.value !=''
-            && document.clienteForm.ctelefono2.value !='' && document.clienteForm.ccorreo1.value !='' && document.clienteForm.ccorreo2.value !='')
-            {
-                document.clienteForm.btnsave.disabled=false
-            }
-            else
-            {
-                document.clienteForm.btnsave.disabled=true
-            }
-        }
+        // function validate()
+        // {
+        //     if(document.clienteForm.cidtipocontacto.value !='' && document.clienteForm.cnombre.value !='' && document.clienteForm.capellido1.value !=''
+        //     && document.clienteForm.capellido2.value !='' && document.clienteForm.cdocumento.value !='' && document.clienteForm.ctelefono1.value !=''
+        //     && document.clienteForm.ctelefono2.value !='' && document.clienteForm.ccorreo1.value !='' && document.clienteForm.ccorreo2.value !='')
+        //     {
+        //         document.clienteForm.btnsave.disabled=false
+        //     }
+        //     else
+        //     {
+        //         document.clienteForm.btnsave.disabled=true
+        //     }
+        // }
 
 
     </script>
