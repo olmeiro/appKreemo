@@ -17,15 +17,15 @@
 
         </div>
 
-        <div class="card-body">
+        <div class="card-body table-responsive">
             <table class="table table-bordered table-striped data-table" >
             <thead align="center">
             <tr id="">
-            <th width="5%">No</th>
-            <th width="5%">Id</th>
-            <th width="35%">Nombre</th>
-            <th width="35%">Email</th>
-            <th width="20%">Acciones</th>
+            <th >No</th>
+            <th >Id</th>
+            <th >Nombre</th>
+            <th >Email</th>
+            <th >Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -119,8 +119,8 @@
 @endsection
 @section('style')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
-<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+{{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
 @endsection
 
 @section('scripts')
@@ -227,7 +227,7 @@ document.userForm.btnsave.disabled=true
 
     $('body').on('click', '#delete-user', function (e) {
         e.preventDefault();
-        
+
             x =  confirm("Are You sure want to delete !");
 
             if (x){

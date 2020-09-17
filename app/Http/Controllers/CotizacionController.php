@@ -13,8 +13,7 @@ use App\Models\Etapa;
 use App\Models\Modalidad;
 use App\Models\TipoConcreto;
 use App\Models\EstadoCotizacion;
-use App\Models\Maquinaria;
-use App\Models\Operario;
+
 
 class CotizacionController extends Controller
 {
@@ -28,10 +27,9 @@ class CotizacionController extends Controller
         $etapa = Etapa::all();
         $modalidad = Modalidad::all();
         $tipoconcreto = TipoConcreto::all();
-        $maquinaria = Maquinaria::all();
-        $operario = Operario::all();
 
-        return view('cotizacion.index', compact('empresa', 'obra', 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto', 'maquinaria', 'operario'));
+
+        return view('cotizacion.index', compact('empresa', 'obra', 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto'));
     }
 
     public function modal(Request $request){
@@ -46,7 +44,7 @@ class CotizacionController extends Controller
 
     public function listar(Request $request){
 
-        $cotizacion = Cotizacion::select("cotizacion.*","empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto", "obra.nombre as nombre_obra", "maquinaria.modelo", "operario.nombre")
+        $cotizacion = Cotizacion::select("cotizacion.*","empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto", "obra.nombre as nombre_obra")
         ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
         ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
         ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
@@ -54,8 +52,6 @@ class CotizacionController extends Controller
         ->join("jornada", "cotizacion.idJornada", "=", "jornada.id")
         ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
         ->join("obra", "cotizacion.idObra", "=", "obra.id")
-        ->join("maquinaria", "cotizacion.idMaquinaria", "=", "maquinaria.id")
-        ->join("operario", "cotizacion.idOperario", "=", "operario.id")
         ->get();
 
         return Datatables::of($cotizacion)
@@ -80,10 +76,8 @@ class CotizacionController extends Controller
         $etapa = Etapa::all();
         $modalidad = Modalidad::all();
         $tipoconcreto = TipoConcreto::all();
-        $maquinaria = Maquinaria::all();
-        $operario = Operario::all();
 
-        return view('cotizacion.create', compact('empresa', 'obra', 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto', 'maquinaria', 'operario'));
+        return view('cotizacion.create', compact('empresa', 'obra', 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto'));
     }
 
     public function save(Request $request){
@@ -101,8 +95,6 @@ class CotizacionController extends Controller
                 'idJornada' =>$input["IdJornada"],
                 'idTipo_Concreto' =>$input["IdTipo_Concreto"],
                 'idObra' =>$input["IdObra"],
-                'idMaquinaria' =>$input["IdMaquinaria"],
-                'idOperario' =>$input["IdOperario"],
                 'fechaCotizacion' =>$input["FechaCotizacion"],
                 'inicioBombeo' =>$input["InicioBombeo"],
                 'ciudad' =>$input["Ciudad"],
@@ -134,8 +126,6 @@ class CotizacionController extends Controller
         $etapa = Etapa::all();
         $modalidad = Modalidad::all();
         $tipoconcreto = TipoConcreto::all();
-        $maquinaria = Maquinaria::all();
-        $operario = Operario::all();
         $cotizacion = Cotizacion::find($id);
 
         if($cotizacion==null){
@@ -143,7 +133,7 @@ class CotizacionController extends Controller
             Flash::error("Cotización NO encontrada");
             return redirect("/cotizacion");
         }
-        return view("cotizacion.edit", compact("cotizacion", "empresa", "obra", 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto', 'maquinaria', 'operario'));
+        return view("cotizacion.edit", compact("cotizacion", "empresa", "obra", 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto'));
     }
 
     public function update(Request $request){
@@ -170,8 +160,6 @@ class CotizacionController extends Controller
                 'idJornada' =>$input["IdJornada"],
                 'idTipo_Concreto' =>$input["IdTipo_Concreto"],
                 'idObra' =>$input["IdObra"],
-                'idMaquinaria' =>$input["IdMaquinaria"],
-                'idOperario' =>$input["IdOperario"],
                 'fechaCotizacion' =>$input["FechaCotizacion"],
                 'inicioBombeo' =>$input["InicioBombeo"],
                 'ciudad' =>$input["Ciudad"],
@@ -202,8 +190,6 @@ class CotizacionController extends Controller
         $etapa = Etapa::all();
         $modalidad = Modalidad::all();
         $tipoconcreto = TipoConcreto::all();
-        $maquinaria = Maquinaria::all();
-        $operario = Operario::all();
         $estadocotizacion = EstadoCotizacion::all();
         $cotizacion = Cotizacion::find($id);
 
@@ -241,8 +227,6 @@ class CotizacionController extends Controller
                 'idJornada' =>$input["IdJornada"],
                 'idTipo_Concreto' =>$input["IdTipo_Concreto"],
                 'idObra' =>$input["IdObra"],
-                'idMaquinaria' =>$input["IdMaquinaria"],
-                'idOperario' =>$input["IdOperario"],
                 'fechaCotizacion' =>$input["FechaCotizacion"],
                 'inicioBombeo' =>$input["InicioBombeo"],
                 'ciudad' =>$input["Ciudad"],

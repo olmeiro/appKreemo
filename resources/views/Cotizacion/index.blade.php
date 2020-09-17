@@ -29,8 +29,6 @@
                     <th>Jornada</th>
                     <th>Tipo Concreto</th>
                     <th>Obra</th>
-                    <th>maquinaria</th>
-                    <th>Operario</th>
                     <th>Fecha Cotización</th>
                     <th>Fecha Inicio Bombeo</th>
                     <th>Ciudad</th>
@@ -183,38 +181,20 @@
                                         <label class="validacion" id="val_Obra2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Maquinaria</label>
-                                        <label class="validacion" id="val_Maquinaria"></label>
-                                        <select id="IdMaquinaria"  name= "IdMaquinaria" class="form-control @error('IdMaquinaria') is-invalid @enderror">
-                                            <option value="0">Seleccione una Maquinaria</option>
-                                            @foreach($maquinaria as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdMaquinaria')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('IdMaquinaria')
+                                        <label for="">Ciudad</label>
+                                        <label class="validacion" id="val_ciudad"></label>
+                                        <input type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
+                                        @error('Ciudad')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" id="val_Maquinaria2"></label>
+                                        <label class="validacion" id="val_ciudad2"></label>
                                     </div>
                                 </div>
+
                             </div>
                             <div id="step-3" class="">
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label for="">Operario</label>
-                                        <label class="validacion" id="val_Operario"></label>
-                                        <select id="IdOperario"  name="IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
-                                            <option value="0">Seleccione un Operario</option>
-                                            @foreach($operario as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdOperario')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('IdOperario')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" id="val_Operario2"></label>
-                                    </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="FechaCotizacion">Fecha de Cotización</label>
                                         <label class="validacion" id="val_FechaCotizacion"></label>
                                         <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
@@ -223,7 +203,7 @@
                                         @enderror
                                         <label class="validacion" id="val_FechaCotizacion2"></label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="InicioBombeo">Fecha de Inicio Bombeo</label>
                                         <label class="validacion" id="val_FechaInicio"></label>
                                         <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
@@ -236,16 +216,7 @@
                                 </div>
                                 <div class="row mt-3">
 
-                                    <div class="col-md-4">
-                                        <label for="">Ciudad</label>
-                                        <label class="validacion" id="val_ciudad"></label>
-                                        <input type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
-                                        @error('Ciudad')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" id="val_ciudad2"></label>
-                                    </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="">Cantidad de losas</label>
                                         <label class="validacion" id="val_Losas"></label>
                                         <input type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas" value="{{old('Losas')}}">
@@ -254,7 +225,7 @@
                                         @enderror
                                         <label class="validacion" id="val_Losas2"></label>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <label for="">Cantidad de tuberia</label>
                                         <label class="validacion" id="val_Tuberia"></label>
                                         <input type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
@@ -518,14 +489,6 @@
                     {
                         data: 'nombre_obra',
                         name: 'nombre_obra',
-                    },
-                    {
-                        data: 'modelo',
-                        name: 'modelo',
-                    },
-                    {
-                        data: 'nombre',
-                        name: 'nombre',
                     },
                     {
                         data: 'fechaCotizacion',

@@ -116,24 +116,6 @@ $(document).ready(function() {
             validado++;
         }
 
-        if ($("#IdMaquinaria").val() == 0) {
-            $("#val_Maquinaria").text("*");
-            $("#val_Maquinaria2").text("Debe Seleccionar una Maquinaria");
-        }else{
-            $("#val_Maquinaria").text("");
-            $("#val_Maquinaria2").text("");
-            validado++;
-        }
-
-        if ($("#IdOperario").val() == 0) {
-            $("#val_Operario").text("*");
-            $("#val_Operario2").text("Debe Seleccionar un Operario");
-        }else{
-            $("#val_Operario").text("");
-            $("#val_Operario2").text("");
-            validado++;
-        }
-
         if ($("#FechaCotizacion").val().length == 0) {
             $("#val_FechaCotizacion").text("*");
             $("#val_FechaCotizacion2").text("Debe Seleccionar una fecha");
@@ -246,7 +228,7 @@ $(document).ready(function() {
             validado++;
         }
 
-        if (validado==20)
+        if (validado==18)
         {
             Swal.fire({
                 title:'Actualizacion exitosa',text:'Cotización Actualizada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
