@@ -4,14 +4,14 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>LISTA DE CHEQUEO</strong>
-           
+
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">CREAR LISTA DE CHEQUEO</button>
 
         </div>
 
         <div class="card-body">
                  @include('flash::message')
-            <table id="tbl_listachequeo" class="table table-striped table-responsive" style="width: 100%;">
+            <table id="tbl_listachequeo" class="table table-striped table-bordered table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
                     <th>Lista Chequeo No</th>

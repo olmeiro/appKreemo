@@ -116,43 +116,24 @@
                         <label class="validacion" id="val_Obra2"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="">Maquinaria</label>
-                        <label class="validacion" id="val_Maquinaria"></label>
-                        <select id="IdMaquinaria"  name= "IdMaquinaria" class="form-control @error('IdMaquinaria') is-invalid @enderror">
-                                <option value="0" >Seleccione una maquina</option>
-                                @foreach($maquinaria as $key =>$value)
-                                <option {{$value->id == $cotizacion->idMaquinaria ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->modelo}}</option>
-                                @endforeach
-                        </select>
-                        @error('IdMaquinaria')
+                        <label for="">Ciudad</label>
+                        <label class="validacion" id="val_ciudad"></label>
+                        <input value="{{$cotizacion->ciudad}}" type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad">
+                        @error('Ciudad')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-                        <label class="validacion" id="val_Maquinaria2"></label>
+                        <label class="validacion" id="val_ciudad2"></label>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-2">
-                        <label for="">Operario</label>
-                        <label class="validacion" id="val_Operario"></label>
-                        <select id="IdOperario"  name= "IdOperario" class="form-control @error('IdOperario') is-invalid @enderror">
-                                <option value="0" >Seleccione un Operario</option>
-                                @foreach($operario as $key =>$value)
-                                <option {{$value->id == $cotizacion->idOperario ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
-                                @endforeach
-                        </select>
-                        @error('IdOperario')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <label class="validacion" id="val_Operario2"></label>
-                    </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label for="">Fecha de Cotización</label>
                         <input value="{{$cotizacion->fechaCotizacion}}" type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion" readonly>
                         @error('FechaCotizacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label for="">Fecha de Bombeo</label>
                         <input value="{{$cotizacion->inicioBombeo}}" type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" >
                         @error('InicioBombeo')
