@@ -123,6 +123,9 @@ Route::post('/cotizacion/actualizar', 'CotizacionController@update');
 Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
 Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
 
+Route::get('/cotizacion/informe', 'CotizacionController@informe');
+Route::post('/cotizacion/generar/pdf', 'CotizacionController@generar_PDF');
+
 Route::resource('ajaxestado','EstadoCotizacionController');
 Route::get('/estadocotizacion', 'EstadoCotizacionController@index');
 Route::get('/estadocotizacion/listar', 'EstadoCotizacionController@listar');

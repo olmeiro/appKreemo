@@ -13,6 +13,7 @@ use App\Models\Etapa;
 use App\Models\Modalidad;
 use App\Models\TipoConcreto;
 use App\Models\EstadoCotizacion;
+use PDF;
 
 
 class CotizacionController extends Controller
@@ -248,6 +249,31 @@ class CotizacionController extends Controller
             Flash::error($e->getMessage());
             return redirect("/cotizacion");
         }
+    }
+
+    public function informe(){
+
+        return view("cotizacion.informe");
+
+    }
+
+    public function generar_PDF(Request $request){
+        $input = $request->all();
+        $cotizacion = Cotizacion::select("*")
+            ->where("id", [$input["txtNumeroCotizacion"]])
+            ->get();
+        // dd($cotizacion);
+        if (count($cotizacion) > 0) {
+
+            $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
+
+            return $pdf->download('informe.pdf');
+        }else{
+            Flash::error("Cotización NO encontrada");
+            return redirect("/cotizacion/informe");
+        }
+
+
     }
 
 
