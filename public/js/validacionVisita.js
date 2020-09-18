@@ -32,7 +32,7 @@ $(function(){
         $("#agenda_modal").modal();
         calendar.unselect()
       },
-     
+
       editable: true,
       events:{
         url: 'visita/listar',
@@ -40,7 +40,35 @@ $(function(){
         failure: function (){
             alert('No se ha encontrado la visita');
         }
-      }
+      },
+      
+      eventClick: function(info) {
+
+     
+        console.log(info);
+        console.log(info.event.start);
+        console.log(info.event.end);
+        console.log(info.event.id);
+       
+
+        let fecha = moment(info.event.start).format("YYYY-MM-DD");
+        $("#fecha").val(fecha);
+
+        let horaInicial = moment(info.event.start).format("HH:mm:ss");
+        $("#horainicio").val(horaInicial);
+
+        let horaFinal = moment(info.event.end).format("HH:mm:ss");
+        $("#horafinal").val(horaFinal);
+       
+        $("#idobra").val(info.event.extendedProps.obra);
+        $("#tipovisita").val(info.event.extendedProps.tipovisita);
+
+        $("#tiempo").val("30");
+     
+
+         $("#agenda_modal1").modal('show');
+      },
+
     });
       calendar.render();
 
@@ -101,3 +129,8 @@ function guardar(){
     $("#idobra").val("0");
     $("#tipovisita").val("0");
 }
+
+
+$('#agenda_modal1').on('shown.bs.modal', function () {
+  $("#calendar").calendar('render');
+});

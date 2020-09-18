@@ -97,13 +97,21 @@ Route::get('/estadoservicio/eliminar/{id}', 'EstadoServicioController@destroy');
 
 
 
+// Route::get('/visita', 'VisitaController@index');
+// Route::get('/visita/listar', 'VisitaController@listar');
+// Route::get('/visita/crear', 'VisitaController@create');
+// Route::post('/visita/guardar', 'VisitaController@save');
+// Route::get('/visita/editar/{id}', 'VisitaController@edit');
+// Route::get('/visita/eliminar/{id}', 'VisitaController@destroy');
+// Route::post('/visita/actualizar', 'VisitaController@update');
+// Route::get('/visita/show', 'VisitaController@show');
+
+// Video YOutube
+
 Route::get('/visita', 'VisitaController@index');
-Route::get('/visita/listar', 'VisitaController@listar');
-Route::get('/visita/crear', 'VisitaController@create');
-Route::post('/visita/guardar', 'VisitaController@save');
-Route::get('/visita/editar/{id}', 'VisitaController@edit');
-Route::get('/visita/eliminar/{id}', 'VisitaController@destroy');
-Route::post('/visita/actualizar', 'VisitaController@update');
+Route::get('/visita/listar', 'VisitaController@index');
+Route::resource('visita', 'VisitaController');
+
 
 Route::get('/listachequeo', 'ListaChequeoController@index');
 Route::get('/listachequeo/listar', 'ListaChequeoController@listar');
