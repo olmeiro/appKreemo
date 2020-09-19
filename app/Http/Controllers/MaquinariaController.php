@@ -41,7 +41,7 @@ class MaquinariaController extends Controller
                     ->make(true);
         }
 
-        return view('maquinaria/maquinariaajax');
+        return view('maquinaria.index');
     }
 
     public function updateState($id, $estado){
