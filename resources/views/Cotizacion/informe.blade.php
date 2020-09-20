@@ -13,7 +13,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="">Numero de Cotización</label>
-                        <input type="text" class="form-control" name="txtNumeroCotizacion">
+                        <input type="text" class="form-control" name="id">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success float-left">Generar Informe</button>
