@@ -260,14 +260,15 @@ class CotizacionController extends Controller
     public function generar_PDF(Request $request){
         $input = $request->all();
         $cotizacion = Cotizacion::select("*")
-            ->where("id", [$input["txtNumeroCotizacion"]])
+            ->where("id", [$input["id"]])
             ->get();
         // dd($cotizacion);
         if (count($cotizacion) > 0) {
 
             $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
 
-            return $pdf->download('informe.pdf');
+            // return $pdf->download('informe.pdf');
+            return $pdf->stream('informe.pdf');
         }else{
             Flash::error("Cotización NO encontrada");
             return redirect("/cotizacion/informe");

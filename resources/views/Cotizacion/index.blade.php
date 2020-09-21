@@ -4,16 +4,17 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white float-right" style="background-color: #616A6B">
-            <strong>COTIZACIONE</strong>
+            <strong>COTIZACIONES</strong>
             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
+            <a class="btn btn-outline-light" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a>
+
             <div class="float-right" style="background-color: #616A6B">
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">VER JORNADAS</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">VER MODALIDAD</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">VER TIPO CONCRETO</button>
                     {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
-                    {{-- <a class="btn btn-link" href=""><i class="fas fa-file-pdf"> </i> GENERAR REPORTE</a>
-                    <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
+                    {{-- <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
             </div>
         </div>
         <div class="card-body">
