@@ -26,20 +26,25 @@ class VisitaController extends Controller
     
     public function listarvisitas(Request $request){
 
+        $obra = Obra::all();
+       
+      
+        if ($request->ajax()) {
 
         $visita = Visita::select("visita.*", "obra.nombre as nombre_obra")
         ->join("obra", "visita.idobra", "=", "obra.id")
         ->get();
+
         return DataTables::of($visita)    
        
-        ->addColumn('editar', function ($visita) {
-            return '<a class="btn btn-xs btn-primary" href="/visita/editar/'.$visita->id.'">Editar</a>';
+        ->addColumn('listaChequeo', function ($visita) {
+            return '<a class="btn btn-xs btn-primary" href="/listachequeo/crear/'.$visita->id.'">Lista Chequeo</a>';
         })
-        ->addColumn('eliminar', function ($visita) {
-            return '<a class="btn btn-danger btn-xs" href="/visita/eliminar/'.$visita->id.'">Eliminar</a>';
-        })
-        ->rawColumns(['editar', 'eliminar'])
+        ->rawColumns(['listaChequeo'])
         ->make(true);
+
+        }
+        return view('visita.listarvisita', compact('obra'));
     }
 
     /**
@@ -49,7 +54,7 @@ class VisitaController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**

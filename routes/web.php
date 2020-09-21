@@ -110,13 +110,14 @@ Route::get('/estadoservicio/eliminar/{id}', 'EstadoServicioController@destroy');
 
 Route::get('/visita', 'VisitaController@index');
 Route::get('/visita/listar', 'VisitaController@index');
-Route::get('/listarvisitas', 'VisitaController@listarvisitas');
+Route::get('/visita/listarvisitas', 'VisitaController@listarvisitas');
 Route::resource('visita', 'VisitaController');
 
 
 Route::get('/listachequeo', 'ListaChequeoController@index');
 Route::get('/listachequeo/listar', 'ListaChequeoController@listar');
 Route::get('/listachequeo/crear', 'ListaChequeoController@create');
+Route::get('/listachequeo/crear/{id}', 'ListaChequeoController@create');
 Route::post('/listachequeo/guardar', 'ListaChequeoController@save');
 Route::get('/listachequeo/editar/{id}', 'ListaChequeoController@edit');
 Route::post('/listachequeo/actualizar', 'ListaChequeoController@update');

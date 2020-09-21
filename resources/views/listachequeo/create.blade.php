@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('body')
+
 <div class="card">
         <div class="card-header">
             <strong>Crear Lista de chequeo</strong>
@@ -9,6 +10,7 @@
         @include('flash::message')
         <form action="/listachequeo/guardar" method="POST" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="id" value="">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">
@@ -19,12 +21,13 @@
                         <div class="form-row" >
                                 <div class="form-group col-md-6">
                                     <label for="">Id Visita</label>
-                                    <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
+                                    <input type="text" id="idvisita" name="idvisita" class="form-control" value="{{ $value->id }}">
+                                    <!-- <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
                             <option selected>Seleccione una visita</option>
                             @foreach($visita as $key =>$value)
                                 <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                             @endforeach
-                        </select>
+                        </select> -->
                                     @error('idvisita')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
