@@ -23,6 +23,25 @@ class VisitaController extends Controller
         return view('visita.index', compact('obra'));
     }
 
+    
+    public function listarvisitas(Request $request){
+
+
+        $visita = Visita::select("visita.*", "obra.nombre as nombre_obra")
+        ->join("obra", "visita.idobra", "=", "obra.id")
+        ->get();
+        return DataTables::of($visita)    
+       
+        ->addColumn('editar', function ($visita) {
+            return '<a class="btn btn-xs btn-primary" href="/visita/editar/'.$visita->id.'">Editar</a>';
+        })
+        ->addColumn('eliminar', function ($visita) {
+            return '<a class="btn btn-danger btn-xs" href="/visita/eliminar/'.$visita->id.'">Eliminar</a>';
+        })
+        ->rawColumns(['editar', 'eliminar'])
+        ->make(true);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
