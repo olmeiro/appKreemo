@@ -135,7 +135,7 @@
         <p>Cotización N° {{$input["txtNumeroCotizacion"]}}</p> --}}
         <table class="vini" style="width:100%">
             <tr class="vini" >
-                <th class="foto" rowspan="3"><img src="http://localhost:8000/vini.png"  style="width: 50px; height: 50px"></th>
+            <th class="foto" rowspan="3"><img src="{{asset('assets/dashboard/assets/img/1.jpg')}}" alt="V" style="width: 50px; height: 50px"></th>
                 <td class="vini" >PROPUESTA COMERCIAL</td>
                 <td class="vini" >VERSIÓN 001</td>
             </tr>
@@ -155,12 +155,13 @@
     <br>
     <br>
     <p class="p1">PROPUESTA N° {{$input["id"]}}</p>
-    <p>Señores</p>
+    <b>Señores</b><br>
     @foreach($cotizacion as $value)
-    <p>{{$value->idObra}}</p>
+    <b>{{$value->nombre_obra}}</b>
     @endforeach
+    <br>
     @foreach($cotizacion as $value)
-    <p>{{$value->idEmpresa}}</p>
+    <b>{{$value->nombre_empresa}}</b>
     @endforeach
     <br>
     <br>
@@ -267,13 +268,13 @@
         <tr>
             <td class="v2" width="45%">Modalidad (mensualidad o días)</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->idModalidad}}</td>
+            <td class="v2" style="text-align:center">{{$value->modalidad}}</td>
             @endforeach
         </tr>
         <tr>
             <td class="v2">Etapa de la obra (Pilas o estructura)</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->idEtapa}}</td>
+            <td class="v2" style="text-align:center">{{$value->etapa}}</td>
             @endforeach
         </tr>
         <tr>
@@ -297,7 +298,7 @@
         <tr>
             <td class="v2">Tipo de concreto</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->idTipo_Concreto}}</td>
+            <td class="v2" style="text-align:center">{{$value->tipo_concreto}}</td>
             @endforeach
         </tr>
         <tr>
@@ -309,7 +310,7 @@
         <tr>
             <td class="v2">Jornada laboral</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->idJornada}}</td>
+            <td class="v2" style="text-align:center">{{$value->jornada_nombre}}</td>
             @endforeach
         </tr>
         <tr>
@@ -322,6 +323,9 @@
         </tr>
     </table>
     <p class="PCA">3. PROPUESTA ECONÓMICA</p>
+    @foreach($cotizacion as $value)
+    <b>POR {{$value->modalidad}} </b>
+    @endforeach
     <table class="v3" style="width:100%">
         <tr>
             <th colspan="5" class="v3">PAGO ANTICIPADO</th>

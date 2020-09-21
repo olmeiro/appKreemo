@@ -259,8 +259,15 @@ class CotizacionController extends Controller
 
     public function generar_PDF(Request $request){
         $input = $request->all();
-        $cotizacion = Cotizacion::select("*")
-            ->where("id", [$input["id"]])
+        $cotizacion = Cotizacion::select("cotizacion.*", "empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto", "obra.nombre as nombre_obra")
+            ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+            ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
+            ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
+            ->join("etapa", "cotizacion.idEtapa", "=", "etapa.id")
+            ->join("jornada", "cotizacion.idJornada", "=", "jornada.id")
+            ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
+            ->join("obra", "cotizacion.idObra", "=", "obra.id")
+            ->where("cotizacion.id", [$input["id"]])
             ->get();
         // dd($cotizacion);
         if (count($cotizacion) > 0) {
