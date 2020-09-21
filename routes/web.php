@@ -110,6 +110,7 @@ Route::get('/estadoservicio/eliminar/{id}', 'EstadoServicioController@destroy');
 
 Route::get('/visita', 'VisitaController@index');
 Route::get('/visita/listar', 'VisitaController@index');
+Route::get('/listarvisitas', 'VisitaController@listarvisitas');
 Route::resource('visita', 'VisitaController');
 
 
