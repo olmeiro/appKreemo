@@ -52,7 +52,7 @@
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success">Crear Cotizacion</button>
+                <button type="submit" class="btn btn-success">Crear Servicio</button>
                 <a href="/servicio" class="btn btn-outline-primary" >Volver</a>
             </form>
         </div>

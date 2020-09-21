@@ -240,7 +240,7 @@ $(document).ready(function() {
                 position:'center',
                     });
 
-            document.FrmEncuesta.submit();
+            document.frmEncuesta.submit();
         }
         else{
             Swal.fire({
