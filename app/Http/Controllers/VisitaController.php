@@ -38,7 +38,7 @@ class VisitaController extends Controller
         return DataTables::of($visita)    
        
         ->addColumn('listaChequeo', function ($visita) {
-            return '<a class="btn btn-xs btn-primary" href="/listachequeo/crear/'.$visita->id.'">Lista Chequeo</a>';
+            return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-edit"></i></a>';
         })
         ->rawColumns(['listaChequeo'])
         ->make(true);

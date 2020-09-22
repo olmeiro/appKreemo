@@ -2,6 +2,11 @@
 
 @section('body')
 
+<?php    
+    $url = URL::current();
+   $id = substr($url, -1);  
+?>
+
 <div class="card">
         <div class="card-header">
             <strong>Crear Lista de chequeo</strong>
@@ -21,13 +26,8 @@
                         <div class="form-row" >
                                 <div class="form-group col-md-6">
                                     <label for="">Id Visita</label>
-                                    <input type="text" id="idvisita" name="idvisita" class="form-control" value="{{ $value->id }}">
-                                    <!-- <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
-                            <option selected>Seleccione una visita</option>
-                            @foreach($visita as $key =>$value)
-                                <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
-                            @endforeach
-                        </select> -->
+                                    <input type="text" value="{{ $id }}" id="idvisita" name="idvisita" class="form-control">
+                              
                                     @error('idvisita')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

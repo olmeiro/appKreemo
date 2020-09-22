@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Flash;
 use DataTables;
+use Illuminate\Support\Facades\URL;
 
 use App\Models\ListaChequeo;
 use App\Models\Visita;
@@ -31,12 +32,14 @@ class ListaChequeoController extends Controller
         
         ->addColumn('editar', function ($listachequeo) {
             // return '<a type="button" class="btn btn-primary"  data-toggle="modal" data-target="#edit" href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
+
             return '<a type="button" class="btn btn-primary"   href="/listachequeo/editar/'.$listachequeo->id.'" ><i class="fas fa-edit"></i></a>';
         })
       
         ->rawColumns(['editar'])
         ->make(true);
     }
+
     public function create(){
         
        $visita = Visita::all();
@@ -44,6 +47,16 @@ class ListaChequeoController extends Controller
        
         return view('listachequeo.create', compact ('visita'));
     }
+    
+
+    public function createlist(){
+
+        $visita = Visita::all();
+        $listachequeo = ListaChequeo::all();
+        return view('listachequeo.createlist', compact ('visita'));
+        
+    
+     }
 
     public function save(Request $request){
         //dd('ruta ok');
