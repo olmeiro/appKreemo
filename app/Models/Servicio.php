@@ -13,8 +13,13 @@ class Servicio extends Model
 
         "idestadoservicio",
         "idcotizacion",
+        "idmaquina",
+        "idoperario1",
+        "idoperario2",
         "fechainicio",
-        "fechafin"
+        "fechafin",
+        "estado",
+        "descripcion"
     ];
 
     public static $rules = [

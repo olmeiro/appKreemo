@@ -5,14 +5,14 @@
 @endsection
 
 @section('body')
-    
+
         <div class="card col">
 
                 <div id='calendar'>
-                
+
                 </div>
         </div>
-        
+
  <!-- Modal Crear Visita: -->
 
   <div class="modal fade" id="agenda_modal" tabindex="-1" role="dialog" data-backdrop="static">
@@ -35,7 +35,7 @@
                         <input type="date" class="form-control" id="fecha" name="fecha">
                     </div>
                 </div>
-              
+
                 <div class="col">
                     <div class="form-group">
                         <label for="">Tiempo (minutos)</label>
@@ -59,7 +59,7 @@
                 </div>
           </div>
             <div class="row">
-            <div class="col-6">
+                <div class="col-6">
                     <div class="form-group">
                         <label for="">Obra</label>
                         <select class="form-control"name= "idobra" id="idobra">
@@ -86,12 +86,12 @@
         </form>
             </div>
       </div>
-      <div class="modal-footer">     
+      <div class="modal-footer">
         <button  id="btnAgregar" type="button" class="btn btn-success">Agregar</button>
         <button  id="btnModificaa" type="button" class="btn btn-warning">Modificar</button>
         <button  id="btnBorrar" type="button" class="btn btn-danger">Eliminar</button>
         <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
-   
+
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@
                         <input type="date" class="form-control" id="fecha" name="fecha">
                     </div>
                 </div>
-              
+
                 <div class="col">
                     <div class="form-group">
                         <label for="">Tiempo (minutos)</label>
@@ -187,8 +187,8 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
-    <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
-    <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
+<script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
+<script src="{{ asset('assets/modal/js/modal.js') }}"></script>
 <script src="{{ asset('js/validacionVisita1.js') }}"></script>
 
 @endsection
