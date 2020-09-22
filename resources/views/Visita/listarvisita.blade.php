@@ -21,6 +21,7 @@
                     <th>Estado</th>
                     <th>Descripción</th>
                     <th>Lista Chequeo</th>
+                    <th>Cambiar estado</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -80,6 +81,11 @@
                     {
                         data: 'listaChequeo',
                         name: 'listaChequeo',
+                        orderable: false,
+                        searchable: false
+                     },{
+                        data: 'cambiar',
+                        name: 'cambiar',
                         orderable: false,
                         searchable: false
                      }

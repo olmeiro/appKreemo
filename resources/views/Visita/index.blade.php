@@ -32,6 +32,7 @@
                 <div class="col-5">
                     <div class="form-group">
                         <label for="">Fecha</label>
+                        <label class="validacion" id="valfecha"></label>
                         <input type="date" class="form-control" id="fecha" name="fecha">
                     </div>
                 </div>
@@ -54,6 +55,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label for="">Hora final</label>
+                        <label class="validacion" id="valhorafinal"></label>
                         <input type="time" class="form-control" id="horafinal" readonly>
                     </div>
                 </div>
@@ -62,6 +64,7 @@
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Obra</label>
+                        <label class="validacion" id="valobra"></label>
                         <select class="form-control"name= "idobra" id="idobra">
                         <option value="0">Seleccione una Obra</option>
                        @foreach($obra as $key =>$value)
@@ -73,6 +76,7 @@
             <div class="col-6">
                     <div class="form-group">
                         <label for="">Tipo de Visita</label>
+                        <label class="validacion" id="valtipovisita"></label>
                         <select class="form-control"id="tipovisita" name="tipovisita">
                         <option value="0">Seleccione</option>
                         <option value="Técnica">Técnica</option>
@@ -177,6 +181,8 @@
 @section("style")
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.css")}}'rel='stylesheet'/>
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.min.css")}}'rel='stylesheet'/>
+<link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 
 @section("scripts")

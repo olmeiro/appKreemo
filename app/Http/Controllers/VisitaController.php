@@ -36,11 +36,25 @@ class VisitaController extends Controller
         ->get();
 
         return DataTables::of($visita)    
-       
+        ->editColumn("estado", function($visita){
+            return $visita->estado == 1 ? "Activa" : "Inactiva";
+        })
         ->addColumn('listaChequeo', function ($visita) {
             return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-edit"></i></a>';
         })
-        ->rawColumns(['listaChequeo'])
+        ->addColumn('cambiar', function ($visita) {
+            if($visita->estado == 1)
+            {
+                return '<button type="button" class="btn btn-danger"><a class="btn btn-danger btn-sm" href="/visita/cambiar/estado/'.$visita->id.'/0">Inactivar</a></button>';
+
+            }
+            else
+            {
+                return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/visita/cambiar/estado/'.$visita->id.'/1">Activar</a></button>';
+
+            }
+        })
+        ->rawColumns(['listaChequeo','cambiar'])
         ->make(true);
 
         }
@@ -55,6 +69,27 @@ class VisitaController extends Controller
     public function create()
     {
         
+    }
+    public function updateState($id, $estado){
+
+        $visita = Visita::find($id);
+
+        if ($visita==null) {
+            Flash::error("Visita no encontrada");
+            return redirect("/visita/listarvisitas");
+        }
+
+        try {
+
+            $visita->update(["estado"=>$estado]);
+            Flash::success("Se modifico el estado de la cita");
+            return redirect("/visita/listarvisitas");
+
+        } catch (\Exception $e) {
+
+            Flash::error($e->getMessage());
+            return redirect("/visita/listarvisitas");
+        }
     }
 
     /**
@@ -93,8 +128,9 @@ class VisitaController extends Controller
                         "obra"=>$value->idobra,
                         "tipovisita"=>$value->tipovisita,
                         "descripcion"=>$value->descripcion,
+                        "estado"=>$value->estado,
                         "title"=>$value->nombre_obra,
-                        "backgroundColor"=>$value->estado ==1 ? "#1f7904" : "#7b0205",
+                        "backgroundColor"=>$value->estado ==1 ? "#5EFA10" : "#FE0303",
                         "textColor"=>"#fff"
                     ];
                     }

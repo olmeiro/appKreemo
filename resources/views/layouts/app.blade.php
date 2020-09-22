@@ -83,8 +83,8 @@
             <i class="fas fa-calendar-alt"></i> Visitas</a>
        <ul class="c-sidebar-nav-dropdown-items">
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita"><span class="c-sidebar-nav-icon"></span> Crear Cita</a></li>
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita/listarvisitas"><span class="c-sidebar-nav-icon"></span> Lista de visitas</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/listachequeo"><span class="c-sidebar-nav-icon"></span> Lista de chequeo</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita/listarvisitas"><span class="c-sidebar-nav-icon"></span> Lista de visitas</a></li>
            </li>
        </ul>
        </li>
