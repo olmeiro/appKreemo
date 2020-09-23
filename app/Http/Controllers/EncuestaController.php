@@ -36,6 +36,13 @@ class EncuestaController extends Controller
 
     }
 
+    public function pasarid($id)
+    {   
+        $id;
+        //dd($id);
+        return view('encuesta.create', compact('id'));
+    }
+
     public function create(){
 
         $encuesta = Encuesta::all();
