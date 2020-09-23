@@ -114,6 +114,7 @@ Route::get('/visita', 'VisitaController@index');
 Route::get('/visita/listar', 'VisitaController@index');
 Route::get('/visita/listarvisitas', 'VisitaController@listarvisitas');
 Route::resource('visita', 'VisitaController');
+Route::get('/visita/cambiar/estado/{id}/{estado}', 'VisitaController@updateState');
 
 
 Route::get('/listachequeo', 'ListaChequeoController@index');

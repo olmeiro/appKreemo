@@ -75,6 +75,7 @@ $(function(){
         $("#tiempo").val("30");
 
         $("#agenda_modal").modal();
+        
       },
 
     eventSources: [
@@ -82,7 +83,7 @@ $(function(){
         // your event source
         {
           url: '/visita/show.php', // use the `url` property
-          color: 'yellow',    // an option!
+          // color: '#25FE03',    // an option!
           textColor: 'black'  // an option!
         }
     
@@ -131,23 +132,86 @@ $(function(){
     }
 
     function EnviarInformacion(accion, objEvento){
+      let validado = 0;
+      var fecha_actual =new Date();
+      var fecha_v = new Date ($("#fecha").val());
 
-        $.ajax(
+      if ($("#fecha").val().length == 0 ){
+          $("#valfecha").text("* Fecha inválida");
+      }else if(fecha_actual> fecha_v){
+          $("#valfecha").text("*");
+      alert('La fecha de visita debe ser mayor a la fecha actual');
+       }else if(fecha_actual==fecha_v){
+      alert('La fecha de visita no puede ser igual que la fecha actual');
+      }
+      else{
+          $("#valfecha").text("");
+          validado++;
+      }
+
+        if( $("#horafinal").val().length == 0 )
         {
-            type:"POST",
-            url:'/visita'+accion,
-            data: objEvento,
-            success:function(msg){
-                console.log(msg);
+            $("#valhorafinal").text("* Debe elegir una hora");
+        } else
+        {
+            $("#valhorafinal").text("");
+            validado++;
+        }
 
-                $("#agenda_modal").modal('toggle');     
-                calendar.refetchEvents();
-            },
+         if( $("#idobra").val() == 0 )
+         {
+             $("#valobra").text("* Debe elegir una obra");
+         } else
+         {
+             $("#valobra").text("");
+             validado++;
+         }
+
+      if( $("#tipovisita").val() == 0 )
+         {
+             $("#valtipovisita").text("* Debe elegir un tipo de visita");
+         }
+         else
+         {
+             $("#valtipovisita").text("");
+             validado++;
+         }
+        
+            if(validado ==4)
+                { 
+                  $.ajax(
+                    {
+                        type:"POST",
+                        url:'/visita'+accion,
+                        data: objEvento,
+                        success:function(msg){
+                            console.log(msg); }}),
+                            $("#agenda_modal").modal('toggle');     
+                            calendar.refetchEvents();
+                    Swal.fire({
+                      title:'Registro exitoso',text:'Cita Guardada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                        //width: '50%',
+                      padding:'1rem',
+                        //background:'#000',
+                      backdrop:true,
+                        //toast: true,
+                      position:'center',
+                          });
+                    
+            }else{
+                      Swal.fire({
+                        title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                          //width: '50%',
+                        padding:'1rem',
+                          //background:'#000',
+                        backdrop:true,
+                          //toast: true,
+                        position:'center',
+                    });
+            validado = 0;}
+          // }},
            
-                error:function(){
-                    alert("hay un error");}
-                }
-        );
+        
     }    
 })
 
@@ -159,11 +223,18 @@ function tiempofinal(){
   document.getElementById("horafinal").value=(horafinal);
 }
 
+
   
   function limpiar(){
+
     //$("#agenda_modal").modal('hide');
+    $("#valfecha").text("");
+    $("#valobra").text("");
+    $("#valtipovisita").text("");
+    $("#valhorafinal").text("");
     $("#fecha").val("");
     $("#horainicio").val("");
+    $("#horafinal").val("");
     $("#tiempo").val("");
     $("#idobra").val("0");
     $("#tipovisita").val("0");

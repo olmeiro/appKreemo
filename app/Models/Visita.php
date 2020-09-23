@@ -27,5 +27,6 @@ class Visita extends Model
         'fecha' =>'required',
         'horainicio'=> 'required',
         'horafinal'=> 'required',
+        'estado' => 'in:1,0',
     ];
 }
