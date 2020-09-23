@@ -81,6 +81,7 @@ Route::get('/encuesta/eliminar/{id}', 'EncuestaController@destroy');
 
 Route::get('/servicio', 'ServicioController@index');
 Route::get('/servicio/listar', 'ServicioController@index');
+Route::get('/servicio/listarservicio', 'ServicioController@listarservicios');
 Route::resource('servicio', 'ServicioController');
 /* Route::get('/servicio/listar', 'ServicioController@listar');
 Route::get('/servicio/crear', 'ServicioController@create');
