@@ -34,7 +34,7 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Fecha Fin</label>
-                                    <input type="date" class="form-control" id="fechafin">
+                                    <input type="date" class="form-control" id="fechafin" name="fechafin">
                                 </div>
                             </div>
                         </div>

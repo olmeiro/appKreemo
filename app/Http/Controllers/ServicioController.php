@@ -33,28 +33,23 @@ class ServicioController extends Controller
     public function show()
     {
 
-        $data['servicio']= $servicio = Servicio::select("servicio.*", "estadoservicio.estado", "maquinaria.modelo" , "operario.nombre", "operario.nombre")
-            ->join("estadoservicio", "servicio.idestadoservicio", "=", "estadoservicio.id")
-            //->join("cotizacion", "cotizacion.idcotizacion", "=", "cotizacion.id")
-            ->join("maquinaria", "maquinaria.idmaquina", "=", "maquinaria.id")
-            ->join("operario", "operario.idoperario", "=", "operario.id")
-            ->get();
+        $data['servicio']= $servicio = Servicio::all();
 
             $nuevoservicio=[];
 
             foreach ($servicio as $value) {
                         $nuevoservicio[]=[
                         "id"=>$value->id,
-                        "start"=>$value->fechainicio." ".$value->fechainicio,
-                        "end"=>$value->fechafin." ".$value->fechafin,
+                        "start"=>$value->fechainicio,
+                        "end"=>$value->fechafin,
                         "estadoservicio"=>$value->idestadoservicio,
                         "cotizacion"=>$value->idcotizacion,
                         "maquina"=>$value->idmaquina,
                         "operario1"=>$value->idoperario1,
                         "operario2"=>$value->idoperario2,
                         "descripcion"=>$value->descripcion,
-                        //"title"=>$value->nombre_obra,
-                        //"backgroundColor"=>$value->estado ==1 ? "#1f7904" : "#7b0205",
+                        "title"=>$value->id,
+                        "backgroundColor"=>$value->estado ==1 ? "#1f7904" : "#7b0205",
                         "textColor"=>"#fff"
                     ];
                     }
