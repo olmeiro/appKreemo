@@ -315,11 +315,15 @@
         </tr>
         <tr>
             <td class="v2">Correo electrónico</td>
-            <td class="v2"></td>
+            @foreach($cotizacion as $value)
+            <td class="v2" style="text-align:center">{{$value->telefono1}}</td>
+            @endforeach
         </tr>
         <tr>
             <td class="v2">Celular</td>
-            <td class="v2"></td>
+            @foreach($cotizacion as $value)
+            <td class="v2" style="text-align:center">{{$value->correo1}}</td>
+            @endforeach
         </tr>
     </table>
     <p class="PCA">3. PROPUESTA ECONÓMICA</p>
