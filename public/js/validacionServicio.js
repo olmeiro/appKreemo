@@ -37,48 +37,43 @@ $(function(){
 
         $("#fechainicio").val(fechainicio);
         $("#fechafin").val(fechafin);
-        //$("#tiempo").val("30");
 
         $("#agendaservicio_modal").modal();
         calendar.unselect();
-
-        //calendar.addEvent({ title:"Evento x" , date:info.dateStr});
-        // console.log("fecha:"+fecha);
-        // console.log("horainicio:"+horainicio);
-
       },
 
       eventClick: function(info) {
 
+        //alert("hola soy modal");
         console.log(info);
+        console.log(info.event.id);
         console.log(info.event.start);
         console.log(info.event.end);
-        console.log(info.event.id);
 
         let id = info.event.id;
         $("#id").val(id);
 
         let fechainicio = moment(info.event.start).format("YYYY-MM-DD");
         $("#fechainicio").val(fechainicio);
+        console.log(fechainicio);
 
         let fechafin = moment(info.event.end).format("YYYY-MM-DD");
         $("#fechafin").val(fechafin);
-
-        $("#idmaquina").val(info.event.extendedProps.maquinaria);
+        console.log(fechafin);
 
         $("#idcotizacion").val(info.event.extendedProps.cotizacion);
 
+        $("#idmaquina").val(info.event.extendedProps.maquina);
+
         $("#idestadoservicio").val(info.event.extendedProps.estadoservicio);
 
-        $("#operario1").val(info.event.extendedProps.operario);
+         $("#idoperario1").val(info.event.extendedProps.operario1);
 
-        $("#operario2").val(info.event.extendedProps.operario);
+        $("#idoperario2").val(info.event.extendedProps.operario2);
 
         $("#descripcion").val(info.event.extendedProps.descripcion);
 
-        //$("#tiempo").val("30");
-
-        $("#agendasevicio_modal").modal();
+         $("#agendaservicio_modal").modal();
       },
 
     eventSources: [
@@ -87,7 +82,6 @@ $(function(){
         {
           url: '/servicio/show.php', // use the `url` property
           color: 'yellow',    // an option!
-          textColor: 'black'  // an option!
         }
 
         // any other sources...
@@ -101,13 +95,14 @@ $(function(){
 
     $("#btnAgregar").click(function(){
         ObjEvento=recolectarDatosGUI("POST");
+        //console.log(ObjEvento);
 
         EnviarInformacion('',ObjEvento);
     });
 
     $("#btnBorrar").click(function(){
         ObjEvento=recolectarDatosGUI("DELETE");
-
+        //console.log(ObjEvento);
         EnviarInformacion('/'+$("#id").val(),ObjEvento);
     });
 
@@ -135,6 +130,7 @@ $(function(){
 
         return(nuevoEvento);
     }
+
 
     function EnviarInformacion(accion, objEvento){
         //alert("llega");

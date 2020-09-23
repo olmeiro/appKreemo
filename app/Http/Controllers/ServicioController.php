@@ -48,7 +48,7 @@ class ServicioController extends Controller
                         "operario1"=>$value->idoperario1,
                         "operario2"=>$value->idoperario2,
                         "descripcion"=>$value->descripcion,
-                        "title"=>$value->id,
+                        "title"=>$value->id." ".$value->descripcion,
                         "backgroundColor"=>$value->estado ==1 ? "#1f7904" : "#7b0205",
                         "textColor"=>"#fff"
                     ];
@@ -193,3 +193,11 @@ class ServicioController extends Controller
     }
  */
 }
+
+
+// select("servicio.*", "estadoservicio.estado", "maquinaria.modelo", "operario.id as nombreOperario")
+// ->join("estadoservicio", "servicio.idestadoservicio", "=", "estadoservicio.id")
+// ->join("maquinaria", "servicio.idmaquina", "=", "maquinaria.id")
+// ->join("operario", "servicio.idoperario1", "=" , "operario.id")
+// ->join("operario", "servicio.idoperario2", "=" , "operario.id")
+// ->get();
