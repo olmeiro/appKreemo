@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('body')
+
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>SERVICIOS</strong>

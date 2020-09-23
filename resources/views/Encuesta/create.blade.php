@@ -14,12 +14,7 @@
         <div class="form-row" >
             <div class="form-group col-md-4">
                 <label for="">Id del servicio</label>
-                <select id="idservicio"  name= "idservicio" class="form-control @error('idservicio') is-invalid @enderror">
-                    <option selected>Seleccione un servicio</option>
-                    @foreach($servicio as $key =>$value)
-                        <option value="{{ $value->id }}" {{(old('idservicio')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
-                    @endforeach
-                </select>
+                <input type="text" value="{{ $id }}" id="idservicio" name="id" class="form-control">
                 @error('idservicio')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror

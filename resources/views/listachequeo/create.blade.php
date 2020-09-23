@@ -2,11 +2,6 @@
 
 @section('body')
 
-<?php    
-    $url = URL::current();
-   $id = substr($url, -1);  
-?>
-
 <div class="card">
         <div class="card-header">
             <strong>Crear Lista de chequeo</strong>

@@ -40,6 +40,13 @@ class ListaChequeoController extends Controller
         ->make(true);
     }
 
+    public function pasarid($id)
+    {   
+        $id;
+        //dd($id);
+        return view('listachequeo.create', compact('id'));
+    }
+
     public function create(){
         
        $visita = Visita::all();
