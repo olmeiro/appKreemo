@@ -6,7 +6,8 @@
         <div class="card-header text-white float-right" style="background-color: #616A6B">
             <strong>COTIZACIONES</strong>
             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
-            <a class="btn btn-outline-light" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a>
+            {{-- <a class="btn btn-outline-light" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
+            <a class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a>
 
             <div class="float-right" style="background-color: #616A6B">
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
@@ -426,6 +427,28 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
                 <a href="/tipoConcreto" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Tipo Concreto</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade bd-example-modal-sm" id="exampleModalR" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+            <div class="card-header text-white" style="background-color: #616A6B"">
+                <strong>Generar Reporte Contización</strong>
+            </div>
+            <div class="card-body">
+                @include('flash::message')
+                <form action="/cotizacion/generar/pdf" method="POST">
+                    @csrf
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="">Numero de Cotización</label>
+                            <input type="text" class="form-control" name="id">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success float-left">Generar Informe</button>
+                </form>
             </div>
         </div>
     </div>

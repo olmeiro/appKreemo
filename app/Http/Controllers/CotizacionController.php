@@ -253,13 +253,13 @@ class CotizacionController extends Controller
 
     public function informe(){
 
-        return view("cotizacion.informe");
+        return view("cotizacion.index");
 
     }
 
     public function generar_PDF(Request $request){
         $input = $request->all();
-        $cotizacion = Cotizacion::select("cotizacion.*", "empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto", "obra.nombre as nombre_obra")
+        $cotizacion = Cotizacion::select("cotizacion.*", "empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto","obra.nombre as nombre_obra", "obra.telefono1", "obra.correo1")
             ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
             ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
             ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
@@ -274,11 +274,12 @@ class CotizacionController extends Controller
 
             $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
 
-            // return $pdf->download('informe.pdf');
+
+            //return $pdf->download('informe.pdf');
             return $pdf->stream('informe.pdf');
         }else{
-            Flash::error("Cotización NO encontrada");
-            return redirect("/cotizacion/informe");
+            Flash::error("Reporte de Cotización NO encontrado");
+            return redirect("/cotizacion");
         }
 
 
