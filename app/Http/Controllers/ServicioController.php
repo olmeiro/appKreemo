@@ -33,12 +33,7 @@ class ServicioController extends Controller
     public function show()
     {
 
-        $data['servicio']= $servicio = Servicio::select("servicio.*", "estadoservicio.estado", "maquinaria.modelo as modelo" , "operario.nombre as nombre_operario")
-            ->join("estadoservicio", "servicio.idestadoservicio", "=", "estadoservicio.id")
-            ->join("maquinaria", "servicio.idmaquina", "=", "maquinaria.id")
-            ->join("operario", "servicio.idoperario1", "=", "operario.id")
-
-            ->get();
+        $data['servicio']= $servicio = Servicio::all();
 
             $nuevoservicio=[];
 
@@ -49,7 +44,7 @@ class ServicioController extends Controller
                         "end"=>$value->fechafin,
                         "estadoservicio"=>$value->idestadoservicio,
                         "cotizacion"=>$value->idcotizacion,
-                        "maquina"=>$value->modelo,
+                        "maquina"=>$value->idmaquina,
                         "operario1"=>$value->idoperario1,
                         "operario2"=>$value->idoperario2,
                         "descripcion"=>$value->descripcion,
