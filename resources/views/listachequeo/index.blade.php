@@ -14,8 +14,8 @@
             <table id="tbl_listachequeo" class="table table-striped table-bordered table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>Lista Chequeo No</th>
-                    <th>Id Visita</th>
+                    <th>Lista Chequeo N°</th>
+                    <th>Visita N°</th>
                     <th>Número Planilla</th>
                     <th>Estado Via para ingreso grúa</th>
                     <th>Necesidad de PH</th>

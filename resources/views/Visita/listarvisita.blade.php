@@ -12,7 +12,7 @@
             <table id="tbl_visita" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>id</th>
+                    <th>Visita N°</th>
                     <th>Tipo Visita</th>
                     <th>Obra</th>
                     <th>Fecha</th>

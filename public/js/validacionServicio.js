@@ -4,7 +4,7 @@ $(function(){
     calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'es',
       headerToolbar: {
-        left: 'prev,next today Miboton MiEncuesta',
+        left: 'prev,next today Miboton',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
@@ -15,12 +15,7 @@ $(function(){
                 window.location.href = "/estadoservicio";
             }
         },
-        MiEncuesta:{
-          text:"lista Servicios",
-          click:function(){
-              window.location.href = "/servicio/listarservicio";
-          }
-      }
+        
       },
       slotLabelFormat:{
         hour: '2-digit',

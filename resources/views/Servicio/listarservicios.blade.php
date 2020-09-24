@@ -5,20 +5,20 @@
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>SERVICIOS</strong>
-            <a href="/listachequeo" class="btn btn-outline-light float-right">LISTA DE SERVICIOS</a>
         </div>
 
         <div class="card-body table-responsive">
         @include('flash::message')
             <table id="tbl_servicio" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
-                <tr>
-                    <th>id Cotizacion</th>
-                    <th>id maquina</th>
-                    <th>operario 1</th>
-                    <th>operario 2</th>
-                    <th>fecha Inicio</th>
-                    <th>fecha Final</th>
+                <tr> 
+                    <th>Servicio N°</th>
+                    <th>Cotización N°</th>
+                    <th>Máquina N°</th>
+                    <th>Operario 1</th>
+                    <th>Operario 2</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
                     <th>Estado</th>
                     <th>Descripción</th>
                     <th>Realizar Encuesta</th>
@@ -41,6 +41,12 @@
                 serverSide: true,
                 ajax: '/servicio/listarservicio',
                 columns: [
+                    {
+                     data: 'id',
+                     name: 'id',
+                     orderable: false,
+                     searchable: false
+                    },
                     {
                      data: 'idcotizacion',
                      name: 'idcotizacion',
