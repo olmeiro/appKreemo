@@ -293,5 +293,6 @@
 </html>
 @endsection
 @section('style')
+@section('style')
     <link href="{{ asset('css/styleMaquiOperario.css') }}" rel="stylesheet">
-@endsection
+@endsection@endsection

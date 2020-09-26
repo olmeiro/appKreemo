@@ -26,7 +26,7 @@ $(function(){
           minute: '2-digit',
           hour12: true
          },
-         
+
       navLinks: true, // can click day/week names to navigate views
       selectable: true,
       selectMirror: true,
@@ -34,7 +34,7 @@ $(function(){
 
         let fecha = moment(info.date).format("YYYY-MM-DD")
         let horainicio = moment(info.date).format("HH:mm:ss")
-       
+
         $("#fecha").val(fecha);
         $("#horainicio").val(horainicio);
         $("#tiempo").val("30");
@@ -45,11 +45,11 @@ $(function(){
         //calendar.addEvent({ title:"Evento x" , date:info.dateStr});
         // console.log("fecha:"+fecha);
         // console.log("horainicio:"+horainicio);
-     
+
       },
-      
+
       eventClick: function(info) {
-     
+
         console.log(info);
         console.log(info.event.start);
         console.log(info.event.end);
@@ -66,7 +66,7 @@ $(function(){
 
         let horaFinal = moment(info.event.end).format("HH:mm:ss");
         $("#horafinal").val(horaFinal);
-       
+
         $("#idobra").val(info.event.extendedProps.obra);
         $("#tipovisita").val(info.event.extendedProps.tipovisita);
 
@@ -75,7 +75,7 @@ $(function(){
         $("#tiempo").val("30");
 
         $("#agenda_modal").modal();
-        
+
       },
 
     eventSources: [
@@ -86,11 +86,11 @@ $(function(){
           // color: '#25FE03',    // an option!
           textColor: 'black'  // an option!
         }
-    
+
         // any other sources...
-    
+
       ]
-      
+
 
     }),
 
@@ -122,7 +122,7 @@ $(function(){
             fecha:  $("#fecha").val(),
             horainicio:  $("#horainicio").val(),
             horafinal:  $("#horafinal").val(),
-            descripcion: $("#descripcion").val(), 
+            descripcion: $("#descripcion").val(),
             '_token':$("meta[name='csrf-token']").attr("content"),
             '_method':method
 
@@ -174,9 +174,9 @@ $(function(){
              $("#valtipovisita").text("");
              validado++;
          }
-        
+
             if(validado ==4)
-                { 
+                {
                   $.ajax(
                     {
                         type:"POST",
@@ -184,7 +184,7 @@ $(function(){
                         data: objEvento,
                         success:function(msg){
                             console.log(msg); }}),
-                            $("#agenda_modal").modal('toggle');     
+                            $("#agenda_modal").modal('toggle');
                             calendar.refetchEvents();
                     Swal.fire({
                       title:'Cita Guardada',text:'Éxitosamente!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -195,7 +195,7 @@ $(function(){
                         //toast: true,
                       position:'center',
                           });
-                    
+
             }else{
                       Swal.fire({
                         title:'Error',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -208,9 +208,9 @@ $(function(){
                     });
             validado = 0;}
           // }},
-           
-        
-    }    
+
+
+    }
 })
 
 function tiempofinal(){
@@ -222,7 +222,7 @@ function tiempofinal(){
 }
 
 
-  
+
   function limpiar(){
 
     //$("#agenda_modal").modal('hide');

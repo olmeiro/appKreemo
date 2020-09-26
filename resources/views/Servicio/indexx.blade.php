@@ -28,13 +28,17 @@
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Fecha Inicio</label>
-                                    <input type="date" class="form-control" id="fechainicio">
+                                    <label class="validacion" id="valfecha"></label>
+                                    <input type="date" class="form-control calendarioI" id="fechainicio">
+                                    <label class="validacion" id="valfecha2"></label>
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Fecha Fin</label>
-                                    <input type="date" class="form-control" id="fechafin" name="fechafin">
+                                    <label class="validacion" id="valfechafin"></label>
+                                    <input type="date" class="form-control calendarioF" id="fechafin" name="fechafin">
+                                    <label class="validacion" id="valfechafin2"></label>
                                 </div>
                             </div>
                         </div>
@@ -43,23 +47,27 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Modelo</label>
+                                    <label class="validacion" id="validmaquina"></label>
                                     <select class="form-control"name= "idmaquina" id="idmaquina">
                                     <option value="0">Seleccione una maquina</option>
                                 @foreach($maquinaria as $key =>$value)
                                     <option value="{{ $value->id }}" {{(old('idmaquina')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
                                 @endforeach
                                     </select>
+                                    <label class="validacion" id="validmaquina2"></label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Id Cotización</label>
+                                    <label class="validacion" id="validcotizacion"></label>
                                     <select class="form-control"name= "idcotizacion" id="idcotizacion">
                                     <option value="0">Seleccione una Cotización</option>
                                 @foreach($cotizacion as $key =>$value)
                                     <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                 @endforeach
                                     </select>
+                                    <label class="validacion" id="validcotizacion2"></label>
                                 </div>
                             </div>
                         </div>
@@ -68,23 +76,27 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Operario 1</label>
+                                    <label class="validacion" id="validoperario1"></label>
                                     <select class="form-control"name= "idoperario1" id="idoperario1">
                                     <option value="0">Seleccione Operario</option>
                                 @foreach($operario as $key =>$value)
                                     <option value="{{ $value->id }}" {{(old('idoperario1')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
                                     @endforeach
                                     </select>
+                                    <label class="validacion" id="validoperario12"></label>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Operario 2</label>
+                                    <label class="validacion" id="validoperario2"></label>
                                     <select class="form-control"name= "idoperario2" id="idoperario2">
                                     <option value="0">Seleccione Operario</option>
                                 @foreach($operario as $key =>$value)
                                     <option value="{{ $value->id }}" {{(old('idoperario2')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
                                     @endforeach
                                     </select>
+                                    <label class="validacion" id="validoperario22"></label>
                                 </div>
                             </div>
                         </div>
@@ -93,12 +105,14 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Estado Servicio</label>
+                                    <label class="validacion" id="validestadoservicio"></label>
                                     <select class="form-control"name= "idestadoservicio" id="idestadoservicio">
                                     <option value="0">Seleccione un Estado</option>
                                 @foreach($estadoservicio as $key =>$value)
                                     <option value="{{ $value->id }}" {{(old('idestadoservicio')==$value->id)? 'selected':''}}>{{ $value->estado}}</option>
                                     @endforeach
                                     </select>
+                                    <label class="validacion" id="validestadoservicio2"></label>
                                 </div>
                             </div>
                         </div>
@@ -121,6 +135,7 @@
 @section("style")
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.css")}}'rel='stylesheet'/>
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.min.css")}}'rel='stylesheet'/>
+<link href="{{ asset('css/styleMaquiOperario.css') }}" rel="stylesheet">
 @endsection
 
 @section("scripts")
