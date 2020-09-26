@@ -133,25 +133,117 @@ $(function(){
 
 
     function EnviarInformacion(accion, objEvento){
-        //alert("llega");
-        $.ajax(
-        {
-            type:"POST",
-            url:'/servicio'+accion,
-            data: objEvento,
-            success:function(msg){
-                console.log(msg);
+        let validado = 0;
+        var fecha = new Date();
+        var fechainicio = new Date ($("#fechainicio").val());
+        var fechafin = new Date ($("#fechafin").val());
 
-                $("#agendaservicio_modal").modal('toggle');
-                calendar.refetchEvents();
-            },
-                error:function(){
-                    alert("hay un error");}
+        if ($("#fechainicio").val().length == 0 ){
+            $("#valfecha").text("*");
+            $("#valfecha2").text("Fecha inválida");
+        }else if(fecha > fechainicio){
+            $("#valfecha").text("*");
+            $("#valfecha2").text("La fecha debe ser mayor a la fecha actual");
+        }else{
+            $("#valfecha").text("");
+            $("#valfecha2").text("");
+            validado++;
         }
-        );
+
+        if( $("#fechafin").val().length == 0 ){
+            $("#valfechafin").text("*");
+            $("#valfechafin2").text("Debe elegir una fecha fin");
+        }else if(fechainicio > fechafin){
+            $("#valfecha").text("*");
+            $("#valfecha2").text("La fecha debe ser mayor a la fecha actual");
+        }else{
+            $("#valfechafin").text("");
+            $("#valfechafin2").text("");
+            validado++;
+        }
+
+        if( $("#idmaquina").val() == 0 ){
+            $("#validmaquina").text("*");
+            $("#validmaquina2").text("Debe elegir un modelo");
+        }else{
+            $("#validmaquina").text("");
+            $("#validmaquina2").text("");
+            validado++;
+        }
+
+        if( $("#idcotizacion").val() == 0 ){
+            $("#validcotizacion").text("*");
+            $("#validcotizacion2").text("Debe elegir una cotización");
+        }else{
+            $("#validcotizacion").text("");
+            $("#validcotizacion2").text("");
+            validado++;
+        }
+
+        if( $("#idoperario1").val() == 0 ){
+            $("#validoperario1").text("*");
+            $("#validoperario12").text("Debe elegir un operario");
+        }else{
+            $("#validoperario1").text("");
+            $("#validoperario12").text("");
+            validado++;
+        }
+
+        if( $("#idoperario2").val() == 0 ){
+            $("#validoperario2").text("*");
+            $("#validoperario22").text("Debe elegir un operario");
+        }else if($("#idoperario2").val() == $("#idoperario1").val()){
+            $("#validoperario2").text("*");
+            $("#validoperario22").text("no puede ser el mismo operario");
+        }else{
+            $("#validoperario2").text("");
+            $("#validoperario22").text("");
+            validado++;
+        }
+
+        if( $("#idestadoservicio").val() == 0 ){
+            $("#validestadoservicio").text("*");
+            $("#validestadoservicio2").text("Debe elegir un estado");
+        }else{
+            $("#validestadoservicio").text("");
+            $("#validestadoservicio2").text("");
+            validado++;
+        }
+
+        if(validado ==7){
+
+            $.ajax(
+            {
+                type:"POST",
+                url:'/servicio'+accion,
+                data: objEvento,
+                success:function(msg){
+                    console.log(msg);}}),
+                    $("#agendaservicio_modal").modal('toggle');
+                    calendar.refetchEvents();
+            Swal.fire({
+                title:'Registro exitoso',text:'Cita Guardada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    //width: '50%',
+                padding:'1rem',
+                    //background:'#000',
+                backdrop:true,
+                    //toast: true,
+                position:'center',
+                    });
+
+        }else{
+                Swal.fire({
+                    title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                    //width: '50%',
+                    padding:'1rem',
+                    //background:'#000',
+                    backdrop:true,
+                    //toast: true,
+                    position:'center',
+                });
+              validado = 0;}
     }
 })
-
 
   function limpiar(){
     //$("#agenda_modal").modal('hide');
