@@ -248,12 +248,14 @@ class ClientesController extends Controller
             }
     
             $cliente->delete($id);
-            Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
-            return redirect('/cliente');
+            return response()->json(["ok"=>true]);
+            // Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
+            // return redirect('/cliente');
         } 
         catch (\Throwable $th) {
-            Flash::success('No puedes eliminar este cliente.');
-            return redirect("/cliente");
+            return response()->json(["ok"=>false]);
+            // Flash::success('No puedes eliminar este cliente.');
+            // return redirect("/cliente");
         }       
     }
 

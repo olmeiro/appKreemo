@@ -368,17 +368,32 @@ $('body').on('click', '#delete-cliente', function (e) {
             "id": cliente_id,
             "_token": token,
             },
-            success: function (data) {
+        })
+            .done(function(respuesta){
+                if(respuesta && respuesta.ok){
+                    Swal.fire({
+                      title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                      padding:'1rem',
+                      backdrop:true,
+                      position:'center',
+                          });
+                        var table = $('#tbl_contacto').DataTable();    
+                        table.ajax.reload();
+                } else {
+                    
 
-            // $('#msg').html('Customer entry deleted successfully');
-            // $("#empresa_id_" + empresa_id).remove();
-            var table = $('#tbl_contacto').DataTable();
-            table.ajax.reload();
-            },
-            error: function (data) {
-            console.log('Error:', data);
-            }
-        });
+                  Swal.fire({
+                    title:'No se puede borrar',text:'El contacto estás en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                     padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                });
+                var table = $('#tbl_contacto').DataTable();    
+                    table.ajax.reload();
+                }
+            
+              })
+      
     }
     else
     {
