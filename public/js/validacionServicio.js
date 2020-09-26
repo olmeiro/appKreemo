@@ -10,11 +10,12 @@ $(function(){
       },
       customButtons:{
         Miboton:{
-            text:"Botón",
+            text:"Estados Servicio",
             click:function(){
-                alert("hola mundo!");
+                window.location.href = "/estadoservicio";
             }
-        }
+        },
+        
       },
       slotLabelFormat:{
         hour: '2-digit',

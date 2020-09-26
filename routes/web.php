@@ -76,11 +76,13 @@ Route::get('/obracontacto/editar', 'ObraContactoController@edit');
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');
 Route::get('/encuesta/crear', 'EncuestaController@create');
+Route::get('/encuesta/crear/{id}', 'EncuestaController@pasarid');
 Route::post('/encuesta/guardar', 'EncuestaController@save');
 Route::get('/encuesta/eliminar/{id}', 'EncuestaController@destroy');
 
 Route::get('/servicio', 'ServicioController@index');
 Route::get('/servicio/listar', 'ServicioController@index');
+Route::get('/servicio/listarservicio', 'ServicioController@listarservicios');
 Route::resource('servicio', 'ServicioController');
 /* Route::get('/servicio/listar', 'ServicioController@listar');
 Route::get('/servicio/crear', 'ServicioController@create');
@@ -120,7 +122,7 @@ Route::get('/visita/cambiar/estado/{id}/{estado}', 'VisitaController@updateState
 Route::get('/listachequeo', 'ListaChequeoController@index');
 Route::get('/listachequeo/listar', 'ListaChequeoController@listar');
 Route::get('/listachequeo/crear', 'ListaChequeoController@create');
-Route::get('/listachequeo/crear/{id}', 'ListaChequeoController@create');
+Route::get('/listachequeo/crear/{id}', 'ListaChequeoController@pasarid');
 Route::post('/listachequeo/guardar', 'ListaChequeoController@save');
 Route::get('/listachequeo/editar/{id}', 'ListaChequeoController@edit');
 Route::post('/listachequeo/actualizar', 'ListaChequeoController@update');

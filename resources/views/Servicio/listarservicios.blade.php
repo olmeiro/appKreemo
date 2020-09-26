@@ -1,27 +1,27 @@
 @extends('layouts.app')
 
 @section('body')
+
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>CITAS</strong>
-            <a href="/listachequeo" class="btn btn-outline-light float-right">LISTA DE CHEQUEO</a>
+            <strong>SERVICIOS</strong>
         </div>
 
         <div class="card-body table-responsive">
         @include('flash::message')
-            <table id="tbl_visita" class="table table-bordered table-striped" style="width: 100%;">
+            <table id="tbl_servicio" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
-                <tr>
-                    <th>Visita N°</th>
-                    <th>Tipo Visita</th>
-                    <th>Obra</th>
-                    <th>Fecha</th>
-                    <th>Hora Inicio</th>
-                    <th>Hora Final</th>
+                <tr> 
+                    <th>Servicio N°</th>
+                    <th>Cotización N°</th>
+                    <th>Máquina N°</th>
+                    <th>Operario 1</th>
+                    <th>Operario 2</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Final</th>
                     <th>Estado</th>
                     <th>Descripción</th>
-                    <th>Lista Chequeo</th>
-                    <th>Cambiar estado</th>
+                    <th>Realizar Encuesta</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -36,10 +36,10 @@
 @section("scripts")
 
     <script>
-        $('#tbl_visita').DataTable({
+        $('#tbl_servicio').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '/visita/listarvisitas',
+                ajax: '/servicio/listarservicio',
                 columns: [
                     {
                      data: 'id',
@@ -48,27 +48,36 @@
                      searchable: false
                     },
                     {
-                     data: 'tipovisita',
-                     name: 'tipovisita',
+                     data: 'idcotizacion',
+                     name: 'idcotizacion',
                      orderable: false,
                      searchable: false
                     },
                     {
-                     data: 'nombre_obra',
-                     name: 'nombre_obra'
+                     data: 'modelo',
+                     name: 'modelo',
+                     orderable: false,
+                     searchable: false
                     },
                     {
-                        data: 'fecha',
-                        name: 'fecha'
+                     data: 'n1',
+                     name: 'n1',
+                     orderable: false,
+                     searchable: false
                     },
                     {
-                        data: 'horainicio',
-                        name: 'horainicio'
+                     data: 'n2',
+                     name: 'n2',
+                     orderable: false,
+                     searchable: false
                     },
-
                     {
-                        data: 'horafinal',
-                        name: 'horafinal'
+                        data: 'fechainicio',
+                        name: 'fechainicio'
+                    },
+                    {
+                        data: 'fechafin',
+                        name: 'fechafin'
                     },
                     {
                         data: 'estado',
@@ -79,13 +88,8 @@
                         name: 'descripcion'
                     },
                     {
-                        data: 'listaChequeo',
-                        name: 'listaChequeo',
-                        orderable: false,
-                        searchable: false
-                     },{
-                        data: 'cambiar',
-                        name: 'cambiar',
+                        data: 'encuesta',
+                        name: 'encuesta',
                         orderable: false,
                         searchable: false
                      }

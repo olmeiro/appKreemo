@@ -23,6 +23,29 @@ class ServicioController extends Controller
         return view('servicio.indexx', compact('estadoservicio','cotizacion','maquinaria','operario'));
     }
 
+    public function listarservicios(Request $request){
+      
+        if ($request->ajax()) {
+            $estadoservicio = EstadoServicio::all();
+
+        $servicio = Servicio::select("servicio.*","maquinaria.modelo", "op1.nombre as n1","op2.nombre as n2","estadoservicio.estado")
+        ->join("maquinaria", "servicio.idmaquina","=","maquinaria.id")
+        ->join("operario as op1", "servicio.idoperario1","=","op1.id")
+        ->join("operario as op2", "servicio.idoperario2","=","op2.id")
+        ->join("estadoservicio", "servicio.idestadoservicio","=","estadoservicio.id")
+        ->get();
+
+        return DataTables::of($servicio)    
+        ->addColumn('encuesta', function ($servicio) {
+            return '<a type="button" class="btn btn-primary" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
+        })
+        ->rawColumns(['encuesta','cambiar'])
+        ->make(true);
+
+        }
+        return view('/servicio/listarservicios');
+    }
+
     public function store(Request $request)
     {
         $data = request()->except(['_token','_method']);
@@ -73,3 +96,16 @@ class ServicioController extends Controller
         return response()->json($id);
     }
 }
+
+// select("servicio.*", "estadoservicio.estado", "maquinaria.modelo", "operario.id as nombreOperario")
+// ->join("estadoservicio", "servicio.idestadoservicio", "=", "estadoservicio.id")
+// ->join("maquinaria", "servicio.idmaquina", "=", "maquinaria.id")
+// ->join("operario", "servicio.idoperario1", "=" , "operario.id")
+// ->join("operario", "servicio.idoperario2", "=" , "operario.id")
+// ->get();
+
+
+// $servicio = Servicio::select("servicio.*","estadoservicio.estado")
+// ->join("estadoservicio", "servicio.idestadoservicio","=","estadoservicio.id")
+// ->get();
+

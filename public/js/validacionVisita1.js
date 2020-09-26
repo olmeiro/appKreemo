@@ -139,11 +139,9 @@ $(function(){
       if ($("#fecha").val().length == 0 ){
           $("#valfecha").text("* Fecha inválida");
       }else if(fecha_actual> fecha_v){
-          $("#valfecha").text("*");
+          $("#valfecha").text("* Fecha inválida");
       alert('La fecha de visita debe ser mayor a la fecha actual');
-       }else if(fecha_actual==fecha_v){
-      alert('La fecha de visita no puede ser igual que la fecha actual');
-      }
+       }
       else{
           $("#valfecha").text("");
           validado++;
@@ -189,7 +187,7 @@ $(function(){
                             $("#agenda_modal").modal('toggle');
                             calendar.refetchEvents();
                     Swal.fire({
-                      title:'Registro exitoso',text:'Cita Guardada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                      title:'Cita Guardada',text:'Éxitosamente!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                         //width: '50%',
                       padding:'1rem',
                         //background:'#000',
@@ -200,7 +198,7 @@ $(function(){
 
             }else{
                       Swal.fire({
-                        title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        title:'Error',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                           //width: '50%',
                         padding:'1rem',
                           //background:'#000',
