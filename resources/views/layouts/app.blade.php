@@ -82,7 +82,7 @@
         <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
             <i class="fas fa-calendar-alt"></i> Visitas</a>
        <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita"><span class="c-sidebar-nav-icon"></span> Crear Cita</a></li>
+          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita"><span class="c-sidebar-nav-icon"></span> Crear visita</a></li>
           <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita/listarvisitas"><span class="c-sidebar-nav-icon"></span> Lista de visitas</a></li>
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/listachequeo"><span class="c-sidebar-nav-icon"></span> Lista de chequeo</a></li>
            </li>
@@ -116,6 +116,7 @@
             <i class="fas fa-tasks"></i>Servicio</a>
         <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio"><span class="c-sidebar-nav-icon"></span> Servicio</a></li>
+        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio/listarservicio"><span class="c-sidebar-nav-icon"></span> Lista de servicios</a></li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta"><span class="c-sidebar-nav-icon"></span> Encuesta</a></li>
         </ul>
         </li>
