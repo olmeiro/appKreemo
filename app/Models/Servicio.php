@@ -26,8 +26,13 @@ class Servicio extends Model
 
         'idestadoservicio' => 'required|numeric|digits_between:1,10000',
         'idcotizacion' => 'required|numeric|digits_between:1,10000',
+        'idmaquina' => 'required',
+        'idoperario1' => 'required',
+        'idoperario2' => 'required',
         'fechainicio' => 'required|date',
-        'fechafin' => 'required|date'
+        'fechafin' => 'required|date',
+        'descripcion' => 'required',
+        'estado' => 'in:1,0'
 
     ];
 

@@ -29,7 +29,7 @@ class OperarioController extends Controller
                     ->make(true);
         }
 
-        return view('operario/operarioajax');
+        return view('operario/index');
     }
 
     public function store(Request $request)

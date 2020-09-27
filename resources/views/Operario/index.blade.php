@@ -59,7 +59,10 @@
                         <label for="nombre">Nombre</label>
                         <label class="validacion" id="validacion_nombre"></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Digite el Nombre" value="" maxlength="50" required="" onkeypress="return soloLetras(event)">
+                            <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" placeholder="Digite el Nombre" value="" maxlength="50" required="" onkeypress="return soloLetras(event)">
+                            @error('nombre')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <label class="validacion" id="validacion_nombre2"></label>
                     </div>
@@ -69,7 +72,10 @@
                             <label for="apellido">Apellido</label>
                             <label class="validacion" id="validacion_apellido"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Digite el Apellido" value="" maxlength="50" required="" onkeypress="return soloLetras(event)">
+                                <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido" placeholder="Digite el Apellido" value="" maxlength="50" required="" onkeypress="return soloLetras(event)">
+                                @error('apellido')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <label class="validacion" id="validacion_apellido2"></label>
                         </div>
@@ -77,7 +83,10 @@
                             <label for="documento">Documento</label>
                             <label class="validacion" id="validacion_documento"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="documento" name="documento" placeholder="Digite el Documento" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                                <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" placeholder="Digite el Documento" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                                @error('documento')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <label class="validacion" id="validacion_documento2"></label>
                         </div>
@@ -86,7 +95,10 @@
                             <label for="celular">Celular</label>
                             <label class="validacion" id="validacion_celular"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="celular" name="celular" placeholder="Digite el Celular" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                                <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Digite el Celular" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                                @error('celular')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <label class="validacion" id="validacion_celular2"></label>
                         </div>
