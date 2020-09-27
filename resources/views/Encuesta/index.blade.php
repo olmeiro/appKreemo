@@ -1,41 +1,33 @@
 @extends('layouts.app')
 
 @section('body')
-    <div class="card">
-        <div class="card-header">
-            <strong>Encuestas</strong>
-            <a href="/encuesta/crear" class="btn btn-link">Crear Encuesta</a>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Encuesta </button>
+<div class="container justify-content-center col-md-8">
+    <div class="card" >
+            <div class="card-header">
+                <strong>Encuestas</strong>
+                <!-- <a href="/encuesta/crear" class="btn btn-link">Crear Encuesta</a> -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Encuesta </button>
+            </div>
+            <div class="card-body">
+            @include('flash::message')
+                <table id="tbl_encuesta" class="table table-striped table-bordered table-responsive">
+                    <thead class="" align="center">
+                    <tr>
+                        <th>N° Servicio</th>
+                        <th>Nombre Director</th>
+                        <th>Constructora</th>
+                        <th>Celular</th>
+                        <th>Fecha encuesta</th>
+                        <th>Ver Encuesta</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="card-body">
-        @include('flash::message')
-            <table id="tbl_encuesta" style="width: 100%;" class="table table-striped table-bordered table-responsive">
-                <thead class="" align="center">
-                <tr>
-                    <th>N° Servicio</th>
-                    <th>Nombre Director</th>
-                    <th>Constructora</th>
-                    <th>Correo</th>
-                    <th>Celular</th>
-                    <th>Fecha encuesta</th>
-                    <th>Puntualidad</th>
-                    <th>Solucion problemas</th>
-                    <th>Orden Aseo</th>
-                    <th>Cumplimiento Requisitos</th>
-                    <th>Tuvo Inconvenientes</th>
-                    <th>Respuesta Inconvenientes</th>
-                    <th>Trato Personal</th>
-                    <th>Aspectos Mejorar</th>
-                    <th>Contractarian Otra vez</th>
-                    <th>Recomendaria a VB</th>
-                    <th>Eliminar</th>
-                </tr>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-        </div>
-    </div>
+</div>
+    
 
     <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -317,56 +309,12 @@
                     name: 'constructora'
                     },
                     {
-                    data: 'correo',
-                    name: 'correo'
-                    },
-                    {
                     data: 'celular',
                     name: 'celular'
                     },
                     {
                     data: 'mes',
                     name: 'mes'
-                    },
-                    {
-                    data: 'respuesta1_1',
-                    name: 'respuesta1_1'
-                    },
-                    {
-                    data: 'respuesta1_2',
-                    name: 'respuesta1_2'
-                    },
-                    {
-                    data: 'respuesta1_3',
-                    name: 'respuesta1_3'
-                    },
-                    {
-                    data: 'respuesta1_4',
-                    name: 'respuesta1_4'
-                    },
-                    {
-                    data: 'respuesta2',
-                    name: 'respuesta2'
-                    },
-                    {
-                    data: 'respuesta3',
-                    name: 'respuesta3'
-                    },
-                    {
-                    data: 'respuesta4',
-                    name: 'respuesta4'
-                    },
-                    {
-                    data: 'respuesta5',
-                    name: 'respuesta5'
-                    },
-                    {
-                    data: 'respuesta6',
-                    name: 'respuesta6'
-                    },
-                    {
-                    data: 'respuesta7',
-                    name: 'respuesta7'
                     },
                     {
                         data: 'eliminar',

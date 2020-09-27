@@ -29,11 +29,26 @@ class EncuestaController extends Controller
         return DataTables::of($encuesta)
 
         ->addColumn('eliminar', function ($encuesta) {
-            return '<a class="btn btn-danger btn-sm" href="/encuesta/eliminar/'.$encuesta->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a class="btn btn-primary btn-sm" href="/encuesta/ver/'.$encuesta->id.'">Ver Encuesta</a>';
         })
         ->rawColumns(['eliminar'])
         ->make(true);
 
+    }
+
+    public function show($id)
+    {
+        $encuesta = Encuesta::find($id);
+
+
+    if ($encuesta==null) {
+        
+        Flash::error("Encuesta no encontrada");
+        return redirect("/encuesta");
+    }
+    //else{
+        return view("encuesta.show", compact("encuesta"));
+    // }
     }
 
     public function pasarid($id)
