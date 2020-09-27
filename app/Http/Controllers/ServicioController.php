@@ -35,7 +35,24 @@ class ServicioController extends Controller
         ->join("estadoservicio", "servicio.idestadoservicio","=","estadoservicio.id")
         ->get();
 
-        return DataTables::of($servicio)
+
+        return DataTables::of($servicio) 
+        ->editColumn("estado", function($servicio){
+            return $servicio->estado == 1 ? "Activo" : "Inactivo";
+        })
+        ->addColumn('cambiar', function ($servicio) {
+            if($servicio->estado == 1)
+            {
+                return '<button type="button" class="btn btn-danger"><a class="btn btn-danger btn-sm" href="/servicio/cambiarEstado/'.$servicio->id.'/1">Activo</a></button>';
+
+            }
+            else
+            {
+                return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/servicio/cambiarEstado/'.$servicio->id.'/0">Inactivo</a></button>';
+
+            }
+        })  
+
         ->addColumn('encuesta', function ($servicio) {
             return '<a type="button" class="btn btn-primary" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
         })
@@ -87,6 +104,27 @@ class ServicioController extends Controller
         $datosservicio = request()->except(['_token','_method']);
         $respuesta = Servicio::where('id', '=', $id)->update($datosservicio);
         return response()->json($respuesta);
+    }
+
+    public function updateState($id, $estado){
+        $servicio = Servicio::find($id);
+
+        if ($servicio==null) {
+            Flash::error("Servicio no encontrado");
+            return redirect("/servicio/listarservicios");
+        }
+
+        try {
+
+            $servicio->update(["estado"=>$estado]);
+            Flash::success("Se modifico el estado del servicio");
+            return redirect("/servicio/listarservicios");
+
+        } catch (\Exception $e) {
+
+            Flash::error($e->getMessage());
+            return redirect("/servicio/listarservicios");
+        }
     }
 
     public function destroy($id)
