@@ -15,7 +15,7 @@ $(function(){
                 window.location.href = "/estadoservicio";
             }
         },
-        
+
       },
       slotLabelFormat:{
         hour: '2-digit',
@@ -141,10 +141,10 @@ $(function(){
 
         if ($("#fechainicio").val().length == 0 ){
             $("#valfecha").text("*");
-            $("#valfecha2").text("Fecha inválida");
+            $("#valfecha2").text("Elija una Fecha");
         }else if(fecha > fechainicio){
             $("#valfecha").text("*");
-            $("#valfecha2").text("La fecha debe ser mayor a la fecha actual");
+            $("#valfecha2").text("La fecha de inicio debe ser mayor a la fecha actual");
         }else{
             $("#valfecha").text("");
             $("#valfecha2").text("");
@@ -155,8 +155,8 @@ $(function(){
             $("#valfechafin").text("*");
             $("#valfechafin2").text("Debe elegir una fecha fin");
         }else if(fechainicio > fechafin){
-            $("#valfecha").text("*");
-            $("#valfecha2").text("La fecha debe ser mayor a la fecha actual");
+            $("#valfechafin").text("*");
+            $("#valfechafin2").text("La fecha fin debe ser mayor a la fecha inicio");
         }else{
             $("#valfechafin").text("");
             $("#valfechafin2").text("");
@@ -223,7 +223,7 @@ $(function(){
                     $("#agendaservicio_modal").modal('toggle');
                     calendar.refetchEvents();
             Swal.fire({
-                title:'Registro exitoso',text:'Cita Guardada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Registro exitoso',text:'Servicio Guardado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
                 padding:'1rem',
                     //background:'#000',
@@ -231,7 +231,25 @@ $(function(){
                     //toast: true,
                 position:'center',
                     });
-
+                    $("#valfecha").text("");
+                    $("#valfecha2").text("");
+                    $("#valfechafin").text("");
+                    $("#valfechafin2").text("");
+                    $("#validestadoservicio").text("");
+                    $("#validestadoservicio2").text("");
+                    $("#validcotizacion").text("");
+                    $("#validcotizacion2").text("");
+                    $("#validmaquina").text("");
+                    $("#validmaquina2").text("");
+                    $("#validoperario1").text("");
+                    $("#validoperario12").text("");
+                    $("#validoperario2").text("");
+                    $("#validoperario22").text("");
+                    $("#id").val("0");
+                    $("#valdescripcion").val("");
+                    $("input").val("0");
+                    $("select").val("0");
+                    $("textarea").val("");
         }else{
                 Swal.fire({
                     title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -247,15 +265,23 @@ $(function(){
 })
 
   function limpiar(){
-    //$("#agenda_modal").modal('hide');
-    $("#fechainicio").val("");
-    $("#fechafin").val("");
-    //$("#tiempo").val("");
-    $("#idestadoservicio").val("0");
-    $("#idcotizacion").val("0");
-    $("#idmaquina").val("0");
-    $("#idoperario1").val("0");
-    $("#idoperario2").val("0");
+    $("#valfecha").text("");
+    $("#valfecha2").text("");
+    $("#valfechafin").text("");
+    $("#valfechafin2").text("");
+    $("#validestadoservicio").text("");
+    $("#validestadoservicio2").text("");
+    $("#validcotizacion").text("");
+    $("#validcotizacion2").text("");
+    $("#validmaquina").text("");
+    $("#validmaquina2").text("");
+    $("#validoperario1").text("");
+    $("#validoperario12").text("");
+    $("#validoperario2").text("");
+    $("#validoperario22").text("");
     $("#id").val("0");
-    $("#descripcion").val("");
+    $("#valdescripcion").val("");
+    $("input").val("0");
+    $("select").val("0");
+    $("textarea").val("");
 }

@@ -29,16 +29,22 @@
                                 <div class="form-group">
                                     <label for="">Fecha Inicio</label>
                                     <label class="validacion" id="valfecha"></label>
-                                    <input type="date" class="form-control calendarioI" id="fechainicio">
+                                    <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio">
                                     <label class="validacion" id="valfecha2"></label>
+                                    @error('fechainicio')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="form-group">
                                     <label for="">Fecha Fin</label>
                                     <label class="validacion" id="valfechafin"></label>
-                                    <input type="date" class="form-control calendarioF" id="fechafin" name="fechafin">
+                                    <input type="date" class="form-control @error('fechafin') is-invalid @enderror" id="fechafin" name="fechafin">
                                     <label class="validacion" id="valfechafin2"></label>
+                                    @error('fechafin')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -48,26 +54,32 @@
                                 <div class="form-group">
                                     <label for="">Modelo</label>
                                     <label class="validacion" id="validmaquina"></label>
-                                    <select class="form-control"name= "idmaquina" id="idmaquina">
+                                    <select class="form-control @error('idmaquina') is-invalid @enderror" name= "idmaquina" id="idmaquina">
                                     <option value="0">Seleccione una maquina</option>
-                                @foreach($maquinaria as $key =>$value)
-                                    <option value="{{ $value->id }}" {{(old('idmaquina')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
-                                @endforeach
+                                    @foreach($maquinaria as $key =>$value)
+                                        <option value="{{ $value->id }}" {{(old('idmaquina')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
+                                    @endforeach
                                     </select>
                                     <label class="validacion" id="validmaquina2"></label>
+                                    @error('idmaquina')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Id Cotización</label>
                                     <label class="validacion" id="validcotizacion"></label>
-                                    <select class="form-control"name= "idcotizacion" id="idcotizacion">
+                                    <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion">
                                     <option value="0">Seleccione una Cotización</option>
-                                @foreach($cotizacion as $key =>$value)
-                                    <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
-                                @endforeach
+                                    @foreach($cotizacion as $key =>$value)
+                                        <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
+                                    @endforeach
                                     </select>
                                     <label class="validacion" id="validcotizacion2"></label>
+                                    @error('idcotizacion')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -77,26 +89,32 @@
                                 <div class="form-group">
                                     <label for="">Operario 1</label>
                                     <label class="validacion" id="validoperario1"></label>
-                                    <select class="form-control"name= "idoperario1" id="idoperario1">
+                                    <select class="form-control @error('idoperario1') is-invalid @enderror" name= "idoperario1" id="idoperario1">
                                     <option value="0">Seleccione Operario</option>
-                                @foreach($operario as $key =>$value)
-                                    <option value="{{ $value->id }}" {{(old('idoperario1')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                                    @foreach($operario as $key =>$value)
+                                        <option value="{{ $value->id }}" {{(old('idoperario1')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
                                     @endforeach
                                     </select>
                                     <label class="validacion" id="validoperario12"></label>
+                                    @error('idoperario1')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Operario 2</label>
                                     <label class="validacion" id="validoperario2"></label>
-                                    <select class="form-control"name= "idoperario2" id="idoperario2">
+                                    <select class="form-control @error('idoperario2') is-invalid @enderror" name= "idoperario2" id="idoperario2">
                                     <option value="0">Seleccione Operario</option>
-                                @foreach($operario as $key =>$value)
-                                    <option value="{{ $value->id }}" {{(old('idoperario2')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                                    @foreach($operario as $key =>$value)
+                                        <option value="{{ $value->id }}" {{(old('idoperario2')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
                                     @endforeach
                                     </select>
                                     <label class="validacion" id="validoperario22"></label>
+                                    @error('idoperario2')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -106,13 +124,16 @@
                                 <div class="form-group">
                                     <label for="">Estado Servicio</label>
                                     <label class="validacion" id="validestadoservicio"></label>
-                                    <select class="form-control"name= "idestadoservicio" id="idestadoservicio">
+                                    <select class="form-control @error('idestadoservicio') is-invalid @enderror" name= "idestadoservicio" id="idestadoservicio">
                                     <option value="0">Seleccione un Estado</option>
-                                @foreach($estadoservicio as $key =>$value)
-                                    <option value="{{ $value->id }}" {{(old('idestadoservicio')==$value->id)? 'selected':''}}>{{ $value->estado}}</option>
+                                    @foreach($estadoservicio as $key =>$value)
+                                        <option value="{{ $value->id }}" {{(old('idestadoservicio')==$value->id)? 'selected':''}}>{{ $value->estado}}</option>
                                     @endforeach
                                     </select>
                                     <label class="validacion" id="validestadoservicio2"></label>
+                                    @error('idestadoservicio')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>

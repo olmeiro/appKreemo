@@ -63,7 +63,10 @@
                         <label for="serialequipo">Serial Equipo</label>
                         <label class="validacion" id="validacion_serialequipo"></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control" id="serialequipo" name="serialequipo" placeholder="Digite Serial" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                            <input type="text" class="form-control @error('serialequipo') is-invalid @enderror" id="serialequipo" name="serialequipo" placeholder="Digite Serial" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                            @error('serialequipo')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <label class="validacion" id="validacion_serialequipo2"></label>
                     </div>
@@ -73,7 +76,10 @@
                             <label for="modelo" >Modelo</label>
                             <label class="validacion" id="validacion_modelo"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Digite Modelo" value="" maxlength="50" required="">
+                                <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" placeholder="Digite Modelo" value="" maxlength="50" required="">
+                                @error('modelo')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <label class="validacion" id="validacion_modelo2"></label>
                         </div>
@@ -81,7 +87,10 @@
                             <label for="serialmotor">Serial Motor</label>
                             <label class="validacion" id="validacion_serialmotor"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="serialmotor" name="serialmotor" placeholder="Digite Serial del Motor" value="" maxlength="50" required="">
+                                <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" placeholder="Digite Serial del Motor" value="" maxlength="50" required="">
+                                @error('serialmotor')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <label class="validacion" id="validacion_serialmotor2"></label>
                         </div>
@@ -90,7 +99,10 @@
                         <label class="col-sm-3 control-label">Observaciones</label>
                         <label class="validacion" id="validacion_observacion"></label>
                         <div class="col-sm-12">
-                            <textarea id="observacion" name="observacion" required="" placeholder="Digite la Observación" class="form-control" onkeypress="return soloLetras(event)"></textarea>
+                            <textarea id="observacion" name="observacion" required="" placeholder="Digite la Observación" class="form-control @error('observacion') is-invalid @enderror" onkeypress="return soloLetras(event)"></textarea>
+                            @error('observacion')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
                         <label class="validacion" id="validacion_observacion2"></label>
                 </div>

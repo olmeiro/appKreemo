@@ -20,11 +20,11 @@ class ServicioController extends Controller
         $cotizacion = Cotizacion::all();
         $maquinaria = Maquinaria::all();
         $operario = Operario::all();
-        return view('servicio.indexx', compact('estadoservicio','cotizacion','maquinaria','operario'));
+        return view('servicio.index', compact('estadoservicio','cotizacion','maquinaria','operario'));
     }
 
     public function listarservicios(Request $request){
-      
+
         if ($request->ajax()) {
             $estadoservicio = EstadoServicio::all();
 
@@ -34,6 +34,7 @@ class ServicioController extends Controller
         ->join("operario as op2", "servicio.idoperario2","=","op2.id")
         ->join("estadoservicio", "servicio.idestadoservicio","=","estadoservicio.id")
         ->get();
+
 
         return DataTables::of($servicio) 
         ->editColumn("estado", function($servicio){
@@ -51,6 +52,7 @@ class ServicioController extends Controller
 
             }
         })  
+
         ->addColumn('encuesta', function ($servicio) {
             return '<a type="button" class="btn btn-primary" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
         })
