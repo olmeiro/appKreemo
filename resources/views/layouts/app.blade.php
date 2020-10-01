@@ -59,68 +59,23 @@
         </svg>
       </div>
       <ul class="c-sidebar-nav">
-
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{ url('/users') }}">
-            <i class="fas fa-users"></i>Usuario</a></li>
-
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-id-card usario"></i>Contactos</a>
-          <ul class="c-sidebar-nav-dropdown-items">
-
-
-
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cliente"><span class="c-sidebar-nav-icon"></span> Contactos</a></li>
-            <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">Obras</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/obracontacto"><span class="c-sidebar-nav-icon"></span> Crear Contactos de Obra</a></li>
-        </ul>
-          </li>
-          </li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/empresa"><span class="c-sidebar-nav-icon"></span> Empresa</a></li>
-          </ul>
-        </li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-calendar-alt"></i> Visitas</a>
-       <ul class="c-sidebar-nav-dropdown-items">
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita"><span class="c-sidebar-nav-icon"></span> Crear visita</a></li>
-          <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/visita/listarvisitas"><span class="c-sidebar-nav-icon"></span> Lista de visitas</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/listachequeo"><span class="c-sidebar-nav-icon"></span> Lista de chequeo</a></li>
-           </li>
-       </ul>
-       </li>
-
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-hand-holding-usd"></i>Cotizaciones</a>
-        <ul class="c-sidebar-nav-dropdown-items">
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/cotizacion"><span class="c-sidebar-nav-icon"></span> Cotizacion</a></li>
-            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/estadocotizacion"><span class="c-sidebar-nav-icon"></span> Estado Cotizacion</a></li>
+        @if(Auth::check())
+        @foreach(App\Models\User::$menu[Auth::user()->rol_id] as $value)
+            @if(isset($value["hijos"]))
             <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-                <i class="fas fa-chevron-circle-right"></i>Componentes</a>
-            <ul class="c-sidebar-nav-dropdown-items">
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/etapa"><span class="c-sidebar-nav-icon"></span> Etapa</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/jornada"><span class="c-sidebar-nav-icon"></span> Jornada</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/modalidad"><span class="c-sidebar-nav-icon"></span> Modalidad</a></li>
-                <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/tipoConcreto"><span class="c-sidebar-nav-icon"></span> Tipo Concreto</a></li>
-            </ul>
-            </li>
-        </ul>
-        </li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-trailer"></i>Maquinaria</a>
-        <ul class="c-sidebar-nav-dropdown-items">
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/maquinaria"><span class="c-sidebar-nav-icon"></span> Maquinaria</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/operario"><span class="c-sidebar-nav-icon"></span> Operario</a></li>
-        </ul>
-        </li>
-        <li class="c-sidebar-nav-item c-sidebar-nav-dropdown"><a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle" href="#">
-            <i class="fas fa-tasks"></i>Servicio</a>
-        <ul class="c-sidebar-nav-dropdown-items">
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio"><span class="c-sidebar-nav-icon"></span> Servicio</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/servicio/listarservicio"><span class="c-sidebar-nav-icon"></span> Lista de servicios</a></li>
-        <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="/encuesta"><span class="c-sidebar-nav-icon"></span> Encuesta</a></li>
-        </ul>
-        </li>
-
+              <i class="{{$value['icono']}}"></i>{{$value["nombre"]}}</a>
+              <ul class="c-sidebar-nav-dropdown-items">
+                @foreach($value["hijos"] as $hijo)
+                    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{$hijo['url']}}"><span class="c-sidebar-nav-icon"></span> {{$hijo['nombre']}}</a></li>
+                @endforeach
+              </ul>
+           </li>
+            @else
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{$value['url']}}">
+            <i class="{{$value['icono']}}"></i>{{$value['nombre']}}</a></li>
+            @endif
+          @endforeach
+        @endif
       </ul>
       <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
     </div>

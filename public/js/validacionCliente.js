@@ -383,7 +383,7 @@ $('body').on('click', '#delete-cliente', function (e) {
                     
 
                   Swal.fire({
-                    title:'No se puede borrar',text:'El contacto estás en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'No se puede borrar',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                      padding:'1rem',
                     backdrop:true,
                     position:'center',

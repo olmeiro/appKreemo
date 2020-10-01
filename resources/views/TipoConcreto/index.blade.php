@@ -135,7 +135,7 @@
 
         $('body').on('click', '.editTipoConcreto', function () {
             var tipoConcreto_id = $(this).data('id');
-            $.get("{{ route('ajaxtipoConcreto.index') }}" +'/' + tipoConcreto_id +'/edit', function (data) {
+            $.get('/ajaxtipoConcreto/' + tipoConcreto_id +'/edit', function (data) {
                 $('#modelHeading').html("Editar Tipo de Concreto");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');

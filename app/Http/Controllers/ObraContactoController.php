@@ -77,9 +77,7 @@ class ObraContactoController extends Controller
             ->get();
         }
 
-        $obras = Obra::select("obra.*", "obracontacto.idobra as obra")
-        ->join("obracontacto", "obracontacto.idobra", "=", "obra.id")
-        ->get();
+        $obras = Obra::all();
 
         return view("obracontacto.listar", compact("obras","contactos"));
     }

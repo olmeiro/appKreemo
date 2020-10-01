@@ -82,7 +82,7 @@ $(function(){
 
         // your event source
         {
-          url: '/visita/show.php', // use the `url` property
+          url: '/visita/show', // use the `url` property
           // color: '#25FE03',    // an option!
           textColor: 'black'  // an option!
         }

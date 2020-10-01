@@ -461,7 +461,7 @@ $(document).ready(function() {
                 position:'center',
                     });
                 
-            document.EditarListaChequeo.submit();
+            document.FrmEditarListaChequeo.submit();
           
         }
         else{

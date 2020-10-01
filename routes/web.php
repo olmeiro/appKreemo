@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\ValidarRol;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,7 +21,7 @@ Route::get('/', 'LandingController@index');
 
 Auth::routes();
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'validarRol'])->group(function () {
 
 Route::resource('users','UserController');
 Route::get('users/{id}/edit/','UserController@edit');
@@ -38,12 +39,9 @@ Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 Route::get('/cliente', 'ClientesController@index');
 Route::get('/cliente/listar', 'ClientesController@listar');
 Route::get('/cliente/crear', 'ClientesController@create');
-
 Route::post('/cliente/guardar', 'ClientesController@store');
 Route::post('/cliente/guardarNuevo', 'ClientesController@save');
-Route::get('/cliente/{id}/edit', 'ClientesController@edit');
-
-//Route::post('/cliente/actualizar', 'ClientesController@update');
+Route::get('/cliente/edit/{id}', 'ClientesController@edit');
 Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
 Route::post('/cliente/eliminar/{id}', 'ClientesController@destroy');
 
@@ -57,21 +55,15 @@ Route::post('/obra/actualizar', 'ObraController@update');
 
 Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/listar', 'EmpresaController@listar');
-//Route::get('/empresa/crear', 'EmpresaController@create');
-
 Route::post('/empresa/guardar', 'EmpresaController@store');
 Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
-Route::get('/empresa/{id}/edit', 'EmpresaController@edit');
-
-//Route::post('/empresa/actualizar', 'EmpresaController@update');
+Route::get('/empresa/edit/{id}', 'EmpresaController@edit');
 Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
 
 Route::get('/obracontacto', 'ObraContactoController@index');
 Route::post('/obracontacto/guardar', 'ObraContactoController@save');
 Route::get('/obracontacto/listar', 'ObraContactoController@listar');
 Route::get('/obracontacto/editar', 'ObraContactoController@edit');
-
-
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');
@@ -81,18 +73,11 @@ Route::get('/encuesta/crear/{id}', 'EncuestaController@pasarid');
 Route::post('/encuesta/guardar', 'EncuestaController@save');
 Route::get('/encuesta/eliminar/{id}', 'EncuestaController@destroy');
 
-
 Route::get('/servicio', 'ServicioController@index');
 Route::get('/servicio/listar', 'ServicioController@index');
 Route::get('/servicio/listarservicio', 'ServicioController@listarservicios');
 Route::get('/servicio/cambiarEstado/{id}/{estado}', 'ServicioController@updateState');
 Route::resource('servicio', 'ServicioController');
-/* Route::get('/servicio/listar', 'ServicioController@listar');
-Route::get('/servicio/crear', 'ServicioController@create');
-Route::post('/servicio/guardar', 'ServicioController@save');
-Route::get('/servicio/editar/{id}', 'ServicioController@edit');
-Route::post('/servicio/actualizar', 'ServicioController@update');
-Route::get('/servicio/eliminar/{id}', 'ServicioController@destroy'); */
 
 Route::get('/estadoservicio', 'EstadoServicioController@index');
 Route::get('/estadoservicio/listar', 'EstadoServicioController@listar');
@@ -102,25 +87,11 @@ Route::get('/estadoservicio/editar/{id}', 'EstadoServicioController@edit');
 Route::post('/estadoservicio/actualizar', 'EstadoServicioController@update');
 Route::get('/estadoservicio/eliminar/{id}', 'EstadoServicioController@destroy');
 
-
-
-// Route::get('/visita', 'VisitaController@index');
-// Route::get('/visita/listar', 'VisitaController@listar');
-// Route::get('/visita/crear', 'VisitaController@create');
-// Route::post('/visita/guardar', 'VisitaController@save');
-// Route::get('/visita/editar/{id}', 'VisitaController@edit');
-// Route::get('/visita/eliminar/{id}', 'VisitaController@destroy');
-// Route::post('/visita/actualizar', 'VisitaController@update');
-// Route::get('/visita/show', 'VisitaController@show');
-
-// Video YOutube
-
 Route::get('/visita', 'VisitaController@index');
 Route::get('/visita/listar', 'VisitaController@index');
 Route::get('/visita/listarvisitas', 'VisitaController@listarvisitas');
-Route::resource('visita', 'VisitaController');
 Route::get('/visita/cambiar/estado/{id}/{estado}', 'VisitaController@updateState');
-
+Route::resource('visita', 'VisitaController');
 
 Route::get('/listachequeo', 'ListaChequeoController@index');
 Route::get('/listachequeo/listar', 'ListaChequeoController@listar');
@@ -129,8 +100,6 @@ Route::get('/listachequeo/crear/{id}', 'ListaChequeoController@pasarid');
 Route::post('/listachequeo/guardar', 'ListaChequeoController@save');
 Route::get('/listachequeo/editar/{id}', 'ListaChequeoController@edit');
 Route::post('/listachequeo/actualizar', 'ListaChequeoController@update');
-
-Route::post('/cotizacion/wizardModal', 'CotizacionController@modal');
 
 Route::get('/cotizacion', 'CotizacionController@index');
 Route::get('/cotizacion/listar', 'CotizacionController@listar');
@@ -165,9 +134,9 @@ Route::resource('ajaxmodalidad','ModalidadController');
 Route::get('/modalidad', 'ModalidadController@index');
 Route::get('/modalidad/listar', 'ModalidadController@listar');
 
-Route::resource('ajaxtipoConcreto','TipoConcretoController');
 Route::get('/tipoConcreto', 'TipoConcretoController@index');
 Route::get('/tipoConcreto/listar', 'TipoConcretoController@listar');
+Route::resource('ajaxtipoConcreto','TipoConcretoController');
 
 Route::get('/maquinaria', 'MaquinariaController@index');
 Route::resource('ajaxmaquinaria','MaquinariaController');
