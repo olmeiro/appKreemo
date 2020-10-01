@@ -292,7 +292,7 @@
 
             $('body').on('click', '#editar-Empresa', function () {
             var empresa_id = $(this).data('id');
-            $.get('empresa/'+empresa_id+'/edit', function (data) {
+            $.get('empresa/edit/'+empresa_id, function (data) {
             $('#empresaCrudModal').html("X");
             $('#btn-update').val("Update");
             $('#btn-save').prop('disabled',false);

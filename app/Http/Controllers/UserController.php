@@ -17,27 +17,27 @@ class UserController extends Controller
 */
 public function index(Request $request)
 {
-if ($request->ajax()) {
-$data = User::latest()->get();
-return Datatables::of($data)
-->addIndexColumn()
-->addColumn('action', function($row){
+    if ($request->ajax()) {
+    $data = User::latest()->get();
+    return Datatables::of($data)
+    ->addIndexColumn()
+    ->addColumn('action', function($row){
 
 
-    $action = '<a class="btn btn-info" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye"></i></a>
-    <a class="btn btn-success" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <a id="delete-user" data-id='.$row->id.' class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></a>';
+        $action = '<a class="btn btn-info" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye"></i></a>
+        <a class="btn btn-success" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <a id="delete-user" data-id='.$row->id.' class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></a>';
 
 
-return $action;
+    return $action;
 
-})
-->rawColumns(['action'])
-->make(true);
-}
+    })
+    ->rawColumns(['action'])
+    ->make(true);
+    }
 
-return view('users');
+    return view('users');
 }
 
 public function store(Request $request)

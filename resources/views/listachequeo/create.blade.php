@@ -10,7 +10,7 @@
         @include('flash::message')
         <form action="/listachequeo/guardar" method="POST" name="FrmCrearListaChequeo" id="FrmCrearListaChequeo" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="id" value="">
+        <input type="hidden" name="id" id="id" value="">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card">

@@ -521,7 +521,7 @@
 
             $('body').on('click', '#editar-Cliente', function () {
                 var cliente_id = $(this).data('id');
-                $.get('cliente/'+cliente_id+'/edit', function (data) {
+                $.get('cliente/edit/'+cliente_id, function (data) {
                 $('#clienteCrudModal').html("Editar Cliente");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled',false);
