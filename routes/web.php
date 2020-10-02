@@ -116,11 +116,6 @@ Route::post('/cotizacion/generar/pdf', 'CotizacionController@generar_PDF');
 Route::resource('ajaxestado','EstadoCotizacionController');
 Route::get('/estadocotizacion', 'EstadoCotizacionController@index');
 Route::get('/estadocotizacion/listar', 'EstadoCotizacionController@listar');
-Route::get('/estadocotizacion/crear', 'EstadoCotizacionController@create');
-Route::post('/estadocotizacion/guardar', 'EstadoCotizacionController@save');
-Route::get('/estadocotizacion/editar/{id}', 'EstadoCotizacionController@edit');
-Route::post('/estadocotizacion/actualizar', 'EstadoCotizacionController@update');
-Route::get('/estadocotizacion/eliminar/{id}', 'EstadoCotizacionController@destroy');
 
 Route::resource('ajaxetapa','EtapaController');
 Route::get('/etapa', 'EtapaController@index');
