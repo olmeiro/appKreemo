@@ -81,7 +81,7 @@ $(function(){
 
         // your event source
         {
-          url: '/servicio/show.php', // use the `url` property
+          url: '/servicio/show', // use the `url` property
           color: 'yellow',    // an option!
         }
 
