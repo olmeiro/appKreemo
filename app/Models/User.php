@@ -334,7 +334,9 @@ class User extends Authenticatable
             ["url" => "/cotizacion/actualizar", "method"=>"POST", "identica"=>true], //OK
             ["url" => "/cotizacion/editarEstado", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/cotizacion/estado", "method"=>"POST", "identica"=>true], //pendiente
- 
+            
+            ["url" => "/cotizacion/informe", "method"=>"POST", "identica"=>true],
+            ["url" => "/cotizacion/generar/pdf", "method"=>"POST", "identica"=>true],
             
             
            //funciona
@@ -361,7 +363,7 @@ class User extends Authenticatable
         ],
         2=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
-            
+
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
