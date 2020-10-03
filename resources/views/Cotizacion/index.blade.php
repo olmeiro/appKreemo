@@ -6,8 +6,8 @@
         <div class="card-header text-white float-right" style="background-color: #616A6B">
             <strong>COTIZACIONES</strong>
             <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
-            {{-- <a class="btn btn-outline-light" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
-            <a class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a>
+            <a class="btn btn-outline-light" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a>
+            {{-- <a class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
 
             <div class="float-right" style="background-color: #616A6B">
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
