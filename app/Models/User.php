@@ -174,12 +174,12 @@ class User extends Authenticatable
             ["url" => "/users", "method"=>"GET", "identica"=>false], //mostrando datos de un user
             ["url" => "/users", "method"=>"POST", "identica"=>true],
             ["url" => "/users/create", "method"=>"GET", "identica"=>true], //crear x resouce
-            ["url" => "/users/{id}/edit", "method"=>"GET", "identica"=>true], 
+            ["url" => "/users/{id}/edit", "method"=>"GET", "identica"=>true],
             ["url" => "/users/{user}", "method"=>"PATCH", "identica"=>true],
             ["url" => "/users/{id}", "method"=>"GET", "identica"=>false],
             ["url" => "/users", "method"=>"delete", "identica"=>false], //eliminar user x resource
- 
-      
+
+
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
@@ -187,7 +187,7 @@ class User extends Authenticatable
             ["url" => "/tipocontacto/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/guardar", "method"=>"POST", "identica"=>true],
-           
+
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
@@ -219,7 +219,7 @@ class User extends Authenticatable
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
             ["url" => "/visita", "method"=>"POST", "identica"=>false], //guardo
-            ["url" => "/visita/store", "method"=>"POST", "identica"=>true], 
+            ["url" => "/visita/store", "method"=>"POST", "identica"=>true],
             ["url" => "visita/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/visita/update", "method"=>"GET", "identica"=>true],
             ["url" => "/visita/cambiar/estado", "method"=>"GET", "identica"=>false], //para cambiar el estado de la visita
@@ -249,7 +249,7 @@ class User extends Authenticatable
             ["url" => "/ajaxtipoConcreto/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxtipoConcreto", "method"=>"delete", "identica"=>false],
 
-  
+
 
             ["url" => "/modalidad", "method"=>"GET", "identica"=>true],
             ["url" => "/modalidad/listar", "method"=>"GET", "identica"=>true],
@@ -262,7 +262,7 @@ class User extends Authenticatable
             ["url" => "/ajaxmodalidad/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmodalidad", "method"=>"delete", "identica"=>false],
 
-         
+
             ["url" => "/jornada", "method"=>"GET", "identica"=>true],
             ["url" => "/jornada/listar", "method"=>"GET", "identica"=>true],
 
@@ -274,7 +274,7 @@ class User extends Authenticatable
             ["url" => "/ajaxjornada/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxjornada", "method"=>"delete", "identica"=>false],
 
-    
+
             ["url" => "/etapa", "method"=>"GET", "identica"=>true],
             ["url" => "/etapa/listar", "method"=>"GET", "identica"=>true],
 
@@ -286,7 +286,7 @@ class User extends Authenticatable
             ["url" => "/ajaxetapa/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxetapa", "method"=>"delete", "identica"=>false],
 
-      
+
             ["url" => "/maquinaria", "method"=>"GET", "identica"=>true],
             ["url" => "/maquinaria/cambiar/estado", "method"=>"GET", "identica"=>false],
 
@@ -298,7 +298,7 @@ class User extends Authenticatable
             ["url" => "/ajaxmaquinaria/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmaquinaria", "method"=>"delete", "identica"=>false],
 
-            
+
             ["url" => "/operario", "method"=>"GET", "identica"=>true],
 
             ["url" => "/ajaxoperario", "method"=>"GET", "identica"=>true],
@@ -309,14 +309,14 @@ class User extends Authenticatable
             ["url" => "/ajaxoperario/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxoperario", "method"=>"delete", "identica"=>false],
 
-             //hasta aqui full 
+             //hasta aqui full
 
             ["url" => "/servicio", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"POST", "identica"=>false], //guardo
             ["url" => "/servicio/store", "method"=>"POST", "identica"=>true],
             ["url" => "servicio/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/servicio/update", "method"=>"GET", "identica"=>true],
-            ["url" => "/servicio/cambiarEstado", "method"=>"GET", "identica"=>false], //para cambiar el estado 
+            ["url" => "/servicio/cambiarEstado", "method"=>"GET", "identica"=>false], //para cambiar el estado
             ["url" => "/servicio/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/listarservicio", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/show", "method"=>"GET", "identica"=>true],
@@ -324,8 +324,8 @@ class User extends Authenticatable
             ["url" => "/servicio/create", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"delete", "identica"=>false], //elimina x Resource
             ["url" => "/servicio", "method"=>"patch", "identica"=>false],   //modifica x resource
-      
-            
+
+
 
             ["url" => "/cotizacion", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/listar", "method"=>"GET", "identica"=>true],
@@ -335,14 +335,14 @@ class User extends Authenticatable
             ["url" => "/cotizacion/actualizar", "method"=>"POST", "identica"=>true], //OK
             ["url" => "/cotizacion/editarEstado", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/cotizacion/estado", "method"=>"POST", "identica"=>true], //pendiente
-            
-            ["url" => "/cotizacion/informe", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/cotizacion/informe", "method"=>"GET", "identica"=>false],
             ["url" => "/cotizacion/generar/pdf", "method"=>"POST", "identica"=>true],
-            
-            
+
+
            //funciona
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>true],
-           
+
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>false],
@@ -351,7 +351,7 @@ class User extends Authenticatable
             ["url" => "/ajaxestado/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"delete", "identica"=>false],
 
-   
+
 
             ["url" => "/encuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/encuesta/listar", "method"=>"GET", "identica"=>true],
@@ -372,7 +372,7 @@ class User extends Authenticatable
             ["url" => "/tipocontacto/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/guardar", "method"=>"POST", "identica"=>true],
-           
+
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
@@ -404,7 +404,7 @@ class User extends Authenticatable
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
             ["url" => "/visita", "method"=>"POST", "identica"=>false], //guardo
-            ["url" => "/visita/store", "method"=>"POST", "identica"=>true], 
+            ["url" => "/visita/store", "method"=>"POST", "identica"=>true],
             ["url" => "visita/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/visita/update", "method"=>"GET", "identica"=>true],
             ["url" => "/visita/cambiar/estado", "method"=>"GET", "identica"=>false], //para cambiar el estado de la visita
@@ -434,7 +434,7 @@ class User extends Authenticatable
             ["url" => "/ajaxtipoConcreto/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxtipoConcreto", "method"=>"delete", "identica"=>false],
 
-  
+
 
             ["url" => "/modalidad", "method"=>"GET", "identica"=>true],
             ["url" => "/modalidad/listar", "method"=>"GET", "identica"=>true],
@@ -447,7 +447,7 @@ class User extends Authenticatable
             ["url" => "/ajaxmodalidad/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmodalidad", "method"=>"delete", "identica"=>false],
 
-         
+
             ["url" => "/jornada", "method"=>"GET", "identica"=>true],
             ["url" => "/jornada/listar", "method"=>"GET", "identica"=>true],
 
@@ -459,7 +459,7 @@ class User extends Authenticatable
             ["url" => "/ajaxjornada/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxjornada", "method"=>"delete", "identica"=>false],
 
-    
+
             ["url" => "/etapa", "method"=>"GET", "identica"=>true],
             ["url" => "/etapa/listar", "method"=>"GET", "identica"=>true],
 
@@ -471,7 +471,7 @@ class User extends Authenticatable
             ["url" => "/ajaxetapa/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxetapa", "method"=>"delete", "identica"=>false],
 
-      
+
             ["url" => "/maquinaria", "method"=>"GET", "identica"=>true],
             ["url" => "/maquinaria/cambiar/estado", "method"=>"GET", "identica"=>false],
 
@@ -483,7 +483,7 @@ class User extends Authenticatable
             ["url" => "/ajaxmaquinaria/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmaquinaria", "method"=>"delete", "identica"=>false],
 
-            
+
             ["url" => "/operario", "method"=>"GET", "identica"=>true],
 
             ["url" => "/ajaxoperario", "method"=>"GET", "identica"=>true],
@@ -494,22 +494,22 @@ class User extends Authenticatable
             ["url" => "/ajaxoperario/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxoperario", "method"=>"delete", "identica"=>false],
 
-             //hasta aqui full 
+             //hasta aqui full
 
             ["url" => "/servicio", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"POST", "identica"=>false], //guardo
-            ["url" => "/servicio/store", "method"=>"POST", "identica"=>true], 
+            ["url" => "/servicio/store", "method"=>"POST", "identica"=>true],
             ["url" => "servicio/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/servicio/update", "method"=>"GET", "identica"=>true],
-            ["url" => "/servicio/cambiarEstado", "method"=>"GET", "identica"=>false], //para cambiar el estado 
+            ["url" => "/servicio/cambiarEstado", "method"=>"GET", "identica"=>false], //para cambiar el estado
             ["url" => "/servicio/listarservicio", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/show", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"delete", "identica"=>false], //elimina x Resource
             ["url" => "/servicio", "method"=>"patch", "identica"=>false],   //modifica x resource
-      
-            
+
+
 
             ["url" => "/cotizacion", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/listar", "method"=>"GET", "identica"=>true],
@@ -519,12 +519,12 @@ class User extends Authenticatable
             ["url" => "/cotizacion/actualizar", "method"=>"POST", "identica"=>true], //OK
             ["url" => "/cotizacion/editarEstado", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/cotizacion/estado", "method"=>"POST", "identica"=>true], //pendiente
- 
-            
-            
+
+
+
            //funciona
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>true],
-           
+
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>false],
@@ -533,7 +533,7 @@ class User extends Authenticatable
             ["url" => "/ajaxestado/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"delete", "identica"=>false],
 
-   
+
 
             ["url" => "/encuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/encuesta/listar", "method"=>"GET", "identica"=>true],
@@ -544,11 +544,11 @@ class User extends Authenticatable
             ["url" => "/encuesta/eliminar", "method"=>"GET", "identica"=>false],
         ],
         3=>[
-            ["url" => "/home", "method"=>"GET", "identica"=>true], 
+            ["url" => "/home", "method"=>"GET", "identica"=>true],
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
             ["url" => "/visita", "method"=>"POST", "identica"=>false], //guardo
-            ["url" => "/visita/store", "method"=>"POST", "identica"=>true], 
+            ["url" => "/visita/store", "method"=>"POST", "identica"=>true],
             ["url" => "visita/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/visita/update", "method"=>"GET", "identica"=>true],
 
@@ -558,7 +558,7 @@ class User extends Authenticatable
             ["url" => "/visita/listarvisitas", "method"=>"GET", "identica"=>true],
             ["url" => "/visita/show", "method"=>"GET", "identica"=>true],
             ["url" => "/visita/crear/", "method"=>"GET", "identica"=>true],
-            
+
             ["url" => "/visita", "method"=>"delete", "identica"=>false], //elimina x Resource
             ["url" => "/visita", "method"=>"patch", "identica"=>false],   //modifica x resource
 
@@ -569,10 +569,10 @@ class User extends Authenticatable
             ["url" => "/listachequeo/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/listachequeo/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/listachequeo/listar", "method"=>"GET", "identica"=>true],
-           
-           
-          
-            
+
+
+
+
         ],
     ];
 }

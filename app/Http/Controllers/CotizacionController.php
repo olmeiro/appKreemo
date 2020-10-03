@@ -253,7 +253,19 @@ class CotizacionController extends Controller
 
     public function informe(){
 
-        return view("cotizacion.index");
+        $cotizacion = Cotizacion::select("cotizacion.*", "empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto","obra.nombre as nombre_obra", "obra.telefono1", "obra.correo1")
+            ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+            ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
+            ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
+            ->join("etapa", "cotizacion.idEtapa", "=", "etapa.id")
+            ->join("jornada", "cotizacion.idJornada", "=", "jornada.id")
+            ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
+            ->join("obra", "cotizacion.idObra", "=", "obra.id")
+            ->orderBy("cotizacion.id")
+            ->get();
+
+
+        return view("cotizacion.informe", compact("cotizacion"));
 
     }
 
