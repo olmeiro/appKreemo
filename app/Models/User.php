@@ -520,7 +520,8 @@ class User extends Authenticatable
             ["url" => "/cotizacion/editarEstado", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/cotizacion/estado", "method"=>"POST", "identica"=>true], //pendiente
 
-
+            ["url" => "/cotizacion/informe", "method"=>"GET", "identica"=>false],
+            ["url" => "/cotizacion/generar/pdf", "method"=>"POST", "identica"=>true],
 
            //funciona
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>true],
