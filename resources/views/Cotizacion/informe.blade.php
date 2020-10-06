@@ -17,7 +17,7 @@
                         <select id="id"  name= "id"  class="form-control">
                             <option selected>Seleccione una Cotización</option>
                             @foreach($cotizacion as $key =>$value)
-                                <option value="{{ $value->id }}">{{ $value->id}} - Obra: {{ $value->nombre_obra}}</option>
+                                <option value="{{ $value->id }}">{{ $value->nombre_empresa}} - Obra: {{ $value->nombre_obra}}</option>
                             @endforeach
                         </select>
                     </div>

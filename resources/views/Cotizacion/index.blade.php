@@ -47,6 +47,9 @@
                     <th>Cambiar Estado</th>
                 </tr>
                 </thead>
+                <tbody>
+
+                </tbody>
             </table>
         </div>
         <div class="card-footer text-white" style="background-color: #616A6B">
