@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Roles;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -17,8 +18,16 @@ class UserController extends Controller
 */
 public function index(Request $request)
 {
+
+    $roles = Roles::All();
+
     if ($request->ajax()) {
-    $data = User::latest()->get();
+    ///$data = User::latest()->get();
+
+    $data = User::select('users.*','roles.name as rolname')
+    ->join('roles','users.rol_id', '=', 'roles.id')
+    ->get();
+
     return Datatables::of($data)
     ->addIndexColumn()
     ->addColumn('action', function($row){
@@ -69,10 +78,13 @@ return redirect()->route('users.index')->with('success',$msg);
 
 public function show($id)
 {
-$where = array('id' => $id);
-$user = User::where($where)->first();
-return Response::json($user);
-//return view('users.show',compact('user'));
+   $roles = Roles::All();
+
+   $user = User::select('users.*','roles.name as rolname')
+   ->join('roles','users.rol_id', '=', 'roles.id')
+   ->find($id);
+    return Response::json($user);
+   
 }
 
 /**
