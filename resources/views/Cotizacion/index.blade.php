@@ -9,14 +9,14 @@
             <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a>
             {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
 
-        
+
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
                     {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
                     {{-- <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
-       
+
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -577,6 +577,7 @@
                         orderable: false,
                         searchable: false,
                     },
+
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",
@@ -605,7 +606,30 @@
                                 "copy": "Copiar",
                                 "colvis": "Visibilidad"
                             }
-                            }
+                            },
+                            "columnDefs": [
+                                {
+                                        "targets": [2],
+                                        "createdCell": function(td, cellData, rowData, row, col) {
+                                            var color;
+                                            switch(cellData) {
+                                            case "Pérdida":
+                                                color = '#FF3229';
+                                                break;
+                                            case "En Proceso":
+                                                color = '#FFDE00';
+                                                break;
+                                            case "Aceptada":
+                                                color = '#06B33A';
+                                                break;
+                                            default:
+                                                color = '#FFDE00';
+                                                break;
+                                            }
+                                            $(td).css('background',color);
+                                        }
+                                    }
+                                ],
             });
 
     </script>
