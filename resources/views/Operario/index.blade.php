@@ -20,8 +20,8 @@
 <div class="container">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>OPERARIO</strong>
-                <button type="button" class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewOperario">CREAR OPERARIO</button>
+                <strong>Operarios</strong>
+                <button type="button" class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewOperario">Crear operario</button>
             </div>
 
             <div class="card-body table-responsive">

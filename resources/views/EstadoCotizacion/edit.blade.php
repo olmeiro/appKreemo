@@ -4,11 +4,11 @@
 <div class="container row justify-content-center">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Editar Estado</strong>
+            <strong>Editar estado</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
-            <strong>Estado N° {{$estadocotizacion->id}}</strong>
+            <strong> N° {{$estadocotizacion->id}}</strong>
             <form class="form-signin col-md-12" action="/estadocotizacion/actualizar" method="POST" name="FrmEditarEstado" id="FrmEditarEstado">
             @csrf
                 <input type="hidden" name="id" value="{{$estadocotizacion->id}}"/>
@@ -21,7 +21,7 @@
                         @enderror
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success float-left">Editar Estado</button>
+                <button type="submit" class="btn btn-success float-left">Editar</button>
                 <a href="/estadocotizacion" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>

@@ -20,23 +20,23 @@
 <div class="container">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>MÁQUINARIA</strong>
-                <button type="button" class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewMaquina">CREAR MÁQUINA</button>
+                <strong>Maquinaria</strong>
+                <button type="button" class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewMaquina">Crear máquina</button>
             </div>
 
             <!-- <a class="btn btn-success" href="javascript:void(0)" id="createNewMaquina">CREAR MAQUINA</a> -->
-            <div class="card-body table-responsive">
-                <table class="table table-bordered data-table table-striped border">
+            <div class="card-body">
+                <table class="table table-bordered table-striped table-responsive data-table">
                     <thead>
                         <tr>
-                            <th>Id N°</th>
+                            <th>N°</th>
                             <th>Estado</th>
-                            <th>Serial Equipo</th>
+                            <th>Serial equipo</th>
                             <th>Modelo</th>
-                            <th>Serial Motor</th>
+                            <th>Serial motor</th>
                             <th>Observación</th>
                             <th>Acciones</th>
-                            <th>Cambiar Estado</th>
+                            <th>Cambiar estado</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -60,7 +60,7 @@
                    <input type="hidden" name="maquinaria_id" id="maquinaria_id">
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="serialequipo">Serial Equipo</label>
+                        <label for="serialequipo">Serial equipo</label>
                         <label class="validacion" id="validacion_serialequipo"></label>
                         <div class="col-sm-12">
                             <input type="text" class="form-control @error('serialequipo') is-invalid @enderror" id="serialequipo" name="serialequipo" placeholder="Digite Serial" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
@@ -84,7 +84,7 @@
                             <label class="validacion" id="validacion_modelo2"></label>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="serialmotor">Serial Motor</label>
+                            <label for="serialmotor">Serial motor</label>
                             <label class="validacion" id="validacion_serialmotor"></label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" placeholder="Digite Serial del Motor" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
@@ -108,8 +108,10 @@
                 </div>
 
                     <div class="col-sm-offset-2 col-sm-10">
+
                      <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
                      <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
+
                      </button>
                     </div>
                 </form>
@@ -178,14 +180,14 @@
         $('#saveBtn').val("create-maquina");
         $('#maquinaria_id').val('');
         $('#maquinariaForm').trigger("reset");
-        $('#modelHeading').html("Crear Maquina");
+        $('#modelHeading').html("Crear máquina");
         $('#ajaxModel').modal('show');
     });
 
     $('body').on('click', '.editMaquinaria', function () {
       var maquinaria_id = $(this).data('id');
       $.get("{{ route('ajaxmaquinaria.index') }}" +'/' + maquinaria_id +'/edit', function (data) {
-          $('#modelHeading').html("Edit Maquina");
+          $('#modelHeading').html("Editar máquina");
           $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
           $('#maquinaria_id').val(data.id);

@@ -7,8 +7,8 @@
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>EMPRESAS</strong>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal2">CREAR EMPRESA</button>
+            <strong>Empresas</strong>
+            <strong class="float-right"><button type="button" class="btn btn-outline-light float-rigth" data-toggle="modal" data-target="#exampleModal2">Crear empresa</button></strong>
 
         </div>
         <div class="card-body">
@@ -39,53 +39,48 @@
     <div class="modal fade" data-backdrop="static" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Crear Empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
-                </div>
-                <div class="modal-body">
-                    @include('flash::message')
-                    <form class="form-signin col-md-12" action="" method="POST" id="frmEmpresa">
+                    <div class="modal-header text-white" style="background-color: #616A6B">
+                        <h5 class="modal-title" id="exampleModalLabel2">Crear empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    </div>
+            @include('flash::message')
+                <form class="form-signin col-md-12" action="" method="POST" id="frmEmpresa">
                     @csrf
-                        <div id="smartwizard">
-                            <ul>
-                                <li><a href="#step-1">Paso 1<br /><small>Crear Empresa</small></a></li>
-                            </ul>
-                            <div>
-                                <div id="step-1">
+                   
+                          <div class="modal-body">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="">NIT</label>
-                                            <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit" onkeypress="return soloNumeros(event)">
-                                            @error('nit')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                            <label class="validacion solo_numeros" for="nit" id="valNit"></label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="">Nombre</label>
-                                            <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="nombre" id="nombre" onchange="validate()" onkeypress="return soloLetras(event)">
-                                            @error('nombre')
-                                                <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror
-                                            <label class="validacion" for="nombre" id="valNombre"></label>
-                                        </div>
+                                            <div class="col-md-6">
+                                                <label for="">NIT</label>
+                                                <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit" onkeypress="return soloNumeros(event)">
+                                                @error('nit')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                                <label class="validacion solo_numeros" for="nit" id="valNit"></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Nombre</label>
+                                                <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="nombre" id="nombre" onchange="validate()" onkeypress="return soloLetras(event)">
+                                                @error('nombre')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                                <label class="validacion" for="nombre" id="valNombre"></label>
+                                            </div>
                                     </div>
                                     <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Nombre representante</label>
+                                                <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="nombrerepresentante" id="nombrerepresentante" onchange="validate()" onkeypress="return soloLetras(event)">
+                                                @error('nombrerepresentante')
+                                                    <div class="invalid-feedback">{{ $message }}</div>
+                                                @enderror
+                                                    <label class="validacion" for="nombrerepresentante" id="valNombreRep"></label>
+                                            </div>
                                         <div class="col-md-6">
-                                        <label for="">Nombre Representante</label>
-                                        <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="nombrerepresentante" id="nombrerepresentante" onchange="validate()" onkeypress="return soloLetras(event)">
-                                        @error('nombrerepresentante')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                            <label class="validacion" for="nombrerepresentante" id="valNombreRep"></label>
-                                        </div>
-                                        <div class="col-md-6">
-                                        <label for="">Dirección</label>
-                                        <input type="text" class="form-control @error('direccion') is-invalid @enderror"  name="direccion" id="direccion">
-                                        @error('direccion')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                            <label class="validacion" for="direccion" id="valDireccion"></label>
+                                            <label for="">Dirección</label>
+                                            <input type="text" class="form-control @error('direccion') is-invalid @enderror"  name="direccion" id="direccion">
+                                            @error('direccion')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                                <label class="validacion" for="direccion" id="valDireccion"></label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -106,37 +101,30 @@
                                             <label class="validacion" for="correo1" id="valCorreo1"></label>
                                         </div>
                                     </div>
-                                </div>
+                         </div>
+                            
+                            <div class="modal-footer">
+                                <button type="button" id="crearEmpresa" class="btn btn-primary">Crear</button>
                             </div>
-                        </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="button" id="crearEmpresa" class="btn btn-primary" >Guardar</button>
-                            </div>
-                    </form>
+                 </form>
                 </div>
             </div>
-        </div>
     </div>
-
+ 
     <!-- Modal Editar Empresa -->
 
     <div class="modal fade" data-backdrop="static" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="empresaCrudModal">Editar Empresa</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-
-                </div>
-                <div class="modal-body">
+                     <div class="modal-header text-white" style="background-color: #616A6B">
+                        <h5 class="modal-title" id="exampleModalLabel2">Editar empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    </div>
+                 @include('flash::message')
                     <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar" method="POST">
                         @csrf
-                        <input type="hidden" name="empresa_id" id="empresa_id" >
-                        <div id="smartwizard">
-                            <ul>
-                                <li><a>Paso 1<br /><small>Editar Empresa</small></a></li>
-                            </ul>
-                            <div>
-                                <div id="step-1">
+                        <div class="modal-body">
+                            <input type="hidden" name="empresa_id" id="empresa_id" >
+                    
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="">NIT</label>
@@ -191,18 +179,18 @@
                                             <label class="validacion" for="ecorreo1" id="valECorreo1"></label>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
                         </div>
-                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+                    
+                    
+                            <div class="modal-footer">
+                                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
                                 <a href="/empresa" class="btn btn-danger">Cancelar</a>
                             </div>
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+  </div>
+    
 
 
 @endsection

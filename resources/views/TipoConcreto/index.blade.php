@@ -22,15 +22,15 @@
     <div class="container justify-content-cente col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>TIPO DE CONCRETO</strong>
+                <strong>Tipos de concretos</strong>
 
-                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewTipoConcreto">Crear Tipo de concreto</a>
+                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewTipoConcreto">Crear tipo de concreto</a>
             </div>
             <div class="card-body table-responsive">
                 <table class="table data-table table-bordered table-striped">
                     <thead class="table-secondary">
                         <tr>
-                            <th>Id N°</th>
+                            <th>N°</th>
                             <th>Tipo de Concreto</th>
                             <th>Acciones</th>
                         </tr>
@@ -40,7 +40,7 @@
                 </table>
             </div>
             <div class="card-footer" >
-                <a href="/cotizacion" class="btn btn-outline-light float-right" style="background-color: #616A6B" >Ir a Cotizacion</a>
+                <a href="/cotizacion" class="btn btn-outline-light float-right" style="background-color: #616A6B" >Volver</a>
             </div>
         </div>
     </div>
@@ -66,7 +66,7 @@
                             <label class="validacion col-sm-12 control-label" id="val_TipoC2"></label>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar Cambios
+                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Editar
                         </button>
                         </div>
                     </form>
