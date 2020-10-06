@@ -21,7 +21,7 @@ Route::get('/', 'LandingController@index');
 
 Auth::routes();
 
-Route::middleware(['auth', 'validarRol'])->group(function () {
+Route::middleware(['auth','validarRol'])->group(function () {
 
 Route::resource('users','UserController');
 Route::get('users/{id}/edit/','UserController@edit');
@@ -139,6 +139,9 @@ Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@upd
 
 Route::get('/operario', 'OperarioController@index');
 Route::resource('ajaxoperario','OperarioController');
+
+Route::get('/chart','ChartController@index');
+Route::post('/chart/valorCotizacion','ChartController@estados');
 
 });
 
