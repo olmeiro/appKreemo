@@ -4,19 +4,19 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white float-right" style="background-color: #616A6B">
-            <strong>COTIZACIONES</strong>
-            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">CREAR COTIZACIÓN</button>
-            <a class="btn btn-outline-light" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a>
-            {{-- <a class="btn btn-outline-light" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
+            <strong>Cotizaciones</strong>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
+            <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a>
+            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
 
-            <div class="float-right" style="background-color: #616A6B">
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">VER ETAPAS</button>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">VER JORNADAS</button>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">VER MODALIDAD</button>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">VER TIPO CONCRETO</button>
+        
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
                     {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
                     {{-- <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
-            </div>
+       
         </div>
         <div class="card-body">
             @include('flash::message')
@@ -29,22 +29,22 @@
                     <th>Modalidad</th>
                     <th>Etapa</th>
                     <th>Jornada</th>
-                    <th>Tipo Concreto</th>
+                    <th>Tipo de concreto</th>
                     <th>Obra</th>
-                    <th>Fecha Cotización</th>
-                    <th>Fecha Inicio Bombeo</th>
+                    <th>Fecha cotización</th>
+                    <th>Fecha inicio bombeo</th>
                     <th>Ciudad</th>
                     <th>Cantidad de losas</th>
                     <th>Cantidad de tuberia</th>
                     <th>Cantidad de Metros </th>
-                    <th>Valor del Metro </th>
+                    <th>Valor del metro </th>
                     <th>AIU</th>
                     <th>Subtotal</th>
                     <th>IVA al AIU</th>
-                    <th>Valor Total</th>
+                    <th>Valor total</th>
                     <th>Observaciones</th>
                     <th>Editar</th>
-                    <th>Cambiar Estado</th>
+                    <th>Cambiar estado</th>
                 </tr>
                 </thead>
                 <tbody>

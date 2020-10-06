@@ -49,9 +49,9 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-id-card usario",
                 "hijos"=>[
-                    ["nombre"=>"cliente","url"=>"/cliente"],
-                    ["nombre"=>"contactosObra","url"=>"/obracontacto"],
-                    ["nombre"=>"empresa","url"=>"/empresa"],
+                    ["nombre"=>"Cliente","url"=>"/cliente"],
+                    ["nombre"=>"Contactos obra","url"=>"/obracontacto"],
+                    ["nombre"=>"Empresa","url"=>"/empresa"],
                 ],
             ],
             [
@@ -59,9 +59,9 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-calendar-alt",
                 "hijos"=>[
-                    ["nombre"=>"Visita","url"=>"/visita"],
+                    ["nombre"=>"Crear visita","url"=>"/visita"],
                     ["nombre"=>"Lista de visitas","url"=>"/visita/listarvisitas"],
-                    ["nombre"=>"listaChequeo","url"=>"/listachequeo"],
+                    ["nombre"=>"Listas de chequeo","url"=>"/listachequeo"],
                 ],
             ],
             [
@@ -69,12 +69,12 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-hand-holding-usd",
                 "hijos"=>[
-                    ["nombre"=>"cotizacion","url"=>"/cotizacion"],
-                    ["nombre"=>"estadocotización","url"=>"/ajaxestado"],
-                    ["nombre"=>"etapa","url"=>"/etapa"],
-                    ["nombre"=>"jornada","url"=>"/jornada"],
-                    ["nombre"=>"modalidad","url"=>"/modalidad"],
-                    ["nombre"=>"tipoconcreto","url"=>"/tipoConcreto"],
+                    ["nombre"=>"Cotización","url"=>"/cotizacion"],
+                    ["nombre"=>"Estado cotización","url"=>"/ajaxestado"],
+                    ["nombre"=>"Etapa","url"=>"/etapa"],
+                    ["nombre"=>"Jornada","url"=>"/jornada"],
+                    ["nombre"=>"Modalidad","url"=>"/modalidad"],
+                    ["nombre"=>"Tipo de concreto","url"=>"/tipoConcreto"],
                 ],
             ],
             [
@@ -82,8 +82,8 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-trailer",
                 "hijos"=>[
-                    ["nombre"=>"maquinaria","url"=>"/maquinaria"],
-                    ["nombre"=>"operario","url"=>"/operario"],
+                    ["nombre"=>"Maquinaria","url"=>"/maquinaria"],
+                    ["nombre"=>"Operario","url"=>"/operario"],
                 ],
             ],
             [
@@ -91,9 +91,9 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-tasks",
                 "hijos"=>[
-                    ["nombre"=>"servicio","url"=>"/servicio"],
-                    ["nombre"=>"Listar servicio","url"=>"/servicio/listarservicio"],
-                    ["nombre"=>"encuesta","url"=>"/encuesta"],
+                    ["nombre"=>"Crear servicio","url"=>"/servicio"],
+                    ["nombre"=>"Lista de servicios","url"=>"/servicio/listarservicio"],
+                    ["nombre"=>"Encuestas","url"=>"/encuesta"],
                 ],
             ],
         ],
@@ -103,9 +103,9 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-id-card usario",
                 "hijos"=>[
-                    ["nombre"=>"cliente","url"=>"/cliente"],
-                    ["nombre"=>"contactosObra","url"=>"/obracontacto"],
-                    ["nombre"=>"empresa","url"=>"/empresa"],
+                    ["nombre"=>"Cliente","url"=>"/cliente"],
+                    ["nombre"=>"Contactos obra","url"=>"/obracontacto"],
+                    ["nombre"=>"Empresa","url"=>"/empresa"],
                 ],
             ],
             [
@@ -113,9 +113,9 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-calendar-alt",
                 "hijos"=>[
-                    ["nombre"=>"Visita","url"=>"/visita"],
+                    ["nombre"=>"Crear visita","url"=>"/visita"],
                     ["nombre"=>"Lista de visitas","url"=>"/visita/listarvisitas"],
-                    ["nombre"=>"listaChequeo","url"=>"/listachequeo"],
+                    ["nombre"=>"Listas de chequeo","url"=>"/listachequeo"],
                 ],
             ],
             [
@@ -123,12 +123,12 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-hand-holding-usd",
                 "hijos"=>[
-                    ["nombre"=>"cotizacion","url"=>"/cotizacion"],
-                    ["nombre"=>"estadocotización","url"=>"/estadocotizacion"],
-                    ["nombre"=>"etapa","url"=>"/etapa"],
-                    ["nombre"=>"jornada","url"=>"/jornada"],
-                    ["nombre"=>"modalidad","url"=>"/modalidad"],
-                    ["nombre"=>"tipoconcreto","url"=>"/tipoconcreto"],
+                    ["nombre"=>"Cotización","url"=>"/cotizacion"],
+                    ["nombre"=>"Estado cotización","url"=>"/ajaxestado"],
+                    ["nombre"=>"Etapa","url"=>"/etapa"],
+                    ["nombre"=>"Jornada","url"=>"/jornada"],
+                    ["nombre"=>"Modalidad","url"=>"/modalidad"],
+                    ["nombre"=>"Tipo de concreto","url"=>"/tipoConcreto"],
                 ],
             ],
             [
@@ -136,8 +136,8 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-trailer",
                 "hijos"=>[
-                    ["nombre"=>"maquinaria","url"=>"/maquinaria"],
-                    ["nombre"=>"operario","url"=>"/operario"],
+                    ["nombre"=>"Maquinaria","url"=>"/maquinaria"],
+                    ["nombre"=>"Operario","url"=>"/operario"],
                 ],
             ],
             [
@@ -145,10 +145,11 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-tasks",
                 "hijos"=>[
-                    ["nombre"=>"servicio","url"=>"/servicio"],
-                    ["nombre"=>"Listar servicio","url"=>"/servicio/listarservicio"],
-                    ["nombre"=>"encuesta","url"=>"/encuesta"],
+                    ["nombre"=>"Crear servicio","url"=>"/servicio"],
+                    ["nombre"=>"Lista de servicios","url"=>"/servicio/listarservicio"],
+                    ["nombre"=>"Encuestas","url"=>"/encuesta"],
                 ],
+            
             ],
         ],
         3=>[
@@ -157,11 +158,11 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-calendar-alt",
                 "hijos"=>[
-                    ["nombre"=>"Visita","url"=>"/visita"],
+                    ["nombre"=>"Crear visita","url"=>"/visita"],
                     ["nombre"=>"Lista de visitas","url"=>"/visita/listarvisitas"],
-                    ["nombre"=>"listaChequeo","url"=>"/listachequeo"],
+                    ["nombre"=>"Listas de chequeo","url"=>"/listachequeo"],
                 ],
-            ],
+            ]
         ]
     ];
 

@@ -14,7 +14,7 @@
                     <div class="form-group col-md-6">
                         <label for="">N° Cotización</label>
                             <select id="idcotizacion"  name= "idcotizacion" class="form-control @error('idcotizacion') is-invalid @enderror">
-                                <option selected>Seleccione una cotización</option>
+                                <option selected>Seleccione</option>
                                 @foreach($cotizacion as $key =>$value)
                                     <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                 @endforeach

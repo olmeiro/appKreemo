@@ -7,10 +7,10 @@
 
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>CONTACTOS</strong>
-            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">CREAR TIPO CONTACTO</button>
-            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal3">LISTA TIPO CONTACTOS</button>
-            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">CREAR CONTACTO</button>
+            <strong>Contactos</strong>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">Crear tipo de contacto</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal3">Lista de tipo de contactos</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">Crear contacto</button>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -18,15 +18,15 @@
             <table id="tbl_contacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>Tipo Contacto</th>
+                    <th>Tipo contacto</th>
                     <th>Nombre</th>
-                    <th>Primer Apellido</th>
-                    <th>Documento</th>
+                    <th>Primer apellido</th>
+                    <th>Segudno apellido</th>
                     <th>Estado</th>
                     <th>Telefono 1</th>
                     <th>Correo 1</th>
                     <th>Editar</th>
-                    <th>Cambiar Estado</th>
+                    <th>Cambiar estado</th>
                     <th>Eliminar</th>
                 </tr>
                 </thead>
@@ -46,7 +46,7 @@
                 <form class="col-md-12 " action="" method="POST" id="frmTipoContacto">
                 @csrf
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title">Crear Tipo Contacto</h5>
+                    <h5 class="modal-title">Crear tipo de contacto</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar1()">
                     <span aria-hidden="true">&times;</span>
                     </button>
@@ -54,7 +54,7 @@
                 <div class="modal-body">
                     <h5>Defina el tipo de contacto</h5>
                     <div class="form-group">
-                        <label for="">Tipo Contacto</label>
+                        <label for="">Tipo de contacto</label>
                         <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror" onkeypress="return soloLetras(event)"  name="tipocontacto" id="tipocontacto" onchange="validate()">
                         @error('tipocontacto')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -76,7 +76,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title" id="exampleModalLabel2">Crear Contacto</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="exampleModalLabel2">Crear contacto</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
                     @include('flash::message')
@@ -85,15 +85,15 @@
                         <div id="smartwizard">
                             <ul>
                                 <li><a href="#step-1">Paso 1<br /><small>Defina el tipo de contacto</small></a></li>
-                                <li><a href="#step-2">Paso 2<br /><small>Datos Del Contacto</small></a></li>
-                                <li><a href="#step-3">Paso 3<br /><small>Télefono Y Correo del Contacto</small></a></li>
+                                <li><a href="#step-2">Paso 2<br /><small>Datos del Contacto</small></a></li>
+                                <li><a href="#step-3">Paso 3<br /><small>Teléfono y correo del Contacto</small></a></li>
                             </ul>
                             <div>
                                 <div id="step-1">
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="">Tipo Contacto</label>
+                                                <label for="">Tipo de contacto</label>
                                                 <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
                                                     <option value="0">Seleccione</option>
                                                     @foreach($tipoContacto as $key =>$value)
@@ -119,7 +119,7 @@
                                             <label class="validacion" for="nombre" id="valNombre"></label>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="">Primer Apellido</label>
+                                            <label for="">Primer apellido</label>
                                             <input type="text" class="form-control @error('apellido1') is-invalid @enderror" onkeypress="return soloLetras(event)"  name="apellido1" id="apellido1">
                                             @error('apellido1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -128,7 +128,7 @@
                                         </div>
                                     </div>
                                     <div class="row mt-3">
-                                        <div class="col-md-6"><label for="">Segundo Apellido</label>
+                                        <div class="col-md-6"><label for="">Segundo apellido</label>
                                             <input type="text" class="form-control @error('apellido2') is-invalid @enderror" onkeypress="return soloLetras(event)"  name="apellido2" id="apellido2">
                                             @error('apellido2')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -176,7 +176,7 @@
                                         <br>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" id="crearContacto" class="btn btn-primary">Crear Contacto</button>
+                                        <button type="button" id="crearContacto" class="btn btn-primary">Crear</button>
                                     </div>
                                 </div>
 
@@ -197,7 +197,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h4>Lista Tipos De Contactos</h4>
+                    <h4>Tipos de contactos</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <div class="card-header">
                         <strong>x</strong>
@@ -209,11 +209,10 @@
                         <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
                             <thead>
                             <tr>
-                                <th>id</th>
-                                <th>Tipo Contacto</th>
-                                <th>Fecha Creación</th>
-                                <th>Editar</th>
-                                <th>eliminar</th>
+                                <th>N°</th>
+                                <th>Tipo de Contacto</th>
+                                <th>Modificar</th>
+                                <th>Eliminar</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -276,7 +275,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="">Primer Apellido</label>
+                                        <label for="">Primer apellido</label>
                                         <input type="text" class="form-control @error('apellido1') is-invalid @enderror"  name="capellido1" id="capellido1" onchange="validate()" onkeypress="return soloLetras(event)">
                                         @error('apellido1')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -287,7 +286,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="">Segundo Apellido</label>
+                                        <label for="">Segundo apellido</label>
                                         <input type="text" class="form-control @error('apellido2') is-invalid @enderror"  name="capellido2" id="capellido2" onchange="validate()" onkeypress="return soloLetras(event)">
                                         @error('apellido2')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -352,7 +351,7 @@
                                 </div>
                             </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Guardar</button>
+                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
                                     <!-- <button type="button" id="btn-save" name="btnsave" class="btn btn-primary" onclick="editar()">Guardar</button> -->
                                     <a href="/cliente" class="btn btn-danger">Cancelar</a>
                                 </div>
@@ -473,10 +472,6 @@
                      name: 'tipocontacto'
                     },
                     {
-                        data: 'created_at',
-                        name: 'created_at'
-                    },
-                    {
                         data: 'editar',
                         name: 'editar',
                         orderable: false,
@@ -522,7 +517,7 @@
             $('body').on('click', '#editar-Cliente', function () {
                 var cliente_id = $(this).data('id');
                 $.get('cliente/edit/'+cliente_id, function (data) {
-                $('#clienteCrudModal').html("Editar Cliente");
+                $('#clienteCrudModal').html("Editar contacto");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled',false);
                 $('#exampleModal4').modal('show');

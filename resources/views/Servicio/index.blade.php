@@ -15,7 +15,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Datos del Servicio</h5>
+                <h5 class="modal-title">Crear servicio</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Fecha Inicio</label>
+                                    <label for="">Fecha de inicio</label>
                                     <label class="validacion" id="valfecha"></label>
                                     <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio">
                                     <label class="validacion" id="valfecha2"></label>
@@ -38,7 +38,7 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Fecha Fin</label>
+                                    <label for="">Fecha fin</label>
                                     <label class="validacion" id="valfechafin"></label>
                                     <input type="date" class="form-control @error('fechafin') is-invalid @enderror" id="fechafin" name="fechafin">
                                     <label class="validacion" id="valfechafin2"></label>
@@ -52,10 +52,10 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Modelo</label>
+                                    <label for="">Máquina</label>
                                     <label class="validacion" id="validmaquina"></label>
                                     <select class="form-control @error('idmaquina') is-invalid @enderror" name= "idmaquina" id="idmaquina">
-                                    <option value="0">Seleccione una maquina</option>
+                                    <option value="0">Seleccione</option>
                                     @foreach($maquinaria as $key =>$value)
                                         <option value="{{ $value->id }}" {{(old('idmaquina')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
                                     @endforeach
@@ -68,10 +68,10 @@
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Id Cotización</label>
+                                    <label for="">N° Cotización</label>
                                     <label class="validacion" id="validcotizacion"></label>
                                     <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion">
-                                    <option value="0">Seleccione una Cotización</option>
+                                    <option value="0">Seleccione</option>
                                     @foreach($cotizacion as $key =>$value)
                                         <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                     @endforeach
@@ -122,10 +122,10 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Estado Servicio</label>
+                                    <label for="">Estado del servicio</label>
                                     <label class="validacion" id="validestadoservicio"></label>
                                     <select class="form-control @error('idestadoservicio') is-invalid @enderror" name= "idestadoservicio" id="idestadoservicio">
-                                    <option value="0">Seleccione un Estado</option>
+                                    <option value="0">Seleccione</option>
                                     @foreach($estadoservicio as $key =>$value)
                                         <option value="{{ $value->id }}" {{(old('idestadoservicio')==$value->id)? 'selected':''}}>{{ $value->estado}}</option>
                                     @endforeach
@@ -143,8 +143,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button  id="btnAgregar" type="button" class="btn btn-success">Agregar</button>
-                <button  id="btnModificaa" type="button" class="btn btn-warning">Modificar</button>
+                <button  id="btnAgregar" type="button" class="btn btn-success">Crear</button>
+                <button  id="btnModificaa" type="button" class="btn btn-warning">Editar</button>
                 <button  id="btnBorrar" type="button" class="btn btn-danger">Eliminar</button>
                 <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
             </div>
