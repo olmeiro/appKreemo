@@ -201,12 +201,12 @@ class CotizacionController extends Controller
             return redirect("/cotizacion");
         }
 
-        return view("cotizacion.editEstado", compact("cotizacion", 'estadocotizacion'));
+        return view("cotizacion.editEstado", compact("cotizacion", "empresa", "obra", 'estadocotizacion', 'jornada', 'etapa', 'modalidad', 'tipoconcreto'));
     }
 
     public function actualizarestado(Request $request){
 
-        $request->validate(Cotizacion::$rules);
+
         $input = $request->all();
 
         try {
@@ -221,25 +221,8 @@ class CotizacionController extends Controller
 
             $cotizacion->update([
 
-                'idEmpresa' =>$input["IdEmpresa"],
+
                 'idEstado' =>$input["IdEstado"],
-                'idModalidad' =>$input["IdModalidad"],
-                'idEtapa' =>$input["IdEtapa"],
-                'idJornada' =>$input["IdJornada"],
-                'idTipo_Concreto' =>$input["IdTipo_Concreto"],
-                'idObra' =>$input["IdObra"],
-                'fechaCotizacion' =>$input["FechaCotizacion"],
-                'inicioBombeo' =>$input["InicioBombeo"],
-                'ciudad' =>$input["Ciudad"],
-                'losas' =>$input["Losas"],
-                'tuberia' =>$input["Tuberia"],
-                'metrosCubicos' =>$input["MetrosCubicos"],
-                'valorMetro' =>$input["ValorMetro"],
-                'AIU' =>$input["AIU"],
-                'subtotal' =>$input["Subtotal"],
-                'ivaAIU' =>$input["IvaAIU"],
-                'valorTotal' =>$input["ValorTotal"],
-                'observaciones' =>$input["Observaciones"],
 
             ]);
             Flash::success("Estado Cotización Modificada");
