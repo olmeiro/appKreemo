@@ -4,17 +4,12 @@ $(function(){
    calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'es',
       headerToolbar: {
-        left: 'prev,next today Miboton',
+        left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       customButtons:{
-        Miboton:{
-            text:"Botón",
-            click:function(){
-                alert("hola mundo!");
-            }
-        }
+       
       },
       slotLabelFormat:{
         hour: '2-digit',

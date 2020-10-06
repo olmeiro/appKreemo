@@ -3,8 +3,8 @@
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>CITAS</strong>
-            <a href="/listachequeo" class="btn btn-outline-light float-right">LISTA DE CHEQUEO</a>
+            <strong>Visitas</strong>
+            <a href="/listachequeo" class="btn btn-outline-light float-right">Lista de chequeo</a>
         </div>
 
         <div class="card-body table-responsive">
@@ -12,15 +12,15 @@
             <table id="tbl_visita" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
                 <tr>
-                    <th>Visita N°</th>
-                    <th>Tipo Visita</th>
+                    <th>N°</th>
+                    <th>Tipo visita</th>
                     <th>Obra</th>
                     <th>Fecha</th>
-                    <th>Hora Inicio</th>
-                    <th>Hora Final</th>
+                    <th>Hora inicio</th>
+                    <th>Hora final</th>
                     <th>Estado</th>
                     <th>Descripción</th>
-                    <th>Lista Chequeo</th>
+                    <th>Lista de chequeo</th>
                     <th>Cambiar estado</th>
                 </tr>
                 </thead>

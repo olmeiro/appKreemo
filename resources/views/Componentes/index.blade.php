@@ -6,14 +6,14 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>ETAPAS</strong>
+                <strong>Etapas</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
                 <table id="tbl_etapa" class="table table-bordered table-striped " style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Etapa N°</th>
+                        <th>N°</th>
                         <th>Etapa</th>
                         <th>Editar</th>
                     </tr>
@@ -25,14 +25,14 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header text-white " style="background-color: #616A6B">
-                <strong>JORNADAS</strong>
+                <strong>Jornadas</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
                 <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Jornada N°</th>
+                        <th>N°</th>
                         <th>Jornada</th>
                         <th>Editar</th>
                     </tr>
@@ -46,14 +46,14 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>MODALIDAD</strong>
+                <strong>Modalidades</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
                 <table id="tbl_modalidad" class="table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Modalidad N°</th>
+                        <th>N°</th>
                         <th>Modalidad</th>
                         <th>Editar</th>
                     </tr>
@@ -65,14 +65,14 @@
     <div class="col-sm-6">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>TIPO DE CONCRETOS</strong>
+                <strong>Tipos de concretos</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
                 <table id="tbl_tipoconcreto" class="table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Concreto tipo N°</th>
+                        <th>N°</th>
                         <th>Concreto tipo</th>
                         <th>Editar</th>
                     </tr>

@@ -12,17 +12,17 @@
             <table id="tbl_servicio" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
                 <tr> 
-                    <th>Servicio N°</th>
-                    <th>Cotización N°</th>
-                    <th>Máquina N°</th>
+                    <th>N°</th>
+                    <th>N° Cotización</th>
+                    <th>N° Máquina</th>
                     <th>Operario 1</th>
                     <th>Operario 2</th>
-                    <th>Fecha Inicio</th>
-                    <th>Fecha Final</th>
+                    <th>Fecha inicio</th>
+                    <th>Fecha final</th>
                     <th>Estado</th>
                     <th>Descripción</th>
-                    <th>Cambiar Estado</th>
-                    <th>Realizar Encuesta</th>
+                    <th>Cambiar estado</th>
+                    <th>Realizar encuesta</th>
                 </tr>
                 </thead>
                 <tbody>

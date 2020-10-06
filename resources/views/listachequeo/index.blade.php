@@ -1,41 +1,26 @@
 @extends('layouts.app')
 
 @section('body')
+<div class="container justify-content-center col-md-8">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>LISTA DE CHEQUEO</strong>
+            <strong>Lista de chequeo</strong>
 
-            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">CREAR LISTA DE CHEQUEO</button>
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">Crear lista de chequeo</button>
 
         </div>
 
         <div class="card-body">
                  @include('flash::message')
-            <table id="tbl_listachequeo" class="table table-striped table-bordered table-responsive" style="width: 100%;">
-                <thead>
+            <table id="tbl_listachequeo" class="table table-striped table-bordered table-responsive">
+                <thead align="center">
                 <tr>
-                    <th>Lista Chequeo N°</th>
-                    <th>Visita N°</th>
-                    <th>Número Planilla</th>
-                    <th>Estado Via para ingreso grúa</th>
-                    <th>Necesidad de PH</th>
-                    <th>Hueco (min 6*3 mts)</th>
-                    <th>Techo (min 3mts de altura)</th>
-                    <th>Desarenadero</th>
-                    <th>Desague</th>
-                    <th>Agua suficiente</th>
-                    <th>Líneas Eléctricas</th>
-                    <th>Señalización (escalas, volados y pilas)</th>
-                    <th>Baños</th>
-                    <th>Condiciones Inseguras</th>
-                    <th>Orden Público</th>
-                    <th>Vigilancia Nocturna</th>
-                    <th>Caspete</th>
-                    <th>Información de SST</th>
-                    <th>Políticas de horas extras</th>
-                    <th>Encargado Visita</th>
+    
+                    <th>N° visita</th>
+                    <th>Número planilla</th>
+                    <th>Encargado visita</th>
                     <th>Viabilidad</th>
-                    <th>Editar</th>
+                    <th>Ver</th>
                     <!-- <th>Cambiar Viabilidad</th>  -->
                 </tr>
                 </thead>
@@ -45,13 +30,13 @@
             </table>
         </div>
     </div>
-
+</div>
 
         <div class="modal fade" id="crear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">CREAR LISTA DE CHEQUEO</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                        <h5 class="modal-title" id="exampleModalLabel">Crear lista de chequeo</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
                     </div>
                     <div class="modal-body">
                         @include('flash::message')
@@ -59,23 +44,23 @@
                          @csrf
                                 <div id="smartwizard">
                                     <ul>
-                                        <li><a href="#step-1">Paso 1<br /><small>INFORMACIÓN GENERAL</small></a></li>
-                                        <li><a href="#step-2">Paso 2<br /><small>UBICACIÓN MÁQUINA</small></a></li>
-                                        <li><a href="#step-3">Paso 3<br /><small>SEGURIDAD DE LA OBRA</small></a></li>
-                                        <li><a href="#step-4">Paso 4<br /><small>SUMINISTROS</small></a></li>
-                                        <li><a href="#step-5">Paso 5<br /><small>INFORMACIÓN VISITA</small></a></li>
+                                        <li><a href="#step-1">Paso 1<br /><small>Información general</small></a></li>
+                                        <li><a href="#step-2">Paso 2<br /><small>Ubicación máquina</small></a></li>
+                                        <li><a href="#step-3">Paso 3<br /><small>Seguridad de la obra</small></a></li>
+                                        <li><a href="#step-4">Paso 4<br /><small>Suministros</small></a></li>
+                                        <li><a href="#step-5">Paso 5<br /><small>Información visita</small></a></li>
                                     </ul>
                                     <div>
                                         <div id="step-1">
                                             <div class="card-header">
-                                                    <strong>INFORMACIÓN INICIAL</strong>
+                                                    <strong>Información inicial</strong>
                                             </div>
                                             <div class="row">
                                                     <div class="form-group col-md-6">
-                                                            <label for="">Id Visita</label>
+                                                            <label for="">N° visita</label>
                                                             <label class="validacion" id="val_idvisita"></label>
                                                             <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
-                                                            <option value="0">Seleccione una visita</option>
+                                                            <option value="0">Seleccione</option>
                                                             @foreach($visita as $key =>$value)
                                                                 <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                                             @endforeach
@@ -87,7 +72,7 @@
                                                     </div>
 
                                                     <div class="form-group col-md-6">
-                                                        <label for="">Numero Planilla</label>
+                                                        <label for="">Numero planilla</label>
                                                         <label class="validacion" id="val_numeroplanilla"></label>
                                                         <input type="text" class="form-control @error('numeroplanilla') is-invalid @enderror"  name="numeroplanilla" id="numeroplanilla">
                                                         @error('numeroplanilla')
@@ -97,7 +82,7 @@
                                                     </div>
                                             </div>
                                             <div class="card-header col-md-12">
-                                                        <strong>ACCESO MÁQUINA</strong>
+                                                        <strong>Acceso máquina</strong>
                                             </div>
                                             <div class="row mt-3">
 
@@ -132,7 +117,7 @@
 
                                         <div id="step-2">
                                             <div class="card-header">
-                                                <strong>UBICACIÓN MÁQUINA</strong>
+                                                <strong>Ubicación máquina</strong>
                                             </div>
                                             <div class="row">
                                                 <div class="form-group col-md-6">
@@ -208,7 +193,7 @@
 
                                         <div id="step-3" class="">
                                                 <div class="card-header">
-                                                    <strong>SEGURIDAD DE LA OBRA</strong>
+                                                    <strong>Seguridad de la obra</strong>
                                                 </div>
                                             <div class="row">
                                                 <div class="form-group col-md-4">
@@ -284,7 +269,7 @@
 
                                         <div id="step-4" class="">
                                                 <div class="card-header">
-                                                     <strong>SUMINISTROS</strong>
+                                                     <strong>Suministros</strong>
                                                 </div>
                                             <div class="row">
                                                 <div class="form-group col-md-4">
@@ -359,11 +344,11 @@
 
                                         <div id="step-5" class="">
                                                 <div class="card-header">
-                                                    <strong>INFORMACIÓN CIERRE DE VISITA</strong>
+                                                    <strong>Información cierre de visita</strong>
                                                 </div>
                                             <div class="row">
                                                 <div class="form-group col-md-6">
-                                                    <label for="">Encargado Visita</label>
+                                                    <label for="">Encargado visita</label>
                                                     <label class="validacion"id="val_encargadovisita"></label>
                                                     <input onkeypress="return soloLetras(event)" type="text" class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
                                                     @error('encargadovisita')
@@ -388,7 +373,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <button type="submit" class="btn btn-success float-left">Guardar</button>
+                                                    <button type="submit" class="btn btn-success float-left">Editar</button>
                                                 </div>
                                             </div>
 
@@ -418,12 +403,7 @@
                 serverSide: true,
                 ajax: '/listachequeo/listar',
                 columns: [
-                    {
-                     data: 'id',
-                     name: 'id',
-                     orderable: false,
-                     searchable: false
-                    },
+                
                     {
                      data: 'idvisita',
                      name: 'idvisita',
@@ -433,73 +413,6 @@
                     {
                      data: 'numeroplanilla',
                      name: 'numeroplanilla'
-                    },
-                    {
-                        data: 'estadovia',
-                        name: 'estadovia'
-                    },
-                    {
-                        data: 'ph',
-                        name: 'ph'
-                    },
-
-                    {
-                        data: 'hueco',
-                        name: 'hueco'
-                    },
-                    {
-                        data: 'techo',
-                        name: 'techo'
-                    },
-                    {
-                        data: 'desarenadero',
-                        name: 'desarenadero'
-                    },
-                    {
-                        data: 'desague',
-                        name: 'desague'
-                    },
-
-                    {
-                        data: 'agua',
-                        name: 'agua'
-                    },
-                    {
-                        data: 'lineaelectrica',
-                        name: 'lineaelectrica'
-                    },
-                    {
-                        data: 'senializacion',
-                        name: 'senializacion'
-                    },
-                    {
-                        data: 'banios',
-                        name: 'banios'
-                    },
-                    {
-                        data: 'condicioninsegura',
-                        name: 'condicioninsegura'
-                    },
-                    {
-                        data: 'ordenpublico',
-                        name: 'ordenpublico'
-                    },
-                    {
-                        data: 'vigilancia',
-                        name: 'vigilancia'
-                    },
-
-                    {
-                        data: 'caspete',
-                        name: 'caspete'
-                    },
-                    {
-                        data: 'infoSST',
-                        name: 'infoSST'
-                    },
-                    {
-                        data: 'politicashoras',
-                        name: 'politicashoras'
                     },
                     {
                         data: 'encargadovisita',

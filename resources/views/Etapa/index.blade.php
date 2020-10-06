@@ -22,16 +22,16 @@
     <div class="container justify-content-center col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>ETAPAS</strong>
+                <strong>Etapas</strong>
 
-                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEtapa">Crear una Etapa</a>
+                    <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEtapa">Crear etapa</a>
             </div>
             <div class="card-body table-responsive">
                 @include('flash::message')
                 <table class="table data-table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>Id N°</th>
+                            <th>N°</th>
                             <th>Etapa</th>
                             <th>Acciones</th>
                         </tr>
@@ -41,7 +41,7 @@
                 </table>
             </div>
             <div class="card-footer" >
-                <a href="/cotizacion" class="btn btn-outline-light float-right" style="background-color: #616A6B" >Ir a Cotizacion</a>
+                <a href="/cotizacion" class="btn btn-outline-light float-right" style="background-color: #616A6B" >Volver</a>
             </div>
         </div>
     </div>
@@ -67,7 +67,7 @@
                             <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar Cambios
+                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Editar
                         </button>
                         </div>
                     </form>

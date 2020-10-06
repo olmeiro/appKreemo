@@ -4,7 +4,7 @@
 <div class="container row justify-content-center">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Estado</strong>
+            <strong>Crear estado</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -22,7 +22,7 @@
                         <label class="validacion" id="val_estado_coti2"></label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success float-left">Crear Estado</button>
+                <button type="submit" class="btn btn-success float-left">Crear estado</button>
                 <a href="/estadocotizacion" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>

@@ -268,11 +268,11 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se edito el contacto contacto.');
+                    Swal.fire('Se modificó el contacto.');
                      $("#exampleModal4").modal('hide');//ocultamos el modal
                      $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                      $('.modal-backdrop').remove();//eliminamos el backdrop del modal
-                     $("#mensaje").text("Nuevo contacto Creado")
+                     $("#mensaje").text("Contacto creado")
                     var table = $('#tbl_contacto').DataTable();
                     table.ajax.reload();
                   }
