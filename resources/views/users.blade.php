@@ -106,6 +106,7 @@
     <table class="table-responsive ">
     <tr height="50px"><td><strong>Nombre:</strong></td><td id="sname"></td></tr>
     <tr height="50px"><td><strong>Email:</strong></td><td id="semail"></td></tr>
+    <tr height="50px"><td><strong>Rol:</strong></td><td id="srol"></td></tr>
 
     <tr><td></td><td style="text-align: right "><a href="{{ route('users.index') }}" class="btn btn-danger">OK</a> </td></tr>
     </table>
@@ -151,7 +152,7 @@ document.userForm.btnsave.disabled=true
     ajax: "{{ route('users.index') }}",
     columns: [
     {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-    {data: 'rol_id', name: 'rol_id'},
+    {data: 'rolname', name: 'rolname'},
     {data: 'name', name: 'name'},
     {data: 'email', name: 'email'},
     {data: 'action', name: 'action', orderable: false, searchable: false},
@@ -217,6 +218,7 @@ document.userForm.btnsave.disabled=true
 
     $('#sname').html(data.name);
     $('#semail').html(data.email);
+    $('#srol').html(data.rolname);
 
     })
     $('#userCrudModal-show').html("Detalles de usuario");
