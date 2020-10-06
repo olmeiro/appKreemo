@@ -33,11 +33,14 @@ $(function(){
       selectMirror: true,
       dateClick: function(info) {
 
-        let fechainicio = moment(info.date).format("YYYY-MM-DD")
-        let fechafin = moment(info.date).format("YYYY:MM:DD")
-
+        let fechainicio = moment(info.date).format("YYYY-MM-DD");
+        let fechafin = moment(info.date).format("YYYY:MM:DD");
+        let horainicio = moment(info.date).format("HH:mm:ss");
+        let horafin = moment(info.date).format("HH:mm:ss");
         $("#fechainicio").val(fechainicio);
         $("#fechafin").val(fechafin);
+        $("#horainicio").val(horainicio);
+        $("#horafin").val(horafin);
 
         $("#agendaservicio_modal").modal();
         calendar.unselect();
@@ -56,11 +59,15 @@ $(function(){
 
         let fechainicio = moment(info.event.start).format("YYYY-MM-DD");
         $("#fechainicio").val(fechainicio);
-        console.log(fechainicio);
 
         let fechafin = moment(info.event.end).format("YYYY-MM-DD");
         $("#fechafin").val(fechafin);
-        console.log(fechafin);
+
+        let horainicio = moment(info.event.start).format("HH:mm:ss");
+        $("#horainicio").val(horainicio);
+
+        let horafin = moment(info.event.end).format("HH:mm:ss");
+        $("#horafin").val(horafin);
 
         $("#idcotizacion").val(info.event.extendedProps.cotizacion);
 
@@ -123,6 +130,8 @@ $(function(){
             idoperario2:  $("#idoperario2").val(),
             fechainicio:  $("#fechainicio").val(),
             fechafin:  $("#fechafin").val(),
+            horainicio:  $("#horainicio").val(),
+            horafin:  $("#horafin").val(),
             descripcion: $("#descripcion").val(),
             '_token':$("meta[name='csrf-token']").attr("content"),
             '_method':method
@@ -211,7 +220,15 @@ $(function(){
             validado++;
         }
 
-        if(validado ==7){
+        if( $("#descripcion").val() == 0 ){
+            $("#valdescripcion").text("*");
+            $("#valdescripcion2").text("No puede dejar la descripción vacía");
+        }else{
+            $("#valdescripcion").text("");
+            $("#valdescripcion2").text("");
+            validado++;
+        }
+        if(validado ==8){
 
             $.ajax(
             {
@@ -245,9 +262,9 @@ $(function(){
                     $("#validoperario12").text("");
                     $("#validoperario2").text("");
                     $("#validoperario22").text("");
-                    $("#id").val("0");
+                    $("#id").val("");
                     $("#valdescripcion").val("");
-                    $("input").val("0");
+                    $("input").val("");
                     $("select").val("0");
                     $("textarea").val("");
         }else{
@@ -279,9 +296,10 @@ $(function(){
     $("#validoperario12").text("");
     $("#validoperario2").text("");
     $("#validoperario22").text("");
-    $("#id").val("0");
+    $("#id").val("");
     $("#valdescripcion").val("");
-    $("input").val("0");
+    $("input").val("");
     $("select").val("0");
     $("textarea").val("");
 }
+

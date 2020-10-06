@@ -20,7 +20,7 @@ class Operario extends Model
         'id' => 'integer|max:11',
         'nombre' => 'required|string|max:20',
         'apellido' =>  'required|string|max:20',
-        'documento' => 'required|integer|digits_between:7,13',
+        'documento' => 'required|integer|digits_between:7,12',
         'celular' => 'numeric|required|digits_between:7,13'
     ];
 }

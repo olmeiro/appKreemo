@@ -18,6 +18,8 @@ class Servicio extends Model
         "idoperario2",
         "fechainicio",
         "fechafin",
+        "horainicio",
+        "horafin",
         "estado",
         "descripcion"
     ];
@@ -31,7 +33,9 @@ class Servicio extends Model
         'idoperario2' => 'required',
         'fechainicio' => 'required|date',
         'fechafin' => 'required|date',
-        'descripcion' => 'required',
+        'horainicio' => 'required',
+        'horafin' => 'required',
+        'descripcion' => '',
         'estado' => 'in:1,0'
 
     ];

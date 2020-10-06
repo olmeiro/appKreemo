@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\Operario;
@@ -19,17 +18,17 @@ class OperarioController extends Controller
                     ->addIndexColumn()
                     ->addColumn('acciones', function($row){
 
-                           $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editOperario" style="margin: 2px"><i class="fas fa-edit"></i></a>';
+                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editOperario" style="margin: 2px"><i class="fas fa-edit"></i></a>';
 
-                           $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteOperario" id="deleteOperario" onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
+                        $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteOperario" id="deleteOperario" onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
 
-                            return $btn;
+                        return $btn;
                     })
                     ->rawColumns(['acciones'])
                     ->make(true);
         }
 
-        return view('operario/index');
+        return view('operario.index');
     }
 
     public function store(Request $request)
