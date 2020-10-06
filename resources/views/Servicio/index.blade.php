@@ -38,7 +38,16 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-                                    <label for="">Fecha fin</label>
+
+                                    <label for="">Hora Inicial</label>
+                                    <input type="time" class="form-control" id="horainicio">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="">Fecha Fin</label>
                                     <label class="validacion" id="valfechafin"></label>
                                     <input type="date" class="form-control @error('fechafin') is-invalid @enderror" id="fechafin" name="fechafin">
                                     <label class="validacion" id="valfechafin2"></label>
@@ -47,8 +56,13 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="">Hora Final</label>
+                                    <input type="time" class="form-control" id="horafin">
+                                </div>
+                            </div>
                         </div>
-
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -138,7 +152,10 @@
                             </div>
                         </div>
                         <div class="col-6">
+                            <label for="">Descripción</label>
+                            <label class="validacion" id="valdescripcion"></label>
                             <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                            <label class="validacion" id="valdescripcion2"></label>
                         </div>
                 </form>
             </div>

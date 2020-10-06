@@ -36,7 +36,7 @@ class ServicioController extends Controller
         ->get();
 
 
-        return DataTables::of($servicio) 
+        return DataTables::of($servicio)
         ->editColumn("estado", function($servicio){
             return $servicio->estado == 1 ? "Activo" : "Inactivo";
         })
@@ -51,7 +51,7 @@ class ServicioController extends Controller
                 return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/servicio/cambiarEstado/'.$servicio->id.'/0">Inactivo</a></button>';
 
             }
-        })  
+        })
 
         ->addColumn('encuesta', function ($servicio) {
             return '<a type="button" class="btn btn-primary" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
@@ -80,8 +80,8 @@ class ServicioController extends Controller
             foreach ($servicio as $value) {
                         $nuevoservicio[]=[
                         "id"=>$value->id,
-                        "start"=>$value->fechainicio,
-                        "end"=>$value->fechafin,
+                        "start"=>$value->fechainicio." ".$value->horainicio,
+                        "end"=>$value->fechafin." ".$value->horafin,
                         "estadoservicio"=>$value->idestadoservicio,
                         "cotizacion"=>$value->idcotizacion,
                         "maquina"=>$value->idmaquina,

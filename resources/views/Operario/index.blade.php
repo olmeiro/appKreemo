@@ -15,9 +15,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
 </head>
-<body>
+<body oncopy="return false" onpaste="return false">
 
-<div class="container  col-md-8">
+<div class="container">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
                 <strong>Operarios</strong>
@@ -47,7 +47,7 @@
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title" id="modelHeading"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -59,7 +59,7 @@
                         <label for="nombre">Nombre</label>
                         <label class="validacion" id="validacion_nombre"></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" placeholder="Digite el Nombre" value="" maxlength="50" required="" onkeypress="return soloLetras(event)">
+                            <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" placeholder="Digite el Nombre" value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
                             @error('nombre')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -68,45 +68,44 @@
                     </div>
                 </div>
                 <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="apellido">Apellido</label>
-                            <label class="validacion" id="validacion_apellido"></label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido" placeholder="Digite el Apellido" value="" maxlength="50" required="" onkeypress="return soloLetras(event)">
-                                @error('apellido')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <label class="validacion" id="validacion_apellido2"></label>
+                    <div class="form-group col-md-6">
+                        <label for="apellido">Apellido</label>
+                        <label class="validacion" id="validacion_apellido"></label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido" placeholder="Digite el Apellido" value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                            @error('apellido')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="documento">Documento</label>
-                            <label class="validacion" id="validacion_documento"></label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" placeholder="Digite el Documento" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
-                                @error('documento')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <label class="validacion" id="validacion_documento2"></label>
+                        <label class="validacion" id="validacion_apellido2"></label>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="documento">Documento</label>
+                        <label class="validacion" id="validacion_documento"></label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" placeholder="Digite el Documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)">
+                            @error('documento')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
                         </div>
+                        <label class="validacion" id="validacion_documento2"></label>
+                    </div>
                 </div>
                 <div class="form-group col-md-6">
-                            <label for="celular">Celular</label>
-                            <label class="validacion" id="validacion_celular"></label>
-                            <div class="col-sm-12">
-                                <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Digite el Celular" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
-                                @error('celular')
-                                <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <label class="validacion" id="validacion_celular2"></label>
-                        </div>
-
-                    <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
-                     </button>
+                    <label for="celular">Celular</label>
+                    <label class="validacion" id="validacion_celular"></label>
+                    <div class="col-sm-12">
+                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Digite el Celular" value="" maxlength="13" required="" onkeypress="return soloNumeros(event)">
+                        @error('celular')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+                    <label class="validacion" id="validacion_celular2"></label>
+                </div>
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Crear</button>
+                    <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
+                </div>
                 </form>
             </div>
         </div>
@@ -169,7 +168,7 @@
         $('#saveBtn').val("create-operario");
         $('#operario_id').val('');
         $('#operarioForm').trigger("reset");
-        $('#modelHeading').html("Create New Operario");
+        $('#modelHeading').html("Crear Operario");
         $('#ajaxModel').modal('show');
     });
 
@@ -179,7 +178,7 @@
           $('#modelHeading').html("Edit Operario");
           $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
-          //$('#operario_id').val(data.id);
+          $('#operario_id').val(data.id);
           $('#nombre').val(data.nombre);
           $('#apellido').val(data.apellido);
           $('#documento').val(data.documento);
@@ -189,7 +188,7 @@
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('Guardando..');
+        $(this).html('Creando..');
         let validado = 0;
 
         if($("#nombre").val()==0){
@@ -200,7 +199,6 @@
             $("#validacion_nombre2").text("");
             validado++;
         }
-
 
         if($("#apellido").val()==0){
             $("#validacion_apellido").text("*");
@@ -214,6 +212,9 @@
         if($("#documento").val()==0){
             $("#validacion_documento").text("*");
             $("#validacion_documento2").text("Debe Ingresar el Documento");
+        }else if($("#documento").val().length < 7 || $("#documento").val().length > 12){
+            $("#validacion_documento").text("*");
+            $("#validacion_documento2").text("Debe digitar entre 7 y 12 números");
         }else{
             $("#validacion_documento").text("");
             $("#validacion_documento2").text("");
@@ -223,6 +224,9 @@
         if($("#celular").val()==0){
             $("#validacion_celular").text("*");
             $("#validacion_celular2").text("Debe Ingresar el Celular");
+        }else if($("#celular").val().length < 7 || $("#celular").val().length > 13){
+            $("#validacion_celular").text("*");
+            $("#validacion_celular2").text("Debe digitar entre 7 y 13 números");
         }else{
             $("#validacion_celular").text("");
             $("#validacion_celular2").text("");
@@ -231,21 +235,20 @@
 
         if(validado==4){
             $.ajax({
-          data: $('#operarioForm').serialize(),
-          url: "{{ route('ajaxoperario.store') }}",
-          type: "POST",
-          dataType: 'json',
-          success: function (data) {
+            data: $('#operarioForm').serialize(),
+            url: "{{ route('ajaxoperario.store') }}",
+            type: "POST",
+            dataType: 'json',
+            success: function (data) {
 
-              $('#operarioForm').trigger("reset");
-              $('#ajaxModel').modal('hide');
-              table.draw();
-
-          },
-          error: function (data) {
-              console.log('Error:', data);
-              $('#saveBtn').html('Guardar');
-          }
+                $('#operarioForm').trigger("reset");
+                $('#ajaxModel').modal('hide');
+                table.draw();
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#saveBtn').html('Crear');
+            }
       });
             Swal.fire({
                 title:'Registro exitoso',text:'Operario creado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -256,6 +259,15 @@
                 //toast: true,
                 position:'center',
                     });
+                    $("#validacion_nombre").text("");
+                    $("#validacion_nombre2").text("");
+                    $("#validacion_apellido").text("");
+                    $("#validacion_apellido2").text("");
+                    $("#validacion_documento").text("");
+                    $("#validacion_documento2").text("");
+                    $("#validacion_celular").text("");
+                    $("#validacion_celular2").text("");
+                    $("input").val("");
         }else{
             Swal.fire({
                 title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -266,7 +278,7 @@
                 //toast: true,
                 position:'center',
             });
-    }
+        }
     });
 
     $('body').on('click', '.deleteOperario', function (e) {
@@ -281,7 +293,15 @@
                 table.draw();
             },
             error: function (data) {
-                console.log('Error:', data);
+                Swal.fire({
+                title:'Error al eliminar',text:'Este operario está ocupado',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                //width: '50%',
+                padding:'1rem',
+                //background:'#000',
+                backdrop:true,
+                //toast: true,
+                position:'center',
+            });
             }
         });
         }else{

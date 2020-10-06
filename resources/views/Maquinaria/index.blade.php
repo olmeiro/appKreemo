@@ -15,7 +15,7 @@
     {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
 </head>
-<body>
+<body oncopy="return false" onpaste="return false">
 
 <div class="container">
         <div class="card">
@@ -51,7 +51,7 @@
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title" id="modelHeading"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -76,7 +76,7 @@
                             <label for="modelo" >Modelo</label>
                             <label class="validacion" id="validacion_modelo"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" placeholder="Digite Modelo" value="" maxlength="50" required="">
+                                <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" placeholder="Digite Modelo" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
                                 @error('modelo')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -87,7 +87,7 @@
                             <label for="serialmotor">Serial motor</label>
                             <label class="validacion" id="validacion_serialmotor"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" placeholder="Digite Serial del Motor" value="" maxlength="50" required="">
+                                <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" placeholder="Digite Serial del Motor" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
                                 @error('serialmotor')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -108,7 +108,10 @@
                 </div>
 
                     <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Crear
+
+                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
+                     <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
+
                      </button>
                     </div>
                 </form>
@@ -198,7 +201,7 @@
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('Guardando..');
+        $(this).html('Creando..');
         let validado = 0;
 
       if($("#serialequipo").val()==0){
@@ -241,22 +244,22 @@
         }
 
         if(validado==4){
-        $.ajax({
-          data: $('#maquinariaForm').serialize(),
-          url: "{{ route('ajaxmaquinaria.store') }}",
-          type: "POST",
-          dataType: 'json',
-          success: function (data) {
+            $.ajax({
+            data: $('#maquinariaForm').serialize(),
+            url: "{{ route('ajaxmaquinaria.store') }}",
+            type: "POST",
+            dataType: 'json',
+            success: function (data) {
 
-              $('#maquinariaForm').trigger("reset");
-              $('#ajaxModel').modal('hide');
-              table.draw();
+                $('#maquinariaForm').trigger("reset");
+                $('#ajaxModel').modal('hide');
+                table.draw();
 
-          },
-          error: function (data) {
-              console.log('Error:', data);
-              $('#saveBtn').html('Guardar');
-          }
+            },
+            error: function (data) {
+                console.log('Error:', data);
+                $('#saveBtn').html('Crear');
+            }
       });
              Swal.fire({
                 title:'Registro exitoso',text:'Maquina creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -267,6 +270,16 @@
                    //toast: true,
                 position:'center',
                     });
+                    $("#validacion_serialequipo").text("");
+                    $("#validacion_serialequipo2").text("");
+                    $("#validacion_modelo").text("");
+                    $("#validacion_modelo2").text("");
+                    $("#validacion_serialmotor").text("");
+                    $("#validacion_serialmotor2").text("");
+                    $("#validacion_observacion").text("");
+                    $("#validacion_observacion2").text("");
+                    $("input").val("");
+                    $("textarea").val("");
         }else{
             Swal.fire({
                 title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -292,11 +305,20 @@
                 table.draw();
             },
             error: function (data) {
-                console.log('Error:', data);
+                Swal.fire({
+                title:'Error al eliminar',text:'esta maquina está ocupada',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
             }
         });
         }else{
-      return false;}
+      return false;
+    }
     });
 
   });
