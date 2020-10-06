@@ -4,8 +4,8 @@
 <div class="contariner">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Contactos De Obra</strong>
-            <strong class="float-right"><a class="btn btn-outline-light float-rigth"  href="/obracontacto/listar">Listar contacto obra</a></strong>
+            <strong>Crear contactos de obra</strong>
+            <strong class="float-right"><a class="btn btn-outline-light float-rigth"  href="/obracontacto/listar">Listar contactos de obra</a></strong>
         </div>
         <div class="card-body">
             <form action="/obracontacto/guardar" method="POST" id="formObraContacto" name="formObraContacto">
@@ -14,7 +14,7 @@
                     <div class="col-6">
                         <div class="card">
                             <div class="card-header">
-                                <h4>1. Información Obra</h4>
+                                <h4>1. Información de obra</h4>
                             </div>
                             <div class="row card-body">
                                     <div class="form-group col-6">
@@ -34,7 +34,7 @@
                                         <label class="validacion" for="direccion" id="valDireccion"></label>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label for="">Telefono</label>
+                                        <label for="">Teléfono</label>
                                         <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}">
                                         @error('telefono1')
                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -42,15 +42,15 @@
                                         <label class="validacion" for="telefono1" id="valTelefono1"></label>
                                     </div>
                                     <div class="form-group col-6">
-                                        <label for="">Correo Electrónico</label>
+                                        <label for="">Correo electrónico</label>
                                         <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1" value="{{old('correo1')}}">
                                         @error('correo1')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                         <label class="validacion" for="correo1" id="valCorreo1"></label>
                                     </div>
-                                    <div class="col-12" style="margin-top: 5%">
-                                        <button type="button" id="crearObraContacto" class="btn btn-primary btn-block">Guardar</button>
+                                    <div class="col-12" align="center">
+                                        <button type="button" id="crearObraContacto" class="btn btn-primary">Crear</button>
                                     </div>
                             </div>
                         </div>
@@ -63,9 +63,9 @@
                             </div>
                             <div class="row card-body">
                                     <div class="form-group col-6">
-                                        <label for="">Seleccione Contacto</label>
+                                        <label for="">Seleccione contacto</label>
                                             <select name="contactos" id="contactos" class="form-control" onchange="dartipo()">
-                                            <option value="0">Seleccione  Contacto</option>
+                                            <option value="0">Seleccione</option>
                                             @foreach($cliente as $value)
                                             <option value="{{ $value->id }}">{{ $value->nombre }}</option>
                                             @endforeach
@@ -76,18 +76,18 @@
                                     <label for="">Seleccione tipo de contacto</label>
                                     <!-- <input type="text" id="tipoContacto" readonly> -->
                                             <select name="tipocontacto" id="tipoContacto" class="form-control" readonly>
-                                            <option value="0">Seleccione  Contacto</option>
+                                            <option value="0"></option>
                                             @foreach($cliente as $value)
                                             <option value="{{ $value->id }}">{{ $value->tipocontacto }}</option>
                                             @endforeach
                                         </select>
                                         <label class="validacion" for="contactos" id="valContactos"></label>
                                     </div>
-
-                                <div class="col-12">
-                                    <button type="button" class="btn btn-success float-right" onclick="agregar_contacto()" >Agregar</button>
+                                    <div class="col-12" align="center">
+                                    <button type="button" class="btn btn-success" onclick="agregar_contacto()">Agregar</button>
                                 </div>
                             </div>
+                                
                             <div class="card-body">
                                 <table class="table table-bordered table-striped">
                                     <thead>

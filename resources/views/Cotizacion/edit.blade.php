@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Editar Cotización</strong><strong class="float-right" >Cotizacion N° {{$cotizacion->id}}</strong>
+            <strong>Editar cotización</strong><strong class="float-right" >Cotizacion N° {{$cotizacion->id}}</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -16,7 +16,7 @@
                         <label for="">Empresa</label>
                         <label class="validacion" id="val_empresa"></label>
                             <select id="IdEmpresa"  name= "IdEmpresa" class="form-control @error('IdEmpresa') is-invalid @enderror" >
-                            <option value="0">Seleccione una Empresa</option>
+                            <option value="0">Seleccione</option>
                             @foreach($empresa as $key =>$value)
                                 <option {{$value->id == $cotizacion->idEmpresa ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
                             @endforeach
@@ -30,7 +30,7 @@
                         <label for="">Estado</label>
                         <label class="validacion" id="val_Estado"></label>
                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
-                            <option value="0">Seleccione Estado</option>
+                            <option value="0">Seleccione</option>
                             {{-- <option value="1" {{ $cotizacion->idEstado == 1 ? 'selected' : '' }}>En proceso</option>
                             <option value="2" {{ $cotizacion->idEstado == 2 ? 'selected' : '' }}>Aceptada</option>
                             <option value="3" {{ $cotizacion->idEstado == 3 ? 'selected' : '' }}>Perdida</option> --}}
@@ -47,7 +47,7 @@
                         <label for="">Modalidad</label>
                         <label class="validacion" id="val_Modalidad"></label>
                         <select id="IdModalidad"  name= "IdModalidad" class="form-control @error('IdModalidad') is-invalid @enderror">
-                            <option value="0" >Seleccione un Modalidad</option>
+                            <option value="0" >Seleccione</option>
                             @foreach($modalidad as $key =>$value)
                                 <option {{$value->id == $cotizacion->idModalidad ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->modalidad}}</option>
                             @endforeach
@@ -61,7 +61,7 @@
                         <label for="">Etapa</label>
                         <label class="validacion" id="val_Etapa"></label>
                         <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
-                                <option value="0" >Seleccione una Etapa</option>
+                                <option value="0" >Seleccione</option>
                                 @foreach($etapa as $key =>$value)
                                 <option {{$value->id == $cotizacion->idEtapa ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->etapa}}</option>
                                 @endforeach
@@ -77,7 +77,7 @@
                         <label for="">Jornada</label>
                         <label class="validacion" id="val_Jornada"></label>
                         <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
-                                <option value="0" >Seleccione un Jornada</option>
+                                <option value="0" >Seleccione</option>
                                 @foreach($jornada as $key =>$value)
                                 <option {{$value->id == $cotizacion->idJornada ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->jornada_nombre}}</option>
                                 @endforeach
@@ -91,7 +91,7 @@
                         <label for="">Tipo de Concreto</label>
                         <label class="validacion" id="val_TipoConcreto"></label>
                         <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
-                            <option value="0" >Seleccione un tipo de concreto</option>
+                            <option value="0" >Seleccione</option>
                             @foreach($tipoconcreto as $key =>$value)
                                 <option {{$value->id == $cotizacion->idTipo_Concreto ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->tipo_concreto}}</option>
                             @endforeach
@@ -105,7 +105,7 @@
                         <label for="">Obra</label>
                         <label class="validacion" id="val_Obra"></label>
                         <select id="IdObra"  name= "IdObra" class="form-control @error('IdObra') is-invalid @enderror">
-                                <option value="0">Seleccione una Obra</option>
+                                <option value="0">Seleccione</option>
                                 @foreach($obra as $key =>$value)
                                 <option {{$value->id == $cotizacion->idObra ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
                             @endforeach
@@ -127,7 +127,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label for="">Fecha de Cotización</label>
+                        <label for="">Fecha de cotización</label>
                         <input value="{{$cotizacion->fechaCotizacion}}" type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion" readonly>
                         @error('FechaCotizacion')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -179,7 +179,7 @@
                         <label class="validacion" id="val_Metros2"></label>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="">Valor Metro <sup>3</sup></label>
+                        <label for="">Valor metro <sup>3</sup></label>
                         <label class="validacion" id="val_ValorMetro"></label>
                         <input value="{{$cotizacion->valorMetro}}"  type="text" class="form-control @error('ValorMetro') is-invalid @enderror  solo_numeros" onkeypress="return soloNumeros(event)" id="ValorMetro" name="ValorMetro" onchange="valor_total()">
                         @error('ValorMetro')
@@ -197,7 +197,7 @@
                         <label class="validacion" id="val_AIU2"></label>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="">SubTotal</label>
+                        <label for="">Subtotal</label>
                         <label class="validacion" id="val_SubTotal"></label>
                         <input value="{{$cotizacion->subtotal}}"  type="text" class="form-control @error('Subtotal') is-invalid @enderror solo_numeros" id="Subtotal" name="Subtotal" readonly>
                         @error('Subtotal')
@@ -215,7 +215,7 @@
                         <label class="validacion" id="val_IvaAIU2"></label>
                     </div>
                     <div class="form-group col-md-2">
-                        <label  for="">Valor Total</label>
+                        <label  for="">Valor total</label>
                         <label class="validacion" id="val_ValorTotal"></label>
                         <input value="{{$cotizacion->valorTotal}}" type="text" class="form-control @error('ValorTotal') is-invalid @enderror solo_numeros" id="ValorTotal" name="ValorTotal" readonly>
                         @error('ValorTotal')
