@@ -11,6 +11,7 @@ use App\Models\EstadoServicio;
 use App\Models\Cotizacion;
 use App\Models\Maquinaria;
 use App\Models\Operario;
+use App\Models\Obra;
 
 class ServicioController extends Controller
 {
@@ -73,7 +74,13 @@ class ServicioController extends Controller
     public function show()
     {
 
-        $data['servicio']= $servicio = Servicio::all();
+        $cotizacion = Cotizacion::all();
+        $obra = Obra::all();
+
+        $data['servicio']= $servicio = Servicio::select("servicio.*", "cotizacion.idobra")
+        ->join("cotizacion","cotizacion.id", "=", "servicio.idcotizacion")
+         ->get();
+
 
             $nuevoservicio=[];
 
@@ -88,7 +95,7 @@ class ServicioController extends Controller
                         "operario1"=>$value->idoperario1,
                         "operario2"=>$value->idoperario2,
                         "descripcion"=>$value->descripcion,
-                        "title"=>$value->id." ".$value->descripcion,
+                        "title"=>"Servicio N° ".$value->id." - Obra N° ".$value->idobra,
                         "backgroundColor"=>$value->estado ==1 ? "#1f7904" : "#7b0205",
                         "textColor"=>"#fff"
                     ];

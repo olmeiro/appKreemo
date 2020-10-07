@@ -106,7 +106,7 @@
                                     <select class="form-control @error('idoperario1') is-invalid @enderror" name= "idoperario1" id="idoperario1">
                                     <option value="0">Seleccione Operario</option>
                                     @foreach($operario as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('idoperario1')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                                        <option value="{{ $value->id }}" {{(old('idoperario1')==$value->id)? 'selected':''}}>{{ $value->nombre}} {{ $value->apellido}}</option>
                                     @endforeach
                                     </select>
                                     <label class="validacion" id="validoperario12"></label>
@@ -122,7 +122,7 @@
                                     <select class="form-control @error('idoperario2') is-invalid @enderror" name= "idoperario2" id="idoperario2">
                                     <option value="0">Seleccione Operario</option>
                                     @foreach($operario as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('idoperario2')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
+                                        <option value="{{ $value->id }}" {{(old('idoperario2')==$value->id)? 'selected':''}}>{{ $value->nombre}} {{ $value->apellido}}</option>
                                     @endforeach
                                     </select>
                                     <label class="validacion" id="validoperario22"></label>
@@ -150,12 +150,14 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <label for="">Descripción</label>
-                            <label class="validacion" id="valdescripcion"></label>
-                            <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
-                            <label class="validacion" id="valdescripcion2"></label>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Descripción</label>
+                                    <label class="validacion" id="valdescripcion"></label>
+                                    <textarea name="descripcion" id="descripcion" cols="25" rows="3"></textarea>
+                                    <label class="validacion" id="valdescripcion2"></label>
+                                </div>
+                            </div>
                         </div>
                 </form>
             </div>

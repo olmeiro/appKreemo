@@ -14,12 +14,14 @@ class ChartController extends Controller
 
     public function estados(Request $request){
 
-        $cotizacion = Cotizacion::select( "cotizacion.fechaCotizacion", "cotizacion.valorTotal")
+        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
+        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+        ->join("obra", "cotizacion.idObra", "=", "obra.id")
         ->where('cotizacion.idEmpresa', '=', 1)
         ->get();
 
         //id=1 Inversion Artemisa
-    
+
         return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
     }
 }
