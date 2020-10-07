@@ -143,6 +143,16 @@ Route::resource('ajaxoperario','OperarioController');
 Route::get('/chart','ChartController@index');
 Route::post('/chart/valorCotizacion','ChartController@estados');
 
+Route::get('/chartvisita','ChartController@index1');
+Route::post('/chart/visita','ChartController@viabilidad');
+
+Route::get('/chartservicio','ChartController@index2');
+Route::post('/chart/servicio','ChartController@servicios');
+
+Route::get('/chartencuesta','ChartController@index3');
+Route::post('/chart/encuesta','ChartController@encuesta');
+
+
 });
 
 

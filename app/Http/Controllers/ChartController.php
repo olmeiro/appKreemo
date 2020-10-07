@@ -12,7 +12,58 @@ class ChartController extends Controller
         return view('chart.index');
     }
 
+    public function index1(){
+        return view('chart.visita');
+    }
+
+    public function index2(){
+        return view('chart.servicio');
+    }
+
+    public function index3(){
+        return view('chart.encuesta');
+    }
+
     public function estados(Request $request){
+
+        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
+        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+        ->join("obra", "cotizacion.idObra", "=", "obra.id")
+        ->where('cotizacion.idEmpresa', '=', 1)
+        ->get();
+
+        //id=1 Inversion Artemisa
+
+        return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+    }
+
+    public function viabilidad(Request $request){
+
+        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
+        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+        ->join("obra", "cotizacion.idObra", "=", "obra.id")
+        ->where('cotizacion.idEmpresa', '=', 1)
+        ->get();
+
+        //id=1 Inversion Artemisa
+
+        return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+    }
+
+    public function servicios(Request $request){
+
+        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
+        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+        ->join("obra", "cotizacion.idObra", "=", "obra.id")
+        ->where('cotizacion.idEmpresa', '=', 1)
+        ->get();
+
+        //id=1 Inversion Artemisa
+
+        return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+    }
+
+    public function encuesta(Request $request){
 
         $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
         ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")

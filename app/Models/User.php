@@ -103,9 +103,9 @@ class User extends Authenticatable
                 "icono"=>"fas fa-tasks",
                 "hijos"=>[
                     ["nombre"=>"Clientes","url"=>"/chart"],
-                    ["nombre"=>"Servicio","url"=>""],
-                    ["nombre"=>"Encuesta","url"=>""],
-                    ["nombre"=>"Visitas","url"=>""],
+                    ["nombre"=>"Visita","url"=>"/chartvisita"],
+                    ["nombre"=>"Servicio","url"=>"/chartservicio"],
+                    ["nombre"=>"Encuesta","url"=>"/chartencuesta"],
                 ],
             ],
         ],
@@ -376,6 +376,15 @@ class User extends Authenticatable
 
             ["url" => "/chart", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/valorCotizacion", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartvisita", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/visita", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartservicio", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/servicio", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta", "method"=>"POST", "identica"=>true],
 
         ],
         2=>[
