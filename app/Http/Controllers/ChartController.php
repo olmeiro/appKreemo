@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Cotizacion;
+use App\Models\Empresa;
 use Illuminate\Http\Request;
 
 class ChartController extends Controller
 {
     public function index(){
-        return view('chart.index');
+        $empresa = Empresa::all();
+        return view('chart.index', compact('empresa'));
     }
 
     public function index1(){
@@ -25,16 +27,19 @@ class ChartController extends Controller
     }
 
     public function estados(Request $request){
-
+        $input = $request->all();
         $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
         ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
         ->join("obra", "cotizacion.idObra", "=", "obra.id")
-        ->where('cotizacion.idEmpresa', '=', 1)
+        ->where('cotizacion.idEmpresa', '=', [$input["id"]])
         ->get();
+
 
         //id=1 Inversion Artemisa
 
         return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+
+
     }
 
     public function viabilidad(Request $request){

@@ -140,8 +140,8 @@ Route::get('/maquinaria/cambiar/estado/{id}/{estado}', 'MaquinariaController@upd
 Route::get('/operario', 'OperarioController@index');
 Route::resource('ajaxoperario','OperarioController');
 
-Route::get('/chart','ChartController@index');
-Route::post('/chart/valorCotizacion','ChartController@estados');
+Route::get('/chart','ChartCotizacion@index');
+Route::post('/chart/valorCotizacion','ChartCotizacion@estados');
 
 Route::get('/chartvisita','ChartController@index1');
 Route::post('/chart/visita','ChartController@viabilidad');

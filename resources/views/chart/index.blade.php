@@ -2,6 +2,26 @@
 
 @section('body')
     <div class="container">
+        <div class="container justify-content-center col-md-3">
+            <div class="card">
+                {{-- <div class="card-header text-white" style="background-color: #616A6B"">
+                    <strong>Generar Reporte</strong>
+                </div> --}}
+                <div class="card-body">
+                    @include('flash::message')
+                    <form method="POST" action="/chart/valorCotizacion">
+                        @csrf
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="">Ingrese Empresa</label>
+                                <input type="text" class="form-control" name="id" id="id">
+                            </div>
+                        </div>
+                            <button type="submit" class="btn btn-success float-left">Generar Informe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
         <div class="form row">
             <div class="form group col-md-6">
@@ -13,11 +33,7 @@
         </div>
 
 
-        <form action="POST" action="/chart/estadosCotizacion" id="form1">
-            @csrf
-            <!-- <input type="hidden" name="id" value="1">
-            <input type="email"> -->
-        </form>
+
         <br>
         <div class="card">
             <div class="card-header text-white float-right" style="background-color: #616A6B">
@@ -59,7 +75,7 @@
                 url:'/chart/valorCotizacion',
                 method: 'POST',
                 data: {
-                    id:1,
+                    id:$('input[name="id"]').val(),
                     _token:$('input[name="_token"]').val()
                 }
             }).done(function(res){
@@ -131,7 +147,7 @@
                 url:'/chart/valorCotizacion',
                 method: 'POST',
                 data: {
-                    id:1,
+                    id:$('input[name="id"]').val(),
                     _token:$('input[name="_token"]').val()
                 }
             }).done(function(res){
