@@ -50,11 +50,9 @@ class User extends Authenticatable
                 "icono"=>"fas fa-id-card usario",
                 "hijos"=>[
 
-                    ["nombre"=>"cliente","url"=>"/cliente"],
-                    ["nombre"=>"contactosObra","url"=>"/obracontacto"],
-                    ["nombre"=>"empresa","url"=>"/empresa"],
-                    ["nombre"=>"estadisticas","url"=>"/chart"],
-
+                    ["nombre"=>"Lista contactos obras","url"=>"/cliente"],
+                    ["nombre"=>"Crear contactos obra","url"=>"/obracontacto"],
+                    ["nombre"=>"Empresa","url"=>"/empresa"],
                 ],
             ],
             [
@@ -97,6 +95,17 @@ class User extends Authenticatable
                     ["nombre"=>"Crear servicio","url"=>"/servicio"],
                     ["nombre"=>"Lista de servicios","url"=>"/servicio/listarservicio"],
                     ["nombre"=>"Encuestas","url"=>"/encuesta"],
+                ],
+            ],
+            [
+                "nombre"=>"Estadisticas",
+                "url"=>"#",
+                "icono"=>"fas fa-tasks",
+                "hijos"=>[
+                    ["nombre"=>"Clientes","url"=>"/chart"],
+                    ["nombre"=>"Servicio","url"=>""],
+                    ["nombre"=>"Encuesta","url"=>""],
+                    ["nombre"=>"Visitas","url"=>""],
                 ],
             ],
         ],
