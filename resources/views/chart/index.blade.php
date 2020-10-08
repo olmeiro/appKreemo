@@ -9,7 +9,7 @@
                 </div> --}}
                 <div class="card-body">
                     @include('flash::message')
-                    <form method="POST" action="/chart/valorCotizacion">
+                    <form method="POST" action="/chart/valorCotizacion" id="form1">
                         @csrf
                         <div class="form-row">
                             <div class="form-group col-md-12">
@@ -70,8 +70,24 @@
         var nombre_empresa = [];
         var nombre_obra = [];
 
-        $(document).ready(function(){
-            $.ajax({
+         $(document).ready(function(){
+           $("#form1").submit(function(event){
+               event.preventDefault();
+
+               let validado = 0;
+
+               if($("#id").val()== 0){
+                   alert("elija id");
+               }
+               else{
+                   validado++;
+               }
+
+               console.log(validado);
+
+               if(validado == 1)
+               {
+                $.ajax({
                 url:'/chart/valorCotizacion',
                 method: 'POST',
                 data: {
@@ -93,20 +109,25 @@
                     nombre_empresa.push(arreglo[x].nombre_empresa);
                     nombre_obra.push(arreglo[x].nombre_obra)
                 }
-                generarGrafica();
+                generarGrafica(nombre_empresa,valorTotal);
             })
+               }else{
+                   alert("Debe elegir Id.");
+               }
+           })
         });
 
 
-        function generarGrafica(){
+
+        function generarGrafica(nombre, valortotal){
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels:nombre_obra,
+                    labels:nombre,
                     datasets: [{
                         label: 'Valor cotizacion',
-                        data: valorTotal,
+                        data: valortotal,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
@@ -143,35 +164,61 @@
         }
 
         $(document).ready(function(){
-            $.ajax({
-                url:'/chart/valorCotizacion',
-                method: 'POST',
-                data: {
-                    id:$('input[name="id"]').val(),
-                    _token:$('input[name="_token"]').val()
-                }
-            }).done(function(res){
-                var arreglo = JSON.parse(res);
-                for(var x= 0; x<arreglo.length;x++){
-                    var todo = '<tr><td>'+arreglo[x].id+'</td>';
-                    todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
-                    todo+='<td>'+arreglo[x].valorTotal+'</td>';
-                    todo+='<td>'+arreglo[x].nombre_empresa+'</td>';
-                    todo+='<td>'+arreglo[x].nombre_obra+'</td></tr>';
-                }
-                generarGrafica2();
-            })
+           $("#form1").submit(function(event){
+               event.preventDefault();
+
+               let validado = 0;
+
+               if($("#id").val()== 0){
+                   alert("elija id");
+               }
+               else{
+                   validado++;
+               }
+
+               console.log(validado);
+
+               if(validado == 1)
+               {
+                    $.ajax({
+                    url:'/chart/valorCotizacion',
+                    method: 'POST',
+                    data: {
+                        id:$('input[name="id"]').val(),
+                        _token:$('input[name="_token"]').val()
+                    }
+                    }).done(function(res){
+                        var arreglo = JSON.parse(res);
+                        for(var x= 0; x<arreglo.length;x++){
+                            // var todo = '<tr><td>'+arreglo[x].id+'</td>';
+                            // todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
+                            // todo+='<td>'+arreglo[x].valorTotal+'</td>';
+                            // todo+='<td>'+arreglo[x].nombre_empresa+'</td>';
+                            // todo+='<td>'+arreglo[x].nombre_obra+'</td></tr>';
+                            // $('#tbody').append(todo);
+                            fechaCotizacion.push(arreglo[x].fechaCotizacion);
+                            valorTotal.push(arreglo[x].valorTotal);
+                            id.push(arreglo[x].id);
+                            nombre_empresa.push(arreglo[x].nombre_empresa);
+                            nombre_obra.push(arreglo[x].nombre_obra)
+                        }
+                        generarGrafica2(nombre_empresa,valorTotal,);
+                    })
+               }else{
+                   alert("Debe elegir Id.");
+               }
+           })
         });
 
-        function generarGrafica2(){
+        function generarGrafica2(nombre,valortotal){
             var ctx = document.getElementById('myChart1').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: nombre_obra,
+                    labels: nombre,
                     datasets: [{
                         label: '# of Votes',
-                        data: valorTotal,
+                        data: valortotal,
                         backgroundColor: [
                             'rgba(255, 99, 132, 0.2)',
                             'rgba(54, 162, 235, 0.2)',
