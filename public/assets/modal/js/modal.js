@@ -6,10 +6,14 @@ $(document).ready(function(){
     autoAdjustHeight:true,
     transitionEffect:'fade',
     showStepURLhash: false,
-    
+    lang: { // Language variables for button
+        next: 'Siguiente',
+        previous: 'Anterior'
+        },
+
     });
-    
-    });
+
+});
 
 
     $(document).ready(function(){
@@ -20,7 +24,7 @@ $(document).ready(function(){
         autoAdjustHeight:true,
         transitionEffect:'fade',
         showStepURLhash: false,
-        
+
         });
-        
+
         });

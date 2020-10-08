@@ -70,9 +70,9 @@
                     @csrf
                     <div id="smartwizard">
                         <ul>
-                            <li><a href="#step-1">Paso 1<br /><small>Account Info</small></a></li>
-                            <li><a href="#step-2">Paso 2<br /><small>Personal Info</small></a></li>
-                            <li><a href="#step-3">Paso 3<br /><small>Payment Info</small></a></li>
+                            <li><a href="#step-1">Paso 1<br /><small>Informacion</small></a></li>
+                            <li><a href="#step-2">Paso 2<br /><small>Informacion</small></a></li>
+                            <li><a href="#step-3">Paso 3<br /><small>Informacion</small></a></li>
                             <li><a href="#step-4">Paso 4<br /><small>Calculos</small></a></li>
                             <li><a href="#step-5">Paso 5<br /><small>Observaciones</small></a></li>
                         </ul>
@@ -471,12 +471,34 @@
     <script>
         flatpickr("#FechaCotizacion", {
             minDate: "today",
-            maxDate: ""
+            maxDate: "",
+            locale: {
+                firstDayOfWeek: 1,
+                weekdays: {
+                shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                },
+                months: {
+                shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
+                longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                },
+            },
         });
 
         flatpickr("#InicioBombeo", {
             minDate: "today",
-            maxDate: ""
+            maxDate: "",
+            locale: {
+                firstDayOfWeek: 1,
+                weekdays: {
+                shorthand: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa'],
+                longhand: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                },
+                months: {
+                shorthand: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Оct', 'Nov', 'Dic'],
+                longhand: ['Enero', 'Febreo', 'Мarzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                },
+            },
         });
     </script>
     <script>
