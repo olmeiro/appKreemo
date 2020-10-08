@@ -25,8 +25,8 @@
             </div>
 
             <!-- <a class="btn btn-success" href="javascript:void(0)" id="createNewMaquina">CREAR MAQUINA</a> -->
-            <div class="card-body">
-                <table class="table table-bordered table-striped table-responsive data-table">
+            <div class="card-body table-responsive">
+                <table class="table table-bordered table-striped  data-table">
                     <thead>
                         <tr>
                             <th>N°</th>
