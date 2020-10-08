@@ -144,7 +144,10 @@ Route::get('/operario', 'OperarioController@index');
 Route::resource('ajaxoperario','OperarioController');
 
 Route::get('/chart','ChartCotizacion@index');
-Route::post('/chart/valorCotizacion','ChartCotizacion@estados');
+Route::post('/chart/valorCotizacion','ChartCotizacion@empresas');
+Route::get('/chartestados','ChartCotizacion@index1');
+Route::post('/chart/estadosCotizacion','ChartCotizacion@estados');
+
 
 Route::get('/chartvisita','ChartController@index1');
 Route::post('/chart/visita','ChartController@viabilidad');
