@@ -71,7 +71,7 @@
                                     <select class="form-control @error('idmaquina') is-invalid @enderror" name= "idmaquina" id="idmaquina">
                                     <option value="0">Seleccione</option>
                                     @foreach($maquinaria as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('idmaquina')==$value->id)? 'selected':''}}>{{ $value->modelo}}</option>
+                                        <option value="{{ $value->id }}" {{(old('idmaquina')==$value->id)? 'selected':''}}>{{ $value->id}}-{{ $value->modelo}}</option>
                                     @endforeach
                                     </select>
                                     <label class="validacion" id="validmaquina2"></label>

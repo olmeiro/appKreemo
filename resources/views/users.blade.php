@@ -82,7 +82,7 @@
 
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                             <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Crear</button>
-                            <a href="{{ route('users.index') }}" class="btn btn-danger">Cancelar</a>
+                            <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
                         </div>
                     </div>
                 </form>

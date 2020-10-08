@@ -38,26 +38,13 @@ class ServicioController extends Controller
 
 
         return DataTables::of($servicio)
-        ->editColumn("estado", function($servicio){
-            return $servicio->estado == 1 ? "Activo" : "Inactivo";
+        ->addColumn('editar', function ($servicio) {
+            return '<a type="button" class="btn btn-primary"   href="/servicio/editar/'.$servicio->id.'" >Editar</a>';
         })
-        ->addColumn('cambiar', function ($servicio) {
-            if($servicio->estado == 1)
-            {
-                return '<button type="button" class="btn btn-danger"><a class="btn btn-danger btn-sm" href="/servicio/cambiarEstado/'.$servicio->id.'/1">Activo</a></button>';
-
-            }
-            else
-            {
-                return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/servicio/cambiarEstado/'.$servicio->id.'/0">Inactivo</a></button>';
-
-            }
-        })
-
         ->addColumn('encuesta', function ($servicio) {
             return '<a type="button" class="btn btn-primary" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
         })
-        ->rawColumns(['encuesta','cambiar'])
+        ->rawColumns(['encuesta','editar'])
         ->make(true);
 
         }
@@ -70,6 +57,37 @@ class ServicioController extends Controller
         Servicio::insert($data);
         print_r($data);
     }
+
+      public function edit($id){
+
+        $servicio = servicio::find($id);
+        $cotizacion = Cotizacion::all();
+        $estadoservicio = EstadoServicio::all();
+        $maquinaria = Maquinaria::all();
+        $operario = Operario::all();
+
+        if ($servicio==null) {
+
+            Flash::error("servicio no encontrado");
+            return redirect("/servicio/listarservicios");
+        }
+        //else{
+            return view("servicio.edit", compact('id','servicio','estadoservicio','maquinaria','cotizacion','operario'));
+        // }
+    }
+
+    public function create(){
+        
+        $servicio = Servicio::all();
+        $estadoservicio = EstadoServicio::all();
+        $maquinaria = Maquinaria::all();
+        $cotizacion = Cotizacion::all();
+        $operario = Operario::all();
+        
+         return view('/servicio/edit', compact ('servicio','estadoservicio','maquinaria','cotizacion','operario'));
+     }
+
+
 
     public function show()
     {
@@ -104,6 +122,41 @@ class ServicioController extends Controller
 
         return response()->json($nuevoservicio);
 
+    }
+
+    public function actualizar(Request $request)
+    {
+        $input = $request->all();
+        try {
+
+                $servicio = Servicio::find($input["id"]);
+
+                if ($servicio==null) {
+                    Flash::error("Servicio no encontrado");
+                    return redirect("/servicio/listarservicio");
+                }
+
+                $servicio->update([
+                    "idestadoservicio" => $input["idestadoservicio"],
+                    "idcotizacion" => $input["idcotizacion"],
+                    "idmaquina" => $input["idmaquina"],
+                    "idoperario1" => $input["idoperario1"],
+                    "idoperario2" => $input["idoperario2"],
+                    "fechainicio" => $input["fechainicio"],
+                    "fechafin" => $input["fechafin"],
+                    "horainicio" => $input["horainicio"],
+                    "horafin" => $input["horafin"],
+                    "estado" => $input["estado"],
+                    "descripcion" => $input["descripcion"],
+                ]);
+
+                Flash::success("Se modifico el servicio");
+                return redirect("/servicio/listarservicio");
+
+            } catch (\Exception $e ) {
+                Flash::error($e->getMessage());
+                return redirect("/servicio/listarservicio");
+            }
     }
 
     public function update(Request $request, $id)

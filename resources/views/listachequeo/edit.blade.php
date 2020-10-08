@@ -357,7 +357,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+       
             <button type="submit" class="btn btn-success float-right">Editar</button>
             <button type="button" href="/listachequeo" class="btn btn-primary">Volver</button>
         </form>

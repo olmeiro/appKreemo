@@ -329,6 +329,7 @@ class User extends Authenticatable
             ["url" => "/servicio/store", "method"=>"POST", "identica"=>true],
             ["url" => "servicio/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/servicio/update", "method"=>"GET", "identica"=>true],
+
             ["url" => "/servicio/cambiarEstado", "method"=>"GET", "identica"=>false], //para cambiar el estado
             ["url" => "/servicio/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/listarservicio", "method"=>"GET", "identica"=>true],
@@ -337,8 +338,9 @@ class User extends Authenticatable
             ["url" => "/servicio/create", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"delete", "identica"=>false], //elimina x Resource
             ["url" => "/servicio", "method"=>"patch", "identica"=>false],   //modifica x resource
-
-
+            ["url" => "/servicio/editar", "method"=>"GET", "identica"=>false],
+            ["url" => "/servicio/guardar", "method"=>"POST", "identica"=>true],
+            ["url" => "/servicio/actualizar", "method"=>"POST", "identica"=>true],
 
             ["url" => "/cotizacion", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/listar", "method"=>"GET", "identica"=>true],

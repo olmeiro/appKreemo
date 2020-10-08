@@ -75,6 +75,9 @@ Route::get('/encuesta/eliminar/{id}', 'EncuestaController@destroy');
 
 Route::get('/servicio', 'ServicioController@index');
 Route::get('/servicio/listar', 'ServicioController@index');
+Route::get('/servicio/editar/{id}', 'ServicioController@edit');
+Route::post('/servicio/actualizar', 'ServicioController@actualizar');
+Route::post('/servicio/guardar', 'ServicioController@save');
 Route::get('/servicio/listarservicio', 'ServicioController@listarservicios');
 Route::get('/servicio/cambiarEstado/{id}/{estado}', 'ServicioController@updateState');
 Route::resource('servicio', 'ServicioController');
