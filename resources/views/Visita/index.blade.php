@@ -29,7 +29,7 @@
       @csrf
             <input type="hidden" id="id">
             <div class="row">
-                <div class="col-5">
+                <div class="col">
                     <div class="form-group">
                         <label for="">Fecha</label>
                         <label class="validacion" id="valfecha"></label>
@@ -85,7 +85,7 @@
                     </div>
             </div>
             <div class="col-6">
-                <textarea name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                <textarea name="descripcion" id="descripcion" cols="62" rows="3"></textarea>
             </div>
         </form>
             </div>
@@ -102,6 +102,8 @@
 
 @endsection
 @section("style")
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.css")}}'rel='stylesheet'/>
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.min.css")}}'rel='stylesheet'/>
 <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
@@ -109,6 +111,18 @@
 @endsection
 
 @section("scripts")
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#fecha", {
+        minDate: "today",
+        maxDate: ""
+    });
+
+    flatpickr("#InicioBombeo", {
+        minDate: "today",
+        maxDate: ""
+    });
+</script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/main.js")}}'></script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/main.min.js")}}'></script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/locales/es.js")}}'></script>
