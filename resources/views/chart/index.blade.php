@@ -2,33 +2,37 @@
 
 @section('body')
     <div class="container">
-        <div class="container justify-content-center col-md-4">
-            <div class="card">
-                {{-- <div class="card-header text-white" style="background-color: #616A6B"">
-                    <strong>Generar Reporte</strong>
-                </div> --}}
+
+            <div class="card col-md-5">
+                <div class="card-header ">
+                    <strong>Cotizaciones por empresa</strong>
+                </div>
                 <div class="card-body">
                     @include('flash::message')
                     <form method="POST" action="/chart/valorCotizacion" id="form1">
                         @csrf
-                        {{-- <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="">Ingrese Empresa</label>
-                                <input type="text" class="form-control" name="id" id="id">
+                            <div class="input-group">
+                                <select class="custom-select" id="id" aria-label="Example select with button addon" name= "id">
+                                    <option value="0">Seleccione una empresa</option>
+                                    @foreach($empresa as $key =>$value)
+                                    <option value="{{ $value->id }}">{{ $value->nombre}}</option>
+                                    @endforeach
+                                </select>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="submit">Generar graficos</button>
+                                </div>
                             </div>
-                        </div>
-                            <button type="submit" class="btn btn-success float-left">Generar Informe</button> --}}
-                            <label for="">Ingrese Empresa</label>
+                            {{-- <label for="">Ingrese Empresa</label>
                             <div class="input-group mb-12">
                                 <input type="text" class="form-control" placeholder="Empresa N°" aria-label="Recipient's username" aria-describedby="button-addon2" name="id">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Generar Reporte</button>
                                 </div>
-                            </div>
+                            </div> --}}
                     </form>
                 </div>
             </div>
-        </div>
+
 
         <div class="form row">
             <div class="form group col-md-6">
@@ -98,7 +102,7 @@
                 url:'/chart/valorCotizacion',
                 method: 'POST',
                 data: {
-                    id:$('input[name="id"]').val(),
+                    id:$('select[name="id"]').val(),
                     _token:$('input[name="_token"]').val()
                 }
             }).done(function(res){
@@ -116,7 +120,8 @@
                     nombre_empresa.push(arreglo[x].nombre_empresa);
                     nombre_obra.push(arreglo[x].nombre_obra)
                 }
-                generarGrafica(nombre_empresa,valorTotal);
+                generarGrafica(nombre_obra,valorTotal);
+                generarGrafica2(nombre_obra,valorTotal);
             })
                 }else{
                     alert("Debe elegir Id.");
@@ -126,12 +131,12 @@
 
 
 
-        function generarGrafica(nombre, valortotal){
+        function generarGrafica(nombre_obra, valortotal){
             var ctx = document.getElementById('myChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels:nombre,
+                    labels:nombre_obra,
                     datasets: [{
                         label: 'Valor cotizacion',
                         data: valortotal,
@@ -170,59 +175,12 @@
             });
         }
 
-        $(document).ready(function(){
-            $("#form1").submit(function(event){
-                event.preventDefault();
-
-                let validado = 0;
-
-                if($("#id").val()== 0){
-                    alert("elija id");
-                }
-                else{
-                    validado++;
-                }
-
-                console.log(validado);
-
-                if(validado == 1)
-                {
-                    $.ajax({
-                    url:'/chart/valorCotizacion',
-                    method: 'POST',
-                    data: {
-                        id:$('input[name="id"]').val(),
-                        _token:$('input[name="_token"]').val()
-                    }
-                    }).done(function(res){
-                        var arreglo = JSON.parse(res);
-                        for(var x= 0; x<arreglo.length;x++){
-                            // var todo = '<tr><td>'+arreglo[x].id+'</td>';
-                            // todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
-                            // todo+='<td>'+arreglo[x].valorTotal+'</td>';
-                            // todo+='<td>'+arreglo[x].nombre_empresa+'</td>';
-                            // todo+='<td>'+arreglo[x].nombre_obra+'</td></tr>';
-                            // $('#tbody').append(todo);
-                            // fechaCotizacion.push(arreglo[x].fechaCotizacion);
-                            // valorTotal.push(arreglo[x].valorTotal);
-                            // id.push(arreglo[x].id);
-                            // nombre_empresa.push(arreglo[x].nombre_empresa);
-                            // nombre_obra.push(arreglo[x].nombre_obra)
-                        }
-                        generarGrafica2(nombre_empresa,valorTotal,);
-                    })
-                }else{
-                    alert("Debe elegir Id.");
-                }
-            })
-        });
-
-        function generarGrafica2(nombre,valortotal){
+        function generarGrafica2(nombre_obra, valortotal){
             var ctx = document.getElementById('myChart1').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: nombre,
+                    labels: nombre_obra,
                     datasets: [{
                         label: '# of Votes',
                         data: valortotal,

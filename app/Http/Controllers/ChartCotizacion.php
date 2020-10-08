@@ -13,7 +13,9 @@ class ChartCotizacion extends Controller
 
     public function index(){
 
-        return view('chart.index');
+        $cotizacion = Cotizacion::all();
+        $empresa = Empresa::all();
+        return view('chart.index', compact('empresa','cotizacion'));
     }
 
     public function estados(Request $request){
@@ -26,7 +28,7 @@ class ChartCotizacion extends Controller
 
 
         //id=1 Inversion Artemisa
-        
+
         return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
 
     }
