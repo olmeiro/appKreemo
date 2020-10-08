@@ -10,12 +10,12 @@
 
         </div>
 
-        <div class="card-body">
+        <div class="card-body table-responsive">
                  @include('flash::message')
-            <table id="tbl_listachequeo" class="table table-striped table-bordered table-responsive">
+            <table id="tbl_listachequeo" class="table table-striped table-bordered ">
                 <thead align="center">
                 <tr>
-    
+
                     <th>N° visita</th>
                     <th>Número planilla</th>
                     <th>Encargado visita</th>
@@ -403,7 +403,7 @@
                 serverSide: true,
                 ajax: '/listachequeo/listar',
                 columns: [
-                
+
                     {
                      data: 'idvisita',
                      name: 'idvisita',
