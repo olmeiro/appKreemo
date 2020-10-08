@@ -170,7 +170,7 @@
     <script src="{{ asset('js/validacionEncuesta.js') }}"></script>
     <script>
 
-    
+
 
     </script>
 @endsection
