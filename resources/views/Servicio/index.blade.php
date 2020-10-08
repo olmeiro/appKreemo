@@ -173,12 +173,26 @@
 
 @endsection
 @section("style")
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+<link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/dark.css">
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.css")}}'rel='stylesheet'/>
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.min.css")}}'rel='stylesheet'/>
 <link href="{{ asset('css/styleMaquiOperario.css') }}" rel="stylesheet">
 @endsection
 
 @section("scripts")
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#fechainicio", {
+        minDate: "today",
+        maxDate: ""
+    });
+
+    flatpickr("#fechafin", {
+        minDate: "today",
+        maxDate: ""
+    });
+</script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/main.js")}}'></script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/main.min.js")}}'></script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/locales/es.js")}}'></script>
