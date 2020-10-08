@@ -84,7 +84,7 @@ public function show($id)
    ->join('roles','users.rol_id', '=', 'roles.id')
    ->find($id);
     return Response::json($user);
-   
+
 }
 
 /**
