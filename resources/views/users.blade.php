@@ -108,7 +108,7 @@
     <tr height="50px"><td><strong>Email:</strong></td><td id="semail"></td></tr>
     <tr height="50px"><td><strong>Rol:</strong></td><td id="srol"></td></tr>
 
-    <tr><td></td><td style="text-align: right "><a href="{{ route('users.index') }}" class="btn btn-danger">OK</a> </td></tr>
+    <tr><td></td><td style="text-align: right "><a href="" class="btn btn-danger" data-dismiss="modal">OK</a> </td></tr>
     </table>
     </div>
     </div>
