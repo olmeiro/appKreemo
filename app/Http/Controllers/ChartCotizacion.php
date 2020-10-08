@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use App\Models\Cotizacion;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ChartCotizacion extends Controller
 {
@@ -25,9 +26,8 @@ class ChartCotizacion extends Controller
 
 
         //id=1 Inversion Artemisa
-
+        
         return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
-
 
     }
 }
