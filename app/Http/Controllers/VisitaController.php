@@ -70,6 +70,14 @@ class VisitaController extends Controller
     {
         
     }
+
+    public function pasarid($id)
+    {   
+        $id;
+        //dd($id);
+        return view('servicio.create', compact('id'));
+    }
+
     public function updateState($id, $estado){
 
         $visita = Visita::find($id);

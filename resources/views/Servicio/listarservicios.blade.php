@@ -21,7 +21,7 @@
                     <th>Fecha final</th>
                     <th>Estado</th>
                     <th>Descripción</th>
-                    <th>Cambiar estado</th>
+                    <th>Editar</th>
                     <th>Realizar encuesta</th>
                 </tr>
                 </thead>
@@ -89,11 +89,9 @@
                         name: 'descripcion'
                     },
                     {
-                        data: 'cambiar',
-                        name: 'cambiar',
-                        orderable: false,
-                        searchable: false
-                     },
+                        data: 'editar',
+                        name: 'editar'
+                    },
                     {
                         data: 'encuesta',
                         name: 'encuesta',

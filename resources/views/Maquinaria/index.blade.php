@@ -209,7 +209,7 @@
             $("#validacion_serialequipo2").text("Debe Ingresar el serial del equipo");
         }else if($("#serialequipo").val().length < 7 || $("#serialequipo").val().length >= 20){
             $("#validacion_serialequipo").text("*");
-            $("#validacion_serialequipo2").text("Debe estar entre 7 y 20");
+            $("#validacion_serialequipo2").text("Debe estar entre 7 y 20 dígitos");
         }else{
             $("#validacion_serialequipo").text("");
             $("#validacion_serialequipo2").text("");

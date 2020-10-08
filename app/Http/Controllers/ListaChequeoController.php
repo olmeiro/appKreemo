@@ -50,7 +50,7 @@ class ListaChequeoController extends Controller
     public function create(){
         
        $visita = Visita::all();
-        $listachequeo = ListaChequeo::all();
+       $listachequeo = ListaChequeo::all();
        
         return view('listachequeo.create', compact ('visita'));
     }
