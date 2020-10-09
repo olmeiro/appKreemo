@@ -11,6 +11,8 @@
     </div>
 </div>
 
+<!-- Modal para crear un servicio en full calendar -->
+
 <div class="modal fade" id="agendaservicio_modal" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
