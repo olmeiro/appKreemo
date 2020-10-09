@@ -251,7 +251,7 @@ $(function(){
                     $("#agendaservicio_modal").modal('toggle');
                     calendar.refetchEvents();
             Swal.fire({
-                title:'Registro exitoso',text:'Servicio Guardado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Registro exitoso',text:'Servicio guardado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
                 padding:'1rem',
                     //background:'#000',
