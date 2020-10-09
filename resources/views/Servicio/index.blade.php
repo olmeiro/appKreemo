@@ -14,7 +14,7 @@
 <!-- Modal para crear un servicio en full calendar -->
 
 <div class="modal fade" id="agendaservicio_modal" tabindex="-1" role="dialog" data-backdrop="static">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Crear servicio</h5>
@@ -27,7 +27,25 @@
                 @csrf
                     <input type="hidden" id="id">
                         <div class="row">
-                            <div class="col">
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">N° Cotización</label>
+                                    <label class="validacion" id="validcotizacion"></label>
+                                    <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion">
+                                        <option selected>Seleccione una Cotización</option>
+                                        @foreach($cotizacion as $key =>$value)
+                                            <option value="{{ $value->id }}">Cotización N° {{ $value->id}} Empresa {{ $value->nombre_empresa}} - Obra: {{ $value->nombre_obra}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="validacion" id="validcotizacion2"></label>
+                                    @error('idcotizacion')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Fecha de inicio</label>
                                     <label class="validacion" id="valfecha"></label>
@@ -38,16 +56,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-3">
                                 <div class="form-group">
-
                                     <label for="">Hora Inicial</label>
                                     <input type="time" class="form-control" id="horainicio">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Fecha Fin</label>
                                     <label class="validacion" id="valfechafin"></label>
@@ -58,7 +73,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="">Hora Final</label>
                                     <input type="time" class="form-control" id="horafin">
@@ -66,7 +81,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <label for="">Máquina</label>
                                     <label class="validacion" id="validmaquina"></label>
@@ -82,26 +97,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
-                                <div class="form-group">
-                                    <label for="">N° Cotización</label>
-                                    <label class="validacion" id="validcotizacion"></label>
-                                    <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion">
-                                    <option value="0">Seleccione</option>
-                                    @foreach($cotizacion as $key =>$value)
-                                        <option value="{{ $value->id }}" {{(old('idcotizacion')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
-                                    @endforeach
-                                    </select>
-                                    <label class="validacion" id="validcotizacion2"></label>
-                                    @error('idcotizacion')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <label for="">Operario 1</label>
                                     <label class="validacion" id="validoperario1"></label>
@@ -117,7 +113,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <label for="">Operario 2</label>
                                     <label class="validacion" id="validoperario2"></label>
@@ -133,10 +129,7 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-6">
+                            <div class="col-3">
                                 <div class="form-group">
                                     <label for="">Estado del servicio</label>
                                     <label class="validacion" id="validestadoservicio"></label>
@@ -152,11 +145,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
                                 <div class="form-group">
-                                    <label for="">Descripción</label>
+                                    <label  for="">Descripción</label>
                                     <label class="validacion" id="valdescripcion"></label>
-                                    <textarea name="descripcion" id="descripcion" cols="25" rows="3"></textarea>
+                                    <textarea class="form-control" name="descripcion" id="descripcion" cols="25" rows="3"></textarea>
                                     <label class="validacion" id="valdescripcion2"></label>
                                 </div>
                             </div>

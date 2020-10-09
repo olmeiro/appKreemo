@@ -42,7 +42,7 @@ $(function(){
         else
         {
             let fechainicio = moment(info.date).format("YYYY-MM-DD");
-            let fechafin = moment(info.date).format("YYYY:MM:DD");
+            let fechafin = moment(info.date).format("YYYY-MM-DD");
             let horainicio = moment(info.date).format("HH:mm:ss");
             let horafin = moment(info.date).format("HH:mm:ss");
             $("#fechainicio").val(fechainicio);
@@ -51,10 +51,10 @@ $(function(){
             $("#horafin").val(horafin);
 
             $("#agendaservicio_modal").modal();
-            calendar.unselect();     
+            calendar.unselect();
         }
 
-       
+
       },
 
       eventClick: function(info) {
