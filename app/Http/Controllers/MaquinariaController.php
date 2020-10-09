@@ -17,7 +17,7 @@ class MaquinariaController extends Controller
             return DataTables::of($data)
                     ->addIndexColumn()
                     ->editColumn("estado", function($data){
-                        return $data->estado == 1 ? "Disponible" : "En uso";
+                        return $data->estado == 1 ? "En Uso" : "Disponible";
                     })
                     ->addColumn('acciones', function($row){
 
@@ -30,11 +30,11 @@ class MaquinariaController extends Controller
                     ->addColumn('cambiar', function ($data) {
                         if($data->estado == 1)
                         {
-                            return '<a class="btn btn-warning btn-sm" href="/maquinaria/cambiar/estado/'.$data->id.'/0">En uso</a>';
+                            return '<a class="btn btn-success btn-sm" href="/maquinaria/cambiar/estado/'.$data->id.'/0">Disponible</a>';
                         }
                         else
                         {
-                            return '<a class="btn btn-success btn-sm" href="/maquinaria/cambiar/estado/'.$data->id.'/1">Disponible</a>';
+                            return '<a class="btn btn-warning btn-sm" href="/maquinaria/cambiar/estado/'.$data->id.'/1">En Uso</a>';
                         }
                     })
                     ->rawColumns(['acciones','cambiar'])

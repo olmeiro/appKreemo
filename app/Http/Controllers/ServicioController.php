@@ -19,7 +19,9 @@ class ServicioController extends Controller
         $servicio = Servicio::all();
         $estadoservicio = EstadoServicio::all();
         $cotizacion = Cotizacion::all();
-        $maquinaria = Maquinaria::all();
+        $maquinaria = Maquinaria::select("maquinaria.*")
+        ->where("maquinaria.estado","=",0)
+        ->get();
         $operario = Operario::all();
         return view('servicio.index', compact('estadoservicio','cotizacion','maquinaria','operario'));
     }
@@ -55,7 +57,11 @@ class ServicioController extends Controller
     {
         $data = request()->except(['_token','_method']);
         Servicio::insert($data);
+        
         print_r($data);
+
+        $maquinaria = Maquinaria::find($data['idmaquina']);
+        $maquinaria->update(["estado"=>1]);
     }
 
       public function edit($id){
