@@ -18,7 +18,16 @@ class ServicioController extends Controller
     public function index(){
         $servicio = Servicio::all();
         $estadoservicio = EstadoServicio::all();
-        $cotizacion = Cotizacion::all();
+        $cotizacion = Cotizacion::select("cotizacion.*", "empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto","obra.nombre as nombre_obra", "obra.telefono1", "obra.correo1")
+            ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+            ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
+            ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
+            ->join("etapa", "cotizacion.idEtapa", "=", "etapa.id")
+            ->join("jornada", "cotizacion.idJornada", "=", "jornada.id")
+            ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
+            ->join("obra", "cotizacion.idObra", "=", "obra.id")
+            ->orderBy("cotizacion.id")
+            ->get();
         $maquinaria = Maquinaria::select("maquinaria.*")
         ->where("maquinaria.estado","=",0)
         ->get();
@@ -57,7 +66,7 @@ class ServicioController extends Controller
     {
         $data = request()->except(['_token','_method']);
         Servicio::insert($data);
-        
+
         print_r($data);
 
         $maquinaria = Maquinaria::find($data['idmaquina']);
@@ -83,13 +92,13 @@ class ServicioController extends Controller
     }
 
     public function create(){
-        
+
         $servicio = Servicio::all();
         $estadoservicio = EstadoServicio::all();
         $maquinaria = Maquinaria::all();
         $cotizacion = Cotizacion::all();
         $operario = Operario::all();
-        
+
          return view('/servicio/edit', compact ('servicio','estadoservicio','maquinaria','cotizacion','operario'));
      }
 
