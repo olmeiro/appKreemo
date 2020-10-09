@@ -262,6 +262,7 @@ $(function(){
 
                     $('#agendaservicio_modal').on('hidden.bs.modal', function () {
                         location.reload();
+                    });
                     $("#valfecha").text("");
                     $("#valfecha2").text("");
                     $("#valfechafin").text("");
