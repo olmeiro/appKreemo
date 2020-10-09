@@ -6,6 +6,7 @@ use App\Models\Cliente;
 use App\Models\Cotizacion;
 use App\Models\Empresa;
 use Illuminate\Http\Request;
+use App\Models\Encuesta;
 
 class ChartController extends Controller
 {
@@ -70,11 +71,14 @@ class ChartController extends Controller
 
     public function encuesta(Request $request){
 
-        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
-        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
-        ->join("obra", "cotizacion.idObra", "=", "obra.id")
-        ->where('cotizacion.idEmpresa', '=', 1)
-        ->get();
+        $encuesta = Encuesta::all();
+        //return DataTables::of($encuesta)
+
+        // $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
+        // ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+        // ->join("obra", "cotizacion.idObra", "=", "obra.id")
+        // ->where('cotizacion.idEmpresa', '=', 1)
+        // ->get();
 
         //id=1 Inversion Artemisa
 
