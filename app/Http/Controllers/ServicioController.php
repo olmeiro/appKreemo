@@ -62,6 +62,7 @@ class ServicioController extends Controller
 
         $maquinaria = Maquinaria::find($data['idmaquina']);
         $maquinaria->update(["estado"=>1]);
+        
     }
 
       public function edit($id){
