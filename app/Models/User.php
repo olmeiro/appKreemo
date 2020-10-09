@@ -368,6 +368,15 @@ class User extends Authenticatable
             ["url" => "/ajaxestado", "method"=>"delete", "identica"=>false],
 
 
+            ["url" => "/estadoservicio", "method"=>"GET", "identica"=>true],
+            ["url" => "/estadoservicio/listar", "method"=>"GET", "identica"=>true],
+            ["url" => "/estadoservicio/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/estadoservicio/guardar", "method"=>"POST", "identica"=>true], //OK
+            ["url" => "/estadoservicio/editar", "method"=>"GET", "identica"=>false], //OK
+            ["url" => "/estadoservicio/actualizar", "method"=>"POST", "identica"=>true], //OK
+            ["url" => "/estadoservicio/actualizar", "method"=>"GET", "identica"=>false], //pendiente pero conectado
+            ["url" => "/estadoservicio/eliminar", "method"=>"GET", "identica"=>false], //pendiente
+
 
             ["url" => "/encuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/encuesta/listar", "method"=>"GET", "identica"=>true],
