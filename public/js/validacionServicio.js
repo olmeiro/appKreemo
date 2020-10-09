@@ -33,17 +33,28 @@ $(function(){
       selectMirror: true,
       dateClick: function(info) {
 
-        let fechainicio = moment(info.date).format("YYYY-MM-DD");
-        let fechafin = moment(info.date).format("YYYY:MM:DD");
-        let horainicio = moment(info.date).format("HH:mm:ss");
-        let horafin = moment(info.date).format("HH:mm:ss");
-        $("#fechainicio").val(fechainicio);
-        $("#fechafin").val(fechafin);
-        $("#horainicio").val(horainicio);
-        $("#horafin").val(horafin);
+        var check = moment(info.date).format("YYYY-MM-DD");
+        var today = moment(new Date()).format("YYYY-MM-DD");
+        if(check < today)
+        {
+            alert("No puedes agendar aquí");
+        }
+        else
+        {
+            let fechainicio = moment(info.date).format("YYYY-MM-DD");
+            let fechafin = moment(info.date).format("YYYY:MM:DD");
+            let horainicio = moment(info.date).format("HH:mm:ss");
+            let horafin = moment(info.date).format("HH:mm:ss");
+            $("#fechainicio").val(fechainicio);
+            $("#fechafin").val(fechafin);
+            $("#horainicio").val(horainicio);
+            $("#horafin").val(horafin);
 
-        $("#agendaservicio_modal").modal();
-        calendar.unselect();
+            $("#agendaservicio_modal").modal();
+            calendar.unselect();     
+        }
+
+       
       },
 
       eventClick: function(info) {
@@ -248,6 +259,7 @@ $(function(){
                     //toast: true,
                 position:'center',
                     });
+                    calendar.refetchEvents();
                     $("#valfecha").text("");
                     $("#valfecha2").text("");
                     $("#valfechafin").text("");
