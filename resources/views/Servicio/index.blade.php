@@ -160,7 +160,7 @@
             </div>
             <div class="modal-footer">
                 <button  id="btnAgregar" type="button" class="btn btn-success">Crear</button>
-                <button  id="btnModificaa" type="button" class="btn btn-warning">Editar</button>
+                <button  id="btnModificaa" type="button" class="btn btn-primary">Editar</button>
                 <button  id="btnBorrar" type="button" class="btn btn-danger">Eliminar</button>
                 <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
             </div>

@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" id="crearTipoContacto" class="btn btn-primary">Crear</button>
+                    <button type="button" id="crearTipoContacto" class="btn btn-success">Crear</button>
                 </div>
                 </form>
             </div>
@@ -176,7 +176,7 @@
                                         <br>
                                     </div>
                                     <div class="col-md-6">
-                                        <button type="button" id="crearContacto" class="btn btn-primary">Crear</button>
+                                        <button type="button" id="crearContacto" class="btn btn-success">Crear</button>
                                     </div>
                                 </div>
 

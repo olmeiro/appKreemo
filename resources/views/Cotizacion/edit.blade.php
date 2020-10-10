@@ -231,7 +231,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                 </div>
-                <button type="submit" class="btn btn-success float-left">Editar Cotizacion</button>
+                <button type="submit" class="btn btn-primary float-left">Editar Cotizacion</button>
                 <a href="/cotizacion" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>

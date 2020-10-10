@@ -65,7 +65,7 @@
                                 <label class="validacion col-sm-12 control-label" id="val_Modalidad2"></label>
                             </div>
                             <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Editar
+                            <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
                             </button>
                             </div>
                         </form>

@@ -103,7 +103,7 @@
                     <label class="validacion" id="validacion_celular2"></label>
                 </div>
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Crear</button>
+                    <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar</button>
                     <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
                 </div>
                 </form>

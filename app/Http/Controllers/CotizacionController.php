@@ -60,7 +60,7 @@ class CotizacionController extends Controller
                 return '<a class="btn btn-xs btn-primary" href="/cotizacion/editar/'.$cotizacion->id.'"><i class="fas fa-edit"></i></a>';
             })
             ->addColumn('editarEstado', function ($cotizacion) {
-                return '<a class="btn btn-xs btn-secondary" href="/cotizacion/editarEstado/'.$cotizacion->id.'" >Cambiar Estado</a>';
+                return '<a class="btn btn-xs btn-primary" href="/cotizacion/editarEstado/'.$cotizacion->id.'" >Cambiar Estado</a>';
             })
             ->rawColumns(['editar', 'editarEstado'])
             ->make(true);
