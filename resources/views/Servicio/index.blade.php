@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="">Fecha de inicio</label>
                                     <label class="validacion" id="valfecha"></label>
-                                    <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" value="">
+                                    <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" readonly>
                                     <label class="validacion" id="valfecha2"></label>
                                     @error('fechainicio')
                                     <div class="invalid-feedback">{{ $message }}</div>
