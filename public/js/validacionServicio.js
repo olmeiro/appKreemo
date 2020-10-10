@@ -318,3 +318,24 @@ $(function(){
     $("textarea").val("");
 }
 
+
+function darFecha()
+{
+    let id = $("#idcotizacion").val();
+    console.log(id);
+    
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: '/servicio/pasarfecha',
+        type: 'POST',
+        data:  {
+            id: $('#idcotizacion').val(),
+        },
+    }).done(function(res) {
+        var arreglo = JSON.parse(res);
+            console.log(arreglo[0].inicioBombeo)
+            $("#fechainicio").val(arreglo[0].inicioBombeo);
+    });
+
+}
+

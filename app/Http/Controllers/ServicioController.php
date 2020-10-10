@@ -102,7 +102,16 @@ class ServicioController extends Controller
          return view('/servicio/edit', compact ('servicio','estadoservicio','maquinaria','cotizacion','operario'));
      }
 
+     function pasarfecha(Request $request){
 
+        $input = $request->all();
+
+        $cotizacion = Cotizacion::select('cotizacion.inicioBombeo')
+        ->where("cotizacion.id","=", [$input["id"]])
+        ->get();
+
+        return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+     }
 
     public function show()
     {

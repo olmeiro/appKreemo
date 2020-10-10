@@ -31,7 +31,7 @@
                                 <div class="form-group">
                                     <label for="">N° Cotización</label>
                                     <label class="validacion" id="validcotizacion"></label>
-                                    <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion">
+                                    <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion" onchange="darFecha()">
                                         <option selected>Seleccione una Cotización</option>
                                         @foreach($cotizacion as $key =>$value)
                                             <option value="{{ $value->id }}">Cotización N° {{ $value->id}} Empresa {{ $value->nombre_empresa}} - Obra: {{ $value->nombre_obra}}</option>
@@ -49,7 +49,7 @@
                                 <div class="form-group">
                                     <label for="">Fecha de inicio</label>
                                     <label class="validacion" id="valfecha"></label>
-                                    <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio">
+                                    <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" value="">
                                     <label class="validacion" id="valfecha2"></label>
                                     @error('fechainicio')
                                     <div class="invalid-feedback">{{ $message }}</div>

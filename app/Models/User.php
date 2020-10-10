@@ -343,6 +343,8 @@ class User extends Authenticatable
             ["url" => "/servicio/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/servicio/actualizar", "method"=>"POST", "identica"=>true],
 
+            ["url" => "/servicio/pasarfecha", "method"=>"POST", "identica"=>false],
+
             ["url" => "/cotizacion", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/crear", "method"=>"GET", "identica"=>true],
