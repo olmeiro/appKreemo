@@ -54,7 +54,7 @@
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
-                            <th>Notizacion N°</th>
+                            <th>Cotizacion N°</th>
                             <th>Fecha</th>
                             <th>Valor</th>
                             <th>Empresa</th>
