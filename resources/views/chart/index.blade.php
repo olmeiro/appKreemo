@@ -21,7 +21,9 @@
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="submit">Generar graficos</button>
                                 </div>
+
                             </div>
+                            <label class="validacion" id="val_empresa"></label>
                             {{-- <label for="">Ingrese Empresa</label>
                             <div class="input-group mb-12">
                                 <input type="text" class="form-control" placeholder="Empresa N°" aria-label="Recipient's username" aria-describedby="button-addon2" name="id">
@@ -80,6 +82,7 @@
         var id = [];
         var nombre_empresa = [];
         var nombre_obra = [];
+        var colores = [];
 
         $(document).ready(function(){
             $("#form1").submit(function(event){
@@ -88,7 +91,7 @@
                 let validado = 0;
 
                 if($("#id").val()== 0){
-                    alert("elija id");
+                    $("#val_empresa").text("Debe ingresar la Empresa");
                 }
                 else{
                     validado++;
@@ -105,24 +108,26 @@
                     id:$('select[name="id"]').val(),
                     _token:$('input[name="_token"]').val()
                 }
-            }).done(function(res){
-                var arreglo = JSON.parse(res);
-                for(var x= 0; x<arreglo.length;x++){
-                    var todo = '<tr><td>'+arreglo[x].id+'</td>';
-                    todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
-                    todo+='<td>'+arreglo[x].valorTotal+'</td>';
-                    todo+='<td>'+arreglo[x].nombre_empresa+'</td>';
-                    todo+='<td>'+arreglo[x].nombre_obra+'</td></tr>';
-                    $('#tbody').append(todo);
-                    fechaCotizacion.push(arreglo[x].fechaCotizacion);
-                    valorTotal.push(arreglo[x].valorTotal);
-                    id.push(arreglo[x].id);
-                    nombre_empresa.push(arreglo[x].nombre_empresa);
-                    nombre_obra.push(arreglo[x].nombre_obra)
-                }
-                generarGrafica(nombre_obra,valorTotal);
-                generarGrafica2(nombre_obra,valorTotal);
-            })
+                }).done(function(res){
+                    var arreglo = JSON.parse(res);
+                    for(var x= 0; x<arreglo.length;x++){
+                        var todo = '<tr><td>'+arreglo[x].id+'</td>';
+                        todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
+                        todo+='<td>'+arreglo[x].valorTotal+'</td>';
+                        todo+='<td>'+arreglo[x].nombre_empresa+'</td>';
+                        todo+='<td>'+arreglo[x].nombre_obra+'</td></tr>';
+                        $('#tbody').append(todo);
+                        fechaCotizacion.push(arreglo[x].fechaCotizacion);
+                        valorTotal.push(arreglo[x].valorTotal);
+                        id.push(arreglo[x].id);
+                        nombre_empresa.push(arreglo[x].nombre_empresa);
+                        nombre_obra.push(arreglo[x].nombre_obra);
+                        colores.push(colorRGB());
+                    }
+                    generarGrafica(nombre_obra,valorTotal,colores);
+                    generarGrafica2(nombre_obra,valorTotal,colores);
+                })
+                $("#val_empresa").text("");
                 }else{
                     alert("Debe elegir Id.");
                 }
@@ -131,35 +136,21 @@
 
 
 
-        function generarGrafica(nombre_obra, valortotal){
+        function generarGrafica(nombre_obra, valortotal,colores){
             var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
+            if (window.grafica) {
+                    window.grafica.clear();
+                    window.grafica.destroy();
+                }
+            window.grafica = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels:nombre_obra,
                     datasets: [{
                         label: 'Valor cotizacion',
                         data: valortotal,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(55, 159, 64, 0.2)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(55, 159, 64, 1)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
+                        backgroundColor: colores,
+                        borderColor: colores,
                         borderWidth: 2
                     }]
                 },
@@ -175,35 +166,21 @@
             });
         }
 
-        function generarGrafica2(nombre_obra, valortotal){
+        function generarGrafica2(nombre_obra, valortotal,colores){
             var ctx = document.getElementById('myChart1').getContext('2d');
-            var myChart = new Chart(ctx, {
+            if (window.grafic) {
+                    window.grafic.clear();
+                    window.grafic.destroy();
+                }
+            window.grafic = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     labels: nombre_obra,
                     datasets: [{
                         label: '# of Votes',
                         data: valortotal,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(55, 159, 64, 0.2)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(55, 159, 64, 1)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
+                        backgroundColor: colores,
+                        borderColor: colores,
                         borderWidth: 2
                     }]
                 },
@@ -218,5 +195,16 @@
                 }
             });
         }
+
+        function generarNumero(numero){
+            return (Math.random()*numero).toFixed(0);
+        }
+
+        function colorRGB(){
+            var coolor = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
+            return "rgb" + coolor;
+        }
+
+
     </script>
 @endsection

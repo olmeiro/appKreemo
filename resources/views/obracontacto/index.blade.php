@@ -50,7 +50,7 @@
                                         <label class="validacion" for="correo1" id="valCorreo1"></label>
                                     </div>
                                     <div class="col-12" align="center">
-                                        <button type="button" id="crearObraContacto" class="btn btn-primary">Crear</button>
+                                        <button type="button" id="crearObraContacto" class="btn btn-success">Crear</button>
                                     </div>
                             </div>
                         </div>
@@ -87,7 +87,7 @@
                                     <button type="button" class="btn btn-success" onclick="agregar_contacto()">Agregar</button>
                                 </div>
                             </div>
-                                
+
                             <div class="card-body">
                                 <table class="table table-bordered table-striped">
                                     <thead>

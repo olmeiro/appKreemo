@@ -81,6 +81,7 @@
         var nombre_empresa = [];
         var nombre_obra = [];
         var estado_cotizacion =[];
+        var colores = [];
 
         $(document).ready(function(){
             $("#form1").submit(function(event){
@@ -107,6 +108,8 @@
                     _token:$('input[name="_token"]').val()
                 }
             }).done(function(res){
+
+
                 var arreglo = JSON.parse(res);
                 for(var x= 0; x<arreglo.length;x++){
                     var todo = '<tr><td>'+arreglo[x].id+'</td>';
@@ -120,10 +123,11 @@
                     id.push(arreglo[x].id);
                     nombre_empresa.push(arreglo[x].nombre_empresa);
                     nombre_obra.push(arreglo[x].nombre_obra);
-                    estado_cotizacion.push(arreglo[x].estado_cotizacion)
+                    estado_cotizacion.push(arreglo[x].estado_cotizacion);
+                    colores.push(colorRGB());
                 }
-                generarGrafica(nombre_obra,valorTotal,estado_cotizacion,nombre_empresa);
-                generarGrafica2(nombre_obra,valorTotal,estado_cotizacion,nombre_empresa);
+                generarGrafica(nombre_obra,valorTotal,colores,estado_cotizacion,nombre_empresa);
+                generarGrafica2(nombre_obra,valorTotal,colores,estado_cotizacion,nombre_empresa);
             })
                 }else{
                     alert("Debe elegir Id.");
@@ -133,35 +137,21 @@
 
 
 
-        function generarGrafica(nombre_obra, valortotal,estado_cotizacion,id,nombre_empresa){
+        function generarGrafica(nombre_obra, valortotal,colores,estado_cotizacion,id,nombre_empresa){
             var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
+            if (window.grafica) {
+                    window.grafica.clear();
+                    window.grafica.destroy();
+                }
+            window.grafica = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels:nombre_obra,
                     datasets: [{
-                        label: 'Valor cotizacion',
+                        label: 'Estados de cotizacion',
                         data: valortotal,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(55, 159, 64, 0.2)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(55, 159, 64, 1)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
+                        backgroundColor: colores,
+                        borderColor: colores,
                         borderWidth: 2
                     }]
                 },
@@ -177,35 +167,21 @@
             });
         }
 
-        function generarGrafica2(nombre_obra, valortotal,estado_cotizacion,id,nombre_empresa){
+        function generarGrafica2(nombre_obra, valortotal,colores,estado_cotizacion,id,nombre_empresa){
             var ctx = document.getElementById('myChart1').getContext('2d');
-            var myChart = new Chart(ctx, {
+            if (window.grafic) {
+                    window.grafic.clear();
+                    window.grafic.destroy();
+                }
+            window.grafic = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     labels: nombre_obra,
                     datasets: [{
                         label: '# of Votes',
                         data: valortotal,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)',
-                            'rgba(55, 159, 64, 0.2)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)',
-                            'rgba(55, 159, 64, 1)',
-                            'rgba(53, 102, 255, 0.2)'
-                        ],
+                        backgroundColor: colores,
+                        borderColor: colores,
                         borderWidth: 2
                     }]
                 },
@@ -219,6 +195,15 @@
                     }
                 }
             });
+        }
+
+        function generarNumero(numero){
+            return (Math.random()*numero).toFixed(0);
+        }
+
+        function colorRGB(){
+            var coolor = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
+            return "rgb" + coolor;
         }
     </script>
 @endsection

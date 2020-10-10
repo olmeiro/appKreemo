@@ -54,7 +54,7 @@
                         <div class="form-row" >
                                 <div class="form-group col-md-8">
                                 <label class="radio-inline">Estado de la vía para ingreso en grúa</label>
-                                <label class="validacion"id="val_estadovia"></label>  
+                                <label class="validacion"id="val_estadovia"></label>
                                 <select class="form-control @error('estadovia') is-invalid @enderror" name="estadovia" id="estadovia">
                                 <option value="NS">Seleccione</option>
                                         <option value="SI"{{ $listachequeo->estadovia == 'SI' ? 'selected' : ''}} >SI</option>
@@ -330,7 +330,7 @@
                         <strong>INFORMACIÓN CIERRE DE VISITA</strong>
                     </div>
                     <div class="card-body">
-                      
+
                             <div class="form-group col-md-12">
                                 <label for="">Encargado Visita</label>
                                 <label class="validacion"id="val_encargadovisita"></label>
@@ -353,13 +353,13 @@
                                 @enderror
                                 <label class="validacion" id="val_viabilidad2"></label>
                             </div>
-                       
+
                     </div>
                 </div>
             </div>
-       
-            <button type="submit" class="btn btn-success float-right">Editar</button>
-            <button type="button" href="/listachequeo" class="btn btn-primary">Volver</button>
+
+            <button type="submit" class="btn btn-primary float-right">Editar</button>
+            <button type="button" href="/listachequeo" class="btn btn-outline-primary">Volver</button>
         </form>
     </div>
 </div>
@@ -374,6 +374,6 @@
 
 @endsection
 @section('style')
- 
+
     <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection

@@ -3,10 +3,10 @@
 @section('body')
 <div class="container justify-content-center col-md-8">
     <div class="card" >
-            <div class="card-header">
+            <div class="card-header text-white float-right" style="background-color: #616A6B">
                 <strong>Encuestas</strong>
                 <!-- <a href="/encuesta/crear" class="btn btn-link">Crear Encuesta</a> -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Crear Encuesta </button>
+                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear Encuesta </button>
             </div>
             <div class="card-body">
             @include('flash::message')
@@ -27,7 +27,7 @@
             </div>
         </div>
 </div>
-    
+
 
     <div class="modal fade" data-backdrop="static" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">

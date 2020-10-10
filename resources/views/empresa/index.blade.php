@@ -45,7 +45,7 @@
             @include('flash::message')
                 <form class="form-signin col-md-12" action="" method="POST" id="frmEmpresa">
                     @csrf
-                   
+
                           <div class="modal-body">
                                     <div class="row">
                                             <div class="col-md-6">
@@ -102,15 +102,15 @@
                                         </div>
                                     </div>
                          </div>
-                            
+
                             <div class="modal-footer">
-                                <button type="button" id="crearEmpresa" class="btn btn-primary">Crear</button>
+                                <button type="button" id="crearEmpresa" class="btn btn-success">Crear</button>
                             </div>
                  </form>
                 </div>
             </div>
     </div>
- 
+
     <!-- Modal Editar Empresa -->
 
     <div class="modal fade" data-backdrop="static" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -124,7 +124,7 @@
                         @csrf
                         <div class="modal-body">
                             <input type="hidden" name="empresa_id" id="empresa_id" >
-                    
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label for="">NIT</label>
@@ -180,8 +180,8 @@
                                         </div>
                                     </div>
                         </div>
-                    
-                    
+
+
                             <div class="modal-footer">
                                 <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
                                 <a href="/empresa" class="btn btn-danger">Cancelar</a>
@@ -190,7 +190,7 @@
                 </div>
             </div>
   </div>
-    
+
 
 
 @endsection

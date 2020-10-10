@@ -13,7 +13,7 @@ use App\Models\tipoContacto;
 class ClientesController extends Controller
 {
     public function index(){
-        
+
         $cliente = cliente::select("contacto.*","tipocontacto.tipocontacto")
         ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
         ->get();
@@ -36,7 +36,7 @@ class ClientesController extends Controller
         return DataTables::of($cliente)
         ->addIndexColumn()
         ->editColumn("estado", function($cliente){
-            return $cliente->estado == 1 ? "Activo" : "Pasivo";
+            return $cliente->estado == 1 ? "Activo" : "Inactivo";
         })
         ->addColumn('editar', function ($cliente) {
             return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
@@ -58,7 +58,7 @@ class ClientesController extends Controller
         ->addColumn('eliminar', function ($cliente) {
 
             return '<a id="delete-cliente"  data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
-           
+
         })
         ->rawColumns(['editar', 'cambiar','eliminar'])
         ->make(true);
@@ -76,7 +76,7 @@ class ClientesController extends Controller
 
     public function store(Request $request)
     {
- 
+
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
                 "idtipocontacto" => $request->cidtipocontacto,
@@ -91,8 +91,8 @@ class ClientesController extends Controller
                 "correo2" => $request->ccorreo2,
                 ]);
 
-                
-                return response()->json(["ok"=>true]);  
+
+                return response()->json(["ok"=>true]);
 
     }
 
@@ -238,7 +238,7 @@ class ClientesController extends Controller
     }
 
     public function destroy($id){
-        try 
+        try
         {
             $cliente = Cliente::find($id);
 
@@ -246,17 +246,17 @@ class ClientesController extends Controller
                 Flash::error('Cliente no encontrado');
                 return redirect('/cliente');
             }
-    
+
             $cliente->delete($id);
             return response()->json(["ok"=>true]);
             // Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
             // return redirect('/cliente');
-        } 
+        }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
             // Flash::success('No puedes eliminar este cliente.');
             // return redirect("/cliente");
-        }       
+        }
     }
 
 }
