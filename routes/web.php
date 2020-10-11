@@ -58,6 +58,8 @@ Route::get('/empresa/listar', 'EmpresaController@listar');
 Route::post('/empresa/guardar', 'EmpresaController@store');
 Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
 Route::get('/empresa/edit/{id}', 'EmpresaController@edit');
+Route::get('/empresa/cambiar/estado/{id}/{estado}', 'EmpresaController@updateState');
+
 Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
 
 Route::get('/obracontacto', 'ObraContactoController@index');

@@ -22,11 +22,9 @@
                     <th>Nombre</th>
                     <th>Primer apellido</th>
                     <th>Segudno apellido</th>
-                    <th>Estado</th>
                     <th>Telefono 1</th>
                     <th>Correo 1</th>
                     <th>Editar</th>
-                    <th>Cambiar estado</th>
                     <th>Eliminar</th>
                 </tr>
                 </thead>
@@ -398,10 +396,6 @@
                         name: 'apellido2'
                     },
                     {
-                        data: 'estado',
-                        name: 'estado'
-                    },
-                    {
                         data: 'telefono1',
                         name: 'telefono1'
                     },
@@ -415,12 +409,7 @@
                         orderable: false,
                         searchable: false
                     },
-                    {
-                        data: 'cambiar',
-                        name: 'cambiar',
-                        orderable: false,
-                        searchable: false
-                    },
+
                     {
                         data: 'eliminar',
                         name: 'eliminar',

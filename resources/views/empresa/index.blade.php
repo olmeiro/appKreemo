@@ -23,6 +23,8 @@
                     <th>Dirección</th>
                     <th>Telefono </th>
                     <th>Correo </th>
+                    <th>Estado</th>
+                    <th>Cambiar Estado</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -178,13 +180,20 @@
                                             @enderror
                                             <label class="validacion" for="ecorreo1" id="valECorreo1"></label>
                                         </div>
+                                        <div class="col-md-6">
+                                            <label for="">Estado</label>
+                                            <select class="form-control" name="eestado" id="eestado">
+                                                <option value="1">Activo</option>
+                                                <option value="0">Pasivo</option>
+                                            </select>
+                                            <label class="validacion" for="eestado" id="valEEstado"></label>
+                                        </div>
                                     </div>
                         </div>
 
 
                             <div class="modal-footer">
                                 <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
-                                <a href="/empresa" class="btn btn-danger">Cancelar</a>
                             </div>
                     </form>
                 </div>
@@ -232,6 +241,16 @@
                     {
                         data: 'correo1',
                         name: 'correo1'
+                    },
+                    {
+                        data: 'estado',
+                        name: 'estado'
+                    },
+                    {
+                        data: 'cambiar',
+                        name: 'cambiar',
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'editar',
@@ -292,6 +311,7 @@
             $('#edireccion').val(data.direccion);
             $('#etelefono1').val(data.telefono1);
             $('#ecorreo1').val(data.correo1);
+            $('#eestado').val(data.estado);
 
 
     })

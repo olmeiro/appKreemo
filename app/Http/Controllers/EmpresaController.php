@@ -14,7 +14,9 @@ class EmpresaController extends Controller
 {
     public function index(){
 
-        return view('empresa.index');
+        $empresa = Empresa::all();
+
+        return view('empresa.index',compact('empresa'));
     }
 
     public function listar(Request $request){
@@ -26,18 +28,33 @@ class EmpresaController extends Controller
    
         return DataTables::of($data)
         ->addIndexColumn()
+        ->editColumn("estado", function($empresa){
+            return $empresa->estado == 1 ? "Activo" : "Pasivo";
+        })
         ->addColumn('editar', function ($empresa) {
 
             return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
             <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Empresa" data-id='.$empresa->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
 
         })
+        ->addColumn('cambiar', function ($empresa) {
+            if($empresa->estado == 1)
+            {
+                return '<button type="button" class="btn btn-danger" data-toggle="modal"><a class="btn btn-danger btn-sm" href="/empresa/cambiar/estado/'.$empresa->id.'/0">Pasivo</a></button>';
+
+            }
+            else
+            {
+                return  '<button type="button" class="btn btn-success" data-toggle="modal"><a class="btn btn-success btn-sm" href="/empresa/cambiar/estado/'.$empresa->id.'/1">Activo</a></button>';
+
+            }
+        })
         ->addColumn('eliminar', function ($empresa) {
             return '
             <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
-        ->rawColumns(['editar','eliminar'])
+        ->rawColumns(['editar','cambiar','eliminar'])
         ->make(true);
     }
         return view('empresa/listar');
@@ -96,9 +113,33 @@ class EmpresaController extends Controller
             "direccion" => $request->edireccion,
             "telefono1" => $request->etelefono1,
             "correo1" => $request->ecorreo1,
+            "estado" => $request->eestado,
             
         ]);
         return response()->json(["ok"=>true]);  
+    }
+
+    
+    public function updateState($id, $estado){
+
+        $empresa = Empresa::find($id);
+
+        if ($empresa==null) {
+            Flash::error("Empresa o cliente no encontrado");
+            return redirect("/empresa");
+        }
+
+        try {
+
+            $empresa->update(["estado"=>$estado]);
+            Flash::success("Se modifico el estado del cliente o empresa");
+            return redirect("/empresa");
+
+        } catch (\Exception $e) {
+
+            Flash::error($e->getMessage());
+            return redirect("/empresa");
+        }
     }
 
    

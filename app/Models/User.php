@@ -229,6 +229,8 @@ class User extends Authenticatable
             ["url" => "/empresa/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/guardarNuevo", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/edit", "method"=>"GET", "identica"=>false],
+            ["url" => "/empresa/cambiar/estado", "method"=>"GET", "identica"=>false],
+
             ["url" => "/empresa/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
