@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Flash;
 use DataTables;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request, Response;
 
 use App\Models\Obra;
 
@@ -110,6 +110,31 @@ class ObraController extends Controller
         }
     }
 
+    public function destroy($id){
 
+        // SELECT id FROM `obracontacto` WHERE idobra = 1
+
+        //dd($id);
+
+        try
+        {
+            $obra = Obra::find($id);
+
+            if (empty($obra)) {
+                Flash::error('Obra no encontrada');
+                return redirect('/obracontacto/listar');
+            }
+
+            $obra->delete($id);
+            return response()->json(["ok"=>true]);
+            //Flash::success('Obra ('.$obra->nombre. ') eliminada.');
+            // return redirect('/cliente');
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            //Flash::success('No puedes eliminar este cliente.');
+            // return redirect("/cliente");
+        }
+    }
 
 }

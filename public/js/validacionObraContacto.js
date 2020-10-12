@@ -120,3 +120,4 @@ function dartipo()
    console.log("tipo es_"+tipo);
 
 }
+

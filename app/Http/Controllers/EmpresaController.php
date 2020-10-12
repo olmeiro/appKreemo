@@ -51,7 +51,7 @@ class EmpresaController extends Controller
         })
         ->addColumn('eliminar', function ($empresa) {
             return '
-            <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
+            <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa btn-lg" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
         ->rawColumns(['editar','cambiar','eliminar'])

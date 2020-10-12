@@ -218,6 +218,7 @@ class User extends Authenticatable
             ["url" => "/obra/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/obra/editar/{id}", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
+            ["url" => "/obra/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/obracontacto/guardar", "method"=>"POST", "identica"=>true],
@@ -225,6 +226,7 @@ class User extends Authenticatable
             ["url" => "/obracontacto/listar/", "method"=>"GET", "identica"=>false],
             ["url" => "/obracontacto/ver/", "method"=>"GET", "identica"=>false],
             ["url" => "/obracontacto/editar", "method"=>"GET", "identica"=>false],
+            ["url" => "/obracontacto/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/empresa", "method"=>"GET", "identica"=>true],
             ["url" => "/empresa/listar", "method"=>"GET", "identica"=>true],

@@ -7,7 +7,7 @@ use App\Models\Cliente;
 use App\Models\Obra;
 use App\Models\tipoContacto;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\Request, Response;
 use Flash;
 use DataTables;
 use DB;
@@ -92,16 +92,16 @@ class ObraContactoController extends Controller
 
         return DataTables::of($obras)
         ->addColumn('ver', function ($obras) {
-            //return '<a class="btn btn-info" data-toggle="modal" data-target="#exampleModal3" href="/obracontacto/listar?id={{ $value->id }}">Ver</a>';
-            //return '<button type="button" class="btn btn-outline-info float-right" data-toggle="modal" data-target="#exampleModal6">Ver</button>';
-            return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal6">
-                    <a class="btn btn-primary btn-sm" data-toggle="modal" id="ver-Contactos" data-id='.$obras->id.' ><i class="fas fa-eye"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+            return ' 
+                    <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal6" id="ver-Contactos" data-id='.$obras->id.' ><i class="fas fa-eye"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
         })
         ->addColumn('editar', function ($obras) {
-            return '<a class="btn btn-success" href="/obracontacto/listar?id={{ $value->id }}">Editar</a>';
+            return '
+            <a class="btn btn-primary btn-lg" data-toggle="modal" id="editar-Contactos" data-id='.$obras->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
+
         })
         ->addColumn('eliminar', function ($obras) {
-            return '<a class="btn btn-danger" href="/obracontacto/listar?id={{ $value->id }}">Eliminar</a>';
+            return '<a id="delete-obra"   data-id='.$obras->id.' class="btn btn-danger delete-obra btn-lg" href="/obra/eliminar/'.$obras->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
         ->rawColumns(['ver','editar','eliminar'])
@@ -128,16 +128,52 @@ class ObraContactoController extends Controller
         ->where("obracontacto.idobra", $id)
         ->get();
 
-        return response(json_encode($obraContactos), 200)->header('Content-type','text/plain');
+        //return response(json_encode($obraContactos), 200)->header('Content-type','text/plain');
 
-        // return DataTables::of($obraContactos)
-        // ->make(true);
+        return DataTables::of($obraContactos)
+        ->addIndexColumn()
+        ->addColumn('eliminar', function ($obraContactos) {
 
-        
+            return '<a id="delete-obracontacto"  data-id='.$obraContactos->id.' class="btn btn-danger delete-cliente" href="/obracontacto/eliminar/'.$obraContactos->id.'"><i class="fas fa-trash-alt"></i></a>';
 
-       
-
+        })
+        ->rawColumns(['editar','eliminar'])
+        ->make(true);
       
+    }
+
+    public function edit($id){
+        dd($id);
+
+        $where = array('id' => $id);
+        $obra = Obra::where($where)->first();
+        Flash::success("Se modifico la obra.");
+        return Response::json($obra);
+    }
+
+    public function destroy($id){
+        
+   // SELECT id FROM `obracontacto` WHERE idobra = 1
+
+        try
+        {
+            $obraContactos = ObraContacto::find($id);
+
+            if (empty($obraContactos)) {
+                Flash::error('Contacto no encontrado');
+                return redirect('/obracontacto');
+            }
+
+            $obraContactos->delete($id);
+            return response()->json(["ok"=>true]);
+            // Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
+            // return redirect('/cliente');
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success('No puedes eliminar este cliente.');
+            // return redirect("/cliente");
+        }
     }
 
 }
