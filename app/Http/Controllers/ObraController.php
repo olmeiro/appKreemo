@@ -67,7 +67,8 @@ class ObraController extends Controller
 
     public function edit($id){
 
-        // $tipoContacto = tipoContacto::all();
+        
+
         $obra = Obra::find($id);
 
         if ($obra==null) {
@@ -78,6 +79,13 @@ class ObraController extends Controller
         //else{
             return view("obra.edit", compact("obra"));
         // }
+
+        // $where = array('id' => $id);
+        // dd($where);
+        // $obra = Obra::where($where)->first();
+        // //Flash::success("Se modifico el cliente.");
+        // return Response::json($obra);
+
     }
 
     public function update(Request $request){

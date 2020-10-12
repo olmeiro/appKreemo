@@ -42,6 +42,80 @@
         </div>
     </div>
 
+    <!-- Modal Editar Obra -->
+
+    <div class="modal fade" id="exampleModal7" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal7" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-white" style="background-color: #616A6B">
+                    <h4 class="modal-title" id="obraCrudModal"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="location.reload()">
+                    <div class="card-header">
+                        <strong>x</strong>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
+                    @include('flash::message')
+                    <form action="/obracontacto/actualizar" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" id="id"/>
+                        <div class="row">
+                        <div class="col-6">
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Nombre</label>
+                                    <input  type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre">
+                                    @error('nombre')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Dirección</label>
+                                    <input  type="text" class="form-control @error('direccion') is-invalid @enderror"  name="direccion" id="direccion">
+                                    @error('direccion')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Telefono #1</label>
+                                    <input  type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
+                                    @error('telefono1')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Correo #1</label>
+                                    <input  type="text" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1">
+                                    @error('correo1')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-success float-lg-right">Actualizar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="card">
 
         <div class="card-header text-white" style="background-color: #616A6B">
@@ -294,6 +368,29 @@
                 $('#ctelefono2').val(data.telefono2);
                 $('#ccorreo1').val(data.correo1);
                 $('#ccorreo2').val(data.correo2);
+
+            })
+            });
+
+            // JS para editar Obra
+
+            $('body').on('click', '#editar-Obra', function () {
+                var obra_id = $(this).data('id');
+                $.get('/obracontacto/editar/'+obra_id, function (data) {
+                $('#exampleModal7').modal('show');
+                $('#obraCrudModal').html("Editar obra");
+
+                $('#btn-update').val("Update");
+                $('#btn-save').prop('disabled',false);
+
+                $('#id').val(data.id);
+                $('#nombre').val(data.nombre);
+                $('#direccion').val(data.direccion);
+                $('#telefono1').val(data.telefono1);
+                $('#correo1').val(data.correo1);
+              
+               
+           
 
             })
             });

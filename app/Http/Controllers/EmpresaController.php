@@ -171,20 +171,12 @@ class EmpresaController extends Controller
             }
             
             $empresa->delete($id);
-            Flash::success('Empresa ('.$empresa->nombre. ') eliminada');
-            return redirect('/empresa');
+            return response()->json(["ok"=>true]);
         } 
         catch (\Throwable $th) {
-            Flash::success('No puedes eliminar este cliente.');
-            return redirect("/empresa");
+            return response()->json(["ok"=>false]);
         } 
     }
 
 }
 
-
-// ->addColumn('eliminar', function ($empresa) {
-//     return ' <button type="button" class="btn btn-danger">
-//     <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa" href="/empresa/'.$empresa->id.'">Eliminar</a></button>';
-   
-// })
