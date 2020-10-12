@@ -128,7 +128,10 @@ class ObraContactoController extends Controller
         ->where("obracontacto.idobra", $id)
         ->get();
 
-        return DataTables::of($obraContactos);
+        return response(json_encode($obraContactos), 200)->header('Content-type','text/plain');
+
+        // return DataTables::of($obraContactos)
+        // ->make(true);
 
         
 

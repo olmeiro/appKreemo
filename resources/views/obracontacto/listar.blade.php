@@ -15,7 +15,8 @@
                 <div class="modal-body">
                     <div class="card-body">
                     @include('flash::message')
-                        <table id="tbl_contactosObras" class="table table-bordered" style="width: 100%;">
+                        <!-- <table id="tbl_contactosObras" class="table table-bordered" style="width: 100%;"> -->
+                        <table class="table table-bordered" style="width: 100%;">    
                             <thead>
                             <tr>
                                 <th>Obra</th>
@@ -25,7 +26,7 @@
                                 <th>Correo</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="tbody">
 
                             </tbody>
                         </table>
@@ -236,24 +237,20 @@
 
             $('body').on('click', '#ver-Contactos', function () {
                 var cliente_id = $(this).data('id');
-                $.get('/obracontacto/ver/'+cliente_id, function (data) {
-                $('#clienteCrudModal').html("Editar contacto");
-                $('#btn-update').val("Update");
-                $('#btn-save').prop('disabled',false);
-                $('#exampleModal4').modal('show');
-                $('#cliente_id').val(data.id);
-                $('#cidtipocontacto').val(data.idtipocontacto);
-                $('#cnombre').val(data.nombre);
-                $('#capellido1').val(data.apellido1);
-                $('#capellido2').val(data.apellido2);
-                $('#cdocumento').val(data.documento);
-                $('#cestado').val(data.estado);
-                $('#ctelefono1').val(data.telefono1);
-                $('#ctelefono2').val(data.telefono2);
-                $('#ccorreo1').val(data.correo1);
-                $('#ccorreo2').val(data.correo2);
+                $.get('/obracontacto/ver/'+cliente_id, function (res) {
 
-            })
+                    var arreglo = JSON.parse(res);
+               
+                    for(var x= 0; x<arreglo.length;x++){
+                        var todo = '<tr><td>'+arreglo[x].obra+'</td>';
+                        todo+='<td>'+arreglo[x].nombre+'</td>';
+                        todo+='<td>'+arreglo[x].apellido1+'</td>';
+                        todo+='<td>'+arreglo[x].telefono1+'</td>';
+                        todo+='<td>'+arreglo[x].correo1+'</td></tr>';
+                        $('#tbody').append(todo);
+                        
+                    }
+            });
             });
             </script>
 @endsection
