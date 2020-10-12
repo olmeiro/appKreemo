@@ -65,6 +65,7 @@ Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
 Route::get('/obracontacto', 'ObraContactoController@index');
 Route::post('/obracontacto/guardar', 'ObraContactoController@save');
 Route::get('/obracontacto/listar', 'ObraContactoController@listar');
+Route::get('/obracontacto/ver/{id}', 'ObraContactoController@listarContactos');
 Route::get('/obracontacto/editar', 'ObraContactoController@edit');
 
 Route::get('/encuesta', 'EncuestaController@index');

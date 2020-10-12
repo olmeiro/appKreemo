@@ -222,6 +222,8 @@ class User extends Authenticatable
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/obracontacto/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/obracontacto/listar", "method"=>"GET", "identica"=>true],
+            ["url" => "/obracontacto/listar/", "method"=>"GET", "identica"=>false],
+            ["url" => "/obracontacto/ver/", "method"=>"GET", "identica"=>false],
             ["url" => "/obracontacto/editar", "method"=>"GET", "identica"=>false],
 
             ["url" => "/empresa", "method"=>"GET", "identica"=>true],

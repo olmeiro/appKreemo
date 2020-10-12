@@ -64,22 +64,77 @@ class ObraContactoController extends Controller
       
     }
 
-    public function listar(Request $request){
+    // public function listar(Request $request){
 
-        $id = $request->input("id");
-        $contactos = [];
-        if($id != null)
-        {
-            $contactos = Cliente::select("contacto.*", "obracontacto.idcontacto as contactos","tipocontacto.tipocontacto")
-            ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
-            ->join("obracontacto", "contacto.id", "=", "obracontacto.idcontacto")
-            ->where("obracontacto.idobra", $id)
-            ->get();
-        }
+    //     $id = $request->input("id");
+    //     $contactos = [];
+    //     if($id != null)
+    //     {
+    //         $contactos = Cliente::select("contacto.*", "obracontacto.idcontacto as contactos","tipocontacto.tipocontacto")
+    //         ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
+    //         ->join("obracontacto", "contacto.id", "=", "obracontacto.idcontacto")
+    //         ->where("obracontacto.idobra", $id)
+    //         ->get();
+    //     }
+
+    //     $obras = Obra::all();
+
+    //     return view("obracontacto.listar", compact("obras","contactos"));
+    // }
+
+    public function listar(Request $request){
 
         $obras = Obra::all();
 
-        return view("obracontacto.listar", compact("obras","contactos"));
+        if ($request->ajax()) {
+            
+            //$obras = Obra::all();
+
+        return DataTables::of($obras)
+        ->addColumn('ver', function ($obras) {
+            //return '<a class="btn btn-info" data-toggle="modal" data-target="#exampleModal3" href="/obracontacto/listar?id={{ $value->id }}">Ver</a>';
+            //return '<button type="button" class="btn btn-outline-info float-right" data-toggle="modal" data-target="#exampleModal6">Ver</button>';
+            return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal6">
+                    <a class="btn btn-primary btn-sm" data-toggle="modal" id="ver-Contactos" data-id='.$obras->id.' ><i class="fas fa-eye"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+        })
+        ->addColumn('editar', function ($obras) {
+            return '<a class="btn btn-success" href="/obracontacto/listar?id={{ $value->id }}">Editar</a>';
+        })
+        ->addColumn('eliminar', function ($obras) {
+            return '<a class="btn btn-danger" href="/obracontacto/listar?id={{ $value->id }}">Eliminar</a>';
+           
+        })
+        ->rawColumns(['ver','editar','eliminar'])
+        ->make(true);
+        }
+        return view("obracontacto.listar", compact("obras"));
+    }
+
+    public function listarContactos($id){
+        
+        // $contactos = Cliente::select("obracontacto.*", "obracontacto.idcontacto","tipocontacto.tipocontacto")
+        // ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
+        // ->join("obracontacto", "contacto.id", "=", "obracontacto.idcontacto")
+        // ->where("obracontacto.idobra", $id)
+        // ->get();
+
+        // return DataTables::of($contactos);
+
+
+
+        $obraContactos = ObraContacto::select("obracontacto.*","obra.nombre as obra","contacto.nombre","contacto.apellido1","contacto.telefono1","contacto.correo1")
+        ->join("obra","obracontacto.idobra","=","obra.id")
+        ->join("contacto","obracontacto.idcontacto","=","contacto.id")
+        ->where("obracontacto.idobra", $id)
+        ->get();
+
+        return DataTables::of($obraContactos);
+
+        
+
+       
+
+      
     }
 
 }
