@@ -50,9 +50,13 @@ class User extends Authenticatable
                 "icono"=>"fas fa-id-card usario",
                 "hijos"=>[
 
+                    ["nombre"=>"Empresas","url"=>"/empresa"],
+
+                    ["nombre"=>"Obras","url"=>"/obra"],
+                    ["nombre"=>"Contactos obras","url"=>"/obracontacto"],
                     ["nombre"=>"Lista contactos obras","url"=>"/cliente"],
-                    ["nombre"=>"Crear contactos obra","url"=>"/obracontacto"],
-                    ["nombre"=>"Empresa","url"=>"/empresa"],
+                   
+                   
                 ],
             ],
             [
