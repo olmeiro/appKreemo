@@ -16,6 +16,8 @@ function soloNumeros(e) {
     return false;
     }
 };
+
+
 function soloLetras(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),

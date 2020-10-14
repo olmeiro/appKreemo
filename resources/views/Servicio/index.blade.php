@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">N° Cotización</label>
+                                    <label for="">N° Cotización</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Seleccione la cotización a la cual desea agendarle el servicio">
                                     <label class="validacion" id="validcotizacion"></label>
                                     <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion" onchange="darFecha()">
                                         <option selected>Seleccione una Cotización</option>
@@ -150,7 +150,7 @@
                             <div class="col-12">
                                 <div class="form-group">
                                     <label  for="">Descripción</label>
-                                    <label class="validacion" id="valdescripcion"></label>
+                                    <label class="validacion" id="valdescripcion"></label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese información adicional">
                                     <textarea class="form-control" name="descripcion" id="descripcion" cols="25" rows="3"></textarea>
                                     <label class="validacion" id="valdescripcion2"></label>
                                 </div>
@@ -179,6 +179,7 @@
 
 @section("scripts")
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="{{ asset('assets/dashboard/js/tooltips.js') }}"></script>
 <script>
     flatpickr("#fechainicio", {
         minDate: "today",

@@ -73,7 +73,7 @@
 
                                                     <div class="form-group col-md-6">
                                                         <label for="">Numero planilla</label>
-                                                        <label class="validacion" id="val_numeroplanilla"></label>
+                                                        <label class="validacion" id="val_numeroplanilla"></label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese el número asignado para esta visita">
                                                         <input type="text" class="form-control @error('numeroplanilla') is-invalid @enderror"  name="numeroplanilla" id="numeroplanilla">
                                                         @error('numeroplanilla')
                                                             <div class="invalid-feedback">{{ $message }}</div>
@@ -465,12 +465,12 @@
             });
 
     </script>
-
+  
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
 <script src="{{ asset('js/validacionListaChequeo.js') }}"></script>
-
+<script src="{{ asset('assets/dashboard/js/tooltips.js') }}"></script>
 
 
 
