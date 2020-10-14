@@ -9,6 +9,8 @@ use App\Models\Visita;
 use App\Models\ListaChequeo;
 use Illuminate\Http\Request;
 use App\Models\Encuesta;
+use App\Models\Obra;
+use App\Models\Servicio;
 
 class ChartController extends Controller
 {
@@ -69,15 +71,62 @@ class ChartController extends Controller
 
     public function index3(){
         $encuesta = Encuesta::all();
-        return view('chart.encuesta', compact('encuesta'));
+        $servicio = Servicio::all();
+        $cotizacion = Cotizacion::all();
+        $obra = Obra::all();
+        return view('chart.encuesta', compact('encuesta','servicio','cotizacion','obra'));
     }
 
     public function encuesta(Request $request){
 
         $input = $request->all();
 
-        $encuesta = Encuesta::select( "encuesta.id","encuesta.idservicio", "encuesta.directorobra", "encuesta.constructora","encuesta.respuesta2", "encuesta.respuesta3")
-        ->where('encuesta.respuesta2', '=', [$input["id"]])
+        $encuesta = Encuesta::select( "encuesta.id","encuesta.idservicio", "obra.nombre as nombre_obra","encuesta.respuesta2", "encuesta.respuesta3")
+        ->join("servicio","servicio.id","=","encuesta.idservicio")
+        ->join("cotizacion","cotizacion.id","=","servicio.idcotizacion")
+        ->join("obra","obra.id","=","cotizacion.idobra")
+        ->get();
+
+        return response(json_encode($encuesta), 200)->header('Content-type','text/plain');
+    }
+
+    public function index4(){
+        $encuesta = Encuesta::all();
+        $servicio = Servicio::all();
+        $cotizacion = Cotizacion::all();
+        $obra = Obra::all();
+        return view('chart.encuesta4', compact('encuesta','servicio','cotizacion','obra'));
+    }
+
+    public function encuesta4(Request $request){
+
+        $input = $request->all();
+
+        $encuesta = Encuesta::select( "encuesta.id","encuesta.idservicio", "obra.nombre as nombre_obra","encuesta.respuesta6")
+        ->join("servicio","servicio.id","=","encuesta.idservicio")
+        ->join("cotizacion","cotizacion.id","=","servicio.idcotizacion")
+        ->join("obra","obra.id","=","cotizacion.idobra")
+        ->get();
+
+        return response(json_encode($encuesta), 200)->header('Content-type','text/plain');
+    }
+
+    public function index5(){
+        $encuesta = Encuesta::all();
+        $servicio = Servicio::all();
+        $cotizacion = Cotizacion::all();
+        $obra = Obra::all();
+        return view('chart.encuesta5', compact('encuesta','servicio','cotizacion','obra'));
+    }
+
+    public function encuesta5(Request $request){
+
+        $input = $request->all();
+
+        $encuesta = Encuesta::select( "encuesta.id","encuesta.idservicio", "obra.nombre as nombre_obra","encuesta.respuesta7")
+        ->join("servicio","servicio.id","=","encuesta.idservicio")
+        ->join("cotizacion","cotizacion.id","=","servicio.idcotizacion")
+        ->join("obra","obra.id","=","cotizacion.idobra")
         ->get();
 
         return response(json_encode($encuesta), 200)->header('Content-type','text/plain');
