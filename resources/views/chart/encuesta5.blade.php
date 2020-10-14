@@ -30,8 +30,7 @@
                             <th>N° Encuesta</th>
                             <th>N° Servicio</th>
                             <th>Obra</th>
-                            <th>Tuvo Inconveniente</th>
-                            <th>Descripción</th>
+                            <th>Volvería a VB</th>
                         </tr>
                         <tbody id="tbody" class="" align="center">
 
@@ -51,8 +50,7 @@
         var id = [];
         var idservicio = [];
         var nombre_obra = [];
-        var respuesta2 = [];
-        var respuesta3 = [];
+        var respuesta7 = [];
         var colores = [];
         var sumasi = 0;
         var sumano = 0;
@@ -60,7 +58,7 @@
         $(document).ready(function(){
 
                 $.ajax({
-                url:'/chart/encuesta',
+                url:'/chart/encuesta5',
                 method: 'POST',
                 data: {
                     _token:$('input[name="_token"]').val()
@@ -72,16 +70,14 @@
                     todo ='<tr><td>'+arreglo[x].id+'</td>';
                     todo+='<td>'+arreglo[x].idservicio+'</td>';
                     todo+='<td>'+arreglo[x].nombre_obra+'</td>';
-                    todo+='<td>'+arreglo[x].respuesta2+'</td>';
-                    todo+='<td>'+arreglo[x].respuesta3+'</td></tr>';
+                    todo+='<td>'+arreglo[x].respuesta7+'</td></tr>';
                     $('#tbody').append(todo);
                     id.push(arreglo[x].id);
                     idservicio.push(arreglo[x].idservicio);
                     nombre_obra.push(arreglo[x].nombre_obra);
-                    respuesta2.push(arreglo[x].respuesta2);
-                    respuesta3.push(arreglo[x].respuesta3);
+                    respuesta7.push(arreglo[x].respuesta7);
                     colores.push(colorRGB());
-                    if (arreglo[x].respuesta2 == "SI") {
+                    if (arreglo[x].respuesta7 == "SI") {
                         sumasi +=1;
                     }else {
                         sumano +=1;
@@ -101,7 +97,7 @@
                 data: {
                     labels:['SI','NO'],
                     datasets: [{
-                        label: 'Inconvenientes',
+                        label: 'Volveria a VB',
                         data: [sumasi,sumano ],
                         backgroundColor: colores,
                         borderColor: colores,
@@ -127,7 +123,7 @@
                 data: {
                     labels:['SI','NO'],
                     datasets: [{
-                        label: 'Inconvenientes',
+                        label: 'Volveria a VB',
                         data: [sumasi,sumano ],
                         backgroundColor: colores,
                         borderColor: colores,

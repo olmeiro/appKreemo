@@ -53,8 +53,8 @@ class User extends Authenticatable
                     ["nombre"=>"Empresas","url"=>"/empresa"],
                     ["nombre"=>"Obras","url"=>"/obra"],
                     ["nombre"=>"Contactos","url"=>"/cliente"],
-                   
-                   
+
+
                 ],
             ],
             [
@@ -104,11 +104,13 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-tasks",
                 "hijos"=>[
-                    ["nombre"=>"Cotización por empresa","url"=>"/chart"],
-                    ["nombre"=>"Cotización por estados","url"=>"/chartestados"],
-                    ["nombre"=>"Visita","url"=>"/chartvisita"],
-                    ["nombre"=>"Servicio","url"=>"/chartservicio"],
-                    ["nombre"=>"Encuesta","url"=>"/chartencuesta"],
+                    ["nombre"=>"C - por empresa","url"=>"/chart"],
+                    ["nombre"=>"C - por estados","url"=>"/chartestados"],
+                    ["nombre"=>"V - Viabilidad","url"=>"/chartvisita"],
+                    ["nombre"=>"S - Servicio","url"=>"/chartservicio"],
+                    ["nombre"=>"E - Inconvenientes","url"=>"/chartencuesta"],
+                    ["nombre"=>"E - Recomendar VB","url"=>"/chartencuesta4"],
+                    ["nombre"=>"E - Volvería a VB","url"=>"/chartencuesta5"],
                 ],
             ],
         ],
@@ -223,9 +225,9 @@ class User extends Authenticatable
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
 
             ["url" => "/obra/crearcontactos", "method"=>"GET", "identica"=>true],
-          
-     
-         
+
+
+
             ["url" => "/obra/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
@@ -416,6 +418,12 @@ class User extends Authenticatable
 
             ["url" => "/chartencuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta4", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta4", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta5", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta5", "method"=>"POST", "identica"=>true],
 
         ],
         2=>[
