@@ -19,7 +19,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                 
+
                     <div class="form-group col-md-4">
                         <label for="">N° Cotización</label>
                             <select id="idcotizacion"  name= "idcotizacion" class="form-control @error('idcotizacion') is-invalid @enderror" >
@@ -119,9 +119,6 @@
                                     @enderror
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Estado del servicio</label>
@@ -138,18 +135,21 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="col-6">
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
                                 <div class="form-group">
                                     <label for="">Descripción</label>
                                     <label class="validacion" id="valdescripcion"></label>
-                                    <textarea name="descripcion" id="descripcion" cols="25" rows="3">{{ $servicio->descripcion }}</textarea>
+                                    <textarea class="form-control" name="descripcion" id="descripcion" cols="25" rows="3">{{ $servicio->descripcion }}</textarea>
                                     <label class="validacion" id="valdescripcion2"></label>
                                 </div>
                             </div>
                         </div>
 
-                <button type="submit" class="btn btn-success float-right" style="margin-left:10px;">Editar Servicio</button>
-                <a href="/servicio/listarservicio" class="btn btn-outline-primary float-right" >Volver</a>
+                <button type="submit" class="btn btn-primary float-right" style="margin-left:10px;">Editar Servicio</button>
+                <a href="/servicio/listarservicio" class="btn btn-ligth float-right">Volver</a>
             </form>
         </div>
     </div>
