@@ -25,10 +25,6 @@ class ChartController extends Controller
         return view('chart.servicio');
     }
 
-    public function index3(){
-        return view('chart.encuesta');
-    }
-
     public function estados(Request $request){
         $input = $request->all();
         $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
@@ -71,20 +67,20 @@ class ChartController extends Controller
         return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
     }
 
+    public function index3(){
+        $encuesta = Encuesta::all();
+        return view('chart.encuesta', compact('encuesta'));
+    }
+
     public function encuesta(Request $request){
 
-        $encuesta = Encuesta::all();
-        //return DataTables::of($encuesta)
+        $input = $request->all();
 
-        // $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
-        // ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
-        // ->join("obra", "cotizacion.idObra", "=", "obra.id")
-        // ->where('cotizacion.idEmpresa', '=', 1)
-        // ->get();
+        $encuesta = Encuesta::select( "encuesta.id","encuesta.idservicio", "encuesta.directorobra", "encuesta.constructora","encuesta.respuesta2", "encuesta.respuesta3")
+        ->where('encuesta.respuesta2', '=', [$input["id"]])
+        ->get();
 
-        //id=1 Inversion Artemisa
-
-        return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+        return response(json_encode($encuesta), 200)->header('Content-type','text/plain');
     }
 }
 
