@@ -13,7 +13,16 @@
             <div class="row">
             <div class="col-6">
 
+
+
                 <div class="col-6">
+                    <div class="form-group">
+                        <label for=""></label>
+                        <input value="{{$obra->idempresa}}" type="hidden" class="form-control @error('nombre') is-invalid @enderror"  name="idempresa" id="idempresa">
+                        @error('nombre')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <div class="form-group">
                         <label for="">Nombre</label>
                         <input value="{{$obra->nombre}}" type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre">

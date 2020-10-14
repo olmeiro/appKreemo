@@ -28,6 +28,38 @@ Route::get('users/{id}/edit/','UserController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/empresa', 'EmpresaController@index');
+Route::get('/empresa/listar', 'EmpresaController@listar');
+Route::post('/empresa/guardar', 'EmpresaController@store');
+Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
+Route::get('/empresa/edit/{id}', 'EmpresaController@edit');
+Route::get('/empresa/cambiar/estado/{id}/{estado}', 'EmpresaController@updateState');
+Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
+
+Route::get('/obra', 'ObraController@index');
+Route::get('/obra/listar', 'ObraController@listar');
+Route::get('/obra/pasarid/{id}', 'ObraController@pasarid');
+Route::post('/obra/guardar', 'ObraController@save');
+Route::get('/obra/crearcontactos', 'ObraContactoController@create');
+Route::get('/obra/editar/{id}', 'ObraController@edit');
+Route::post('/obra/actualizar', 'ObraController@update');
+
+Route::post('/obra/eliminar/{id}', 'ObraController@destroy');
+
+Route::get('/cliente', 'ClientesController@index');
+Route::get('/cliente/listar', 'ClientesController@listar');
+Route::get('/cliente/pasarid/{id}', 'ClientesController@pasarid');
+Route::post('/cliente/guardar', 'ClientesController@store');
+Route::post('/cliente/guardaredit', 'ClientesController@store1');
+Route::post('/cliente/actualizar', 'ClientesController@update');
+
+Route::get('/cliente/crear', 'ClientesController@create');
+
+Route::post('/cliente/guardarNuevo', 'ClientesController@save');
+Route::get('/cliente/edit/{id}', 'ClientesController@edit');
+Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
+Route::post('/cliente/eliminar/{id}', 'ClientesController@destroy');
+
 Route::get('/tipocontacto', 'TipoContactoController@index');
 Route::get('/tipocontacto/listar', 'TipoContactoController@listar');
 Route::get('/tipocontacto/crear', 'TipoContactoController@create');
@@ -36,41 +68,15 @@ Route::get('/tipocontacto/editar/{id}', 'TipoContactoController@edit');
 Route::post('/tipocontacto/actualizar', 'TipoContactoController@update');
 Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 
-Route::get('/cliente', 'ClientesController@index');
-Route::get('/cliente/listar', 'ClientesController@listar');
-Route::get('/cliente/crear', 'ClientesController@create');
-Route::post('/cliente/guardar', 'ClientesController@store');
-Route::post('/cliente/guardarNuevo', 'ClientesController@save');
-Route::get('/cliente/edit/{id}', 'ClientesController@edit');
-Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
-Route::post('/cliente/eliminar/{id}', 'ClientesController@destroy');
-
-Route::get('/obra', 'ObraController@index');
-Route::get('/obra/listar', 'ObraController@listar');
-Route::get('/obra/crear', 'ObraController@create');
-Route::get('/obra/crearcontactos', 'ObraContactoController@create');
-Route::post('/obra/guardar', 'ObraController@save');
-Route::get('/obra/editar/{id}', 'ObraController@edit');
-Route::post('/obra/actualizar', 'ObraController@update');
-Route::post('/obra/eliminar/{id}', 'ObraController@destroy');
 
 
-Route::get('/empresa', 'EmpresaController@index');
-Route::get('/empresa/listar', 'EmpresaController@listar');
-Route::post('/empresa/guardar', 'EmpresaController@store');
-Route::post('/empresa/guardarNuevo', 'EmpresaController@save');
-Route::get('/empresa/edit/{id}', 'EmpresaController@edit');
-Route::get('/empresa/cambiar/estado/{id}/{estado}', 'EmpresaController@updateState');
-
-Route::post('/empresa/eliminar/{id}', 'EmpresaController@destroy');
-
-Route::get('/obracontacto', 'ObraContactoController@index');
-Route::post('/obracontacto/guardar', 'ObraContactoController@save');
-Route::get('/obracontacto/listar', 'ObraContactoController@listar');
-Route::get('/obracontacto/ver/{id}', 'ObraContactoController@listarContactos');
-Route::get('/obracontacto/editar/{id}', 'ObraContactoController@edit');
-Route::post('/obracontacto/actualizar', 'ObraContactoController@actualizar');
-Route::post('/obracontacto/eliminar/{id}', 'ObraContactoController@destroy');
+// Route::get('/obracontacto', 'ObraContactoController@index');
+// Route::post('/obracontacto/guardar', 'ObraContactoController@save');
+// Route::get('/obracontacto/listar', 'ObraContactoController@listar');
+// Route::get('/obracontacto/ver/{id}', 'ObraContactoController@listarContactos');
+// Route::get('/obracontacto/editar/{id}', 'ObraContactoController@edit');
+// Route::post('/obracontacto/actualizar', 'ObraContactoController@actualizar');
+// Route::post('/obracontacto/eliminar/{id}', 'ObraContactoController@destroy');
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');

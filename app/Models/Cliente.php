@@ -10,6 +10,7 @@ class Cliente extends Model
     protected $table = "contacto";
 
     protected $fillable = [
+        "idobra",
         "idtipocontacto",
         "nombre",
         "apellido1",
@@ -23,6 +24,8 @@ class Cliente extends Model
     ];
 
     public static $rules = [
+        'idobra' => 'required|integer',
+        'idtipocontacto' => 'required|integer',
         'idtipocontacto' => 'required|integer',
         'nombre' => 'required|string|max:20',
         'apellido1' =>  'required|string|max:20',

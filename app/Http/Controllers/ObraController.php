@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Empresa;
 use Flash;
 use DataTables;
 
@@ -14,12 +16,15 @@ class ObraController extends Controller
 {
     public function index()
     {
-        return view('obra.index');
+        $empresa = Empresa::all();
+        return view('obra.index', compact('empresa'));
     }
 
     public function listar(Request $request){
 
-        $obra = Obra::all();
+        $obra = Obra::select("obra.*","empresa.nombre as empresa")
+        ->join("empresa","obra.idempresa","=","empresa.id")
+        ->get();
         //dd($obra);
 
         return DataTables::of($obra)
@@ -27,17 +32,20 @@ class ObraController extends Controller
             return '<a class="btn btn-primary btn-sm" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('ver', function ($obra) {
-            return '<a class="btn btn-secondary btn-sm" href="/obracontacto/">Ver Contactos</a>';
+            return '<a class="btn btn-secondary btn-sm" href="/cliente">Ver Contactos</a>';
         })
-        ->rawColumns(['editar','ver'])
+        ->addColumn('agregar', function ($obra) {
+            return '<a class="btn btn-secondary btn-sm" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
+        })
+        ->rawColumns(['editar','ver','agregar'])
         ->make(true);
     }
 
-    public function create(){
-
-        $obra = Obra::all();
-
-        return view('obra.create', compact('obra'));
+    public function pasarid($id)
+    {   
+        $id;
+        //dd($id);
+        return view('obra.create', compact('id'));
     }
 
     public function save(Request $request){
@@ -49,6 +57,7 @@ class ObraController extends Controller
         try {
 
             Obra::create([
+                "idempresa" => $input["idempresa"],
                 "nombre" => $input["nombre"],
                 "direccion" =>$input["direccion"],
                 "telefono1" =>$input["telefono1"],
@@ -61,9 +70,18 @@ class ObraController extends Controller
 
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
-            return redirect("/obra/crear");
+            return redirect("/empresa");
         }
     }
+
+    public function create(){
+
+        $obra = Obra::all();
+
+        return view('obra.create', compact('obra'));
+    }
+
+  
 
     public function edit($id){
 
@@ -76,22 +94,15 @@ class ObraController extends Controller
             Flash::error("Obra no encontrada");
             return redirect("/obra");
         }
-        //else{
-            return view("obra.edit", compact("obra"));
-        // }
-
-        // $where = array('id' => $id);
-        // dd($where);
-        // $obra = Obra::where($where)->first();
-        // //Flash::success("Se modifico el cliente.");
-        // return Response::json($obra);
-
+        
+        return view("obra.edit", compact("obra"));
     }
 
     public function update(Request $request){
 
         $request->validate(Obra::$rules);
         $input = $request->all();
+        //dd($input);
 
         try {
 

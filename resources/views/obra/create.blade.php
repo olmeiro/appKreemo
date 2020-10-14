@@ -11,10 +11,12 @@
         @include('flash::message')
         <form action="/obra/guardar" method="POST">
         @csrf
+        <input type="hidden" name="idempresa" id="idempresa" value="{{ $id }}">
             <div class="row">
             <div class="col-6">
+            
                     <div class="form-group">
-                        <label for="">Nombre</label>
+                        <label for="">Nombre obra</label>
                         <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre"value="{{old('nombre')}}">
                         @error('nombre')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -53,7 +55,9 @@
                 </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success float-lg-right">Guardar</button>
+           <div class="col-12">
+           <button type="submit" class="btn btn-success float-md-right">Guardar</button>
+           </div>
             </form>
         </div>
     </div>

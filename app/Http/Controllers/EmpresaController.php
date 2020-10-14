@@ -49,12 +49,17 @@ class EmpresaController extends Controller
 
             }
         })
+        ->addColumn('agregar', function ($empresa) {
+
+            return    '<a id="agregar-obra" data-id='.$empresa->id.' class="btn btn-warning agregar-obra btn-lg" href="/obra/pasarid/'.$empresa->id.'"><i class="fas fa-plus-square"></i></a>';
+
+        })
         ->addColumn('eliminar', function ($empresa) {
             return '
             <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa btn-lg" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
-        ->rawColumns(['editar','cambiar','eliminar'])
+        ->rawColumns(['agregar','editar','cambiar','eliminar'])
         ->make(true);
     }
         return view('empresa/listar');
