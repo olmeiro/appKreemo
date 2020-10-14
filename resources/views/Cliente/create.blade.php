@@ -11,6 +11,7 @@
         @include('flash::message')
         <form action="/cliente/guardar" method="POST" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="idobra" id="idobra" value="{{ $id }}">
             <div class="row">
             <div class="col-6">
 

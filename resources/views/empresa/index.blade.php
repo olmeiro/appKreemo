@@ -23,6 +23,9 @@
                     <th>Dirección</th>
                     <th>Telefono </th>
                     <th>Correo </th>
+                    <th>Estado</th>
+                    <th>Cambiar Estado</th>
+                    <th>Agregar obra</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
                 </tr>
@@ -49,7 +52,7 @@
                           <div class="modal-body">
                                     <div class="row">
                                             <div class="col-md-6">
-                                                <label for="">NIT</label>
+                                                <label for="">NIT o cedula</label>
                                                 <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit" onkeypress="return soloNumeros(event)">
                                                 @error('nit')
                                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -178,13 +181,20 @@
                                             @enderror
                                             <label class="validacion" for="ecorreo1" id="valECorreo1"></label>
                                         </div>
+                                        <div class="col-md-6">
+                                            <label for="">Estado</label>
+                                            <select class="form-control" name="eestado" id="eestado">
+                                                <option value="1">Activo</option>
+                                                <option value="0">Pasivo</option>
+                                            </select>
+                                            <label class="validacion" for="eestado" id="valEEstado"></label>
+                                        </div>
                                     </div>
                         </div>
 
 
                             <div class="modal-footer">
                                 <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
-                                <a href="/empresa" class="btn btn-danger">Cancelar</a>
                             </div>
                     </form>
                 </div>
@@ -234,6 +244,20 @@
                         name: 'correo1'
                     },
                     {
+                        data: 'estado',
+                        name: 'estado'
+                    },
+                    {
+                        data: 'cambiar',
+                        name: 'cambiar',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'agregar',
+                        name: 'agregar'
+                    },
+                    {
                         data: 'editar',
                         name: 'editar',
                         orderable: false,
@@ -279,23 +303,22 @@
             });
 
             $('body').on('click', '#editar-Empresa', function () {
-            var empresa_id = $(this).data('id');
-            $.get('empresa/edit/'+empresa_id, function (data) {
-            $('#empresaCrudModal').html("X");
-            $('#btn-update').val("Update");
-            $('#btn-save').prop('disabled',false);
-            $('#exampleModal4').modal('show');
-            $('#empresa_id').val(data.id);
-            $('#enit').val(data.nit);
-            $('#enombre').val(data.nombre);
-            $('#enombrerepresentante').val(data.nombrerepresentante);
-            $('#edireccion').val(data.direccion);
-            $('#etelefono1').val(data.telefono1);
-            $('#ecorreo1').val(data.correo1);
-
-
-    })
-    });
+                var empresa_id = $(this).data('id');
+                $.get('empresa/edit/'+empresa_id, function (data) {
+                $('#empresaCrudModal').html("X");
+                $('#btn-update').val("Update");
+                $('#btn-save').prop('disabled',false);
+                $('#exampleModal4').modal('show');
+                $('#empresa_id').val(data.id);
+                $('#enit').val(data.nit);
+                $('#enombre').val(data.nombre);
+                $('#enombrerepresentante').val(data.nombrerepresentante);
+                $('#edireccion').val(data.direccion);
+                $('#etelefono1').val(data.telefono1);
+                $('#ecorreo1').val(data.correo1);
+                $('#eestado').val(data.estado);
+                })
+            });
 
     function validate()
         {

@@ -22,7 +22,10 @@ class CotizacionController extends Controller
 
         $cotizacion = Cotizacion::all();
         $empresa = Empresa::all();
+        
         $obra = Obra::all();
+
+
         $estadocotizacion = EstadoCotizacion::all();
         $jornada = Jornada::all();
         $etapa = Etapa::all();

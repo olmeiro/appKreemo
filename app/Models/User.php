@@ -45,14 +45,16 @@ class User extends Authenticatable
                 "icono"=>"fas fa-users",
             ],
             [
-                "nombre"=>"Contactos",
+                "nombre"=>"Clientes",
                 "url"=>"#",
                 "icono"=>"fas fa-id-card usario",
                 "hijos"=>[
 
-                    ["nombre"=>"Lista contactos obras","url"=>"/cliente"],
-                    ["nombre"=>"Crear contactos obra","url"=>"/obracontacto"],
-                    ["nombre"=>"Empresa","url"=>"/empresa"],
+                    ["nombre"=>"Empresas","url"=>"/empresa"],
+                    ["nombre"=>"Obras","url"=>"/obra"],
+                    ["nombre"=>"Contactos","url"=>"/cliente"],
+                   
+                   
                 ],
             ],
             [
@@ -205,7 +207,9 @@ class User extends Authenticatable
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/cliente/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/guardar", "method"=>"POST", "identica"=>true],
+            ["url" => "/cliente/guardaredit", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/guardarNuevo", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/edit", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/cambiar/estado", "method"=>"GET", "identica"=>false],
@@ -213,22 +217,33 @@ class User extends Authenticatable
 
             ["url" => "/obra", "method"=>"GET", "identica"=>true],
             ["url" => "/obra/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/obra/crear", "method"=>"GET", "identica"=>true],
-            ["url" => "/obra/crearcontactos", "method"=>"GET", "identica"=>true],
+            ["url" => "/obra/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/guardar", "method"=>"POST", "identica"=>true],
-            ["url" => "/obra/editar/{id}", "method"=>"GET", "identica"=>false],
+            ["url" => "/obra/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/obra/crearcontactos", "method"=>"GET", "identica"=>true],
+          
+     
+         
+            ["url" => "/obra/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/obracontacto/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/obracontacto/listar", "method"=>"GET", "identica"=>true],
+            ["url" => "/obracontacto/listar/", "method"=>"GET", "identica"=>false],
+            ["url" => "/obracontacto/ver/", "method"=>"GET", "identica"=>false],
             ["url" => "/obracontacto/editar", "method"=>"GET", "identica"=>false],
+            ["url" => "/obracontacto/actualizar", "method"=>"POST", "identica"=>true],
+            ["url" => "/obracontacto/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/empresa", "method"=>"GET", "identica"=>true],
             ["url" => "/empresa/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/empresa/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/guardarNuevo", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/edit", "method"=>"GET", "identica"=>false],
+            ["url" => "/empresa/cambiar/estado", "method"=>"GET", "identica"=>false],
+
             ["url" => "/empresa/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],

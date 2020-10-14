@@ -327,10 +327,10 @@ $(document).ready(function() {
 /* Delete customer */
 $('body').on('click', '#delete-empresa', function (e) {
     e.preventDefault();
-
+    
     x = confirm("Esta seguro de eliminar !");
 
-    if(x){
+    if (x){
         var empresa_id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
@@ -340,21 +340,37 @@ $('body').on('click', '#delete-empresa', function (e) {
             "id": empresa_id,
             "_token": token,
             },
-            success: function (data) {
-    
-            // $('#msg').html('Customer entry deleted successfully');
-            // $("#empresa_id_" + empresa_id).remove();
-            var table = $('#tbl_empresa').DataTable();
-            table.ajax.reload();
-            },
-            error: function (data) {
-            console.log('Error:', data);
-            }
-        });
-    }else
+        })
+            .done(function(respuesta){
+                if(respuesta && respuesta.ok){
+                    Swal.fire({
+                      title:'Empresa eliminada',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                      padding:'1rem',
+                      backdrop:true,
+                      position:'center',
+                          });
+                        var table = $('#tbl_empresa').DataTable();    
+                        table.ajax.reload();
+                } else {
+                    
+
+                  Swal.fire({
+                    title:'No se puede borrar',text:'La empresa está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                     padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                });
+                var table = $('#tbl_empresa').DataTable();    
+                    table.ajax.reload();
+                }
+            
+              })
+      
+    }
+    else
     {
-        return false;
-    } 
+    return false;
+    }
 });
 
 
