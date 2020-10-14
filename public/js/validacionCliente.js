@@ -260,7 +260,7 @@ $(document).ready(function() {
 
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                url: "/cliente/guardar",
+                url: "/cliente/guardaredit",
                 type: "POST",
                 data: fd,
                 processData: false,  // tell jQuery not to process the data

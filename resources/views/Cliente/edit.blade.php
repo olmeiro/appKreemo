@@ -9,7 +9,7 @@
         @include('flash::message')
         <form action="/cliente/actualizar" method="POST" enctype="multipart/form-data">
         @csrf
-        <input type="hidden" name="id" value="{{$cliente->id}}"/>
+        <input type="hidden" name="id" id="id" value="{{$cliente->id}}"/>
             <div class="row">
             <div class="col-6">
 

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Cliente;
 use App\Models\Cotizacion;
 use App\Models\Empresa;
+use App\Models\Visita;
+use App\Models\ListaChequeo;
 use Illuminate\Http\Request;
 use App\Models\Encuesta;
 
@@ -45,20 +47,20 @@ class ChartController extends Controller
 
     public function viabilidad(Request $request){
 
-        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
-        ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
-        ->join("obra", "cotizacion.idObra", "=", "obra.id")
-        ->where('cotizacion.idEmpresa', '=', 1)
+        $listachequeo = ListaChequeo::select( "listachequeo.id","listachequeo.viabilidad", "listachequeo.idvisita","listachequeo.numeroplanilla", "obra.nombre as nombre_obra")
+        ->join("visita","visita.id", "=", "listachequeo.idvisita")
+        ->join("obra", "obra.id", "=", "visita.idobra")
+        // ->where('listachequeo.id', '=', 1)
         ->get();
 
         //id=1 Inversion Artemisa
 
-        return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
+        return response(json_encode($listachequeo), 200)->header('Content-type','text/plain');
     }
 
     public function servicios(Request $request){
 
-        $cotizacion = Cotizacion::select( "cotizacion.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
+        $cotizacion = Cotizacion::select( "listachequeo.id","cotizacion.fechaCotizacion", "cotizacion.valorTotal", "empresa.nombre as nombre_empresa","obra.nombre as nombre_obra")
         ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
         ->join("obra", "cotizacion.idObra", "=", "obra.id")
         ->where('cotizacion.idEmpresa', '=', 1)

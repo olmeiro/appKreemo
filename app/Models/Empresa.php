@@ -15,6 +15,7 @@ class Empresa extends Model
         "direccion",
         "telefono1",
         "correo1",
+        "estado",
     ];
 
     public static $rules = [
@@ -24,5 +25,6 @@ class Empresa extends Model
         'direccion' => 'required|string|max:60',
         'telefono1' => 'numeric|required|digits_between:7,11',
         'correo1' => 'email:rfc,dns',
+        'estado' => 'in:1,0',
     ];
 }

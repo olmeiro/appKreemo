@@ -12,21 +12,20 @@
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal3">Lista de tipo de contactos</button>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">Crear contacto</button>
         </div>
-        <div class="card-body">
+        <div class="card-body justify-content-lg-center">
         @include('flash::message')
         <h4 id="mensaje"></h4>
             <table id="tbl_contacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
+                    <th>Obra</th>
                     <th>Tipo contacto</th>
                     <th>Nombre</th>
                     <th>Primer apellido</th>
                     <th>Segudno apellido</th>
-                    <th>Estado</th>
                     <th>Telefono 1</th>
                     <th>Correo 1</th>
                     <th>Editar</th>
-                    <th>Cambiar estado</th>
                     <th>Eliminar</th>
                 </tr>
                 </thead>
@@ -90,21 +89,32 @@
                             </ul>
                             <div>
                                 <div id="step-1">
-                                    <div class="row mt-3">
+                                    <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="">Tipo de contacto</label>
-                                                <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
-                                                    <option value="0">Seleccione</option>
-                                                    @foreach($tipoContacto as $key =>$value)
-                                                        <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
-                                                    @endforeach
-                                                </select>
-                                                @error('idtipocontacto')
-                                                    <div class="invalid-feedback">{{ $message }} ></div>
-                                                @enderror
-                                                <label class="validacion" for="idtipocontacto" id="valContacto"></label>
-                                            </div>
+                                            <label for="">Tipo de contacto</label>
+                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
+                                                <option value="0">Seleccione</option>
+                                                @foreach($tipoContacto as $key =>$value)
+                                                    <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('idtipocontacto')
+                                                <div class="invalid-feedback">{{ $message }} ></div>
+                                            @enderror
+                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Obra</label>
+                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idobra" id="idobra">
+                                            <option value="0">Seleccione Obra</option>
+                                            @foreach($obra as $key =>$value)
+                                                <option value="{{ $value->id }}">{{ $value->nombre}}</option>
+                                            @endforeach
+                                            </select>
+                                            @error('idtipocontacto')
+                                                <div class="invalid-feedback">{{ $message }} ></div>
+                                            @enderror
+                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -239,27 +249,41 @@
                     </div>
                     <div class="modal-body">
                         <div class="card-body">
-                        <form class="editContact" name="clienteForm" id="editForm" action="/cliente/guardar" method="POST" >
+                        <form class="editContact" name="clienteForm" id="editForm" action="/cliente/guardaredit" method="POST" >
                         @csrf
                         <input type="hidden" name="cliente_id" id="cliente_id" >
 
                             <div class="row">
                             <div class="col-6">
 
-                                    <div class="form-group">
-                                        <label for="">Tipo Contacto</label>
-                                        <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidtipocontacto" id="cidtipocontacto" onchange="validate()">
-                                            <option value="0">Seleccione</option>
-                                            @foreach($tipoContacto as $key =>$value)
-                                                <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
+                            <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="">Tipo de contacto</label>
+                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidtipocontacto" id="cidtipocontacto">
+                                                <option value="0">Seleccione</option>
+                                                @foreach($tipoContacto as $key =>$value)
+                                                    <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
+                                                @endforeach
+                                            </select>
+                                            @error('idtipocontacto')
+                                                <div class="invalid-feedback">{{ $message }} ></div>
+                                            @enderror
+                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="">Obra</label>
+                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidobra" id="cidobra">
+                                            <option value="0">Seleccione Obra</option>
+                                            @foreach($obra as $key =>$value)
+                                                <option value="{{ $value->id }}">{{ $value->nombre}}</option>
                                             @endforeach
-                                        </select>
-                                        @error('idtipocontacto')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="cidtipocontacto" id="valCTipoContacto"></label>
+                                            </select>
+                                            @error('idtipocontacto')
+                                                <div class="invalid-feedback">{{ $message }} ></div>
+                                            @enderror
+                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                        </div>
                                     </div>
-
                                 </div>
 
                                 <div class="col-6">
@@ -380,6 +404,12 @@
                 ajax: '/cliente/listar',
                 columns: [
                     {
+                     data: 'obra',
+                     name: 'obra',
+                     orderable: true,
+                     searchable: true
+                    },
+                    {
                      data: 'tipocontacto',
                      name: 'tipocontacto',
                      orderable: false,
@@ -398,10 +428,6 @@
                         name: 'apellido2'
                     },
                     {
-                        data: 'estado',
-                        name: 'estado'
-                    },
-                    {
                         data: 'telefono1',
                         name: 'telefono1'
                     },
@@ -415,12 +441,7 @@
                         orderable: false,
                         searchable: false
                     },
-                    {
-                        data: 'cambiar',
-                        name: 'cambiar',
-                        orderable: false,
-                        searchable: false
-                    },
+
                     {
                         data: 'eliminar',
                         name: 'eliminar',
@@ -523,6 +544,7 @@
                 $('#exampleModal4').modal('show');
                 $('#cliente_id').val(data.id);
                 $('#cidtipocontacto').val(data.idtipocontacto);
+                $("#cidobra").val(data.idobra);
                 $('#cnombre').val(data.nombre);
                 $('#capellido1').val(data.apellido1);
                 $('#capellido2').val(data.apellido2);

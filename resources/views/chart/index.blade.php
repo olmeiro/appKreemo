@@ -138,11 +138,8 @@
 
         function generarGrafica(nombre_obra, valortotal,colores){
             var ctx = document.getElementById('myChart').getContext('2d');
-            if (window.grafica) {
-                    window.grafica.clear();
-                    window.grafica.destroy();
-                }
-            window.grafica = new Chart(ctx, {
+
+                var myChart = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels:nombre_obra,
@@ -168,11 +165,8 @@
 
         function generarGrafica2(nombre_obra, valortotal,colores){
             var ctx = document.getElementById('myChart1').getContext('2d');
-            if (window.grafic) {
-                    window.grafic.clear();
-                    window.grafic.destroy();
-                }
-            window.grafic = new Chart(ctx, {
+
+                var myChart = new Chart(ctx, {
                 type: 'pie',
                 data: {
                     labels: nombre_obra,

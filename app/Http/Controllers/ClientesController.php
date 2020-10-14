@@ -8,25 +8,29 @@ use DataTables;
 use Redirect,Response;
 
 use App\Models\Cliente;
+use App\Models\Obra;
 use App\Models\tipoContacto;
 
 class ClientesController extends Controller
 {
     public function index(){
 
-        $cliente = cliente::select("contacto.*","tipocontacto.tipocontacto")
+        $obra = Obra::all();
+
+        $cliente = cliente::select("contacto.*","tipocontacto.tipocontacto","obra.id")
+        ->join("obra","contacto.idobra","=","obra.id")
         ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
         ->get();
 
         $tipoContacto = tipoContacto::all();
-        return view('cliente.index', compact('cliente','tipoContacto'));
+        return view('cliente.index', compact('cliente','tipoContacto','obra'));
     }
 
     public function listar(Request $request){
 
 
-        $cliente = Cliente::select("contacto.*","tipocontacto.tipocontacto")
-
+        $cliente = Cliente::select("contacto.*","tipocontacto.tipocontacto","obra.nombre as obra")
+        ->join("obra","contacto.idobra","=","obra.id")
         ->join("tipocontacto", "contacto.idtipocontacto", "=", "tipocontacto.id")
         ->get();
 
@@ -35,29 +39,17 @@ class ClientesController extends Controller
 
         return DataTables::of($cliente)
         ->addIndexColumn()
-        ->editColumn("estado", function($cliente){
-            return $cliente->estado == 1 ? "Activo" : "Inactivo";
-        })
+        // ->editColumn("estado", function($cliente){
+        //     return $cliente->estado == 1 ? "Activo" : "Inactivo";
+        // })
         ->addColumn('editar', function ($cliente) {
             return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
             <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Cliente" data-id='.$cliente->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
 
         })
-        ->addColumn('cambiar', function ($cliente) {
-            if($cliente->estado == 1)
-            {
-                return '<button type="button" class="btn btn-danger" data-toggle="modal"><a class="btn btn-danger btn-sm" href="/cliente/cambiar/estado/'.$cliente->id.'/0">Inactivar</a></button>';
-
-            }
-            else
-            {
-                return  '<button type="button" class="btn btn-success" data-toggle="modal"><a class="btn btn-success btn-sm" href="/cliente/cambiar/estado/'.$cliente->id.'/1">Activar</a></button>';
-
-            }
-        })
         ->addColumn('eliminar', function ($cliente) {
 
-            return '<a id="delete-cliente"  data-id='.$cliente->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a id="delete-cliente"  data-id='.$cliente->id.' class="btn btn-danger delete-cliente btn-lg" href="/cliente/eliminar/'.$cliente->id.'"><i class="fas fa-trash-alt"></i></a>';
 
         })
         ->rawColumns(['editar', 'cambiar','eliminar'])
@@ -66,19 +58,43 @@ class ClientesController extends Controller
         return view('cliente/listar');
     }
 
-    // public function create(){
-
-    //     $tipoContacto = tipoContacto::all();
-    //     $cliente = Cliente::all();
-
-    //     return view('cliente.create', compact("tipoContacto"));
-    // }
+    public function pasarid($id)
+    {   
+        $tipoContacto = tipoContacto::all();
+        $id;
+        //dd($id);
+        return view('cliente.create', compact('id',"tipoContacto"));
+    }
 
     public function store(Request $request)
     {
 
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
+                "idobra" => $request->idobra,
+                "idtipocontacto" => $request->idtipocontacto,
+                "nombre" => $request->nombre,
+                "apellido1" => $request->apellido1,
+                "apellido2" => $request->apellido2,
+                "documento" => $request->documento,
+                "estado" => 1,
+                "telefono1" => $request->telefono1,
+                "telefono2" => $request->telefono2,
+                "correo1" => $request->correo1,
+                "correo2" => $request->correo2,
+                ]);
+
+                Flash::success("Registro éxitoso de contacto");
+                return redirect("/obra");
+                //return response()->json(["ok"=>true]);
+
+    }
+    public function store1(Request $request)
+    {
+
+            $cId = $request->cliente_id;
+            Cliente::updateOrCreate(['id' => $cId],[
+                "idobra" => $request->cidobra,
                 "idtipocontacto" => $request->cidtipocontacto,
                 "nombre" => $request->cnombre,
                 "apellido1" => $request->capellido1,
@@ -90,8 +106,7 @@ class ClientesController extends Controller
                 "correo1" => $request->ccorreo1,
                 "correo2" => $request->ccorreo2,
                 ]);
-
-
+               
                 return response()->json(["ok"=>true]);
 
     }
@@ -99,6 +114,7 @@ class ClientesController extends Controller
     public function save(Request $request){
 
           $request->validate([
+            'idobra' => 'integer',
             'idtipocontacto' => 'integer',
             'nombre' =>    'required|string|max:20',
             'apellido1' =>  'required|string|max:20',
@@ -116,6 +132,7 @@ class ClientesController extends Controller
           try {
 
               Cliente::create([
+                  "idobra" => $input["idobra"],
                   "idtipocontacto" => $input["idtipocontacto"],
                   "nombre" => $input["nombre"],
                   "apellido1" =>$input["apellido1"],
@@ -139,6 +156,41 @@ class ClientesController extends Controller
               //return redirect("/cliente/crear");
           }
     }
+
+        // public function update(Request $request){
+
+    //     $request->validate(Cliente::$rules);
+    //     $input = $request->all();
+
+    //     try {
+
+    //         $cliente = Cliente::find($input["id"]);
+
+    //         if ($cliente==null) {
+    //             Flash::error("Cliente no encontrado");
+    //             return redirect("/cliente");
+    //         }
+
+    //         $cliente->update([
+    //             "cnombre" => $input["nombre"],
+    //             "capellido1" =>$input["apellido1"],
+    //             "capellido2" =>$input["apellido2"],
+    //             "cdocumento" =>$input["documento"],
+    //             "cestado" =>1,
+    //             "ctelefono1" =>$input["telefono1"],
+    //             "ctelefono2" =>$input["telefono2"],
+    //             "ccorreo1" =>$input["correo1"],
+    //             "ccorreo2" =>$input["correo2"],
+    //         ]);
+
+    //         Flash::success("Se modifico el cliente");
+    //         return redirect("/cliente");
+
+    //     } catch (\Exception $e ) {
+    //         Flash::error($e->getMessage());
+    //         return redirect("/cliente");
+    //     }
+    // }
 
 
     // public function edit($id){
@@ -180,40 +232,7 @@ class ClientesController extends Controller
 
 
 
-    // public function update(Request $request){
 
-    //     $request->validate(Cliente::$rules);
-    //     $input = $request->all();
-
-    //     try {
-
-    //         $cliente = Cliente::find($input["id"]);
-
-    //         if ($cliente==null) {
-    //             Flash::error("Cliente no encontrado");
-    //             return redirect("/cliente");
-    //         }
-
-    //         $cliente->update([
-    //             "cnombre" => $input["nombre"],
-    //             "capellido1" =>$input["apellido1"],
-    //             "capellido2" =>$input["apellido2"],
-    //             "cdocumento" =>$input["documento"],
-    //             "cestado" =>1,
-    //             "ctelefono1" =>$input["telefono1"],
-    //             "ctelefono2" =>$input["telefono2"],
-    //             "ccorreo1" =>$input["correo1"],
-    //             "ccorreo2" =>$input["correo2"],
-    //         ]);
-
-    //         Flash::success("Se modifico el cliente");
-    //         return redirect("/cliente");
-
-    //     } catch (\Exception $e ) {
-    //         Flash::error($e->getMessage());
-    //         return redirect("/cliente");
-    //     }
-    // }
 
     public function updateState($id, $estado){
 
