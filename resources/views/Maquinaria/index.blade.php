@@ -36,7 +36,7 @@
                             <th>Serial motor</th>
                             <th>Observación</th>
                             <th>Acciones</th>
-                            <th>Cambiar estado</th>
+                            <th>Cambiar estado a:</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,7 +51,7 @@
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title" id="modelHeading"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -60,10 +60,10 @@
                    <input type="hidden" name="maquinaria_id" id="maquinaria_id">
                 <div class="form-row">
                     <div class="form-group col-md-12">
-                        <label for="serialequipo">Serial equipo</label>
+                        <label for="serialequipo">Serial equipo</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Campo númerico">
                         <label class="validacion" id="validacion_serialequipo"></label>
                         <div class="col-sm-12">
-                            <input type="text" class="form-control @error('serialequipo') is-invalid @enderror" id="serialequipo" name="serialequipo" placeholder="Digite Serial" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
+                            <input type="text" class="form-control @error('serialequipo') is-invalid @enderror" id="serialequipo" name="serialequipo" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
                             @error('serialequipo')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -76,7 +76,7 @@
                             <label for="modelo" >Modelo</label>
                             <label class="validacion" id="validacion_modelo"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" placeholder="Digite Modelo" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
+                                <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
                                 @error('modelo')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -87,7 +87,7 @@
                             <label for="serialmotor">Serial motor</label>
                             <label class="validacion" id="validacion_serialmotor"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" placeholder="Digite Serial del Motor" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
+                                <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
                                 @error('serialmotor')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -96,10 +96,10 @@
                         </div>
                 </div>
                 <div class="form-group">
-                        <label class="col-sm-3 control-label">Observaciones</label>
+                        <label class="col-sm-3 control-label">Observaciones</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese información adicional">
                         <label class="validacion" id="validacion_observacion"></label>
                         <div class="col-sm-12">
-                            <textarea id="observacion" name="observacion" required="" placeholder="Digite la Observación" class="form-control @error('observacion') is-invalid @enderror" onkeypress="return soloLetras(event)"></textarea>
+                            <textarea id="observacion" name="observacion" required="" class="form-control @error('observacion') is-invalid @enderror" onkeypress="return soloLetras(event)"></textarea>
                             @error('observacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -121,6 +121,12 @@
 </div>
 
 </body>
+
+
+</html>
+@section('scripts')
+<script src="{{ asset('js/validacionMaquinaria.js') }}"></script>
+<script src="{{ asset('assets/dashboard/js/tooltips.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
   $(function () {
@@ -323,8 +329,8 @@
 
   });
 </script>
-<script src="{{ asset('js/validacionMaquinaria.js') }}"></script>
-</html>
+
+@endsection
 @endsection
 @section('style')
     <link href="{{ asset('css/styleMaquiOperario.css') }}" rel="stylesheet">

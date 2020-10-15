@@ -54,57 +54,52 @@
             <div class="modal-body">
                 <form id="operarioForm" name="operarioForm" class="form-horizontal">
                    <input type="hidden" name="operario_id" id="operario_id">
-                <div class="form-row">
-                    <div class="form-group col-md-12">
-                        <label for="nombre">Nombre</label>
-                        <label class="validacion" id="validacion_nombre"></label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre" placeholder="Digite el Nombre" value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
-                            @error('nombre')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <label class="validacion" id="validacion_nombre2"></label>
-                    </div>
-                </div>
-                <div class="form-row">
+                <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="apellido">Apellido</label>
-                        <label class="validacion" id="validacion_apellido"></label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido" placeholder="Digite el Apellido" value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                                <label for="nombre">Nombre</label>
+                                <label class="validacion" id="validacion_nombre"></label>
+                                <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                                @error('nombre')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <label class="validacion" id="validacion_nombre2"></label>
+                    </div>
+                    <div class="form-group col-sm-6">
+                            <label for="apellido">Apellido</label>
+                            <label class="validacion" id="validacion_apellido"></label>
+                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
                             @error('apellido')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                        </div>
-                        <label class="validacion" id="validacion_apellido2"></label>
-                    </div>
+                            <label class="validacion" id="validacion_apellido2"></label>
+                     </div>
+                        
+                </div>
+               
+                <div class="row">
                     <div class="form-group col-md-6">
-                        <label for="documento">Documento</label>
-                        <label class="validacion" id="validacion_documento"></label>
-                        <div class="col-sm-12">
-                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" placeholder="Digite el Documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)">
+                            <label for="documento">Documento</label>
+                            <label class="validacion" id="validacion_documento"></label>
+                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)">
                             @error('documento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            <label class="validacion" id="validacion_documento2"></label>
                         </div>
-                        <label class="validacion" id="validacion_documento2"></label>
-                    </div>
-                </div>
-                <div class="form-group col-md-6">
-                    <label for="celular">Celular</label>
-                    <label class="validacion" id="validacion_celular"></label>
-                    <div class="col-sm-12">
-                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Digite el Celular" value="" maxlength="13" required="" onkeypress="return soloNumeros(event)">
+                        <div class="form-group col-md-6">
+                        <label for="celular">Celular</label>
+                         <label class="validacion" id="validacion_celular"></label>
+                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)">
                         @error('celular')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-                    </div>
-                    <label class="validacion" id="validacion_celular2"></label>
+                        <label class="validacion" id="validacion_celular2"></label>
+                       </div>
                 </div>
-                <div class="col-sm-offset-2 col-sm-10">
+               
+                <div  align="center">
                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar</button>
-                    <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
+                    
                 </div>
                 </form>
             </div>
@@ -168,14 +163,14 @@
         $('#saveBtn').val("create-operario");
         $('#operario_id').val('');
         $('#operarioForm').trigger("reset");
-        $('#modelHeading').html("Crear Operario");
+        $('#modelHeading').html("Crear operario");
         $('#ajaxModel').modal('show');
     });
 
     $('body').on('click', '.editOperario', function () {
       var operario_id = $(this).data('id');
       $.get("{{ route('ajaxoperario.index') }}" +'/' + operario_id +'/edit', function (data) {
-          $('#modelHeading').html("Edit Operario");
+          $('#modelHeading').html("Editar operario");
           $('#saveBtn').val("edit-user");
           $('#ajaxModel').modal('show');
           $('#operario_id').val(data.id);

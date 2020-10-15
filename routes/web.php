@@ -160,6 +160,10 @@ Route::post('/chart/servicio','ChartController@servicios');
 
 Route::get('/chartencuesta','ChartController@index3');
 Route::post('/chart/encuesta','ChartController@encuesta');
+Route::get('/chartencuesta4','ChartController@index4');
+Route::post('/chart/encuesta4','ChartController@encuesta4');
+Route::get('/chartencuesta5','ChartController@index5');
+Route::post('/chart/encuesta5','ChartController@encuesta5');
 
 
 });
