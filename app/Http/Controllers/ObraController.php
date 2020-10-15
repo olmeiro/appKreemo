@@ -70,7 +70,7 @@ class ObraController extends Controller
         ->addIndexColumn()
         ->addColumn('eliminar', function ($contactos) {
 
-            return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$contactos->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" ><i class="fas fa-trash-alt"></i></a>';
 
         })
         ->rawColumns(['eliminar'])
@@ -155,12 +155,10 @@ class ObraController extends Controller
                 "correo1" =>$input["correo1"],
             ]);
 
-            Flash::success("Se modifico la obra");
-            return redirect("/obra");
+            return response()->json(["ok"=>true]);
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/obra");
+            return response()->json(["ok"=>false]);
         }
     }
 
