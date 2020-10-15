@@ -40,10 +40,9 @@ Route::get('/obra', 'ObraController@index');
 Route::get('/obra/listar', 'ObraController@listar');
 Route::get('/obra/pasarid/{id}', 'ObraController@pasarid');
 Route::post('/obra/guardar', 'ObraController@save');
-Route::get('/obra/crearcontactos', 'ObraContactoController@create');
 Route::get('/obra/editar/{id}', 'ObraController@edit');
+Route::get('/obra/ver/{id}', 'ObraController@listarContactos');
 Route::post('/obra/actualizar', 'ObraController@update');
-
 Route::post('/obra/eliminar/{id}', 'ObraController@destroy');
 
 Route::get('/cliente', 'ClientesController@index');
@@ -66,17 +65,7 @@ Route::get('/tipocontacto/crear', 'TipoContactoController@create');
 Route::post('/tipocontacto/guardar', 'TipoContactoController@save');
 Route::get('/tipocontacto/editar/{id}', 'TipoContactoController@edit');
 Route::post('/tipocontacto/actualizar', 'TipoContactoController@update');
-Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
-
-
-
-// Route::get('/obracontacto', 'ObraContactoController@index');
-// Route::post('/obracontacto/guardar', 'ObraContactoController@save');
-// Route::get('/obracontacto/listar', 'ObraContactoController@listar');
-// Route::get('/obracontacto/ver/{id}', 'ObraContactoController@listarContactos');
-// Route::get('/obracontacto/editar/{id}', 'ObraContactoController@edit');
-// Route::post('/obracontacto/actualizar', 'ObraContactoController@actualizar');
-// Route::post('/obracontacto/eliminar/{id}', 'ObraContactoController@destroy');
+Route::post('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');

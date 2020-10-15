@@ -27,7 +27,7 @@ class TipoContactoController extends Controller
             return '<a class="btn btn-primary btn-sm" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($tipoContacto) {
-            return '<a class="btn btn-danger btn-sm" href="/tipocontacto/eliminar/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a class="btn btn-danger btn-sm" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminar/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);
@@ -109,11 +109,6 @@ class TipoContactoController extends Controller
 
     public function destroy($id)
     {
-        
-
-        
-
-
         try 
         {
             $tipoContacto = tipoContacto::find($id);
@@ -125,13 +120,10 @@ class TipoContactoController extends Controller
     
             $tipoContacto->delete($id);
     
-            Flash::success('Tipo contacto eliminado.');
-    
-            return redirect('/cliente');
+            return response()->json(["ok"=>true]);
         } 
         catch (\Throwable $th) {
-            Flash::success('No puedes eliminar este tipo Contacto.');
-            return redirect("/cliente");
+            return response()->json(["ok"=>false]);
         }  
 
     }

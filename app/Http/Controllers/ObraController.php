@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Empresa;
 use Flash;
 use DataTables;
@@ -29,16 +30,52 @@ class ObraController extends Controller
 
         return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
-            return '<a class="btn btn-primary btn-sm" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
+            return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('ver', function ($obra) {
-            return '<a class="btn btn-secondary btn-sm" href="/cliente">Ver Contactos</a>';
+            return '<a class="btn btn-secondary btn-md" data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
+
         })
         ->addColumn('agregar', function ($obra) {
-            return '<a class="btn btn-secondary btn-sm" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
+            return '<a class="btn btn-primary btn-md" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
         })
         ->rawColumns(['editar','ver','agregar'])
         ->make(true);
+    }
+
+    public function listarContactos($id){
+
+        
+        // $contactos = Cliente::select("obracontacto.*", "obracontacto.idcontacto","tipocontacto.tipocontacto")
+        // ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
+        // ->join("obracontacto", "contacto.id", "=", "obracontacto.idcontacto")
+        // ->where("obracontacto.idobra", $id)
+        // ->get();
+
+        // return DataTables::of($contactos);
+
+        // SELECT contacto.nombre, obra.nombre FROM `contacto`
+        // INNER JOIN obra 
+        // ON contacto.idobra = obra.id
+        // WHERE idobra = 16
+
+        $contactos = Cliente::select("contacto.*", "obra.nombre as obra")
+        ->join("obra","contacto.idobra","=","obra.id")
+        ->where("contacto.idobra","=",$id)
+        ->get();
+
+        //return response(json_encode($obraContactos), 200)->header('Content-type','text/plain');
+
+        return DataTables::of($contactos)
+        ->addIndexColumn()
+        ->addColumn('eliminar', function ($contactos) {
+
+            return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$contactos->id.'"><i class="fas fa-trash-alt"></i></a>';
+
+        })
+        ->rawColumns(['eliminar'])
+        ->make(true);
+      
     }
 
     public function pasarid($id)
@@ -65,11 +102,9 @@ class ObraController extends Controller
 
             ]);
 
-            Flash::success("Registro éxitoso de obra");
             return redirect("/obra");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
             return redirect("/empresa");
         }
     }

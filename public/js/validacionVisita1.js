@@ -202,7 +202,7 @@ $(function(){
                         position:'center',
                     });
             validado = 0;}
-          // }},
+
 
 
     }
