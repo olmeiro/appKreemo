@@ -40,10 +40,9 @@ Route::get('/obra', 'ObraController@index');
 Route::get('/obra/listar', 'ObraController@listar');
 Route::get('/obra/pasarid/{id}', 'ObraController@pasarid');
 Route::post('/obra/guardar', 'ObraController@save');
-Route::get('/obra/crearcontactos', 'ObraContactoController@create');
 Route::get('/obra/editar/{id}', 'ObraController@edit');
+Route::get('/obra/ver/{id}', 'ObraController@listarContactos');
 Route::post('/obra/actualizar', 'ObraController@update');
-
 Route::post('/obra/eliminar/{id}', 'ObraController@destroy');
 
 Route::get('/cliente', 'ClientesController@index');
@@ -69,7 +68,7 @@ Route::post('/tipocontacto/actualizar', 'TipoContactoController@update');
 Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 
 
-
+// Route::get('/obra/crearcontactos', 'ObraContactoController@create');
 // Route::get('/obracontacto', 'ObraContactoController@index');
 // Route::post('/obracontacto/guardar', 'ObraContactoController@save');
 // Route::get('/obracontacto/listar', 'ObraContactoController@listar');

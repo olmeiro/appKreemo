@@ -221,6 +221,7 @@ class User extends Authenticatable
             ["url" => "/obra/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/obra/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
+            ["url" => "/obra/ver/", "method"=>"GET", "identica"=>false],
 
             ["url" => "/obra/crearcontactos", "method"=>"GET", "identica"=>true],
           

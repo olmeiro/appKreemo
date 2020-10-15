@@ -33,30 +33,29 @@ class EmpresaController extends Controller
         })
         ->addColumn('editar', function ($empresa) {
 
-            return '<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
-            <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Empresa" data-id='.$empresa->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+            return '<a class="btn btn-primary btn-md" data-toggle="modal" id="editar-Empresa" data-id='.$empresa->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
         ->addColumn('cambiar', function ($empresa) {
             if($empresa->estado == 1)
             {
-                return '<button type="button" class="btn btn-danger" data-toggle="modal"><a class="btn btn-danger btn-sm" href="/empresa/cambiar/estado/'.$empresa->id.'/0">Pasivo</a></button>';
+                return '<a class="btn btn-primary btn-md" href="/empresa/cambiar/estado/'.$empresa->id.'/0">Inactivar</a>';
 
             }
             else
             {
-                return  '<button type="button" class="btn btn-success" data-toggle="modal"><a class="btn btn-success btn-sm" href="/empresa/cambiar/estado/'.$empresa->id.'/1">Activo</a></button>';
+                return  '<a class="btn btn-primary btn-md" href="/empresa/cambiar/estado/'.$empresa->id.'/1">Activar</a>';
 
             }
         })
         ->addColumn('agregar', function ($empresa) {
 
-            return    '<a id="agregar-obra" data-id='.$empresa->id.' class="btn btn-warning agregar-obra btn-lg" href="/obra/pasarid/'.$empresa->id.'"><i class="fas fa-plus-square"></i></a>';
+            return    '<a id="agregar-obra" data-id='.$empresa->id.' class="btn btn-success agregar-obra btn-md" href="/obra/pasarid/'.$empresa->id.'"><i class="fas fa-plus-square"></i></a>';
 
         })
         ->addColumn('eliminar', function ($empresa) {
             return '
-            <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa btn-lg" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
+            <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa btn-md" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
            
         })
         ->rawColumns(['agregar','editar','cambiar','eliminar'])

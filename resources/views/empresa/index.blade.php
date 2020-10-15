@@ -298,7 +298,27 @@
                                 "copy": "Copiar",
                                 "colvis": "Visibilidad"
                             }
-                            }
+                            },
+                            "columnDefs": [
+                                {
+                                        "targets": [6],
+                                        "createdCell": function(td, cellData, rowData, row, col) {
+                                            var color;
+                                            switch(cellData) {
+                                            case "Pasivo":
+                                                color = '#FA3636 ';
+                                                break;
+                                            case "Activo":
+                                                color = '#06B33A';
+                                                break;
+                                            default:
+                                                color = '#FFDE00';
+                                                break;
+                                            }
+                                            $(td).css('background',color);
+                                        }
+                                    }
+                                ],
 
             });
 
