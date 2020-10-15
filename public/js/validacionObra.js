@@ -70,30 +70,41 @@ $(document).ready(function(){
 
         if (validado == 5)
         {
-            Swal.fire({
-                title:'Registro exitoso',text:'Obra creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
-                padding:'1rem',
-                   //background:'#000',
-                backdrop:true,
-                   //toast: true,
-                position:'center',
-                    });
-                document.frmCreateObra.submit();
-        }
-        else{
-            Swal.fire({
-                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
-                padding:'1rem',
-                   //background:'#000',
-                backdrop:true,
-                   //toast: true,
-                position:'center',
-            });
-            validado = 0;
-        }
+            var fd = new FormData(document.getElementById("frmEditarObra"));
 
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "/obra/actualizar",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                type: "POST",
+                data: fd,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false ,  // tell jQuery not to set contentType
+                }).done(function(respuesta){
+                  if(respuesta.ok)
+                  {
+                    Swal.fire('Se registro el nuevo tipo contacto.');
+                     $("#exampleModal2").modal('hide');//ocultamos el modal
+                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+                     $("#mensaje").text("Nueno contacto Creado")
+                    var table = $('#tbl_contacto').DataTable();
+                    table.ajax.reload();
+                    
+                    limpiar();
+                  }
+                  else{
+                    Swal.fire('No se puedo crear el nuevo tipo contacto.');
+                  }
+                })
+         }
+         else
+         {
+             Swal.fire('Faltan campos por diligenciar.');
+             validado = 0;
+         }
 
     })
 })

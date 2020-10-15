@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
+
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
@@ -306,7 +310,54 @@
    
                });
 
-          
+            //    Eliminar contacto
+
+               $('body').on('click', '#delete-contacto', function () {
+
+                x = confirm("Esta seguro de eliminar !");
+
+                if (x){
+                    var contacto_id = $(this).data("id");
+                    var token = $("meta[name='csrf-token']").attr("content");
+                    $.ajax({
+                        type: "POST", 
+                        url: "/cliente/eliminar/"+contacto_id,
+                        data: {
+                        "id": contacto_id,
+                        "_token": token,
+                        },
+                    })
+                        .done(function(respuesta){
+                            if(respuesta && respuesta.ok){
+                                Swal.fire({
+                                title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                                padding:'1rem',
+                                backdrop:true,
+                                position:'center',
+                                    });
+                                    var table = $('#tbl_contactos').DataTable();    
+                                    table.ajax.reload();
+                            } else {
+                                
+
+                            Swal.fire({
+                                title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                                padding:'1rem',
+                                backdrop:true,
+                                position:'center',
+                            });
+                            var table = $('#tbl_contactos').DataTable();    
+                                table.ajax.reload();
+                            }
+                        
+                        })
+                
+                        }
+                        else
+                        {
+                            return false;
+                        }
+            });
 
            
 

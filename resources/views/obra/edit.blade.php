@@ -13,7 +13,7 @@
         </div>
         <div class="card-body">
         @include('flash::message')
-        <form action="/obra/actualizar" method="POST">
+        <form action="/obra/actualizar" id="frmEditarObra" method="POST">
         @csrf
         <input type="hidden" name="id" value="{{$obra->id}}"/>
         <input value="{{$obra->idempresa}}" type="hidden" class="form-control @error('nombre') is-invalid @enderror"  name="idempresa" id="idempresa">
