@@ -70,7 +70,7 @@ class ObraController extends Controller
         ->addIndexColumn()
         ->addColumn('eliminar', function ($contactos) {
 
-            return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" href="/contacto/eliminar/'.$contactos->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" href="/cliente/eliminar/'.$contactos->id.'"><i class="fas fa-trash-alt"></i></a>';
 
         })
         ->rawColumns(['eliminar'])

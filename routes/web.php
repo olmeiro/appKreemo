@@ -65,17 +65,7 @@ Route::get('/tipocontacto/crear', 'TipoContactoController@create');
 Route::post('/tipocontacto/guardar', 'TipoContactoController@save');
 Route::get('/tipocontacto/editar/{id}', 'TipoContactoController@edit');
 Route::post('/tipocontacto/actualizar', 'TipoContactoController@update');
-Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
-
-
-// Route::get('/obra/crearcontactos', 'ObraContactoController@create');
-// Route::get('/obracontacto', 'ObraContactoController@index');
-// Route::post('/obracontacto/guardar', 'ObraContactoController@save');
-// Route::get('/obracontacto/listar', 'ObraContactoController@listar');
-// Route::get('/obracontacto/ver/{id}', 'ObraContactoController@listarContactos');
-// Route::get('/obracontacto/editar/{id}', 'ObraContactoController@edit');
-// Route::post('/obracontacto/actualizar', 'ObraContactoController@actualizar');
-// Route::post('/obracontacto/eliminar/{id}', 'ObraContactoController@destroy');
+Route::post('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');

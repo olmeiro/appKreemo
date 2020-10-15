@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('meta')
-<meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
 @section('body')
 
@@ -555,27 +555,12 @@
                 $('#ccorreo1').val(data.correo1);
                 $('#ccorreo2').val(data.correo2);
 
-            })
+                })
             });
 
-        // function validate()
-        // {
-        //     if(document.clienteForm.cidtipocontacto.value !='' && document.clienteForm.cnombre.value !='' && document.clienteForm.capellido1.value !=''
-        //     && document.clienteForm.capellido2.value !='' && document.clienteForm.cdocumento.value !='' && document.clienteForm.ctelefono1.value !=''
-        //     && document.clienteForm.ctelefono2.value !='' && document.clienteForm.ccorreo1.value !='' && document.clienteForm.ccorreo2.value !='')
-        //     {
-        //         document.clienteForm.btnsave.disabled=false
-        //     }
-        //     else
-        //     {
-        //         document.clienteForm.btnsave.disabled=true
-        //     }
-        // }
-
-
     </script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
-        <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
     <script src="{{ asset('js/validacionTipoContacto.js') }}"></script>
     <script src="{{ asset('js/validacionCliente.js') }}"></script>
