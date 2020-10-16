@@ -218,6 +218,7 @@
                     <th>ver</th>
                     <th>Agregar</th>
                     <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -272,6 +273,12 @@
                     {
                         data: 'editar',
                         name: 'editar',
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: 'eliminar',
+                        name: 'eliminar',
                         orderable: false,
                         searchable: false
                     },
