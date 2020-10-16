@@ -207,7 +207,7 @@ class User extends Authenticatable
 
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/cliente/crear", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/guardaredit", "method"=>"POST", "identica"=>true],

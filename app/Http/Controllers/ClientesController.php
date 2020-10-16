@@ -111,6 +111,28 @@ class ClientesController extends Controller
 
     }
 
+    public function store2(Request $request)
+    {
+
+            $cId = $request->cliente_id;
+            Cliente::updateOrCreate(['id' => $cId],[
+                "idobra" => $request->cidobra,
+                "idtipocontacto" => $request->cidtipocontacto,
+                "nombre" => $request->cnombre,
+                "apellido1" => $request->capellido1,
+                "apellido2" => $request->capellido2,
+                "documento" => $request->cdocumento,
+                "estado" => 1,
+                "telefono1" => $request->ctelefono1,
+                "telefono2" => $request->ctelefono2,
+                "correo1" => $request->ccorreo1,
+                "correo2" => $request->ccorreo2,
+                ]);
+               
+                return response()->json(["ok"=>true]);
+
+    }
+
     public function save(Request $request){
 
           $request->validate([
@@ -156,6 +178,38 @@ class ClientesController extends Controller
               //return redirect("/cliente/crear");
           }
     }
+
+    public function create(Request $request){
+
+        $input = $request->all();
+
+        try {
+
+            Cliente::create([
+                "idobra" => $input["idobra"],
+                "idtipocontacto" => $input["idtipocontacto"],
+                "nombre" => $input["nombre"],
+                "apellido1" =>$input["apellido1"],
+                "apellido2" =>$input["apellido2"],
+                "documento" =>$input["documento"],
+                "estado" =>1,
+                "telefono1" =>$input["telefono1"],
+                "telefono2" =>$input["telefono2"],
+                "correo1" =>$input["correo1"],
+                "correo2" =>$input["correo2"],
+
+            ]);
+
+            Flash::success("Registro éxitoso de contacto");
+            return response()->json(["ok"=>true]);
+            //return redirect("/cliente");
+
+        } catch (\Exception $e ) {
+            Flash::error($e->getMessage());
+            return response()->json(["ok"=>false]);
+            //return redirect("/cliente/crear");
+        }
+  }
 
         // public function update(Request $request){
 

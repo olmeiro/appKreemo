@@ -78,7 +78,7 @@
                             </div>
                         </div>
                             <div class="modal-footer">
-                                <button type="button" id="crearObra" name="crearObra" class="btn btn-primary">Crear</button>
+                                <button type="submit" id="crearObra" name="crearObra" class="btn btn-primary">Crear</button>
                             </div>
                         </form>
                 </div>
@@ -118,9 +118,80 @@
         </div>
     </div>
 
-    <!-- Editar obra -->
+       <!-- Editar obra -->
 
-    
+       <div class="modal fade" data-backdrop="static" id="verModal5" tabindex="-1" role="dialog" aria-labelledby="verModal5" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-white" style="background-color: #616A6B">
+                <h4 class="modal-title" id="obraCrudModal"></h4> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" > <span aria-hidden="true">&times;</span> </button>
+                </div>
+                <div class="modal-body">
+                    @include('flash::message')
+                    <form class="editObra" name="obraForm" id="editForm" action="/obra/actualizar" method="POST" >
+                    @csrf
+                    <input type="hidden" name="id" id="id" >
+                        <div class="row">
+                                <div class="col-6">
+                                <label for="">Nombre empresa</label>
+                                    <select class="form-control @error('idempresa') is-invalid @enderror " name="idempresa" id="oidempresa" >
+                                        <option  value="0">Seleccione</option>
+                                        @foreach($empresa as $key =>$value)
+                                            <option value="{{ $value->id }}">{{ $value->nombre}}</option>
+                                        @endforeach
+                                    </select>
+                                    <label class="validacion" for="idempresa" id="valIdEmpresa"></label>
+                                </div>
+                                <div class="col 6">
+                                    <label for="">Nombre obra</label>
+                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="onombre"value="{{old('nombre')}}">
+                                    @error('nombre')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                    <label class="validacion" for="valNombre" id="valNombre"></label>
+                                </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Dirección</label>
+                                    <input type="text" class="form-control @error('direccion') is-invalid @enderror"  name="direccion" id="odireccion" value="{{old('direccion')}}">
+                                    @error('direccion')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                    <label class="validacion" for="valDireccion" id="valDireccion"></label>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Telefono</label>
+                                    <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="otelefono1" value="{{old('telefono1')}}">
+                                    @error('telefono1')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                    <label class="validacion" for="valTelefono1" id="valTelefono1"></label>
+                                </div>
+                            </div>
+
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="">Correo Electrónico</label>
+                                    <input type="email" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="ocorreo1" value="{{old('correo1')}}">
+                                    @error('correo1')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                    @enderror
+                                    <label class="validacion" for="valCorreo1" id="valCorreo1"></label>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary float-lg-right" disabled>Editar</button>
+                                    <!-- <a href="/obra" class="btn btn-danger">Cancelar</a> -->
+                                </div>
+                        </form>
+                </div>
+            </div>
+        </div>
 
     <!-- lista obras -->
 
@@ -128,11 +199,10 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Obras</strong>
             <strong class="float-right"><button type="button" class="btn btn-outline-light float-rigth" data-toggle="modal" data-target="#obraModal2">Crear obra</button></strong>
-
-            <!-- <a href="/obra/crear" class="btn btn-outline-light">CREAR OBRA</a>  -->
         </div>
         <div class="card-body">
         @include('flash::message')
+        <h4 id="msg"></h4>
             <table id="tbl_obra" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
                 <tr>
@@ -159,8 +229,6 @@
 
     <script>
         $('#tbl_obra').DataTable({
-                paging: false,
-                searching: false,
                 processing: true,
                 serverSide: true,
                 ajax: '/obra/listar',
@@ -359,7 +427,24 @@
                         }
             });
 
-           
+        //    editar obra
+
+        $('body').on('click', '#editar-obra', function () {
+                var obra_id = $(this).data('id');
+                $.get('obra/editar/'+obra_id, function (data) {
+                $('#obraCrudModal').html("Editar obra");
+                $('#btn-update').val("Update");
+                $('#btn-save').prop('disabled',false);
+                $("#id").val(data.id)
+                $('#oidempresa').val(data.idempresa);
+                $("#onombre").val(data.nombre);
+                $('#odireccion').val(data.direccion);
+                $('#otelefono1').val(data.telefono1);
+                $('#ocorreo1').val(data.correo1);
+               
+
+                })
+            });
 
 
 

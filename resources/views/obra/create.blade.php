@@ -64,7 +64,7 @@
                 </div>
             </div>
            <div class="col-12 margen">
-                <button type="submit" class="btn btn-success float-right" id="crearObra">Guardar</button>
+                <button type="submit" class="btn btn-success float-right" id="">Guardar</button>
            </div>
             </form>
         </div>
