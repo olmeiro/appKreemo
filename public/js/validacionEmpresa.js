@@ -270,11 +270,6 @@ $(document).ready(function() {
              validado++;
          }
 
-        //  else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
-        //  {
-        //   $("#valETelefono1").text("* Ingrese un número de celular de 10 dígitos.");
-        //  }
-
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
  
          if($("#ecorreo1").val().length == 0 || !emailRegex.test($("#ecorreo1").val()))

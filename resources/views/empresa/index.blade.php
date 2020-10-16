@@ -122,7 +122,6 @@
                      <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title" id="exampleModalLabel2">Editar empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                     </div>
-                 @include('flash::message')
                     <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar" method="POST">
                         @csrf
                         <div class="modal-body">
@@ -190,9 +189,7 @@
                                             <label class="validacion" for="eestado" id="valEEstado"></label>
                                         </div>
                                     </div>
-                        </div>
-
-
+                                </div>
                             <div class="modal-footer">
                                 <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
                             </div>
@@ -214,7 +211,7 @@
 @section("scripts")
 
     <script>
-        $('#tbl_empresa').DataTable({
+       var table = $('#tbl_empresa').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '/empresa/listar',
@@ -316,7 +313,8 @@
                                                 break;
                                             }
                                             $(td).css('background',color);
-                                        }
+
+                                       }
                                     }
                                 ],
 
@@ -353,6 +351,16 @@
             document.clienteForm.btnsave.disabled=true
         }
     }
+
+
+
+// $('.dataTable').on('click', 'tbody td ', function() {
+
+//     //get textContent of the TD
+//     console.log('TD cell textContent : ', this.textContent)
+//     contenido = this.textContent;
+//     contenido = 'Pasivo' ? alert("cliente malo") : console.log(contenido);  
+// })
 
 
     </script>

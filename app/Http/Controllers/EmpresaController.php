@@ -64,14 +64,7 @@ class EmpresaController extends Controller
         return view('empresa/listar');
     }
 
-    // public function create(){
-    //     $empresa = Empresa::all();
-
-    //     return view('empresa.create', compact('empresa'));
-    // }
-
     public function save(Request $request){
-        //dd('ruta ok');
 
         $request->validate(Empresa::$rules);
         $input = $request->all();
