@@ -73,6 +73,11 @@ class ServicioController extends Controller
 
         $maquinaria = Maquinaria::find($data['idmaquina']);
         $maquinaria->update(["estado"=>1]);
+
+        $cotizacion = Cotizacion::find($data['idcotizacion']);
+        $cotizacion->update(["idEstado"=>4]);
+
+        dd($data);
     }
 
       public function edit($id){
