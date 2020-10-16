@@ -84,10 +84,8 @@
                                         <label for="">Estado</label>
                                         <label class="validacion" id="val_Estado"></label>
                                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
-                                            <option value="0">Seleccione un Estado</option>
-                                            @foreach($estadocotizacion as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdEstado')==$value->id)? 'selected':''}}>{{ $value->estado_cotizacion}}</option>
-                                            @endforeach
+                                            <option value="1">En Proceso</option>
+
                                         </select>
                                         @error('IdEstado')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -578,6 +576,9 @@
                                                 break;
                                             case "Aceptada":
                                                 color = '#06B33A';
+                                                break;
+                                            case "Agendada":
+                                                color = '#06A';
                                                 break;
                                             default:
                                                 color = '#FFDE00';
