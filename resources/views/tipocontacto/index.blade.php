@@ -5,8 +5,8 @@
     <div class="card">
         <div class="card-header text-white float-right" style="background-color: #616A6B" >
             <strong>TIPO CONTACTOS</strong>
-            <a href="/tipocontacto/crear" class="btn btn-outline-light">Crear Tipo Contacto</a>
-            <a href="/cliente" class="btn btn-outline-light">Volver a contactos</a>
+            <a href="/tipocontacto/crear" class="btn btn-outline-light float-right">Crear tipo contacto</a>
+            <a href="/cliente" class="btn btn-outline-light float-right">Volver a contactos</a>
         </div>
         <div class="card-body">
         @include('flash::message')

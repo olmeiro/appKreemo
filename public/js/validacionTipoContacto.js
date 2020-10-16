@@ -38,6 +38,88 @@ $(document).ready(function() {
     });
 });
 
+// tipocontacto Create sin modal
+
+$(document).ready(function() {
+  $("#frmTipoContacto").submit(function(event){
+    
+       event.preventDefault();
+
+       if ($("#tipocontacto").val() == 0 ) {
+            $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+       }
+       else
+       {
+          var fd = new FormData(document.getElementById("frmTipoContacto"));
+
+          $.ajax({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              url: "/tipocontacto/guardar",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+              }).done(function(respuesta){
+                if(respuesta.ok)
+                {
+                  Swal.fire('Se registro el nuevo tipo contacto');
+                  limpiar();
+                  window.location.reload('/tipocontacto');
+           
+                }
+                else{
+                  Swal.fire('Ingrese nuevo tipo de contacto');
+                }
+              })
+       }
+  });
+});
+
+// editar tipo contacto
+
+$(document).ready(function() {
+  $("#frmeditTipoContacto").submit(function(event){
+    
+       event.preventDefault();
+
+       if ($("#tipocontacto").val() == 0 ) {
+            $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+       }
+       else
+       {
+          var fd = new FormData(document.getElementById("frmeditTipoContacto"));
+
+          $.ajax({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              url: "/tipocontacto/actualizar",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+              }).done(function(respuesta){
+                if(respuesta.ok)
+                {
+                  Swal.fire('Se edito el nuevo tipo contacto');
+                  limpiar();
+                  window.location.reload('/tipocontacto');
+           
+                }
+                else{
+                  Swal.fire('Edite tipo de contacto');
+                }
+              })
+       }
+  });
+});
+
+function limpiar(){
+  $("input").val("");
+}
+
 
 
 // Eliminar Tipo Contacto

@@ -13,6 +13,6 @@ class tipoContacto extends Model
     ];
 
     public static $rules = [
-        'tipocontacto' => 'required'
+        // 'tipocontacto' => 'required'
     ];
 }
