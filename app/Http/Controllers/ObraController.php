@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cliente;
 use App\Models\Empresa;
 use Flash;
 use DataTables;
@@ -29,16 +30,38 @@ class ObraController extends Controller
 
         return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
-            return '<a class="btn btn-primary btn-sm" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
+            // return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
+            return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
+
         })
         ->addColumn('ver', function ($obra) {
-            return '<a class="btn btn-secondary btn-sm" href="/cliente">Ver Contactos</a>';
+            return '<a class="btn btn-secondary btn-md" data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
+
         })
         ->addColumn('agregar', function ($obra) {
-            return '<a class="btn btn-secondary btn-sm" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
+            return '<a class="btn btn-primary btn-md" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
         })
         ->rawColumns(['editar','ver','agregar'])
         ->make(true);
+    }
+
+    public function listarContactos($id){
+
+        $contactos = Cliente::select("contacto.*", "obra.nombre as obra")
+        ->join("obra","contacto.idobra","=","obra.id")
+        ->where("contacto.idobra","=",$id)
+        ->get();
+
+        return DataTables::of($contactos)
+        ->addIndexColumn()
+        ->addColumn('eliminar', function ($contactos) {
+
+            return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" ><i class="fas fa-trash-alt"></i></a>';
+
+        })
+        ->rawColumns(['eliminar'])
+        ->make(true);
+      
     }
 
     public function pasarid($id)
@@ -49,9 +72,7 @@ class ObraController extends Controller
     }
 
     public function save(Request $request){
-        //dd('ruta ok');
 
-        $request->validate(Obra::$rules);
         $input = $request->all();
 
         try {
@@ -65,12 +86,12 @@ class ObraController extends Controller
 
             ]);
 
-            Flash::success("Registro éxitoso de obra");
+            Flash::error("Obra creada con éxito");
             return redirect("/obra");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/empresa");
+            Flash::error("Obra no creada");
+            return redirect("/obra");
         }
     }
 
@@ -85,8 +106,6 @@ class ObraController extends Controller
 
     public function edit($id){
 
-        
-
         $obra = Obra::find($id);
 
         if ($obra==null) {
@@ -95,46 +114,26 @@ class ObraController extends Controller
             return redirect("/obra");
         }
         
-        return view("obra.edit", compact("obra"));
+        return Response::json($obra);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
-        $request->validate(Obra::$rules);
-        $input = $request->all();
-        //dd($input);
+            $oId = $request->id;
+            Obra::updateOrCreate(['id' => $oId],[
+                "idempresa" => $request->idempresa,
+                "nombre" => $request->nombre,
+                "direccion" => $request->direccion,
+                "telefono1" => $request->telefono1,
+                "correo1" => $request->correo1,
+                ]);
+               
+                return response()->json(["ok"=>true]);
 
-        try {
-
-            $obra = Obra::find($input["id"]);
-
-            if ($obra==null) {
-                Flash::error("Obra no encontrada");
-                return redirect("/obra");
-            }
-
-            $obra->update([
-                "nombre" => $input["nombre"],
-                "direccion" =>$input["direccion"],
-                "telefono1" =>$input["telefono1"],
-                "correo1" =>$input["correo1"],
-            ]);
-
-            Flash::success("Se modifico la obra");
-            return redirect("/obra");
-
-        } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/obra");
-        }
     }
 
     public function destroy($id){
-
-        // SELECT id FROM `obracontacto` WHERE idobra = 1
-
-        //dd($id);
-
         try
         {
             $obra = Obra::find($id);

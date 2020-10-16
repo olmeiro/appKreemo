@@ -30,3 +30,7 @@ body {
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
+
+.margen {
+    margin-bottom: 30px;
+}

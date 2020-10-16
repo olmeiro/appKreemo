@@ -11,6 +11,9 @@ $(document).ready(function() {
             var fd = new FormData(document.getElementById("frmTipoContacto"));
 
             $.ajax({
+                headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
                 url: "/tipocontacto/guardar",
                 type: "POST",
                 data: fd,
@@ -33,6 +36,140 @@ $(document).ready(function() {
                 })
          }
     });
+});
+
+// tipocontacto Create sin modal
+
+$(document).ready(function() {
+  $("#frmTipoContacto").submit(function(event){
+    
+       event.preventDefault();
+
+       if ($("#tipocontacto").val() == 0 ) {
+            $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+       }
+       else
+       {
+          var fd = new FormData(document.getElementById("frmTipoContacto"));
+
+          $.ajax({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              url: "/tipocontacto/guardar",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+              }).done(function(respuesta){
+                if(respuesta.ok)
+                {
+                  Swal.fire('Se registro el nuevo tipo contacto');
+                  limpiar();
+                  window.location.reload('/tipocontacto');
+           
+                }
+                else{
+                  Swal.fire('Ingrese nuevo tipo de contacto');
+                }
+              })
+       }
+  });
+});
+
+// editar tipo contacto
+
+$(document).ready(function() {
+  $("#frmeditTipoContacto").submit(function(event){
+    
+       event.preventDefault();
+
+       if ($("#tipocontacto").val() == 0 ) {
+            $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+       }
+       else
+       {
+          var fd = new FormData(document.getElementById("frmeditTipoContacto"));
+
+          $.ajax({
+              headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              url: "/tipocontacto/actualizar",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+              }).done(function(respuesta){
+                if(respuesta.ok)
+                {
+                  Swal.fire('Se edito el nuevo tipo contacto');
+                  limpiar();
+                  window.location.reload('/tipocontacto');
+           
+                }
+                else{
+                  Swal.fire('Edite tipo de contacto');
+                }
+              })
+       }
+  });
+});
+
+function limpiar(){
+  $("input").val("");
+}
+
+
+
+// Eliminar Tipo Contacto
+
+$('body').on('click', '#eliminar-tipoContacto', function (e) {
+  e.preventDefault();
+  
+  x = confirm("Esta seguro de eliminar !");
+
+  if (x){
+      var tipo_id = $(this).data("id");
+      var token = $("meta[name='csrf-token']").attr("content");
+      $.ajax({
+          type: "POST", 
+          url: "/tipocontacto/eliminar/"+tipo_id,
+          data: {
+          "id": tipo_id,
+          "_token": token,
+          },
+      })
+          .done(function(respuesta){
+              if(respuesta && respuesta.ok){
+                  Swal.fire({
+                    title:'Tipo contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                      var table = $('#tbl_tipocontacto').DataTable();    
+                      table.ajax.reload();
+              } else {
+                  
+
+                Swal.fire({
+                  title:'No se puede borrar',text:'Tipo contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   padding:'1rem',
+                  backdrop:true,
+                  position:'center',
+              });
+              var table = $('#tbl_tipocontacto').DataTable();    
+                  table.ajax.reload();
+              }
+          
+            })
+    
+  }
+  else
+  {
+  return false;
+  }
 });
 
 

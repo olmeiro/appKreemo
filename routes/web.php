@@ -40,10 +40,9 @@ Route::get('/obra', 'ObraController@index');
 Route::get('/obra/listar', 'ObraController@listar');
 Route::get('/obra/pasarid/{id}', 'ObraController@pasarid');
 Route::post('/obra/guardar', 'ObraController@save');
-Route::get('/obra/crearcontactos', 'ObraContactoController@create');
 Route::get('/obra/editar/{id}', 'ObraController@edit');
+Route::get('/obra/ver/{id}', 'ObraController@listarContactos');
 Route::post('/obra/actualizar', 'ObraController@update');
-
 Route::post('/obra/eliminar/{id}', 'ObraController@destroy');
 
 Route::get('/cliente', 'ClientesController@index');
@@ -52,9 +51,7 @@ Route::get('/cliente/pasarid/{id}', 'ClientesController@pasarid');
 Route::post('/cliente/guardar', 'ClientesController@store');
 Route::post('/cliente/guardaredit', 'ClientesController@store1');
 Route::post('/cliente/actualizar', 'ClientesController@update');
-
-Route::get('/cliente/crear', 'ClientesController@create');
-
+Route::post('/cliente/crear', 'ClientesController@create');
 Route::post('/cliente/guardarNuevo', 'ClientesController@save');
 Route::get('/cliente/edit/{id}', 'ClientesController@edit');
 Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
@@ -66,17 +63,8 @@ Route::get('/tipocontacto/crear', 'TipoContactoController@create');
 Route::post('/tipocontacto/guardar', 'TipoContactoController@save');
 Route::get('/tipocontacto/editar/{id}', 'TipoContactoController@edit');
 Route::post('/tipocontacto/actualizar', 'TipoContactoController@update');
-Route::get('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
-
-
-
-// Route::get('/obracontacto', 'ObraContactoController@index');
-// Route::post('/obracontacto/guardar', 'ObraContactoController@save');
-// Route::get('/obracontacto/listar', 'ObraContactoController@listar');
-// Route::get('/obracontacto/ver/{id}', 'ObraContactoController@listarContactos');
-// Route::get('/obracontacto/editar/{id}', 'ObraContactoController@edit');
-// Route::post('/obracontacto/actualizar', 'ObraContactoController@actualizar');
-// Route::post('/obracontacto/eliminar/{id}', 'ObraContactoController@destroy');
+Route::post('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
+Route::get('/tipocontacto/eliminarget/{id}', 'TipoContactoController@destroy');
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');
@@ -171,6 +159,10 @@ Route::post('/chart/servicio','ChartController@servicios');
 
 Route::get('/chartencuesta','ChartController@index3');
 Route::post('/chart/encuesta','ChartController@encuesta');
+Route::get('/chartencuesta4','ChartController@index4');
+Route::post('/chart/encuesta4','ChartController@encuesta4');
+Route::get('/chartencuesta5','ChartController@index5');
+Route::post('/chart/encuesta5','ChartController@encuesta5');
 
 
 });

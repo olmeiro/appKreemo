@@ -53,8 +53,8 @@ class User extends Authenticatable
                     ["nombre"=>"Empresas","url"=>"/empresa"],
                     ["nombre"=>"Obras","url"=>"/obra"],
                     ["nombre"=>"Contactos","url"=>"/cliente"],
-                   
-                   
+
+
                 ],
             ],
             [
@@ -104,11 +104,13 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-tasks",
                 "hijos"=>[
-                    ["nombre"=>"Cotización por empresa","url"=>"/chart"],
-                    ["nombre"=>"Cotización por estados","url"=>"/chartestados"],
-                    ["nombre"=>"Visita","url"=>"/chartvisita"],
-                    ["nombre"=>"Servicio","url"=>"/chartservicio"],
-                    ["nombre"=>"Encuesta","url"=>"/chartencuesta"],
+                    ["nombre"=>"C - por empresa","url"=>"/chart"],
+                    ["nombre"=>"C - por estados","url"=>"/chartestados"],
+                    ["nombre"=>"V - Viabilidad","url"=>"/chartvisita"],
+                    ["nombre"=>"S - Servicio","url"=>"/chartservicio"],
+                    ["nombre"=>"E - Inconvenientes","url"=>"/chartencuesta"],
+                    ["nombre"=>"E - Recomendar VB","url"=>"/chartencuesta4"],
+                    ["nombre"=>"E - Volvería a VB","url"=>"/chartencuesta5"],
                 ],
             ],
         ],
@@ -195,18 +197,18 @@ class User extends Authenticatable
             ["url" => "/users/{id}", "method"=>"GET", "identica"=>false],
             ["url" => "/users", "method"=>"delete", "identica"=>false], //eliminar user x resource
 
-
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
-            ["url" => "/tipocontacto/eliminar", "method"=>"GET", "identica"=>false],
+            ["url" => "/tipocontacto/eliminar", "method"=>"POST", "identica"=>false],
+            ["url" => "/tipocontacto/eliminarget", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/guardar", "method"=>"POST", "identica"=>true],
 
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/cliente/crear", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/guardaredit", "method"=>"POST", "identica"=>true],
@@ -222,10 +224,8 @@ class User extends Authenticatable
             ["url" => "/obra/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
 
-            ["url" => "/obra/crearcontactos", "method"=>"GET", "identica"=>true],
-          
-     
-         
+            ["url" => "/obra/ver/", "method"=>"GET", "identica"=>false],
+
             ["url" => "/obra/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
@@ -243,7 +243,6 @@ class User extends Authenticatable
             ["url" => "/empresa/guardarNuevo", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/edit", "method"=>"GET", "identica"=>false],
             ["url" => "/empresa/cambiar/estado", "method"=>"GET", "identica"=>false],
-
             ["url" => "/empresa/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
@@ -278,11 +277,8 @@ class User extends Authenticatable
             ["url" => "/ajaxtipoConcreto/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxtipoConcreto", "method"=>"delete", "identica"=>false],
 
-
-
             ["url" => "/modalidad", "method"=>"GET", "identica"=>true],
             ["url" => "/modalidad/listar", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxmodalidad", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxmodalidad", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxmodalidad", "method"=>"POST", "identica"=>false],
@@ -291,10 +287,8 @@ class User extends Authenticatable
             ["url" => "/ajaxmodalidad/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmodalidad", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/jornada", "method"=>"GET", "identica"=>true],
             ["url" => "/jornada/listar", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxjornada", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxjornada", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxjornada", "method"=>"POST", "identica"=>false],
@@ -303,10 +297,8 @@ class User extends Authenticatable
             ["url" => "/ajaxjornada/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxjornada", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/etapa", "method"=>"GET", "identica"=>true],
             ["url" => "/etapa/listar", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxetapa", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxetapa", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxetapa", "method"=>"POST", "identica"=>false],
@@ -315,10 +307,8 @@ class User extends Authenticatable
             ["url" => "/ajaxetapa/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxetapa", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/maquinaria", "method"=>"GET", "identica"=>true],
             ["url" => "/maquinaria/cambiar/estado", "method"=>"GET", "identica"=>false],
-
             ["url" => "/ajaxmaquinaria", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxmaquinaria", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxmaquinaria", "method"=>"POST", "identica"=>false],
@@ -327,9 +317,7 @@ class User extends Authenticatable
             ["url" => "/ajaxmaquinaria/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmaquinaria", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/operario", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxoperario", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxoperario", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxoperario", "method"=>"POST", "identica"=>false],
@@ -337,8 +325,6 @@ class User extends Authenticatable
             ["url" => "/ajaxoperario/update", "method"=>"PUT", "identica"=>false],
             ["url" => "/ajaxoperario/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxoperario", "method"=>"delete", "identica"=>false],
-
-             //hasta aqui full
 
             ["url" => "/servicio", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"POST", "identica"=>false], //guardo
@@ -357,7 +343,6 @@ class User extends Authenticatable
             ["url" => "/servicio/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/servicio/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/servicio/actualizar", "method"=>"POST", "identica"=>true],
-
             ["url" => "/servicio/pasarfecha", "method"=>"POST", "identica"=>false],
 
             ["url" => "/cotizacion", "method"=>"GET", "identica"=>true],
@@ -368,14 +353,10 @@ class User extends Authenticatable
             ["url" => "/cotizacion/actualizar", "method"=>"POST", "identica"=>true], //OK
             ["url" => "/cotizacion/editarEstado", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/cotizacion/estado", "method"=>"POST", "identica"=>true], //pendiente
-
             ["url" => "/cotizacion/informe", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/generar/pdf", "method"=>"POST", "identica"=>true],
 
-
-           //funciona
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>true],
-
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>false],
@@ -383,7 +364,6 @@ class User extends Authenticatable
             ["url" => "/ajaxestado/update", "method"=>"PUT", "identica"=>false],
             ["url" => "/ajaxestado/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"delete", "identica"=>false],
-
 
             ["url" => "/estadoservicio", "method"=>"GET", "identica"=>true],
             ["url" => "/estadoservicio/listar", "method"=>"GET", "identica"=>true],
@@ -393,7 +373,6 @@ class User extends Authenticatable
             ["url" => "/estadoservicio/actualizar", "method"=>"POST", "identica"=>true], //OK
             ["url" => "/estadoservicio/actualizar", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/estadoservicio/eliminar", "method"=>"GET", "identica"=>false], //pendiente
-
 
             ["url" => "/encuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/encuesta/listar", "method"=>"GET", "identica"=>true],
@@ -417,6 +396,12 @@ class User extends Authenticatable
             ["url" => "/chartencuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta", "method"=>"POST", "identica"=>true],
 
+            ["url" => "/chartencuesta4", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta4", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta5", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta5", "method"=>"POST", "identica"=>true],
+
         ],
         2=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
@@ -424,15 +409,18 @@ class User extends Authenticatable
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
-            ["url" => "/tipocontacto/eliminar", "method"=>"GET", "identica"=>false],
+            ["url" => "/tipocontacto/eliminar", "method"=>"POST", "identica"=>false],
+            ["url" => "/tipocontacto/eliminarget", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/guardar", "method"=>"POST", "identica"=>true],
 
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/cliente/crear", "method"=>"POST", "identica"=>true],
+            ["url" => "/cliente/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/guardar", "method"=>"POST", "identica"=>true],
+            ["url" => "/cliente/guardaredit", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/guardarNuevo", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/edit", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/cambiar/estado", "method"=>"GET", "identica"=>false],
@@ -440,22 +428,30 @@ class User extends Authenticatable
 
             ["url" => "/obra", "method"=>"GET", "identica"=>true],
             ["url" => "/obra/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/obra/crear", "method"=>"GET", "identica"=>true],
-            ["url" => "/obra/crearcontactos", "method"=>"GET", "identica"=>true],
+            ["url" => "/obra/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/guardar", "method"=>"POST", "identica"=>true],
-            ["url" => "/obra/editar/{id}", "method"=>"GET", "identica"=>false],
+            ["url" => "/obra/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/obra/ver/", "method"=>"GET", "identica"=>false],
+
+            ["url" => "/obra/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/obracontacto/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/obracontacto/listar", "method"=>"GET", "identica"=>true],
+            ["url" => "/obracontacto/listar/", "method"=>"GET", "identica"=>false],
+            ["url" => "/obracontacto/ver/", "method"=>"GET", "identica"=>false],
             ["url" => "/obracontacto/editar", "method"=>"GET", "identica"=>false],
+            ["url" => "/obracontacto/actualizar", "method"=>"POST", "identica"=>true],
+            ["url" => "/obracontacto/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/empresa", "method"=>"GET", "identica"=>true],
             ["url" => "/empresa/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/empresa/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/guardarNuevo", "method"=>"POST", "identica"=>true],
             ["url" => "/empresa/edit", "method"=>"GET", "identica"=>false],
+            ["url" => "/empresa/cambiar/estado", "method"=>"GET", "identica"=>false],
             ["url" => "/empresa/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
@@ -490,11 +486,8 @@ class User extends Authenticatable
             ["url" => "/ajaxtipoConcreto/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxtipoConcreto", "method"=>"delete", "identica"=>false],
 
-
-
             ["url" => "/modalidad", "method"=>"GET", "identica"=>true],
             ["url" => "/modalidad/listar", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxmodalidad", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxmodalidad", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxmodalidad", "method"=>"POST", "identica"=>false],
@@ -503,10 +496,8 @@ class User extends Authenticatable
             ["url" => "/ajaxmodalidad/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmodalidad", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/jornada", "method"=>"GET", "identica"=>true],
             ["url" => "/jornada/listar", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxjornada", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxjornada", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxjornada", "method"=>"POST", "identica"=>false],
@@ -515,10 +506,8 @@ class User extends Authenticatable
             ["url" => "/ajaxjornada/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxjornada", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/etapa", "method"=>"GET", "identica"=>true],
             ["url" => "/etapa/listar", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxetapa", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxetapa", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxetapa", "method"=>"POST", "identica"=>false],
@@ -527,10 +516,8 @@ class User extends Authenticatable
             ["url" => "/ajaxetapa/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxetapa", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/maquinaria", "method"=>"GET", "identica"=>true],
             ["url" => "/maquinaria/cambiar/estado", "method"=>"GET", "identica"=>false],
-
             ["url" => "/ajaxmaquinaria", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxmaquinaria", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxmaquinaria", "method"=>"POST", "identica"=>false],
@@ -539,9 +526,7 @@ class User extends Authenticatable
             ["url" => "/ajaxmaquinaria/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxmaquinaria", "method"=>"delete", "identica"=>false],
 
-
             ["url" => "/operario", "method"=>"GET", "identica"=>true],
-
             ["url" => "/ajaxoperario", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxoperario", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxoperario", "method"=>"POST", "identica"=>false],
@@ -550,22 +535,24 @@ class User extends Authenticatable
             ["url" => "/ajaxoperario/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxoperario", "method"=>"delete", "identica"=>false],
 
-             //hasta aqui full
-
             ["url" => "/servicio", "method"=>"GET", "identica"=>true],
-            ["url" => "/servicio/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/servicio/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"POST", "identica"=>false], //guardo
             ["url" => "/servicio/store", "method"=>"POST", "identica"=>true],
             ["url" => "servicio/{visitum}/edit", "method"=>"POST", "identica"=>false],
             ["url" => "/servicio/update", "method"=>"GET", "identica"=>true],
+
             ["url" => "/servicio/cambiarEstado", "method"=>"GET", "identica"=>false], //para cambiar el estado
+            ["url" => "/servicio/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/listarservicio", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio/show", "method"=>"GET", "identica"=>true],
+            ["url" => "/servicio/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/servicio/create", "method"=>"GET", "identica"=>true],
             ["url" => "/servicio", "method"=>"delete", "identica"=>false], //elimina x Resource
             ["url" => "/servicio", "method"=>"patch", "identica"=>false],   //modifica x resource
-
-
+            ["url" => "/servicio/editar", "method"=>"GET", "identica"=>false],
+            ["url" => "/servicio/guardar", "method"=>"POST", "identica"=>true],
+            ["url" => "/servicio/actualizar", "method"=>"POST", "identica"=>true],
+            ["url" => "/servicio/pasarfecha", "method"=>"POST", "identica"=>false],
 
             ["url" => "/cotizacion", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/listar", "method"=>"GET", "identica"=>true],
@@ -575,13 +562,10 @@ class User extends Authenticatable
             ["url" => "/cotizacion/actualizar", "method"=>"POST", "identica"=>true], //OK
             ["url" => "/cotizacion/editarEstado", "method"=>"GET", "identica"=>false], //pendiente pero conectado
             ["url" => "/cotizacion/estado", "method"=>"POST", "identica"=>true], //pendiente
-
-            ["url" => "/cotizacion/informe", "method"=>"GET", "identica"=>false],
+            ["url" => "/cotizacion/informe", "method"=>"GET", "identica"=>true],
             ["url" => "/cotizacion/generar/pdf", "method"=>"POST", "identica"=>true],
 
-           //funciona
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>true],
-
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>true],
             ["url" => "/ajaxestado", "method"=>"GET", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"POST", "identica"=>false],
@@ -590,7 +574,14 @@ class User extends Authenticatable
             ["url" => "/ajaxestado/update", "method"=>"PATCH", "identica"=>false],
             ["url" => "/ajaxestado", "method"=>"delete", "identica"=>false],
 
-
+            ["url" => "/estadoservicio", "method"=>"GET", "identica"=>true],
+            ["url" => "/estadoservicio/listar", "method"=>"GET", "identica"=>true],
+            ["url" => "/estadoservicio/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/estadoservicio/guardar", "method"=>"POST", "identica"=>true], //OK
+            ["url" => "/estadoservicio/editar", "method"=>"GET", "identica"=>false], //OK
+            ["url" => "/estadoservicio/actualizar", "method"=>"POST", "identica"=>true], //OK
+            ["url" => "/estadoservicio/actualizar", "method"=>"GET", "identica"=>false], //pendiente pero conectado
+            ["url" => "/estadoservicio/eliminar", "method"=>"GET", "identica"=>false], //pendiente
 
             ["url" => "/encuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/encuesta/listar", "method"=>"GET", "identica"=>true],
@@ -599,6 +590,26 @@ class User extends Authenticatable
             ["url" => "/encuesta/ver", "method"=>"GET", "identica"=>false],
             ["url" => "/encuesta/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/encuesta/eliminar", "method"=>"GET", "identica"=>false],
+
+            ["url" => "/chart", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/valorCotizacion", "method"=>"POST", "identica"=>true],
+            ["url" => "/chartestados", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/estadosCotizacion", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartvisita", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/visita", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartservicio", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/servicio", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta4", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta4", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta5", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta5", "method"=>"POST", "identica"=>true],
         ],
         3=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
@@ -626,9 +637,6 @@ class User extends Authenticatable
             ["url" => "/listachequeo/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/listachequeo/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/listachequeo/listar", "method"=>"GET", "identica"=>true],
-
-
-
 
         ],
     ];
