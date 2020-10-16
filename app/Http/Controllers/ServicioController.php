@@ -27,6 +27,7 @@ class ServicioController extends Controller
             ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
             ->join("obra", "cotizacion.idObra", "=", "obra.id")
             ->where("cotizacion.inicioBombeo",">", now())
+            ->where("cotizacion.idestado", "=", 2)
             ->orderBy("cotizacion.id")
             ->get();
         $maquinaria = Maquinaria::select("maquinaria.*")
