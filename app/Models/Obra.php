@@ -17,10 +17,10 @@ class Obra extends Model
     ];
 
     public static $rules = [
-        'idempresa' => 'required|integer',
-        'nombre' =>    'required|string|max:50',
-        'direccion' =>  'required|string|max:100',
-        'telefono1' => 'string|required|between:7,10',
-        'correo1' => 'email:rfc,dns',
+        // 'idempresa' => 'required|integer',
+        // 'nombre' =>    'required|string|max:50',
+        // 'direccion' =>  'required|string|max:100',
+        // 'telefono1' => 'string|required|between:7,10',
+        // 'correo1' => 'email:rfc,dns',
     ];
 }

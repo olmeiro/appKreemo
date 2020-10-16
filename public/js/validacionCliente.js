@@ -146,6 +146,148 @@
     });
 });
 
+// cliente.crearcontacto
+
+$(document).ready(function() {
+    $("#frmCrearContacto").submit(function(event){
+         event.preventDefault();
+
+         let validado = 0;
+
+         if( $("#idtipocontacto").val() == 0 )
+         {
+             $("#valContacto").text("* Debe elegir un tipo de contacto");
+         }
+         else
+         {
+             $("#valContacto").text("");
+             validado++;
+         }
+
+         if(validaVacio($("#nombre").val()) || $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
+         {
+             $("#valNombre").text("* Debe ingresar el nombre del contacto");
+         }
+         else
+         {
+             $("#valNombre").text("");
+             validado++;
+         }
+ 
+         if(validaVacio($("#apellido1").val()) || $("#apellido1").val().length == 0 || $("#apellido1").val().length > 30)
+         {
+             $("#valApellido1").text("* Ingresar primer apellido del contacto");
+         }
+         else
+         {
+             $("#valApellido1").text("");
+             validado++;
+         }
+ 
+         if(validaVacio($("#apellido2").val()) || $("#apellido2").val().length == 0 || $("#apellido2").val().length > 30)
+         {
+             $("#valApellido2").text("* Debe ingresar el segundo apellido del contacto.")
+         }
+         else{
+             $("#valApellido2").text("");
+             validado++;
+         }
+ 
+         var documento = document.getElementById("documento");
+         if(documento.value == "" || documento.value == null || $("#documento").val().length > 10 || $("#documento").val().length < 7)
+         {
+             $("#valDocumento").text("* Debe ingresar el número válido documento del contacto.");
+         }
+         else
+         {
+             $("#valDocumento").text("");
+             validado++;
+         }
+
+         if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
+         {
+             $("#valTelefono1").text("* Ingrese un número de telefono valido");
+         }
+         else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
+         {
+          $("#valTelefono1").text("* Ingrese un número de celular de 10 dígitos.");
+         }
+         else{
+             $("#valTelefono1").text("");
+             validado++;
+         }
+
+         if($("#telefono2").val().length == 0 || isNaN($("#telefono2").val()))
+         {
+             $("#valTelefono2").text("* Ingrese un número de telefono valido");
+         }
+         else if(!(/^\d{7,10}$/.test($("#telefono2").val())))
+         {
+          $("#valTelefono2").text("* Ingrese un número de celular de 10 dígitos.");
+         }
+         else{
+             $("#valTelefono2").text("");
+             validado++;
+         }
+ 
+         const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
+ 
+         if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
+         {
+             $("#valCorreo1").text("* Ingrese un correo valido.");
+         }
+         else
+         {
+             $("#valCorreo1").text("");
+             validado++;
+         }
+ 
+         if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
+         {
+             $("#valCorreo2").text("* Ingrese un correo valido.");
+         }
+         else
+         {
+             $("#valCorreo2").text("");
+             validado++;
+         }
+ 
+         console.log("validado: " + validado);
+ 
+         if(validado == 9)
+         {
+            var fd = new FormData(document.getElementById("frmCrearContacto"));
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "/cliente/crear",
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                type: "POST",
+                data: fd,
+                processData: false,  // tell jQuery not to process the data
+                contentType: false ,  // tell jQuery not to set contentType
+                }).done(function(respuesta){
+                  if(respuesta.ok)
+                  {
+                    Swal.fire('Se registro el nuevo tipo contacto.');
+                    limpiar();
+                  }
+                  else{
+                    Swal.fire('No se puedo crear el nuevo tipo contacto.');
+                  }
+                })
+         }
+         else
+         {
+             Swal.fire('Faltan campos por diligenciar.');
+             validado = 0;
+         }
+
+    });
+});
+
 //Validación Editar 
 
 $(document).ready(function() {
@@ -402,3 +544,4 @@ $('body').on('click', '#delete-cliente', function (e) {
 });
 
   
+

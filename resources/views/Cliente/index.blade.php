@@ -5,7 +5,7 @@
 @endsection
 @section('body')
 
-    <div class="card">
+    <div class="card table-responsive">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Contactos</strong>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal1">Crear tipo de contacto</button>

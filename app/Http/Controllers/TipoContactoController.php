@@ -27,12 +27,13 @@ class TipoContactoController extends Controller
             return '<a class="btn btn-primary btn-sm" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($tipoContacto) {
-            return '<a class="btn btn-danger btn-sm" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminar/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a class="btn btn-danger btn-sm" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminarget/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);
 
     }
+
     public function create()
     {
         $tipoContacto = tipoContacto::all();
@@ -41,7 +42,6 @@ class TipoContactoController extends Controller
 
     public function save(Request $request)
     {
-        $request->validate(tipoContacto::$rules);
         $input = $request->all();
 
         try {
@@ -82,7 +82,6 @@ class TipoContactoController extends Controller
 
     public function update(Request $request){
 
-        $request->validate(tipoContacto::$rules);
         $input = $request->all();
 
         try {
@@ -98,12 +97,14 @@ class TipoContactoController extends Controller
                 "tipocontacto"=>$input["tipocontacto"]
             ]);
 
-            Flash::success("Se modifico el tipo contacto");
-            return redirect("/tipocontacto");
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se modifico el tipo contacto");
+            // return redirect("/tipocontacto");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
-            return redirect("/tipocontacto");
+            return response()->json(["ok"=>true]);
+            // Flash::error($e->getMessage());
+            // return redirect("/tipocontacto");
         }
     }
 
@@ -120,10 +121,14 @@ class TipoContactoController extends Controller
     
             $tipoContacto->delete($id);
     
-            return response()->json(["ok"=>true]);
+            //return response()->json(["ok"=>true]);
+            Flash::success("Se eliminó el tipo contacto");
+            return redirect("/tipocontacto");
         } 
         catch (\Throwable $th) {
-            return response()->json(["ok"=>false]);
+            // return response()->json(["ok"=>false]);
+            Flash::success("No se puede eliminar tipo contacto");
+            return redirect("/tipocontacto");
         }  
 
     }
