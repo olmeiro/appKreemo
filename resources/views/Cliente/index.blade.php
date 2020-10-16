@@ -12,10 +12,10 @@
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal3">Lista de tipo de contactos</button>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">Crear contacto</button>
         </div>
-        <div class="card-body justify-content-lg-center">
+        <div class="card-body justify-content-lg-center table-responsive">
         @include('flash::message')
         <h4 id="mensaje"></h4>
-            <table id="tbl_contacto" class="table table-bordered table-striped table-responsive" style="width: 100%;">
+            <table id="tbl_contacto" class="table table-bordered table-striped " style="width: 100%;">
                 <thead>
                 <tr>
                     <th>Obra</th>
