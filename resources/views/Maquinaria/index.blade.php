@@ -46,12 +46,12 @@
         </div>
 </div>
 
-<div class="modal fade" id="ajaxModel" aria-hidden="true">
+<div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title" id="modelHeading"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -108,10 +108,7 @@
                 </div>
 
                     <div class="col-sm-offset-2 col-sm-10">
-
                      <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
-                     <button type="button" id="btnCancelar" class="btn btn-default" data-dismiss="modal" onclick="limpiar()">Cancelar</button>
-
                      </button>
                     </div>
                 </form>
@@ -240,16 +237,7 @@
             validado++;
         }
 
-        if($("#observacion").val()==0){
-            $("#validacion_observacion").text("*");
-            $("#validacion_observacion2").text("Debe Ingresar la Observacion");
-        }else{
-            $("#validacion_observacion").text("");
-            $("#validacion_observacion2").text("");
-            validado++;
-        }
-
-        if(validado==4){
+        if(validado==3){
             $.ajax({
             data: $('#maquinariaForm').serialize(),
             url: "{{ route('ajaxmaquinaria.store') }}",

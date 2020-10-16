@@ -30,7 +30,7 @@ class ServicioController extends Controller
             ->orderBy("cotizacion.id")
             ->get();
         $maquinaria = Maquinaria::select("maquinaria.*")
-        ->where("maquinaria.estado","=",0)
+        ->where("maquinaria.estado","=",1)
         ->get();
         $operario = Operario::all();
         return view('servicio.index', compact('estadoservicio','cotizacion','maquinaria','operario'));

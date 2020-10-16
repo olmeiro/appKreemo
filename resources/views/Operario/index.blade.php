@@ -42,7 +42,7 @@
         </div>
 </div>
 
-<div class="modal fade" id="ajaxModel" aria-hidden="true">
+<div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
@@ -73,9 +73,9 @@
                             @enderror
                             <label class="validacion" id="validacion_apellido2"></label>
                      </div>
-                        
+
                 </div>
-               
+
                 <div class="row">
                     <div class="form-group col-md-6">
                             <label for="documento">Documento</label>
@@ -96,10 +96,10 @@
                         <label class="validacion" id="validacion_celular2"></label>
                        </div>
                 </div>
-               
+
                 <div  align="center">
                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar</button>
-                    
+
                 </div>
                 </form>
             </div>
