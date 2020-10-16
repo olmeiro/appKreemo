@@ -30,7 +30,9 @@ class ObraController extends Controller
 
         return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
-            return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
+            // return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
+            return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
+
         })
         ->addColumn('ver', function ($obra) {
             return '<a class="btn btn-secondary btn-md" data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
@@ -45,26 +47,10 @@ class ObraController extends Controller
 
     public function listarContactos($id){
 
-        
-        // $contactos = Cliente::select("obracontacto.*", "obracontacto.idcontacto","tipocontacto.tipocontacto")
-        // ->join("tipocontacto","contacto.idtipocontacto", "=", "tipocontacto.id")
-        // ->join("obracontacto", "contacto.id", "=", "obracontacto.idcontacto")
-        // ->where("obracontacto.idobra", $id)
-        // ->get();
-
-        // return DataTables::of($contactos);
-
-        // SELECT contacto.nombre, obra.nombre FROM `contacto`
-        // INNER JOIN obra 
-        // ON contacto.idobra = obra.id
-        // WHERE idobra = 16
-
         $contactos = Cliente::select("contacto.*", "obra.nombre as obra")
         ->join("obra","contacto.idobra","=","obra.id")
         ->where("contacto.idobra","=",$id)
         ->get();
-
-        //return response(json_encode($obraContactos), 200)->header('Content-type','text/plain');
 
         return DataTables::of($contactos)
         ->addIndexColumn()
@@ -86,9 +72,7 @@ class ObraController extends Controller
     }
 
     public function save(Request $request){
-        //dd('ruta ok');
 
-        $request->validate(Obra::$rules);
         $input = $request->all();
 
         try {
@@ -102,10 +86,12 @@ class ObraController extends Controller
 
             ]);
 
+            Flash::error("Obra creada con éxito");
             return redirect("/obra");
 
         } catch (\Exception $e ) {
-            return redirect("/empresa");
+            Flash::error("Obra no creada");
+            return redirect("/obra");
         }
     }
 
@@ -120,8 +106,6 @@ class ObraController extends Controller
 
     public function edit($id){
 
-        
-
         $obra = Obra::find($id);
 
         if ($obra==null) {
@@ -130,44 +114,26 @@ class ObraController extends Controller
             return redirect("/obra");
         }
         
-        return view("obra.edit", compact("obra"));
+        return Response::json($obra);
     }
 
-    public function update(Request $request){
+    public function update(Request $request)
+    {
 
-        $request->validate(Obra::$rules);
-        $input = $request->all();
-        //dd($input);
+            $oId = $request->id;
+            Obra::updateOrCreate(['id' => $oId],[
+                "idempresa" => $request->idempresa,
+                "nombre" => $request->nombre,
+                "direccion" => $request->direccion,
+                "telefono1" => $request->telefono1,
+                "correo1" => $request->correo1,
+                ]);
+               
+                return response()->json(["ok"=>true]);
 
-        try {
-
-            $obra = Obra::find($input["id"]);
-
-            if ($obra==null) {
-                Flash::error("Obra no encontrada");
-                return redirect("/obra");
-            }
-
-            $obra->update([
-                "nombre" => $input["nombre"],
-                "direccion" =>$input["direccion"],
-                "telefono1" =>$input["telefono1"],
-                "correo1" =>$input["correo1"],
-            ]);
-
-            return response()->json(["ok"=>true]);
-
-        } catch (\Exception $e ) {
-            return response()->json(["ok"=>false]);
-        }
     }
 
     public function destroy($id){
-
-        // SELECT id FROM `obracontacto` WHERE idobra = 1
-
-        //dd($id);
-
         try
         {
             $obra = Obra::find($id);

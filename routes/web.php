@@ -52,7 +52,7 @@ Route::post('/cliente/guardar', 'ClientesController@store');
 Route::post('/cliente/guardaredit', 'ClientesController@store1');
 Route::post('/cliente/actualizar', 'ClientesController@update');
 
-Route::get('/cliente/crear', 'ClientesController@create');
+Route::post('/cliente/crear', 'ClientesController@create');
 
 Route::post('/cliente/guardarNuevo', 'ClientesController@save');
 Route::get('/cliente/edit/{id}', 'ClientesController@edit');
