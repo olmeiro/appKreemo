@@ -84,11 +84,11 @@
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
     <!-- Ver contactos modal -->
 
-    <div class="modal fade" data-backdrop="static" id="verModal4" tabindex="-1" role="dialog" aria-labelledby="obraLabelModal2" aria-hidden="true">
+<div class="modal fade" data-backdrop="static" id="verModal4" tabindex="-1" role="dialog" aria-labelledby="obraLabelModal2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
@@ -112,13 +112,14 @@
 
                             </tbody>
                         </table>
-                    
+
                 </div>
             </div>
         </div>
-    </div>
+</div>
 
        <!-- Editar obra -->
+
 
        <div class="modal fade" data-backdrop="static" id="verModal5" tabindex="-1" role="dialog" aria-labelledby="verModal5" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -193,6 +194,7 @@
             </div>
         </div>
 
+
     <!-- lista obras -->
 
     <div class="card">
@@ -200,10 +202,12 @@
             <strong>Obras</strong>
             <strong class="float-right"><button type="button" class="btn btn-outline-light float-rigth" data-toggle="modal" data-target="#obraModal2">Crear obra</button></strong>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
         @include('flash::message')
+
         <h4 id="msg"></h4>
             <table id="tbl_obra" class="table table-bordered table-striped table-responsive" style="width: 100%;">
+
                 <thead>
                 <tr>
                     <th>Empresa</th>
@@ -309,7 +313,7 @@
                 var id = $(this).data('id');
                 var url = '/obra/ver/'+id;
                 console.log(url);
-   
+
                 $('#tbl_contactos').DataTable({
                 destroy: true,
                 paging: false,
@@ -375,7 +379,7 @@
                         }
 
                     });
-   
+
                });
 
             //    Eliminar contacto
@@ -388,7 +392,7 @@
                     var contacto_id = $(this).data("id");
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
-                        type: "POST", 
+                        type: "POST",
                         url: "/cliente/eliminar/"+contacto_id,
                         data: {
                         "id": contacto_id,
@@ -403,10 +407,10 @@
                                 backdrop:true,
                                 position:'center',
                                     });
-                                    var table = $('#tbl_contactos').DataTable();    
+                                    var table = $('#tbl_contactos').DataTable();
                                     table.ajax.reload();
                             } else {
-                                
+
 
                             Swal.fire({
                                 title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -414,18 +418,19 @@
                                 backdrop:true,
                                 position:'center',
                             });
-                            var table = $('#tbl_contactos').DataTable();    
+                            var table = $('#tbl_contactos').DataTable();
                                 table.ajax.reload();
                             }
-                        
+
                         })
-                
+
                         }
                         else
                         {
                             return false;
                         }
             });
+
 
         //    editar obra
 
@@ -445,6 +450,7 @@
 
                 })
             });
+
 
 
 
