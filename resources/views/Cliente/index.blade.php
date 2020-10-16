@@ -12,7 +12,7 @@
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal3">Lista de tipo de contactos</button>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">Crear contacto</button>
         </div>
-        <div class="card-body justify-content-lg-center">
+        <div class="card-body justify-content-lg-center table-responsive">
         @include('flash::message')
         <h4 id="mensaje"></h4>
             <table id="tbl_contacto" class="table table-bordered table-striped " style="width: 100%;">
@@ -241,7 +241,7 @@
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h4 class="modal-title" id="clienteCrudModal"></h4>
+                        <h4 class="modal-title" id="clienteEditModal"></h4>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <div class="card-header">
                             <strong>x</strong>
@@ -375,9 +375,7 @@
                                 </div>
                             </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
-                                    <!-- <button type="button" id="btn-save" name="btnsave" class="btn btn-primary" onclick="editar()">Guardar</button> -->
-                                    <a href="/cliente" class="btn btn-danger">Cancelar</a>
+                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary float-lg-right" disabled>Editar</button>
                                 </div>
                             </form>
                         </div>
@@ -538,7 +536,7 @@
             $('body').on('click', '#editar-Cliente', function () {
                 var cliente_id = $(this).data('id');
                 $.get('cliente/edit/'+cliente_id, function (data) {
-                $('#clienteCrudModal').html("Editar contacto");
+                $('#clienteEditModal').html("Editar contacto");
                 $('#btn-update').val("Update");
                 $('#btn-save').prop('disabled',false);
                 $('#exampleModal4').modal('show');

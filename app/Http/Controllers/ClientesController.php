@@ -43,8 +43,7 @@ class ClientesController extends Controller
         //     return $cliente->estado == 1 ? "Activo" : "Inactivo";
         // })
         ->addColumn('editar', function ($cliente) {
-            return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal4">
-            <a class="btn btn-primary btn-sm" data-toggle="modal" id="editar-Cliente" data-id='.$cliente->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}"></button>';
+            return '<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal4" id="editar-Cliente" data-id='.$cliente->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
         ->addColumn('eliminar', function ($cliente) {
@@ -211,58 +210,7 @@ class ClientesController extends Controller
         }
   }
 
-        // public function update(Request $request){
-
-    //     $request->validate(Cliente::$rules);
-    //     $input = $request->all();
-
-    //     try {
-
-    //         $cliente = Cliente::find($input["id"]);
-
-    //         if ($cliente==null) {
-    //             Flash::error("Cliente no encontrado");
-    //             return redirect("/cliente");
-    //         }
-
-    //         $cliente->update([
-    //             "cnombre" => $input["nombre"],
-    //             "capellido1" =>$input["apellido1"],
-    //             "capellido2" =>$input["apellido2"],
-    //             "cdocumento" =>$input["documento"],
-    //             "cestado" =>1,
-    //             "ctelefono1" =>$input["telefono1"],
-    //             "ctelefono2" =>$input["telefono2"],
-    //             "ccorreo1" =>$input["correo1"],
-    //             "ccorreo2" =>$input["correo2"],
-    //         ]);
-
-    //         Flash::success("Se modifico el cliente");
-    //         return redirect("/cliente");
-
-    //     } catch (\Exception $e ) {
-    //         Flash::error($e->getMessage());
-    //         return redirect("/cliente");
-    //     }
-    // }
-
-
-    // public function edit($id){
-
-    //     $tipoContacto = tipoContacto::all();
-    //     $cliente = Cliente::find($id);
-
-    //     if ($cliente==null) {
-
-    //         Flash::error("cliente no encontrado");
-    //         return redirect("/cliente");
-    //     }
-    //     //else{
-    //         return view("cliente.edit", compact("cliente", "tipoContacto"));
-    //     // }
-    // }
-
-    /**
+/**
 * Show the form for editing the specified resource.
 *
 * @param int $id
@@ -273,7 +221,6 @@ class ClientesController extends Controller
     {
         $where = array('id' => $id);
         $cliente = Cliente::where($where)->first();
-        Flash::success("Se modifico el cliente.");
         return Response::json($cliente);
     }
 
@@ -283,10 +230,6 @@ class ClientesController extends Controller
 * @param int $id
 * @return \Illuminate\Http\Response
 */
-
-
-
-
 
     public function updateState($id, $estado){
 

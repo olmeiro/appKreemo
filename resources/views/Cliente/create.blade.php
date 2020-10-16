@@ -122,6 +122,7 @@
                 </div>
             </div>
                 <div class="modal-footer">
+                    <a href="/cliente" class="btn btn-md btn-outline-primary float-right" >Volver</a>
                     <button type="submit" id="crearObra" id="crearContacto" class="btn btn-primary">Crear</button>
                 </div>
             </form>

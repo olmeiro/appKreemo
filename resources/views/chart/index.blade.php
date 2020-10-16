@@ -108,7 +108,8 @@
                     id:$('select[name="id"]').val(),
                     _token:$('input[name="_token"]').val()
                 }
-                }).done(function(res){
+                }).done(function(res){    
+
                     var arreglo = JSON.parse(res);
                     for(var x= 0; x<arreglo.length;x++){
                         var todo = '<tr><td>'+arreglo[x].id+'</td>';

@@ -26,23 +26,10 @@
                     <th>Cotizacion N°</th>
                     <th>Empresa</th>
                     <th>Estado</th>
-                    <th>Modalidad</th>
-                    <th>Etapa</th>
-                    <th>Jornada</th>
-                    <th>Tipo de concreto</th>
                     <th>Obra</th>
                     <th>Fecha cotización</th>
                     <th>Fecha inicio bombeo</th>
-                    <th>Ciudad</th>
-                    <th>Cantidad de losas</th>
-                    <th>Cantidad de tuberia</th>
-                    <th>Cantidad de Metros </th>
-                    <th>Valor del metro </th>
-                    <th>AIU</th>
-                    <th>Subtotal</th>
-                    <th>IVA al AIU</th>
                     <th>Valor total</th>
-                    <th>Observaciones</th>
                     <th>Editar</th>
                     <th>Cambiar estado</th>
                 </tr>
@@ -520,22 +507,6 @@
                         name: 'estado_cotizacion',
                     },
                     {
-                        data: 'modalidad',
-                        name: 'modalidad',
-                    },
-                    {
-                        data: 'etapa',
-                        name: 'etapa',
-                    },
-                    {
-                        data: 'jornada_nombre',
-                        name: 'jornada_nombre',
-                    },
-                    {
-                        data: 'tipo_concreto',
-                        name: 'tipo_concreto',
-                    },
-                    {
                         data: 'nombre_obra',
                         name: 'nombre_obra',
                     },
@@ -548,44 +519,8 @@
                         name: 'inicioBombeo',
                     },
                     {
-                        data: 'ciudad',
-                        name: 'ciudad',
-                    },
-                    {
-                        data: 'losas',
-                        name: 'losas',
-                    },
-                    {
-                        data: 'tuberia',
-                        name: 'tuberia',
-                    },
-                    {
-                        data: 'metrosCubicos',
-                        name: 'metrosCubicos',
-                    },
-                    {
-                        data: 'valorMetro',
-                        name: 'valorMetro',
-                    },
-                    {
-                        data: 'AIU',
-                        name: 'AIU',
-                    },
-                    {
-                        data: 'subtotal',
-                        name: 'subtotal',
-                    },
-                    {
-                        data: 'ivaAIU',
-                        name: 'ivaAIU',
-                    },
-                    {
                         data: 'valorTotal',
                         name: 'valorTotal',
-                    },
-                    {
-                        data: 'observaciones',
-                        name: 'observaciones',
                     },
                     {
                         data: 'editar',
