@@ -24,6 +24,6 @@ class Maquinaria extends Model
         'serialequipo' =>  'required|integer|digits_between:7,20',
         'modelo' => 'required|string|max:50',
         'serialmotor' => 'string|required|max:50',
-        'observacion' => 'string|required|max:100'
+        'observacion' => 'string|max:100'
     ];
 }

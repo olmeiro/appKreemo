@@ -231,15 +231,7 @@ $(function(){
             validado++;
         }
 
-        if( $("#descripcion").val() == 0 ){
-            $("#valdescripcion").text("*");
-            $("#valdescripcion2").text("No puede dejar la descripción vacía");
-        }else{
-            $("#valdescripcion").text("");
-            $("#valdescripcion2").text("");
-            validado++;
-        }
-        if(validado ==8){
+        if(validado ==7){
 
             $.ajax(
             {
@@ -323,7 +315,7 @@ function darFecha()
 {
     let id = $("#idcotizacion").val();
     console.log(id);
-    
+
     $.ajax({
         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         url: '/servicio/pasarfecha',
