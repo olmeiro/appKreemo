@@ -51,9 +51,7 @@ Route::get('/cliente/pasarid/{id}', 'ClientesController@pasarid');
 Route::post('/cliente/guardar', 'ClientesController@store');
 Route::post('/cliente/guardaredit', 'ClientesController@store1');
 Route::post('/cliente/actualizar', 'ClientesController@update');
-
 Route::post('/cliente/crear', 'ClientesController@create');
-
 Route::post('/cliente/guardarNuevo', 'ClientesController@save');
 Route::get('/cliente/edit/{id}', 'ClientesController@edit');
 Route::get('/cliente/cambiar/estado/{id}/{estado}', 'ClientesController@updateState');
@@ -66,6 +64,7 @@ Route::post('/tipocontacto/guardar', 'TipoContactoController@save');
 Route::get('/tipocontacto/editar/{id}', 'TipoContactoController@edit');
 Route::post('/tipocontacto/actualizar', 'TipoContactoController@update');
 Route::post('/tipocontacto/eliminar/{id}', 'TipoContactoController@destroy');
+Route::get('/tipocontacto/eliminarget/{id}', 'TipoContactoController@destroy');
 
 Route::get('/encuesta', 'EncuestaController@index');
 Route::get('/encuesta/listar', 'EncuestaController@listar');

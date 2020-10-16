@@ -201,6 +201,7 @@ class User extends Authenticatable
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
             ["url" => "/tipocontacto/eliminar", "method"=>"POST", "identica"=>false],
+            ["url" => "/tipocontacto/eliminarget", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/guardar", "method"=>"POST", "identica"=>true],
@@ -409,13 +410,14 @@ class User extends Authenticatable
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
             ["url" => "/tipocontacto/eliminar", "method"=>"POST", "identica"=>false],
+            ["url" => "/tipocontacto/eliminarget", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/listar", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/crear", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/guardar", "method"=>"POST", "identica"=>true],
 
             ["url" => "/cliente", "method"=>"GET", "identica"=>true],
             ["url" => "/cliente/listar", "method"=>"GET", "identica"=>true],
-            ["url" => "/cliente/crear", "method"=>"GET", "identica"=>true],
+            ["url" => "/cliente/crear", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/pasarid", "method"=>"GET", "identica"=>false],
             ["url" => "/cliente/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/cliente/guardaredit", "method"=>"POST", "identica"=>true],
@@ -430,7 +432,9 @@ class User extends Authenticatable
             ["url" => "/obra/guardar", "method"=>"POST", "identica"=>true],
             ["url" => "/obra/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/obra/actualizar", "method"=>"POST", "identica"=>true],
+
             ["url" => "/obra/ver/", "method"=>"GET", "identica"=>false],
+
             ["url" => "/obra/eliminar", "method"=>"POST", "identica"=>false],
 
             ["url" => "/obracontacto", "method"=>"GET", "identica"=>true],
@@ -600,6 +604,12 @@ class User extends Authenticatable
 
             ["url" => "/chartencuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta4", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta4", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartencuesta5", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/encuesta5", "method"=>"POST", "identica"=>true],
         ],
         3=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
