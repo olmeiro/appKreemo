@@ -167,6 +167,7 @@ class ServicioController extends Controller
 
         return response()->json(["ok"=>true]);  
 
+
     }
 
     // public function store(Request $request)
