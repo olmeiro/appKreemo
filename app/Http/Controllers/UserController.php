@@ -51,22 +51,9 @@ public function index(Request $request)
 
 public function store(Request $request)
 {
-
-$r=$request->validate([
-'name' => 'required',
-'email' => 'required',
-'pw' => 'required',
-'rol' => 'required',
-
-]);
-
 $uId = $request->user_id;
 User::updateOrCreate(['id' => $uId],['name' => $request->name, 'email' => $request->email, 'password'=>Hash::make($request->pw), 'rol_id'=>$request->rol]);
-if(empty($request->user_id))
-$msg = 'User created successfully.';
-else
-$msg = 'User data is updated successfully';
-return redirect()->route('users.index')->with('success',$msg);
+return response()->json(['success'=>'Maquinaria guardada satisfactoriamente']);
 }
 
 /**
