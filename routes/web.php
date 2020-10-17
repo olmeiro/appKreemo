@@ -82,6 +82,9 @@ Route::post('/servicio/actualizar', 'ServicioController@actualizar');
 Route::post('/servicio/guardar', 'ServicioController@save');
 Route::get('/servicio/listarservicio', 'ServicioController@listarservicios');
 Route::get('/servicio/cambiarEstado/{id}/{estado}', 'ServicioController@updateState');
+
+Route::post('/servicio/validaMaquina', 'ServicioController@validaMaquina');
+
 Route::resource('servicio', 'ServicioController');
 
 Route::get('/estadoservicio', 'EstadoServicioController@index');
