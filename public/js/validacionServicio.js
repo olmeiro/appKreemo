@@ -253,7 +253,7 @@ $(function(){
                     });
 
                     $('#agendaservicio_modal').on('hidden.bs.modal', function () {
-                        location.reload();
+                        //location.reload();
                     });
                     $("#valfecha").text("");
                     $("#valfecha2").text("");
@@ -329,5 +329,32 @@ function darFecha()
             $("#fechainicio").val(arreglo[0].inicioBombeo);
     });
 
+}
+
+function validarMaquina()
+{
+    let idmaquina = $("#idmaquina").val();
+    let fechainicio = $("#fechainicio").val();
+    let fechafin = $("#fechafin").val();
+    console.log(idmaquina);
+    console.log(fechainicio);
+    console.log(fechafin);
+
+    
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: '/servicio/validaMaquina',
+        type: 'POST',
+        data:  {
+            id: $('#idmaquina').val(),
+            fechainicio: $("#fechainicio").val(),
+            fechafin: $("#fechafin").val(),
+        },
+    }).done(function(res) {
+        console.log(res);
+        // var arreglo = JSON.parse(res);
+        //     console.log(arreglo[0].inicioBombeo)
+        //     $("#fechainicio").val(arreglo[0].inicioBombeo);
+    });
 }
 
