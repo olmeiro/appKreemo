@@ -61,6 +61,6 @@ function limpiar(){
     $("#validacion_serialmotor2").text("");
     $("#validacion_observacion").text("");
     $("#validacion_observacion2").text("");
-    $("input").val("0");
+    $("input").val("");
     $("textarea").val("");
 }
