@@ -131,6 +131,22 @@ class ChartController extends Controller
 
         return response(json_encode($encuesta), 200)->header('Content-type','text/plain');
     }
+
+    public function index6(){
+        $empresa = Empresa::all();
+        return view('chart.clienteai', compact('empresa'));
+    }
+
+    public function clienteai(Request $request){
+
+        $input = $request->all();
+
+        $empresa = Empresa::select( "empresa.id","empresa.nombre as nombre_empresa", "empresa.telefono","empresa.estado");
+
+        return response(json_encode($empresa), 200)->header('Content-type','text/plain');
+    }
+
+
 }
 
 

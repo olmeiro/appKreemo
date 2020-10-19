@@ -104,8 +104,9 @@ class User extends Authenticatable
                 "url"=>"#",
                 "icono"=>"fas fa-tasks",
                 "hijos"=>[
-                    ["nombre"=>"C - por empresa","url"=>"/chart"],
-                    ["nombre"=>"C - por estados","url"=>"/chartestados"],
+                    ["nombre"=>"Cl - Estado","url"=>"/chartclienteai"],
+                    ["nombre"=>"Co - por empresa","url"=>"/chart"],
+                    ["nombre"=>"Co - por estados","url"=>"/chartestados"],
                     ["nombre"=>"V - Viabilidad","url"=>"/chartvisita"],
                     ["nombre"=>"S - Servicio","url"=>"/chartservicio"],
                     ["nombre"=>"E - Inconvenientes","url"=>"/chartencuesta"],
@@ -395,12 +396,13 @@ class User extends Authenticatable
 
             ["url" => "/chartencuesta", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta", "method"=>"POST", "identica"=>true],
-
             ["url" => "/chartencuesta4", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta4", "method"=>"POST", "identica"=>true],
-
             ["url" => "/chartencuesta5", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta5", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartclienteai", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/clienteai", "method"=>"POST", "identica"=>true],
 
         ],
         2=>[
@@ -610,6 +612,9 @@ class User extends Authenticatable
 
             ["url" => "/chartencuesta5", "method"=>"GET", "identica"=>true],
             ["url" => "/chart/encuesta5", "method"=>"POST", "identica"=>true],
+
+            ["url" => "/chartclienteai", "method"=>"GET", "identica"=>true],
+            ["url" => "/chart/clienteai", "method"=>"POST", "identica"=>true],
         ],
         3=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
