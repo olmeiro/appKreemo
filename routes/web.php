@@ -170,6 +170,9 @@ Route::post('/chart/encuesta4','ChartController@encuesta4');
 Route::get('/chartencuesta5','ChartController@index5');
 Route::post('/chart/encuesta5','ChartController@encuesta5');
 
+Route::get('/chartclienteai','ChartController@index6');
+Route::post('/chart/clienteai','ChartController@clienteai');
+
 
 });
 
