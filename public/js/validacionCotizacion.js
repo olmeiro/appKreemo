@@ -259,3 +259,33 @@ $(document).ready(function() {
 
     });
 });
+
+function traerObra()
+{
+    let id = $("#IdEmpresa").val();
+    console.log(id);
+
+    $.ajax({
+        headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+        url: '/cotizacion/pasarobra',
+        type: 'POST',
+        data:  {
+            id: $('#IdEmpresa').val(),
+        },
+    }).done(function(res) {
+        var arreglo = JSON.parse(res);
+
+            $("#IdObra").append(res.nombre);
+
+            for (let index = 0; index < arreglo.length; index++) {
+                console.log(arreglo[index].nombre)
+                $('#idObra').append(`<option value="${arreglo[index].id}">${arreglo[index].nombre}</option>`);
+            }
+            
+    });
+}
+
+
+
+
+

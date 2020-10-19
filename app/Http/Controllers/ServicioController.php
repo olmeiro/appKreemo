@@ -72,8 +72,8 @@ class ServicioController extends Controller
     {
         $servicio = Servicio::select('servicio.*')
         ->where('idmaquina',"=",$idmaquina)
-        ->whereBetween('fechainicio',[$fechainicio,$fechafin])
-        ->whereBetween('fechafin','<',$fechafin)
+        ->whereDate('fechainicio','<=',$fechainicio)
+        ->whereDate('fechainicio','>=',$fechainicio)
         ->first();
 
         return $servicio == null ? true :  false;
@@ -91,8 +91,14 @@ class ServicioController extends Controller
 
             print_r($data);
 
-            // $cotizacion = Cotizacion::find($data['idcotizacion']);
-            // $cotizacion->update(["idEstado"=>4]);
+            $cotizacion = Cotizacion::find($data['idcotizacion']);
+            $cotizacion->update(["idEstado"=>4]);
+
+            $ocupacion = Ocupacion::insert([
+                "idmaquina" => $data['idmaquina'],
+                "fechainicio" => $data['fechainicio'],
+                'fechafin' => $data['fechafin']
+            ]);
 
             return response()->json(["ok"=>true]);  
         }
@@ -204,9 +210,7 @@ class ServicioController extends Controller
             Flash::error("servicio no encontrado");
             return redirect("/servicio/listarservicios");
         }
-        //else{
-            return view("servicio.edit", compact('id','servicio','estadoservicio','maquinaria','cotizacion','operario'));
-        // }
+        return view("servicio.edit", compact('id','servicio','estadoservicio','maquinaria','cotizacion','operario'));
     }
 
     public function create(){
@@ -336,16 +340,4 @@ class ServicioController extends Controller
         return response()->json($id);
     }
 }
-
-// select("servicio.*", "estadoservicio.estado", "maquinaria.modelo", "operario.id as nombreOperario")
-// ->join("estadoservicio", "servicio.idestadoservicio", "=", "estadoservicio.id")
-// ->join("maquinaria", "servicio.idmaquina", "=", "maquinaria.id")
-// ->join("operario", "servicio.idoperario1", "=" , "operario.id")
-// ->join("operario", "servicio.idoperario2", "=" , "operario.id")
-// ->get();
-
-
-// $servicio = Servicio::select("servicio.*","estadoservicio.estado")
-// ->join("estadoservicio", "servicio.idestadoservicio","=","estadoservicio.id")
-// ->get();
 

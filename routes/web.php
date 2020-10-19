@@ -117,6 +117,9 @@ Route::get('/cotizacion/editar/{id}', 'CotizacionController@edit');
 Route::post('/cotizacion/actualizar', 'CotizacionController@update');
 Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
 Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
+Route::post('/cotizacion/pasarobra', 'CotizacionController@pasarObras');
+
+
 
 Route::get('/cotizacion/informe', 'CotizacionController@informe');
 Route::post('/cotizacion/generar/pdf', 'CotizacionController@generar_PDF');
