@@ -47,7 +47,7 @@
                 </div>
                 <div class="form-row" >
                     <div class="form-group col-md-6">
-                        <label for="">Fecha: fnicio del servicio</label>
+                        <label for="">Fecha: inicio del servicio</label>
                         <input value="{{$servicio->fechainicio}}" type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" name="fechainicio">
                         @error('fechainicio')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -65,7 +65,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">Hora Final</label>
+                        <label for="">Hora final</label>
                         <input type="time" class="form-control" id="horafin" value="{{ $servicio->horafin }}">
                     </div>
                 </div>

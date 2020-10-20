@@ -3,7 +3,7 @@
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>ACTUALIZAR LISTA DE CHEQUEO</strong>
+            <strong>Actualizar lista de chequeo</strong>
         </div>
     <div class="card-body">
         @include('flash::message')
@@ -14,12 +14,12 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #616A6B">
-                        <strong>INFORMACIÓN INICIAL</strong>
+                        <strong>Información inicial</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
                                 <div class="form-group col-md-6">
-                                    <label for="">Id Visita</label>
+                                    <label for="">Id visita</label>
                                     <label class="validacion" id="val_idvisita"></label>
                                                             <select id="idvisita"  name= "idvisita"  class="form-control @error('idvisita') is-invalid @enderror">
                                                             <option value="0">Seleccione una visita</option>
@@ -33,7 +33,7 @@
                                     <label class="validacion" id="val_idvisita2"></label>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">Numero Planilla</label>
+                                    <label for="">Número planilla</label>
                                     <label class="validacion" id="val_numeroplanilla"></label>
                                     <input type="text" value="{{$listachequeo->numeroplanilla}}" class="form-control @error('numeroplanilla') is-invalid @enderror"  name="numeroplanilla" id="numeroplanilla">
                                     @error('numeroplanilla')
@@ -48,7 +48,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header text-white"style="background-color: #616A6B">
-                        <strong>ACCESO MÁQUINA</strong>
+                        <strong>Acceso máquina</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
@@ -87,7 +87,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #616A6B">
-                        <strong>UBICACIÓN MÁQUINA</strong>
+                        <strong>Ubicación máquina</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
@@ -133,7 +133,7 @@
                                 <label class="validacion" id="val_desarenadero2"></label>
                             </div>
                             <div class="form-group col-md-3">
-                            <label class="radio-inline">Desague</label>
+                            <label class="radio-inline">Desagüe</label>
                             <label class="validacion" id="val_desague"></label>
                             <select class="form-control @error('desague') is-invalid @enderror" name="desague" id="desague">
                             <option value="NS">Seleccione</option>
@@ -165,7 +165,7 @@
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #616A6B">
-                        <strong>SEGURIDAD DE LA OBRA</strong>
+                        <strong>Seguridad de la obra</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
@@ -249,7 +249,7 @@
             <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #616A6B">
-                        <strong>SUMINISTROS</strong>
+                        <strong>Suministros</strong>
                     </div>
                     <div class="card-body">
                         <div class="form-row" >
@@ -295,7 +295,7 @@
                         </div>
                         <div class="form-row" >
                             <div class="form-group col-md-6">
-                            <label class="radio-inline">Informacion de seguridad y salud en el trabajo</label>
+                            <label class="radio-inline">Información de seguridad y salud en el trabajo</label>
                             <label class="validacion" id="val_infoSST"></label>
                             <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
                             <option value="NS">Seleccione</option>
@@ -327,12 +327,12 @@
             <div class="col-sm-4">
                 <div class="card">
                     <div class="card-header text-white" style="background-color: #616A6B">
-                        <strong>INFORMACIÓN CIERRE DE VISITA</strong>
+                        <strong>Información cierre de visita</strong>
                     </div>
                     <div class="card-body">
 
                             <div class="form-group col-md-12">
-                                <label for="">Encargado Visita</label>
+                                <label for="">Encargado visita</label>
                                 <label class="validacion"id="val_encargadovisita"></label>
                                 <input onkeypress="return soloLetras(event)" type="text" value= "{{$listachequeo->encargadovisita}}" class="form-control @error('encargadovisita') is-invalid @enderror"  name="encargadovisita" id="encargadovisita">
                                 @error('encargadovisita')

@@ -31,7 +31,7 @@
                     <thead class="table-secondary">
                         <tr>
                             <th>N°</th>
-                            <th>Tipo de Concreto</th>
+                            <th>Tipo de concreto</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -58,7 +58,7 @@
                     <form id="tipoConcretoForm" name="tipoConcretoForm" class="form-horizontal">
                     <input type="hidden" name="tipoConcreto_id" id="tipoConcreto_id">
                         <div class="form-group">
-                            <label for="name" class="col-sm-12 control-label">Tipo de Concreto</label>
+                            <label for="name" class="col-sm-12 control-label">Tipo de concreto</label>
                             <label class="validacion col-sm-12 control-label" id="val_TipoC"></label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="tipo_concreto" name="tipo_concreto" placeholder="Digita el tipo de concreto" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
@@ -129,14 +129,14 @@
             $('#saveBtn').val("create-product");
             $('#tipoConcreto_id').val('');
             $('#tipoConcretoForm').trigger("reset");
-            $('#modelHeading').html("Crear Nuevo Tipo de Concreto");
+            $('#modelHeading').html("Crear nuevo tipo de concreto");
             $('#ajaxModel').modal('show');
         });
 
         $('body').on('click', '.editTipoConcreto', function () {
             var tipoConcreto_id = $(this).data('id');
             $.get('/ajaxtipoConcreto/' + tipoConcreto_id +'/edit', function (data) {
-                $('#modelHeading').html("Editar Tipo de Concreto");
+                $('#modelHeading').html("Editar tipo de concreto");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');
                 $('#tipoConcreto_id').val(data.id);
@@ -151,7 +151,7 @@
 
             if($("#tipo_concreto").val()==0){
                 $("#val_TipoC").text("*");
-                $("#val_TipoC2").text("Debe Ingresar el tipo de concreto");
+                $("#val_TipoC2").text("Debe ingresar el tipo de concreto");
             }else{
                 $("#val_TipoC").text("");
                 $("#val_TipoC2").text("");

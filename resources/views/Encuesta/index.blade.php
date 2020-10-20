@@ -6,7 +6,7 @@
             <div class="card-header text-white float-right" style="background-color: #616A6B">
                 <strong>Encuestas</strong>
                 <!-- <a href="/encuesta/crear" class="btn btn-link">Crear Encuesta</a> -->
-                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear Encuesta </button>
+                <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear encuesta</button>
             </div>
             <div class="card-body">
             @include('flash::message')
@@ -14,11 +14,11 @@
                     <thead class="" align="center">
                     <tr>
                         <th>N° Servicio</th>
-                        <th>Nombre Director</th>
+                        <th>Nombre director</th>
                         <th>Constructora</th>
                         <th>Celular</th>
                         <th>Fecha encuesta</th>
-                        <th>Ver Encuesta</th>
+                        <th>Ver encuesta</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -33,7 +33,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Crear Encuesta</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Crear encuesta</h5>
                     <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
@@ -115,7 +115,7 @@
                                 </div>
                             </div>
                             <div id="step-2">
-                                <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos</p>
+                                <p><b>1.</b>Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos</p>
                                     <div class="form-row" >
                                         <div class="form-group col-md-6">
                                             <label for="">Puntualidad</label>
@@ -184,7 +184,7 @@
                                     </div>
                                 </div>
                             <div id="step-3">
-                                <p><b>2.</b> ¿tuvo algun inconveniente durante la prestación del servicio?</p>
+                                <p><b>2.</b>¿tuvo algún inconveniente durante la prestación del servicio?</p>
                                     <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="">SI - NO</label>
@@ -200,7 +200,7 @@
                                             <label class="validacion" for="respuesta2" id="valRespuesta22"></label>
                                         </div>
                                         </div>
-                                            <p><b>3.</b> Si la <u>respuesta 2</u> fue SI, describa la situación:</p>
+                                            <p><b>3.</b> Si la <u>respuesta 2</u> fué SI, describa la situación:</p>
                                             <label class="validacion" for="respuesta3" id="valRespuesta3"></label>
                                         <div class="form-row">
                                         <div class="form-group col-md-12">

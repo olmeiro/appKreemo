@@ -128,14 +128,14 @@
                 $('#saveBtn').val("create-product");
                 $('#modalidad_id').val('');
                 $('#modalidadForm').trigger("reset");
-                $('#modelHeading').html("Crear Nueva Modalidad");
+                $('#modelHeading').html("Crear nueva modalidad");
                 $('#ajaxModel').modal('show');
             });
 
             $('body').on('click', '.editModalidad', function () {
                 var modalidad_id = $(this).data('id');
                 $.get("{{ route('ajaxmodalidad.index') }}" +'/' + modalidad_id +'/edit', function (data) {
-                    $('#modelHeading').html("Editar la Modalidad");
+                    $('#modelHeading').html("Editar la modalidad");
                     $('#saveBtn').val("edit-user");
                     $('#ajaxModel').modal('show');
                     $('#modalidad_id').val(data.id);
@@ -150,7 +150,7 @@
 
                 if($("#modalidad").val()==0){
                     $("#val_Modalidad").text("*");
-                    $("#val_Modalidad2").text("Debe Ingresar la Modalidad");
+                    $("#val_Modalidad2").text("Debe ingresar la modalidad");
                 }else{
                     $("#val_Modalidad").text("");
                     $("#val_Modalidad2").text("");
@@ -226,14 +226,14 @@
     {{-- <div class="container row justify-content-center">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>MODALIDAD</strong>
+                <strong>Modalidad</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
                 <table id="tbl_modalidad" class="table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Modalidad N°</th>
+                        <th>N° Modalidad</th>
                         <th>Modalidad</th>
                         <th>Editar</th>
                     </tr>

@@ -21,7 +21,7 @@
     <div class="container justify-content-cente col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>Jornadas </strong>
+                <strong>Jornadas</strong>
 
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewJornada">Crear jornada</a>
             </div>
@@ -60,7 +60,7 @@
                             <label for="name" class="col-sm-12 control-label">Jornada</label>
                             <label class="validacion col-sm-12 control-label" id="val_jorna"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="jornada_nombre" name="jornada_nombre" placeholder="Digite la Jornada" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
+                                <input type="text" class="form-control" id="jornada_nombre" name="jornada_nombre" placeholder="Digite la jornada" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
                             <label class="validacion col-sm-12 control-label" id="val_jorna2"></label>
                         </div>
@@ -128,14 +128,14 @@
             $('#saveBtn').val("create-product");
             $('#jornada_id').val('');
             $('#jornadaForm').trigger("reset");
-            $('#modelHeading').html("Crear Nueva Jornada");
+            $('#modelHeading').html("Crear nueva jornada");
             $('#ajaxModel').modal('show');
         });
 
         $('body').on('click', '.editJornada', function () {
             var jornada_id = $(this).data('id');
             $.get("{{ route('ajaxjornada.index') }}" +'/' + jornada_id +'/edit', function (data) {
-                $('#modelHeading').html("Editar Jornada");
+                $('#modelHeading').html("Editar jornada");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');
                 $('#jornada_id').val(data.id);
@@ -150,7 +150,7 @@
 
             if($("#jornada_nombre").val()==0){
                 $("#val_jorna").text("*");
-                $("#val_jorna2").text("Debe Ingresar la Jornada");
+                $("#val_jorna2").text("Debe ingresar la jornada");
             }else{
                 $("#val_jorna").text("");
                 $("#val_jorna2").text("");
@@ -200,7 +200,7 @@
 
         $('body').on('click', '.deleteJornada', function (e) {
             e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el resgistro !");
+            var x = confirm("Estas seguro de eliminar el registro !");
             if(x){
             var jornada_id = $(this).data("id");
             $.ajax({
@@ -225,14 +225,14 @@
 {{-- <div class="container row justify-content-center">
         <div class="card">
             <div class="card-header text-white " style="background-color: #616A6B">
-                <strong>JORNADAS</strong>
+                <strong>Jornadas</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
                 <table id="tbl_jornada" class="table table-bordered" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Jornada N°</th>
+                        <th>N° Jornada</th>
                         <th>Jornada</th>
                         <th>Editar</th>
                     </tr>

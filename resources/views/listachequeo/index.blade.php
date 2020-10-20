@@ -72,7 +72,7 @@
                                                     </div>
 
                                                     <div class="form-group col-md-6">
-                                                        <label for="">Numero planilla</label>
+                                                        <label for="">Número planilla</label>
                                                         <label class="validacion" id="val_numeroplanilla"></label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese el número asignado para esta visita">
                                                         <input type="text" class="form-control @error('numeroplanilla') is-invalid @enderror"  name="numeroplanilla" id="numeroplanilla">
                                                         @error('numeroplanilla')
@@ -163,7 +163,7 @@
                                                             <label class="validacion" id="val_desarenadero2"></label>
                                                 </div>
                                                 <div class="form-group col-md-3">
-                                                        <label class="radio-inline">Desague</label>
+                                                        <label class="radio-inline">Desagüe</label>
                                                         <label class="validacion" id="val_desague"></label>
                                                         <select class="form-control @error('desague') is-invalid @enderror" name="desague" id="desague">
                                                         <option value="NS">Seleccione</option>
@@ -314,7 +314,7 @@
                                             </div>
                                             <div class="row mt-3">
                                                 <div class="form-group col-md-7">
-                                                        <label class="radio-inline">Informacion de seguridad y salud en el trabajo</label>
+                                                        <label class="radio-inline">Información de seguridad y salud en el trabajo</label>
                                                         <label class="validacion" id="val_infoSST"></label>
                                                         <select class="form-control @error('infoSST') is-invalid @enderror" name="infoSST" id="infoSST">
                                                         <option value="NS">Seleccione</option>
@@ -465,7 +465,7 @@
             });
 
     </script>
-  
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>

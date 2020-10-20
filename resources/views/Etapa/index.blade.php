@@ -130,14 +130,14 @@
             $('#saveBtn').val("create-product");
             $('#etapa_id').val('');
             $('#etapaForm').trigger("reset");
-            $('#modelHeading').html("Crear Nueva Etapa");
+            $('#modelHeading').html("Crear nueva etapa");
             $('#ajaxModel').modal('show');
         });
 
         $('body').on('click', '.editEtapa', function () {
             var etapa_id = $(this).data('id');
             $.get("{{ route('ajaxetapa.index') }}" +'/' + etapa_id +'/edit', function (data) {
-                $('#modelHeading').html("Editar la Etapa");
+                $('#modelHeading').html("Editar la etapa");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');
                 $('#etapa_id').val(data.id);
@@ -152,7 +152,7 @@
 
             if($("#etapa").val()==0){
                 $("#val_Etapa").text("*");
-                $("#val_Etapa2").text("Debe Ingresar la Etapa");
+                $("#val_Etapa2").text("Debe ingresar la etapa");
             }else{
                 $("#val_Etapa").text("");
                 $("#val_Etapa2").text("");
@@ -202,7 +202,7 @@
 
         $('body').on('click', '.deleteEtapa', function (e) {
             e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el resgistro !");
+            var x = confirm("Estas seguro de eliminar el registro !");
             if(x){
             var etapa_id = $(this).data("id");
             $.ajax({

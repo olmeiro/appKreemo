@@ -32,7 +32,7 @@
                                     <label for="">N° Cotización</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Seleccione la cotización a la cual desea agendarle el servicio">
                                     <label class="validacion" id="validcotizacion"></label>
                                     <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion" onchange="darFecha()">
-                                        <option selected>Seleccione una Cotización</option>
+                                        <option selected>Seleccione una cotización</option>
                                         @foreach($cotizacion as $key =>$value)
                                             <option value="{{ $value->id }}">Cotización N° {{ $value->id}} Empresa {{ $value->nombre_empresa}} - Obra: {{ $value->nombre_obra}}</option>
                                         @endforeach
@@ -47,7 +47,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="">Fecha de inicio</label>
+                                    <label for="">Fecha inicial</label>
                                     <label class="validacion" id="valfecha"></label>
                                     <input type="date" class="form-control @error('fechainicio') is-invalid @enderror" id="fechainicio" readonly>
                                     <label class="validacion" id="valfecha2"></label>
@@ -58,13 +58,13 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="">Hora Inicial</label>
+                                    <label for="">Hora inicial</label>
                                     <input type="time" class="form-control" id="horainicio">
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="">Fecha Fin</label>
+                                    <label for="">Fecha final</label>
                                     <label class="validacion" id="valfechafin"></label>
                                     <input type="date" class="form-control @error('fechafin') is-invalid @enderror" id="fechafin" name="fechafin">
                                     <label class="validacion" id="valfechafin2"></label>
@@ -75,7 +75,7 @@
                             </div>
                             <div class="col-md-3">
                                 <div class="form-group">
-                                    <label for="">Hora Final</label>
+                                    <label for="">Hora final</label>
                                     <input type="time" class="form-control" id="horafin">
                                 </div>
                             </div>

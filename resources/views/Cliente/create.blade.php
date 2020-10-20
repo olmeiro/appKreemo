@@ -7,7 +7,7 @@
 @section('body')
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Contacto</strong>
+            <strong>Crear contacto</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -18,7 +18,7 @@
             <div class="col-6">
 
                     <div class="form-group">
-                        <label for="">Tipo Contacto</label>
+                        <label for="">Tipo contacto</label>
                         <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="idtipocontacto" id="idtipocontacto">
                             <option value="">Seleccione</option>
                             @foreach($tipoContacto as $key =>$value)
@@ -46,7 +46,7 @@
 
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Primer Apellido</label>
+                        <label for="">Primer apellido</label>
                         <input type="text" class="form-control @error('apellido1') is-invalid @enderror"  name="apellido1" id="apellido1" onkeypress="return soloLetras(event)">
                         @error('apellido1')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -57,7 +57,7 @@
 
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Segundo Apellido</label>
+                        <label for="">Segundo apellido</label>
                         <input type="text" class="form-control @error('apellido2') is-invalid @enderror"  name="apellido2" id="apellido2" onkeypress="return soloLetras(event)">
                         @error('apellido2')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -79,7 +79,7 @@
 
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Telefono #1</label>
+                        <label for="">Teléfono #1</label>
                         <input type="number" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="telefono1" id="telefono1">
                         @error('telefono1')
                             <div class="invalid-feedback">{{ $message }}</div>

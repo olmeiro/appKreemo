@@ -4,7 +4,7 @@
 <div class="container row justify-content-center">
     <div class="card">
         <div class="card-header text-white float-right" style="background-color: #616A6B" >
-            <strong>TIPO CONTACTOS</strong>
+            <strong>Tipo contactos</strong>
             <a href="/tipocontacto/crear" class="btn btn-outline-light float-right">Crear tipo contacto</a>
             <a href="/cliente" class="btn btn-outline-light float-right">Volver a contactos</a>
         </div>
@@ -14,8 +14,8 @@
                 <thead>
                 <tr>
                     <th>id</th>
-                    <th>Tipo Contacto</th>
-                    <th>Fecha Creación</th>
+                    <th>Tipo contacto</th>
+                    <th>Fecha creación</th>
                     <th>Editar</th>
                     <th>eliminar</th>
                 </tr>

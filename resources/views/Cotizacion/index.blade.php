@@ -11,14 +11,14 @@
             <strong>Cotizaciones</strong>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
             <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a>
-            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> REPORTE</a> --}}
+            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a> --}}
 
 
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
-                    {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">CREAR COTIZACIÓN</a> --}}
+                    {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">Crear cotización</a> --}}
                     {{-- <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
 
         </div>
@@ -27,7 +27,7 @@
             <table id="tbl_cotizacion" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead class="" align="center">
                 <tr>
-                    <th>Cotizacion N°</th>
+                    <th>N° Cotización</th>
                     <th>Empresa</th>
                     <th>Estado</th>
                     <th>Obra</th>
@@ -53,7 +53,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Cotización</h5> 
+                <h5 class="modal-title" id="exampleModalLabel">Crear cotización</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
@@ -62,10 +62,10 @@
                     @csrf
                     <div id="smartwizard">
                         <ul>
-                            <li><a href="#step-1">Paso 1<br /><small>Informacion</small></a></li>
-                            <li><a href="#step-2">Paso 2<br /><small>Informacion</small></a></li>
-                            <li><a href="#step-3">Paso 3<br /><small>Informacion</small></a></li>
-                            <li><a href="#step-4">Paso 4<br /><small>Calculos</small></a></li>
+                            <li><a href="#step-1">Paso 1<br /><small>Información</small></a></li>
+                            <li><a href="#step-2">Paso 2<br /><small>Información</small></a></li>
+                            <li><a href="#step-3">Paso 3<br /><small>Información</small></a></li>
+                            <li><a href="#step-4">Paso 4<br /><small>Cálculos</small></a></li>
                             <li><a href="#step-5">Paso 5<br /><small>Observaciones</small></a></li>
                         </ul>
                         <div>
@@ -146,7 +146,7 @@
                                         <label class="validacion" id="val_Jornada2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Tipo de Concreto</label>
+                                        <label for="">Tipo de concreto</label>
                                         <label class="validacion" id="val_TipoConcreto"></label>
                                             <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
                                                 <option value="0">Seleccione un Tipo de Concreto</option>
@@ -184,7 +184,7 @@
                             <div id="step-3" class="">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="FechaCotizacion">Fecha de Cotización</label>
+                                        <label for="FechaCotizacion">Fecha de cotización</label>
                                         <label class="validacion" id="val_FechaCotizacion"></label>
                                         <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
                                         @error('FechaCotizacion')
@@ -193,7 +193,7 @@
                                         <label class="validacion" id="val_FechaCotizacion2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="InicioBombeo">Fecha de Inicio Bombeo</label>
+                                        <label for="InicioBombeo">Fecha de inicio bombeo</label>
                                         <label class="validacion" id="val_FechaInicio"></label>
                                         <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
                                         @error('InicioBombeo')
@@ -215,7 +215,7 @@
                                         <label class="validacion" id="val_Losas2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Cantidad de tuberia</label>
+                                        <label for="">Cantidad de tubería</label>
                                         <label class="validacion" id="val_Tuberia"></label>
                                         <input type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
                                         @error('Tuberia')
@@ -237,7 +237,7 @@
                                         <label class="validacion" id="val_Metros2"></label>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="">Valor Metro <sup>3</sup></label>
+                                        <label for="">Valor metro<sup>3</sup></label>
                                         <label class="validacion" id="val_ValorMetro"></label>
                                         <input type="text" class="form-control @error('ValorMetro') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorMetro" name="ValorMetro"  onchange="valor_total()">
                                         @error('ValorMetro')
@@ -257,7 +257,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-4">
-                                        <label for="">SubTotal</label>
+                                        <label for="">Subtotal</label>
                                         <label class="validacion" id="val_SubTotal"></label>
                                         <input type="text" class="form-control @error('Subtotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Subtotal" name="Subtotal" readonly>
                                         @error('Subtotal')
@@ -275,7 +275,7 @@
                                         <label class="validacion" id="val_IvaAIU2"></label>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="">Valor Total</label>
+                                        <label for="">Valor total</label>
                                         <label class="validacion" id="val_ValorTotal"></label>
                                         <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotal" name="ValorTotal" readonly>
                                         @error('ValorTotal')
@@ -298,7 +298,7 @@
                                 <br>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <button type="submit" class="btn btn-success float-left">Crear Cotizacion</button>
+                                        <button type="submit" class="btn btn-success float-left">Crear cotización</button>
                                     </div>
 
                                 </div>
@@ -314,7 +314,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
-                <h5 class="modal-title" id="exampleModalLabel">ETAPAS</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Etapas</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -331,8 +331,7 @@
                     </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-light" data-dismiss="modal" style="background-color: #616A6B">CERRAR</button>
-                <a href="/etapa" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Etapas</a>
+                <a href="/etapa" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a etapas</a>
             </div>
         </div>
     </div>
@@ -341,7 +340,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
-                <h5 class="modal-title" id="exampleModalLabel">JORNADAS</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Jornadas</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -358,8 +357,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
-                <a href="/jornada" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Jornadas</a>
+                <a href="/jornada" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a jornadas</a>
             </div>
         </div>
     </div>
@@ -368,7 +366,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
-                <h5 class="modal-title" id="exampleModalLabel">MODALIDAD</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Modalidad</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -385,8 +383,7 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
-                <a href="/modalidad" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Modalidad</a>
+                <a href="/modalidad" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a modalidad</a>
             </div>
         </div>
     </div>
@@ -395,7 +392,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>TIPO DE CONCRETOS</strong><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <strong>Tipos de concreto</strong><button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
 
@@ -405,15 +402,14 @@
                 <table id="tbl_tipoconcreto" class="table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>Concreto tipo N°</th>
+                        <th>N° concreto tipo</th>
                         <th>Concreto tipo</th>
                     </tr>
                     </thead>
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="background-color: #616A6B">Cerrar</button>
-                <a href="/tipoConcreto" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a Tipo Concreto</a>
+                <a href="/tipoConcreto" class="btn btn-outline-light float-left" style="background-color: #616A6B" >Ir a tipo concreto</a>
             </div>
         </div>
     </div>
@@ -422,7 +418,7 @@
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="card-header text-white" style="background-color: #616A6B"">
-                <strong>Generar Reporte Contización</strong>
+                <strong>Generar reporte contización</strong>
             </div>
             <div class="card-body">
                 @include('flash::message')
@@ -430,11 +426,11 @@
                     @csrf
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="">Numero de Cotización</label>
+                            <label for="">Número de cotización</label>
                             <input type="text" class="form-control" name="id">
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-success float-left">Generar Informe</button>
+                    <button type="submit" class="btn btn-success float-left">Generar informe</button>
                 </form>
             </div>
         </div>
