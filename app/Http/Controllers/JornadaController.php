@@ -64,8 +64,8 @@ class JornadaController extends Controller
 
     public function destroy($id)
     {
-        Jornada::find($id)->delete();
-
+        $jornada = Jornada::find($id);
+        $jornada->delete();
         return response()->json(['success'=>'Jornada eliminada correctamente.']);
     }
 

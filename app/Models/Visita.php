@@ -3,13 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Visita extends Model
 {
+    use SoftDeletes;
+
     protected $table = "visita";
 
     protected $fillable = [
-    
+
         "tipovisita",
         "idobra",
         "fecha",
@@ -17,8 +20,8 @@ class Visita extends Model
         "horafinal",
         "estado",
         "descripcion",
-        
-        
+
+
     ];
 
     public static $rules = [
@@ -29,4 +32,6 @@ class Visita extends Model
         'horafinal'=> 'required',
         'estado' => 'in:1,0',
     ];
+
+    protected $dates = ['deleted_at'];
 }

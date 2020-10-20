@@ -250,7 +250,7 @@
          }
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#email").val().length == 0 || !emailRegex.test($("#email").val()))
          {
              $("#valemail").text("* Ingrese un correo valido.");
@@ -282,7 +282,7 @@
          }
 
          console.log("validado: " + validado);
- 
+
          if (validado==5){
          $.ajax({
             data: $('#user').serialize(),
@@ -322,7 +322,7 @@
                 position:'center',
             });
         }
-      
+
     });
 
 
@@ -366,7 +366,7 @@
         $("select").val("0");
         $("label").text("");
     }
-    
+
     function soloLetras(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),

@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Flash;
 
 class Servicio extends Model
 {
+    use SoftDeletes;
+
     protected $table = "servicio";
 
     protected $fillable = [
@@ -40,5 +43,6 @@ class Servicio extends Model
 
     ];
 
+    protected $dates = ['deleted_at'];
 
 }

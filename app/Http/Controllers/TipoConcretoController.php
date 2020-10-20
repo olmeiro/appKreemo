@@ -51,7 +51,8 @@ class TipoConcretoController extends Controller
 
     public function destroy($id)
     {
-        TipoConcreto::find($id)->delete();
+        $tipoconcreto = TipoConcreto::find($id);
+        $tipoconcreto->delete();
 
         return response()->json(['success'=>'Tipo de concreto eliminado correctamente.']);
     }

@@ -50,8 +50,11 @@ class EstadoCotizacionController extends Controller
 
     public function destroy($id)
     {
-        EstadoCotizacion::find($id)->delete();
-
+        $estadoCotizacion = EstadoCotizacion::find($id);
+        $estadoCotizacion->delete();
         return response()->json(['success'=>'Estado de cotizacion eliminado correctamente.']);
+
+        // EstadoCotizacion::find($id)->delete();
+        // return response()->json(['success'=>'Estado de cotizacion eliminado correctamente.']);
     }
 }

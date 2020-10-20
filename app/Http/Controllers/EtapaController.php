@@ -50,8 +50,8 @@ class EtapaController extends Controller
 
     public function destroy($id)
     {
-        Etapa::find($id)->delete();
-
+        $etapa = Etapa::find($id);
+        $etapa->delete();
         return response()->json(['success'=>'Tipo de concreto eliminado correctamente.']);
     }
 
