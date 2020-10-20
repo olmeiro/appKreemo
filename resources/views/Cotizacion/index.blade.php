@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
+
 @section('body')
 <div class="container">
     <div class="card">
@@ -49,7 +53,8 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
-                <h5 class="modal-title" id="exampleModalLabel">Crear Cotización</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                <h5 class="modal-title" id="exampleModalLabel">Crear Cotización</h5> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
             </div>
             <div class="modal-body">
                 @include('flash::message')
@@ -69,7 +74,7 @@
                                     <div class="col-md-6">
                                         <label for="">Empresa</label>
                                         <label class="validacion" id="val_empresa"></label>
-                                        <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror">
+                                        <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror" onchange="traerObra()">
                                             <option value="0">Seleccione una Empresa</option>
                                             @foreach($empresa as $key =>$value)
                                             <option value="{{ $value->id }}" {{(old('IdEmpresa')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
@@ -84,10 +89,8 @@
                                         <label for="">Estado</label>
                                         <label class="validacion" id="val_Estado"></label>
                                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
-                                            <option value="0">Seleccione un Estado</option>
-                                            @foreach($estadocotizacion as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdEstado')==$value->id)? 'selected':''}}>{{ $value->estado_cotizacion}}</option>
-                                            @endforeach
+                                            <option value="1">En Proceso</option>
+
                                         </select>
                                         @error('IdEstado')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -161,15 +164,9 @@
                                     <div class="col-md-6">
                                         <label for="">Obra</label>
                                         <label class="validacion" id="val_Obra"></label>
-                                        <select id="IdObra"  name= "IdObra" class="form-control @error('IdObra') is-invalid @enderror">
-                                            <option value="0" >Seleccione una Obra</option>
-                                            @foreach($obra as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdObra')==$value->id)? 'selected':''}}>{{ $value->nombre}}</option>
-                                            @endforeach
+                                        <select id="idObra" name="idObra" class="form-control">
+                                            <option selected="selected">Seleccione una Obra</option>
                                         </select>
-                                        @error('IdObra')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
                                         <label class="validacion" id="val_Obra2"></label>
                                     </div>
                                     <div class="col-md-6">
@@ -579,6 +576,9 @@
                                             case "Aceptada":
                                                 color = '#06B33A';
                                                 break;
+                                            case "Agendada":
+                                                color = '#06A';
+                                                break;
                                             default:
                                                 color = '#FFDE00';
                                                 break;
@@ -588,6 +588,32 @@
                                     }
                                 ],
             });
+
+            function limpiar()
+            {
+                $("input").val("");
+                $("select").val("");
+                $("label").val("");
+                $("#val_empresa2").text("");
+                $("#val_Estado2").text("");
+                $("#val_Modalidad2").text("");
+                $("#val_Etapa2").text("");
+                $("#val_Jornada2").text("");
+                $("#val_TipoConcreto2").text("");
+                $("#val_Obra2").text("");
+                $("#val_ciudad2").text("");
+                $("#val_FechaCotizacion2").text("");
+                $("#val_FechaInicio2").text("");
+                $("#val_Losas2").text("");
+                $("#val_Tuberia2").text("");
+                $("#val_Metros2").text("");
+                $("#val_ValorMetro2").text("");
+                $("#val_AIU2").text("");
+                $("#val_SubTotal2").text("");
+                $("#val_IvaAIU2").text("");
+                $("#val_ValorTotal2").text("");
+                $("#val_AIU2").text("");
+            }
 
     </script>
 

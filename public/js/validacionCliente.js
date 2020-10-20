@@ -15,6 +15,15 @@
              validado++;
          }
 
+         if( $("#idobra").val() == 0 )
+         {
+             $("#valObra").text("* Debe elegir una obra");
+         }
+         else
+         {
+             $("#valObra").text("");
+         }
+
          if(validaVacio($("#nombre").val()) || $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
          {
              $("#valNombre").text("* Debe ingresar el nombre del contacto");
@@ -41,7 +50,6 @@
          }
          else{
              $("#valApellido2").text("");
-             validado++;
          }
  
          var documento = document.getElementById("documento");
@@ -52,7 +60,6 @@
          else
          {
              $("#valDocumento").text("");
-             validado++;
          }
 
          if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
@@ -78,7 +85,6 @@
          }
          else{
              $("#valTelefono2").text("");
-             validado++;
          }
  
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
@@ -90,7 +96,7 @@
          else
          {
              $("#valCorreo1").text("");
-             validado++;
+            
          }
  
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
@@ -100,12 +106,12 @@
          else
          {
              $("#valCorreo2").text("");
-             validado++;
+           
          }
  
          console.log("validado: " + validado);
  
-         if(validado == 9)
+         if(validado == 4)
          {
             var fd = new FormData(document.getElementById("frmContacto"));
 
@@ -126,14 +132,13 @@
                      $("#exampleModal2").modal('hide');//ocultamos el modal
                      $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                      $('.modal-backdrop').remove();//eliminamos el backdrop del modal
-                     $("#mensaje").text("Nueno contacto Creado")
                     var table = $('#tbl_contacto').DataTable();
                     table.ajax.reload();
                     
                     limpiar();
                   }
                   else{
-                    Swal.fire('No se puedo crear el nuevo tipo contacto.');
+                    Swal.fire('No se pudo crear el nuevo tipo contacto.');
                   }
                 })
          }
@@ -164,6 +169,17 @@ $(document).ready(function() {
              validado++;
          }
 
+         if( $("#idobra").val() == 0 )
+         {
+             $("#valObra").text("* Debe elegir una obra");
+         }
+         else
+         {
+             $("#valObra").text("");
+         }
+
+         
+
          if(validaVacio($("#nombre").val()) || $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
          {
              $("#valNombre").text("* Debe ingresar el nombre del contacto");
@@ -190,7 +206,6 @@ $(document).ready(function() {
          }
          else{
              $("#valApellido2").text("");
-             validado++;
          }
  
          var documento = document.getElementById("documento");
@@ -201,7 +216,6 @@ $(document).ready(function() {
          else
          {
              $("#valDocumento").text("");
-             validado++;
          }
 
          if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
@@ -227,7 +241,6 @@ $(document).ready(function() {
          }
          else{
              $("#valTelefono2").text("");
-             validado++;
          }
  
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
@@ -239,7 +252,6 @@ $(document).ready(function() {
          else
          {
              $("#valCorreo1").text("");
-             validado++;
          }
  
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
@@ -249,12 +261,11 @@ $(document).ready(function() {
          else
          {
              $("#valCorreo2").text("");
-             validado++;
          }
  
          console.log("validado: " + validado);
  
-         if(validado == 9)
+         if(validado == 4)
          {
             var fd = new FormData(document.getElementById("frmCrearContacto"));
 

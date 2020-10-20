@@ -32,9 +32,9 @@ public function index(Request $request)
     ->addIndexColumn()
     ->addColumn('action', function($row){
 
-
-        $action = '<a class="btn btn-info" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye"></i></a>
-        <a class="btn btn-success" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
+        $action = '
+        <a class="btn btn-success" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye regular"></i></a>
+        <a class="btn btn-primary" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <a id="delete-user" data-id='.$row->id.' class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></a>';
 
@@ -51,22 +51,9 @@ public function index(Request $request)
 
 public function store(Request $request)
 {
-
-$r=$request->validate([
-'name' => 'required',
-'email' => 'required',
-'pw' => 'required',
-'rol' => 'required',
-
-]);
-
-$uId = $request->user_id;
-User::updateOrCreate(['id' => $uId],['name' => $request->name, 'email' => $request->email, 'password'=>Hash::make($request->pw), 'rol_id'=>$request->rol]);
-if(empty($request->user_id))
-$msg = 'User created successfully.';
-else
-$msg = 'User data is updated successfully';
-return redirect()->route('users.index')->with('success',$msg);
+    $uId = $request->user_id;
+    User::updateOrCreate(['id' => $uId],['name' => $request->name, 'lastname' => $request->lastname,  'email' => $request->email, 'password'=>Hash::make($request->pw), 'rol_id'=>$request->rol]);
+    return response()->json(['success'=>'Maquinaria guardada satisfactoriamente']);
 }
 
 /**
@@ -96,9 +83,9 @@ public function show($id)
 
 public function edit($id)
 {
-$where = array('id' => $id);
-$user = User::where($where)->first();
-return Response::json($user);
+    $where = array('id' => $id);
+    $user = User::where($where)->first();
+    return Response::json($user);
 }
 
 /**
@@ -110,8 +97,9 @@ return Response::json($user);
 
 public function destroy($id)
 {
-    $user = User::where('id',$id)->delete();
+    // $user = User::where('id',$id)->delete();
+    $user = User::find($id);
+    $user->delete();
     return Response::json($user);
-    //return redirect()->route('users.index');
 }
 }

@@ -58,7 +58,7 @@ class ClientesController extends Controller
     }
 
     public function pasarid($id)
-    {   
+    {
         $tipoContacto = tipoContacto::all();
         $id;
         //dd($id);
@@ -105,7 +105,7 @@ class ClientesController extends Controller
                 "correo1" => $request->ccorreo1,
                 "correo2" => $request->ccorreo2,
                 ]);
-               
+
                 return response()->json(["ok"=>true]);
 
     }
@@ -127,26 +127,12 @@ class ClientesController extends Controller
                 "correo1" => $request->ccorreo1,
                 "correo2" => $request->ccorreo2,
                 ]);
-               
+
                 return response()->json(["ok"=>true]);
 
     }
 
     public function save(Request $request){
-
-          $request->validate([
-            'idobra' => 'integer',
-            'idtipocontacto' => 'integer',
-            'nombre' =>    'required|string|max:20',
-            'apellido1' =>  'required|string|max:20',
-            'apellido2' => 'required|string|max:20',
-            'documento' => 'required|numeric',
-            'estado' => 'in:1,0',
-            'telefono1' => 'numeric|required|digits_between:7,13',
-            'telefono2' => 'numeric|required|digits_between:7,13',
-            'correo1' => 'email:rfc,dns',
-            'correo2' => 'email:rfc,dns',
-            ]);
 
           $input = $request->all();
 
@@ -167,14 +153,11 @@ class ClientesController extends Controller
 
               ]);
 
-              Flash::success("Registro éxitoso de contacto");
               return response()->json(["ok"=>true]);
-              //return redirect("/cliente");
 
           } catch (\Exception $e ) {
-              Flash::error($e->getMessage());
+
               return response()->json(["ok"=>false]);
-              //return redirect("/cliente/crear");
           }
     }
 
@@ -263,7 +246,9 @@ class ClientesController extends Controller
                 return redirect('/cliente');
             }
 
-            $cliente->delete($id);
+            $cliente->delete();
+            //return Response::json($cliente);
+            // $cliente->delete($id);
             return response()->json(["ok"=>true]);
             // Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
             // return redirect('/cliente');

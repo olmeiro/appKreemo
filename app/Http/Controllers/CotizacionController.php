@@ -283,5 +283,17 @@ class CotizacionController extends Controller
 
     }
 
+    
+    function pasarObras(Request $request){
+        $input = $request->all();
+
+        $obra = Obra::select('obra.*')
+        ->where("obra.idempresa","=", [$input["id"]])
+        ->get();
+
+        //return response()->json($obra);
+        return response(json_encode($obra), 200)->header('Content-type','text/plain');
+    }
+
 
 }

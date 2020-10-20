@@ -23,19 +23,19 @@ class VisitaController extends Controller
         return view('visita.index', compact('obra'));
     }
 
-    
+
     public function listarvisitas(Request $request){
 
         $obra = Obra::all();
-       
-      
+
+
         if ($request->ajax()) {
 
         $visita = Visita::select("visita.*", "obra.nombre as nombre_obra")
         ->join("obra", "visita.idobra", "=", "obra.id")
         ->get();
 
-        return DataTables::of($visita)    
+        return DataTables::of($visita)
         ->editColumn("estado", function($visita){
             return $visita->estado == 1 ? "Activa" : "Inactiva";
         })
@@ -68,11 +68,11 @@ class VisitaController extends Controller
      */
     public function create()
     {
-        
+
     }
 
     public function pasarid($id)
-    {   
+    {
         $id;
         //dd($id);
         return view('servicio.create', compact('id'));
@@ -121,13 +121,13 @@ class VisitaController extends Controller
      */
     public function show()
     {
-      
+
         $data['visita']= $visita = Visita::select("visita.*", "obra.nombre as nombre_obra")
            ->join("obra", "visita.idobra", "=", "obra.id")
-            ->get(); 
+            ->get();
 
             $nuevavisita=[];
-        
+
             foreach ($visita as $value) {
                         $nuevavisita[]=[
                         "id"=>$value->id,
@@ -145,7 +145,7 @@ class VisitaController extends Controller
                     return response()->json($nuevavisita);
 
         return response()->json($nuevavisita);
-     
+
     }
 
     //  public function listar(Request $request){
@@ -154,7 +154,7 @@ class VisitaController extends Controller
     //     $visita = Visita::select("visita.*", "obra.nombre as nombre_obra")
     //     ->join("obra", "visita.idobra", "=", "obra.id")
     //      ->get();
-        
+
     //     $nuevavisita=[];
     //     foreach ($visita as $value) {
     //         $nuevavisita[]=[
@@ -204,6 +204,10 @@ class VisitaController extends Controller
      */
     public function destroy($id)
     {
+        // $visita = Visita::find($id);
+        // $visita->destroy();
+        // return Response::json($id);
+
         $visita = Visita::findOrFail($id);
         Visita::destroy($id);
         return response()->json($id);

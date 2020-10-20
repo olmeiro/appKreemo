@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Flash;
 use DataTables;
+use Response;
 
 use App\Models\Servicio;
 use App\Models\EstadoServicio;
@@ -12,6 +13,9 @@ use App\Models\Cotizacion;
 use App\Models\Maquinaria;
 use App\Models\Operario;
 use App\Models\Obra;
+use App\Models\Ocupacion;
+use App\Ocupacion as AppOcupacion;
+use Facade\FlareClient\Http\Response as HttpResponse;
 
 class ServicioController extends Controller
 {
@@ -27,6 +31,7 @@ class ServicioController extends Controller
             ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
             ->join("obra", "cotizacion.idObra", "=", "obra.id")
             ->where("cotizacion.inicioBombeo",">", now())
+            ->where("cotizacion.idestado", "=", 2)
             ->orderBy("cotizacion.id")
             ->get();
         $maquinaria = Maquinaria::select("maquinaria.*")
@@ -63,16 +68,134 @@ class ServicioController extends Controller
         return view('/servicio/listarservicios');
     }
 
+    public function validarFecha($fechainicio, $fechafin, $idmaquina)
+    {
+        $servicio = Servicio::select('servicio.*')
+        ->where('idmaquina',"=",$idmaquina)
+        ->whereDate('fechainicio','<=',$fechainicio)
+        ->whereDate('fechainicio','>=',$fechainicio)
+        ->first();
+
+        return $servicio == null ? true :  false;
+    }
+
     public function store(Request $request)
     {
         $data = request()->except(['_token','_method']);
-        Servicio::insert($data);
 
-        print_r($data);
+        $resultado = $this->validarFecha($data["fechainicio"], $data["fechafin"],$data['idmaquina']);
 
-        $maquinaria = Maquinaria::find($data['idmaquina']);
-        $maquinaria->update(["estado"=>1]);
+        if($resultado == true)
+        {
+            Servicio::insert($data);
+
+            print_r($data);
+
+            $cotizacion = Cotizacion::find($data['idcotizacion']);
+            $cotizacion->update(["idEstado"=>4]);
+
+            $ocupacion = Ocupacion::insert([
+                "idmaquina" => $data['idmaquina'],
+                "fechainicio" => $data['fechainicio'],
+                'fechafin' => $data['fechafin']
+            ]);
+
+            return response()->json(["ok"=>true]);  
+        }
+        else
+        {
+            return response()->json(["ok"=>false]);  
+        }
     }
+
+    // SELECT fechainicio,fechafin,idmaquina FROM `servicio` WHERE fechainicio = '2020-10-20' and fechafin = '2020-10-22'
+    // SELECT idmaquina from ocupacion where fechainicio >= '2020-10-20' and fechafin <= '2020-10-22'
+
+    // public function validarFecha ($fechainicio, $fechafin)
+    // {
+    //     $ocupacion = Ocupacion::select("*")
+    //         ->whereDate('fechainicio', ">=", $fechainicio)
+    //         ->whereDate('fechafin', '<=', $fechafin)
+    //         ->first();
+        
+    //     return $ocupacion == null ? true :  false;
+    // }
+
+    // public function validaMaquina(Request $request)
+    // {
+
+    //     $input = $request->all();
+
+    //     $maquina = Maquinaria::select('maquinaria.*',"ocupacion.idmaquina")
+    //     ->join("ocupacion","maquinaria.id","=","ocupacion.idmaquina")
+    //     ->where("ocupacion.idmaquina","=",[$input["id"]])
+    //     ->get();
+
+    //     $ocupacion = Ocupacion::select('ocupacion.*')
+    //     ->where("ocupacion.idmaquina","=",$input['id'])
+    //     ->where("ocupacion.fechainicio","=", $input['fechainicio'])
+    //     ->where("ocupacion.fechafin","=", $input['fechafin'])
+    //     ->first();
+
+    //     dd($ocupacion);
+        
+    //     return $ocupacion == null ? true :  false;
+
+    //     return response(json_encode($ocupacion), 200)->header('Content-type','text/plain');
+
+    // }
+
+    // public function store(Request $request)
+    // {
+    //     $data = request()->except(['_token','_method']);
+    //     Servicio::insert($data);
+
+    //     print_r($data);
+
+    //     $cotizacion = Cotizacion::find($data['idcotizacion']);
+    //     $cotizacion->update(["idEstado"=>4]);
+
+    //     $ocupacion = Ocupacion::insert([
+    //                     "idmaquina" => $data['idmaquina'],
+    //                     "fechainicio" => $data['fechainicio'],
+    //                     'fechafin' => $data['fechafin']
+    //                 ]);
+
+    //     return response()->json(["ok"=>true]);  
+
+    // }
+
+    // public function store(Request $request)
+    // {
+    //     $data = request()->except(['_token','_method']);
+
+    //     $validaMaquina = $this->validaMaquina($data["fechainicio"], $data["fechafin"]);
+
+    //     if($resultado == true)
+    //     {
+    //         Servicio::insert($data);
+
+    //         print_r($data);
+
+    //         $ocupacion = Ocupacion::insert([
+    //             "idmaquina" => $data['idmaquina'],
+    //             "fechainicio" => $data['fechainicio'],
+    //             'fechafin' => $data['fechafin']
+    //         ]);
+    //         return response()->json(["ok"=>true]);  
+    //     }
+    //     else{
+    //         if($data['idmaquina'] == $resultado[1])
+    //         {
+                
+    //             return response()->json(["ok"=>false]);
+    //         }
+    //         else
+    //         {
+    //             return response()->json(["ok"=>true]);
+    //         }
+    //     }
+    // }
 
       public function edit($id){
 
@@ -87,9 +210,7 @@ class ServicioController extends Controller
             Flash::error("servicio no encontrado");
             return redirect("/servicio/listarservicios");
         }
-        //else{
-            return view("servicio.edit", compact('id','servicio','estadoservicio','maquinaria','cotizacion','operario'));
-        // }
+        return view("servicio.edit", compact('id','servicio','estadoservicio','maquinaria','cotizacion','operario'));
     }
 
     public function create(){
@@ -219,16 +340,4 @@ class ServicioController extends Controller
         return response()->json($id);
     }
 }
-
-// select("servicio.*", "estadoservicio.estado", "maquinaria.modelo", "operario.id as nombreOperario")
-// ->join("estadoservicio", "servicio.idestadoservicio", "=", "estadoservicio.id")
-// ->join("maquinaria", "servicio.idmaquina", "=", "maquinaria.id")
-// ->join("operario", "servicio.idoperario1", "=" , "operario.id")
-// ->join("operario", "servicio.idoperario2", "=" , "operario.id")
-// ->get();
-
-
-// $servicio = Servicio::select("servicio.*","estadoservicio.estado")
-// ->join("estadoservicio", "servicio.idestadoservicio","=","estadoservicio.id")
-// ->get();
 

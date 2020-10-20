@@ -82,6 +82,9 @@ Route::post('/servicio/actualizar', 'ServicioController@actualizar');
 Route::post('/servicio/guardar', 'ServicioController@save');
 Route::get('/servicio/listarservicio', 'ServicioController@listarservicios');
 Route::get('/servicio/cambiarEstado/{id}/{estado}', 'ServicioController@updateState');
+
+Route::post('/servicio/validaMaquina', 'ServicioController@validaMaquina');
+
 Route::resource('servicio', 'ServicioController');
 
 Route::get('/estadoservicio', 'EstadoServicioController@index');
@@ -114,6 +117,9 @@ Route::get('/cotizacion/editar/{id}', 'CotizacionController@edit');
 Route::post('/cotizacion/actualizar', 'CotizacionController@update');
 Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
 Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
+Route::post('/cotizacion/pasarobra', 'CotizacionController@pasarObras');
+
+
 
 Route::get('/cotizacion/informe', 'CotizacionController@informe');
 Route::post('/cotizacion/generar/pdf', 'CotizacionController@generar_PDF');
@@ -163,6 +169,9 @@ Route::get('/chartencuesta4','ChartController@index4');
 Route::post('/chart/encuesta4','ChartController@encuesta4');
 Route::get('/chartencuesta5','ChartController@index5');
 Route::post('/chart/encuesta5','ChartController@encuesta5');
+
+Route::get('/chartclienteai','ChartController@index6');
+Route::post('/chart/clienteai','ChartController@clienteai');
 
 
 });

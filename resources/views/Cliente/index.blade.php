@@ -22,7 +22,6 @@
                     <th>Tipo contacto</th>
                     <th>Nombre</th>
                     <th>Primer apellido</th>
-                    <th>Segudno apellido</th>
                     <th>Telefono 1</th>
                     <th>Correo 1</th>
                     <th>Editar</th>
@@ -114,7 +113,7 @@
                                             @error('idtipocontacto')
                                                 <div class="invalid-feedback">{{ $message }} ></div>
                                             @enderror
-                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                            <label class="validacion" for="idobra" id="valObra"></label>
                                         </div>
                                     </div>
                                 </div>
@@ -420,10 +419,6 @@
                     {
                         data: 'apellido1',
                         name: 'apellido1'
-                    },
-                    {
-                        data: 'apellido2',
-                        name: 'apellido2'
                     },
                     {
                         data: 'telefono1',

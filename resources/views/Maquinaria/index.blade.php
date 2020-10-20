@@ -15,7 +15,7 @@
     {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
     {{-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
 </head>
-<body oncopy="return false" onpaste="return false">
+<body >
 
 <div class="container">
         <div class="card">
@@ -204,7 +204,6 @@
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('Creando..');
         let validado = 0;
 
       if($("#serialequipo").val()==0){
@@ -256,7 +255,7 @@
             }
       });
              Swal.fire({
-                title:'Registro exitoso',text:'Maquina creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -276,7 +275,7 @@
                     $("textarea").val("");
         }else{
             Swal.fire({
-                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
