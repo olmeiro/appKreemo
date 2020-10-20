@@ -50,7 +50,8 @@ class OperarioController extends Controller
 
     public function destroy($id)
     {
-        Operario::find($id)->delete();
+        $operario = Operario::find($id);
+        $operario->delete();
 
         return response()->json(['success'=>'Operario borrado satisfactoriamente.']);
     }

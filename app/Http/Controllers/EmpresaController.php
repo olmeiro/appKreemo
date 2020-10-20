@@ -25,7 +25,7 @@ class EmpresaController extends Controller
 
         if ($request->ajax()) {
             $data = Empresa::latest()->get();
-   
+
         return DataTables::of($data)
         ->addIndexColumn()
         ->editColumn("estado", function($empresa){
@@ -56,7 +56,7 @@ class EmpresaController extends Controller
         ->addColumn('eliminar', function ($empresa) {
             return '
             <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa btn-md" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
-           
+
         })
         ->rawColumns(['agregar','editar','cambiar','eliminar'])
         ->make(true);
@@ -111,12 +111,12 @@ class EmpresaController extends Controller
             "telefono1" => $request->etelefono1,
             "correo1" => $request->ecorreo1,
             "estado" => $request->eestado,
-            
+
         ]);
-        return response()->json(["ok"=>true]);  
+        return response()->json(["ok"=>true]);
     }
 
-    
+
     public function updateState($id, $estado){
 
         $empresa = Empresa::find($id);
@@ -139,7 +139,7 @@ class EmpresaController extends Controller
         }
     }
 
-   
+
 
         /**
     * Remove the specified resource from storage.
@@ -157,8 +157,8 @@ class EmpresaController extends Controller
     // }
 
     public function destroy($id){
-     
-         try 
+
+         try
         {
             $empresa = Empresa::find($id);
 
@@ -166,13 +166,13 @@ class EmpresaController extends Controller
                 Flash::error('Empresa no encontrada');
                 return redirect('/empresa');
             }
-            
-            $empresa->delete($id);
+
+            $empresa->delete();
             return response()->json(["ok"=>true]);
-        } 
+        }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-        } 
+        }
     }
 
 }

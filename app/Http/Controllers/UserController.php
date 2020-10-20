@@ -97,7 +97,9 @@ public function edit($id)
 
 public function destroy($id)
 {
-    $user = User::where('id',$id)->delete();
+    // $user = User::where('id',$id)->delete();
+    $user = User::find($id);
+    $user->delete();
     return Response::json($user);
 }
 }

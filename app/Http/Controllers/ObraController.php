@@ -43,7 +43,7 @@ class ObraController extends Controller
         })
         ->addColumn('eliminar', function ($obra) {
             return '<a id="delete-obra"   data-id='.$obra->id.' class="btn btn-danger delete-obra btn-md" href="/obra/eliminar/'.$obra->id.'"><i class="fas fa-trash-alt"></i></a>';
-           
+
         })
         ->rawColumns(['editar','ver','agregar','eliminar'])
         ->make(true);
@@ -65,11 +65,11 @@ class ObraController extends Controller
         })
         ->rawColumns(['eliminar'])
         ->make(true);
-      
+
     }
 
     public function pasarid($id)
-    {   
+    {
         $id;
         //dd($id);
         return view('obra.create', compact('id'));
@@ -106,7 +106,7 @@ class ObraController extends Controller
         return view('obra.create', compact('obra'));
     }
 
-  
+
 
     public function edit($id){
 
@@ -117,7 +117,7 @@ class ObraController extends Controller
             Flash::error("Obra no encontrada");
             return redirect("/obra");
         }
-        
+
         return Response::json($obra);
     }
 
@@ -132,7 +132,7 @@ class ObraController extends Controller
                 "telefono1" => $request->telefono1,
                 "correo1" => $request->correo1,
                 ]);
-               
+
                 return response()->json(["ok"=>true]);
 
     }
@@ -147,7 +147,7 @@ class ObraController extends Controller
                 return redirect('/obracontacto/listar');
             }
 
-            $obra->delete($id);
+            $obra->delete();
             return response()->json(["ok"=>true]);
             //Flash::success('Obra ('.$obra->nombre. ') eliminada.');
             // return redirect('/cliente');

@@ -58,7 +58,7 @@ class ClientesController extends Controller
     }
 
     public function pasarid($id)
-    {   
+    {
         $tipoContacto = tipoContacto::all();
         $id;
         //dd($id);
@@ -105,7 +105,7 @@ class ClientesController extends Controller
                 "correo1" => $request->ccorreo1,
                 "correo2" => $request->ccorreo2,
                 ]);
-               
+
                 return response()->json(["ok"=>true]);
 
     }
@@ -127,7 +127,7 @@ class ClientesController extends Controller
                 "correo1" => $request->ccorreo1,
                 "correo2" => $request->ccorreo2,
                 ]);
-               
+
                 return response()->json(["ok"=>true]);
 
     }
@@ -152,11 +152,11 @@ class ClientesController extends Controller
                   "correo2" =>$input["correo2"],
 
               ]);
-              
+
               return response()->json(["ok"=>true]);
 
           } catch (\Exception $e ) {
-             
+
               return response()->json(["ok"=>false]);
           }
     }
@@ -246,7 +246,9 @@ class ClientesController extends Controller
                 return redirect('/cliente');
             }
 
-            $cliente->delete($id);
+            $cliente->delete();
+            //return Response::json($cliente);
+            // $cliente->delete($id);
             return response()->json(["ok"=>true]);
             // Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
             // return redirect('/cliente');

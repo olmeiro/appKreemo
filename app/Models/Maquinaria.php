@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Flash;
 
 class Maquinaria extends Model
 {
+    use SoftDeletes;
+
     protected $table = "maquinaria";
 
     protected $fillable = [
@@ -26,4 +29,6 @@ class Maquinaria extends Model
         // 'serialmotor' => 'string|required|max:50',
         // 'observacion' => 'string|max:100'
     ];
+
+    protected $dates = ['deleted_at'];
 }

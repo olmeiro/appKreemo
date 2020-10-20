@@ -51,7 +51,8 @@ class ModalidadController extends Controller
 
     public function destroy($id)
     {
-        Modalidad::find($id)->delete();
+        $modalidad =Modalidad::find($id);
+        $modalidad->delete();
 
         return response()->json(['success'=>'Modalidad eliminada correctamente.']);
     }

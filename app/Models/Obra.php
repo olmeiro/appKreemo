@@ -3,9 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Obra extends Model
 {
+    use SoftDeletes;
+
     protected $table = "obra";
 
     protected $fillable = [
@@ -23,4 +26,5 @@ class Obra extends Model
         // 'telefono1' => 'string|required|between:7,10',
         // 'correo1' => 'email:rfc,dns',
     ];
+    protected $dates = ['deleted_at'];
 }

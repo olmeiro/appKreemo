@@ -86,7 +86,8 @@ class MaquinariaController extends Controller
 
     public function destroy($id)
     {
-        Maquinaria::find($id)->delete();
+        $maquinaria = Maquinaria::find($id);
+        $maquinaria->delete();
         return response()->json(['success'=>'Maquinaria borrada satisfactoriamente.']);
     }
 }
