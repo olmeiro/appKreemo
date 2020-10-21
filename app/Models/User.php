@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname','email', 'password','rol_id',
+        'name', 'lastname','email', 'password','rol_id', 'estado',
     ];
 
     /**
@@ -204,6 +204,7 @@ class User extends Authenticatable
             ["url" => "/users/{user}", "method"=>"PATCH", "identica"=>true],
             ["url" => "/users/{id}", "method"=>"GET", "identica"=>false],
             ["url" => "/users", "method"=>"delete", "identica"=>false], //eliminar user x resource
+            ["url" => "/user/cambiar/estado", "method"=>"GET", "identica"=>false],
 
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],

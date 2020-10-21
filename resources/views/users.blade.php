@@ -14,14 +14,16 @@
         </div>
         <div class="card-body table-responsive">
             <table class="table table-bordered table-striped data-table" >
-                <thead align="center">
+                <thead>
                 <tr id="">
                     <th >N°</th>
                     <th >Rol</th>
                     <th >Nombre</th>
                     <th >Apellido</th>
                     <th >Email</th>
+                    <th >Estado</th>
                     <th >Acciones</th>
+                    <th >Cambiar estado</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -154,7 +156,11 @@
     {data: 'name', name: 'name'},
     {data: 'lastname', name: 'lastname'},
     {data: 'email', name: 'email'},
+    {data: 'estado', name: 'estado'},
     {data: 'action', name: 'action', orderable: false, searchable: false},
+    {data: 'cambiar', name: 'cambiar'},
+
+
     ],
     "language":{
                             "sProcessing":     "Procesando...",

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use DataTables;
 use Redirect,Response;
+use Flash;
 
 class UserController extends Controller
 {
@@ -42,7 +43,22 @@ public function index(Request $request)
     return $action;
 
     })
-    ->rawColumns(['action'])
+    ->editColumn("estado", function($data){
+        return $data->estado == 1 ? "Activo" : "Inactivo";
+    })
+    ->addColumn('cambiar', function ($data) {
+        if($data->estado == 1)
+        {
+            return '<button type="button" class="btn btn-danger"><a class="btn btn-danger btn-sm" href="/user/cambiar/estado/'.$data->id.'/0">Inactivar</a></button>';
+
+        }
+        else
+        {
+            return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/user/cambiar/estado/'.$data->id.'/1">Activar</a></button>';
+
+        }
+    })
+    ->rawColumns(['action','cambiar','estado'])
     ->make(true);
     }
 
@@ -94,7 +110,27 @@ public function edit($id)
 * @param int $id
 * @return \Illuminate\Http\Response
 */
+public function updateState($id, $estado){
 
+    $data = User::find($id);
+
+    if ($data==null) {
+        Flash::error("Usuario no encontrado");
+        return redirect("/users");
+    }
+
+    try {
+
+        $data->update(["estado"=>$estado]);
+        Flash::success("Se modifico el estado del usuario");
+        return redirect("/users");
+
+    } catch (\Exception $e) {
+
+        Flash::error($e->getMessage());
+        return redirect("/users");
+    }
+}
 public function destroy($id)
 {
     // $user = User::where('id',$id)->delete();
