@@ -194,6 +194,11 @@ class User extends Authenticatable
 
             ["url" => "/manual", "method"=>"GET", "identica"=>true],
             ["url" => "/manual/usuarios", "method"=>"GET", "identica"=>true],
+            ["url" => "/manual/clientes", "method"=>"GET", "identica"=>true],
+            ["url" => "/manual/visitas", "method"=>"GET", "identica"=>true],
+            ["url" => "/manual/cotizacion", "method"=>"GET", "identica"=>true],
+            ["url" => "/manual/maquinaria", "method"=>"GET", "identica"=>true],
+            ["url" => "/manual/encuesta", "method"=>"GET", "identica"=>true],
 
 
             ["url" => "/users", "method"=>"GET", "identica"=>true], //Mostrando lista de index

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 
-@section('body') 
+@section('body')
 
 <body>
 <div class="container">
@@ -17,19 +17,19 @@
                 <a class="nav-link" href="/manual/usuarios">Usuarios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Clientes</a>
+                <a class="nav-link" href="/manual/clientes">Clientes</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Visitas</a>
+                <a class="nav-link" href="/manual/visitas">Visitas</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cotización</a>
+                <a class="nav-link" href="/manual/cotizacion">Cotización</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Maquinaria</a>
+                <a class="nav-link" href="/manual/maquinaria">Maquinaria</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Encuesta</a>
+                <a class="nav-link" href="/manual/encuesta">Encuesta</a>
             </li>
             </ul>
         </div>
