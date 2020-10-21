@@ -139,9 +139,7 @@ class ChartController extends Controller
 
     public function clienteai(Request $request){
 
-        $input = $request->all();
-
-        $empresa = Empresa::select( "empresa.id","empresa.nombre as nombre_empresa", "empresa.telefono","empresa.estado");
+        $empresa = Empresa::all();
 
         return response(json_encode($empresa), 200)->header('Content-type','text/plain');
     }

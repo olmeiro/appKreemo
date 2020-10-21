@@ -9,7 +9,7 @@ $(function(){
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       customButtons:{
-       
+
       },
       slotLabelFormat:{
         hour: '2-digit',
@@ -27,9 +27,19 @@ $(function(){
       selectMirror: true,
       dateClick: function(info) {
 
+
+        var check = moment(info.date).format("YYYY-MM-DD");
+        var today = moment(new Date()).format("YYYY-MM-DD");
+        if(check < today)
+        {
+            //alert("No puedes agendar aquí");
+            Swal.fire('No puedes agendar aquí');
+        }
+        else
+        {
+
         let fecha = moment(info.date).format("YYYY-MM-DD")
         let horainicio = moment(info.date).format("HH:mm:ss")
-
         $("#fecha").val(fecha);
         $("#horainicio").val(horainicio);
         $("#tiempo").val("30");
@@ -40,7 +50,7 @@ $(function(){
         //calendar.addEvent({ title:"Evento x" , date:info.dateStr});
         // console.log("fecha:"+fecha);
         // console.log("horainicio:"+horainicio);
-
+        }
       },
 
       eventClick: function(info) {
