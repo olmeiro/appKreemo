@@ -37,7 +37,8 @@ $(function(){
         var today = moment(new Date()).format("YYYY-MM-DD");
         if(check < today)
         {
-            alert("No puedes agendar aquí");
+            //alert("No puedes agendar aquí");
+            Swal.fire('No puedes agendar aquí');
         }
         else
         {
@@ -340,7 +341,7 @@ function darFecha()
 //     console.log(fechainicio);
 //     console.log(fechafin);
 
-    
+
 //     $.ajax({
 //         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
 //         url: '/servicio/validaMaquina',

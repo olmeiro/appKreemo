@@ -48,7 +48,7 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
         var id = [];
-        var nombre_empresa = [];
+        var nombre = [];
         var telefono = [];
         var estado = [];
         var colores = [];
@@ -66,14 +66,13 @@
             }).done(function(res){
                 var arreglo = JSON.parse(res);
                 for(var x= 0; x<arreglo.length;x++){
-                    var
-                    todo ='<tr><td>'+arreglo[x].id+'</td>';
-                    todo+='<td>'+arreglo[x].nombre_empresa+'</td>';
+                    var todo ='<tr><td>'+arreglo[x].id+'</td>';
+                    todo+='<td>'+arreglo[x].nombre+'</td>';
                     todo+='<td>'+arreglo[x].telefono+'</td>';
                     todo+='<td>'+arreglo[x].estado+'</td></tr>';
                     $('#tbody').append(todo);
                     id.push(arreglo[x].id);
-                    nombre_empresa.push(arreglo[x].nombre_empresa);
+                    nombre.push(arreglo[x].nombre);
                     telefono.push(arreglo[x].telefono);
                     estado.push(arreglo[x].estado);
                     colores.push(colorRGB());
