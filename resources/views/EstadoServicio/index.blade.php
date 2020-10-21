@@ -4,7 +4,7 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Estado del servicio</strong>
-            <a href="/estadoservicio/crear" class="btn btn-outline-light">CREAR ESTADO</a>
+            <a href="/estadoservicio/crear" class="btn btn-outline-light">Crear estado</a>
         </div>
         <div class="card-body">
         @include('flash::message')

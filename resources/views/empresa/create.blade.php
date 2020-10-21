@@ -3,8 +3,8 @@
 @section('body')
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Empresa</strong>
-            <a href="/empresa/crear" class="btn btn-link">Crear Empresa</a>
+            <strong>Crear empresa</strong>
+            <a href="/empresa/crear" class="btn btn-link">Crear empresa</a>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -53,7 +53,7 @@
 
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Telefono #1</label>
+                        <label for="">Teléfono #1</label>
                         <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
                         @error('telefono1')
                             <div class="invalid-feedback">{{ $message }}</div>

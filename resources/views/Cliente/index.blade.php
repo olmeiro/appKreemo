@@ -22,7 +22,7 @@
                     <th>Tipo contacto</th>
                     <th>Nombre</th>
                     <th>Primer apellido</th>
-                    <th>Telefono 1</th>
+                    <th>Teléfono 1</th>
                     <th>Correo 1</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
@@ -154,7 +154,7 @@
                                 </div>
                                 <div id="step-3" class="">
                                     <div class="row">
-                                        <div class="col-md-6"><label for="">Telefono #1</label>
+                                        <div class="col-md-6"><label for="">Teléfono #1</label>
                                             <input type="number" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1">
                                             @error('telefono1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -331,7 +331,7 @@
 
                                 <div class="col-6">
                                     <div class="form-group">
-                                        <label for="">Telefono #1</label>
+                                        <label for="">Teléfono #1</label>
                                         <input type="number" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="ctelefono1" id="ctelefono1" onchange="validate()">
                                         @error('telefono1')
                                             <div class="invalid-feedback">{{ $message }}</div>

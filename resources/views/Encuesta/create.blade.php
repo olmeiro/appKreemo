@@ -3,7 +3,7 @@
 @section('body')
 <div class="card">
     <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Encuesta</strong>
+            <strong>Crear encuesta</strong>
     </div>
     <div class="card-body">
         @include('flash::message')
@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <div class="form-row" >
                         <div class="form-group col-md-4">
-                            <label for="">Id del servicio</label>
+                            <label for="">N° servicio</label>
                             <input type="text" value="{{ $id }}" id="idservicio" name="idservicio" class="form-control">
                             @error('idservicio')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -141,7 +141,7 @@
                         <div class="col-sm-4">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>2.</b> tuvo algun inconveniente durante la prestación del servicio</p>
+                                    <p><b>2.</b> tuvo algún inconveniente durante la prestación del servicio</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -166,7 +166,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>3.</b> Si la <u>respuesta 2</u> fue SI, describa la situación:</p>
+                                    <p><b>3.</b> Si la <u>respuesta 2</u> fué SI, describa la situación:</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -306,7 +306,7 @@
                     @enderror
                 </div>
             </div>
-                    <p><b>2.</b> tuvo algun inconveniente durante la prestación del servicio</p>
+                    <p><b>2.</b> tuvo algún inconveniente durante la prestación del servicio</p>
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="">SI - NO</label>
@@ -320,7 +320,7 @@
                     @enderror
                 </div>
             </div>
-                    <p><b>3.</b> Si la <u>respuesta 2</u> fue SI(1), describa la situación:</p>
+                    <p><b>3.</b> Si la <u>respuesta 2</u> fué SI(1), describa la situación:</p>
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <textarea class="form-control @error('respuesta3') is-invalid @enderror" id="respuesta3" name="respuesta3" placeholder="Ingresa las observaciones" value="{{old('respuesta3')}}"></textarea>

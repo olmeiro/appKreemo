@@ -73,7 +73,7 @@
                 </div>
                 <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="modelo" >Modelo</label>
+                            <label for="modelo">Modelo</label>
                             <label class="validacion" id="validacion_modelo"></label>
                             <div class="col-sm-12">
                                 <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">

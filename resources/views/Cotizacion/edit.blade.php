@@ -4,7 +4,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Editar cotización</strong><strong class="float-right" >Cotizacion N° {{$cotizacion->id}}</strong>
+            <strong>Editar cotización</strong><strong class="float-right" >Cotización N° {{$cotizacion->id}}</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -88,7 +88,7 @@
                         <label class="validacion" id="val_Jornada2"></label>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="">Tipo de Concreto</label>
+                        <label for="">Tipo de concreto</label>
                         <label class="validacion" id="val_TipoConcreto"></label>
                         <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
                             <option value="0" >Seleccione</option>
@@ -134,7 +134,7 @@
                         @enderror
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="">Fecha de Bombeo</label>
+                        <label for="">Fecha de bombeo</label>
                         <input value="{{$cotizacion->inicioBombeo}}" type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" >
                         @error('InicioBombeo')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -159,7 +159,7 @@
                         <label class="validacion" id="val_Losas2"></label>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="">Cantidad de tuberia</label>
+                        <label for="">Cantidad de tubería</label>
                         <label class="validacion" id="val_Tuberia"></label>
                         <input value="{{$cotizacion->tuberia}}"  type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia">
                         @error('Tuberia')
@@ -231,7 +231,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                 </div>
-                <button type="submit" class="btn btn-primary float-left">Editar Cotizacion</button>
+                <button type="submit" class="btn btn-primary float-left">Editar cotizacion</button>
                 <a href="/cotizacion" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>

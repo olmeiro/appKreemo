@@ -73,7 +73,7 @@
                     <thead class="" align="center">
                     <tr>
                         <th>N°</th>
-                        <th>Concreto tipo</th>
+                        <th>Tipo concreto</th>
                         <th>Editar</th>
                     </tr>
                     </thead>

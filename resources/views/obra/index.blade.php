@@ -56,7 +56,7 @@
 
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Telefono</label>
+                                    <label for="">Teléfono</label>
                                     <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}">
                                     @error('telefono1')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -67,7 +67,7 @@
 
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Correo Electrónico</label>
+                                    <label for="">Correo electrónico</label>
                                     <input type="email" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1" value="{{old('correo1')}}">
                                     @error('correo1')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -103,7 +103,7 @@
                                 <th>Obra</th>
                                 <th>Nombre</th>
                                 <th>Apellido</th>
-                                <th>Telefono</th>
+                                <th>Teléfono</th>
                                 <th>Correo</th>
                                 <th>Eliminar</th>
                             </tr>
@@ -164,7 +164,7 @@
 
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Telefono</label>
+                                    <label for="">Teléfono</label>
                                     <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="otelefono1" value="{{old('telefono1')}}">
                                     @error('telefono1')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -175,7 +175,7 @@
 
                             <div class="col-6">
                                 <div class="form-group">
-                                    <label for="">Correo Electrónico</label>
+                                    <label for="">Correo electrónico</label>
                                     <input type="email" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="ocorreo1" value="{{old('correo1')}}">
                                     @error('correo1')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -213,7 +213,7 @@
                     <th>Empresa</th>
                     <th>Nombre obra</th>
                     <th>Dirección</th>
-                    <th>Telefono 1</th>
+                    <th>Teléfono 1</th>
                     <th>Correo 1</th>
                     <th>ver</th>
                     <th>Agregar</th>
@@ -453,7 +453,7 @@
                 $('#odireccion').val(data.direccion);
                 $('#otelefono1').val(data.telefono1);
                 $('#ocorreo1').val(data.correo1);
-               
+
 
                 })
             });

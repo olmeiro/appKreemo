@@ -21,7 +21,7 @@
                     <th>Nombre</th>
                     <th>Representante</th>
                     <th>Dirección</th>
-                    <th>Telefono </th>
+                    <th>Teléfono </th>
                     <th>Correo </th>
                     <th>Estado</th>
                     <th>Cambiar Estado</th>
@@ -52,7 +52,7 @@
                           <div class="modal-body">
                                     <div class="row">
                                             <div class="col-md-6">
-                                                <label for="">NIT o cedula</label>
+                                                <label for="">NIT o cédula</label>
                                                 <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit" onkeypress="return soloNumeros(event)">
                                                 @error('nit')
                                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="">Telefono #1</label>
+                                            <label for="">Teléfono #1</label>
                                             <input type="text" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="telefono1" id="telefono1">
                                             @error('telefono1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -165,7 +165,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <label for="">Telefono #1</label>
+                                            <label for="">Teléfono #1</label>
                                             <input type="text" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="etelefono1" id="etelefono1">
                                             @error('telefono1')
                                                 <div class="invalid-feedback">{{ $message }}</div>
@@ -359,7 +359,7 @@
 //     //get textContent of the TD
 //     console.log('TD cell textContent : ', this.textContent)
 //     contenido = this.textContent;
-//     contenido = 'Pasivo' ? alert("cliente malo") : console.log(contenido);  
+//     contenido = 'Pasivo' ? alert("cliente malo") : console.log(contenido);
 // })
 
 

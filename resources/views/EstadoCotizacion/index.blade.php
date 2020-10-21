@@ -130,14 +130,14 @@
             $('#saveBtn').val("create-product");
             $('#estadoCotizacion_id').val('');
             $('#estadoForm').trigger("reset");
-            $('#modelHeading').html("Crear Nuevo estado");
+            $('#modelHeading').html("Crear nuevo estado");
             $('#ajaxModel').modal('show');
         });
 
         $('body').on('click', '.editEstadoCotizacion', function () {
             var estadoCotizacion_id = $(this).data('id');
             $.get("{{ route('ajaxestado.index') }}" +'/' + estadoCotizacion_id +'/edit', function (data) {
-                $('#modelHeading').html("Editar el Estado");
+                $('#modelHeading').html("Editar el estado");
                 $('#saveBtn').val("edit-user");
                 $('#ajaxModel').modal('show');
                 $('#estadoCotizacion_id').val(data.id);
@@ -152,7 +152,7 @@
 
             if($("#estado_cotizacion").val()==0){
                 $("#val_Estado").text("*");
-                $("#val_Estado2").text("Debe Ingresar la Estado");
+                $("#val_Estado2").text("Debe ingresar la estado");
             }else{
                 $("#val_Estado").text("");
                 $("#val_Estado2").text("");
@@ -202,7 +202,7 @@
 
         $('body').on('click', '.deleteEstadoCotizacion', function (e) {
             e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el resgistro !");
+            var x = confirm("Estas seguro de eliminar el registro !");
             if(x){
             var estadoCotizacion_id = $(this).data("id");
             $.ajax({

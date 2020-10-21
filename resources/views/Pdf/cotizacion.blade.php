@@ -143,16 +143,16 @@
             </tr>
             <tr>
 
-                <td class="vini"  rowspan="2">POR DIAS</td>
+                <td class="vini"  rowspan="2">POR DÍAS</td>
                 <td class="vini" >FECHA Agosto 3 2018</td>
             </tr>
             <tr>
-                <td class="vini" >CODIGO: F-CM -010</td>
+                <td class="vini" >CÓDIGO: F-CM -010</td>
             </tr>
         </table>
     </header>
     @foreach($cotizacion as $value)
-    <H4>Medellin, {{$value->fechaCotizacion}}</H4>
+    <H4>Medellín, {{$value->fechaCotizacion}}</H4>
     @endforeach
     <br>
     <br>

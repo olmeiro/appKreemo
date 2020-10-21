@@ -9,7 +9,7 @@
 @section('body')
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Crear Obra</strong>
+            <strong>Crear obra</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -18,7 +18,7 @@
         <input type="hidden" name="idempresa" id="idempresa" value="{{ $id }}">
             <div class="row">
             <div class="col-6">
-            
+
                     <div class="form-group">
                         <label for="">Nombre obra</label>
                         <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="nombre"value="{{old('nombre')}}" onchange="validate()" onkeypress="return soloLetras(event)">
@@ -42,7 +42,7 @@
 
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Telefono</label>
+                        <label for="">Teléfono</label>
                         <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}" onkeypress="return soloNumeros(event)">
                         @error('telefono1')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -53,7 +53,7 @@
 
                 <div class="col-6">
                     <div class="form-group">
-                        <label for="">Correo Electrónico</label>
+                        <label for="">Correo electrónico</label>
                         <input type="email" class="form-control @error('correo1') is-invalid @enderror"  name="correo1" id="correo1" value="{{old('correo1')}}">
                         @error('correo1')
                             <div class="invalid-feedback">{{ $message }}</div>
