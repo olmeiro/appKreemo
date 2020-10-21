@@ -113,12 +113,13 @@
               <img src="{{ asset('img/vinicol.png') }}" style="width:50px;">
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-0">
-              <!-- <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>
-              <a class="dropdown-item" href="#"> -->
-                <!-- <svg class="c-icon mr-2">
+               <div class="dropdown-header bg-light py-2"><strong>Ayuda</strong></div>
+              <a class="dropdown-item" href="/manual"> 
+                 <!-- <svg class="c-icon mr-2">
                   <use xlink:href="{{ asset('assets/dashboar/vendors/@coreui/icons/svg/free.svg#cil-bell') }}"></use>
-                </svg> Updates<span class="badge badge-info ml-auto">42</span></a><a class="dropdown-item" href="#">
-                <svg class="c-icon mr-2">
+                </svg> -->
+                <i class="fas fa-question-circle"></i>  Manual de usuario</a><a class="dropdown-item">
+                <!-- <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
                 </svg> Messages<span class="badge badge-success ml-auto">42</span></a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
@@ -126,20 +127,22 @@
                 </svg> Tasks<span class="badge badge-danger ml-auto">42</span></a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                </svg> Comments<span class="badge badge-warning ml-auto">42</span></a> -->
-              <div class="dropdown-header bg-light py-2"><strong>Configuración</strong></div><a class="dropdown-item" href="">
-                <svg class="c-icon mr-2">
+                </svg> Comments<span class="badge badge-warning ml-auto">42</span></a>  -->
+              <!-- <div class="dropdown-header bg-light py-2"><strong>Configuración</strong></div> -->
+              <a class="dropdown-item">
+                <!-- <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
                 </svg> Perfil</a><a class="dropdown-item" href="#">
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
-                </svg> Configuración</a><a class="dropdown-item" href="#">
+                </svg> Configuración</a><a class="dropdown-item" href="#"> -->
 
               <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:document.getElementById('logout').submit()">
-
+<!-- 
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg>  Salir</a>
+                </svg>  -->
+                <i class="fas fa-sign-out-alt"></i>  Salir</a>
                 <form action="{{ route('logout')}}" id="logout" style="display:none" method="POST">@csrf</form>
             </div>
           </li>

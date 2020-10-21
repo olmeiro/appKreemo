@@ -28,6 +28,8 @@ Route::get('users/{id}/edit/','UserController@edit');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get ('/manual','ManualController@index');
+
 Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/listar', 'EmpresaController@listar');
 Route::post('/empresa/guardar', 'EmpresaController@store');

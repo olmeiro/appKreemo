@@ -191,7 +191,7 @@ class User extends Authenticatable
         1=>[
 
             ["url" => "/home", "method"=>"GET", "identica"=>true],
-
+            ["url" => "/manual", "method"=>"GET", "identica"=>true],
             ["url" => "/users", "method"=>"GET", "identica"=>true], //Mostrando lista de index
             ["url" => "/users", "method"=>"GET", "identica"=>false], //mostrando datos de un user
             ["url" => "/users", "method"=>"POST", "identica"=>true],
@@ -411,7 +411,7 @@ class User extends Authenticatable
         ],
         2=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
-
+            ["url" => "/manual", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
             ["url" => "/tipocontacto/actualizar", "method"=>"POST", "identica"=>false],
@@ -624,7 +624,7 @@ class User extends Authenticatable
         ],
         3=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
-
+            ["url" => "/manual", "method"=>"GET", "identica"=>true],
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
             ["url" => "/visita", "method"=>"POST", "identica"=>false], //guardo
             ["url" => "/visita/store", "method"=>"POST", "identica"=>true],
