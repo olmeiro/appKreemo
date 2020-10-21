@@ -49,12 +49,12 @@ public function index(Request $request)
     ->addColumn('cambiar', function ($data) {
         if($data->estado == 1)
         {
-            return '<button type="button" class="btn btn-danger"><a class="btn btn-danger btn-sm" href="/user/cambiar/estado/'.$data->id.'/0">Inactivar</a></button>';
+            return '<a class="btn btn-danger btn-md" href="/user/cambiar/estado/'.$data->id.'/0">Inactivar</a>';
 
         }
         else
         {
-            return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/user/cambiar/estado/'.$data->id.'/1">Activar</a></button>';
+            return  '<a class="btn btn-success btn-md" href="/user/cambiar/estado/'.$data->id.'/1">Activar</a>';
 
         }
     })

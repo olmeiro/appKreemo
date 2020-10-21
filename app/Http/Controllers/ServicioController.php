@@ -32,6 +32,7 @@ class ServicioController extends Controller
             ->join("obra", "cotizacion.idObra", "=", "obra.id")
             ->where("cotizacion.inicioBombeo",">", now())
             ->where("cotizacion.idestado", "=", 2)
+            ->orwhere("cotizacion.idestado", "=", 4)
             ->orderBy("cotizacion.id")
             ->get();
         $maquinaria = Maquinaria::select("maquinaria.*")
@@ -100,11 +101,11 @@ class ServicioController extends Controller
                 'fechafin' => $data['fechafin']
             ]);
 
-            return response()->json(["ok"=>true]);  
+            return response()->json(["ok"=>true]);
         }
         else
         {
-            return response()->json(["ok"=>false]);  
+            return response()->json(["ok"=>false]);
         }
     }
 
@@ -117,7 +118,7 @@ class ServicioController extends Controller
     //         ->whereDate('fechainicio', ">=", $fechainicio)
     //         ->whereDate('fechafin', '<=', $fechafin)
     //         ->first();
-        
+
     //     return $ocupacion == null ? true :  false;
     // }
 
@@ -138,7 +139,7 @@ class ServicioController extends Controller
     //     ->first();
 
     //     dd($ocupacion);
-        
+
     //     return $ocupacion == null ? true :  false;
 
     //     return response(json_encode($ocupacion), 200)->header('Content-type','text/plain');
@@ -161,7 +162,7 @@ class ServicioController extends Controller
     //                     'fechafin' => $data['fechafin']
     //                 ]);
 
-    //     return response()->json(["ok"=>true]);  
+    //     return response()->json(["ok"=>true]);
 
     // }
 
@@ -182,12 +183,12 @@ class ServicioController extends Controller
     //             "fechainicio" => $data['fechainicio'],
     //             'fechafin' => $data['fechafin']
     //         ]);
-    //         return response()->json(["ok"=>true]);  
+    //         return response()->json(["ok"=>true]);
     //     }
     //     else{
     //         if($data['idmaquina'] == $resultado[1])
     //         {
-                
+
     //             return response()->json(["ok"=>false]);
     //         }
     //         else
@@ -200,10 +201,23 @@ class ServicioController extends Controller
       public function edit($id){
 
         $servicio = servicio::find($id);
-        $cotizacion = Cotizacion::all();
+
         $estadoservicio = EstadoServicio::all();
         $maquinaria = Maquinaria::all();
         $operario = Operario::all();
+        $cotizacion = Cotizacion::select("cotizacion.*", "empresa.nombre as nombre_empresa", "estadocotizacion.estado_cotizacion","modalidad.modalidad", "etapa.etapa", "jornada.jornada_nombre", "tipoconcreto.tipo_concreto","obra.nombre as nombre_obra", "obra.telefono1", "obra.correo1")
+            ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
+            ->join("estadocotizacion", "cotizacion.idEstado", "=", "estadocotizacion.id")
+            ->join("modalidad", "cotizacion.idModalidad", "=", "modalidad.id")
+            ->join("etapa", "cotizacion.idEtapa", "=", "etapa.id")
+            ->join("jornada", "cotizacion.idJornada", "=", "jornada.id")
+            ->join("tipoconcreto", "cotizacion.idTipo_Concreto", "=", "tipoconcreto.id")
+            ->join("obra", "cotizacion.idObra", "=", "obra.id")
+            ->where("cotizacion.inicioBombeo",">", now())
+            ->where("cotizacion.idestado", "=", 2)
+            ->orwhere("cotizacion.idestado", "=", 4)
+            ->orderBy("cotizacion.id")
+            ->get();
 
         if ($servicio==null) {
 
@@ -259,7 +273,7 @@ class ServicioController extends Controller
                         "operario1"=>$value->idoperario1,
                         "operario2"=>$value->idoperario2,
                         "descripcion"=>$value->descripcion,
-                        "title"=>"Servicio N° ".$value->id." - Obra N° ".$value->idobra,
+                        "title"=>"Maq N° ".$value->idmaquina." - Obra N° ".$value->idobra,
                         "backgroundColor"=>$value->estado ==1 ? "#1f7904" : "#7b0205",
                         "textColor"=>"#fff"
                     ];
@@ -292,7 +306,7 @@ class ServicioController extends Controller
                     "fechafin" => $input["fechafin"],
                     "horainicio" => $input["horainicio"],
                     "horafin" => $input["horafin"],
-                    "estado" => $input["estado"],
+
                     "descripcion" => $input["descripcion"],
                 ]);
 
