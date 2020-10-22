@@ -76,7 +76,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="form-group">
+                            <div >
                                 <strong>Rol:</strong>
                                 <select class="form-control" name="rol" id="rol">
                                     <option value="0">Seleccione</option>
