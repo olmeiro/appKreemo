@@ -53,7 +53,7 @@
                                 <div class="row mt-3">
                                     <div class="form-row" >
                                         <div class="form-group col-md-6">
-                                            <label for="">Id del servicio</label>
+                                            <label for="">N° del servicio</label>
                                             <label class="validacion" for="idservicio" id="valIdServicio"></label>
                                             <select id="idservicio"  name= "idservicio" class="form-control @error('idservicio') is-invalid @enderror">
                                                 <option value="0">Seleccione un servicio</option>
