@@ -20,7 +20,7 @@
                         <div class="card-body">
                             <div class="form-row" >
                                     <div class="form-group col-md-6">
-                                        <label for="">Id visita</label>
+                                        <label for="">N° visita</label>
                                         <label class="validacion" id="val_idvisita"></label>
                                         <label class="validacion" id="val_idvisita"></label>
                                         <input type="text" value="{{ $id }}" id="idvisita" name="idvisita" class="form-control">
