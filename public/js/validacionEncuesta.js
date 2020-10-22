@@ -173,20 +173,6 @@ $(document).ready(function() {
             validado++;
         }
 
-        // if($("#respuesta2") == "SI"){
-        //     if($("#respuesta3").val()==0){
-        //         $("#valRespuesta3").text("*");
-        //         $("#valRespuesta32").text("Describa el problema del cliente");
-        //     }else if($("#respuesta3").val().length >=300){
-        //         $("#valRespuesta3").text("*");
-        //         $("#valRespuesta32").text("Ha superado el tamaño de caracteres (300) ");
-        //     }else{
-        //         $("#valRespuesta3").text("");
-        //         $("#valRespuesta32").text("");
-        //         validado++;
-        //     }
-        // }
-
         if($("#respuesta4").val()==0){
             $("#valRespuesta4").text("*");
             $("#valRespuesta42").text("Debe seleccionar una opción");
@@ -195,18 +181,6 @@ $(document).ready(function() {
             $("#valRespuesta42").text("");
             validado++;
         }
-
-        // if($("#respuesta3").val()==0){
-        //     $("#valRespuesta3").text("*");
-        //     $("#valRespuesta32").text("NO SE QUE VALIDAR JEJE");
-        // }else if($("#respuesta3").val().length >= 300){
-        //     $("#valRespuesta3").text("*");
-        //     $("#valRespuesta32").text("Ha superado el tamaño de caracteres (300) ");
-        // }else{
-        //     $("#valRespuesta3").text("");
-        //     $("#valRespuesta32").text("");
-        //     validado++;
-        // }
 
         if($("#respuesta6").val()==0){
             $("#valRespuesta6").text("*");
