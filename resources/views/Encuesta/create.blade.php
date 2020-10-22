@@ -7,7 +7,7 @@
     </div>
     <div class="card-body">
         @include('flash::message')
-        <form action="/encuesta/guardar" method="POST" enctype="multipart/form-data">
+        <form action="/encuesta/guardar" method="POST" enctype="multipart/form-data" name="frmEncuesta" id="frmEncuesta">
             @csrf
             <input type="hidden" id="id">
             <div class="card">
@@ -19,10 +19,11 @@
                         <div class="form-group col-md-4">
                             <label for="">N° servicio</label>
                             <label class="validacion" for="idservicio" id="valIdServicio"></label>
-                            <input type="text" value="{{ $id }}" id="idservicio" name="idservicio" class="form-control">
+                            <input type="text" value="{{ $id ?? '' }}" id="idservicio" name="idservicio" class="form-control">
                             @error('idservicio')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
+                            <label class="validacion" for="idservicio" id="valIdServicio2"></label>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="">Nombre del director de la obra</label>
@@ -91,8 +92,8 @@
                                         <div class="form-group col-md-2">
                                             <label for="">Puntualidad</label>
                                             <label class="validacion" for="respuesta1_1" id="valRespuesta1_1"></label>
-                                            <select id="respuesta1_1"  name= "respuesta1_1" class="form-control @error('respuesta1_1') is-invalid @enderror">
-                                                <option selected>Califique</option>
+                                            <select  id="respuesta1_1"  name= "respuesta1_1" class="form-control @error('respuesta1_1') is-invalid @enderror">
+                                                <option value="0" selected>Califique</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -107,8 +108,8 @@
                                         <div class="form-group col-md-4">
                                             <label for="">Solución de problemas</label>
                                             <label class="validacion" for="respuesta1_2" id="valRespuesta1_2"></label>
-                                            <select id="respuesta1_2"  name= "respuesta1_2" class="form-control @error('respuesta1_2') is-invalid @enderror">
-                                                <option selected>Califique</option>
+                                            <select  id="respuesta1_2"  name= "respuesta1_2" class="form-control @error('respuesta1_2') is-invalid @enderror">
+                                                <option value="0" selected>Califique</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -123,8 +124,8 @@
                                         <div class="form-group col-md-2">
                                             <label for="">Orden y aseo</label>
                                             <label class="validacion" for="respuesta1_3" id="valRespuesta1_3"></label>
-                                            <select id="respuesta1_3"  name= "respuesta1_3" class="form-control @error('respuesta1_3') is-invalid @enderror">
-                                                <option selected>Califique</option>
+                                            <select  id="respuesta1_3"  name= "respuesta1_3" class="form-control @error('respuesta1_3') is-invalid @enderror">
+                                                <option value="0" selected>Califique</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -139,8 +140,8 @@
                                         <div class="form-group col-md-4">
                                             <label for="">Cumplimiento en requisitos</label>
                                             <label class="validacion" for="respuesta1_4" id="valRespuesta1_4"></label>
-                                            <select id="respuesta1_4"  name= "respuesta1_4" class="form-control @error('respuesta1_4') is-invalid @enderror">
-                                                <option selected>Califique</option>
+                                            <select value="0" id="respuesta1_4"  name= "respuesta1_4" class="form-control @error('respuesta1_4') is-invalid @enderror">
+                                                <option value="0" selected>Califique</option>
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
@@ -166,8 +167,8 @@
                                         <div class="form-group col-md-12">
                                             <label for="">SI - NO</label>
                                             <label class="validacion" for="respuesta2" id="valRespuesta2"></label>
-                                            <select id="respuesta2"  name= "respuesta2" class="form-control @error('respuesta2') is-invalid @enderror">
-                                                <option selected>Seleccione la respuesta</option>
+                                            <select  id="respuesta2"  name= "respuesta2" class="form-control @error('respuesta2') is-invalid @enderror">
+                                                <option value="0" selected>Seleccione la respuesta</option>
                                                     <option value="SI">SI</option>
                                                     <option value="NO">NO</option>
                                             </select>
@@ -214,8 +215,8 @@
                                         <div class="form-group col-md-12">
                                             <label for="">SI - NO</label>
                                             <label class="validacion" for="respuesta4" id="valRespuesta4"></label>
-                                            <select id="respuesta4"  name= "respuesta4" class="form-control @error('respuesta4') is-invalid @enderror">
-                                                <option selected>Seleccione la respuesta</option>
+                                            <select  id="respuesta4"  name= "respuesta4" class="form-control @error('respuesta4') is-invalid @enderror">
+                                                <option value="0" selected>Seleccione la respuesta</option>
                                                     <option value="SI">SI</option>
                                                     <option value="NO">NO</option>
                                             </select>
@@ -254,14 +255,14 @@
                             <div class="card">
                                 <div class="card-header">
                                     <p><b>6.</b> Volvería Usted a Utilizar los servicios de VINICOL BOMBEOS</p>
-                                    <label class="validacion" for="respuesta6" id="valRespuesta6"></label>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
                                         <div class="form-group col-md-12">
                                             <label for="">SI - NO</label>
-                                            <select id="respuesta6"  name= "respuesta6" class="form-control @error('respuesta6') is-invalid @enderror">
-                                                <option selected>Seleccione la respuesta</option>
+                                            <label class="validacion" for="respuesta6" id="valRespuesta6"></label>
+                                            <select  id="respuesta6"  name= "respuesta6" class="form-control @error('respuesta6') is-invalid @enderror">
+                                                <option value="0" selected>Seleccione la respuesta</option>
                                                     <option value="SI">SI</option>
                                                     <option value="NO">NO</option>
                                             </select>
@@ -284,8 +285,8 @@
                                         <div class="form-group col-md-12">
                                             <label for="">SI - NO</label>
                                             <label class="validacion" for="respuesta7" id="valRespuesta7"></label>
-                                            <select id="respuesta7"  name= "respuesta7" class="form-control @error('respuesta7') is-invalid @enderror">
-                                                <option selected>Seleccione la respuesta</option>
+                                            <select  id="respuesta7"  name= "respuesta7" class="form-control @error('respuesta7') is-invalid @enderror">
+                                                <option value="0" selected>Seleccione la respuesta</option>
                                                     <option value="SI">SI</option>
                                                     <option value="NO">NO</option>
                                             </select>
@@ -309,11 +310,11 @@
 </div>
 @endsection
 
+@section('style')
+    <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
+@endsection
+
 @section('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionEncuesta.js') }}"></script>
-    <script>
-
-
-
-    </script>
 @endsection
