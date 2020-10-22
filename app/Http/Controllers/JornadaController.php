@@ -33,9 +33,9 @@ class JornadaController extends Controller
                     ->addIndexColumn()
                     ->addColumn('acciones', function($row){
 
-                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editJornada"><i class="fas fa-edit"></i></a>';
+                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-md editJornada"><i class="fas fa-edit"></i></a>';
 
-                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteJornada"><i class="fas fa-trash-alt"></i></a>';
+                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-md deleteJornada"><i class="fas fa-trash-alt"></i></a>';
 
                             return $btn;
                     })
