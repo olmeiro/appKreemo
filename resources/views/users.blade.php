@@ -13,7 +13,7 @@
             <button type="button" class="btn btn-outline-light float-right" id="new-user" data-toggle="modal">Crear usuario</button>
         </div>
         <div class="card-body table-responsive">
-            <table class="table table-bordered table-striped data-table" >
+            <table class="table table-bordered table-striped data-table" style="width: 100%;">
                 <thead>
                 <tr id="">
                     <th >N°</th>
@@ -22,7 +22,7 @@
                     <th >Apellido</th>
                     <th >Email</th>
                     <th >Estado</th>
-                    <th >Acciones</th>
+                    <th width="30%" >Acciones</th>
                     <th >Cambiar estado</th>
                 </tr>
                 </thead>

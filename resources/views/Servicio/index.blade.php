@@ -27,14 +27,14 @@
                 @csrf
                     <input type="hidden" id="id">
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-8">
                                 <div class="form-group">
                                     <label for="">N° Cotización</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Seleccione la cotización a la cual desea agendarle el servicio">
                                     <label class="validacion" id="validcotizacion"></label>
                                     <select class="form-control @error('idcotizacion') is-invalid @enderror" name= "idcotizacion" id="idcotizacion" onchange="darFecha()">
                                         <option selected>Seleccione una cotización</option>
                                         @foreach($cotizacion as $key =>$value)
-                                            <option value="{{ $value->id }}">Cotización N° {{ $value->id}} Empresa {{ $value->nombre_empresa}} - Obra: {{ $value->nombre_obra}}</option>
+                                            <option value="{{ $value->id }}">Cotización N° {{ $value->id}} Empresa {{ $value->nombre_empresa}} - Obra: {{ $value->nombre_obra}} - Estado: {{ $value->estado_cotizacion}}</option>
                                         @endforeach
                                     </select>
                                     <label class="validacion" id="validcotizacion2"></label>
