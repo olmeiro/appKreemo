@@ -24,10 +24,10 @@ class TipoContactoController extends Controller
 
         return DataTables::of($tipoContacto)
         ->addColumn('editar', function ($tipoContacto) {
-            return '<a class="btn btn-primary btn-sm" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
+            return '<a class="btn btn-primary btn-md" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($tipoContacto) {
-            return '<a class="btn btn-danger btn-sm" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminarget/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
+            return '<a class="btn btn-danger btn-md" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminarget/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);
@@ -110,26 +110,26 @@ class TipoContactoController extends Controller
 
     public function destroy($id)
     {
-        try 
+        try
         {
             $tipoContacto = tipoContacto::find($id);
             if (empty($tipoContacto)) {
                 Flash::error('Tipo contacto no encontrado');
-    
+
                 return redirect('/tipocontacto');
             }
-    
+
             $tipoContacto->delete($id);
-    
+
             //return response()->json(["ok"=>true]);
             Flash::success("Se eliminó el tipo contacto");
             return redirect("/tipocontacto");
-        } 
+        }
         catch (\Throwable $th) {
             // return response()->json(["ok"=>false]);
             Flash::success("No se puede eliminar tipo contacto");
             return redirect("/tipocontacto");
-        }  
+        }
 
     }
 

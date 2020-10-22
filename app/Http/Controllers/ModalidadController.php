@@ -20,9 +20,9 @@ class ModalidadController extends Controller
                     ->addIndexColumn()
                     ->addColumn('acciones', function($row){
 
-                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editModalidad"><i class="fas fa-edit"></i></a>';
+                        $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-md editModalidad"><i class="fas fa-edit"></i></a>';
 
-                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteModalidad"><i class="fas fa-trash-alt"></i></a>';
+                        $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-md deleteModalidad"><i class="fas fa-trash-alt"></i></a>';
 
                             return $btn;
                     })

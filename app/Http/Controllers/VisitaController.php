@@ -45,12 +45,12 @@ class VisitaController extends Controller
         ->addColumn('cambiar', function ($visita) {
             if($visita->estado == 1)
             {
-                return '<button type="button" class="btn btn-danger"><a class="btn btn-danger btn-sm" href="/visita/cambiar/estado/'.$visita->id.'/0">Inactivar</a></button>';
+                return '<a class="btn btn-danger btn-md" href="/visita/cambiar/estado/'.$visita->id.'/0">Inactivar</a>';
 
             }
             else
             {
-                return  '<button type="button" class="btn btn-success"><a class="btn btn-success btn-sm" href="/visita/cambiar/estado/'.$visita->id.'/1">Activar</a></button>';
+                return  '<a class="btn btn-success btn-md" href="/visita/cambiar/estado/'.$visita->id.'/1">Activar</a>';
 
             }
         })
