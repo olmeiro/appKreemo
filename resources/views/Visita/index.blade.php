@@ -18,7 +18,7 @@
   <div class="modal fade" id="agenda_modal" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header text-white" style="background-color: #616A6B">
           <h5 class="modal-title">Datos de la visita</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
           <span aria-hidden="true">&times;</span>

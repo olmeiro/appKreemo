@@ -32,7 +32,7 @@
                         <th>Apellido</th>
                         <th>Documento</th>
                         <th>Celular</th>
-                        <th>Acciones</th>
+                        <th width="10%">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>

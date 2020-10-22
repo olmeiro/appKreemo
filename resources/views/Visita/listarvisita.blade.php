@@ -4,7 +4,6 @@
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Visitas</strong>
-            <a href="/listachequeo" class="btn btn-outline-light float-right">Lista de chequeo</a>
         </div>
 
         <div class="card-body table-responsive">
