@@ -49,7 +49,7 @@
     <div class="modal fade" id="ajaxModel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header">
+                <div class="modal-header text-white" style="background-color: #616A6B">
                     <h4 class="modal-title" id="modelHeading"></h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
@@ -67,7 +67,7 @@
                             <label class="validacion col-sm-12 control-label" id="val_Estado2"></label>
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Editar
+                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
                         </button>
                         </div>
                     </form>
