@@ -16,7 +16,45 @@ class ListaChequeoController extends Controller
 {
     public function index(){
         $listachequeo= ListaChequeo::all();
+
         $visita = Visita::all();
+
+        
+// select id
+// from visita v
+// where not exists (select idvisita 
+//                    from listachequeo l
+//                    where l.idvisita = v.id);
+
+        // $listas = ListaChequeo::all();
+        // dd($listas);
+
+        // $visita = Visita::select('visita.*')
+        // ->whereNotExists( function ($query){
+        //     $query = ListaChequeo::select('listachequeo.idvisita');
+        //                                 //->where('listachequeo.idvisita = visita.id');
+        //                                dd($query);
+        // } )
+        // ->get();
+
+     
+
+        // $visita = Visita::select('visita.id','listachequeo.idvisita')
+        // ->whereNotExists( function ($query){
+        //     $query = ListaChequeo::select('listachequeo.idvisita')
+        //                                 ->where('listachequeo.idvisita','=','visita.id')
+        //                                 ->get();
+        // } )
+        // ->get();
+
+        // $users = User::where(function ($query) {
+        //     $query->select('type')
+        //         ->from('membership')
+        //         ->whereColumn('user_id', 'users.id')
+        //         ->orderByDesc('start_date')
+        //         ->limit(1);
+        // }, 'Pro')->get();
+
         return view('listachequeo.index', compact('visita'));
         
     }
