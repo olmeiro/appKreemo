@@ -4,12 +4,18 @@
 
 table tr {
     text-align: center;
-  }
+}
 
 
-  .page-item.active .page-link {
+.page-item.active .page-link {
     z-index: 1;
     color: #fff;
     background-color: #4e4e4e;
     border-color: #545555;
+}
+
+.proceso{
+
+
+
 }

@@ -27,9 +27,9 @@
             <table id="tbl_cotizacion" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead class="" align="center">
                 <tr>
-                    <th>N° Cotización</th>
+                    <th>Cot. N°</th>
                     <th>Empresa</th>
-                    <th>Estado</th>
+                    <th data-valor="En la colunma ESTADO podras ver el estado de las cotizaciones" class="click">Estado</th>
                     <th>Obra</th>
                     <th>Fecha cotización</th>
                     <th>Fecha inicio bombeo</th>
@@ -39,7 +39,7 @@
                 </tr>
                 </thead>
                 <tbody>
-
+  {{--  --}}
                 </tbody>
             </table>
         </div>
@@ -514,6 +514,7 @@
                     {
                         data: 'valorTotal',
                         name: 'valorTotal',
+                        render: $.fn.dataTable.render.number( ',', '.', 0, '$' ),
                     },
                     {
                         data: 'editar',
@@ -557,32 +558,43 @@
                                 "colvis": "Visibilidad"
                             }
                             },
-                            "columnDefs": [
+                "columnDefs":   [
                                 {
-                                        "targets": [2],
-                                        "createdCell": function(td, cellData, rowData, row, col) {
-                                            var color;
-                                            switch(cellData) {
-                                            case "Pérdida":
-                                                color = '#FF3229';
-                                                break;
-                                            case "En Proceso":
-                                                color = '#FFDE00';
-                                                break;
-                                            case "Aceptada":
-                                                color = '#06B33A';
-                                                break;
-                                            case "Agendada":
-                                                color = '#06A';
-                                                break;
-                                            default:
-                                                color = '#FFDE00';
-                                                break;
-                                            }
-                                            $(td).css('background',color);
-                                        }
+                                "targets": [2],
+                                "createdCell": function(td, cellData, rowData, row, col) {
+                                    var color;
+                                    switch(cellData) {
+                                    case "Pérdida":
+                                        color = '#FF3229';
+                                        //Swal.fire('Se encuentran cotizaciones perdidas');
+                                        $(td).html('Pérdida.... Revisar negociacion');
+                                        $(td).addClass('perdida');
+                                        break;
+                                    case "En Proceso":
+                                        color = '#FFDE00';
+                                        $(td).html('En Proceso .... A la espera de respuesta del cliente');
+                                        $(td).addClass('proceso');
+                                        break;
+                                    case "Aceptada":
+                                        color = '#06B33A';
+                                        $(td).html('Aceptada.... Lista para iniciar servicio');
+                                        $(td).addClass('aceptada');
+                                        break;
+                                    case "Agendada":
+                                        color = '#06A';
+                                        $(td).html('Agendada.... Servicio en ejecucion');
+                                        $(td).addClass('agendada');
+                                        //Swal.fire('Se encuentran cotizaciones Aegndadas');
+                                        break;
+                                    default:
+                                        color = '#FFDE00';
+                                        break;
                                     }
+                                        $(td).css('background',color);
+                                    }
+                                }
                                 ],
+
             });
 
             function limpiar()
@@ -611,6 +623,20 @@
                 $("#val_AIU2").text("");
             }
 
+            $(function(){
+                $(".click").click(function(e) {
+                    e.preventDefault();
+                    var data = $(this).attr("data-valor");
+                    Swal.fire(data);
+                });
+            });
+            $(function(){
+                $(".aceptada").click(function(e) {
+                    e.preventDefault();
+
+                    Swal.fire('Cotizacion Agendada y en ejecucion en el momento');
+                });
+            });
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
