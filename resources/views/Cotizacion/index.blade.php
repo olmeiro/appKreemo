@@ -29,7 +29,7 @@
                 <tr>
                     <th>Cot. N°</th>
                     <th>Empresa</th>
-                    <th data-valor="En la colunma ESTADO podras ver el estado de las cotizaciones" class="click">Estado</th>
+                    <th data-valor="En la columna ESTADO podras ver el estado de las cotizaciones" class="click">Estado</th>
                     <th>Obra</th>
                     <th>Fecha cotización</th>
                     <th>Fecha inicio bombeo</th>
