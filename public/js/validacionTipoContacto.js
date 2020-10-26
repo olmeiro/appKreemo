@@ -3,8 +3,8 @@ $(document).ready(function() {
          event.preventDefault();
 
          if ($("#tipocontacto").val() == 0 ) {
-              Swal.fire("Ingrese Tipo Contacto correcto.");
-              $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+              Swal.fire("Ingrese tipo de contacto.");
+              $("#valTipoContacto").text("*Ingrese tipo de contacto.");
          }
          else
          {
@@ -46,7 +46,7 @@ $(document).ready(function() {
        event.preventDefault();
 
        if ($("#tipocontacto").val() == 0 ) {
-            $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+            $("#valTipoContacto").text("*Ingrese tipo de contacto.");
        }
        else
        {
@@ -85,7 +85,7 @@ $(document).ready(function() {
        event.preventDefault();
 
        if ($("#tipocontacto").val() == 0 ) {
-            $("#valTipoContacto").text("*Ingrese Tipo contacto nuevo.");
+            $("#valTipoContacto").text("*Ingrese tipo de contacto.");
        }
        else
        {
@@ -103,9 +103,9 @@ $(document).ready(function() {
               }).done(function(respuesta){
                 if(respuesta.ok)
                 {
-                  Swal.fire('Se edito el nuevo tipo contacto');
+                  Swal.fire('Se editó el nuevo tipo contacto');
                   limpiar();
-                  window.location.reload('/tipocontacto');
+                  window.location.reload('/cliente');
            
                 }
                 else{

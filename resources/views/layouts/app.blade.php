@@ -138,10 +138,10 @@
                 </svg> Configuración</a><a class="dropdown-item" href="#"> -->
 
               <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:document.getElementById('logout').submit()">
-<!-- 
+ 
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg>  -->
+                </svg> 
                 <i class="fas fa-sign-out-alt"></i>  Salir</a>
                 <form action="{{ route('logout')}}" id="logout" style="display:none" method="POST">@csrf</form>
             </div>

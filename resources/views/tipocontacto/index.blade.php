@@ -15,9 +15,7 @@
                 <tr>
                     <th>id</th>
                     <th>Tipo contacto</th>
-                    <th>Fecha creación</th>
                     <th>Editar</th>
-                    <th>eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -46,21 +44,17 @@
                      name: 'tipocontacto'
                     },
                     {
-                        data: 'created_at',
-                        name: 'created_at'
-                    },
-                    {
                         data: 'editar',
                         name: 'editar',
                         orderable: false,
                         searchable: false
-                    },
-                    {
-                        data: 'eliminar',
-                        name: 'eliminar',
-                        orderable: false,
-                        searchable: false
                     }
+                    // {
+                    //     data: 'eliminar',
+                    //     name: 'eliminar',
+                    //     orderable: false,
+                    //     searchable: false
+                    // }
                 ]
             });
 

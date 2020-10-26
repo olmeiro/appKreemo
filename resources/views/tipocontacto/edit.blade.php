@@ -10,18 +10,18 @@
 <div class="container justify-content-center col-md-4">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
-            <strong>Modificar Tipo Contacto</strong>
+            <strong>Modificar tipo contacto</strong>
         </div>
         <div class="card-body">
         @include('flash::message')
-        <strong>Contacto N° {{$tipoContacto->id}}</strong>
+        <strong>Tipo contacto N° {{$tipoContacto->id}}</strong>
         <form action="/tipocontacto/actualizar" method="POST" id="frmeditTipoContacto">
             @csrf
             <input type="hidden" name="id" value="{{$tipoContacto->id}}"/>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    <label for="">Tipo Contacto</label>
-                    <input value="{{$tipoContacto->tipocontacto}}" type="text" class="form-control @error('tipocontacto') is-invalid @enderror"  name="tipocontacto" id="tipocontacto">
+                    
+                    <input value="{{$tipoContacto->tipocontacto}}" type="text" class="form-control @error('tipocontacto') is-invalid @enderror"  name="tipocontacto" id="tipocontacto" onkeypress="return soloLetras(event)">
                     @error('tipocontacto')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

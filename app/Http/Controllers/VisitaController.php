@@ -37,20 +37,20 @@ class VisitaController extends Controller
 
         return DataTables::of($visita)
         ->editColumn("estado", function($visita){
-            return $visita->estado == 1 ? "Activa" : "Inactiva";
+            return $visita->estado == 1 ? "Por realizar" : "Realizada";
         })
         ->addColumn('listaChequeo', function ($visita) {
-            return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-edit"></i></a>';
+            return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-check"></i></a>';
         })
         ->addColumn('cambiar', function ($visita) {
             if($visita->estado == 1)
             {
-                return '<a class="btn btn-danger btn-md" href="/visita/cambiar/estado/'.$visita->id.'/0">Inactivar</a>';
+                return '<a class="btn btn-danger btn-md" href="/visita/cambiar/estado/'.$visita->id.'/0">Realizada</a>';
 
             }
             else
             {
-                return  '<a class="btn btn-success btn-md" href="/visita/cambiar/estado/'.$visita->id.'/1">Activar</a>';
+                return  '<a class="btn btn-success btn-md" href="/visita/cambiar/estado/'.$visita->id.'/1">Por realizar</a>';
 
             }
         })

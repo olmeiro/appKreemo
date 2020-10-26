@@ -357,9 +357,12 @@
                     </div>
                 </div>
             </div>
+            <div align="center" class="col-sm-12 col-xs-12">
+            <button type="submit" class="btn btn-primary">Editar</button>
+            <button type="button" href="/listachequeo" class="btn btn-secondary">Volver</button>
+            </div>
 
-            <button type="submit" class="btn btn-primary float-right">Editar</button>
-            <button type="button" href="/listachequeo" class="btn btn-outline-primary">Volver</button>
+           
         </form>
     </div>
 </div>
