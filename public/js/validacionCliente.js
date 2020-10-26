@@ -33,7 +33,7 @@
              $("#valNombre").text("");
              validado++;
          }
- 
+
          if(validaVacio($("#apellido1").val()) || $("#apellido1").val().length == 0 || $("#apellido1").val().length > 30)
          {
              $("#valApellido1").text("* Ingresar primer apellido del contacto");
@@ -43,7 +43,7 @@
              $("#valApellido1").text("");
              validado++;
          }
- 
+
          if(validaVacio($("#apellido2").val()) || $("#apellido2").val().length == 0 || $("#apellido2").val().length > 30)
          {
              $("#valApellido2").text("* Debe ingresar el segundo apellido del contacto.")
@@ -51,7 +51,7 @@
          else{
              $("#valApellido2").text("");
          }
- 
+
          var documento = document.getElementById("documento");
          if(documento.value == "" || documento.value == null || $("#documento").val().length > 10 || $("#documento").val().length < 7)
          {
@@ -86,9 +86,9 @@
          else{
              $("#valTelefono2").text("");
          }
- 
+
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
          {
              $("#valCorreo1").text("* Ingrese un correo valido.");
@@ -96,9 +96,9 @@
          else
          {
              $("#valCorreo1").text("");
-            
+
          }
- 
+
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
          {
              $("#valCorreo2").text("* Ingrese un correo valido.");
@@ -106,11 +106,11 @@
          else
          {
              $("#valCorreo2").text("");
-           
+
          }
- 
+
          console.log("validado: " + validado);
- 
+
          if(validado == 4)
          {
             var fd = new FormData(document.getElementById("frmContacto"));
@@ -128,17 +128,17 @@
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se registro el nuevo tipo contacto.');
+                    Swal.fire('Se registro el nuevo contacto.');
                      $("#exampleModal2").modal('hide');//ocultamos el modal
                      $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                      $('.modal-backdrop').remove();//eliminamos el backdrop del modal
                     var table = $('#tbl_contacto').DataTable();
                     table.ajax.reload();
-                    
+
                     limpiar();
                   }
                   else{
-                    Swal.fire('No se pudo crear el nuevo tipo contacto.');
+                    Swal.fire('No se pudo crear el nuevo contacto.');
                   }
                 })
          }
@@ -178,7 +178,7 @@ $(document).ready(function() {
              $("#valObra").text("");
          }
 
-         
+
 
          if(validaVacio($("#nombre").val()) || $("#nombre").val().length == 0 || $("#nombre").val().length > 30)
          {
@@ -189,7 +189,7 @@ $(document).ready(function() {
              $("#valNombre").text("");
              validado++;
          }
- 
+
          if(validaVacio($("#apellido1").val()) || $("#apellido1").val().length == 0 || $("#apellido1").val().length > 30)
          {
              $("#valApellido1").text("* Ingresar primer apellido del contacto");
@@ -199,7 +199,7 @@ $(document).ready(function() {
              $("#valApellido1").text("");
              validado++;
          }
- 
+
          if(validaVacio($("#apellido2").val()) || $("#apellido2").val().length == 0 || $("#apellido2").val().length > 30)
          {
              $("#valApellido2").text("* Debe ingresar el segundo apellido del contacto.")
@@ -207,7 +207,7 @@ $(document).ready(function() {
          else{
              $("#valApellido2").text("");
          }
- 
+
          var documento = document.getElementById("documento");
          if(documento.value == "" || documento.value == null || $("#documento").val().length > 10 || $("#documento").val().length < 7)
          {
@@ -242,9 +242,9 @@ $(document).ready(function() {
          else{
              $("#valTelefono2").text("");
          }
- 
+
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
          {
              $("#valCorreo1").text("* Ingrese un correo valido.");
@@ -253,7 +253,7 @@ $(document).ready(function() {
          {
              $("#valCorreo1").text("");
          }
- 
+
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
          {
              $("#valCorreo2").text("* Ingrese un correo valido.");
@@ -262,9 +262,9 @@ $(document).ready(function() {
          {
              $("#valCorreo2").text("");
          }
- 
+
          console.log("validado: " + validado);
- 
+
          if(validado == 4)
          {
             var fd = new FormData(document.getElementById("frmCrearContacto"));
@@ -299,7 +299,7 @@ $(document).ready(function() {
     });
 });
 
-//Validación Editar 
+//Validación Editar
 
 $(document).ready(function() {
     $("#editForm").submit(function(event){
@@ -326,7 +326,7 @@ $(document).ready(function() {
              $("#valCNombre").text("");
              validado++;
          }
- 
+
          if(validaVacio($("#capellido1").val()) || $("#capellido1").val().length == 0 || $("#capellido1").val().length > 30)
          {
              $("#valCApellido1").text("* Ingresar primer apellido del contacto");
@@ -336,7 +336,7 @@ $(document).ready(function() {
              $("#valCApellido1").text("");
              validado++;
          }
- 
+
          if(validaVacio($("#capellido2").val()) || $("#capellido2").val().length == 0 || $("#capellido2").val().length > 30)
          {
              $("#valCApellido2").text("* Debe ingresar el segundo apellido del contacto.")
@@ -345,7 +345,7 @@ $(document).ready(function() {
              $("#valCApellido2").text("");
              validado++;
          }
- 
+
          var documento = document.getElementById("cdocumento");
          if(documento.value == "" || documento.value == null || $("#cdocumento").val().length > 10 || $("#cdocumento").val().length < 7)
          {
@@ -382,9 +382,9 @@ $(document).ready(function() {
              $("#valTel2").text("");
              validado++;
          }
- 
+
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#ccorreo1").val().length == 0 || !emailRegex.test($("#ccorreo1").val()))
          {
              $("#valCCorreo1").text("* Ingrese un correo valido.");
@@ -394,7 +394,7 @@ $(document).ready(function() {
              $("#valCCorreo1").text("");
              validado++;
          }
- 
+
          if($("#ccorreo2").val().length == 0 || !emailRegex.test($("#ccorreo2").val()))
          {
              $("#valCCorreo2").text("* Ingrese un correo valido.");
@@ -404,9 +404,9 @@ $(document).ready(function() {
              $("#valCCorreo2").text("");
              validado++;
          }
- 
+
          console.log("validado: " + validado);
- 
+
          if(validado == 9)
          {
             var fd = new FormData(document.getElementById("editForm"));
@@ -440,7 +440,7 @@ $(document).ready(function() {
              validado = 0;
          }
 
-        
+
     });
 });
 
@@ -465,10 +465,10 @@ $(document).ready(function(){
        this.value = this.value.replace(/[^0-9]/g,'');
   });
 
-  
+
 
   $(".sin_especiales").on("keyup",function(){
-      this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,''); 
+      this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,'');
  });
 
 
@@ -480,14 +480,14 @@ function soloLetras(e) {
   letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
   especiales = [8, 39, 46],
   tecla_especial = false;
-  
+
   for (var i in especiales) {
   if (key == especiales[i]) {
     tecla_especial = true;
     break;
   }
   }
-  
+
   if (letras.indexOf(tecla) == -1 && !tecla_especial) {
   return false;
   }
@@ -508,14 +508,14 @@ function soloLetras(e) {
   /* Delete customer */
 $('body').on('click', '#delete-cliente', function (e) {
     e.preventDefault();
-    
+
     x = confirm("Esta seguro de eliminar !");
 
     if (x){
         var cliente_id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
-            type: "POST", 
+            type: "POST",
             url: "/cliente/eliminar/"+cliente_id,
             data: {
             "id": cliente_id,
@@ -530,10 +530,10 @@ $('body').on('click', '#delete-cliente', function (e) {
                       backdrop:true,
                       position:'center',
                           });
-                        var table = $('#tbl_contacto').DataTable();    
+                        var table = $('#tbl_contacto').DataTable();
                         table.ajax.reload();
                 } else {
-                    
+
 
                   Swal.fire({
                     title:'No se puede borrar',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -541,12 +541,12 @@ $('body').on('click', '#delete-cliente', function (e) {
                     backdrop:true,
                     position:'center',
                 });
-                var table = $('#tbl_contacto').DataTable();    
+                var table = $('#tbl_contacto').DataTable();
                     table.ajax.reload();
                 }
-            
+
               })
-      
+
     }
     else
     {
@@ -554,5 +554,5 @@ $('body').on('click', '#delete-cliente', function (e) {
     }
 });
 
-  
+
 
