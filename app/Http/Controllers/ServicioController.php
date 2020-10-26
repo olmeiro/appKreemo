@@ -60,7 +60,7 @@ class ServicioController extends Controller
             return '<a type="button" class="btn btn-primary"   href="/servicio/editar/'.$servicio->id.'" >Editar</a>';
         })
         ->addColumn('encuesta', function ($servicio) {
-            return '<a type="button" class="btn btn-primary" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
+            return '<a type="button" class="btn btn-success" href="/encuesta/crear/'.$servicio->id.'" >Encuesta</a>';
         })
         ->rawColumns(['encuesta','editar'])
         ->make(true);
