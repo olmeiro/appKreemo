@@ -275,13 +275,13 @@ function traerObra()
     }).done(function(res) {
         var arreglo = JSON.parse(res);
 
-            $("#IdObra").append(res.nombre);
+            // $("#IdObra").append(res.nombre);
 
             for (let index = 0; index < arreglo.length; index++) {
                 console.log(arreglo[index].nombre)
-                $('#idObra').append(`<option value="${arreglo[index].id}">${arreglo[index].nombre}</option>`);
+                $('#IdObra').append(`<option value="${arreglo[index].id}">${arreglo[index].nombre}</option>`);
             }
-            
+
     });
 }
 

@@ -164,7 +164,7 @@
                                     <div class="col-md-6">
                                         <label for="">Obra</label>
                                         <label class="validacion" id="val_Obra"></label>
-                                        <select id="idObra" name="idObra" class="form-control">
+                                        <select id="IdObra" name="IdObra" class="form-control">
                                             <option selected="selected">Seleccione una Obra</option>
                                         </select>
                                         <label class="validacion" id="val_Obra2"></label>
