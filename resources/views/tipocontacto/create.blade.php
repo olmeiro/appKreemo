@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('style')
-    <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection
 
 @section('body')
@@ -19,7 +18,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="">Tipo Contacto</label>
-                    <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror"  name="tipocontacto" id="tipocontacto">
+                    <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror"  name="tipocontacto" id="tipocontacto" onkeypress="return soloLetras(event)">
                     @error('tipocontacto')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

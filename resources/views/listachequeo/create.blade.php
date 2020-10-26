@@ -361,9 +361,9 @@
 </div>
 @endsection
 @section('style')
-
     <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection
+
 @section("scripts")
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>

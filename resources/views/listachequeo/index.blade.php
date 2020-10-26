@@ -6,7 +6,7 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Lista de chequeo</strong>
 
-            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">Crear lista de chequeo</button>
+            <!-- <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">Crear lista de chequeo</button> -->
 
         </div>
 
@@ -20,7 +20,7 @@
                     <th>Número planilla</th>
                     <th>Encargado visita</th>
                     <th>Viabilidad</th>
-                    <th>Editar</th>
+                    <th>Ver o editar</th>
                 </tr>
                 </thead>
                 <tbody>
