@@ -126,7 +126,7 @@ class ObraController extends Controller
 
             $oId = $request->id;
             Obra::updateOrCreate(['id' => $oId],[
-                "idempresa" => $request->idempresa,
+                "idempresa" => $request->oidempresa,
                 "nombre" => $request->nombre,
                 "direccion" => $request->direccion,
                 "telefono1" => $request->telefono1,

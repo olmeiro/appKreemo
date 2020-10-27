@@ -131,21 +131,13 @@
                     @include('flash::message')
                     <form class="editObra" name="obraForm" id="editForm" action="/obra/actualizar" method="POST" >
                     @csrf
+                    <input class="form-control" type="hidden" id="oidempresa" name="oidempresa" >
                     <input type="hidden" name="id" id="id" >
                         <div class="row">
-                                <div class="col-6">
-                                <label for="">Nombre empresa</label>
-                                    <select class="form-control @error('idempresa') is-invalid @enderror " name="idempresa" id="oidempresa" >
-                                        <option  value="0">Seleccione</option>
-                                        @foreach($empresa as $key =>$value)
-                                            <option value="{{ $value->id }}">{{ $value->nombre}}</option>
-                                        @endforeach
-                                    </select>
-                                    <label class="validacion" for="idempresa" id="valIdEmpresa"></label>
-                                </div>
+                                
                                 <div class="col 6">
                                     <label for="">Nombre obra</label>
-                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="onombre"value="{{old('nombre')}}">
+                                    <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="onombre" value="{{old('nombre')}}">
                                     @error('nombre')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

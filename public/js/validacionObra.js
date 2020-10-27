@@ -111,11 +111,11 @@ $(document).ready(function(){
 
         if( $("#oidempresa").val() == 0 )
         {
-            $("#valIdEmpresa").text("* Debe elegir una empresa.");
+            $("#valOIdEmpresa").text("* Debe elegir una empresa.");
         }
         else
         {
-            $("#valIdEmpresa").text("");
+            $("#valOIdEmpresa").text("");
             validado++;
         }
 
