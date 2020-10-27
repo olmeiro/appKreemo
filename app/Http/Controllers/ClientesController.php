@@ -83,7 +83,7 @@ class ClientesController extends Controller
                 "correo2" => $request->correo2,
                 ]);
 
-                Flash::success("Registro éxitoso de contacto");
+                //Flash::success("Registro éxitoso de contacto");
                 return redirect("/obra");
                 //return response()->json(["ok"=>true]);
 
