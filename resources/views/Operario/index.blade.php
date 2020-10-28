@@ -58,7 +58,7 @@
                     <div class="form-group col-md-6">
                                 <label for="nombre">Nombre</label>
                                 <label class="validacion" id="validacion_nombre"></label>
-                                <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                                <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)" placeholder="Digite aquí el nombre">
                                 @error('nombre')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -67,7 +67,7 @@
                     <div class="form-group col-sm-6">
                             <label for="apellido">Apellido</label>
                             <label class="validacion" id="validacion_apellido"></label>
-                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)" placeholder="Digite aquí el apellido">
                             @error('apellido')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -80,7 +80,7 @@
                     <div class="form-group col-md-6">
                             <label for="documento">Documento</label>
                             <label class="validacion" id="validacion_documento"></label>
-                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)">
+                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)" placeholder="Digite aquí el documento">
                             @error('documento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -89,7 +89,7 @@
                         <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
                          <label class="validacion" id="validacion_celular"></label>
-                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)">
+                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)" placeholder="Digite aquí el celular">
                         @error('celular')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
