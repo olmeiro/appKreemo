@@ -17,8 +17,9 @@
                 <div class="form-row" >
                     <div class="form-group col-md-12">
                         <label for="">Estado</label>
+                        <label class="validacion" id="val_IdEstado"></label>
                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
-                            <option value="">Seleccione estado</option>
+                            <option value="0">Seleccione estado</option>
                             @foreach($estadocotizacion as $key =>$value)
                                 <option {{$value->id == $cotizacion->idEstado ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->estado_cotizacion}}</option>
                             @endforeach
@@ -26,6 +27,7 @@
                         @error('IdEstado')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <label class="validacion" id="val_IdEstado2"></label>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success float-left">Cambiar estado</button>
@@ -36,4 +38,14 @@
 </div>
 </body>
 @endsection
+@section('style')
+    <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
+@endsection
+@section("scripts")
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+    <script src="{{ asset('js/validacionEditarEstadoCotizacion.js') }}"></script>
+
+@endsection
+
 

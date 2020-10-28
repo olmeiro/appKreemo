@@ -145,7 +145,7 @@
 
             $('#saveBtn').click(function (e) {
                 e.preventDefault();
-                $(this).html('Sending..');
+                $(this).html('Guardando..');
                 let validado = 0;
 
                 if($("#modalidad").val()==0){
@@ -200,7 +200,7 @@
 
             $('body').on('click', '.deleteModalidad', function (e) {
                 e.preventDefault();
-                var x = confirm("Estas seguro de eliminar el resgistro !");
+                var x = confirm("Estas seguro de eliminar la modalidad !");
                 if(x){
                 var modalidad_id = $(this).data("id");
                 $.ajax({

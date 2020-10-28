@@ -146,7 +146,7 @@
 
         $('#saveBtn').click(function (e) {
             e.preventDefault();
-            $(this).html('Sending..');
+            $(this).html('Guardando..');
             let validado = 0;
 
             if($("#tipo_concreto").val()==0){
@@ -201,7 +201,7 @@
 
         $('body').on('click', '.deleteTipoConcreto', function (e) {
             e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el resgistro !");
+            var x = confirm("Estas seguro de eliminar el tipo de concreto !");
             if(x){
             var tipoConcreto_id = $(this).data("id");
             $.ajax({

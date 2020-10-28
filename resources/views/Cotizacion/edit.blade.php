@@ -31,9 +31,6 @@
                         <label class="validacion" id="val_Estado"></label>
                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
                             <option value="0">Seleccione</option>
-                            {{-- <option value="1" {{ $cotizacion->idEstado == 1 ? 'selected' : '' }}>En proceso</option>
-                            <option value="2" {{ $cotizacion->idEstado == 2 ? 'selected' : '' }}>Aceptada</option>
-                            <option value="3" {{ $cotizacion->idEstado == 3 ? 'selected' : '' }}>Perdida</option> --}}
                             @foreach($estadocotizacion as $key =>$value)
                                 <option {{$value->id == $cotizacion->idEstado ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->estado_cotizacion}}</option>
                             @endforeach
@@ -140,16 +137,8 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-2">
-                        <label for="">Ciudad</label>
-                        <label class="validacion" id="val_ciudad"></label>
-                        <input value="{{$cotizacion->ciudad}}" type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad">
-                        @error('Ciudad')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <label class="validacion" id="val_ciudad2"></label>
-                    </div>
-                    <div class="form-group col-md-2">
+
+                    <div class="form-group col-md-3">
                         <label for="">Cantidad de losas</label>
                         <label class="validacion" id="val_Losas"></label>
                         <input  value="{{$cotizacion->losas}}" type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas">
@@ -158,7 +147,7 @@
                         @enderror
                         <label class="validacion" id="val_Losas2"></label>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group col-md-3">
                         <label for="">Cantidad de tubería</label>
                         <label class="validacion" id="val_Tuberia"></label>
                         <input value="{{$cotizacion->tuberia}}"  type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia">
