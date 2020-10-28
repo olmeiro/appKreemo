@@ -14,8 +14,14 @@ table tr {
     border-color: #545555;
 }
 
-.proceso{
+.agendada{
+    color: #fff;
+}
 
+.aceptada{
+    color: #fff;
+}
 
-
+.perdida{
+    color: #fff;
 }

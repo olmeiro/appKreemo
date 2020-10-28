@@ -49,7 +49,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
@@ -310,7 +310,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModalE" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalE" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
@@ -336,7 +336,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModalJ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalJ" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
@@ -362,7 +362,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModalM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
@@ -388,7 +388,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="exampleModalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalC" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="card-header text-white" style="background-color: #616A6B">
@@ -414,7 +414,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade bd-example-modal-sm" id="exampleModalR" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-sm" id="exampleModalR" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="card-header text-white" style="background-color: #616A6B"">
@@ -564,10 +564,11 @@
                                 "createdCell": function(td, cellData, rowData, row, col) {
                                     var color;
                                     switch(cellData) {
-                                    case "Pérdida":
+                                    case "Perdida":
                                         color = '#FF3229';
+
                                         //Swal.fire('Se encuentran cotizaciones perdidas');
-                                        $(td).html('Pérdida.... Revisar negociacion');
+                                        $(td).html('Perdida.... Revisar negociación');
                                         $(td).addClass('perdida');
                                         break;
                                     case "En Proceso":
@@ -582,7 +583,7 @@
                                         break;
                                     case "Agendada":
                                         color = '#06A';
-                                        $(td).html('Agendada.... Servicio en ejecucion');
+                                        $(td).html('Agendada.... Servicio en ejecución');
                                         $(td).addClass('agendada');
                                         //Swal.fire('Se encuentran cotizaciones Aegndadas');
                                         break;

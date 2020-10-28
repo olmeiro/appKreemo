@@ -327,6 +327,7 @@
         }
     });
 });
+});
 </script>
 <script src="{{ asset('js/validacionOperario.js') }}"></script>
 </html>
