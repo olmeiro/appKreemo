@@ -4,9 +4,9 @@
     <div class="container">
 
         <div class="form row">
-            <div class="form group col-md-6">
+            <!-- <div class="form group col-md-6">
                 <canvas id="myChart" width="400" height="400"></canvas>
-            </div>
+            </div> -->
             <div class="form group col-md-6">
                 <canvas id="myChart1" width="400" height="400"></canvas>
             </div>
@@ -90,33 +90,33 @@
 
 
 
-        function generarGrafica(){
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels:['SI','NO'],
-                    datasets: [{
-                        label: 'Volveria a VB',
-                        data: [sumasi,sumano ],
-                        backgroundColor: colores,
-                        borderColor: colores,
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        }
+        // function generarGrafica(){
+        //     var ctx = document.getElementById('myChart').getContext('2d');
+        //     var myChart = new Chart(ctx, {
+        //         type: 'bar',
+        //         data: {
+        //             labels:['SI','NO'],
+        //             datasets: [{
+        //                 label: 'Volveria a VB',
+        //                 data: [sumasi,sumano ],
+        //                 backgroundColor: colores,
+        //                 borderColor: colores,
+        //                 borderWidth: 2
+        //             }]
+        //         },
+        //         options: {
+        //             scales: {
+        //                 yAxes: [{
+        //                     ticks: {
+        //                         beginAtZero: true
+        //                     }
+        //                 }]
+        //             }
+        //         }
+        //     });
+        // }
 
-        function generarGrafica2(){
+        function generarGrafica(){
             var ctx = document.getElementById('myChart1').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'pie',
