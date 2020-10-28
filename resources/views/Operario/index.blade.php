@@ -25,14 +25,14 @@
             </div>
 
             <div class="card-body table-responsive">
-                <table class="table table-bordered data-table table-striped border">
+                <table class="table table-bordered data-table table-striped border" id="tbl_operario">
                     <thead>
                         <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Documento</th>
                         <th>Celular</th>
-                        <th width="10%">Acciones</th>
+                        <th width="20%">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,7 +58,7 @@
                     <div class="form-group col-md-6">
                                 <label for="nombre">Nombre</label>
                                 <label class="validacion" id="validacion_nombre"></label>
-                                <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                                <input type="text" class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)" placeholder="Digite aquí el nombre">
                                 @error('nombre')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
@@ -67,7 +67,7 @@
                     <div class="form-group col-sm-6">
                             <label for="apellido">Apellido</label>
                             <label class="validacion" id="validacion_apellido"></label>
-                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)">
+                            <input type="text" class="form-control @error('apellido') is-invalid @enderror" id="apellido" name="apellido"  value="" maxlength="20" required="" onkeypress="return soloLetras(event)" placeholder="Digite aquí el apellido">
                             @error('apellido')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -80,7 +80,7 @@
                     <div class="form-group col-md-6">
                             <label for="documento">Documento</label>
                             <label class="validacion" id="validacion_documento"></label>
-                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)">
+                            <input type="text" class="form-control @error('documento') is-invalid @enderror" id="documento" name="documento" value="" maxlength="12" required="" onkeypress="return soloNumeros(event)" placeholder="Digite aquí el documento">
                             @error('documento')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -89,7 +89,7 @@
                         <div class="form-group col-md-6">
                         <label for="celular">Celular</label>
                          <label class="validacion" id="validacion_celular"></label>
-                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)">
+                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)" placeholder="Digite aquí el celular">
                         @error('celular')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
@@ -276,34 +276,57 @@
         }
     });
 
-    $('body').on('click', '.deleteOperario', function (e) {
-        e.preventDefault();
-        var x = confirm("Está seguro que quiere eliminar ?");
-        if(x){
+    $('body').on('click', '#deleteOperario', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar?',
+      text: "No podrá recuperar los datos!",
+      type: 'warning',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'Cancelar',
+  }).then((choice) => {
+      if (choice.value === true) {
         var operario_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
             type: "DELETE",
             url: "{{ route('ajaxoperario.store') }}"+'/'+operario_id,
+            data: {
+            "id": operario_id,
+            "_token": token,
+            },
             success: function (data) {
                 table.draw();
             },
-            error: function (data) {
-                Swal.fire({
-                title:'Error al eliminar',text:'Este operario está ocupado',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                //width: '50%',
-                padding:'1rem',
-                //background:'#000',
-                backdrop:true,
-                //toast: true,
-                position:'center',
-            });
-            }
-        });
-        }else{
-      return false;}
-    });
 
-  });
+        }).done(function(data){
+                if(data && data.ok){
+                    Swal.fire({
+                    title:'Operario eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                    var table = $('#tbl_operario').DataTable();
+                    table.draw();
+
+                } else {
+                    Swal.fire({
+                    title:'No se puede borrar',text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                    });
+                }
+            });
+        }
+    });
+});
 </script>
 <script src="{{ asset('js/validacionOperario.js') }}"></script>
 </html>

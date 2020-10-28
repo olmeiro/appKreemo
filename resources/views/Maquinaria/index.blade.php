@@ -26,7 +26,7 @@
 
             <!-- <a class="btn btn-success" href="javascript:void(0)" id="createNewMaquina">CREAR MAQUINA</a> -->
             <div class="card-body table-responsive">
-                <table class="table table-bordered table-striped  data-table">
+                <table class="table table-bordered table-striped  data-table" id="tbl_Maquina">
                     <thead>
                         <tr>
                             <th>N°</th>
@@ -35,7 +35,7 @@
                             <th>Modelo</th>
                             <th>Serial motor</th>
                             <th>Observación</th>
-                            <th width="10%">Acciones</th>
+                            <th width="13%">Acciones</th>
                             <th>Cambiar estado a:</th>
                         </tr>
                     </thead>
@@ -286,35 +286,58 @@
         }
     });
 
-    $('body').on('click', '.deleteMaquinaria', function (e) {
-        e.preventDefault();
-        var x = confirm("Está seguro que quiere eliminar ?");
-        if(x){
+  $('body').on('click', '.deleteMaquinaria', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar?',
+      text: "No podrá recuperar los datos!",
+      type: 'warning',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'Cancelar',
+  }).then((choice) => {
+      if (choice.value === true) {
         var maquinaria_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
             type: "DELETE",
             url: "{{ route('ajaxmaquinaria.store') }}"+'/'+maquinaria_id,
+            data: {
+            "id": maquinaria_id,
+            "_token": token,
+            },
             success: function (data) {
                 table.draw();
             },
-            error: function (data) {
-                Swal.fire({
-                title:'Error al eliminar',text:'esta maquina está ocupada',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
-                padding:'1rem',
-                   //background:'#000',
-                backdrop:true,
-                   //toast: true,
-                position:'center',
-            });
-            }
-        });
-        }else{
-      return false;
-    }
-    });
 
-  });
+        }).done(function(data){
+                if(data && data.ok){
+                    Swal.fire({
+                    title:'Máquina eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                    var table = $('#tbl_operario').DataTable();
+                    table.draw();
+
+                } else {
+                    Swal.fire({
+                    title:'No se puede borrar',text:'Máquina está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                    });
+                }
+            });
+        }
+    });
+});
+});
 </script>
 
 @endsection

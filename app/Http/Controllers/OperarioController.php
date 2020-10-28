@@ -20,7 +20,7 @@ class OperarioController extends Controller
 
                         $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-md editOperario" style="margin: 2px"><i class="fas fa-edit"></i></a>';
 
-                        $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-md deleteOperario" id="deleteOperario" onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
+                        $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-md deleteOperario" id="deleteOperario"><i class="fas fa-trash-alt"></i></a>';
 
                         return $btn;
                     })
@@ -48,11 +48,36 @@ class OperarioController extends Controller
         return response()->json($operario);
     }
 
-    public function destroy($id)
+    /* public function destroy($id)
     {
         $operario = Operario::find($id);
         $operario->delete();
 
         return response()->json(['success'=>'Operario borrado satisfactoriamente.']);
+    } */
+
+    public function destroy($id)
+    {
+        try
+        {
+            $operario = Operario::find($id);
+            if (empty($operario)) {
+                Flash::error('operario no encontrado');
+
+                return redirect('/Operario');
+            }
+
+            $operario->delete($id);
+
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+
     }
 }
