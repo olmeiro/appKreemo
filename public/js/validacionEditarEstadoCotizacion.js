@@ -19,19 +19,19 @@ function soloLetras(e) {
 
 
 $(document).ready(function() {
-    $("#FrmEditarEstado").submit(function(event){
+    $("#FrmEditarEstadoCotizacion").submit(function(event){
         event.preventDefault();
         // alert("llega");
         let validado=0;
 
-        if ($("#Estado_Cotizacion").val() == 0) {
+        if ($("#IdEstado").val() == 0) {
 
-            $("#val_estado_coti").text("*");
-            $("#val_estado_coti2").text("Debes ingresar un  estado");
+            $("#val_IdEstado").text("*");
+            $("#val_IdEstado2").text("Debes ingresar un  estado");
         }else{
 
-            $("#val_estado_coti").text("");
-            $("#val_estado_coti2").text("");
+            $("#val_IdEstado").text("");
+            $("#val_IdEstado2").text("");
             validado++;
         }
 
@@ -47,7 +47,9 @@ $(document).ready(function() {
                 position:'center',
                     });
 
-            document.FrmEditarEstado.submit();
+            //alert(" Estado de cotización cambiado");
+
+            document.FrmEditarEstadoCotizacion.submit();
         }
         else{
             Swal.fire({
@@ -60,7 +62,7 @@ $(document).ready(function() {
                 position:'center',
                     });
 
-            // alert("Campos pendientes por validar");
+            //alert("Campos pendientes por validar");
 
 
             validado = 0;

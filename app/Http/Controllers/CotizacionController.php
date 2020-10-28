@@ -22,7 +22,7 @@ class CotizacionController extends Controller
 
         $cotizacion = Cotizacion::all();
         $empresa = Empresa::all();
-        
+
         $obra = Obra::all();
 
 
@@ -273,8 +273,8 @@ class CotizacionController extends Controller
             $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
 
 
-            //return $pdf->download('informe.pdf');
-            return $pdf->stream('informe.pdf');
+            return $pdf->download('informe.pdf');
+            //return $pdf->stream('informe.pdf');
         }else{
             Flash::error("Reporte de Cotización NO encontrado");
             return redirect("/cotizacion");
@@ -283,7 +283,7 @@ class CotizacionController extends Controller
 
     }
 
-    
+
     function pasarObras(Request $request){
         $input = $request->all();
 

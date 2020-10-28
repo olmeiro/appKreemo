@@ -147,7 +147,7 @@
 
         $('#saveBtn').click(function (e) {
             e.preventDefault();
-            $(this).html('Sending..');
+            $(this).html('Guardando..');
             let validado = 0;
 
             if($("#etapa").val()==0){
@@ -178,7 +178,7 @@
                 }
             });
             Swal.fire({
-                    title:'Registro exitoso',text:'Tipo de Concreto !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'Registro exitoso',text:'Nueva etapa creada !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
                     padding:'1rem',
                     //background:'#000',
@@ -202,7 +202,7 @@
 
         $('body').on('click', '.deleteEtapa', function (e) {
             e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el registro !");
+            var x = confirm("Estas seguro de eliminar la etapa !");
             if(x){
             var etapa_id = $(this).data("id");
             $.ajax({
