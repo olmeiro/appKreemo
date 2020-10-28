@@ -25,14 +25,14 @@
             </div>
 
             <div class="card-body table-responsive">
-                <table class="table table-bordered data-table table-striped border">
+                <table class="table table-bordered data-table table-striped border" id="tbl_operario">
                     <thead>
                         <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Documento</th>
                         <th>Celular</th>
-                        <th width="10%">Acciones</th>
+                        <th width="20%">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -276,7 +276,7 @@
         }
     });
 
-    $('body').on('click', '.deleteOperario', function (e) {
+    /* $('body').on('click', '.deleteOperario', function (e) {
         e.preventDefault();
         var x = confirm("Está seguro que quiere eliminar ?");
         if(x){
@@ -301,7 +301,61 @@
         });
         }else{
       return false;}
+    }); */
+    $('body').on('click', '#deleteOperario', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar?',
+      text: "No podrá recuperar los datos!",
+      type: 'warning',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'Cancelar',
+  }).then((choice) => {
+      if (choice.value === true) {
+        var operario_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        $.ajax({
+            type: "DELETE",
+            url: "{{ route('ajaxoperario.store') }}"+'/'+operario_id,
+            data: {
+            "id": operario_id,
+            "_token": token,
+            },
+            success: function (data) {
+                table.draw();
+            },
+
+        }).done(function(data){
+                if(data && data.ok){
+                    Swal.fire({
+                    title:'Operario eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                    var table = $('#tbl_operario').DataTable();
+                    table.draw();
+
+                } else {
+                    Swal.fire({
+                    title:'No se puede borrar',text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                    });
+                }
+            });
+        }
     });
+
+});
+
+
 
   });
 </script>

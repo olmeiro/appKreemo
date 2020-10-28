@@ -35,7 +35,7 @@
                             <th>Modelo</th>
                             <th>Serial motor</th>
                             <th>Observación</th>
-                            <th width="10%">Acciones</th>
+                            <th width="13%">Acciones</th>
                             <th>Cambiar estado a:</th>
                         </tr>
                     </thead>
