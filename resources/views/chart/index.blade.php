@@ -37,12 +37,12 @@
 
 
         <div class="form row">
-            <div class="form group col-md-6">
+            <div class="form group col-md-12">
                 <canvas id="myChart" width="400" height="400"></canvas>
             </div>
-            <div class="form group col-md-6">
+            <!-- <div class="form group col-md-6">
                 <canvas id="myChart1" width="400" height="400"></canvas>
-            </div>
+            </div> -->
         </div>
 
 
@@ -108,7 +108,7 @@
                     id:$('select[name="id"]').val(),
                     _token:$('input[name="_token"]').val()
                 }
-                }).done(function(res){    
+                }).done(function(res){
 
                     var arreglo = JSON.parse(res);
                     for(var x= 0; x<arreglo.length;x++){
@@ -164,32 +164,32 @@
             });
         }
 
-        function generarGrafica2(nombre_obra, valortotal,colores){
-            var ctx = document.getElementById('myChart1').getContext('2d');
+        // function generarGrafica2(nombre_obra, valortotal,colores){
+        //     var ctx = document.getElementById('myChart1').getContext('2d');
 
-                var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: nombre_obra,
-                    datasets: [{
-                        label: '# of Votes',
-                        data: valortotal,
-                        backgroundColor: colores,
-                        borderColor: colores,
-                        borderWidth: 2
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        }
+        //         var myChart = new Chart(ctx, {
+        //         type: 'pie',
+        //         data: {
+        //             labels: nombre_obra,
+        //             datasets: [{
+        //                 label: '# of Votes',
+        //                 data: valortotal,
+        //                 backgroundColor: colores,
+        //                 borderColor: colores,
+        //                 borderWidth: 2
+        //             }]
+        //         },
+        //         options: {
+        //             scales: {
+        //                 yAxes: [{
+        //                     ticks: {
+        //                         beginAtZero: true
+        //                     }
+        //                 }]
+        //             }
+        //         }
+        //     });
+        // }
 
         function generarNumero(numero){
             return (Math.random()*numero).toFixed(0);
