@@ -49,7 +49,7 @@
     <script>
         var id = [];
         var nombre = [];
-        var telefono = [];
+        var telefono1 = [];
         var estado = [];
         var colores = [];
         var sumasi = 0;
@@ -68,12 +68,12 @@
                 for(var x= 0; x<arreglo.length;x++){
                     var todo ='<tr><td>'+arreglo[x].id+'</td>';
                     todo+='<td>'+arreglo[x].nombre+'</td>';
-                    todo+='<td>'+arreglo[x].telefono+'</td>';
+                    todo+='<td>'+arreglo[x].telefono1+'</td>';
                     todo+='<td>'+arreglo[x].estado+'</td></tr>';
                     $('#tbody').append(todo);
                     id.push(arreglo[x].id);
                     nombre.push(arreglo[x].nombre);
-                    telefono.push(arreglo[x].telefono);
+                    telefono1.push(arreglo[x].telefono1);
                     estado.push(arreglo[x].estado);
                     colores.push(colorRGB());
                     if (arreglo[x].estado == 0) {
