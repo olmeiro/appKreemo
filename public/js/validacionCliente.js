@@ -449,6 +449,7 @@ function limpiar()
     $("input").val("");
     $("select").val("");
     $("#valContacto").text("");
+    $("#valObra").text("");
     $("#valNombre").text("");
     $("#valApellido1").text("");
     $("#valApellido2").text("");
