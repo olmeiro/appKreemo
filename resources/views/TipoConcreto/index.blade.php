@@ -45,12 +45,12 @@
         </div>
     </div>
 
-    <div class="modal fade" id="ajaxModel" aria-hidden="true">
+    <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
                     <h4 class="modal-title" id="modelHeading"></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -146,7 +146,7 @@
 
         $('#saveBtn').click(function (e) {
             e.preventDefault();
-            $(this).html('Guardando..');
+            $(this).html('Guardar');
             let validado = 0;
 
             if($("#tipo_concreto").val()==0){
@@ -245,6 +245,10 @@
 
     if(letras.indexOf(tecla) == -1 && !tecla_especial)
         return false;
+    }
+    function limpiar(){
+    $("#val_TipoC").text("");
+    $("#val_TipoC2").text("");
     }
 </script>
 @endsection
