@@ -221,7 +221,7 @@
                                 <th>N°</th>
                                 <th>Tipo de Contacto</th>
                                 <th>Modificar</th>
-                                <!-- <th>Eliminar</th> -->
+                                <th>Eliminar</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -491,12 +491,12 @@
                         orderable: false,
                         searchable: false
                     },
-                    // {
-                    //     data: 'eliminar',
-                    //     name: 'eliminar',
-                    //     orderable: false,
-                    //     searchable: false
-                    // }
+                    {
+                        data: 'eliminar',
+                        name: 'eliminar',
+                        orderable: false,
+                        searchable: false
+                    }
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",

@@ -48,13 +48,13 @@
                         name: 'editar',
                         orderable: false,
                         searchable: false
+                    },
+                    {
+                        data: 'eliminar',
+                        name: 'eliminar',
+                        orderable: false,
+                        searchable: false
                     }
-                    // {
-                    //     data: 'eliminar',
-                    //     name: 'eliminar',
-                    //     orderable: false,
-                    //     searchable: false
-                    // }
                 ]
             });
 

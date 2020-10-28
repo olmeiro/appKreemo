@@ -26,10 +26,10 @@ class TipoContactoController extends Controller
         ->addColumn('editar', function ($tipoContacto) {
             return '<a class="btn btn-primary btn-md" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
         })
-        // ->addColumn('eliminar', function ($tipoContacto) {
-        //     return '<a class="btn btn-danger btn-md" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminarget/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
-        // })
-        ->rawColumns(['editar'])
+        ->addColumn('eliminar', function ($tipoContacto) {
+            return '<a class="btn btn-danger btn-md" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' href="/tipocontacto/eliminarget/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
+        })
+        ->rawColumns(['editar','eliminar'])
         ->make(true);
 
     }
@@ -121,14 +121,14 @@ class TipoContactoController extends Controller
 
             $tipoContacto->delete($id);
 
-            //return response()->json(["ok"=>true]);
-            Flash::success("Se eliminó el tipo contacto");
-            return redirect("/tipocontacto");
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
         }
         catch (\Throwable $th) {
-            // return response()->json(["ok"=>false]);
-            Flash::success("No se puede eliminar tipo contacto");
-            return redirect("/tipocontacto");
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
         }
 
     }
