@@ -23,7 +23,7 @@ class MaquinariaController extends Controller
 
                            $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editMaquinaria" style="margin: 2px"><i class="fas fa-edit"></i></a>';
 
-                           $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteMaquinaria" id="deleteMaquinaria" onclick="return ConfirmDelete()"><i class="fas fa-trash-alt"></i></a>';
+                           $btn = $btn.'<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteMaquinaria" id="deleteMaquinaria"><i class="fas fa-trash-alt"></i></a>';
 
                             return $btn;
                     })
@@ -84,11 +84,31 @@ class MaquinariaController extends Controller
         return response()->json($maquinaria);
     }
 
-    public function destroy($id)
+    /* public function destroy($id)
     {
         $maquinaria = Maquinaria::find($id);
         $maquinaria->delete();
         return response()->json(['success'=>'Maquinaria borrada satisfactoriamente.']);
+    } */
+
+    public function destroy($id)
+    {
+        try
+        {
+            $maquinaria = Maquinaria::find($id);
+            if (empty($maquinaria)) {
+                Flash::error('maquinaria no encontrado');
+
+                return redirect('/Maquinaria');
+            }
+
+            $maquinaria->delete($id);
+
+            return response()->json(["ok"=>true]);
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+        }
     }
 }
 

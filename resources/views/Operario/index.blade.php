@@ -276,32 +276,6 @@
         }
     });
 
-    /* $('body').on('click', '.deleteOperario', function (e) {
-        e.preventDefault();
-        var x = confirm("Está seguro que quiere eliminar ?");
-        if(x){
-        var operario_id = $(this).data("id");
-        $.ajax({
-            type: "DELETE",
-            url: "{{ route('ajaxoperario.store') }}"+'/'+operario_id,
-            success: function (data) {
-                table.draw();
-            },
-            error: function (data) {
-                Swal.fire({
-                title:'Error al eliminar',text:'Este operario está ocupado',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                //width: '50%',
-                padding:'1rem',
-                //background:'#000',
-                backdrop:true,
-                //toast: true,
-                position:'center',
-            });
-            }
-        });
-        }else{
-      return false;}
-    }); */
     $('body').on('click', '#deleteOperario', function (e) {
     e.preventDefault();
 
@@ -352,12 +326,7 @@
             });
         }
     });
-
 });
-
-
-
-  });
 </script>
 <script src="{{ asset('js/validacionOperario.js') }}"></script>
 </html>
