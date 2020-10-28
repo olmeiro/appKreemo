@@ -40,7 +40,17 @@ class VisitaController extends Controller
             return $visita->estado == 1 ? "Por realizar" : "Realizada";
         })
         ->addColumn('listaChequeo', function ($visita) {
-            return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-check"></i></a>';
+            //return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-check"></i></a>';
+            if($visita->tipovisita == 'Técnica')
+            {
+                return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-check"></i></a>';
+
+            }
+            else
+            {
+                return '<a type="button" class="btn btn-primary disabled"  href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-check"></i></a>';
+
+            }
         })
         ->addColumn('cambiar', function ($visita) {
             if($visita->estado == 1)
