@@ -183,7 +183,7 @@
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
-        $(this).html('Creando..');
+        $(this).html('Guardar');
         let validado = 0;
 
         if($("#nombre").val()==0){
@@ -242,7 +242,7 @@
             },
             error: function (data) {
                 console.log('Error:', data);
-                $('#saveBtn').html('Crear');
+                $('#saveBtn').html('Guardar');
             }
       });
             Swal.fire({
