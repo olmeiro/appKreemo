@@ -10,7 +10,7 @@
             </div>
             <div class="card-body">
             @include('flash::message')
-                <table id="tbl_encuesta" class="table table-striped table-bordered table-responsive">
+                <table id="tbl_encuesta" class="table data-table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
                         <th>N° Servicio</th>

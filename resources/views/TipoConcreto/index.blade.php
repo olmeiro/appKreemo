@@ -27,7 +27,7 @@
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewTipoConcreto">Crear tipo de concreto</a>
             </div>
             <div class="card-body table-responsive">
-                <table class="table data-table table-bordered table-striped" id="tbl_TipoConcreto">
+                <table class="table data-table table-bordered table-striped" id="tbl_TipoConcreto" style="width: 100%;">
                     <thead class="table-secondary">
                         <tr>
                             <th>N°</th>

@@ -100,7 +100,7 @@ class VisitaController extends Controller
         try {
 
             $visita->update(["estado"=>$estado]);
-            Flash::success("Se modifico el estado de la cita");
+            Flash::success("Se modificó el estado de la cita");
             return redirect("/visita/listarvisitas");
 
         } catch (\Exception $e) {

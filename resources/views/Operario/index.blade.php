@@ -25,14 +25,14 @@
             </div>
 
             <div class="card-body table-responsive">
-                <table class="table table-bordered data-table table-striped border" id="tbl_operario">
+                <table class="table table-bordered data-table table-striped border" id="tbl_operario" style="width: 100%;">
                     <thead>
                         <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Documento</th>
                         <th>Celular</th>
-                        <th width="20%">Acciones</th>
+                        <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -265,7 +265,7 @@
                     $("input").val("");
         }else{
             Swal.fire({
-                title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                 //width: '50%',
                 padding:'1rem',
                 //background:'#000',

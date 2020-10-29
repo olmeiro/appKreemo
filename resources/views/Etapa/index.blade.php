@@ -28,7 +28,7 @@
             </div>
             <div class="card-body table-responsive">
                 @include('flash::message')
-                <table class="table data-table table-bordered table-striped" id="tbl_Etapa">
+                <table class="table data-table table-bordered table-striped" id="tbl_Etapa" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>N°</th>

@@ -12,7 +12,7 @@
 
         <div class="card-body table-responsive">
                  @include('flash::message')
-            <table id="tbl_listachequeo" class="table table-striped table-bordered ">
+            <table id="tbl_listachequeo" class="table table-striped table-bordered " style="width: 100%;">
                 <thead align="center">
                 <tr>
 

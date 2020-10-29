@@ -22,7 +22,7 @@
                     <th >Apellido</th>
                     <th >Email</th>
                     <th >Estado</th>
-                    <th width="30%" >Acciones</th>
+                    <th width="30%">Acciones</th>
                     <th >Cambiar estado</th>
                 </tr>
                 </thead>

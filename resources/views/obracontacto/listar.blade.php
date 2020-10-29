@@ -20,7 +20,7 @@
                 <div class="modal-body">
                     <div class="card-body">
                     @include('flash::message')
-                        <table id="tbl_contactosObras" class="table table-striped table-bordered ">
+                        <table id="tbl_contactosObras" class="table table-striped table-bordered " style="width: 100%;">
                         <!-- <table class="table table-bordered" style="width: 100%;">     -->
                             <thead>
                             <tr>
@@ -258,14 +258,14 @@
 
             });
 
-            
+
 
             $('body').on('click', '#ver-Contactos', function () {
                 // var cliente_id = $(this).data('id');
                 // $.get('/obracontacto/ver/'+cliente_id, function (res) {
 
                 //     var arreglo = JSON.parse(res);
-               
+
                 //     for(var x= 0; x<arreglo.length;x++){
                 //         var todo = '<tr><td>'+arreglo[x].obra+'</td>';
                 //         todo+='<td>'+arreglo[x].nombre+'</td>';
@@ -273,10 +273,10 @@
                 //         todo+='<td>'+arreglo[x].telefono1+'</td>';
                 //         todo+='<td>'+arreglo[x].correo1+'</td></tr>';
                 //         $('#tbody').append(todo);
-                        
+
                 //     }
 
-               
+
             //});
 
             var id = $(this).data('id');
@@ -388,9 +388,9 @@
                 $('#direccion').val(data.direccion);
                 $('#telefono1').val(data.telefono1);
                 $('#correo1').val(data.correo1);
-              
-               
-           
+
+
+
 
             })
             });
@@ -438,7 +438,7 @@ console.log("tipo es_"+tipo);
                 var obra_id = $(this).data("id");
                 var token = $("meta[name='csrf-token']").attr("content");
                 $.ajax({
-                    type: "POST", 
+                    type: "POST",
                     url: "/obra/eliminar/"+obra_id,
                     data: {
                     "id": obra_id,
@@ -453,10 +453,10 @@ console.log("tipo es_"+tipo);
                             backdrop:true,
                             position:'center',
                                 });
-                                var table = $('#tbl_obras').DataTable();    
+                                var table = $('#tbl_obras').DataTable();
                                 table.ajax.reload();
                         } else {
-                            
+
 
                         Swal.fire({
                             title:'Para eliminar esta obra, primero debes eliminar sus contactos y cotizaciones.',text:'La Obra está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -464,12 +464,12 @@ console.log("tipo es_"+tipo);
                             backdrop:true,
                             position:'center',
                         });
-                        var table = $('#tbl_obras').DataTable();    
+                        var table = $('#tbl_obras').DataTable();
                             table.ajax.reload();
                         }
-                    
+
                     })
-            
+
             }
             else
             {
@@ -486,7 +486,7 @@ console.log("tipo es_"+tipo);
                 var obraContacto_id = $(this).data("id");
                 var token = $("meta[name='csrf-token']").attr("content");
                 $.ajax({
-                    type: "POST", 
+                    type: "POST",
                     url: "/obracontacto/eliminar/"+obraContacto_id,
                     data: {
                     "id": obraContacto_id,
@@ -501,10 +501,10 @@ console.log("tipo es_"+tipo);
                             backdrop:true,
                             position:'center',
                                 });
-                                var table = $('#tbl_contactosObras').DataTable();    
+                                var table = $('#tbl_contactosObras').DataTable();
                                 table.ajax.reload();
                         } else {
-                            
+
 
                         Swal.fire({
                             title:'No se puede borrar',text:'',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -512,12 +512,12 @@ console.log("tipo es_"+tipo);
                             backdrop:true,
                             position:'center',
                         });
-                        var table = $('#tbl_contactosObras').DataTable();    
+                        var table = $('#tbl_contactosObras').DataTable();
                             table.ajax.reload();
                         }
-                    
+
                     })
-            
+
             }
             else
             {
@@ -526,7 +526,7 @@ console.log("tipo es_"+tipo);
             });
 
 
-            
+
 
             </script>
              <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>

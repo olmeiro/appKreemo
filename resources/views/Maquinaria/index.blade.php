@@ -26,7 +26,7 @@
 
             <!-- <a class="btn btn-success" href="javascript:void(0)" id="createNewMaquina">CREAR MAQUINA</a> -->
             <div class="card-body table-responsive">
-                <table class="table table-bordered table-striped  data-table" id="tbl_Maquina">
+                <table class="table table-bordered table-striped  data-table" id="tbl_Maquina" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>N°</th>
