@@ -28,7 +28,7 @@ class TipoContactoController extends Controller
             return '<a class="btn btn-primary btn-md" href="/tipocontacto/editar/'.$tipoContacto->id.'"><i class="fas fa-edit"></i></a>';
         })
         ->addColumn('eliminar', function ($tipoContacto) {
-            return '<a class="btn btn-danger btn-md" id="eliminar-tipoContacto" data-id='.$tipoContacto->id.' "><i class="fas fa-trash-alt"></i></a>';
+            return '<a id="eliminar-tipoContacto1"  data-id='.$tipoContacto->id.' class="btn btn-danger delete-tipocontacto btn-md" href="/tipocontacto/eliminar/'.$tipoContacto->id.'"><i class="fas fa-trash-alt"></i></a>';
         })
         ->rawColumns(['editar','eliminar'])
         ->make(true);
