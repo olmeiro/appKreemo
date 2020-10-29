@@ -16,6 +16,7 @@
                     <th>id</th>
                     <th>Tipo contacto</th>
                     <th>Editar</th>
+                    <th>Eliminar</th>
                 </tr>
                 </thead>
                 <tbody>
