@@ -18,7 +18,7 @@
                 <thead>
                 <tr>
                     <th>NIT</th>
-                    <th>Nombre</th>
+                    <th>Nombre empresa</th>
                     <th>Representante</th>
                     <th>Dirección</th>
                     <th>Teléfono </th>
@@ -60,7 +60,7 @@
                                                 <label class="validacion solo_numeros" for="nit" id="valNit"></label>
                                             </div>
                                             <div class="col-md-6">
-                                                <label for="">Nombre</label>
+                                                <label for="">Nombre de la empresa</label>
                                                 <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="nombre" id="nombre" onchange="validate()" onkeypress="return soloLetras(event)">
                                                 @error('nombre')
                                                     <div class="invalid-feedback">{{ $message }}</div>
