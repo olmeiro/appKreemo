@@ -165,7 +165,7 @@ $(document).ready(function(){
  
          if(validaVacio($("#correo1").val()) || !emailRegex.test($("#correo1").val()))
          {
-             $("#valCorreo1").text("* Ingrese un correo valido.");
+             $("#valCorreo1").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -274,7 +274,7 @@ $(document).ready(function() {
  
          if($("#ecorreo1").val().length == 0 || !emailRegex.test($("#ecorreo1").val()))
          {
-             $("#valECorreo1").text("* Ingrese un correo valido.");
+             $("#valECorreo1").text("* Ingrese un correo válido.");
          }
          else
          {

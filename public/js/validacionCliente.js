@@ -64,7 +64,7 @@
 
          if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
          {
-             $("#valTelefono1").text("* Ingrese un número de telefono valido");
+             $("#valTelefono1").text("* Ingrese un número de telefono válido");
          }
          else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
          {
@@ -77,7 +77,7 @@
 
          if($("#telefono2").val().length == 0 || isNaN($("#telefono2").val()))
          {
-             $("#valTelefono2").text("* Ingrese un número de telefono valido");
+             $("#valTelefono2").text("* Ingrese un número de telefono válido");
          }
          else if(!(/^\d{7,10}$/.test($("#telefono2").val())))
          {
@@ -91,7 +91,7 @@
 
          if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
          {
-             $("#valCorreo1").text("* Ingrese un correo valido.");
+             $("#valCorreo1").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -101,7 +101,7 @@
 
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
          {
-             $("#valCorreo2").text("* Ingrese un correo valido.");
+             $("#valCorreo2").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -220,7 +220,7 @@ $(document).ready(function() {
 
          if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
          {
-             $("#valTelefono1").text("* Ingrese un número de telefono valido");
+             $("#valTelefono1").text("* Ingrese un número de telefono válido");
          }
          else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
          {
@@ -233,7 +233,7 @@ $(document).ready(function() {
 
          if($("#telefono2").val().length == 0 || isNaN($("#telefono2").val()))
          {
-             $("#valTelefono2").text("* Ingrese un número de telefono valido");
+             $("#valTelefono2").text("* Ingrese un número de telefono válido");
          }
          else if(!(/^\d{7,10}$/.test($("#telefono2").val())))
          {
@@ -247,7 +247,7 @@ $(document).ready(function() {
 
          if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
          {
-             $("#valCorreo1").text("* Ingrese un correo valido.");
+             $("#valCorreo1").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -256,7 +256,7 @@ $(document).ready(function() {
 
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
          {
-             $("#valCorreo2").text("* Ingrese un correo valido.");
+             $("#valCorreo2").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -359,7 +359,7 @@ $(document).ready(function() {
 
          if($("#ctelefono1").val().length == 0 || isNaN($("#ctelefono1").val()))
          {
-             $("#valTel1").text("* Ingrese un número de telefono valido");
+             $("#valTel1").text("* Ingrese un número de telefono válido");
          }
          else if(!(/^\d{7,10}$/.test($("#ctelefono1").val())))
          {
@@ -372,7 +372,7 @@ $(document).ready(function() {
 
          if($("#ctelefono2").val().length == 0 || isNaN($("#ctelefono2").val()))
          {
-             $("#valTel2").text("* Ingrese un número de telefono valido");
+             $("#valTel2").text("* Ingrese un número de telefono válido");
          }
          else if(!(/^\d{7,10}$/.test($("#ctelefono2").val())))
          {
@@ -387,7 +387,7 @@ $(document).ready(function() {
 
          if($("#ccorreo1").val().length == 0 || !emailRegex.test($("#ccorreo1").val()))
          {
-             $("#valCCorreo1").text("* Ingrese un correo valido.");
+             $("#valCCorreo1").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -397,7 +397,7 @@ $(document).ready(function() {
 
          if($("#ccorreo2").val().length == 0 || !emailRegex.test($("#ccorreo2").val()))
          {
-             $("#valCCorreo2").text("* Ingrese un correo valido.");
+             $("#valCCorreo2").text("* Ingrese un correo válido.");
          }
          else
          {
@@ -537,7 +537,7 @@ $('body').on('click', '#delete-cliente', function (e) {
 
 
                   Swal.fire({
-                    title:'No se puede borrar',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'No se puede borrar',text:'El contacto está en uso.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                      padding:'1rem',
                     backdrop:true,
                     position:'center',
