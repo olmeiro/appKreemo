@@ -207,7 +207,7 @@
                     <th>Dirección</th>
                     <th>Teléfono 1</th>
                     <th>Correo 1</th>
-                    <th>ver</th>
+                    <th>Ver</th>
                     <th>Agregar</th>
                     <th>Editar</th>
                     <th>Eliminar</th>

@@ -31,15 +31,15 @@ class ObraController extends Controller
         return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
             // return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
-            return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
+            return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="far fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
         ->addColumn('ver', function ($obra) {
-            return '<a class="btn btn-secondary btn-md" data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
+            return '<a class="btn btn-secondary btn-md ver" style="color:white"  data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
         ->addColumn('agregar', function ($obra) {
-            return '<a class="btn btn-primary btn-md" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
+            return '<a class="btn btn-primary btn-md" href="/cliente/pasarid/'.$obra->id.'">Agregar contacto</a>';
         })
         ->addColumn('eliminar', function ($obra) {
             return '<a id="delete-obra"   data-id='.$obra->id.' class="btn btn-danger delete-obra btn-md" href="/obra/eliminar/'.$obra->id.'"><i class="fas fa-trash-alt"></i></a>';
