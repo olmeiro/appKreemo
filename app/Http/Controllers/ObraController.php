@@ -35,7 +35,7 @@ class ObraController extends Controller
 
         })
         ->addColumn('ver', function ($obra) {
-            return '<a class="btn btn-secondary btn-md" data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
+            return '<a class="btn btn-secondary btn-md ver" style="color:white"  data-toggle="modal" data-target="#verModal4" id="ver-Contactos" data-id='.$obra->id.' >Ver contactos</a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
         ->addColumn('agregar', function ($obra) {
