@@ -62,7 +62,7 @@
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" id="modalidad" name="modalidad" placeholder="Digita el tipo de concreto" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                                 </div>
-                                <label class="validacion col-sm-12 control-label" id="val_Modalidad2"></label>
+                                {{-- <label class="validacion col-sm-12 control-label" id="val_Modalidad2"></label> --}}
                             </div>
                             <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
@@ -149,7 +149,7 @@
                 let validado = 0;
 
                 if($("#modalidad").val()==0){
-                    $("#val_Modalidad").text("*");
+                    $("#val_Modalidad").text("* Debe ingresar la modalidad");
                     $("#val_Modalidad2").text("Debe ingresar la modalidad");
                 }else{
                     $("#val_Modalidad").text("");

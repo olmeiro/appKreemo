@@ -64,7 +64,7 @@
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="estado_cotizacion" name="estado_cotizacion" placeholder="Digita la Estado" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
-                            <label class="validacion col-sm-12 control-label" id="val_Estado2"></label>
+                            {{-- <label class="validacion col-sm-12 control-label" id="val_Estado2"></label> --}}
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
@@ -151,7 +151,7 @@
             let validado = 0;
 
             if($("#estado_cotizacion").val()==0){
-                $("#val_Estado").text("*");
+                $("#val_Estado").text("* Debe ingresar la estado");
                 $("#val_Estado2").text("Debe ingresar la estado");
             }else{
                 $("#val_Estado").text("");
