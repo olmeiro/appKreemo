@@ -269,6 +269,13 @@ function limpiar()
 {
     $("input").val("");
     $("select").val("");
+    $("#valIdEmpresa").text("");
+    $("#valIdEmpresa").text("");
+    $("#valNombre").text("");
+    $("#valDireccion").text("");
+    $("#valTelefono1").text("");
+    $("#valCorreo1").text("");
+
 }
 
 /* Delete customer */
