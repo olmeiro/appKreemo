@@ -28,7 +28,7 @@
             </div>
             <div class="card-body table-responsive">
                 @include('flash::message')
-                <table class="table data-table table-bordered table-striped">
+                <table class="table data-table table-bordered table-striped" id="tbl_EstadoCotizacion">
                     <thead>
                         <tr>
                             <th>N°</th>
@@ -178,7 +178,7 @@
                 }
             });
             Swal.fire({
-                    title:'Registro exitoso',text:'Estado de Cotizacion !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'Registro exitoso',text:'Estado de Cotización !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
                     padding:'1rem',
                     //background:'#000',
@@ -199,8 +199,57 @@
         }
 
         });
-
         $('body').on('click', '.deleteEstadoCotizacion', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar?',
+      text: "No podrá recuperar los datos!",
+      type: 'warning',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'Cancelar',
+  }).then((choice) => {
+      if (choice.value === true) {
+        var estadoCotizacion_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        $.ajax({
+            type: "DELETE",
+            url: "{{ route('ajaxestado.store') }}"+'/'+estadoCotizacion_id,
+            data: {
+            "id": estadoCotizacion_id,
+            "_token": token,
+            },
+            success: function (data) {
+                table.draw();
+            },
+
+        }).done(function(data){
+                if(data && data.ok){
+                    Swal.fire({
+                    title:'Estado cotización eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                    var table = $('#tbl_EstadoCotizacion').DataTable();
+                    table.draw();
+
+                } else {
+                    Swal.fire({
+                    title:'No se puede borrar',text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                    });
+                }
+            });
+        }
+    });
+       /*  $('body').on('click', '.deleteEstadoCotizacion', function (e) {
             e.preventDefault();
             var x = confirm("Estas seguro de eliminar el registro !");
             if(x){
@@ -217,7 +266,7 @@
             });
             }else{
                 return false;
-            }
+            } */
         });
 
     });

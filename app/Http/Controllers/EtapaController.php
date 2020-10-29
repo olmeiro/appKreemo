@@ -48,13 +48,36 @@ class EtapaController extends Controller
     }
 
 
-    public function destroy($id)
+    /* public function destroy($id)
     {
         $etapa = Etapa::find($id);
         $etapa->delete();
         return response()->json(['success'=>'Tipo de concreto eliminado correctamente.']);
-    }
+    } */
+    public function destroy($id)
+    {
+        try
+        {
+            $etapa = Etapa::find($id);
+            if (empty($etapa)) {
+                Flash::error('operario no encontrado');
 
+                return redirect('/Etapa');
+            }
+
+            $etapa->delete($id);
+
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+
+    }
     public function listar(Request $request){
         $etapa = Etapa::all();
         return Datatables::of($etapa)

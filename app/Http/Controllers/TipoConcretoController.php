@@ -48,18 +48,41 @@ class TipoConcretoController extends Controller
         return response()->json($tipoConcreto);
     }
 
+    public function listar(Request $request){
+        $tipoconcreto = TipoConcreto::all();
+        return Datatables::of($tipoconcreto)
+            ->make(true);
+    }
 
-    public function destroy($id)
+   /*  public function destroy($id)
     {
         $tipoconcreto = TipoConcreto::find($id);
         $tipoconcreto->delete();
 
         return response()->json(['success'=>'Tipo de concreto eliminado correctamente.']);
-    }
+    } */
+    public function destroy($id)
+    {
+        try
+        {
+            $tipoconcreto = TipoConcreto::find($id);
+            if (empty($tipoconcreto)) {
+                Flash::error('Tipo de Concreto no encontrado');
 
-    public function listar(Request $request){
-        $tipoconcreto = TipoConcreto::all();
-        return Datatables::of($tipoconcreto)
-            ->make(true);
+                return redirect('/TipoConcreto');
+            }
+
+            $tipoconcreto->delete($id);
+
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+
     }
 }
