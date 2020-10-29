@@ -137,7 +137,7 @@
                                             <label class="validacion" for="enit" id="valENit"></label>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="">Nombre</label>
+                                            <label for="">Nombre de la empresa</label>
                                             <input type="text" class="form-control @error('nombre') is-invalid @enderror solo_letras sin_especiales"  name="enombre" id="enombre" onchange="validate()" onkeypress="return soloLetras(event)">
                                             @error('nombre')
                                                 <div class="invalid-feedback">{{ $message }}</div>
