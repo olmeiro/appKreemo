@@ -22,7 +22,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success float-left">Generar informe</button>
+                <button type="submit" class="btn btn-success float-left">Descargar cotización</button>
             </form>
         </div>
     </div>

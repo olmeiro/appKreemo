@@ -57,7 +57,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}">
+                                    <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}" onkeypress="return soloNumeros(event)">
                                     @error('telefono1')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror

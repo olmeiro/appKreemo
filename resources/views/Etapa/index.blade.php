@@ -28,7 +28,7 @@
             </div>
             <div class="card-body table-responsive">
                 @include('flash::message')
-                <table class="table data-table table-bordered table-striped">
+                <table class="table data-table table-bordered table-striped" id="tbl_Etapa">
                     <thead>
                         <tr>
                             <th>N°</th>
@@ -64,7 +64,7 @@
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="etapa" name="etapa" placeholder="Digita la Etapa" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
-                            <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label>
+                            {{-- <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label> --}}
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
@@ -151,7 +151,7 @@
             let validado = 0;
 
             if($("#etapa").val()==0){
-                $("#val_Etapa").text("*");
+                $("#val_Etapa").text("* Debe ingresar la etapa");
                 $("#val_Etapa2").text("Debe ingresar la etapa");
             }else{
                 $("#val_Etapa").text("");
@@ -199,8 +199,57 @@
         }
 
         });
-
         $('body').on('click', '.deleteEtapa', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar?',
+      text: "No podrá recuperar los datos!",
+      type: 'warning',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'Cancelar',
+  }).then((choice) => {
+      if (choice.value === true) {
+        var etapa_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        $.ajax({
+            type: "DELETE",
+            url: "{{ route('ajaxetapa.store') }}"+'/'+etapa_id,
+            data: {
+            "id": etapa_id,
+            "_token": token,
+            },
+            success: function (data) {
+                table.draw();
+            },
+
+        }).done(function(data){
+                if(data && data.ok){
+                    Swal.fire({
+                    title:'Etapa eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                    var table = $('#tbl_Etapa').DataTable();
+                    table.draw();
+
+                } else {
+                    Swal.fire({
+                    title:'No se puede borrar',text:'Etapa está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                    });
+                }
+            });
+        }
+    });
+       /*  $('body').on('click', '.deleteEtapa', function (e) {
             e.preventDefault();
             var x = confirm("Estas seguro de eliminar la etapa !");
             if(x){
@@ -217,7 +266,7 @@
             });
             }else{
                 return false;
-            }
+            } */
         });
 
     });

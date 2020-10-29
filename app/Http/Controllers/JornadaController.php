@@ -60,14 +60,37 @@ class JornadaController extends Controller
         $jornada = Jornada::find($id);
         return response()->json($jornada);
     }
-
-
     public function destroy($id)
+    {
+        try
+        {
+            $jornada = Jornada::find($id);
+            if (empty($jornada)) {
+                Flash::error('Jornada no encontrado');
+
+                return redirect('/Jornada');
+            }
+
+            $jornada->delete($id);
+
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+
+    }
+
+   /*  public function destroy($id)
     {
         $jornada = Jornada::find($id);
         $jornada->delete();
         return response()->json(['success'=>'Jornada eliminada correctamente.']);
-    }
+    } */
 
     public function listar(Request $request){
         $jornada = Jornada::all();

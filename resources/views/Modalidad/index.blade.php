@@ -26,7 +26,7 @@
                         <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewModalidad">Crear modalidad</a>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table data-table table-bordered table-striped">
+                    <table class="table data-table table-bordered table-striped" id="tbl_Modalidad">
                         <thead>
                             <tr>
                                 <th>N°</th>
@@ -62,7 +62,7 @@
                                 <div class="col-sm-12">
                                     <input type="text" class="form-control" id="modalidad" name="modalidad" placeholder="Digita el tipo de concreto" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                                 </div>
-                                <label class="validacion col-sm-12 control-label" id="val_Modalidad2"></label>
+                                {{-- <label class="validacion col-sm-12 control-label" id="val_Modalidad2"></label> --}}
                             </div>
                             <div class="col-sm-offset-2 col-sm-10">
                             <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
@@ -149,7 +149,7 @@
                 let validado = 0;
 
                 if($("#modalidad").val()==0){
-                    $("#val_Modalidad").text("*");
+                    $("#val_Modalidad").text("* Debe ingresar la modalidad");
                     $("#val_Modalidad2").text("Debe ingresar la modalidad");
                 }else{
                     $("#val_Modalidad").text("");
@@ -197,8 +197,58 @@
             }
 
             });
-
             $('body').on('click', '.deleteModalidad', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+      title: '¿Está seguro que desea eliminar?',
+      text: "No podrá recuperar los datos!",
+      type: 'warning',
+      showCloseButton: true,
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminarlo!',
+      cancelButtonText: 'Cancelar',
+  }).then((choice) => {
+      if (choice.value === true) {
+        var modalidad_id = $(this).data("id");
+        var token = $("meta[name='csrf-token']").attr("content");
+        $.ajax({
+            type: "DELETE",
+            url: "{{ route('ajaxmodalidad.store') }}"+'/'+modalidad_id,
+            data: {
+            "id": modalidad_id,
+            "_token": token,
+            },
+            success: function (data) {
+                table.draw();
+            },
+
+        }).done(function(data){
+                if(data && data.ok){
+                    Swal.fire({
+                    title:'Modalidad eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
+                    var table = $('#tbl_Modalidad').DataTable();
+                    table.draw();
+
+                } else {
+                    Swal.fire({
+                    title:'No se puede borrar',text:'Modalidad está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                    });
+                }
+            });
+        }
+    });
+});
+            /* $('body').on('click', '.deleteModalidad', function (e) {
                 e.preventDefault();
                 var x = confirm("Estas seguro de eliminar la modalidad !");
                 if(x){
@@ -217,7 +267,7 @@
                     return false;
                 }
             });
-
+ */
         });
     </script>
     </html>

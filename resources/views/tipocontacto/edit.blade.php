@@ -20,7 +20,7 @@
             <input type="hidden" name="id" value="{{$tipoContacto->id}}"/>
             <div class="form-row">
                 <div class="form-group col-md-12">
-                    
+
                     <input value="{{$tipoContacto->tipocontacto}}" type="text" class="form-control @error('tipocontacto') is-invalid @enderror"  name="tipocontacto" id="tipocontacto" onkeypress="return soloLetras(event)">
                     @error('tipocontacto')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -28,7 +28,7 @@
                     <label class="validacion" for="tipocontacto" id="valTipoContacto"></label>
                 </div>
             </div>
-            <button type="submit" class="btn btn-success float-right" id="editTipoCotacto">Editar</button>
+            <button type="submit" class="btn btn-success float-left" id="editTipoCotacto">Editar</button>
             <a href="/tipocontacto" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>
