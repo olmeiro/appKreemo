@@ -103,7 +103,7 @@ class TipoContactoController extends Controller
             // return redirect("/tipocontacto");
 
         } catch (\Exception $e ) {
-            return response()->json(["ok"=>true]);
+            return response()->json(["ok"=>false]);
             // Flash::error($e->getMessage());
             // return redirect("/tipocontacto");
         }
