@@ -26,7 +26,7 @@
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewJornada">Crear jornada</a>
             </div>
             <div class="card-body table-responsive">
-                <table class="table data-table table-bordered table-striped" id="tbl_Jornada">
+                <table class="table data-table table-bordered table-striped" id="tbl_Jornada" style="width: 100%;">
                     <thead>
                         <tr>
                             <th>N°</th>

@@ -26,7 +26,7 @@
                         <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewModalidad">Crear modalidad</a>
                 </div>
                 <div class="card-body table-responsive">
-                    <table class="table data-table table-bordered table-striped" id="tbl_Modalidad">
+                    <table class="table data-table table-bordered table-striped" id="tbl_Modalidad" style="width: 100%;">
                         <thead>
                             <tr>
                                 <th>N°</th>

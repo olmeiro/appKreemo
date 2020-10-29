@@ -82,7 +82,7 @@ $(function(){
         $("#agenda_modal").modal();
 
       },
-         
+
 
     eventSources: [
 
@@ -112,7 +112,7 @@ $(function(){
 
     }),
 
-    
+
 
 
     calendar.render();
@@ -208,7 +208,7 @@ $(function(){
                             $("#agenda_modal").modal('toggle');
                             calendar.refetchEvents();
                     Swal.fire({
-                      title:'Cita Guardada',text:'Éxitosamente!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                      title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                         //width: '50%',
                       padding:'1rem',
                         //background:'#000',
@@ -228,10 +228,8 @@ $(function(){
                         position:'center',
                     });
             validado = 0;}
-
-
-
     }
+    
 })
 
 function tiempofinal(){
