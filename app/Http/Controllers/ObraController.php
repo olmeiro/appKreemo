@@ -39,7 +39,7 @@ class ObraController extends Controller
 
         })
         ->addColumn('agregar', function ($obra) {
-            return '<a class="btn btn-primary btn-md" href="/cliente/pasarid/'.$obra->id.'">Agregar Contacto</a>';
+            return '<a class="btn btn-primary btn-md" href="/cliente/pasarid/'.$obra->id.'">Agregar contacto</a>';
         })
         ->addColumn('eliminar', function ($obra) {
             return '<a id="delete-obra"   data-id='.$obra->id.' class="btn btn-danger delete-obra btn-md" href="/obra/eliminar/'.$obra->id.'"><i class="fas fa-trash-alt"></i></a>';
