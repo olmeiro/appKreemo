@@ -38,7 +38,7 @@ $(document).ready(function(){
 
         //-----------------------------
 
-        
+
         if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
          {
              $("#valTelefono1").text("* Ingrese un número de telefono de la obra.");
@@ -55,7 +55,7 @@ $(document).ready(function(){
         //-----------------------------
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#correo1").val().length == 0 || !emailRegex.test($("#correo1").val()))
          {
              $("#valCorreo1").text("* Ingrese un correo electrónico.");
@@ -64,14 +64,14 @@ $(document).ready(function(){
          {
              $("#valCorreo1").text("");
              validado++;
-         }  
+         }
 
         console.log('validado: '+ validado);
 
         if (validado == 5)
         {
             Swal.fire({
-                title:'Registro exitoso de obra',text:'Cotización creada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Registro exitoso de obra',text:'!Obra creada!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -85,7 +85,7 @@ $(document).ready(function(){
         }
         else{
             Swal.fire({
-                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -142,7 +142,7 @@ $(document).ready(function(){
 
         //-----------------------------
 
-        
+
         if($("#otelefono1").val().length == 0 || isNaN($("#otelefono1").val()))
         {
             $("#valTelefono1").text("* Ingrese un número de telefono de la obra.");
@@ -159,7 +159,7 @@ $(document).ready(function(){
         //-----------------------------
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#ocorreo1").val().length == 0 || !emailRegex.test($("#ocorreo1").val()))
          {
              $("#valCorreo1").text("* Ingrese un correo electrónico.");
@@ -168,11 +168,11 @@ $(document).ready(function(){
          {
              $("#valCorreo1").text("");
              validado++;
-         }  
+         }
 
         console.log('validado: '+ validado);
 
-        
+
 
         if (validado == 5)
         {
@@ -268,20 +268,20 @@ function soloNumeros(e) {
 function limpiar()
 {
     $("input").val("");
-    $("select").val(""); 
+    $("select").val("");
 }
 
 /* Delete customer */
 $('body').on('click', '#delete-obra', function (e) {
     e.preventDefault();
-    
+
     x = confirm("Esta seguro de eliminar !");
 
     if (x){
         var obra_id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
-            type: "POST", 
+            type: "POST",
             url: "/obra/eliminar/"+obra_id,
             data: {
             "id": obra_id,
@@ -296,7 +296,7 @@ $('body').on('click', '#delete-obra', function (e) {
                       backdrop:true,
                       position:'center',
                           });
-                        var table = $('#tbl_obra').DataTable();    
+                        var table = $('#tbl_obra').DataTable();
                         table.ajax.reload();
                 } else {
                   Swal.fire({
@@ -305,12 +305,12 @@ $('body').on('click', '#delete-obra', function (e) {
                     backdrop:true,
                     position:'center',
                 });
-                var table = $('#tbl_obra').DataTable();    
+                var table = $('#tbl_obra').DataTable();
                     table.ajax.reload();
                 }
-            
+
               })
-      
+
     }
     else
     {
