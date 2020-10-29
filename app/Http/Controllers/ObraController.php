@@ -31,7 +31,7 @@ class ObraController extends Controller
         return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
             // return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
-            return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
+            return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="far fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
         ->addColumn('ver', function ($obra) {
