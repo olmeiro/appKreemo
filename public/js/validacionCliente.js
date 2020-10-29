@@ -282,11 +282,11 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se registro el nuevo tipo contacto.');
+                    Swal.fire('Se registro el nuevo contacto.');
                     limpiar();
                   }
                   else{
-                    Swal.fire('No se puedo crear el nuevo tipo contacto.');
+                    Swal.fire('No se puedo crear el nuevo contacto.');
                   }
                 })
          }
@@ -510,49 +510,50 @@ function soloLetras(e) {
 $('body').on('click', '#delete-cliente', function (e) {
     e.preventDefault();
 
-    x = confirm("Esta seguro de eliminar !");
-
-    if (x){
-        var cliente_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "POST",
-            url: "/cliente/eliminar/"+cliente_id,
-            data: {
-            "id": cliente_id,
-            "_token": token,
-            },
-        })
-            .done(function(respuesta){
-                if(respuesta && respuesta.ok){
+    Swal.fire({
+        title: '¿Está seguro que desea eliminar?',
+        text: "No podrá recuperar los datos!",
+        type: 'warning',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar',
+    }).then((choice) => {
+        if (choice.value === true) {
+          var cliente_id = $(this).data("id");
+          var token = $("meta[name='csrf-token']").attr("content");
+          $.ajax({
+              type: "POST", 
+              url: "/cliente/eliminar/"+cliente_id,
+              data: {
+              "id": cliente_id,
+              "_token": token,
+              },
+          }).done(function(respuesta){
+                  if(respuesta && respuesta.ok){
+                      Swal.fire({
+                        title:'Contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                        backdrop:true,
+                        position:'center',
+                            });
+                          var table = $('#tbl_contacto').DataTable();    
+                          table.ajax.reload();
+                  } else {
                     Swal.fire({
-                      title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                      padding:'1rem',
+                      title:'No se puede borrar',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
                       backdrop:true,
                       position:'center',
-                          });
-                        var table = $('#tbl_contacto').DataTable();
-                        table.ajax.reload();
-                } else {
-
-
-                  Swal.fire({
-                    title:'No se puede borrar',text:'El contacto está en uso.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                     padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                });
-                var table = $('#tbl_contacto').DataTable();
-                    table.ajax.reload();
+                    });
                 }
+            });
+          }
+        });
 
-              })
-
-    }
-    else
-    {
-    return false;
-    }
+    
 });
 
 

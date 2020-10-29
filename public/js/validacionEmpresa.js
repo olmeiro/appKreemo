@@ -323,49 +323,48 @@ $(document).ready(function() {
 $('body').on('click', '#delete-empresa', function (e) {
     e.preventDefault();
 
-    x = confirm("¿Esta seguro de eliminar?");
-
-    if (x){
-        var empresa_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "POST",
-            url: "/empresa/eliminar/"+empresa_id,
-            data: {
-            "id": empresa_id,
-            "_token": token,
-            },
-        })
-            .done(function(respuesta){
-                if(respuesta && respuesta.ok){
+    Swal.fire({
+        title: '¿Está seguro que desea eliminar?',
+        text: "No podrá recuperar los datos!",
+        type: 'warning',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar',
+    }).then((choice) => {
+        if (choice.value === true) {
+          var empresa_id = $(this).data("id");
+          var token = $("meta[name='csrf-token']").attr("content");
+          $.ajax({
+              type: "POST", 
+              url: "/empresa/eliminar/"+empresa_id,
+              data: {
+              "id": empresa_id,
+              "_token": token,
+              },
+          }).done(function(respuesta){
+                  if(respuesta && respuesta.ok){
+                      Swal.fire({
+                        title:'Empresa eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                        backdrop:true,
+                        position:'center',
+                            });
+                          var table = $('#tbl_empresa').DataTable();    
+                          table.ajax.reload();
+                  } else {
                     Swal.fire({
-                      title:'Empresa eliminada',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                      padding:'1rem',
+                      title:'No se puede borrar',text:'La empresa está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
                       backdrop:true,
                       position:'center',
-                          });
-                        var table = $('#tbl_empresa').DataTable();
-                        table.ajax.reload();
-                } else {
-
-
-                  Swal.fire({
-                    title:'No se puede borrar',text:'La empresa está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                     padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                });
-                var table = $('#tbl_empresa').DataTable();
-                    table.ajax.reload();
+                    });
                 }
-
-              })
-
-    }
-    else
-    {
-    return false;
-    }
+            });
+          }
+        });
 });
 
 

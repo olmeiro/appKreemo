@@ -149,13 +149,9 @@ class ObraController extends Controller
 
             $obra->delete();
             return response()->json(["ok"=>true]);
-            //Flash::success('Obra ('.$obra->nombre. ') eliminada.');
-            // return redirect('/cliente');
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            //Flash::success('No puedes eliminar este cliente.');
-            // return redirect("/cliente");
         }
     }
 

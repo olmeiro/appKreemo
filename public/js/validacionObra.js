@@ -282,46 +282,49 @@ function limpiar()
 $('body').on('click', '#delete-obra', function (e) {
     e.preventDefault();
 
-    x = confirm("Esta seguro de eliminar !");
-
-    if (x){
-        var obra_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "POST",
-            url: "/obra/eliminar/"+obra_id,
-            data: {
-            "id": obra_id,
-            "_token": token,
-            },
-        })
-            .done(function(respuesta){
-                if(respuesta && respuesta.ok){
+    Swal.fire({
+        title: '¿Está seguro que desea eliminar?',
+        text: "No podrá recuperar los datos!",
+        type: 'warning',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar',
+    }).then((choice) => {
+        if (choice.value === true) {
+          var obra_id = $(this).data("id");
+          var token = $("meta[name='csrf-token']").attr("content");
+          $.ajax({
+              type: "POST", 
+              url: "/obra/eliminar/"+obra_id,
+              data: {
+              "id": obra_id,
+              "_token": token,
+              },
+          }).done(function(respuesta){
+                  if(respuesta.ok){
+                      Swal.fire({
+                        title:'Obra eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                        backdrop:true,
+                        position:'center',
+                            });
+                          var table = $('#tbl_obra').DataTable();    
+                          table.ajax.reload();
+                  } else {
                     Swal.fire({
-                      title:'Obra eliminada',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                      padding:'1rem',
+                      title:'No se puede borrar',text:'La obra está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
                       backdrop:true,
                       position:'center',
-                          });
-                        var table = $('#tbl_obra').DataTable();
-                        table.ajax.reload();
-                } else {
-                  Swal.fire({
-                    title:'No se puede borrar',text:'La obra está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                     padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                });
-                var table = $('#tbl_obra').DataTable();
-                    table.ajax.reload();
+                    });
                 }
+            });
+          }
+        });
 
-              })
-
-    }
-    else
-    {
-    return false;
-    }
+    
 });
 
