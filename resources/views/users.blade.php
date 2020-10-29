@@ -259,7 +259,7 @@
 
          if($("#email").val().length == 0 || !emailRegex.test($("#email").val()))
          {
-             $("#valemail").text("* Ingrese un correo valido.");
+             $("#valemail").text("* Ingrese un correo válido.");
          }
          else
          {

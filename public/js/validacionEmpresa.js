@@ -6,9 +6,9 @@ $(document).ready(function(){
     autoAdjustHeight:true,
     transitionEffect:'fade',
     showStepURLhash: false,
-    
+
     });
-    
+
 });
 
 
@@ -20,9 +20,9 @@ $(document).ready(function(){
     autoAdjustHeight:true,
     transitionEffect:'fade',
     showStepURLhash: false,
-    
+
     });
-    
+
 });
 
 function limpiar()
@@ -43,10 +43,10 @@ $(document).ready(function(){
        this.value = this.value.replace(/[^0-9]/g,'');
   });
 
-  
+
 
   $(".sin_especiales").on("keyup",function(){
-      this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,''); 
+      this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,'');
  });
 
 
@@ -58,14 +58,14 @@ function soloLetras(e) {
   letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
   especiales = [8, 37, 39, 46],
   tecla_especial = false;
-  
+
   for (var i in especiales) {
   if (key == especiales[i]) {
     tecla_especial = true;
     break;
   }
   }
-  
+
   if (letras.indexOf(tecla) == -1 && !tecla_especial) {
   return false;
   }
@@ -90,14 +90,14 @@ function soloNumeros(e) {
     letras = " 0123456789",
     especiales = [45],
     tecla_especial = false;
-    
+
     for (var i in especiales) {
     if (key == especiales[i]) {
       tecla_especial = true;
       break;
     }
     }
-    
+
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
     return false;
     }
@@ -162,19 +162,19 @@ $(document).ready(function(){
          }
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if(validaVacio($("#correo1").val()) || !emailRegex.test($("#correo1").val()))
          {
-             $("#valCorreo1").text("* Ingrese un correo valido.");
+             $("#valCorreo1").text("* Ingrese un correo válido.");
          }
          else
          {
              $("#valCorreo1").text("");
              validado++;
          }
- 
+
          console.log("validado: " + validado);
- 
+
          if(validado == 6)
          {
 
@@ -200,7 +200,7 @@ $(document).ready(function(){
                     var table = $('#tbl_empresa').DataTable();
                     table.ajax.reload();
                    // window.location.reload('/empresa');
-             
+
                   }
                   else{
                     Swal.fire('No se puedo crear la nueva empresa.');
@@ -271,19 +271,19 @@ $(document).ready(function() {
          }
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
- 
+
          if($("#ecorreo1").val().length == 0 || !emailRegex.test($("#ecorreo1").val()))
          {
-             $("#valECorreo1").text("* Ingrese un correo valido.");
+             $("#valECorreo1").text("* Ingrese un correo válido.");
          }
          else
          {
              $("#valECorreo1").text("");
              validado++;
          }
- 
+
          console.log("validado: " + validado);
- 
+
          if(validado == 6)
          {
             var fd = new FormData(document.getElementById("editEmpresaFrm"));
@@ -298,7 +298,7 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se edito la empresa.');
+                    Swal.fire('Se editó la empresa.');
                      $("#exampleModal4").modal('hide');//ocultamos el modal
                      $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                      $('.modal-backdrop').remove();//eliminamos el backdrop del modal
@@ -322,14 +322,14 @@ $(document).ready(function() {
 /* Delete customer */
 $('body').on('click', '#delete-empresa', function (e) {
     e.preventDefault();
-    
-    x = confirm("Esta seguro de eliminar !");
+
+    x = confirm("¿Esta seguro de eliminar?");
 
     if (x){
         var empresa_id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
-            type: "POST", 
+            type: "POST",
             url: "/empresa/eliminar/"+empresa_id,
             data: {
             "id": empresa_id,
@@ -344,10 +344,10 @@ $('body').on('click', '#delete-empresa', function (e) {
                       backdrop:true,
                       position:'center',
                           });
-                        var table = $('#tbl_empresa').DataTable();    
+                        var table = $('#tbl_empresa').DataTable();
                         table.ajax.reload();
                 } else {
-                    
+
 
                   Swal.fire({
                     title:'No se puede borrar',text:'La empresa está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -355,12 +355,12 @@ $('body').on('click', '#delete-empresa', function (e) {
                     backdrop:true,
                     position:'center',
                 });
-                var table = $('#tbl_empresa').DataTable();    
+                var table = $('#tbl_empresa').DataTable();
                     table.ajax.reload();
                 }
-            
+
               })
-      
+
     }
     else
     {
