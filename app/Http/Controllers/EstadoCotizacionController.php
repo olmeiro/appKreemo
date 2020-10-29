@@ -47,8 +47,31 @@ class EstadoCotizacionController extends Controller
         return response()->json($estadoCotizacion);
     }
 
-
     public function destroy($id)
+    {
+        try
+        {
+            $estadoCotizacion = EstadoCotizacion::find($id);
+            if (empty($estadoCotizacion)) {
+                Flash::error('Estado Cotización no encontrado');
+
+                return redirect('/EstadoCotizacion');
+            }
+
+            $estadoCotizacion->delete($id);
+
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+
+    }
+    /* public function destroy($id)
     {
         $estadoCotizacion = EstadoCotizacion::find($id);
         $estadoCotizacion->delete();
@@ -56,5 +79,5 @@ class EstadoCotizacionController extends Controller
 
         // EstadoCotizacion::find($id)->delete();
         // return response()->json(['success'=>'Estado de cotizacion eliminado correctamente.']);
-    }
+    } */
 }

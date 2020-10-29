@@ -49,14 +49,38 @@ class ModalidadController extends Controller
     }
 
 
-    public function destroy($id)
+    /* public function destroy($id)
     {
         $modalidad =Modalidad::find($id);
         $modalidad->delete();
 
         return response()->json(['success'=>'Modalidad eliminada correctamente.']);
-    }
+    } */
 
+    public function destroy($id)
+    {
+        try
+        {
+            $modalidad =Modalidad::find($id);
+            if (empty($modalidad)) {
+                Flash::error('Modalidad no encontrado');
+
+                return redirect('/Modalidad');
+            }
+
+            $modalidad->delete($id);
+
+            return response()->json(["ok"=>true]);
+            // Flash::success("Se eliminó el tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+        catch (\Throwable $th) {
+            return response()->json(["ok"=>false]);
+            // Flash::success("No se puede eliminar tipo contacto");
+            // return redirect("/tipocontacto");
+        }
+
+    }
     public function listar(Request $request){
         $modalidad = Modalidad::all();
         return Datatables::of($modalidad)
