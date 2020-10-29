@@ -10,8 +10,8 @@
         <div class="card-header text-white float-right" style="background-color: #616A6B">
             <strong>Cotizaciones</strong>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
-            <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a>
-            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a> --}}
+            <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a>
+            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a> --}}
 
 
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
