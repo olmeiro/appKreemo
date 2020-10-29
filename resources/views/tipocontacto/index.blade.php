@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('meta')
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+@endsection
+
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
@@ -29,7 +33,6 @@
 @endsection
 
 @section("scripts")
-
     <script>
         $('#tbl_tipocontacto').DataTable({
                 processing: true,
@@ -59,6 +62,55 @@
                 ]
             });
 
+            $('body').on('click', '#eliminar-tipoContacto1', function (e) {
+                e.preventDefault();
+                
+                Swal.fire({
+                    title: '¿Está seguro que desea eliminar?',
+                    text: "No podrá recuperar los datos!",
+                    type: 'warning',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo!',
+                    cancelButtonText: 'Cancelar',
+                }).then((choice) => {
+                    if (choice.value === true) {
+                    var tipo_id = $(this).data("id");
+                    var token = $("meta[name='csrf-token']").attr("content");
+                    $.ajax({
+                        type: "POST", 
+                        url: "/tipocontacto/eliminar/"+tipo_id,
+                        data: {
+                        "id": tipo_id,
+                        "_token": token,
+                        },
+                    }).done(function(respuesta){
+                            if(respuesta && respuesta.ok){
+                                Swal.fire({
+                                    title:'Tipo contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
+                                    backdrop:true,
+                                    position:'center',
+                                        });
+                                    var table = $('#tbl_tipocontacto').DataTable();    
+                                    table.ajax.reload();
+                            } else {
+                                Swal.fire({
+                                title:'No se puede borrar',text:'Tipo contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
+                                backdrop:true,
+                                position:'center',
+                                });
+                            }
+                        });
+                    }
+                    });
+
+                });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 @endsection
 

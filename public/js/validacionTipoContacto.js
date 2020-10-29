@@ -227,8 +227,6 @@ $('body').on('click', '#eliminar-tipoContacto', function (e) {
 });
 
 
-
-
 function limpiar1()
 {
     $("input").val("");
