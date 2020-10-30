@@ -111,6 +111,7 @@ class CotizacionController extends Controller
                 'ivaAIU' =>$input["IvaAIU"],
                 'valorTotal' =>$input["ValorTotal"],
                 'observaciones' =>$input["Observaciones"],
+                'observaciones2' =>$input["Observaciones2"],
             ]);
             Flash::success("Cotización Registrada");
             return redirect("/cotizacion");
@@ -176,6 +177,7 @@ class CotizacionController extends Controller
                 'ivaAIU' =>$input["IvaAIU"],
                 'valorTotal' =>$input["ValorTotal"],
                 'observaciones' =>$input["Observaciones"],
+                'observaciones2' =>$input["Observaciones2"],
             ]);
             Flash::success("Cotización Modificada");
             return redirect("/cotizacion");
@@ -273,8 +275,8 @@ class CotizacionController extends Controller
             $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
 
 
-            return $pdf->download('informe.pdf');
-            //return $pdf->stream('informe.pdf');
+            //return $pdf->download('informe.pdf');
+            return $pdf->stream('informe.pdf');
         }else{
             Flash::error("Reporte de Cotización NO encontrado");
             return redirect("/cotizacion");

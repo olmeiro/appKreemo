@@ -28,6 +28,7 @@ class Cotizacion extends Model
         "ivaAIU",
         "valorTotal",
         "observaciones",
+        "observaciones2",
     ];
 
     public static $rules = [
@@ -49,6 +50,7 @@ class Cotizacion extends Model
         'Subtotal' =>'required|numeric|between: 1,2147483646',
         'IvaAIU' =>'required|numeric|between: 1,2147483646',
         'ValorTotal' =>'required|numeric|between: 1,2147483646',
-        'Observaciones' =>'max:100',
+        'Observaciones' =>'max:1000',
+        'Observaciones2' =>'max:1000',
     ];
 }

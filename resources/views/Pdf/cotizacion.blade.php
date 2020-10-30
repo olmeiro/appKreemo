@@ -36,7 +36,7 @@
             left: 0cm;
             right: 0cm;
             height: 3.6cm;
-            background-color: #860606;
+            background-color: #C0504D;
             color: white;
             padding: 20px;
             /* text-align: center; */
@@ -49,7 +49,7 @@
             left: 0cm;
             right: 0cm;
             height: 1.7cm;
-            background-color: #860606;
+            background-color: #C0504D;
             color: white;
             text-align: center;
             line-height: 35px;
@@ -318,13 +318,13 @@
         <tr>
             <td class="v2">Correo electrónico</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->telefono1}}</td>
+            <td class="v2" style="text-align:center">{{$value->correo1}}</td>
             @endforeach
         </tr>
         <tr>
             <td class="v2">Celular</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->correo1}}</td>
+            <td class="v2" style="text-align:center">{{$value->telefono1}}</td>
             @endforeach
         </tr>
     </table>
@@ -345,7 +345,10 @@
             <td class="v3">TOTAL</td>
         </tr>
         <tr class="v3">
-            <td class="v3">Mínima 20 m3</td>
+            @foreach($cotizacion as $value)
+            <td class="v3">Cantidad de {{$value->metrosCubicos}} m3</td>
+            @endforeach
+
             @foreach($cotizacion as $value)
             <td class="v3">{{$value->subtotal}}</td>
             @endforeach
@@ -371,7 +374,9 @@
     <b> Nota: Estos precios están sujetos a visita técnica.</b>
     <br>
     <br>
-    <b><mark>En el precio especificado en cuadros no se incluye seguros y pólizas exigidas por la obra, en caso de requerirlas el valor de dicha póliza se incluye en la primera factura. Vinicol Bombeos cuenta con póliza sombrilla y empresa protegida.</mark></b>
+    @foreach($cotizacion as $value)
+            <b><mark>Nota:{{$value->observaciones}} </mark></b>
+    @endforeach
     <footer>
         <strong class="Pag">Pag 4</strong>
     </footer>
@@ -385,6 +390,12 @@
     <p class="fz2">• El transporte de la tubería o accesorios necesarios adicionales en la obra deben ser asumidos por la obra, PARA CASOS QUE SUPEREN EL KIT DE TUBERIA DE 80 m (60 m de tubería más 20 m de accesorios)</p>
     <p class="fz2">• El transporte de tubería adicional tiene un costo de $ 80.000 por trayecto (carro de estacas caben 15 tubos =45 metros lineales)</p>
     <p class="fz2">• Metros de tubería adicional al kit de la mensualidad se cotiza por aparte.</p>
+
+    @foreach($cotizacion as $value)
+            <b><mark>Nota:{{$value->observaciones2}} </mark></b>
+    @endforeach
+
+
     <p class="PCA">4. ALCANCE DEL SERVICIO</p>
     <p class="fz2">• Se entrega la bomba con operador y auxiliar con toda la dotación necesaria para la actividad del bombeo: casco, arnés, tapa oídos, gafas, guantes, botas platineras, botas pantaneras, uniforme de la empresa.</p>
     <p class="fz2">• La bomba llega con el ACPM necesario para prestar el servicio.</p>
