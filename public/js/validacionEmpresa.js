@@ -192,7 +192,15 @@ $(document).ready(function(){
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se registro la empresa.');
+                    Swal.fire({
+                        title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
                     $("#exampleModal2").modal('hide');//ocultamos el modal
                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
@@ -209,7 +217,15 @@ $(document).ready(function(){
          }
          else
          {
-             Swal.fire('Faltan campos por diligenciar.');
+            Swal.fire({
+                title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
              validado = 0;
          }
     });
@@ -298,7 +314,15 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se editó la empresa.');
+                    Swal.fire({
+                        title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
                      $("#exampleModal4").modal('hide');//ocultamos el modal
                      $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                      $('.modal-backdrop').remove();//eliminamos el backdrop del modal
@@ -312,7 +336,15 @@ $(document).ready(function() {
          }
          else
          {
-             Swal.fire('Faltan campos por diligenciar.');
+            Swal.fire({
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
              validado = 0;
          }
     });

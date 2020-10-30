@@ -231,7 +231,7 @@ $(document).ready(function() {
         if (validado==18)
         {
             Swal.fire({
-                title:'Actualizacion exitosa',text:'Cotización Actualizada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -244,7 +244,7 @@ $(document).ready(function() {
         }
         else{
             Swal.fire({
-                title:'Error en la Actualizacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',

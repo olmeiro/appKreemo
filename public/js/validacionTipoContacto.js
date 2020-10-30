@@ -103,13 +103,30 @@ $(document).ready(function() {
               }).done(function(respuesta){
                 if(respuesta.ok)
                 {
-                  Swal.fire('Se editó el nuevo tipo contacto');
+                  Swal.fire({
+                    title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                       //width: '50%',
+                    padding:'1rem',
+                       //background:'#000',
+                    backdrop:true,
+                       //toast: true,
+                    position:'center',
+                        });
                   limpiar();
                   location.href="/cliente";
 
                 }
                 else{
-                  Swal.fire('Edite tipo de contacto');
+                  Swal.fire({
+                    title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                       //width: '50%',
+                    padding:'1rem',
+                       //background:'#000',
+                    backdrop:true,
+                       //toast: true,
+                    position:'center',
+                });
+    
                 }
               })
        }
