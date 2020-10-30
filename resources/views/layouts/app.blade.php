@@ -108,17 +108,21 @@
               <svg class="c-icon">
                 <use xlink:href="{{ asset(asset('assets/dashboard/vendors/@coreui/icons/svg/free.svg#cil-envelope-open')) }}"></use>
               </svg></a></li> -->
+              
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <div class="c-avatar"></div>
               <img src="{{ asset('img/vinicol.png') }}" style="width:50px;">
             </a>
-            <div class="dropdown-menu dropdown-menu-right pt-0">
+            <div class="dropdown-menu dropdown-menu-right pt-2">
+            <div class="dropdown-item">
+              <h5><i class="fas fa-user" style="margin-right:5px;"> </i>{{ auth()->user()->name  }} {{ auth()->user()->lastname  }} </h5>
+            </div>
                <div class="dropdown-header bg-light py-2"><strong>Ayuda</strong></div>
               <a class="dropdown-item" href="/manual"> 
                  <!-- <svg class="c-icon mr-2">
                   <use xlink:href="{{ asset('assets/dashboar/vendors/@coreui/icons/svg/free.svg#cil-bell') }}"></use>
                 </svg> -->
-                <i class="fas fa-question-circle"></i>  Manual de usuario</a><a class="dropdown-item">
+                <i class="fas fa-question-circle"></i>  Manual de usuario</a>
                 <!-- <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
                 </svg> Messages<span class="badge badge-success ml-auto">42</span></a><a class="dropdown-item" href="#">
@@ -129,7 +133,7 @@
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
                 </svg> Comments<span class="badge badge-warning ml-auto">42</span></a>  -->
               <!-- <div class="dropdown-header bg-light py-2"><strong>Configuración</strong></div> -->
-              <a class="dropdown-item">
+              <!-- <a class="dropdown-item"> -->
                 <!-- <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
                 </svg> Perfil</a><a class="dropdown-item" href="#">
@@ -137,7 +141,9 @@
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
                 </svg> Configuración</a><a class="dropdown-item" href="#"> -->
 
-              <div class="dropdown-divider"></div><a class="dropdown-item" href="javascript:document.getElementById('logout').submit()">
+             <!-- <div class="dropdown-divider"></div>  -->
+             <hr style="border-color:red;">
+              <a class="dropdown-item" href="javascript:document.getElementById('logout').submit()">
  
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
