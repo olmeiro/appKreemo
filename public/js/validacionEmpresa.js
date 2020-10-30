@@ -357,13 +357,12 @@ $('body').on('click', '#delete-empresa', function (e) {
 
     Swal.fire({
         title: '¿Está seguro que desea eliminar?',
-        text: "No podrá recuperar los datos!",
         type: 'warning',
         showCloseButton: true,
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Sí, eliminarlo!',
+        confirmButtonText: 'Sí, eliminarlo.',
         cancelButtonText: 'Cancelar',
     }).then((choice) => {
         if (choice.value === true) {

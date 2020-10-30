@@ -60,7 +60,7 @@
                                 <label for="modalidad" class="col-sm-12 control-label">Modalidad</label>
                                 <label class="validacion col-sm-12 control-label" id="val_Modalidad"></label>
                                 <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="modalidad" name="modalidad" placeholder="Digita el tipo de concreto" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
+                                    <input type="text" class="form-control" id="modalidad" name="modalidad" placeholder="Digita la modalidad" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                                 </div>
                                 {{-- <label class="validacion col-sm-12 control-label" id="val_Modalidad2"></label> --}}
                             </div>
