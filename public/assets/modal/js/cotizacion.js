@@ -8,6 +8,17 @@ function valor_total()
     document.getElementById('ValorTotal').value= ((cantidad*valor)*(0.05))*(0.19)+(cantidad*valor);
 }
 
+
+function valor_totaltransporte()
+{
+
+var valor = document.getElementById('ValorTransporte').value;
+document.getElementById('AIUtrans').value= (valor)*(0.05);
+document.getElementById('IvaAIUtrans').value= ((valor)*(0.05))*(0.19);
+document.getElementById('ValorTotaltrans').value=((valor)*(0.05))*(0.19)+(1*valor);
+}
+
+
 $(document).ready(function(){
 
     $(".solo_numeros").on("keyup",function(){

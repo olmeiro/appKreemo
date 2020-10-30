@@ -66,7 +66,8 @@
                             <li><a href="#step-2">Paso 2<br /><small>Información</small></a></li>
                             <li><a href="#step-3">Paso 3<br /><small>Información</small></a></li>
                             <li><a href="#step-4">Paso 4<br /><small>Cálculos</small></a></li>
-                            <li><a href="#step-5">Paso 5<br /><small>Observaciones</small></a></li>
+                            <li><a href="#step-5">Paso 5<br /><small>Transporte</small></a></li>
+                            <li><a href="#step-6">Paso 6<br /><small>Observaciones</small></a></li>
                         </ul>
                         <div>
                             <div id="step-1">
@@ -286,6 +287,48 @@
                                 </div>
                             </div>
                             <div id="step-5" class="">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Valor transporte</label>
+                                        <label class="validacion" id="val_Valtrans"></label>
+                                        <input type="text" class="form-control @error('ValorTransporte') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorTransporte" name="ValorTransporte"  onchange="valor_totaltransporte()">
+                                        @error('ValorTransporte')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Valtrans"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">AIU transporte</label>
+                                        <label class="validacion" id="val_AIUtrans"></label>
+                                        <input type="text" class="form-control @error('AIUtrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIUtrans" name="AIUtrans" readonly>
+                                        @error('AIUtrans')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_AIUtrans2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <label for="">IVA al AIU transporte</label>
+                                        <label class="validacion" id="val_IvaAIUtrans"></label>
+                                        <input type="text" class="form-control @error('IvaAIUtrans') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIUtrans" name="IvaAIUtrans" readonly>
+                                        @error('IvaAIUtrans')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_IvaAIUtrans2"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Valor total transporte</label>
+                                        <label class="validacion" id="val_ValorTotaltrans"></label>
+                                        <input type="text" class="form-control @error('ValorTotaltrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotaltrans" name="ValorTotaltrans" readonly>
+                                        @error('ValorTotaltrans')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_ValorTotaltrans2"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="step-6" class="">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <label for="validationTextarea">Notas propuesta</label>
@@ -648,6 +691,7 @@
                 });
             });
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
