@@ -245,15 +245,15 @@
                 $('#saveBtn').html('Guardar');
             }
       });
-            Swal.fire({
-                title:'Registro exitoso',text:'Operario creado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                //width: '50%',
-                padding:'1rem',
-                //background:'#000',
-                backdrop:true,
-                //toast: true,
-                position:'center',
-                    });
+                Swal.fire({
+                        title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
                     $("#validacion_nombre").text("");
                     $("#validacion_nombre2").text("");
                     $("#validacion_apellido").text("");
@@ -265,14 +265,15 @@
                     $("input").val("");
         }else{
             Swal.fire({
-                title:'Error en la creacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                //width: '50%',
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
                 padding:'1rem',
-                //background:'#000',
+                   //background:'#000',
                 backdrop:true,
-                //toast: true,
+                   //toast: true,
                 position:'center',
             });
+
         }
     });
 
@@ -317,7 +318,7 @@
 
                 } else {
                     Swal.fire({
-                    title:'No se puede borrar',text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'No se puede borrar',icon:'info' text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                         padding:'1rem',
                     backdrop:true,
                     position:'center',

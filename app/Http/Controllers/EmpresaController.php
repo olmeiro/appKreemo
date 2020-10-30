@@ -81,7 +81,7 @@ class EmpresaController extends Controller
 
             ]);
 
-            Flash::success("Registro éxitoso de empresa");
+           
             return response()->json(["ok"=>true]);
             //return redirect("/empresa");
 
@@ -96,7 +96,7 @@ class EmpresaController extends Controller
     {
         $where = array('id' => $id);
         $empresa = Empresa::where($where)->first();
-        Flash::success("Se modifico empresa.");
+    
         return Response::json($empresa);
     }
 

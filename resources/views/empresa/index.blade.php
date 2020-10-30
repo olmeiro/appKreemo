@@ -24,7 +24,7 @@
                     <th>Teléfono </th>
                     <th>Correo </th>
                     <th>Estado</th>
-                    <th>Cambiar Estado</th>
+                    <th>Cambiar estado</th>
                     <th>Agregar obra</th>
                     <th>Editar</th>
                     <th>Eliminar</th>
@@ -304,9 +304,11 @@
                                             switch(cellData) {
                                             case "Pasivo":
                                                 color = '#FA3636 ';
+                                                $(td).addClass('pasivo');
                                                 break;
                                             case "Activo":
                                                 color = '#06B33A';
+                                                $(td).addClass('activo');
                                                 break;
                                             default:
                                                 color = '#FFDE00';

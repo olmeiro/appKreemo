@@ -243,15 +243,15 @@ $(function(){
                     console.log(msg);}}),
                     $("#agendaservicio_modal").modal('toggle');
                     calendar.refetchEvents();
-            Swal.fire({
-                title:'Registro exitoso',text:'Servicio guardado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
-                padding:'1rem',
-                    //background:'#000',
-                backdrop:true,
-                    //toast: true,
-                position:'center',
-                    });
+                    Swal.fire({
+                        title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
 
                     $('#agendaservicio_modal').on('hidden.bs.modal', function () {
                         //location.reload();
@@ -276,15 +276,15 @@ $(function(){
                     $("select").val("0");
                     $("textarea").val("");
         }else{
-                Swal.fire({
-                    title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
-                    padding:'1rem',
-                    //background:'#000',
-                    backdrop:true,
-                    //toast: true,
-                    position:'center',
-                });
+            Swal.fire({
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
               validado = 0;}
     }
 })

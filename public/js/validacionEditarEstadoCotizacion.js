@@ -38,7 +38,7 @@ $(document).ready(function() {
         if (validado==1)
         {
             Swal.fire({
-                title:'Registro exitoso',text:'Estado de Cotización Editado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -53,14 +53,14 @@ $(document).ready(function() {
         }
         else{
             Swal.fire({
-                title:'Error en la edicion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
                 backdrop:true,
                    //toast: true,
                 position:'center',
-                    });
+            });
 
             //alert("Campos pendientes por validar");
 
