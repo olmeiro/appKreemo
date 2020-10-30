@@ -62,7 +62,7 @@
                             <label for="name" class="col-sm-12 control-label">Etapa</label>
                             <label class="validacion col-sm-12 control-label" id="val_Etapa"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="etapa" name="etapa" placeholder="Digita la Etapa" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
+                                <input type="text" class="form-control" id="etapa" name="etapa" placeholder="Digita la etapa" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
                             {{-- <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label> --}}
                         </div>
