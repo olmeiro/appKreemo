@@ -544,7 +544,6 @@ $('body').on('click', '#delete-cliente', function (e) {
 
     Swal.fire({
         title: '¿Está seguro que desea eliminar?',
-        text: "No podrá recuperar los datos!",
         type: 'warning',
         showCloseButton: true,
         showCancelButton: true,
@@ -557,7 +556,7 @@ $('body').on('click', '#delete-cliente', function (e) {
           var cliente_id = $(this).data("id");
           var token = $("meta[name='csrf-token']").attr("content");
           $.ajax({
-              type: "POST", 
+              type: "POST",
               url: "/cliente/eliminar/"+cliente_id,
               data: {
               "id": cliente_id,
@@ -571,7 +570,7 @@ $('body').on('click', '#delete-cliente', function (e) {
                         backdrop:true,
                         position:'center',
                             });
-                          var table = $('#tbl_contacto').DataTable();    
+                          var table = $('#tbl_contacto').DataTable();
                           table.ajax.reload();
                   } else {
                     Swal.fire({
@@ -585,7 +584,7 @@ $('body').on('click', '#delete-cliente', function (e) {
           }
         });
 
-    
+
 });
 
 

@@ -307,7 +307,6 @@ $('body').on('click', '#delete-obra', function (e) {
 
     Swal.fire({
         title: '¿Está seguro que desea eliminar?',
-        text: "No podrá recuperar los datos!",
         type: 'warning',
         showCloseButton: true,
         showCancelButton: true,
@@ -320,7 +319,7 @@ $('body').on('click', '#delete-obra', function (e) {
           var obra_id = $(this).data("id");
           var token = $("meta[name='csrf-token']").attr("content");
           $.ajax({
-              type: "POST", 
+              type: "POST",
               url: "/obra/eliminar/"+obra_id,
               data: {
               "id": obra_id,
@@ -328,7 +327,7 @@ $('body').on('click', '#delete-obra', function (e) {
               },
           }).done(function(respuesta){
                   if(respuesta.ok){
-                     
+
                                     Swal.fire({
                                         title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                                         //width: '50%',
@@ -338,7 +337,7 @@ $('body').on('click', '#delete-obra', function (e) {
                                         //toast: true,
                                         position:'center',
                                             });
-                          var table = $('#tbl_obra').DataTable();    
+                          var table = $('#tbl_obra').DataTable();
                           table.ajax.reload();
                   } else {
                     Swal.fire({
@@ -352,6 +351,6 @@ $('body').on('click', '#delete-obra', function (e) {
           }
         });
 
-    
+
 });
 

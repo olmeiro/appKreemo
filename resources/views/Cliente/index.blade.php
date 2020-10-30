@@ -553,10 +553,9 @@
 
             $('body').on('click', '#eliminar-tipoContacto1', function (e) {
                 e.preventDefault();
-                
+
                 Swal.fire({
                     title: '¿Está seguro que desea eliminar?',
-                    text: "No podrá recuperar los datos!",
                     type: 'warning',
                     showCloseButton: true,
                     showCancelButton: true,
@@ -569,7 +568,7 @@
                     var tipo_id = $(this).data("id");
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
-                        type: "POST", 
+                        type: "POST",
                         url: "/tipocontacto/eliminar/"+tipo_id,
                         data: {
                         "id": tipo_id,
@@ -583,7 +582,7 @@
                                     backdrop:true,
                                     position:'center',
                                         });
-                                    var table = $('#tbl_tipocontacto').DataTable();    
+                                    var table = $('#tbl_tipocontacto').DataTable();
                                     table.ajax.reload();
                             } else {
                                 Swal.fire({

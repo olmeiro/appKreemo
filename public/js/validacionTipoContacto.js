@@ -126,7 +126,7 @@ $(document).ready(function() {
                        //toast: true,
                     position:'center',
                 });
-    
+
                 }
               })
        }
@@ -200,7 +200,6 @@ $('body').on('click', '#eliminar-tipoContacto', function (e) {
 
   Swal.fire({
     title: '¿Está seguro que desea eliminar?',
-    text: "No podrá recuperar los datos!",
     type: 'warning',
     showCloseButton: true,
     showCancelButton: true,
