@@ -101,7 +101,18 @@ $(function(){
         // your event source
         {
           url: '/servicio/show', // use the `url` property
-          color: 'yellow',    // an option!
+          textColor: 'red' , // an option!
+            error: function() {
+            $('#script-warning').show();
+        },
+        success: function(data){
+            for(var i=0; i<data.length; i++){//The background color for past events
+                if(moment(data[i].start).isBefore(moment())){//If event time is in the past change the general event background & border color
+                    data[i]["backgroundColor"]="#10AC33";
+                   // data[i]["borderColor"]="#FFFF00 ";
+                }
+            }
+        }
         }
 
         // any other sources...
