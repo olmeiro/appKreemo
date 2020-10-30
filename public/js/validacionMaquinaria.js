@@ -38,7 +38,7 @@ function soloLetrasynumeros(e) {
     key = e.keyCode || e.which;
     tecla = String.fromCharCode(key).toLowerCase();
     letras = "áéíóúabcdefghijklmnñopqrstuvwxyz0123456789";
-    especiales = [8, 32, 37, 39, 46];
+    especiales = [8, 32, 37, 39, 46, 47, 95];
 
     tecla_especial = false
     for(var i in especiales) {

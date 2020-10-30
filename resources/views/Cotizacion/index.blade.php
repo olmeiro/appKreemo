@@ -86,6 +86,16 @@
                                         <label class="validacion" id="val_empresa2"></label>
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="">Obra</label>
+                                        <label class="validacion" id="val_Obra"></label>
+                                        <select id="IdObra" name="IdObra" class="form-control">
+                                        <option selected="selected">Seleccione una Obra</option>
+                                        </select>
+                                        <label class="validacion" id="val_Obra2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
                                         <label for="">Estado</label>
                                         <label class="validacion" id="val_Estado"></label>
                                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
@@ -97,8 +107,6 @@
                                         @enderror
                                         <label class="validacion" id="val_Estado2"></label>
                                     </div>
-                                </div>
-                                <div class="row mt-3">
                                     <div class="col-md-6">
                                         <label for="">Modalidad</label>
                                         <label class="validacion" id="val_Modalidad"></label>
@@ -112,20 +120,6 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                         <label class="validacion" id="val_Modalidad2"></label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Etapa</label>
-                                        <label class="validacion" id="val_Etapa"></label>
-                                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
-                                            <option value="0">Seleccione una Etapa</option>
-                                            @foreach($etapa as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdEtapa')==$value->id)? 'selected':''}}>{{ $value->etapa}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('IdEtapa')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" id="val_Etapa2"></label>
                                     </div>
                                 </div>
                             </div>
@@ -146,6 +140,22 @@
                                         <label class="validacion" id="val_Jornada2"></label>
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="">Etapa</label>
+                                        <label class="validacion" id="val_Etapa"></label>
+                                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
+                                            <option value="0">Seleccione una Etapa</option>
+                                            @foreach($etapa as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdEtapa')==$value->id)? 'selected':''}}>{{ $value->etapa}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdEtapa')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Etapa2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
                                         <label for="">Tipo de concreto</label>
                                         <label class="validacion" id="val_TipoConcreto"></label>
                                             <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
@@ -158,16 +168,6 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                             <label class="validacion" id="val_TipoConcreto2"></label>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-6">
-                                        <label for="">Obra</label>
-                                        <label class="validacion" id="val_Obra"></label>
-                                        <select id="IdObra" name="IdObra" class="form-control">
-                                            <option selected="selected">Seleccione una Obra</option>
-                                        </select>
-                                        <label class="validacion" id="val_Obra2"></label>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Ciudad</label>
@@ -288,9 +288,18 @@
                             <div id="step-5" class="">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="validationTextarea">Observaciones</label>
-                                        <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa las observaciones" ></textarea>
+                                        <label for="validationTextarea">Notas propuesta</label>
+                                        <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa notas de la propuesta economica" ></textarea>
                                         @error('Observaciones')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationTextarea">Notas letra chica</label>
+                                        <textarea class="form-control @error('Observaciones2') is-invalid @enderror " id="Observaciones2" name="Observaciones2" placeholder="Ingresa las notas de la letra chica" ></textarea>
+                                        @error('Observaciones2')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
