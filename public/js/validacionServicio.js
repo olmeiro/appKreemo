@@ -4,18 +4,9 @@ $(function(){
     calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'es',
       headerToolbar: {
-        left: 'prev,next today Miboton',
+        left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      customButtons:{
-        Miboton:{
-            text:"Estados Servicio",
-            click:function(){
-                window.location.href = "/estadoservicio";
-            }
-        },
-
       },
       slotLabelFormat:{
         hour: '2-digit',
@@ -163,9 +154,6 @@ $(function(){
         if ($("#fechainicio").val().length == 0 ){
             $("#valfecha").text("*");
             $("#valfecha2").text("Elija una Fecha");
-        }else if(fecha > fechainicio){
-            $("#valfecha").text("*");
-            $("#valfecha2").text("La fecha de inicio debe ser mayor a la fecha actual");
         }else{
             $("#valfecha").text("");
             $("#valfecha2").text("");
