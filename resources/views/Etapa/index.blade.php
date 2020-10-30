@@ -204,7 +204,6 @@
 
     Swal.fire({
       title: '¿Está seguro que desea eliminar?',
-      text: "No podrá recuperar los datos!",
       type: 'warning',
       showCloseButton: true,
       showCancelButton: true,

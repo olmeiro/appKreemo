@@ -369,7 +369,7 @@ $('body').on('click', '#delete-empresa', function (e) {
           var empresa_id = $(this).data("id");
           var token = $("meta[name='csrf-token']").attr("content");
           $.ajax({
-              type: "POST", 
+              type: "POST",
               url: "/empresa/eliminar/"+empresa_id,
               data: {
               "id": empresa_id,
@@ -383,7 +383,7 @@ $('body').on('click', '#delete-empresa', function (e) {
                         backdrop:true,
                         position:'center',
                             });
-                          var table = $('#tbl_empresa').DataTable();    
+                          var table = $('#tbl_empresa').DataTable();
                           table.ajax.reload();
                   } else {
                     Swal.fire({
