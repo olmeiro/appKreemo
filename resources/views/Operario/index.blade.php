@@ -318,7 +318,7 @@
 
                 } else {
                     Swal.fire({
-                    title:'No se puede borrar',icon:'info' text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                    title:'No se puede borrar',icon:'info', text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                         padding:'1rem',
                     backdrop:true,
                     position:'center',
