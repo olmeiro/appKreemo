@@ -139,38 +139,38 @@ $(document).ready(function() {
             validado++;
         }
 
-        if ($("#Ciudad").val() == 0) {
-            $("#val_ciudad").text("*");
-            $("#val_ciudad2").text("Debe ingresar la ciudad");
-            $("#val_ciudad3").text("Debe ingresar la ciudad");
-        }else{
-            $("#val_ciudad").text("");
-            $("#val_ciudad2").text("");
-            $("#val_ciudad3").text("");
-            validado++;
-        }
+        // if ($("#Ciudad").val() == 0) {
+        //     $("#val_ciudad").text("*");
+        //     $("#val_ciudad2").text("Debe ingresar la ciudad");
+        //     $("#val_ciudad3").text("Debe ingresar la ciudad");
+        // }else{
+        //     $("#val_ciudad").text("");
+        //     $("#val_ciudad2").text("");
+        //     $("#val_ciudad3").text("");
+        //     validado++;
+        // }
 
-        if ($("#Losas").val() == 0) {
-            $("#val_Losas").text("*");
-            $("#val_Losas2").text("Debe ingresar la cantidad de losas");
-            $("#val_Losas3").text("Debe ingresar la cantidad de losas");
-        }else{
-            $("#val_Losas").text("");
-            $("#val_Losas2").text("");
-            $("#val_Losas3").text("");
-            validado++;
-        }
+        // if ($("#Losas").val() == 0) {
+        //     $("#val_Losas").text("*");
+        //     $("#val_Losas2").text("Debe ingresar la cantidad de losas");
+        //     $("#val_Losas3").text("Debe ingresar la cantidad de losas");
+        // }else{
+        //     $("#val_Losas").text("");
+        //     $("#val_Losas2").text("");
+        //     $("#val_Losas3").text("");
+        //     validado++;
+        // }
 
-        if ($("#Tuberia").val() == 0) {
-            $("#val_Tuberia").text("*");
-            $("#val_Tuberia2").text("Debe ingresar la cantidad de tuberia");
-            $("#val_Tuberia3").text("Debe ingresar la cantidad de tuberia");
-        }else{
-            $("#val_Tuberia").text("");
-            $("#val_Tuberia2").text("");
-            $("#val_Tuberia3").text("");
-            validado++;
-        }
+        // if ($("#Tuberia").val() == 0) {
+        //     $("#val_Tuberia").text("*");
+        //     $("#val_Tuberia2").text("Debe ingresar la cantidad de tuberia");
+        //     $("#val_Tuberia3").text("Debe ingresar la cantidad de tuberia");
+        // }else{
+        //     $("#val_Tuberia").text("");
+        //     $("#val_Tuberia2").text("");
+        //     $("#val_Tuberia3").text("");
+        //     validado++;
+        // }
 
         if ($("#MetrosCubicos").val() == 0) {
             $("#val_Metros").text("*");
@@ -229,9 +229,9 @@ $(document).ready(function() {
             validado++;
         }
 
-        if (validado==18)
+        if (validado==15)
         {
-            
+
                 Swal.fire({
                     title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                     //width: '50%',
