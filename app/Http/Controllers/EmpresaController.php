@@ -32,31 +32,24 @@ class EmpresaController extends Controller
             return $empresa->estado == 1 ? "Activo" : "Pasivo";
         })
         ->addColumn('editar', function ($empresa) {
-
             return '<a class="btn btn-primary btn-md" data-toggle="modal" id="editar-Empresa" data-id='.$empresa->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
-
         })
         ->addColumn('cambiar', function ($empresa) {
             if($empresa->estado == 1)
             {
                 return '<a class="btn btn-primary btn-md" href="/empresa/cambiar/estado/'.$empresa->id.'/0">Inactivar</a>';
-
             }
             else
             {
                 return  '<a class="btn btn-primary btn-md" href="/empresa/cambiar/estado/'.$empresa->id.'/1">Activar</a>';
-
             }
         })
         ->addColumn('agregar', function ($empresa) {
-
             return    '<a id="agregar-obra" data-id='.$empresa->id.' class="btn btn-success agregar-obra btn-md" href="/obra/pasarid/'.$empresa->id.'"><i class="fas fa-plus-square"></i></a>';
-
         })
         ->addColumn('eliminar', function ($empresa) {
             return '
             <a id="delete-empresa" data-id='.$empresa->id.' class="btn btn-danger delete-empresa btn-md" href="/empresa/eliminar/'.$empresa->id.'"><i class="fas fa-trash-alt"></i></a>';
-
         })
         ->rawColumns(['agregar','editar','cambiar','eliminar'])
         ->make(true);
@@ -78,17 +71,12 @@ class EmpresaController extends Controller
                 "direccion" =>$input["direccion"],
                 "telefono1" =>$input["telefono1"],
                 "correo1" =>$input["correo1"],
-
             ]);
-
            
             return response()->json(["ok"=>true]);
-            //return redirect("/empresa");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
             return response()->json(["ok"=>false]);
-            //return redirect("/empresa/crear");
         }
     }
 
@@ -111,7 +99,6 @@ class EmpresaController extends Controller
             "telefono1" => $request->etelefono1,
             "correo1" => $request->ecorreo1,
             "estado" => $request->eestado,
-
         ]);
         return response()->json(["ok"=>true]);
     }
@@ -129,12 +116,9 @@ class EmpresaController extends Controller
         try {
 
             $empresa->update(["estado"=>$estado]);
-            Flash::success("Se modifico el estado del cliente o empresa");
             return redirect("/empresa");
 
         } catch (\Exception $e) {
-
-            Flash::error($e->getMessage());
             return redirect("/empresa");
         }
     }
