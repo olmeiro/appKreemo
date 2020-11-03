@@ -118,7 +118,7 @@
               <h5><i class="fas fa-user" style="margin-right:5px;"> </i>{{ auth()->user()->name  }} {{ auth()->user()->lastname  }} </h5>
             </div>
                <div class="dropdown-header bg-light py-2"><strong>Ayuda</strong></div>
-              <a class="dropdown-item" href="/manual"> 
+              <a class="dropdown-item" href="/manual">
                  <!-- <svg class="c-icon mr-2">
                   <use xlink:href="{{ asset('assets/dashboar/vendors/@coreui/icons/svg/free.svg#cil-bell') }}"></use>
                 </svg> -->
@@ -144,10 +144,10 @@
              <!-- <div class="dropdown-divider"></div>  -->
              <hr style="border-color:red;">
               <a class="dropdown-item" href="javascript:document.getElementById('logout').submit()">
- 
+
                 <svg class="c-icon mr-2">
                   <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                </svg> 
+                </svg>
                 <i class="fas fa-sign-out-alt"></i>  Salir</a>
                 <form action="{{ route('logout')}}" id="logout" style="display:none" method="POST">@csrf</form>
             </div>

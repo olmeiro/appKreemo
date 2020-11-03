@@ -22,7 +22,7 @@
                     <th >Apellido</th>
                     <th >Email</th>
                     <th >Estado</th>
-                    <th width="30%">Acciones</th>
+                    <th width="20%">Acciones</th>
                     <th >Cambiar estado</th>
                 </tr>
                 </thead>
@@ -129,6 +129,7 @@
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
+<link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
 @endsection
 
 @section('scripts')
