@@ -27,6 +27,20 @@
                         <label class="validacion" id="val_empresa2"></label>
                     </div>
                     <div class="form-group col-md-3">
+                        <label for="">Obra</label>
+                        <label class="validacion" id="val_Obra"></label>
+                        <select id="IdObra"  name= "IdObra" class="form-control @error('IdObra') is-invalid @enderror">
+                                <option value="0">Seleccione</option>
+                                @foreach($obra as $key =>$value)
+                                <option {{$value->id == $cotizacion->idObra ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
+                            @endforeach
+                        </select>
+                        @error('IdObra')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <label class="validacion" id="val_Obra2"></label>
+                    </div>
+                    <div class="form-group col-md-3">
                         <label for="">Estado</label>
                         <label class="validacion" id="val_Estado"></label>
                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
@@ -53,24 +67,11 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                         <label class="validacion" id="val_Modalidad2"></label>
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label for="">Etapa</label>
-                        <label class="validacion" id="val_Etapa"></label>
-                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
-                                <option value="0" >Seleccione</option>
-                                @foreach($etapa as $key =>$value)
-                                <option {{$value->id == $cotizacion->idEtapa ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->etapa}}</option>
-                                @endforeach
-                        </select>
-                        @error('IdEtapa')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <label class="validacion" id="val_Etapa2"></label>
+
                     </div>
                 </div>
                 <div class="form-row" >
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Jornada</label>
                         <label class="validacion" id="val_Jornada"></label>
                         <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
@@ -84,7 +85,21 @@
                         @enderror
                         <label class="validacion" id="val_Jornada2"></label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
+                        <label for="">Etapa</label>
+                        <label class="validacion" id="val_Etapa"></label>
+                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
+                                <option value="0" >Seleccione</option>
+                                @foreach($etapa as $key =>$value)
+                                <option {{$value->id == $cotizacion->idEtapa ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->etapa}}</option>
+                                @endforeach
+                        </select>
+                        @error('IdEtapa')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <label class="validacion" id="val_Etapa2"></label>
+                    </div>
+                    <div class="form-group col-md-2">
                         <label for="">Tipo de concreto</label>
                         <label class="validacion" id="val_TipoConcreto"></label>
                         <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
@@ -98,21 +113,7 @@
                         @enderror
                         <label class="validacion" id="val_TipoConcreto2"></label>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label for="">Obra</label>
-                        <label class="validacion" id="val_Obra"></label>
-                        <select id="IdObra"  name= "IdObra" class="form-control @error('IdObra') is-invalid @enderror">
-                                <option value="0">Seleccione</option>
-                                @foreach($obra as $key =>$value)
-                                <option {{$value->id == $cotizacion->idObra ? 'selected' : ''}} value="{{ $value->id }}">{{ $value->nombre}}</option>
-                            @endforeach
-                        </select>
-                        @error('IdObra')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <label class="validacion" id="val_Obra2"></label>
-                    </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Ciudad</label>
                         <label class="validacion" id="val_ciudad"></label>
                         <input value="{{$cotizacion->ciudad}}" type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad">
@@ -121,24 +122,23 @@
                         @enderror
                         <label class="validacion" id="val_ciudad2"></label>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Fecha de cotización</label>
                         <input value="{{$cotizacion->fechaCotizacion}}" type="date" class="form-control @error('FechaCotizacion') is-invalid @enderror" id="FechaCotizacion" name="FechaCotizacion" readonly>
                         @error('FechaCotizacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Fecha de bombeo</label>
                         <input value="{{$cotizacion->inicioBombeo}}" type="date" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" >
                         @error('InicioBombeo')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
-                    <div class="form-group col-md-3">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-2">
                         <label for="">Cantidad de losas</label>
                         <label class="validacion" id="val_Losas"></label>
                         <input  value="{{$cotizacion->losas}}" type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas">
@@ -147,7 +147,7 @@
                         @enderror
                         <label class="validacion" id="val_Losas2"></label>
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group col-md-2">
                         <label for="">Cantidad de tubería</label>
                         <label class="validacion" id="val_Tuberia"></label>
                         <input value="{{$cotizacion->tuberia}}"  type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia">
@@ -156,8 +156,6 @@
                         @enderror
                         <label class="validacion" id="val_Tuberia2"></label>
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="">Cantidad de metros<sup>3</sup></label>
                         <label class="validacion" id="val_Metros"></label>
@@ -194,6 +192,8 @@
                         @enderror
                         <label class="validacion" id="val_SubTotal2"></label>
                     </div>
+                </div>
+                <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="">IVA al AIU</label>
                         <label class="validacion" id="val_IvaAIU"></label>
@@ -212,13 +212,58 @@
                         @enderror
                         <label class="validacion" id="val_ValorTotal2"></label>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <label for="validationTextarea">Observaciones</label>
-                    <textarea   class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="" >{{$cotizacion->observaciones}}</textarea>
-                    @error('Observaciones')
+                    <div class="form-group col-md-2">
+                        <label for="">Valor transporte</label>
+                        <label class="validacion" id="val_Valtrans"></label>
+                        <input value="{{$cotizacion->valorTransporte}}"  type="text" class="form-control @error('ValorTransporte') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorTransporte" name="ValorTransporte"  onchange="valor_totaltransporte()">
+                        @error('ValorTransporte')
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
+                        <label class="validacion" id="val_Valtrans"></label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="">AIU transporte</label>
+                        <label class="validacion" id="val_AIUtrans"></label>
+                        <input value="{{$cotizacion->AIUtrans}}"  type="text" class="form-control @error('AIUtrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIUtrans" name="AIUtrans" readonly>
+                        @error('AIUtrans')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <label class="validacion" id="val_AIUtrans2"></label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="">IVA al AIU transporte</label>
+                        <label class="validacion" id="val_IvaAIUtrans"></label>
+                        <input value="{{$cotizacion->ivaAIUtrans}}"  type="text" class="form-control @error('IvaAIUtrans') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIUtrans" name="IvaAIUtrans" readonly>
+                        @error('IvaAIUtrans')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <label class="validacion" id="val_IvaAIUtrans2"></label>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="">Valor total transporte</label>
+                        <label class="validacion" id="val_ValorTotaltrans"></label>
+                        <input value="{{$cotizacion->valorTotaltrans}}"  type="text" class="form-control @error('ValorTotaltrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotaltrans" name="ValorTotaltrans" readonly>
+                        @error('ValorTotaltrans')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                        <label class="validacion" id="val_ValorTotaltrans2"></label>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="validationTextarea">Notas propuesta</label>
+                        <textarea   class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="" >{{$cotizacion->observaciones}}</textarea>
+                        @error('Observaciones')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="validationTextarea">Notas letra chica</label>
+                        <textarea   class="form-control @error('Observaciones2') is-invalid @enderror " id="Observaciones2" name="Observaciones2" placeholder="" >{{$cotizacion->observaciones2}}</textarea>
+                        @error('Observaciones2')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary float-left">Editar cotizacion</button>
                 <a href="/cotizacion" class="btn btn-outline-primary float-right" >Volver</a>

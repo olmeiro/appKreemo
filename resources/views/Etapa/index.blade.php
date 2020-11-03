@@ -62,9 +62,9 @@
                             <label for="name" class="col-sm-12 control-label">Etapa</label>
                             <label class="validacion col-sm-12 control-label" id="val_Etapa"></label>
                             <div class="col-sm-12">
-                                <input type="text" class="form-control" id="etapa" name="etapa" placeholder="Digita la Etapa" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
+                                <input type="text" class="form-control" id="etapa" name="etapa" placeholder="Digita la etapa" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
-                            <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label>
+                            {{-- <label class="validacion col-sm-12 control-label" id="val_Etapa2"></label> --}}
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
@@ -151,7 +151,7 @@
             let validado = 0;
 
             if($("#etapa").val()==0){
-                $("#val_Etapa").text("*");
+                $("#val_Etapa").text("* Debe ingresar la etapa");
                 $("#val_Etapa2").text("Debe ingresar la etapa");
             }else{
                 $("#val_Etapa").text("");
@@ -204,7 +204,6 @@
 
     Swal.fire({
       title: '¿Está seguro que desea eliminar?',
-      text: "No podrá recuperar los datos!",
       type: 'warning',
       showCloseButton: true,
       showCancelButton: true,

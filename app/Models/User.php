@@ -105,7 +105,7 @@ class User extends Authenticatable
             [
                 "nombre"=>"Estadisticas",
                 "url"=>"#",
-                "icono"=>"fas fa-chart-bar",
+                "icono"=>"fas fa-chart-line",
                 "hijos"=>[
                     ["nombre"=>"Clientes estado","url"=>"/chartclienteai"],
                     ["nombre"=>"Cotizaciones por empresa","url"=>"/chart"],
@@ -170,6 +170,20 @@ class User extends Authenticatable
                     ["nombre"=>"Encuestas","url"=>"/encuesta"],
                 ],
 
+            ],
+            [
+                "nombre"=>"Estadisticas",
+                "url"=>"#",
+                "icono"=>"fas fa-chart-line",
+                "hijos"=>[
+                    ["nombre"=>"Clientes estado","url"=>"/chartclienteai"],
+                    ["nombre"=>"Cotizaciones por empresa","url"=>"/chart"],
+                    ["nombre"=>"Cotizaciones por estados","url"=>"/chartestados"],
+                    ["nombre"=>"Visitas por viabilidad","url"=>"/chartvisita"],
+                    ["nombre"=>"Servicios inconvenientes","url"=>"/chartencuesta"],
+                    ["nombre"=>"Encuestas recomendar VB","url"=>"/chartencuesta4"],
+                    ["nombre"=>"Encuestas volvería a VB","url"=>"/chartencuesta5"],
+                ],
             ],
         ],
         3=>[

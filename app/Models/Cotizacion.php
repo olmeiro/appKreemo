@@ -27,7 +27,12 @@ class Cotizacion extends Model
         "subtotal",
         "ivaAIU",
         "valorTotal",
+        "valorTransporte",
+        "AIUtrans",
+        "ivaAIUtrans",
+        "valorTotaltrans",
         "observaciones",
+        "observaciones2",
     ];
 
     public static $rules = [
@@ -40,15 +45,20 @@ class Cotizacion extends Model
         'IdObra' =>'required|integer',
         'FechaCotizacion' =>'required',
         'InicioBombeo' =>'required',
-        'Ciudad' =>'required|string|max:50',
-        'Losas' =>'required|numeric|between: 1,2147483646',
-        'Tuberia' =>'required|numeric|between: 1,2147483646',
+        // 'Ciudad' =>'required|string|max:50',
+        // 'Losas' =>'required|numeric|between: 1,2147483646',
+        // 'Tuberia' =>'required|numeric|between: 1,2147483646',
         'MetrosCubicos' =>'required|numeric|between: 1,2147483646',
         'ValorMetro' =>'required|numeric|between: 1,2147483646',
         'AIU' =>'required|numeric|between: 1,2147483646',
         'Subtotal' =>'required|numeric|between: 1,2147483646',
         'IvaAIU' =>'required|numeric|between: 1,2147483646',
         'ValorTotal' =>'required|numeric|between: 1,2147483646',
-        'Observaciones' =>'max:100',
+        // 'ValorTransporte' =>'required|numeric|between: 1,2147483646',
+        // 'AIUtrans' =>'required|numeric|between: 1,2147483646',
+        // 'IvaAIUtrans' =>'required|numeric|between: 1,2147483646',
+        // 'ValorTotaltrans' =>'required|numeric|between: 1,2147483646',
+        'Observaciones' =>'max:1000',
+        'Observaciones2' =>'max:1000',
     ];
 }

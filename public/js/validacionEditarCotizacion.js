@@ -7,6 +7,16 @@ function valor_total()
     document.getElementById('IvaAIU').value= ((cantidad*valor)*(0.05))*(0.19);
     document.getElementById('ValorTotal').value= ((cantidad*valor)*(0.05))*(0.19)+(cantidad*valor);
 }
+
+function valor_totaltransporte()
+{
+
+var valor = document.getElementById('ValorTransporte').value;
+document.getElementById('AIUtrans').value= (valor)*(0.05);
+document.getElementById('IvaAIUtrans').value= ((valor)*(0.05))*(0.19);
+document.getElementById('ValorTotaltrans').value=((valor)*(0.05))*(0.19)+(1*valor);
+}
+
 function soloLetras(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
@@ -138,38 +148,38 @@ $(document).ready(function() {
             validado++;
         }
 
-        if ($("#Ciudad").val() == 0) {
-            $("#val_ciudad").text("*");
-            $("#val_ciudad2").text("Debe ingresar la ciudad");
-            $("#val_ciudad3").text("Debe ingresar la ciudad");
-        }else{
-            $("#val_ciudad").text("");
-            $("#val_ciudad2").text("");
-            $("#val_ciudad3").text("");
-            validado++;
-        }
+        // if ($("#Ciudad").val() == 0) {
+        //     $("#val_ciudad").text("*");
+        //     $("#val_ciudad2").text("Debe ingresar la ciudad");
+        //     $("#val_ciudad3").text("Debe ingresar la ciudad");
+        // }else{
+        //     $("#val_ciudad").text("");
+        //     $("#val_ciudad2").text("");
+        //     $("#val_ciudad3").text("");
+        //     validado++;
+        // }
 
-        if ($("#Losas").val() == 0) {
-            $("#val_Losas").text("*");
-            $("#val_Losas2").text("Debe ingresar la cantidad de losas");
-            $("#val_Losas3").text("Debe ingresar la cantidad de losas");
-        }else{
-            $("#val_Losas").text("");
-            $("#val_Losas2").text("");
-            $("#val_Losas3").text("");
-            validado++;
-        }
+        // if ($("#Losas").val() == 0) {
+        //     $("#val_Losas").text("*");
+        //     $("#val_Losas2").text("Debe ingresar la cantidad de losas");
+        //     $("#val_Losas3").text("Debe ingresar la cantidad de losas");
+        // }else{
+        //     $("#val_Losas").text("");
+        //     $("#val_Losas2").text("");
+        //     $("#val_Losas3").text("");
+        //     validado++;
+        // }
 
-        if ($("#Tuberia").val() == 0) {
-            $("#val_Tuberia").text("*");
-            $("#val_Tuberia2").text("Debe ingresar la cantidad de tuberia");
-            $("#val_Tuberia3").text("Debe ingresar la cantidad de tuberia");
-        }else{
-            $("#val_Tuberia").text("");
-            $("#val_Tuberia2").text("");
-            $("#val_Tuberia3").text("");
-            validado++;
-        }
+        // if ($("#Tuberia").val() == 0) {
+        //     $("#val_Tuberia").text("*");
+        //     $("#val_Tuberia2").text("Debe ingresar la cantidad de tuberia");
+        //     $("#val_Tuberia3").text("Debe ingresar la cantidad de tuberia");
+        // }else{
+        //     $("#val_Tuberia").text("");
+        //     $("#val_Tuberia2").text("");
+        //     $("#val_Tuberia3").text("");
+        //     validado++;
+        // }
 
         if ($("#MetrosCubicos").val() == 0) {
             $("#val_Metros").text("*");
@@ -228,10 +238,10 @@ $(document).ready(function() {
             validado++;
         }
 
-        if (validado==18)
+        if (validado==15)
         {
             Swal.fire({
-                title:'Actualizacion exitosa',text:'Cotización Actualizada!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',
@@ -244,7 +254,7 @@ $(document).ready(function() {
         }
         else{
             Swal.fire({
-                title:'Error en la Actualizacion',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
                    //background:'#000',

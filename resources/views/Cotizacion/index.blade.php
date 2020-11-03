@@ -10,8 +10,8 @@
         <div class="card-header text-white float-right" style="background-color: #616A6B">
             <strong>Cotizaciones</strong>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
-            <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a>
-            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Reporte</a> --}}
+            <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a>
+            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a> --}}
 
 
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
@@ -66,7 +66,8 @@
                             <li><a href="#step-2">Paso 2<br /><small>Información</small></a></li>
                             <li><a href="#step-3">Paso 3<br /><small>Información</small></a></li>
                             <li><a href="#step-4">Paso 4<br /><small>Cálculos</small></a></li>
-                            <li><a href="#step-5">Paso 5<br /><small>Observaciones</small></a></li>
+                            <li><a href="#step-5">Paso 5<br /><small>Transporte</small></a></li>
+                            <li><a href="#step-6">Paso 6<br /><small>Observaciones</small></a></li>
                         </ul>
                         <div>
                             <div id="step-1">
@@ -86,6 +87,16 @@
                                         <label class="validacion" id="val_empresa2"></label>
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="">Obra</label>
+                                        <label class="validacion" id="val_Obra"></label>
+                                        <select id="IdObra" name="IdObra" class="form-control">
+                                        <option selected="selected">Seleccione una Obra</option>
+                                        </select>
+                                        <label class="validacion" id="val_Obra2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
                                         <label for="">Estado</label>
                                         <label class="validacion" id="val_Estado"></label>
                                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
@@ -97,8 +108,6 @@
                                         @enderror
                                         <label class="validacion" id="val_Estado2"></label>
                                     </div>
-                                </div>
-                                <div class="row mt-3">
                                     <div class="col-md-6">
                                         <label for="">Modalidad</label>
                                         <label class="validacion" id="val_Modalidad"></label>
@@ -112,20 +121,6 @@
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                         <label class="validacion" id="val_Modalidad2"></label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="">Etapa</label>
-                                        <label class="validacion" id="val_Etapa"></label>
-                                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
-                                            <option value="0">Seleccione una Etapa</option>
-                                            @foreach($etapa as $key =>$value)
-                                            <option value="{{ $value->id }}" {{(old('IdEtapa')==$value->id)? 'selected':''}}>{{ $value->etapa}}</option>
-                                            @endforeach
-                                        </select>
-                                        @error('IdEtapa')
-                                        <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" id="val_Etapa2"></label>
                                     </div>
                                 </div>
                             </div>
@@ -146,6 +141,22 @@
                                         <label class="validacion" id="val_Jornada2"></label>
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="">Etapa</label>
+                                        <label class="validacion" id="val_Etapa"></label>
+                                        <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
+                                            <option value="0">Seleccione una Etapa</option>
+                                            @foreach($etapa as $key =>$value)
+                                            <option value="{{ $value->id }}" {{(old('IdEtapa')==$value->id)? 'selected':''}}>{{ $value->etapa}}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('IdEtapa')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Etapa2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
                                         <label for="">Tipo de concreto</label>
                                         <label class="validacion" id="val_TipoConcreto"></label>
                                             <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
@@ -158,16 +169,6 @@
                                             <div class="invalid-feedback">{{ $message }}</div>
                                             @enderror
                                             <label class="validacion" id="val_TipoConcreto2"></label>
-                                    </div>
-                                </div>
-                                <div class="row mt-3">
-                                    <div class="col-md-6">
-                                        <label for="">Obra</label>
-                                        <label class="validacion" id="val_Obra"></label>
-                                        <select id="IdObra" name="IdObra" class="form-control">
-                                            <option selected="selected">Seleccione una Obra</option>
-                                        </select>
-                                        <label class="validacion" id="val_Obra2"></label>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">Ciudad</label>
@@ -287,10 +288,61 @@
                             </div>
                             <div id="step-5" class="">
                                 <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="">Valor transporte</label>
+                                        <label class="validacion" id="val_Valtrans"></label>
+                                        <input type="text" class="form-control @error('ValorTransporte') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorTransporte" name="ValorTransporte"  onchange="valor_totaltransporte()">
+                                        @error('ValorTransporte')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_Valtrans"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">AIU transporte</label>
+                                        <label class="validacion" id="val_AIUtrans"></label>
+                                        <input type="text" class="form-control @error('AIUtrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIUtrans" name="AIUtrans" readonly>
+                                        @error('AIUtrans')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_AIUtrans2"></label>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <label for="">IVA al AIU transporte</label>
+                                        <label class="validacion" id="val_IvaAIUtrans"></label>
+                                        <input type="text" class="form-control @error('IvaAIUtrans') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIUtrans" name="IvaAIUtrans" readonly>
+                                        @error('IvaAIUtrans')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_IvaAIUtrans2"></label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="">Valor total transporte</label>
+                                        <label class="validacion" id="val_ValorTotaltrans"></label>
+                                        <input type="text" class="form-control @error('ValorTotaltrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotaltrans" name="ValorTotaltrans" readonly>
+                                        @error('ValorTotaltrans')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                        <label class="validacion" id="val_ValorTotaltrans2"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="step-6" class="">
+                                <div class="row">
                                     <div class="col-md-12">
-                                        <label for="validationTextarea">Observaciones</label>
-                                        <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa las observaciones" ></textarea>
+                                        <label for="validationTextarea">Notas propuesta</label>
+                                        <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa notas de la propuesta economica" ></textarea>
                                         @error('Observaciones')
+                                        <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="validationTextarea">Notas letra chica</label>
+                                        <textarea class="form-control @error('Observaciones2') is-invalid @enderror " id="Observaciones2" name="Observaciones2" placeholder="Ingresa las notas de la letra chica" ></textarea>
+                                        @error('Observaciones2')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -639,6 +691,7 @@
                 });
             });
     </script>
+
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>

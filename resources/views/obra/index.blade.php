@@ -57,7 +57,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
-                                    <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}">
+                                    <input type="text" class="form-control @error('telefono1') is-invalid @enderror"  name="telefono1" id="telefono1" value="{{old('telefono1')}}" onkeypress="return soloNumeros(event)">
                                     @error('telefono1')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                     @enderror
@@ -92,7 +92,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title" id="obraLabelModal2">Crear obra</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="obraLabelModal2">Contactos de obra</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                 </div>
                 <div class="modal-body">
                 @include('flash::message')
@@ -176,11 +176,12 @@
                                 </div>
                             </div>
                             </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary float-lg-right" disabled>Editar</button>
                                     <!-- <a href="/obra" class="btn btn-danger">Cancelar</a> -->
                                 </div>
+                        </div>
+                      
                         </form>
                 </div>
             </div>
@@ -383,11 +384,20 @@
 
             //    Eliminar contacto
 
-               $('body').on('click', '#delete-contacto', function () {
+               $('body').on('click', '#delete-contacto', function (e) {
+                e.preventDefault();
 
-                x = confirm("Esta seguro de eliminar !");
-
-                if (x){
+                Swal.fire({
+                    title: '¿Está seguro que desea eliminar?',
+                    type: 'warning',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo!',
+                    cancelButtonText: 'Cancelar',
+                }).then((choice) => {
+                    if (choice.value === true) {
                     var contacto_id = $(this).data("id");
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
@@ -397,37 +407,71 @@
                         "id": contacto_id,
                         "_token": token,
                         },
-                    })
-                        .done(function(respuesta){
+                    }).done(function(respuesta){
                             if(respuesta && respuesta.ok){
                                 Swal.fire({
-                                title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                                padding:'1rem',
-                                backdrop:true,
-                                position:'center',
-                                    });
+                                    title:'Contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
+                                    backdrop:true,
+                                    position:'center',
+                                        });
                                     var table = $('#tbl_contactos').DataTable();
                                     table.ajax.reload();
                             } else {
-
-
-                            Swal.fire({
-                                title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                                padding:'1rem',
+                                Swal.fire({
+                                title:'No se puede borrar',text:'Tipo contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
                                 backdrop:true,
                                 position:'center',
-                            });
-                            var table = $('#tbl_contactos').DataTable();
-                                table.ajax.reload();
+                                });
                             }
+                        });
+                    }
+                    });
 
-                        })
+                // x = confirm("Esta seguro de eliminar !");
 
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                // if (x){
+                //     var contacto_id = $(this).data("id");
+                //     var token = $("meta[name='csrf-token']").attr("content");
+                //     $.ajax({
+                //         type: "POST",
+                //         url: "/cliente/eliminar/"+contacto_id,
+                //         data: {
+                //         "id": contacto_id,
+                //         "_token": token,
+                //         },
+                //     })
+                //         .done(function(respuesta){
+                //             if(respuesta && respuesta.ok){
+                //                 Swal.fire({
+                //                 title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                //                 padding:'1rem',
+                //                 backdrop:true,
+                //                 position:'center',
+                //                     });
+                //                     var table = $('#tbl_contactos').DataTable();
+                //                     table.ajax.reload();
+                //             } else {
+
+
+                //             Swal.fire({
+                //                 title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                //                 padding:'1rem',
+                //                 backdrop:true,
+                //                 position:'center',
+                //             });
+                //             var table = $('#tbl_contactos').DataTable();
+                //                 table.ajax.reload();
+                //             }
+
+                //         })
+
+                //         }
+                //         else
+                //         {
+                //             return false;
+                //         }
             });
 
 

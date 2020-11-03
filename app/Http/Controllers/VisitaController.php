@@ -36,9 +36,9 @@ class VisitaController extends Controller
         ->get();
 
         return DataTables::of($visita)
-        ->editColumn("estado", function($visita){
-            return $visita->estado == 1 ? "Por realizar" : "Realizada";
-        })
+        // ->editColumn("estado", function($visita){
+        //     return $visita->estado == 1 ? "Por realizar" : "Realizada";
+        // })
         ->addColumn('listaChequeo', function ($visita) {
             //return '<a type="button" class="btn btn-primary" href="/listachequeo/crear/'.$visita->id.'" ><i class="fas fa-check"></i></a>';
             if($visita->tipovisita == 'Técnica')
@@ -52,19 +52,19 @@ class VisitaController extends Controller
 
             }
         })
-        ->addColumn('cambiar', function ($visita) {
-            if($visita->estado == 1)
-            {
-                return '<a class="btn btn-danger btn-md" href="/visita/cambiar/estado/'.$visita->id.'/0">Realizada</a>';
+        // ->addColumn('cambiar', function ($visita) {
+        //     if($visita->estado == 1)
+        //     {
+        //         return '<a class="btn btn-danger btn-md" href="/visita/cambiar/estado/'.$visita->id.'/0">Realizada</a>';
 
-            }
-            else
-            {
-                return  '<a class="btn btn-success btn-md" href="/visita/cambiar/estado/'.$visita->id.'/1">Por realizar</a>';
+        //     }
+        //     else
+        //     {
+        //         return  '<a class="btn btn-success btn-md" href="/visita/cambiar/estado/'.$visita->id.'/1">Por realizar</a>';
 
-            }
-        })
-        ->rawColumns(['listaChequeo','cambiar'])
+        //     }
+        // })
+        ->rawColumns(['listaChequeo'])
         ->make(true);
 
         }
@@ -88,27 +88,27 @@ class VisitaController extends Controller
         return view('servicio.create', compact('id'));
     }
 
-    public function updateState($id, $estado){
+    // public function updateState($id, $estado){
 
-        $visita = Visita::find($id);
+    //     $visita = Visita::find($id);
 
-        if ($visita==null) {
-            Flash::error("Visita no encontrada");
-            return redirect("/visita/listarvisitas");
-        }
+    //     if ($visita==null) {
+    //         Flash::error("Visita no encontrada");
+    //         return redirect("/visita/listarvisitas");
+    //     }
 
-        try {
+    //     try {
 
-            $visita->update(["estado"=>$estado]);
-            Flash::success("Se modificó el estado de la cita");
-            return redirect("/visita/listarvisitas");
+    //         $visita->update(["estado"=>$estado]);
+    //         Flash::success("Se modificó el estado de la cita");
+    //         return redirect("/visita/listarvisitas");
 
-        } catch (\Exception $e) {
+    //     } catch (\Exception $e) {
 
-            Flash::error($e->getMessage());
-            return redirect("/visita/listarvisitas");
-        }
-    }
+    //         Flash::error($e->getMessage());
+    //         return redirect("/visita/listarvisitas");
+    //     }
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -146,9 +146,9 @@ class VisitaController extends Controller
                         "obra"=>$value->idobra,
                         "tipovisita"=>$value->tipovisita,
                         "descripcion"=>$value->descripcion,
-                        "estado"=>$value->estado,
+                        //"estado"=>$value->estado,
                         "title"=>$value->nombre_obra,
-                        "backgroundColor"=>$value->estado ==1 ? "#5EFA10" : "#FE0303",
+                        //"backgroundColor"=>$value->estado ==0 ? "#5EFA10" : "FA211E",
                         "textColor"=>"#fff"
                     ];
                     }

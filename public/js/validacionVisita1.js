@@ -9,7 +9,6 @@ $(function(){
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
       },
       customButtons:{
-
       },
       slotLabelFormat:{
         hour: '2-digit',
@@ -98,8 +97,8 @@ $(function(){
         success: function(data){
             for(var i=0; i<data.length; i++){//The background color for past events
                 if(moment(data[i].start).isBefore(moment())){//If event time is in the past change the general event background & border color
-                    data[i]["backgroundColor"]="#FFFF00";
-                    data[i]["borderColor"]="#FFFF00 ";
+                    data[i]["backgroundColor"]="#AC1210";
+                    //data[i]["borderColor"]="#FFFF00 ";
                 }
             }
         }
@@ -218,15 +217,15 @@ $(function(){
                           });
 
             }else{
-                      Swal.fire({
-                        title:'Error',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                          //width: '50%',
-                        padding:'1rem',
-                          //background:'#000',
-                        backdrop:true,
-                          //toast: true,
-                        position:'center',
-                    });
+              Swal.fire({
+                title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
             validado = 0;}
     }
     

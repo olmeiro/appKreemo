@@ -63,7 +63,7 @@
                             <div class="col-sm-12">
                                 <input type="text" class="form-control" id="tipo_concreto" name="tipo_concreto" placeholder="Digita el tipo de concreto" onkeypress="return soloLetras(event)" value="" maxlength="50" required="">
                             </div>
-                            <label class="validacion col-sm-12 control-label" id="val_TipoC2"></label>
+                            {{-- <label class="validacion col-sm-12 control-label" id="val_TipoC2"></label> --}}
                         </div>
                         <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
@@ -150,7 +150,7 @@
             let validado = 0;
 
             if($("#tipo_concreto").val()==0){
-                $("#val_TipoC").text("*");
+                $("#val_TipoC").text("* Debe ingresar el tipo de concreto");
                 $("#val_TipoC2").text("Debe ingresar el tipo de concreto");
             }else{
                 $("#val_TipoC").text("");
@@ -203,7 +203,6 @@
 
         Swal.fire({
         title: '¿Está seguro que desea eliminar?',
-        text: "No podrá recuperar los datos!",
         type: 'warning',
         showCloseButton: true,
         showCancelButton: true,

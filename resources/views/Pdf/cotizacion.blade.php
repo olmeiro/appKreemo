@@ -36,7 +36,7 @@
             left: 0cm;
             right: 0cm;
             height: 3.6cm;
-            background-color: #860606;
+            background-color: #C0504D;
             color: white;
             padding: 20px;
             /* text-align: center; */
@@ -49,7 +49,7 @@
             left: 0cm;
             right: 0cm;
             height: 1.7cm;
-            background-color: #860606;
+            background-color: #C0504D;
             color: white;
             text-align: center;
             line-height: 35px;
@@ -318,13 +318,13 @@
         <tr>
             <td class="v2">Correo electrónico</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->telefono1}}</td>
+            <td class="v2" style="text-align:center">{{$value->correo1}}</td>
             @endforeach
         </tr>
         <tr>
             <td class="v2">Celular</td>
             @foreach($cotizacion as $value)
-            <td class="v2" style="text-align:center">{{$value->correo1}}</td>
+            <td class="v2" style="text-align:center">{{$value->telefono1}}</td>
             @endforeach
         </tr>
     </table>
@@ -345,7 +345,10 @@
             <td class="v3">TOTAL</td>
         </tr>
         <tr class="v3">
-            <td class="v3">Mínima 20 m3</td>
+            @foreach($cotizacion as $value)
+            <td class="v3">Cantidad de {{$value->metrosCubicos}} m3</td>
+            @endforeach
+
             @foreach($cotizacion as $value)
             <td class="v3">{{$value->subtotal}}</td>
             @endforeach
@@ -366,16 +369,40 @@
             <td class="v3">238</td>
             <td class="v3">25.238</td>
         </tr>
+        <tr class="v3">
+            <td class="v3">Transporte (un solo trayecto) Vinicol Bombeos asume el transporte de regreso a la bodega.</td>
+            @foreach($cotizacion as $value)
+            <td class="v3">{{$value->valorTransporte}}</td>
+            @endforeach
+            @foreach($cotizacion as $value)
+            <td class="v3">{{$value->AIUtrans}}</td>
+            @endforeach
+            @foreach($cotizacion as $value)
+            <td class="v3">{{$value->ivaAIUtrans}}</td>
+            @endforeach
+            @foreach($cotizacion as $value)
+            <td class="v3">{{$value->valorTotaltrans}}</td>
+            @endforeach
+        </tr>
     </table>
     <br>
     <b> Nota: Estos precios están sujetos a visita técnica.</b>
     <br>
     <br>
-    <b><mark>En el precio especificado en cuadros no se incluye seguros y pólizas exigidas por la obra, en caso de requerirlas el valor de dicha póliza se incluye en la primera factura. Vinicol Bombeos cuenta con póliza sombrilla y empresa protegida.</mark></b>
+
     <footer>
         <strong class="Pag">Pag 4</strong>
     </footer>
+
     <div class="page-break"></div>
+    <br>
+    <br>
+
+    @foreach($cotizacion as $value)
+            <b><mark>Nota:{{$value->observaciones}} </mark></b>
+    @endforeach
+
+    <br>
     <br>
     <b>LETRA CHICA</b>
     <br>
@@ -385,6 +412,19 @@
     <p class="fz2">• El transporte de la tubería o accesorios necesarios adicionales en la obra deben ser asumidos por la obra, PARA CASOS QUE SUPEREN EL KIT DE TUBERIA DE 80 m (60 m de tubería más 20 m de accesorios)</p>
     <p class="fz2">• El transporte de tubería adicional tiene un costo de $ 80.000 por trayecto (carro de estacas caben 15 tubos =45 metros lineales)</p>
     <p class="fz2">• Metros de tubería adicional al kit de la mensualidad se cotiza por aparte.</p>
+
+    @foreach($cotizacion as $value)
+            <b><mark>Nota:{{$value->observaciones2}} </mark></b>
+    @endforeach
+
+
+    <footer>
+        <strong class="Pag">Pag 5</strong>
+    </footer>
+    <div class="page-break"></div>
+
+
+
     <p class="PCA">4. ALCANCE DEL SERVICIO</p>
     <p class="fz2">• Se entrega la bomba con operador y auxiliar con toda la dotación necesaria para la actividad del bombeo: casco, arnés, tapa oídos, gafas, guantes, botas platineras, botas pantaneras, uniforme de la empresa.</p>
     <p class="fz2">• La bomba llega con el ACPM necesario para prestar el servicio.</p>
@@ -394,12 +434,14 @@
     <p class="fz2">• En caso de necesitar más tubería se debe hacer solicitud al Director de Operaciones con anterioridad para su gestión según disponibilidad en inventarios.</p>
     <p class="fz2">• Si la obra lo solicita, se entrega hoja de vida y ficha técnica de la bomba y programa de mantenimiento preventivo durante el tiempo que este en la obra.</p>
     <p class="fz2">• El alcance del servicio es de transporte de concreto, no de colocación del concreto y su riego. La obra acepta hacerse responsable de cualquier imprevisto ocasionado en la colocación del concreto.</p>
+
     <p class="PCA">5. RESPONSABILIDAD VINICOL BOMBEOS</p>
+
     <p class="fz2">• En caso de presentarse daños de la bomba se hará proceso de mantenimiento en sitio.</p>
     <p class="fz2">• Todos los días el personal nuestro entregaran informe de la labor diaria, la cual debe ser firmada por el Ingeniero encargado y tendrá un espacio para las recomendaciones y sugerencias (es muy importante la revisión de la planilla diaria de trabajo, ya que se reporta el horario de los trabajadores en obra y los m3 bombeados)</p>
     <p class="fz2">• Una vez se ha aceptado el servicio Vinicol Bombeos hace una visita para inspeccionar el terreno y definir las condiciones necesarias (terreno firme y suficiente para una operación segura).</p>
     <footer>
-        <strong class="Pag">Pag 5</strong>
+        <strong class="Pag">Pag 6</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCB">5.1 PERSONAL DE LA BOMBA</p>
@@ -427,7 +469,7 @@
     <p class="fz2">• Vinicol Bombeos como Contratista no se hace responsable del trabajo realizado por Terceros o colaboradores que ponga la obra u otros contratistas, subcontratistas o empleados de los mismos en las labores de colocación del concreto y o similares.</p>
     <p class="fz2">• El personal siempre debe estar acompañado de un encargado hasta que el personal termine su labor de lavado de la tubería.</p>
     <footer>
-        <strong class="Pag">Pag 6</strong>
+        <strong class="Pag">Pag 7</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCA">6. RESPONSABILIDAD DE LA OBRA</p>
@@ -447,7 +489,7 @@
     <p class="fz2">14. Si la bomba queda en la obra durante toda la semana y hay algún día que no se utilice, se factura el día con valor del mínimo.</p>
     <p class="fz2">15. Es responsabilidad de la obra el velar por la seguridad del equipo de bombeo y sus accesorios cuando la máquina se encuentre en las instalaciones de la obra.</p>
     <footer>
-        <strong class="Pag">Pag 7</strong>
+        <strong class="Pag">Pag 8</strong>
     </footer>
     <div class="page-break"></div>
     <p class="fz2">16. La obra deberá suministrar los lazos y/o las herramientas necesarias para fijar la tubería en la estructura.</p>
@@ -471,7 +513,7 @@
     <p class="fz2">• Detectar personas cercanas alrededor del punto de operación y solicitarle su retiro a prudente distancia, al menos a 3mts para no interferir con los equipos de bombeo, con tuberías y demás accesorios.</p>
     <p class="fz2">• Dar aviso oportuno de alguna novedad o irregularidad en el bombeo o que pueda ocasionar un accidente (taponamientos, fugas, etc).</p>
     <footer>
-        <strong class="Pag">Pag 8</strong>
+        <strong class="Pag">Pag 9</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCB">EXCLUSIONES</p>
@@ -497,7 +539,7 @@
     <p class="fz2">• Acompañar a los empleados en la lavada y recogida de tubería por parte de la obra, debe haber un líder en este proceso.</p>
     <p class="fz2">• Todos los empleados en la losa deben usar gafas, ya que puede salpicar en la cara el concreto.</p>
     <footer>
-        <strong class="Pag">Pag 9</strong>
+        <strong class="Pag">Pag 10</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCB">SEGURIDAD DURANTE LA DESCARGA Y CARGUE DE LA BOMBA CON LA GRUA O CAMA BAJA</p>
@@ -519,7 +561,7 @@
     <p class="fz2">Arenas con mezcla de piedra presentan probabilidad de taponamiento</p>
     <p class="fz2">Triturados con piedras de 1 pulgada o mas</p>
     <footer>
-        <strong class="Pag">Pag 10</strong>
+        <strong class="Pag">Pag 11</strong>
     </footer>
     <div class="page-break"></div>
 
@@ -542,7 +584,7 @@
     <p class="PCB">ALTURAS DE 12 PISOS EN ADELANTE</p>
     <p class="fz2">Alturas de mas de 12 pisos o largos trayectos: Se debe realizar una evaluación del diseño, el concreto debe tener un triturado de 3/8 y debe ser fluido.</p>
     <footer>
-        <strong class="Pag">Pag 11</strong>
+        <strong class="Pag">Pag 12</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCB">BOMBEOS EN BAJADA (CON SIFON)</p>
@@ -563,7 +605,7 @@
     <p class="fz2">6. La obra debe suministrar plástico personal y carretas para reubicar el concreto.</p>
     <p class="fz2">7. La obra debe tener un plan de reubicación del concreto para evitar desperdicios, en algunas obras hemo identificado que lo usan para hacer topellantas, mesas para el caspete o bordillos separadores.</p>
     <footer>
-        <strong class="Pag">Pag 12</strong>
+        <strong class="Pag">Pag 13</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCB">7.7 POLÍTICAS EN LA COLOCACIÓN DEL CONCRETO</p>
@@ -585,7 +627,7 @@
     <p class="PCA">8 QUE HACER EN CASO DE VARADAS O TAPONAMIENTOS</p>
     <p class="fz2">La obra debe tener un encargado asignado para pedir y cancelar el concreto ante eventualidades, Vinicol Bombeos se hace responsable del 1er carro, el resto es coordinación de la obra cancelar el suministro hasta que se pueda reanudar el concreto, cabe resaltar que Vinicol Bombeos no podrá asumir perdidas de concreto por taponamiento ya que los motivos de taponamiento por lo general son de manejabilidad del concreto y no de la bomba, para los casos que no sea el concreto se debe demostrar que es causa de la bomba.</p>
     <footer>
-        <strong class="Pag">Pag 13</strong>
+        <strong class="Pag">Pag 14</strong>
     </footer>
     <div class="page-break"></div>
     <p class="PCA">9 CONDICIONES COMERCIALES</p>
@@ -627,7 +669,7 @@
 
 
     <footer>
-        <strong class="Pag">Pag 14</strong>
+        <strong class="Pag">Pag 15</strong>
     </footer>
 </body>
 </html>

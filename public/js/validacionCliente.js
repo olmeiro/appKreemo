@@ -176,6 +176,8 @@ $(document).ready(function() {
          else
          {
              $("#valObra").text("");
+             validado++;
+
          }
 
 
@@ -206,6 +208,8 @@ $(document).ready(function() {
          }
          else{
              $("#valApellido2").text("");
+             validado++;
+
          }
 
          var documento = document.getElementById("documento");
@@ -216,6 +220,8 @@ $(document).ready(function() {
          else
          {
              $("#valDocumento").text("");
+             validado++;
+
          }
 
          if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
@@ -241,6 +247,8 @@ $(document).ready(function() {
          }
          else{
              $("#valTelefono2").text("");
+             validado++;
+
          }
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
@@ -252,6 +260,8 @@ $(document).ready(function() {
          else
          {
              $("#valCorreo1").text("");
+             validado++;
+
          }
 
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
@@ -261,11 +271,13 @@ $(document).ready(function() {
          else
          {
              $("#valCorreo2").text("");
+             validado++;
+
          }
 
          console.log("validado: " + validado);
 
-         if(validado == 4)
+         if(validado == 10)
          {
             var fd = new FormData(document.getElementById("frmCrearContacto"));
 
@@ -282,17 +294,36 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se registro el nuevo tipo contacto.');
+                    Swal.fire({
+                        title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
+
                     limpiar();
+
+                    
                   }
                   else{
-                    Swal.fire('No se puedo crear el nuevo tipo contacto.');
+                    Swal.fire('No se puedo crear el nuevo contacto.');
                   }
                 })
          }
          else
          {
-             Swal.fire('Faltan campos por diligenciar.');
+            Swal.fire({
+                title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
              validado = 0;
          }
 
@@ -421,7 +452,15 @@ $(document).ready(function() {
                 }).done(function(respuesta){
                   if(respuesta.ok)
                   {
-                    Swal.fire('Se modificó el contacto.');
+                    Swal.fire({
+                        title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
                      $("#exampleModal4").modal('hide');//ocultamos el modal
                      $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                      $('.modal-backdrop').remove();//eliminamos el backdrop del modal
@@ -436,7 +475,15 @@ $(document).ready(function() {
          }
          else
          {
-             Swal.fire('Faltan campos por diligenciar.');
+            Swal.fire({
+                title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
              validado = 0;
          }
 
@@ -510,49 +557,49 @@ function soloLetras(e) {
 $('body').on('click', '#delete-cliente', function (e) {
     e.preventDefault();
 
-    x = confirm("Esta seguro de eliminar !");
-
-    if (x){
-        var cliente_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "POST",
-            url: "/cliente/eliminar/"+cliente_id,
-            data: {
-            "id": cliente_id,
-            "_token": token,
-            },
-        })
-            .done(function(respuesta){
-                if(respuesta && respuesta.ok){
+    Swal.fire({
+        title: '¿Está seguro que desea eliminar?',
+        type: 'warning',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar',
+    }).then((choice) => {
+        if (choice.value === true) {
+          var cliente_id = $(this).data("id");
+          var token = $("meta[name='csrf-token']").attr("content");
+          $.ajax({
+              type: "POST",
+              url: "/cliente/eliminar/"+cliente_id,
+              data: {
+              "id": cliente_id,
+              "_token": token,
+              },
+          }).done(function(respuesta){
+                  if(respuesta && respuesta.ok){
+                      Swal.fire({
+                        title:'Contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
+                        backdrop:true,
+                        position:'center',
+                            });
+                          var table = $('#tbl_contacto').DataTable();
+                          table.ajax.reload();
+                  } else {
                     Swal.fire({
-                      title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                      padding:'1rem',
+                      title:'No se puede borrar',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                        padding:'1rem',
                       backdrop:true,
                       position:'center',
-                          });
-                        var table = $('#tbl_contacto').DataTable();
-                        table.ajax.reload();
-                } else {
-
-
-                  Swal.fire({
-                    title:'No se puede borrar',text:'El contacto está en uso.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                     padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                });
-                var table = $('#tbl_contacto').DataTable();
-                    table.ajax.reload();
+                    });
                 }
+            });
+          }
+        });
 
-              })
 
-    }
-    else
-    {
-    return false;
-    }
 });
 
 

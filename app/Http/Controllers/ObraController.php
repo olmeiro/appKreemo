@@ -26,11 +26,9 @@ class ObraController extends Controller
         $obra = Obra::select("obra.*","empresa.nombre as empresa")
         ->join("empresa","obra.idempresa","=","empresa.id")
         ->get();
-        //dd($obra);
 
         return DataTables::of($obra)
         ->addColumn('editar', function ($obra) {
-            // return '<a class="btn btn-primary btn-md" href="/obra/editar/'.$obra->id.'"><i class="fas fa-edit"></i></a>';
             return '<a class="btn btn-primary btn-md" data-toggle="modal" data-target="#verModal5" id="editar-obra" data-id='.$obra->id.' ><i class="far fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
 
         })
@@ -59,9 +57,7 @@ class ObraController extends Controller
         return DataTables::of($contactos)
         ->addIndexColumn()
         ->addColumn('eliminar', function ($contactos) {
-
             return '<a id="delete-contacto"  data-id='.$contactos->id.' class="btn btn-danger delete-cliente" ><i class="fas fa-trash-alt"></i></a>';
-
         })
         ->rawColumns(['eliminar'])
         ->make(true);
@@ -70,8 +66,6 @@ class ObraController extends Controller
 
     public function pasarid($id)
     {
-        $id;
-        //dd($id);
         return view('obra.create', compact('id'));
     }
 
@@ -90,11 +84,9 @@ class ObraController extends Controller
 
             ]);
 
-            Flash::error("Obra creada con éxito");
             return redirect("/obra");
 
         } catch (\Exception $e ) {
-            Flash::error("Obra no creada");
             return redirect("/obra");
         }
     }
@@ -149,13 +141,9 @@ class ObraController extends Controller
 
             $obra->delete();
             return response()->json(["ok"=>true]);
-            //Flash::success('Obra ('.$obra->nombre. ') eliminada.');
-            // return redirect('/cliente');
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            //Flash::success('No puedes eliminar este cliente.');
-            // return redirect("/cliente");
         }
     }
 

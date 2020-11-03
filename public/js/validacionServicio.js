@@ -4,18 +4,9 @@ $(function(){
     calendar = new FullCalendar.Calendar(calendarEl, {
         locale: 'es',
       headerToolbar: {
-        left: 'prev,next today Miboton',
+        left: 'prev,next today',
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay'
-      },
-      customButtons:{
-        Miboton:{
-            text:"Estados Servicio",
-            click:function(){
-                window.location.href = "/estadoservicio";
-            }
-        },
-
       },
       slotLabelFormat:{
         hour: '2-digit',
@@ -101,7 +92,18 @@ $(function(){
         // your event source
         {
           url: '/servicio/show', // use the `url` property
-          color: 'yellow',    // an option!
+          textColor: 'red' , // an option!
+            error: function() {
+            $('#script-warning').show();
+        },
+        success: function(data){
+            for(var i=0; i<data.length; i++){//The background color for past events
+                if(moment(data[i].start).isBefore(moment())){//If event time is in the past change the general event background & border color
+                    data[i]["backgroundColor"]="#10AC33";
+                   // data[i]["borderColor"]="#FFFF00 ";
+                }
+            }
+        }
         }
 
         // any other sources...
@@ -163,9 +165,6 @@ $(function(){
         if ($("#fechainicio").val().length == 0 ){
             $("#valfecha").text("*");
             $("#valfecha2").text("Elija una Fecha");
-        }else if(fecha > fechainicio){
-            $("#valfecha").text("*");
-            $("#valfecha2").text("La fecha de inicio debe ser mayor a la fecha actual");
         }else{
             $("#valfecha").text("");
             $("#valfecha2").text("");
@@ -243,15 +242,15 @@ $(function(){
                     console.log(msg);}}),
                     $("#agendaservicio_modal").modal('toggle');
                     calendar.refetchEvents();
-            Swal.fire({
-                title:'Registro exitoso',text:'Servicio guardado!!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
-                padding:'1rem',
-                    //background:'#000',
-                backdrop:true,
-                    //toast: true,
-                position:'center',
-                    });
+                    Swal.fire({
+                        title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                           //width: '50%',
+                        padding:'1rem',
+                           //background:'#000',
+                        backdrop:true,
+                           //toast: true,
+                        position:'center',
+                            });
 
                     $('#agendaservicio_modal').on('hidden.bs.modal', function () {
                         //location.reload();
@@ -276,15 +275,15 @@ $(function(){
                     $("select").val("0");
                     $("textarea").val("");
         }else{
-                Swal.fire({
-                    title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
-                    padding:'1rem',
-                    //background:'#000',
-                    backdrop:true,
-                    //toast: true,
-                    position:'center',
-                });
+            Swal.fire({
+                title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                   //width: '50%',
+                padding:'1rem',
+                   //background:'#000',
+                backdrop:true,
+                   //toast: true,
+                position:'center',
+            });
               validado = 0;}
     }
 })

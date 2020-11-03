@@ -61,13 +61,11 @@ class ClientesController extends Controller
     {
         $tipoContacto = tipoContacto::all();
         $id;
-        //dd($id);
         return view('cliente.create', compact('id',"tipoContacto"));
     }
 
     public function store(Request $request)
     {
-
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
                 "idobra" => $request->idobra,
@@ -83,14 +81,11 @@ class ClientesController extends Controller
                 "correo2" => $request->correo2,
                 ]);
 
-                //Flash::success("Registro éxitoso de contacto");
                 return redirect("/obra");
-                //return response()->json(["ok"=>true]);
-
     }
+
     public function store1(Request $request)
     {
-
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
                 "idobra" => $request->cidobra,
@@ -107,12 +102,11 @@ class ClientesController extends Controller
                 ]);
 
                 return response()->json(["ok"=>true]);
-
+                
     }
 
     public function store2(Request $request)
     {
-
             $cId = $request->cliente_id;
             Cliente::updateOrCreate(['id' => $cId],[
                 "idobra" => $request->cidobra,
@@ -129,7 +123,6 @@ class ClientesController extends Controller
                 ]);
 
                 return response()->json(["ok"=>true]);
-
     }
 
     public function save(Request $request){
@@ -150,7 +143,6 @@ class ClientesController extends Controller
                   "telefono2" =>$input["telefono2"],
                   "correo1" =>$input["correo1"],
                   "correo2" =>$input["correo2"],
-
               ]);
 
               return response()->json(["ok"=>true]);
@@ -182,14 +174,11 @@ class ClientesController extends Controller
 
             ]);
 
-            Flash::success("Registro éxitoso de contacto");
             return response()->json(["ok"=>true]);
-            //return redirect("/cliente");
 
         } catch (\Exception $e ) {
             Flash::error($e->getMessage());
             return response()->json(["ok"=>false]);
-            //return redirect("/cliente/crear");
         }
   }
 
@@ -247,16 +236,10 @@ class ClientesController extends Controller
             }
 
             $cliente->delete();
-            //return Response::json($cliente);
-            // $cliente->delete($id);
             return response()->json(["ok"=>true]);
-            // Flash::success('Cliente ('.$cliente->nombre. ') eliminado');
-            // return redirect('/cliente');
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            // Flash::success('No puedes eliminar este cliente.');
-            // return redirect("/cliente");
         }
     }
 
