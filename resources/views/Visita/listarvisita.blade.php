@@ -17,10 +17,10 @@
                     <th>Fecha</th>
                     <th>Hora inicio</th>
                     <th>Hora final</th>
-                    <th>Estado</th>
+                    <!-- <th>Estado</th> -->
                     <th>Descripción</th>
                     <th>Lista de chequeo</th>
-                    <th>Cambiar estado</th>
+                    <!-- <th>Cambiar estado</th> -->
                 </tr>
                 </thead>
                 <tbody>
@@ -69,10 +69,10 @@
                         data: 'horafinal',
                         name: 'horafinal'
                     },
-                    {
-                        data: 'estado',
-                        name: 'estado'
-                    },
+                    // {
+                    //     data: 'estado',
+                    //     name: 'estado'
+                    // },
                     {
                         data: 'descripcion',
                         name: 'descripcion'
@@ -82,12 +82,13 @@
                         name: 'listaChequeo',
                         orderable: false,
                         searchable: false
-                     },{
-                        data: 'cambiar',
-                        name: 'cambiar',
-                        orderable: false,
-                        searchable: false
-                     }
+                     },
+                    //,{
+                    //     data: 'cambiar',
+                    //     name: 'cambiar',
+                    //     orderable: false,
+                    //     searchable: false
+                    //  }
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",

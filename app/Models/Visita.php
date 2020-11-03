@@ -18,7 +18,7 @@ class Visita extends Model
         "fecha",
         "horainicio",
         "horafinal",
-        "estado",
+        //"estado",
         "descripcion",
 
 
@@ -30,7 +30,7 @@ class Visita extends Model
         'fecha' =>'required',
         'horainicio'=> 'required',
         'horafinal'=> 'required',
-        'estado' => 'in:1,0',
+        //'estado' => 'in:1,0',
     ];
 
     protected $dates = ['deleted_at'];
