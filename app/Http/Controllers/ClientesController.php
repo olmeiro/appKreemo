@@ -107,7 +107,7 @@ class ClientesController extends Controller
                 ]);
 
                 return response()->json(["ok"=>true]);
-
+                
     }
 
     public function store2(Request $request)
@@ -182,7 +182,7 @@ class ClientesController extends Controller
 
             ]);
 
-            Flash::success("Registro éxitoso de contacto");
+            //Flash::success("Registro éxitoso de contacto");
             return response()->json(["ok"=>true]);
             //return redirect("/cliente");
 

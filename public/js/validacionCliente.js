@@ -176,6 +176,8 @@ $(document).ready(function() {
          else
          {
              $("#valObra").text("");
+             validado++;
+
          }
 
 
@@ -206,6 +208,8 @@ $(document).ready(function() {
          }
          else{
              $("#valApellido2").text("");
+             validado++;
+
          }
 
          var documento = document.getElementById("documento");
@@ -216,6 +220,8 @@ $(document).ready(function() {
          else
          {
              $("#valDocumento").text("");
+             validado++;
+
          }
 
          if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
@@ -241,6 +247,8 @@ $(document).ready(function() {
          }
          else{
              $("#valTelefono2").text("");
+             validado++;
+
          }
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
@@ -252,6 +260,8 @@ $(document).ready(function() {
          else
          {
              $("#valCorreo1").text("");
+             validado++;
+
          }
 
          if($("#correo2").val().length == 0 || !emailRegex.test($("#correo2").val()))
@@ -261,11 +271,13 @@ $(document).ready(function() {
          else
          {
              $("#valCorreo2").text("");
+             validado++;
+
          }
 
          console.log("validado: " + validado);
 
-         if(validado == 4)
+         if(validado == 10)
          {
             var fd = new FormData(document.getElementById("frmCrearContacto"));
 
@@ -291,7 +303,10 @@ $(document).ready(function() {
                            //toast: true,
                         position:'center',
                             });
+
                     limpiar();
+
+                    
                   }
                   else{
                     Swal.fire('No se puedo crear el nuevo contacto.');
