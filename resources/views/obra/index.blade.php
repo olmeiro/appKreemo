@@ -384,11 +384,20 @@
 
             //    Eliminar contacto
 
-               $('body').on('click', '#delete-contacto', function () {
+               $('body').on('click', '#delete-contacto', function (e) {
+                e.preventDefault();
 
-                x = confirm("Esta seguro de eliminar !");
-
-                if (x){
+                Swal.fire({
+                    title: '¿Está seguro que desea eliminar?',
+                    type: 'warning',
+                    showCloseButton: true,
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, eliminarlo!',
+                    cancelButtonText: 'Cancelar',
+                }).then((choice) => {
+                    if (choice.value === true) {
                     var contacto_id = $(this).data("id");
                     var token = $("meta[name='csrf-token']").attr("content");
                     $.ajax({
@@ -398,37 +407,71 @@
                         "id": contacto_id,
                         "_token": token,
                         },
-                    })
-                        .done(function(respuesta){
+                    }).done(function(respuesta){
                             if(respuesta && respuesta.ok){
                                 Swal.fire({
-                                title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                                padding:'1rem',
-                                backdrop:true,
-                                position:'center',
-                                    });
+                                    title:'Contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
+                                    backdrop:true,
+                                    position:'center',
+                                        });
                                     var table = $('#tbl_contactos').DataTable();
                                     table.ajax.reload();
                             } else {
-
-
-                            Swal.fire({
-                                title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                                padding:'1rem',
+                                Swal.fire({
+                                title:'No se puede borrar',text:'Tipo contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
                                 backdrop:true,
                                 position:'center',
-                            });
-                            var table = $('#tbl_contactos').DataTable();
-                                table.ajax.reload();
+                                });
                             }
+                        });
+                    }
+                    });
 
-                        })
+                // x = confirm("Esta seguro de eliminar !");
 
-                        }
-                        else
-                        {
-                            return false;
-                        }
+                // if (x){
+                //     var contacto_id = $(this).data("id");
+                //     var token = $("meta[name='csrf-token']").attr("content");
+                //     $.ajax({
+                //         type: "POST",
+                //         url: "/cliente/eliminar/"+contacto_id,
+                //         data: {
+                //         "id": contacto_id,
+                //         "_token": token,
+                //         },
+                //     })
+                //         .done(function(respuesta){
+                //             if(respuesta && respuesta.ok){
+                //                 Swal.fire({
+                //                 title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                //                 padding:'1rem',
+                //                 backdrop:true,
+                //                 position:'center',
+                //                     });
+                //                     var table = $('#tbl_contactos').DataTable();
+                //                     table.ajax.reload();
+                //             } else {
+
+
+                //             Swal.fire({
+                //                 title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                //                 padding:'1rem',
+                //                 backdrop:true,
+                //                 position:'center',
+                //             });
+                //             var table = $('#tbl_contactos').DataTable();
+                //                 table.ajax.reload();
+                //             }
+
+                //         })
+
+                //         }
+                //         else
+                //         {
+                //             return false;
+                //         }
             });
 
 
