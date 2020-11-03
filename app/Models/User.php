@@ -105,7 +105,7 @@ class User extends Authenticatable
             [
                 "nombre"=>"Estadisticas",
                 "url"=>"#",
-                "icono"=>"fas fa-tasks",
+                "icono"=>"fas fa-chart-bar",
                 "hijos"=>[
                     ["nombre"=>"Clientes estado","url"=>"/chartclienteai"],
                     ["nombre"=>"Cotizaciones por empresa","url"=>"/chart"],

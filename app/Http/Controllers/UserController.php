@@ -34,8 +34,8 @@ public function index(Request $request)
     ->addColumn('action', function($row){
 
         $action = '
-        <a class="btn btn-success" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye regular"></i></a>
-        <a class="btn btn-primary" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
+        <a class="btn btn-success btn-sm" id="show-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-eye regular"></i></a>
+        <a class="btn btn-primary btn-sm" id="edit-user" data-toggle="modal" data-id='.$row->id.'><i class="fas fa-edit"></i></a>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         ';
 
@@ -49,7 +49,7 @@ public function index(Request $request)
     ->addColumn('cambiar', function ($data) {
         if($data->estado == 1)
         {
-            return '<a class="btn btn-danger btn-md" href="/user/cambiar/estado/'.$data->id.'/0">Inactivar</a>';
+            return '<a class="btn btn-danger btn-sm" href="/user/cambiar/estado/'.$data->id.'/0">Inactivar</a>';
 
         }
         else
