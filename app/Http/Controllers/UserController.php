@@ -54,7 +54,7 @@ public function index(Request $request)
         }
         else
         {
-            return  '<a class="btn btn-success btn-md" href="/user/cambiar/estado/'.$data->id.'/1">Activar</a>';
+            return  '<a class="btn btn-success btn-sm" href="/user/cambiar/estado/'.$data->id.'/1">Activar</a>';
 
         }
     })

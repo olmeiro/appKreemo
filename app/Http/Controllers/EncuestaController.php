@@ -8,7 +8,8 @@ use DataTables;
 
 use App\Models\Encuesta;
 use App\Models\Obra;
-use App\Models\Clientes;
+use App\Models\Empresa;
+use App\Models\Cotizacion;
 use App\Models\Servicio;
 
 
@@ -42,7 +43,7 @@ class EncuestaController extends Controller
 
 
     if ($encuesta==null) {
-        
+
         Flash::error("Encuesta no encontrada");
         return redirect("/encuesta");
     }
@@ -52,10 +53,18 @@ class EncuestaController extends Controller
     }
 
     public function pasarid($id)
-    {   
+    {
+
+        $empresa = Empresa::select("empresa.*", "empresa.nombre", "empresa.correo1")
+        ->join("cotizacion", "cotizacion.idEmpresa","=","empresa.id")
+        ->join("servicio", "servicio.idcotizacion","=","cotizacion.id")
+        ->where("servicio.id", $id)
+        ->get();
+
+        //dd($empresa);
         $id;
         //dd($id);
-        return view('encuesta.create', compact('id'));
+        return view('encuesta.create', compact('id', 'empresa'));
     }
 
     public function create(){

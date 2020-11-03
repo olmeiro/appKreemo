@@ -26,7 +26,7 @@
                             <label class="validacion" for="idservicio" id="valIdServicio2"></label>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="">Nombre del director de la obra</label>
+                            <label for="">Nombre (Quien responde la encuesta)</label>
                             <label class="validacion" for="directorobra" id="valDirectorObra"></label>
                             <input type="text" class="form-control @error('directorobra') is-invalid @enderror" id="directorobra" name="directorobra" value="{{old('directorobra')}}">
                             @error('directorobra')
@@ -36,7 +36,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Constructora</label>
                             <label class="validacion" for="constructora" id="valConstructora"></label>
-                            <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{old('constructora')}}">
+                            <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{$empresa[0]->nombre}}">
                             @error('constructora')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -47,7 +47,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Correo</label>
                             <label class="validacion" for="correo" id="valCorreo"></label>
-                            <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{old('correo')}}">
+                            <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{$empresa[0]->correo1}}">
                             @error('correo')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
