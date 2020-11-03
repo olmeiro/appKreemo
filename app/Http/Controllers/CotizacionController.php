@@ -110,6 +110,10 @@ class CotizacionController extends Controller
                 'subtotal' =>$input["Subtotal"],
                 'ivaAIU' =>$input["IvaAIU"],
                 'valorTotal' =>$input["ValorTotal"],
+                'valorTransporte' =>$input["ValorTransporte"],
+                'AIUtrans' =>$input["AIUtrans"],
+                'ivaAIUtrans' =>$input["IvaAIUtrans"],
+                'valorTotaltrans' =>$input["ValorTotaltrans"],
                 'observaciones' =>$input["Observaciones"],
                 'observaciones2' =>$input["Observaciones2"],
             ]);
@@ -176,6 +180,10 @@ class CotizacionController extends Controller
                 'subtotal' =>$input["Subtotal"],
                 'ivaAIU' =>$input["IvaAIU"],
                 'valorTotal' =>$input["ValorTotal"],
+                'valorTransporte' =>$input["ValorTransporte"],
+                'AIUtrans' =>$input["AIUtrans"],
+                'ivaAIUtrans' =>$input["IvaAIUtrans"],
+                'valorTotaltrans' =>$input["ValorTotaltrans"],
                 'observaciones' =>$input["Observaciones"],
                 'observaciones2' =>$input["Observaciones2"],
             ]);
