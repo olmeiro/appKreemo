@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use App\Models\Empresa;
-use Flash;
 use DataTables;
 
 use Illuminate\Http\Request, Response;
@@ -98,15 +97,12 @@ class ObraController extends Controller
         return view('obra.create', compact('obra'));
     }
 
-
-
     public function edit($id){
 
         $obra = Obra::find($id);
 
         if ($obra==null) {
 
-            Flash::error("Obra no encontrada");
             return redirect("/obra");
         }
 
@@ -135,7 +131,6 @@ class ObraController extends Controller
             $obra = Obra::find($id);
 
             if (empty($obra)) {
-                Flash::error('Obra no encontrada');
                 return redirect('/obracontacto/listar');
             }
 
@@ -146,5 +141,4 @@ class ObraController extends Controller
             return response()->json(["ok"=>false]);
         }
     }
-
 }

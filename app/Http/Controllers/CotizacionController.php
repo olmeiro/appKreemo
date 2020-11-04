@@ -42,7 +42,6 @@ class CotizacionController extends Controller
         $input = $request->all();
 
         dd($input);
-        // return view('cotizacion.wizardModal');
 
     }
 
@@ -277,13 +276,10 @@ class CotizacionController extends Controller
             ->join("obra", "cotizacion.idObra", "=", "obra.id")
             ->where("cotizacion.id", [$input["id"]])
             ->get();
-        // dd($cotizacion);
         if (count($cotizacion) > 0) {
 
             $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
 
-
-            //return $pdf->download('informe.pdf');
             return $pdf->stream('informe.pdf');
         }else{
             Flash::error("Reporte de Cotización NO encontrado");
@@ -301,7 +297,6 @@ class CotizacionController extends Controller
         ->where("obra.idempresa","=", [$input["id"]])
         ->get();
 
-        //return response()->json($obra);
         return response(json_encode($obra), 200)->header('Content-type','text/plain');
     }
 

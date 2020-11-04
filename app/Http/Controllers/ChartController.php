@@ -2,10 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
 use App\Models\Cotizacion;
 use App\Models\Empresa;
-use App\Models\Visita;
 use App\Models\ListaChequeo;
 use Illuminate\Http\Request;
 use App\Models\Encuesta;
@@ -36,7 +34,6 @@ class ChartController extends Controller
         ->get();
 
 
-        //id=1 Inversion Artemisa
 
         return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');
 
@@ -48,10 +45,7 @@ class ChartController extends Controller
         $listachequeo = ListaChequeo::select( "listachequeo.id","listachequeo.viabilidad", "listachequeo.idvisita","listachequeo.numeroplanilla", "obra.nombre as nombre_obra")
         ->join("visita","visita.id", "=", "listachequeo.idvisita")
         ->join("obra", "obra.id", "=", "visita.idobra")
-        // ->where('listachequeo.id', '=', 1)
         ->get();
-
-        //id=1 Inversion Artemisa
 
         return response(json_encode($listachequeo), 200)->header('Content-type','text/plain');
     }
@@ -130,16 +124,4 @@ class ChartController extends Controller
 
         return response(json_encode($empresa), 200)->header('Content-type','text/plain');
     }
-
-
 }
-
-
-// $cotizacion = Cotizacion::select( "empresa.nombre as nombre_empresa", "cotizacion.valorTotal")
-// ->join("empresa","cotizacion.idEmpresa", "=", "empresa.id")
-// ->where('empresa.id', '=', 1)
-// ->get();
-
-// //id=1 Inversion Artemisa
-
-// return response(json_encode($cotizacion), 200)->header('Content-type','text/plain');

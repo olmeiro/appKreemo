@@ -72,7 +72,7 @@ class EmpresaController extends Controller
                 "telefono1" =>$input["telefono1"],
                 "correo1" =>$input["correo1"],
             ]);
-           
+
             return response()->json(["ok"=>true]);
 
         } catch (\Exception $e ) {
@@ -84,7 +84,7 @@ class EmpresaController extends Controller
     {
         $where = array('id' => $id);
         $empresa = Empresa::where($where)->first();
-    
+
         return Response::json($empresa);
     }
 
@@ -124,22 +124,6 @@ class EmpresaController extends Controller
     }
 
 
-
-        /**
-    * Remove the specified resource from storage.
-    *
-    * @param int $id
-    * @return \Illuminate\Http\Response
-    */
-
-    // public function destroy($id)
-    // {
-    //     $empresa = Empresa::where('id',$id)->delete();
-    //     return response()->json(["ok"=>true]);
-    //     //return Response::json($empresa);
-    //     //return redirect()->route('users.index');
-    // }
-
     public function destroy($id){
 
          try
@@ -160,4 +144,3 @@ class EmpresaController extends Controller
     }
 
 }
-
