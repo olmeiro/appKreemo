@@ -45,6 +45,7 @@ class ObraContactoController extends Controller
             "telefono1" => $input["telefono1"],
             "correo1" => $input["correo1"],
         ]);
+        
 
         foreach ($input["contacto_id"] as $key => $value) {
         

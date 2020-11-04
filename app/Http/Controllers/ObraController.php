@@ -84,7 +84,7 @@ class ObraController extends Controller
 
             ]);
 
-            return redirect("/obra");
+           return redirect("/obra");
 
         } catch (\Exception $e ) {
             return redirect("/obra");

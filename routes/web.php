@@ -32,12 +32,6 @@ Route::get('/user/cambiar/estado/{id}/{estado}', 'UserController@updateState');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get ('/manual','ManualController@index');
-Route::get ('/manual/usuarios','ManualController@usuarios');
-Route::get ('/manual/clientes','ManualController@clientes');
-Route::get ('/manual/visitas','ManualController@visitas');
-Route::get ('/manual/cotizacion','ManualController@cotizacion');
-Route::get ('/manual/maquinaria','ManualController@maquinaria');
-Route::get ('/manual/encuesta','ManualController@encuesta');
 
 
 Route::get('/empresa', 'EmpresaController@index');
