@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\EstadoCotizacion;
@@ -53,7 +52,6 @@ class EstadoCotizacionController extends Controller
         {
             $estadoCotizacion = EstadoCotizacion::find($id);
             if (empty($estadoCotizacion)) {
-                Flash::error('Estado Cotización no encontrado');
 
                 return redirect('/EstadoCotizacion');
             }
@@ -61,23 +59,10 @@ class EstadoCotizacionController extends Controller
             $estadoCotizacion->delete($id);
 
             return response()->json(["ok"=>true]);
-            // Flash::success("Se eliminó el tipo contacto");
-            // return redirect("/tipocontacto");
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            // Flash::success("No se puede eliminar tipo contacto");
-            // return redirect("/tipocontacto");
+
         }
-
     }
-    /* public function destroy($id)
-    {
-        $estadoCotizacion = EstadoCotizacion::find($id);
-        $estadoCotizacion->delete();
-        return response()->json(['success'=>'Estado de cotizacion eliminado correctamente.']);
-
-        // EstadoCotizacion::find($id)->delete();
-        // return response()->json(['success'=>'Estado de cotizacion eliminado correctamente.']);
-    } */
 }

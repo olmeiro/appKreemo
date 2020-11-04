@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 use Illuminate\Support\Facades\URL;
 
@@ -19,92 +18,50 @@ class ListaChequeoController extends Controller
 
         $visita = Visita::all();
 
-        
-// select id
-// from visita v
-// where not exists (select idvisita 
-//                    from listachequeo l
-//                    where l.idvisita = v.id);
-
-        // $listas = ListaChequeo::all();
-        // dd($listas);
-
-        // $visita = Visita::select('visita.*')
-        // ->whereNotExists( function ($query){
-        //     $query = ListaChequeo::select('listachequeo.idvisita');
-        //                                 //->where('listachequeo.idvisita = visita.id');
-        //                                dd($query);
-        // } )
-        // ->get();
-
-     
-
-        // $visita = Visita::select('visita.id','listachequeo.idvisita')
-        // ->whereNotExists( function ($query){
-        //     $query = ListaChequeo::select('listachequeo.idvisita')
-        //                                 ->where('listachequeo.idvisita','=','visita.id')
-        //                                 ->get();
-        // } )
-        // ->get();
-
-        // $users = User::where(function ($query) {
-        //     $query->select('type')
-        //         ->from('membership')
-        //         ->whereColumn('user_id', 'users.id')
-        //         ->orderByDesc('start_date')
-        //         ->limit(1);
-        // }, 'Pro')->get();
-
         return view('listachequeo.index', compact('visita'));
-        
+
     }
 
     public function listar(Request $request){
 
-        //$cliente = Cliente::all();
-        
-
         $listachequeo = ListaChequeo::all();
 
-        return DataTables::of($listachequeo)    
-        
+        return DataTables::of($listachequeo)
+
         ->addColumn('editar', function ($listachequeo) {
-            // return '<a type="button" class="btn btn-primary"  data-toggle="modal" data-target="#edit" href="/listachequeo/editar/'.$listachequeo->id.'" >Editar</a>';
 
             return '<a type="button" class="btn btn-primary"   href="/listachequeo/editar/'.$listachequeo->id.'" ><i class="fas fa-edit"></i></a>';
         })
-      
+
         ->rawColumns(['editar'])
         ->make(true);
     }
 
     public function pasarid($id)
-    {   
+    {
         $id;
-        //dd($id);
         return view('listachequeo.create', compact('id'));
     }
 
     public function create(){
-        
+
        $visita = Visita::all();
        $listachequeo = ListaChequeo::all();
-       
+
         return view('listachequeo.create', compact ('visita'));
     }
-    
+
 
     public function createlist(){
 
         $visita = Visita::all();
         $listachequeo = ListaChequeo::all();
         return view('listachequeo.createlist', compact ('visita'));
-        
-    
+
+
      }
 
     public function save(Request $request){
-        //dd('ruta ok');
 
         $request->validate(ListaChequeo::$rules);
 
@@ -135,42 +92,36 @@ class ListaChequeoController extends Controller
                  "encargadovisita" =>$input["encargadovisita"],
                  "viabilidad" =>$input["viabilidad"],
 
-              
+
             ]);
 
-            Flash::success("Lista de chequeo Registrada");
             return redirect("/listachequeo");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
             return redirect("/listachequeo/crear");
-        } 
+        }
   }
 
   public function edit($id){
-        
+
     $visita = Visita::all();
     $listachequeo = ListaChequeo::find($id);
 
 
     if ($listachequeo==null) {
-        
-        Flash::error("Lista de chequeo no encontrada");
+
         return redirect("/listachequeo");
     }
-    //else{
         return view("listachequeo.edit", compact("listachequeo","visita"));
-    // }
 }
 
 public function update(Request $request){
 
     $request->validate(ListaChequeo::$rules);
     $input = $request->all();
-    
 
-    
-    //dd($input);
+
+
     try {
 
         $listachequeo = ListaChequeo::find($input["id"]);
@@ -204,13 +155,11 @@ public function update(Request $request){
                  "viabilidad" =>$input["viabilidad"],
         ]);
 
-        Flash::success("Se modificó la lista de chequeo");
         return redirect("/listachequeo");
 
     } catch (\Exception $e ) {
-        Flash::error($e->getMessage());
         return redirect("/listachequeo");
-    }   
+    }
 }
 
 

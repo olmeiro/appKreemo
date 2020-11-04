@@ -9,7 +9,6 @@ use DataTables;
 use App\Models\Encuesta;
 use App\Models\Obra;
 use App\Models\Empresa;
-use App\Models\Cotizacion;
 use App\Models\Servicio;
 
 
@@ -61,9 +60,7 @@ class EncuestaController extends Controller
         ->where("servicio.id", $id)
         ->get();
 
-        //dd($empresa);
         $id;
-        //dd($id);
         return view('encuesta.create', compact('id', 'empresa'));
     }
 
@@ -72,9 +69,7 @@ class EncuestaController extends Controller
         $encuesta = Encuesta::all();
         $servicio = Servicio::all();
         $obra = Obra::all();
-        //$clientes = Cliente::all();
 
-        //return view('encuesta.create');
         return view('encuesta.create', compact("servicio"));
     }
 

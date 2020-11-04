@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\TipoConcreto;
@@ -54,20 +53,12 @@ class TipoConcretoController extends Controller
             ->make(true);
     }
 
-   /*  public function destroy($id)
-    {
-        $tipoconcreto = TipoConcreto::find($id);
-        $tipoconcreto->delete();
-
-        return response()->json(['success'=>'Tipo de concreto eliminado correctamente.']);
-    } */
     public function destroy($id)
     {
         try
         {
             $tipoconcreto = TipoConcreto::find($id);
             if (empty($tipoconcreto)) {
-                Flash::error('Tipo de Concreto no encontrado');
 
                 return redirect('/TipoConcreto');
             }
@@ -75,13 +66,11 @@ class TipoConcretoController extends Controller
             $tipoconcreto->delete($id);
 
             return response()->json(["ok"=>true]);
-            // Flash::success("Se eliminó el tipo contacto");
-            // return redirect("/tipocontacto");
+
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            // Flash::success("No se puede eliminar tipo contacto");
-            // return redirect("/tipocontacto");
+
         }
 
     }

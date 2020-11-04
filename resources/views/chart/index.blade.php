@@ -37,8 +37,8 @@
 
 
         <div class="form row">
-            <div class="form group col-md-12">
-                <canvas id="myChart" width="400" height="400"></canvas>
+            <div class="form group">
+                <canvas id="myChart" width="800" height="400"></canvas>
             </div>
             <!-- <div class="form group col-md-6">
                 <canvas id="myChart1" width="400" height="400"></canvas>
@@ -73,6 +73,9 @@
 
 
 @endsection
+@section('style')
+    <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
+@endsection
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
@@ -91,7 +94,7 @@
                 let validado = 0;
 
                 if($("#id").val()== 0){
-                    $("#val_empresa").text("Debe ingresar la Empresa");
+                    $("#val_empresa").text("Debe seleccionar la Empresa");
                 }
                 else{
                     validado++;
@@ -130,7 +133,8 @@
                 })
                 $("#val_empresa").text("");
                 }else{
-                    alert("Debe elegir Id.");
+                    //alert("Debe elegir Id.");
+                    Swal.fire('Debe seleccionar una empresa');
                 }
             })
         });
@@ -199,7 +203,7 @@
             var coolor = "("+generarNumero(255)+"," + generarNumero(255) + "," + generarNumero(255) +")";
             return "rgb" + coolor;
         }
-
-
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
+
 @endsection

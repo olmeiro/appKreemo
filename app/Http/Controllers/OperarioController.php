@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DataTables;
-
 use App\Models\Operario;
 
 class OperarioController extends Controller
@@ -48,36 +47,21 @@ class OperarioController extends Controller
         return response()->json($operario);
     }
 
-    /* public function destroy($id)
-    {
-        $operario = Operario::find($id);
-        $operario->delete();
-
-        return response()->json(['success'=>'Operario borrado satisfactoriamente.']);
-    } */
-
     public function destroy($id)
     {
         try
         {
             $operario = Operario::find($id);
             if (empty($operario)) {
-                Flash::error('operario no encontrado');
-
                 return redirect('/Operario');
             }
 
             $operario->delete($id);
 
             return response()->json(["ok"=>true]);
-            // Flash::success("Se eliminó el tipo contacto");
-            // return redirect("/tipocontacto");
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            // Flash::success("No se puede eliminar tipo contacto");
-            // return redirect("/tipocontacto");
         }
-
     }
 }

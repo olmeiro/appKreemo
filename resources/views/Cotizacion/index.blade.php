@@ -11,15 +11,11 @@
             <strong>Cotizaciones</strong>
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
             <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a>
-            {{-- <a class="btn btn-outline-light float-right" data-toggle="modal" data-target=".bd-example-modal-sm" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a> --}}
-
 
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
-                    {{-- <a class="btn btn-outline-light" href="/cotizacion/crear">Crear cotización</a> --}}
-                    {{-- <a class="btn btn-link" href="/cotizacion/wizardModal">WIZAR</a> --}}
 
         </div>
         <div class="card-body">

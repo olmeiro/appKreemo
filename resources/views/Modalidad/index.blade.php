@@ -6,14 +6,8 @@
     <head>
         <title>Crud laravel Ajax con datatables</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" /> --}}
-        {{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-        <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-        {{-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -194,103 +188,61 @@
                         //toast: true,
                         position:'center',
                     });
-            }
-
+                }
             });
             $('body').on('click', '.deleteModalidad', function (e) {
-    e.preventDefault();
-
-    Swal.fire({
-      title: '¿Está seguro que desea eliminar?',
-      type: 'warning',
-      showCloseButton: true,
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminarlo!',
-      cancelButtonText: 'Cancelar',
-  }).then((choice) => {
-      if (choice.value === true) {
-        var modalidad_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "DELETE",
-            url: "{{ route('ajaxmodalidad.store') }}"+'/'+modalidad_id,
-            data: {
-            "id": modalidad_id,
-            "_token": token,
-            },
-            success: function (data) {
-                table.draw();
-            },
-
-        }).done(function(data){
-                if(data && data.ok){
-                    Swal.fire({
-                    title:'Modalidad eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                        });
-                    var table = $('#tbl_Modalidad').DataTable();
-                    table.draw();
-
-                } else {
-                    Swal.fire({
-                    title:'No se puede borrar',text:'Modalidad está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                        padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                    });
-                }
-            });
-        }
-    });
-});
-            /* $('body').on('click', '.deleteModalidad', function (e) {
                 e.preventDefault();
-                var x = confirm("Estas seguro de eliminar la modalidad !");
-                if(x){
-                var modalidad_id = $(this).data("id");
-                $.ajax({
-                    type: "DELETE",
-                    url: "{{ route('ajaxmodalidad.store') }}"+'/'+modalidad_id,
-                    success: function (data) {
-                        table.draw();
-                    },
-                    error: function (data) {
-                        console.log('Error:', data);
-                    }
-                });
-                }else{
-                    return false;
-                }
+
+                    Swal.fire({
+                        title: '¿Está seguro que desea eliminar?',
+                        type: 'warning',
+                        showCloseButton: true,
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Sí, eliminarlo!',
+                        cancelButtonText: 'Cancelar',
+                    }).then((choice) => {
+                        if (choice.value === true) {
+                            var modalidad_id = $(this).data("id");
+                            var token = $("meta[name='csrf-token']").attr("content");
+                            $.ajax({
+                                type: "DELETE",
+                                url: "{{ route('ajaxmodalidad.store') }}"+'/'+modalidad_id,
+                                data: {
+                                "id": modalidad_id,
+                                "_token": token,
+                                },
+                                success: function (data) {
+                                    table.draw();
+                                },
+
+                            }).done(function(data){
+                                if(data && data.ok){
+                                    Swal.fire({
+                                    title:'Modalidad eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                                    padding:'1rem',
+                                    backdrop:true,
+                                    position:'center',
+                                        });
+                                    var table = $('#tbl_Modalidad').DataTable();
+                                    table.draw();
+
+                                } else {
+                                    Swal.fire({
+                                    title:'No se puede borrar',text:'Modalidad está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                                        padding:'1rem',
+                                    backdrop:true,
+                                    position:'center',
+                                    });
+                                }
+                            });
+                        }
+                    });
             });
- */
         });
     </script>
-    </html>
-
-
-    {{-- <div class="container row justify-content-center">
-        <div class="card">
-            <div class="card-header text-white" style="background-color: #616A6B">
-                <strong>Modalidad</strong>
-            </div>
-            <div class="card-body">
-                @include('flash::message')
-                <table id="tbl_modalidad" class="table table-bordered table-striped" style="width: 100%;">
-                    <thead class="" align="center">
-                    <tr>
-                        <th>N° Modalidad</th>
-                        <th>Modalidad</th>
-                        <th>Editar</th>
-                    </tr>
-                    </thead>
-                </table>
-            </div>
-        </div>
-    </div> --}}
+</html>
 @endsection
 @section('style')
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
@@ -322,106 +274,4 @@
     }
 </script>
 
-    {{-- <script>
-        $('#tbl_modalidad').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '/modalidad/listar',
-                columns: [
-                    {
-                        data: 'id',
-                        name: 'id',
-                    },
-                    {
-                        data: 'modalidad',
-                        name: 'modalidad',
-                    },
-                    {
-                        data: 'editar',
-                        name: 'editar',
-                        orderable: false,
-                        searchable: false,
-                    },
-                ],
-                "language":{
-                            "sProcessing":     "Procesando...",
-                            "sLengthMenu":     "Mostrar _MENU_ registros",
-                            "sZeroRecords":    "No se encontraron resultados",
-                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                            "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                            "sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
-                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                            "sInfoPostFix":    "",
-                            "sSearch":         "Buscar:",
-                            "sUrl":            "",
-                            "sInfoThousands":  ",",
-                            "sLoadingRecords": "Cargando...",
-                            "oPaginate": {
-                                "sFirst":    "Primero",
-                                "sLast":     "Último",
-                                "sNext":     "Siguiente",
-                                "sPrevious": "Anterior"
-                            },
-                            "oAria": {
-                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                            },
-                            "buttons": {
-                                "copy": "Copiar",
-                                "colvis": "Visibilidad"
-                            }
-                            }
-            });
-    </script>
-    <script>
-        $('#tbl_tipoconcreto').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '/componentes/listar',
-                columns: [
-                    {
-                        data: 'id',
-                        name: 'id',
-                    },
-                    {
-                        data: 'tipo_concreto',
-                        name: 'tipo_concreto',
-                    },
-                    {
-                        data: 'editar',
-                        name: 'editar',
-                        orderable: false,
-                        searchable: false,
-                    },
-                ],
-                "language":{
-                            "sProcessing":     "Procesando...",
-                            "sLengthMenu":     "Mostrar _MENU_ registros",
-                            "sZeroRecords":    "No se encontraron resultados",
-                            "sEmptyTable":     "Ningún dato disponible en esta tabla",
-                            "sInfo":           "Registros del _START_ al _END_ de un total de _TOTAL_ registros",
-                            "sInfoEmpty":      "Registros del 0 al 0 de un total de 0 registros",
-                            "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-                            "sInfoPostFix":    "",
-                            "sSearch":         "Buscar:",
-                            "sUrl":            "",
-                            "sInfoThousands":  ",",
-                            "sLoadingRecords": "Cargando...",
-                            "oPaginate": {
-                                "sFirst":    "Primero",
-                                "sLast":     "Último",
-                                "sNext":     "Siguiente",
-                                "sPrevious": "Anterior"
-                            },
-                            "oAria": {
-                                "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
-                                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
-                            },
-                            "buttons": {
-                                "copy": "Copiar",
-                                "colvis": "Visibilidad"
-                            }
-                            }
-            });
-    </script> --}}
 @endsection

@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cliente;
 use App\Models\Cotizacion;
 use App\Models\Empresa;
 use App\Models\EstadoCotizacion;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 class ChartCotizacion extends Controller
 {

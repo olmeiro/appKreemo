@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 use Response;
 
@@ -109,95 +108,6 @@ class ServicioController extends Controller
         }
     }
 
-    // SELECT fechainicio,fechafin,idmaquina FROM `servicio` WHERE fechainicio = '2020-10-20' and fechafin = '2020-10-22'
-    // SELECT idmaquina from ocupacion where fechainicio >= '2020-10-20' and fechafin <= '2020-10-22'
-
-    // public function validarFecha ($fechainicio, $fechafin)
-    // {
-    //     $ocupacion = Ocupacion::select("*")
-    //         ->whereDate('fechainicio', ">=", $fechainicio)
-    //         ->whereDate('fechafin', '<=', $fechafin)
-    //         ->first();
-
-    //     return $ocupacion == null ? true :  false;
-    // }
-
-    // public function validaMaquina(Request $request)
-    // {
-
-    //     $input = $request->all();
-
-    //     $maquina = Maquinaria::select('maquinaria.*',"ocupacion.idmaquina")
-    //     ->join("ocupacion","maquinaria.id","=","ocupacion.idmaquina")
-    //     ->where("ocupacion.idmaquina","=",[$input["id"]])
-    //     ->get();
-
-    //     $ocupacion = Ocupacion::select('ocupacion.*')
-    //     ->where("ocupacion.idmaquina","=",$input['id'])
-    //     ->where("ocupacion.fechainicio","=", $input['fechainicio'])
-    //     ->where("ocupacion.fechafin","=", $input['fechafin'])
-    //     ->first();
-
-    //     dd($ocupacion);
-
-    //     return $ocupacion == null ? true :  false;
-
-    //     return response(json_encode($ocupacion), 200)->header('Content-type','text/plain');
-
-    // }
-
-    // public function store(Request $request)
-    // {
-    //     $data = request()->except(['_token','_method']);
-    //     Servicio::insert($data);
-
-    //     print_r($data);
-
-    //     $cotizacion = Cotizacion::find($data['idcotizacion']);
-    //     $cotizacion->update(["idEstado"=>4]);
-
-    //     $ocupacion = Ocupacion::insert([
-    //                     "idmaquina" => $data['idmaquina'],
-    //                     "fechainicio" => $data['fechainicio'],
-    //                     'fechafin' => $data['fechafin']
-    //                 ]);
-
-    //     return response()->json(["ok"=>true]);
-
-    // }
-
-    // public function store(Request $request)
-    // {
-    //     $data = request()->except(['_token','_method']);
-
-    //     $validaMaquina = $this->validaMaquina($data["fechainicio"], $data["fechafin"]);
-
-    //     if($resultado == true)
-    //     {
-    //         Servicio::insert($data);
-
-    //         print_r($data);
-
-    //         $ocupacion = Ocupacion::insert([
-    //             "idmaquina" => $data['idmaquina'],
-    //             "fechainicio" => $data['fechainicio'],
-    //             'fechafin' => $data['fechafin']
-    //         ]);
-    //         return response()->json(["ok"=>true]);
-    //     }
-    //     else{
-    //         if($data['idmaquina'] == $resultado[1])
-    //         {
-
-    //             return response()->json(["ok"=>false]);
-    //         }
-    //         else
-    //         {
-    //             return response()->json(["ok"=>true]);
-    //         }
-    //     }
-    // }
-
       public function edit($id){
 
         $servicio = servicio::find($id);
@@ -221,7 +131,6 @@ class ServicioController extends Controller
 
         if ($servicio==null) {
 
-            Flash::error("servicio no encontrado");
             return redirect("/servicio/listarservicios");
         }
         return view("servicio.edit", compact('id','servicio','estadoservicio','maquinaria','cotizacion','operario'));
@@ -292,7 +201,6 @@ class ServicioController extends Controller
                 $servicio = Servicio::find($input["id"]);
 
                 if ($servicio==null) {
-                    Flash::error("Servicio no encontrado");
                     return redirect("/servicio/listarservicio");
                 }
 
@@ -310,11 +218,9 @@ class ServicioController extends Controller
                     "descripcion" => $input["descripcion"],
                 ]);
 
-                Flash::success("Se modifico el servicio");
                 return redirect("/servicio/listarservicio");
 
             } catch (\Exception $e ) {
-                Flash::error($e->getMessage());
                 return redirect("/servicio/listarservicio");
             }
     }
@@ -330,19 +236,16 @@ class ServicioController extends Controller
         $servicio = Servicio::find($id);
 
         if ($servicio==null) {
-            Flash::error("Servicio no encontrado");
             return redirect("/servicio/listarservicios");
         }
 
         try {
 
             $servicio->update(["estado"=>$estado]);
-            Flash::success("Se modifico el estado del servicio");
             return redirect("/servicio/listarservicios");
 
         } catch (\Exception $e) {
 
-            Flash::error($e->getMessage());
             return redirect("/servicio/listarservicios");
         }
     }
