@@ -37,8 +37,8 @@
 
 
         <div class="form row">
-            <div class="form group col-md-12">
-                <canvas id="myChart" width="400" height="400"></canvas>
+            <div class="form group">
+                <canvas id="myChart" width="800" height="400"></canvas>
             </div>
             <!-- <div class="form group col-md-6">
                 <canvas id="myChart1" width="400" height="400"></canvas>
