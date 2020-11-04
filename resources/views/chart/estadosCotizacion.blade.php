@@ -22,6 +22,7 @@
                                     <button class="btn btn-outline-secondary" type="submit">Generar graficos</button>
                                 </div>
                             </div>
+                            <label class="validacion" id="val_estado"></label>
                             {{-- <label for="">Ingrese Empresa</label>
                             <div class="input-group mb-12">
                                 <input type="text" class="form-control" placeholder="Empresa N°" aria-label="Recipient's username" aria-describedby="button-addon2" name="id">
@@ -71,7 +72,9 @@
 
 
 @endsection
-
+@section('style')
+    <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
+@endsection
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
     <script>
@@ -90,7 +93,7 @@
                 let validado = 0;
 
                 if($("#id").val()== 0){
-                    alert("elija id");
+                    $("#val_estado").text("Debe seleccionar el estado");
                 }
                 else{
                     validado++;
@@ -129,8 +132,9 @@
                 generarGrafica(nombre_obra,valorTotal,colores,estado_cotizacion,nombre_empresa);
                 generarGrafica2(nombre_obra,valorTotal,colores,estado_cotizacion,nombre_empresa);
             })
+            $("#val_estado").text("");
                 }else{
-                    alert("Debe elegir Id.");
+                    Swal.fire('Debe seleccionar un estado');
                 }
             })
         });
@@ -206,4 +210,5 @@
             return "rgb" + coolor;
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 @endsection

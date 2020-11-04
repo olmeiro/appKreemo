@@ -7,14 +7,8 @@
 <head>
     <title>Crud laravel Ajax con datatables</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" /> --}}
-    {{-- <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
-    <link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" rel="stylesheet"> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
-    {{-- <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script> --}}
-    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script> --}}
-    {{-- <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -248,25 +242,7 @@
             }
         });
     });
-        /* $('body').on('click', '.deleteTipoConcreto', function (e) {
-            e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el tipo de concreto !");
-            if(x){
-            var tipoConcreto_id = $(this).data("id");
-            $.ajax({
-                type: "DELETE",
-                url: "{{ route('ajaxtipoConcreto.store') }}"+'/'+tipoConcreto_id,
-                success: function (data) {
-                    table.draw();
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                }
-            });
-            }else{
-                return false;
-            }
-        }); */
+
 
     });
 </script>

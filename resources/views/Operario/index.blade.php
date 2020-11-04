@@ -53,7 +53,7 @@
             </div>
             <div class="modal-body">
                 <form id="operarioForm" name="operarioForm" class="form-horizontal">
-                   <input type="hidden" name="operario_id" id="operario_id">
+                    <input type="hidden" name="operario_id" id="operario_id">
                 <div class="row">
                     <div class="form-group col-md-6">
                                 <label for="nombre">Nombre</label>
@@ -72,7 +72,7 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                             <label class="validacion" id="validacion_apellido2"></label>
-                     </div>
+                    </div>
 
                 </div>
 
@@ -87,14 +87,14 @@
                             <label class="validacion" id="validacion_documento2"></label>
                         </div>
                         <div class="form-group col-md-6">
-                        <label for="celular">Celular</label>
-                         <label class="validacion" id="validacion_celular"></label>
-                        <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)" placeholder="Digite aquí el celular">
-                        @error('celular')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <label class="validacion" id="validacion_celular2"></label>
-                       </div>
+                            <label for="celular">Celular</label>
+                            <label class="validacion" id="validacion_celular"></label>
+                            <input type="text" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular"value="" maxlength="13" required="" onkeypress="return soloNumeros(event)" placeholder="Digite aquí el celular">
+                            @error('celular')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <label class="validacion" id="validacion_celular2"></label>
+                        </div>
                 </div>
 
                 <div  align="center">
@@ -110,13 +110,13 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
-  $(function () {
+$(function () {
 
-      $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
-    });
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
 
     var table = $('.data-table').DataTable({
         processing: true,
@@ -168,18 +168,18 @@
     });
 
     $('body').on('click', '.editOperario', function () {
-      var operario_id = $(this).data('id');
-      $.get("{{ route('ajaxoperario.index') }}" +'/' + operario_id +'/edit', function (data) {
-          $('#modelHeading').html("Editar operario");
-          $('#saveBtn').val("edit-user");
-          $('#ajaxModel').modal('show');
-          $('#operario_id').val(data.id);
-          $('#nombre').val(data.nombre);
-          $('#apellido').val(data.apellido);
-          $('#documento').val(data.documento);
-          $('#celular').val(data.celular)
-      })
-   });
+        var operario_id = $(this).data('id');
+        $.get("{{ route('ajaxoperario.index') }}" +'/' + operario_id +'/edit', function (data) {
+            $('#modelHeading').html("Editar operario");
+            $('#saveBtn').val("edit-user");
+            $('#ajaxModel').modal('show');
+            $('#operario_id').val(data.id);
+            $('#nombre').val(data.nombre);
+            $('#apellido').val(data.apellido);
+            $('#documento').val(data.documento);
+            $('#celular').val(data.celular)
+        })
+    });
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
@@ -244,7 +244,7 @@
                 console.log('Error:', data);
                 $('#saveBtn').html('Guardar');
             }
-      });
+        });
                 Swal.fire({
                         title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                            //width: '50%',
@@ -281,48 +281,48 @@
     e.preventDefault();
 
     Swal.fire({
-      title: '¿Está seguro que desea eliminar?',
-      type: 'warning',
-      showCloseButton: true,
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminarlo!',
-      cancelButtonText: 'Cancelar',
-  }).then((choice) => {
-      if (choice.value === true) {
-        var operario_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "DELETE",
-            url: "{{ route('ajaxoperario.store') }}"+'/'+operario_id,
-            data: {
-            "id": operario_id,
-            "_token": token,
-            },
-            success: function (data) {
-                table.draw();
-            },
-
-        }).done(function(data){
-                if(data && data.ok){
-                    Swal.fire({
-                    title:'Operario eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                        });
-                    var table = $('#tbl_operario').DataTable();
+        title: '¿Está seguro que desea eliminar?',
+        type: 'warning',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar',
+    }).then((choice) => {
+        if (choice.value === true) {
+            var operario_id = $(this).data("id");
+            var token = $("meta[name='csrf-token']").attr("content");
+            $.ajax({
+                type: "DELETE",
+                url: "{{ route('ajaxoperario.store') }}"+'/'+operario_id,
+                data: {
+                "id": operario_id,
+                "_token": token,
+                },
+                success: function (data) {
                     table.draw();
+                },
 
-                } else {
-                    Swal.fire({
-                    title:'No se puede borrar',icon:'info', text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+            }).done(function(data){
+                    if(data && data.ok){
+                        Swal.fire({
+                        title:'Operario eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                         padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                    });
-                }
+                        backdrop:true,
+                        position:'center',
+                            });
+                        var table = $('#tbl_operario').DataTable();
+                        table.draw();
+
+                    } else {
+                        Swal.fire({
+                        title:'No se puede borrar',icon:'info', text:'Operario está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                            padding:'1rem',
+                        backdrop:true,
+                        position:'center',
+                        });
+                    }
             });
         }
     });
