@@ -206,12 +206,6 @@ class User extends Authenticatable
             ["url" => "/home", "method"=>"GET", "identica"=>true],
 
             ["url" => "/manual", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/usuarios", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/clientes", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/visitas", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/cotizacion", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/maquinaria", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/encuesta", "method"=>"GET", "identica"=>true],
 
 
             ["url" => "/users", "method"=>"GET", "identica"=>true], //Mostrando lista de index
@@ -436,7 +430,7 @@ class User extends Authenticatable
             ["url" => "/home", "method"=>"GET", "identica"=>true],
 
             ["url" => "/manual", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/usuarios", "method"=>"GET", "identica"=>true],
+        
 
             ["url" => "/tipocontacto", "method"=>"GET", "identica"=>true],
             ["url" => "/tipocontacto/editar", "method"=>"GET", "identica"=>false],
@@ -651,7 +645,6 @@ class User extends Authenticatable
         3=>[
             ["url" => "/home", "method"=>"GET", "identica"=>true],
             ["url" => "/manual", "method"=>"GET", "identica"=>true],
-            ["url" => "/manual/usuarios", "method"=>"GET", "identica"=>true],
 
             ["url" => "/visita", "method"=>"GET", "identica"=>true],
             ["url" => "/visita", "method"=>"POST", "identica"=>false], //guardo

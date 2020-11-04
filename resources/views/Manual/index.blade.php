@@ -6,7 +6,7 @@
 <body>
 <div class="container">
     <h4 align="center">Manual de usuario</h4>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand">Módulos</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -33,9 +33,130 @@
             </li>
             </ul>
         </div>
-        </nav>
+        </nav> -->
+<div class="card-group">
+        <div class="card text-center">
+                    <div class="card-header">
+                             Módulo usuarios
+                    </div>
+                    <div class="card-body">
+                        <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a target="_blanck" href="https://whatfix.com/community/#!flows/cmo-crear-editar-inactivar-o-activar-a-un-usuario/1ebbfbe0-1ea7-11eb-a268-3e2a4292da47/">¿Cómo crear, editar,  inactivar o activar a un usuario?</a>
+                        </div>
+                    </div>
+        </div>
+
+        <div class="card text-center">
+                    <div class="card-header">
+                             Módulo clientes
+                    </div>
+                    <div class="card-body">
+                        <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                            <a target="_blanck" href="https://whatfix.com/community/#!flows/cmo-crear-editar-una-empresa/447ef030-1eac-11eb-a268-3e2a4292da47/">¿Cómo crear, asociar obra, editar, inactivar o activar una empresa?</a>
+                        </div>
+                        <br>
+                        <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a target="_blanck" href="https://whatfix.com/community/#!flows/cmo-crear-asociar-contactos-editar-y-eliminar-una-obra/b029dbb0-1eb1-11eb-a268-3e2a4292da47/">¿Cómo crear, asociar contactos, eliminar y editar una obra?</a>
+                        </div>
+                        <br>
+                        <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a target="_blanck" href="https://whatfix.com/community/#!flows/cmo-crear-editar-y-eliminar-un-contacto-o-un-tipo-de-contacto/bd1c4d60-1eb3-11eb-a268-3e2a4292da47/">¿Cómo crear, editar y eliminar un contacto o un tipo de contacto?</a>
+                        </div>
+                    </div>
+        </div>
+        <div class="card text-center">
+                    <div class="card-header">
+                             Módulo visitas
+                    </div>
+                    <div class="card-body">
+                    <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                           <a target="_blanck" href="https://whatfix.com/community/#!flows/cmo-agendar-editar-o-eliminar-una-cita-de-visita-en-el-calendario/423da730-1eb6-11eb-a268-3e2a4292da47/">¿Cómo agendar, editar o eliminar una cita de visita en el calendario?</a>
+                    </div>
+                    <br>
+                    <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-o-editar-una-lista-de-chequeo/d39623e0-1eb8-11eb-a268-3e2a4292da47/">¿Cómo crear o editar una lista de chequeo?</a>
+                    </div>
+                    </div>
+        </div>
+
+
+<div class="card text-center">
+                    <div class="card-header">
+                             Módulo cotización
+                    </div>
+                    <div class="card-body">
+                            <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                                <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-cambiar-de-estado-y-descargar-una-cotizacin/98c0a8e0-1ebc-11eb-a268-3e2a4292da47/">¿Cómo crear, editar, cambiar de estado y descargar una cotización?</a>
+                            </div>
+                        <br>
+                            <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                                <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-o-eliminar-un-estado-de-cotizacin/d3f875e0-1ebd-11eb-a268-3e2a4292da47/">¿Cómo crear, editar o eliminar un estado de cotización?</a>
+                            </div>
+                        <br>
+                            <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                                <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-y-eliminar-una-etapa/c77d9dd0-1ebe-11eb-a268-3e2a4292da47/">¿Cómo crear, editar y eliminar una etapa?</a>
+                            </div>
+                        <br>
+                            <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                                <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-y-eliminar-una-jornada/80c19850-1ebf-11eb-a268-3e2a4292da47/">¿Cómo crear, editar y eliminar una jornada?</a>
+                            </div>
+                        <br>
+                            <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                                <a target="_blanck" href="https://whatfix.com/#!flows/  cmo-crear-editar-y-eliminar-una-modalidad/4c8809b0-1ec0-11eb-a268-3e2a4292da47/">¿Cómo crear, editar y eliminar una modalidad?</a>
+                            </div>
+                        <br>
+                            <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                                <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-y-eliminar-un-tipo-de-concreto/ab954520-1ec1-11eb-a268-3e2a4292da47/">¿Cómo crear, editar y eliminar un tipo de concreto?</a>
+                            </div>
+                    </div>
+</div>
+
+
+        <div class="card text-center">
+                    <div class="card-header">
+                             Módulo maquinaria
+                    </div>
+                    <div class="card-body">
+                    <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-eliminar-y-cambiar-de-estado-una-mquina/6427ad70-1ec3-11eb-a268-3e2a4292da47/">¿Cómo crear, editar, eliminar y cambiar de estado una máquina?</a>
+                    </div>
+                    <br>
+                    <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-editar-y-eliminar-un-operario/2f7c9850-1ec4-11eb-a268-3e2a4292da47/">¿Cómo crear, editar y eliminar un operario?</a>
+                    </div>
+                    </div>
+        </div>
+
+        <div class="card text-center">
+                    <div class="card-header">
+                             Módulo servicio
+                    </div>
+                    <div class="card-body">
+                    <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                         <a target="_blanck" href="https://whatfix.com/#!flows/cmo-agendar-editar-o-eliminar-un-servicio-en-el-calendario/d904e7a0-1ec5-11eb-a268-3e2a4292da47/">¿Cómo agendar, editar o eliminar un servicio en el calendario?</a>
+                    </div>
+                <br>
+                     <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                         <a target="_blanck" href="https://whatfix.com/#!flows/cmo-crear-un-servicio-ver-y-crearle-una-encuesta/4fb02b10-1ec8-11eb-a268-3e2a4292da47/">¿Cómo crear un servicio, ver y crearle una encuesta?</a>
+                     </div>
+                    </div>
+        </div>
+
+        <div class="card text-center">
+                    <div class="card-header">
+                             Módulo estadisticas
+                    </div>
+                    <div class="card-body">
+                    <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
+                        <a  target="_blanck" href="https://whatfix.com/#!flows/cmo-ingresar-al-mdulo-estadsticas-y-ver-su-contenido/eb7a6960-1ec9-11eb-a268-3e2a4292da47/">¿Cómo ingresar al módulo estadísticas y ver su contenido?</a>
+                     </div>
+               
+                    </div>
+        </div>
+</div>
         @yield("body2")
-        <div style="max-width: 100%; width: 800px; margin: 0 auto;">              <h3 style="display: none; font-size: 15px; line-height: 23px; text-align: center; margin-top: 10px; font-weight: 600">Ingrese el correo electr&oacute;nico</h3>                  <div style="display: none;">                  <p style="display: none; text-align: center; margin-top: 10px;">            <i style="font-style: italic; font-weight: bold; color: #CCCCCC; font-size: 18px;">4 STEPS</i>          </p>                      <p style='font-size: 15px; line-height: 136%; margin-top: 59px; margin-bottom: 51px;'>        1. Para iniciar la aplicación <b style="font-weight:normal;color:#FF00D6">Kreemo</b> debe dar clic en <b style="font-weight:normal;color:#FF00D6">Ingresar</b>      </p>      <p style="text-align: center;">        <img  src="https://www.iorad.com/api/tutorial/stepScreenshot?tutorial_id=1735853&step_number=1&width=800&height=600&mobile_width=450&mobile_height=400&apply_resize=true&min_zoom=0.5" style="max-width: 100%;max-height: 100%;border: none;" alt="Step 1 image" />      </p>          <p style='font-size: 15px; line-height: 136%; margin-top: 59px; margin-bottom: 51px;'>        2. Luego ingrese su <b style="font-weight:normal;color:#FF00D6">Correo electrónico.</b>      </p>      <p style="text-align: center;">        <img  src="https://www.iorad.com/api/tutorial/stepScreenshot?tutorial_id=1735853&step_number=2&width=800&height=600&mobile_width=450&mobile_height=400&apply_resize=true&min_zoom=0.5" style="max-width: 100%;max-height: 100%;border: none;" alt="Step 2 image" />      </p>          <p style='font-size: 15px; line-height: 136%; margin-top: 59px; margin-bottom: 51px;'>        3. Luego ingrese su <b style="font-weight:normal;color:#FF00D6">Contraseña</b>      </p>      <p style="text-align: center;">        <img  src="https://www.iorad.com/api/tutorial/stepScreenshot?tutorial_id=1735853&step_number=3&width=800&height=600&mobile_width=450&mobile_height=400&apply_resize=true&min_zoom=0.5" style="max-width: 100%;max-height: 100%;border: none;" alt="Step 3 image" />      </p>          <p style='font-size: 15px; line-height: 136%; margin-top: 59px; margin-bottom: 51px;'>        4. Y por último, de clic en <b style="font-weight:normal;color:#FF00D6">Ingresar</b>      </p>      <p style="text-align: center;">        <img  src="https://www.iorad.com/api/tutorial/stepScreenshot?tutorial_id=1735853&step_number=4&width=800&height=600&mobile_width=450&mobile_height=400&apply_resize=true&min_zoom=0.5" style="max-width: 100%;max-height: 100%;border: none;" alt="Step 4 image" />      </p>          </div>    </div>        <h3 style="display: none; font-size: 18px; margin-top: 89px; margin-bottom: 43px;">      Here's an interactive tutorial    </h3>    <p style="display: none;">      <a href="https://www.iorad.com/player/1735853/Ingreso-al-sistema-Kreemo">https://www.iorad.com/player/1735853/Ingreso-al-sistema-Kreemo</a>    </p>    <p style="border: 0; min-width: 100%; margin-bottom: 0; height: 501px;">    <iframe src="https://www.iorad.com/player/1735853/Ingreso-al-sistema-Kreemo?src=iframe&oembed=1"            width="100%" height="500px"            style="width: 100%; height: 500px; "            referrerpolicy="strict-origin-when-cross-origin"            frameborder="0" webkitallowfullscreen="webkitallowfullscreen"            mozallowfullscreen="mozallowfullscreen" allowfullscreen="allowfullscreen"></iframe></p>
+        
+      
 </div>
 
 </body>
