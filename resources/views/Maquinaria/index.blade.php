@@ -57,17 +57,15 @@
             </div>
             <div class="modal-body">
                 <form id="maquinariaForm" name="maquinariaForm" class="form-horizontal">
-                   <input type="hidden" name="maquinaria_id" id="maquinaria_id">
+                    <input type="hidden" name="maquinaria_id" id="maquinaria_id">
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="serialequipo">Serial equipo</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Campo númerico">
                         <label class="validacion" id="validacion_serialequipo"></label>
-                        <div class="col-sm-12">
                             <input type="text" class="form-control @error('serialequipo') is-invalid @enderror" id="serialequipo" name="serialequipo" value="" maxlength="50" required="" onkeypress="return soloNumeros(event)">
                             @error('serialequipo')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                        </div>
                         <label class="validacion" id="validacion_serialequipo2"></label>
                     </div>
                 </div>
@@ -75,41 +73,34 @@
                         <div class="form-group col-md-6">
                             <label for="modelo">Modelo</label>
                             <label class="validacion" id="validacion_modelo"></label>
-                            <div class="col-sm-12">
                                 <input type="text" class="form-control @error('modelo') is-invalid @enderror" id="modelo" name="modelo" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
                                 @error('modelo')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                            </div>
                             <label class="validacion" id="validacion_modelo2"></label>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="serialmotor">Serial motor</label>
                             <label class="validacion" id="validacion_serialmotor"></label>
-                            <div class="col-sm-12">
                                 <input type="text" class="form-control @error('serialmotor') is-invalid @enderror" id="serialmotor" name="serialmotor" value="" maxlength="50" required="" onkeypress="return soloLetrasynumeros(event)">
                                 @error('serialmotor')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror
-                            </div>
                             <label class="validacion" id="validacion_serialmotor2"></label>
                         </div>
                 </div>
                 <div class="form-group">
-                        <label class="col-sm-3 control-label">Observaciones</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese información adicional">
+                        <label class="control-label">Observaciones</label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese información adicional">
                         <label class="validacion" id="validacion_observacion"></label>
-                        <div class="col-sm-12">
                             <textarea id="observacion" name="observacion" required="" class="form-control @error('observacion') is-invalid @enderror" onkeypress="return soloLetras(event)"></textarea>
                             @error('observacion')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                        </div>
                         <label class="validacion" id="validacion_observacion2"></label>
                 </div>
 
                     <div class="col-sm-offset-2 col-sm-10">
-                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar
-                     </button>
+                        <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar</button>
                     </div>
                 </form>
             </div>
@@ -126,12 +117,12 @@
 <script src="{{ asset('assets/dashboard/js/tooltips.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
-  $(function () {
+$(function () {
 
-      $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
 
     var table = $('.data-table').DataTable({
@@ -188,25 +179,25 @@
     });
 
     $('body').on('click', '.editMaquinaria', function () {
-      var maquinaria_id = $(this).data('id');
-      $.get("{{ route('ajaxmaquinaria.index') }}" +'/' + maquinaria_id +'/edit', function (data) {
-          $('#modelHeading').html("Editar máquina");
-          $('#saveBtn').val("edit-user");
-          $('#ajaxModel').modal('show');
-          $('#maquinaria_id').val(data.id);
-          $('#estado').val(data.estado);
-          $('#serialequipo').val(data.serialequipo);
-          $('#modelo').val(data.modelo);
-          $('#serialmotor').val(data.serialmotor);
-          $('#observacion').val(data.observacion);
-      })
-   });
+        var maquinaria_id = $(this).data('id');
+        $.get("{{ route('ajaxmaquinaria.index') }}" +'/' + maquinaria_id +'/edit', function (data) {
+            $('#modelHeading').html("Editar máquina");
+            $('#saveBtn').val("edit-user");
+            $('#ajaxModel').modal('show');
+            $('#maquinaria_id').val(data.id);
+            $('#estado').val(data.estado);
+            $('#serialequipo').val(data.serialequipo);
+            $('#modelo').val(data.modelo);
+            $('#serialmotor').val(data.serialmotor);
+            $('#observacion').val(data.observacion);
+        })
+    });
 
     $('#saveBtn').click(function (e) {
         e.preventDefault();
         let validado = 0;
 
-      if($("#serialequipo").val()==0){
+    if($("#serialequipo").val()==0){
             $("#validacion_serialequipo").text("*");
             $("#validacion_serialequipo2").text("Debe Ingresar el serial del equipo");
         }else if($("#serialequipo").val().length < 7 || $("#serialequipo").val().length >= 20){
@@ -253,8 +244,8 @@
                 console.log('Error:', data);
                 $('#saveBtn').html('Crear');
             }
-      });
-             Swal.fire({
+        });
+            Swal.fire({
                 title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                    //width: '50%',
                 padding:'1rem',
@@ -286,56 +277,56 @@
         }
     });
 
-  $('body').on('click', '.deleteMaquinaria', function (e) {
+    $('body').on('click', '.deleteMaquinaria', function (e) {
     e.preventDefault();
 
-    Swal.fire({
-      title: '¿Está seguro que desea eliminar?',
-      type: 'warning',
-      showCloseButton: true,
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminarlo!',
-      cancelButtonText: 'Cancelar',
-  }).then((choice) => {
-      if (choice.value === true) {
-        var maquinaria_id = $(this).data("id");
-        var token = $("meta[name='csrf-token']").attr("content");
-        $.ajax({
-            type: "DELETE",
-            url: "{{ route('ajaxmaquinaria.store') }}"+'/'+maquinaria_id,
-            data: {
-            "id": maquinaria_id,
-            "_token": token,
-            },
-            success: function (data) {
-                table.draw();
-            },
+        Swal.fire({
+            title: '¿Está seguro que desea eliminar?',
+            type: 'warning',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, eliminarlo!',
+            cancelButtonText: 'Cancelar',
+        }).then((choice) => {
+            if (choice.value === true) {
+                var maquinaria_id = $(this).data("id");
+                var token = $("meta[name='csrf-token']").attr("content");
+                    $.ajax({
+                        type: "DELETE",
+                        url: "{{ route('ajaxmaquinaria.store') }}"+'/'+maquinaria_id,
+                        data: {
+                        "id": maquinaria_id,
+                        "_token": token,
+                        },
+                        success: function (data) {
+                            table.draw();
+                    },
 
-        }).done(function(data){
-                if(data && data.ok){
-                    Swal.fire({
-                    title:'Máquina eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                        });
-                    var table = $('#tbl_operario').DataTable();
-                    table.draw();
-
-                } else {
-                    Swal.fire({
-                    title:'No se puede borrar',text:'Máquina está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                }).done(function(data){
+                    if(data && data.ok){
+                        Swal.fire({
+                        title:'Máquina eliminada.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                         padding:'1rem',
-                    backdrop:true,
-                    position:'center',
-                    });
-                }
-            });
-        }
+                        backdrop:true,
+                        position:'center',
+                            });
+                        var table = $('#tbl_operario').DataTable();
+                        table.draw();
+
+                    } else {
+                        Swal.fire({
+                        title:'No se puede borrar',text:'Máquina está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+                            padding:'1rem',
+                        backdrop:true,
+                        position:'center',
+                        });
+                    }
+                });
+            }
+        });
     });
-});
 });
 </script>
 

@@ -135,7 +135,7 @@
         <p>Cotización N° {{$input["txtNumeroCotizacion"]}}</p> --}}
         <table class="vini" style="width:100%">
             {{-- <tr class="vini" > --}}
-            <th class="foto" rowspan="3"><img src="{{asset('assets/dashboard/assets/img/1.jpg')}}" alt="Vinicol" style="width: 50px; height: 50px"></th>
+            {{-- <th class="foto" rowspan="3"><img src="{{asset('assets/dashboard/assets/img/1.jpg')}}" alt="Vinicol" style="width: 50px; height: 50px"></th> --}}
             <th class="foto" rowspan="3">Vinicol</th>
 
                 <td class="vini" >PROPUESTA COMERCIAL</td>
