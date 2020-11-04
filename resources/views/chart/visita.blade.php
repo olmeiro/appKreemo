@@ -7,8 +7,8 @@
             <!-- <div class="form group col-md-6">
                 <canvas id="myChart" width="200" height="200"></canvas>
             </div> -->
-            <div class="form group col-md-6">
-                <canvas id="myChart1" width="200" height="200"></canvas>
+            <div class="form group">
+                <canvas id="myChart1" width="300" height="300"></canvas>
             </div>
         </div>
 
