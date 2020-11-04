@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\EstadoServicio;
@@ -49,11 +48,9 @@ class EstadoServicioController extends Controller
 
             ]);
 
-            Flash::success("Nuevo estado registrado con éxito");
             return redirect("/estadoservicio");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
             return redirect("/estadoservicio/crear");
         }
     }
@@ -65,7 +62,6 @@ class EstadoServicioController extends Controller
 
         if ($estadoservicio==null) {
 
-            Flash::error("Estado no encontrado");
             return redirect("/estadoservicio");
         }
             return view("estadoservicio.edit", compact("estadoservicio"));
@@ -82,7 +78,6 @@ class EstadoServicioController extends Controller
             $estadoservicio = EstadoServicio::find($input["id"]);
 
             if ($estadoservicio==null) {
-                Flash::error("Estado no encontrado");
                 return redirect("/estadoservicio");
             }
 
@@ -90,11 +85,9 @@ class EstadoServicioController extends Controller
                 "estado"=>$input["estado"]
             ]);
 
-            Flash::success("Se modifico el estado");
             return redirect("/estadoservicio");
 
         } catch (\Exception $e ) {
-            Flash::error($e->getMessage());
             return redirect("/estadoservicio");
         }
     }
@@ -104,14 +97,11 @@ class EstadoServicioController extends Controller
         $estadoservicio = EstadoServicio::find($id);
 
         if (empty($estadoservicio)) {
-            Flash::error('Estado no encontrado');
 
             return redirect('/estadoservicio');
         }
 
         $estadoservicio->delete($id);
-
-        Flash::success('Estado eliminado.');
 
         return redirect('/estadoservicio');
     }

@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\tipoContacto;
@@ -19,9 +18,6 @@ class TipoContactoController extends Controller
     public function listar(Request $request){
 
         $tipoContacto = tipoContacto::all();
-
-        // dd($tipoContacto);
-        // href="/tipocontacto/eliminarget/'.$tipoContacto->id.'"
 
         return DataTables::of($tipoContacto)
         ->addColumn('editar', function ($tipoContacto) {
@@ -53,31 +49,23 @@ class TipoContactoController extends Controller
 
             ]);
 
-            //Flash::success("Registro éxitoso de Tipo de Contacto");
             return response()->json(["ok"=>true]);
-            //return redirect("/tipocontacto");
 
         } catch (\Exception $e ) {
-            //Flash::error($e->getMessage());
             return response()->json(["ok"=>false]);
-            //return redirect("/tipocontacto/crear");
         }
     }
 
 
     public function edit($id){
 
-        //$categorias = Categoria::all();
         $tipoContacto = tipoContacto::find($id);
 
         if ($tipoContacto==null) {
 
-            Flash::error("Tipo Contacto no encontrado");
             return redirect("/tipocontacto");
         }
-        //else{
             return view("tipocontacto.edit", compact("tipoContacto"));
-        // }
     }
 
 
@@ -90,7 +78,6 @@ class TipoContactoController extends Controller
             $tipoContacto = tipoContacto::find($input["id"]);
 
             if ($tipoContacto==null) {
-                Flash::error("Tipo Contacto no encontrado");
                 return redirect("/tipocontacto");
             }
 
@@ -99,13 +86,9 @@ class TipoContactoController extends Controller
             ]);
 
             return response()->json(["ok"=>true]);
-            // Flash::success("Se modifico el tipo contacto");
-            // return redirect("/tipocontacto");
 
         } catch (\Exception $e ) {
             return response()->json(["ok"=>false]);
-            // Flash::error($e->getMessage());
-            // return redirect("/tipocontacto");
         }
     }
 
@@ -115,7 +98,6 @@ class TipoContactoController extends Controller
         {
             $tipoContacto = tipoContacto::find($id);
             if (empty($tipoContacto)) {
-                Flash::error('Tipo contacto no encontrado');
 
                 return redirect('/tipocontacto');
             }
@@ -123,16 +105,10 @@ class TipoContactoController extends Controller
             $tipoContacto->delete($id);
 
             return response()->json(["ok"=>true]);
-            // Flash::success("Se eliminó el tipo contacto");
-            // return redirect("/tipocontacto");
+
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            // Flash::success("No se puede eliminar tipo contacto");
-            // return redirect("/tipocontacto");
         }
-
     }
-
-
 }

@@ -3,26 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\Jornada;
 
 class JornadaController extends Controller
 {
-    // public function index(){
-    //     return view('jornada.index');
-    // }
-
-    // public function listar(Request $request){
-    //     $jornada = Jornada::all();
-    //     return Datatables::of($jornada)
-    //         ->addColumn('editar', function ($jornada) {
-    //             return '<a class="btn btn-xs btn-secondary" href="/componentes/editar/'.$jornada->id.'"><i class="fas fa-trash-alt"></i></a>';
-    //         })
-    //         ->rawColumns(['editar'])
-    //         ->make(true);
-    // }
 
     public function index(Request $request)
     {
@@ -66,7 +52,6 @@ class JornadaController extends Controller
         {
             $jornada = Jornada::find($id);
             if (empty($jornada)) {
-                Flash::error('Jornada no encontrado');
 
                 return redirect('/Jornada');
             }
@@ -74,23 +59,14 @@ class JornadaController extends Controller
             $jornada->delete($id);
 
             return response()->json(["ok"=>true]);
-            // Flash::success("Se eliminó el tipo contacto");
-            // return redirect("/tipocontacto");
+
         }
         catch (\Throwable $th) {
             return response()->json(["ok"=>false]);
-            // Flash::success("No se puede eliminar tipo contacto");
-            // return redirect("/tipocontacto");
+
         }
 
     }
-
-   /*  public function destroy($id)
-    {
-        $jornada = Jornada::find($id);
-        $jornada->delete();
-        return response()->json(['success'=>'Jornada eliminada correctamente.']);
-    } */
 
     public function listar(Request $request){
         $jornada = Jornada::all();

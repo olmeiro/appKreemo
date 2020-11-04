@@ -12,18 +12,12 @@ use Flash;
 
 class UserController extends Controller
 {
-/**
-* Display a listing of the resource.
-*
-* @return \Illuminate\Http\Response
-*/
 public function index(Request $request)
 {
 
     $roles = Roles::All();
 
     if ($request->ajax()) {
-    ///$data = User::latest()->get();
 
     $data = User::select('users.*','roles.name as rolname')
     ->join('roles','users.rol_id', '=', 'roles.id')
@@ -41,7 +35,6 @@ public function index(Request $request)
 
 
     return $action;
-    //<a id="delete-user" data-id='.$row->id.' class="btn btn-danger delete-user"><i class="fas fa-trash-alt"></i></a>
     })
     ->editColumn("estado", function($data){
         return $data->estado == 1 ? "Activo" : "Inactivo";
@@ -72,13 +65,6 @@ public function store(Request $request)
     return response()->json(['success'=>'Maquinaria guardada satisfactoriamente']);
 }
 
-/**
-* Display the specified resource.
-*
-* @param int $id
-* @return \Illuminate\Http\Response
-*/
-
 public function show($id)
 {
    $roles = Roles::All();
@@ -90,13 +76,6 @@ public function show($id)
 
 }
 
-/**
-* Show the form for editing the specified resource.
-*
-* @param int $id
-* @return \Illuminate\Http\Response
-*/
-
 public function edit($id)
 {
     $where = array('id' => $id);
@@ -104,12 +83,6 @@ public function edit($id)
     return Response::json($user);
 }
 
-/**
-* Remove the specified resource from storage.
-*
-* @param int $id
-* @return \Illuminate\Http\Response
-*/
 public function updateState($id, $estado){
 
     $data = User::find($id);
@@ -122,7 +95,7 @@ public function updateState($id, $estado){
     try {
 
         $data->update(["estado"=>$estado]);
-        Flash::success("Se modifico el estado del usuario");
+        Flash::success("Se modificó el estado del usuario");
         return redirect("/users");
 
     } catch (\Exception $e) {
@@ -133,7 +106,6 @@ public function updateState($id, $estado){
 }
 public function destroy($id)
 {
-    // $user = User::where('id',$id)->delete();
     $user = User::find($id);
     $user->delete();
     return Response::json($user);

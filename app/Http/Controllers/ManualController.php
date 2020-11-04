@@ -3,9 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
-
-
 
 class ManualController extends Controller
 {

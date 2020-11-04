@@ -39,9 +39,7 @@ class ClientesController extends Controller
 
         return DataTables::of($cliente)
         ->addIndexColumn()
-        // ->editColumn("estado", function($cliente){
-        //     return $cliente->estado == 1 ? "Activo" : "Inactivo";
-        // })
+
         ->addColumn('editar', function ($cliente) {
             return '<a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal4" id="editar-Cliente" data-id='.$cliente->id.' ><i class="fas fa-edit"></i></a><meta name="csrf-token" content="{{csrf_token() }}">';
 
@@ -102,7 +100,7 @@ class ClientesController extends Controller
                 ]);
 
                 return response()->json(["ok"=>true]);
-                
+
     }
 
     public function store2(Request $request)
@@ -182,12 +180,6 @@ class ClientesController extends Controller
         }
   }
 
-/**
-* Show the form for editing the specified resource.
-*
-* @param int $id
-* @return \Illuminate\Http\Response
-*/
 
     public function edit($id)
     {
@@ -196,12 +188,6 @@ class ClientesController extends Controller
         return Response::json($cliente);
     }
 
-/**
-* Remove the specified resource from storage.
-*
-* @param int $id
-* @return \Illuminate\Http\Response
-*/
 
     public function updateState($id, $estado){
 

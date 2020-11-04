@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Flash;
 use DataTables;
 
 use App\Models\Maquinaria;
@@ -49,19 +48,16 @@ class MaquinariaController extends Controller
         $maquinaria = Maquinaria::find($id);
 
         if ($maquinaria==null) {
-            Flash::error("Maquina no encontrada");
             return redirect("/maquinaria");
         }
 
         try {
 
             $maquinaria->update(["estado"=>$estado]);
-            Flash::success("Se modifico el estado de la maquina");
             return redirect("/maquinaria");
 
         } catch (\Exception $e) {
 
-            Flash::error($e->getMessage());
             return redirect("/maquinaria");
         }
     }
@@ -84,20 +80,12 @@ class MaquinariaController extends Controller
         return response()->json($maquinaria);
     }
 
-    /* public function destroy($id)
-    {
-        $maquinaria = Maquinaria::find($id);
-        $maquinaria->delete();
-        return response()->json(['success'=>'Maquinaria borrada satisfactoriamente.']);
-    } */
-
     public function destroy($id)
     {
         try
         {
             $maquinaria = Maquinaria::find($id);
             if (empty($maquinaria)) {
-                Flash::error('maquinaria no encontrado');
 
                 return redirect('/Maquinaria');
             }
