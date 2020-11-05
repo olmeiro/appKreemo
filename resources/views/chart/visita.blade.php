@@ -2,21 +2,13 @@
 
 @section('body')
     <div class="container">
-
         <div class="form row">
-            <!-- <div class="form group col-md-6">
-                <canvas id="myChart" width="200" height="200"></canvas>
-            </div> -->
             <div class="form group">
                 <canvas id="myChart1" width="300" height="300"></canvas>
             </div>
         </div>
-
-
         <form action="POST" action="/chart/estadosCotizacion" id="form1">
             @csrf
-            <!-- <input type="hidden" name="id" value="1">
-            <input type="email"> -->
         </form>
         <br>
         <div class="card">
@@ -91,34 +83,6 @@
                 generarGrafica2();
             })
         });
-
-
-        // function generarGrafica(){
-        //     var ctx = document.getElementById('myChart').getContext('2d');
-        //     var myChart = new Chart(ctx, {
-        //         type: 'bar',
-        //         data: {
-        //             labels:['SI','NO'],
-        //             datasets: [{
-        //                 label: 'Viabilidad',
-        //                 data: [sumasi,sumano ],
-        //                 backgroundColor: colores,
-        //                 borderColor: colores,
-        //                 borderWidth: 2
-        //             }]
-        //         },
-        //         options: {
-        //             scales: {
-        //                 yAxes: [{
-        //                     ticks: {
-        //                         beginAtZero: true
-        //                     }
-        //                 }]
-        //             }
-        //         }
-        //     });
-        // }
-
 
         function generarGrafica(){
             var ctx = document.getElementById('myChart1').getContext('2d');

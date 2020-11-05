@@ -25,14 +25,13 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
             <div class="container">
-                <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Kreemo App.</a> -->
+                {{-- <a class="navbar-brand js-scroll-trigger" href="#page-top">Kreemo App.</a> --}}
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Ingresar</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">Registrar</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/home">Ir a Home</a></li>
-
                     </ul>
                 </div>
             </div>
@@ -42,14 +41,9 @@
             <div class="container h-100">
                 <div class="row h-100 align-items-center justify-content-center text-center">
                     <div class="col-lg-10 align-self-end">
-                        <!-- <h1 class="text-uppercase text-white font-weight-bold">Kreemo App</h1> -->
                         <hr class="divider my-4"/>
                     </div>
-                    <!-- <div class="col-lg-8 align-self-baseline">
-                        <p class="text-white-75 font-weight-light mb-5">Ayudamos con la gestión de su información empresarial.</p>
-                        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
-                    </div>
-                </div> -->
+                </div>
             </div>
         </header>
 
@@ -60,8 +54,6 @@
             <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Kreemo App</div></div>
         </footer>
         <!-- Bootstrap core JS-->
-
-
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
@@ -70,29 +62,5 @@
         <!-- Core theme JS-->
         <script src="{{ asset('assets/landing/js/scripts.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
-
-        {{-- <script>
-function mensaje_index()
-{
-     Swal.fire({
-          title:'Bienvenido ',
-          // icon:'success',
-          text:'Ingresaste a Sistema de Información Bombeos',
-          footer:'<span class="validacion">KREEMO',
-          padding:'1rem',
-          //background:
-          backdrop:true,
-          // toast: true,
-          position:'center',
-          allowOutsideClick:true,
-	     allowEscapeKey:true,
-	     allowEnterKey:true,
-
-          imageUrl:'/public/assets/landing/img/kreemo.png',
-          imageWidth:'80px',
-          imageAlt:'Logo Kreemo',
-     });
-}
-        </script> --}}
     </body>
 </html>
