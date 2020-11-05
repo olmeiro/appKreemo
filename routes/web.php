@@ -27,12 +27,9 @@ Route::resource('users','UserController');
 Route::get('users/{id}/edit/','UserController@edit');
 Route::get('/user/cambiar/estado/{id}/{estado}', 'UserController@updateState');
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get ('/manual','ManualController@index');
-
 
 Route::get('/empresa', 'EmpresaController@index');
 Route::get('/empresa/listar', 'EmpresaController@listar');
@@ -125,8 +122,6 @@ Route::get('/cotizacion/editarEstado/{id}', 'CotizacionController@editEstado');
 Route::post('/cotizacion/estado', 'CotizacionController@actualizarestado');
 Route::post('/cotizacion/pasarobra', 'CotizacionController@pasarObras');
 
-
-
 Route::get('/cotizacion/informe', 'CotizacionController@informe');
 Route::post('/cotizacion/generar/pdf', 'CotizacionController@generar_PDF');
 
@@ -162,7 +157,6 @@ Route::post('/chart/valorCotizacion','ChartCotizacion@empresas');
 Route::get('/chartestados','ChartCotizacion@index1');
 Route::post('/chart/estadosCotizacion','ChartCotizacion@estados');
 
-
 Route::get('/chartvisita','ChartController@index1');
 Route::post('/chart/visita','ChartController@viabilidad');
 
@@ -178,7 +172,6 @@ Route::post('/chart/encuesta5','ChartController@encuesta5');
 
 Route::get('/chartclienteai','ChartController@index6');
 Route::post('/chart/clienteai','ChartController@clienteai');
-
 
 });
 

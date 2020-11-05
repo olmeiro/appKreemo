@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <base href="./">
     <meta charset="utf-8">
@@ -99,9 +100,8 @@
                 <a class="dropdown-item" href="javascript:document.getElementById('logout').submit()">
                 <svg class="c-icon mr-2">
                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+
                 </svg>
-                <i class="fas fa-sign-out-alt"></i>  Salir</a>
-                <form action="{{ route('logout')}}" id="logout" style="display:none" method="POST">@csrf</form>
             </div>
           </li>
         </ul>
@@ -129,4 +129,5 @@
     <script src="{{ asset('js/manuales.js') }}"></script>
     @yield("scripts")
 </body>
+
 </html>
