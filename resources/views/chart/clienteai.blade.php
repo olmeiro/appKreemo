@@ -24,7 +24,7 @@
                         <tr>
                             <th>N° Empresa</th>
                             <th>Nombre empresa</th>
-                            <th>Telefono</th>
+                            <th>Teléfono</th>
                             <th>Estado</th>
                         </tr>
                         <tbody id="tbody" class="" align="center">
@@ -78,8 +78,8 @@
                     nombre.push(arreglo[x].nombre);
                     telefono1.push(arreglo[x].telefono1);
 
-                  
-                  
+
+
 
                     colores.push(colorRGB());
                     if (arreglo[x].estado == 0) {
