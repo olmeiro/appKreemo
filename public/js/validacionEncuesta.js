@@ -65,6 +65,10 @@ function limpiar()
     $("#valRespuesta5").text("");
 }
 
+// NO BORRAR - NO DEPURAR
+// var today = (new Date());
+// console.log(today);
+// $('#mes').date(today);
 
 $(document).ready(function() {
     $("#frmEncuesta").submit(function(event){
@@ -204,7 +208,7 @@ $(document).ready(function() {
 
         if (validado == 14)
         {
-            
+
             Swal.fire({
                 title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
                 //width: '50%',
@@ -230,6 +234,8 @@ $(document).ready(function() {
             // alert("Campos pendientes por validar");
             validado = 0;
         }
+
+
 
     });
 });

@@ -32,9 +32,10 @@
                             @error('directorobra')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
-                            <label class="validacion" for="directorobra" id="valDirectorObra2"></label>                        </div>
+                            <label class="validacion" for="directorobra" id="valDirectorObra2"></label>
+                        </div>
                         <div class="form-group col-md-4">
-                            <label for="">Constructora</label>
+                            <label for="">Empresa</label>
                             <label class="validacion" for="constructora" id="valConstructora"></label>
                             <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{$empresa[0]->nombre}}">
                             @error('constructora')
@@ -56,7 +57,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Celular</label>
                             <label class="validacion" for="celular" id="valCelular"></label>
-                            <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" placeholder="Ejm: 3212345678" value="{{old('celular')}}">
+                            <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" value="{{$empresa[0]->telefono1}}">
                             @error('celular')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -317,4 +318,5 @@
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionEncuesta.js') }}"></script>
+    <script src='{{ asset("assets/dashboard/assets/fullcalendar/moment.min.js")}}'></script>
 @endsection
