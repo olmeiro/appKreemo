@@ -173,6 +173,7 @@ Route::post('/chart/encuesta5','ChartController@encuesta5');
 Route::get('/chartclienteai','ChartController@index6');
 Route::post('/chart/clienteai','ChartController@clienteai');
 
+
 });
 
 

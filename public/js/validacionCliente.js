@@ -155,6 +155,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
     $("#frmCrearContacto").submit(function(event){
+
         event.preventDefault();
 
         let validado = 0;
@@ -279,6 +280,7 @@ $(document).ready(function() {
 
         if(validado == 10)
         {
+
             var fd = new FormData(document.getElementById("frmCrearContacto"));
 
             $.ajax({

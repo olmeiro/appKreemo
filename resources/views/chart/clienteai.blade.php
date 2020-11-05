@@ -61,15 +61,26 @@
             }).done(function(res){
                 var arreglo = JSON.parse(res);
                 for(var x= 0; x<arreglo.length;x++){
+                    if (arreglo[x].estado == 0) {
+                        var estadoCliente = "Pasivo";
+                    }else {
+                        var estadoCliente = "Activo";
+                    }
+
                     var todo ='<tr><td>'+arreglo[x].id+'</td>';
                     todo+='<td>'+arreglo[x].nombre+'</td>';
                     todo+='<td>'+arreglo[x].telefono1+'</td>';
-                    todo+='<td>'+arreglo[x].estado+'</td></tr>';
+                    todo+='<td>'+estadoCliente+'</td></tr>';
+
                     $('#tbody').append(todo);
+
                     id.push(arreglo[x].id);
                     nombre.push(arreglo[x].nombre);
                     telefono1.push(arreglo[x].telefono1);
-                    estado.push(arreglo[x].estado);
+
+                  
+                  
+
                     colores.push(colorRGB());
                     if (arreglo[x].estado == 0) {
                         sumasi +=1;
