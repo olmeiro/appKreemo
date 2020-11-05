@@ -177,7 +177,6 @@ $(document).ready(function() {
         else
         {
             $("#valObra").text("");
-            validado++;
 
         }
 
@@ -209,7 +208,6 @@ $(document).ready(function() {
         }
         else{
             $("#valApellido2").text("");
-            validado++;
 
         }
 
@@ -221,7 +219,6 @@ $(document).ready(function() {
         else
         {
             $("#valDocumento").text("");
-            validado++;
 
         }
 
@@ -248,7 +245,6 @@ $(document).ready(function() {
         }
         else{
             $("#valTelefono2").text("");
-            validado++;
 
         }
 
@@ -261,7 +257,6 @@ $(document).ready(function() {
         else
         {
             $("#valCorreo1").text("");
-            validado++;
 
         }
 
@@ -272,13 +267,12 @@ $(document).ready(function() {
         else
         {
             $("#valCorreo2").text("");
-            validado++;
 
         }
 
         console.log("validado: " + validado);
 
-        if(validado == 10)
+        if(validado == 4)
         {
 
             var fd = new FormData(document.getElementById("frmCrearContacto"));
