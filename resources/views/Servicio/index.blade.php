@@ -10,7 +10,7 @@
 <div class="modal fade" id="agendaservicio_modal" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
-            <div class="modal-header">
+            <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title">Crear servicio</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
                 <span aria-hidden="true">&times;</span>
