@@ -61,7 +61,6 @@
             }).done(function(res){
                 var arreglo = JSON.parse(res);
                 for(var x= 0; x<arreglo.length;x++){
-
                     if (arreglo[x].estado == 0) {
                         var estadoCliente = "Pasivo";
                     }else {
