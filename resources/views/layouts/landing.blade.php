@@ -73,4 +73,3 @@ function mensaje_index()
 
     </body>
 </html>
-<!-- Cambio prueba -->
