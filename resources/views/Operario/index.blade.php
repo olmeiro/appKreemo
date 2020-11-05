@@ -188,7 +188,7 @@ $(function () {
 
         if($("#nombre").val()==0){
             $("#validacion_nombre").text("*");
-            $("#validacion_nombre2").text("Debe Ingresar el Nombre");
+            $("#validacion_nombre2").text("Debe ingresar el nombre");
         }else{
             $("#validacion_nombre").text("");
             $("#validacion_nombre2").text("");
@@ -197,7 +197,7 @@ $(function () {
 
         if($("#apellido").val()==0){
             $("#validacion_apellido").text("*");
-            $("#validacion_apellido2").text("Debe Ingresar el Apellido");
+            $("#validacion_apellido2").text("Debe ingresar el apellido");
         }else{
             $("#validacion_apellido").text("");
             $("#validacion_apellido2").text("");
@@ -206,7 +206,7 @@ $(function () {
 
         if($("#documento").val()==0){
             $("#validacion_documento").text("*");
-            $("#validacion_documento2").text("Debe Ingresar el Documento");
+            $("#validacion_documento2").text("Debe ingresar el documento");
         }else if($("#documento").val().length < 7 || $("#documento").val().length > 12){
             $("#validacion_documento").text("*");
             $("#validacion_documento2").text("Debe digitar entre 7 y 12 números");
@@ -218,7 +218,7 @@ $(function () {
 
         if($("#celular").val()==0){
             $("#validacion_celular").text("*");
-            $("#validacion_celular2").text("Debe Ingresar el Celular");
+            $("#validacion_celular2").text("Debe ingresar el celular");
         }else if($("#celular").val().length < 7 || $("#celular").val().length > 13){
             $("#validacion_celular").text("*");
             $("#validacion_celular2").text("Debe digitar entre 7 y 13 números");
