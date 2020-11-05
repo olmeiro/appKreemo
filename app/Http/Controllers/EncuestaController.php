@@ -54,7 +54,7 @@ class EncuestaController extends Controller
     public function pasarid($id)
     {
 
-        $empresa = Empresa::select("empresa.*", "empresa.nombre", "empresa.correo1")
+        $empresa = Empresa::select("empresa.*", "empresa.nombre", "empresa.correo1", "empresa.telefono1")
         ->join("cotizacion", "cotizacion.idEmpresa","=","empresa.id")
         ->join("servicio", "servicio.idcotizacion","=","cotizacion.id")
         ->where("servicio.id", $id)
