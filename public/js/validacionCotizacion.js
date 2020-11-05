@@ -55,7 +55,7 @@ $(document).ready(function() {
 
         if ($("#IdEmpresa").val() == 0) {
             $("#val_empresa").text("*");
-            $("#val_empresa2").text("Debe ingresar la Empresa");
+            $("#val_empresa2").text("Debe ingresar la empresa");
         }else{
             $("#val_empresa").text("");
             $("#val_empresa2").text("");
@@ -64,7 +64,7 @@ $(document).ready(function() {
 
         if ($("#IdEstado").val() == 0) {
             $("#val_Estado").text("*");
-            $("#val_Estado2").text("Debe Seleccionar un Estado");
+            $("#val_Estado2").text("Debe seleccionar un estado");
         }else{
             $("#val_Estado").text("");
             $("#val_Estado2").text("");
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
         if ($("#IdModalidad").val() == 0) {
             $("#val_Modalidad").text("*");
-            $("#val_Modalidad2").text("Debe Seleccionar una Modalidad");
+            $("#val_Modalidad2").text("Debe seleccionar una modalidad");
         }else{
             $("#val_Modalidad").text("");
             $("#val_Modalidad2").text("");
@@ -82,7 +82,7 @@ $(document).ready(function() {
 
         if ($("#IdEtapa").val() == 0) {
             $("#val_Etapa").text("*");
-            $("#val_Etapa2").text("Debe Seleccionar una Etapa");
+            $("#val_Etapa2").text("Debe seleccionar una etapa");
         }else{
             $("#val_Etapa").text("");
             $("#val_Etapa2").text("");
@@ -91,7 +91,7 @@ $(document).ready(function() {
 
         if ($("#IdJornada").val() == 0) {
             $("#val_Jornada").text("*");
-            $("#val_Jornada2").text("Debe Seleccionar una Jornada");
+            $("#val_Jornada2").text("Debe seleccionar una jornada");
         }else{
             $("#val_Jornada").text("");
             $("#val_Jornada2").text("");
@@ -100,7 +100,7 @@ $(document).ready(function() {
 
         if ($("#IdTipo_Concreto").val() == 0) {
             $("#val_TipoConcreto").text("*");
-            $("#val_TipoConcreto2").text("Debe Seleccionar un Tipo de Concreto");
+            $("#val_TipoConcreto2").text("Debe seleccionar un tipo de concreto");
         }else{
             $("#val_TipoConcreto").text("");
             $("#val_TipoConcreto2").text("");
@@ -109,7 +109,7 @@ $(document).ready(function() {
 
         if ($("#IdObra").val() == 0) {
             $("#val_Obra").text("*");
-            $("#val_Obra2").text("Debe Seleccionar una Obra");
+            $("#val_Obra2").text("Debe seleccionar una obra");
         }else{
             $("#val_Obra").text("");
             $("#val_Obra2").text("");
@@ -118,8 +118,8 @@ $(document).ready(function() {
 
         if ($("#FechaCotizacion").val().length == 0) {
             $("#val_FechaCotizacion").text("*");
-            $("#val_FechaCotizacion2").text("Debe Seleccionar una fecha");
-            $("#val_FechaCotizacion3").text("Debe Seleccionar una fecha");
+            $("#val_FechaCotizacion2").text("Debe seleccionar una fecha");
+            $("#val_FechaCotizacion3").text("Debe seleccionar una fecha");
         }else{
             $("#val_FechaCotizacion").text("");
             $("#val_FechaCotizacion2").text("");
@@ -129,8 +129,8 @@ $(document).ready(function() {
 
         if ($("#InicioBombeo").val().length == 0) {
             $("#val_FechaInicio").text("*");
-            $("#val_FechaInicio2").text("Debe Seleccionar una fecha");
-            $("#val_FechaInicio3").text("Debe Seleccionar una fecha");
+            $("#val_FechaInicio2").text("Debe seleccionar una fecha");
+            $("#val_FechaInicio3").text("Debe seleccionar una fecha");
         }else{
             $("#val_FechaInicio").text("");
             $("#val_FechaInicio2").text("");
@@ -140,8 +140,8 @@ $(document).ready(function() {
 
         if ($("#MetrosCubicos").val() == 0) {
             $("#val_Metros").text("*");
-            $("#val_Metros2").text("Debe Digitar la cantidad de Metros Cubicos");
-            $("#val_Metros3").text("Debe Digitar la cantidad de Metros Cubicos");
+            $("#val_Metros2").text("Debe digitar la cantidad de metros cubicos");
+            $("#val_Metros3").text("Debe digitar la cantidad de metros cubicos");
         }else{
             $("#val_Metros").text("");
             $("#val_Metros2").text("");
