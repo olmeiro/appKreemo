@@ -5,8 +5,6 @@
     <div class="card" >
             <div class="card-header text-white float-right" style="background-color: #616A6B">
                 <strong>Encuestas</strong>
-                <!-- <a href="/encuesta/crear" class="btn btn-link">Crear Encuesta</a> -->
-                <!-- <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear encuesta</button> -->
             </div>
             <div class="card-body">
             @include('flash::message')

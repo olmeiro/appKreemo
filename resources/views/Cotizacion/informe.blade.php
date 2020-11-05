@@ -13,7 +13,6 @@
                 <div class="form-row">
                     <div class="form-group col-md-12">
                         <label for="">Número de cotización</label>
-                        {{-- <input type="text" class="form-control" name="id"> --}}
                         <select id="id"  name= "id"  class="form-control">
                             <option selected>Seleccione una cotización</option>
                             @foreach($cotizacion as $key =>$value)
