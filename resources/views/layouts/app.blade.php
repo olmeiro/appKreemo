@@ -108,10 +108,10 @@
               <svg class="c-icon">
                 <use xlink:href="{{ asset(asset('assets/dashboard/vendors/@coreui/icons/svg/free.svg#cil-envelope-open')) }}"></use>
               </svg></a></li> -->
-              
+
           <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <div class="c-avatar"></div>
-              <img src="{{ asset('img/vinicol.png') }}" style="width:50px;">
+              <img src="{{ asset('img/vinicol.png') }}" style="width:50px;" data-toggle="tooltip" data-placement="left" title="{{ auth()->user()->name }} {{ auth()->user()->lastname }}  {{ auth()->user()->email }}">
             </a>
             <div class="dropdown-menu dropdown-menu-right pt-2">
             <div class="dropdown-item">
@@ -182,6 +182,10 @@
     <script src="{{ asset('assets/dashboard/vendors/@coreui/coreui/js/coreui.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/vendors/@coreui/icons/js/svgxuse.min.js') }}"></script>
     <script src="{{ asset('assets/dashboard/js/datatables.min.js') }}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <script src="{{ asset('js/manuales.js') }}"></script>
 
     <!--[if IE]><!-->
     @yield("scripts")
