@@ -2,8 +2,7 @@
 
 @section('body')
     <div class="container">
-
-            <div class="card col-md-5">
+        <div class="card col-md-5">
                 <div class="card-header ">
                     <strong>Estados de cotizacion</strong>
                 </div>
@@ -23,29 +22,14 @@
                                 </div>
                             </div>
                             <label class="validacion" id="val_estado"></label>
-                            {{-- <label for="">Ingrese Empresa</label>
-                            <div class="input-group mb-12">
-                                <input type="text" class="form-control" placeholder="Empresa N°" aria-label="Recipient's username" aria-describedby="button-addon2" name="id">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Generar Reporte</button>
-                                </div>
-                            </div> --}}
                     </form>
                 </div>
-            </div>
-
-
+        </div>
         <div class="form row">
             <div class="form group">
                 <canvas id="myChart" width="800" height="400"></canvas>
             </div>
-            <!-- <div class="form group col-md-6">
-                <canvas id="myChart1" width="400" height="400"></canvas>
-            </div> -->
         </div>
-
-
-
         <br>
         <div class="card">
             <div class="card-header text-white float-right" style="background-color: #616A6B">
@@ -170,36 +154,6 @@
                 }
             });
         }
-
-        // function generarGrafica2(nombre_obra, valortotal,colores,estado_cotizacion,id,nombre_empresa){
-        //     var ctx = document.getElementById('myChart1').getContext('2d');
-        //     if (window.grafic) {
-        //             window.grafic.clear();
-        //             window.grafic.destroy();
-        //         }
-        //     window.grafic = new Chart(ctx, {
-        //         type: 'pie',
-        //         data: {
-        //             labels: nombre_obra,
-        //             datasets: [{
-        //                 label: '# of Votes',
-        //                 data: valortotal,
-        //                 backgroundColor: colores,
-        //                 borderColor: colores,
-        //                 borderWidth: 2
-        //             }]
-        //         },
-        //         options: {
-        //             scales: {
-        //                 yAxes: [{
-        //                     ticks: {
-        //                         beginAtZero: true
-        //                     }
-        //                 }]
-        //             }
-        //         }
-        //     });
-        // }
 
         function generarNumero(numero){
             return (Math.random()*numero).toFixed(0);
