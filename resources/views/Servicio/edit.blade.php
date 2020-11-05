@@ -19,7 +19,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
                     <div class="form-group col-md-9">
                         <label for="">N° Cotización</label>
                             <select id="idcotizacion"  name= "idcotizacion"  readonly class="form-control @error('idcotizacion') is-invalid @enderror" >
@@ -32,7 +31,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
                     </div>
-
                 </div>
                 <div class="form-row" >
                     <div class="form-group col-md-3">
@@ -132,6 +130,5 @@
     </div>
 </div>
 <br>
-
 </body>
 @endsection

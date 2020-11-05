@@ -1,21 +1,15 @@
 @extends('layouts.app')
-
 @section('body')
 <div class="container justify-content-center col-md-8">
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Lista de chequeo</strong>
-
-            <!-- <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#crear">Crear lista de chequeo</button> -->
-
         </div>
-
         <div class="card-body table-responsive">
-                 @include('flash::message')
+                @include('flash::message')
             <table id="tbl_listachequeo" class="table table-striped table-bordered " style="width: 100%;">
                 <thead align="center">
                 <tr>
-
                     <th>N° visita</th>
                     <th>Número planilla</th>
                     <th>Encargado visita</th>
@@ -24,13 +18,11 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-
         <div class="modal fade" id="crear" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
@@ -40,7 +32,7 @@
                     <div class="modal-body">
                         @include('flash::message')
                         <form action="/listachequeo/guardar" method="POST" name="FrmCrearListaChequeo" id="FrmCrearListaChequeo"enctype="multipart/form-data">
-                         @csrf
+                        @csrf
                                 <div id="smartwizard">
                                     <ul>
                                         <li><a href="#step-1">Paso 1<br /><small>Información general</small></a></li>
@@ -63,13 +55,12 @@
                                                             @foreach($visita as $key =>$value)
                                                                 <option value="{{ $value->id }}" {{(old('idvisita')==$value->id)? 'selected':''}}>{{ $value->id}}</option>
                                                             @endforeach
-                                                         </select>
+                                                            </select>
                                                             @error('idvisita')
                                                                 <div class="invalid-feedback">{{ $message }}</div>
                                                             @enderror
                                                             <label class="validacion" id="val_idvisita2"></label>
                                                     </div>
-
                                                     <div class="form-group col-md-6">
                                                         <label for="">Número planilla</label>
                                                         <label class="validacion" id="val_numeroplanilla"></label><img src="img/info.png" class="img-fluid" width="20px" data-toggle="tooltip" data-placement="top" title="Ingrese el número asignado para esta visita">
@@ -84,7 +75,6 @@
                                                         <strong>Acceso máquina</strong>
                                             </div>
                                             <div class="row mt-3">
-
                                                 <div class="form-group col-md-6">
                                                             <label class="radio-inline">Estado de la vía para ingreso en grúa</label>
                                                             <label class="validacion"id="val_estadovia"></label>
@@ -113,7 +103,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div id="step-2">
                                             <div class="card-header">
                                                 <strong>Ubicación máquina</strong>
@@ -146,7 +135,6 @@
                                                         <label class="validacion" id="val_techo2"></label>
                                                 </div>
                                             </div>
-
                                             <div class="row mt-3">
                                                 <div class="form-group col-md-3">
                                                         <label class="radio-inline">Desarenadero</label>
@@ -189,7 +177,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div id="step-3" class="">
                                                 <div class="card-header">
                                                     <strong>Seguridad de la obra</strong>
@@ -249,7 +236,6 @@
                                                         @enderror
                                                         <label class="validacion" id="val_banios2"></label>
                                                 </div>
-
                                                 <div class="form-group col-md-5">
                                                     <label class="radio-inline">Condiciones inseguras</label>
                                                     <label class="validacion" id="val_condicioninsegura"></label>
@@ -265,10 +251,9 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div id="step-4" class="">
                                                 <div class="card-header">
-                                                     <strong>Suministros</strong>
+                                                    <strong>Suministros</strong>
                                                 </div>
                                             <div class="row">
                                                 <div class="form-group col-md-4">
@@ -340,7 +325,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div id="step-5" class="">
                                                 <div class="card-header">
                                                     <strong>Información cierre de visita</strong>
@@ -369,25 +353,19 @@
                                                     <label class="validacion" id="val_viabilidad2"></label>
                                                 </div>
                                             </div>
-
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <button type="submit" class="btn btn-success float-left">Crear</button>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
-
                                 </div>
-
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-
 @endsection
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
@@ -395,23 +373,21 @@
     <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
     <script>
         $('#tbl_listachequeo').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '/listachequeo/listar',
                 columns: [
-
                     {
-                     data: 'idvisita',
-                     name: 'idvisita',
-                     orderable: false,
-                     searchable: false
+                    data: 'idvisita',
+                    name: 'idvisita',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'numeroplanilla',
-                     name: 'numeroplanilla'
+                    data: 'numeroplanilla',
+                    name: 'numeroplanilla'
                     },
                     {
                         data: 'encargadovisita',
@@ -426,13 +402,7 @@
                         name: 'editar',
                         orderable: false,
                         searchable: false
-                     },
-                    // {
-                    //     data: 'cambiar',
-                    //     name: 'cambiar',
-                    //     orderable: false,
-                    //     searchable: false
-                    // }
+                    },
                 ], "language":{
                             "sProcessing":     "Procesando...",
                             "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -462,16 +432,10 @@
                             }
                             }
             });
-
     </script>
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
 <script src="{{ asset('js/validacionListaChequeo.js') }}"></script>
 <script src="{{ asset('assets/dashboard/js/tooltips.js') }}"></script>
-
-
-
 @endsection
-

@@ -1,10 +1,7 @@
 @extends('layouts.app')
-
 @section('style')
-
     <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection
-
 @section('body')
 <div class="container justify-content-center col-md-4">
     <div class="card">
@@ -32,7 +29,6 @@
     </div>
 </div>
 @endsection
-
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionTipoContacto.js') }}"></script>

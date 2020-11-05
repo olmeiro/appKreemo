@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('body')
-
 <html>
 <head>
     <title>Crud laravel Ajax con datatables</title>
@@ -11,12 +9,10 @@
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="container justify-content-cente col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
                 <strong>Jornadas</strong>
-
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewJornada">Crear jornada</a>
             </div>
             <div class="card-body table-responsive">
@@ -37,7 +33,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -67,7 +62,6 @@
             </div>
         </div>
     </div>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
@@ -189,7 +183,6 @@ $(function () {
                     position:'center',
                 });
         }
-
         });
     $('body').on('click', '.deleteJornada', function (e) {
         e.preventDefault();
@@ -244,14 +237,11 @@ $(function () {
 });
 </script>
 </html>
-
-
 @endsection
 @section('style')
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
 <script>
     function soloLetras(e) {
     key = e.keyCode || e.which;
@@ -266,7 +256,6 @@ $(function () {
             break;
         }
     }
-
     if(letras.indexOf(tecla) == -1 && !tecla_especial)
         return false;
     }

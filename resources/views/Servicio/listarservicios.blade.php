@@ -1,17 +1,14 @@
 @extends('layouts.app')
-
 @section('body')
-
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>SERVICIOS</strong>
         </div>
-
         <div class="card-body table-responsive">
         @include('flash::message')
             <table id="tbl_servicio" class="table table-bordered table-striped" style="width: 100%;">
                 <thead>
-                <tr> 
+                <tr>
                     <th>N°</th>
                     <th>N° Cotización</th>
                     <th>N° Máquina</th>
@@ -26,16 +23,12 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
     </div>
-
 @endsection
-
 @section("scripts")
-
     <script>
         $('#tbl_servicio').DataTable({
                 processing: true,
@@ -43,34 +36,34 @@
                 ajax: '/servicio/listarservicio',
                 columns: [
                     {
-                     data: 'id',
-                     name: 'id',
-                     orderable: false,
-                     searchable: false
+                    data: 'id',
+                    name: 'id',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'idcotizacion',
-                     name: 'idcotizacion',
-                     orderable: false,
-                     searchable: false
+                    data: 'idcotizacion',
+                    name: 'idcotizacion',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'modelo',
-                     name: 'modelo',
-                     orderable: false,
-                     searchable: false
+                    data: 'modelo',
+                    name: 'modelo',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'n1',
-                     name: 'n1',
-                     orderable: false,
-                     searchable: false
+                    data: 'n1',
+                    name: 'n1',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'n2',
-                     name: 'n2',
-                     orderable: false,
-                     searchable: false
+                    data: 'n2',
+                    name: 'n2',
+                    orderable: false,
+                    searchable: false
                     },
                     {
                         data: 'fechainicio',
@@ -97,7 +90,7 @@
                         name: 'encuesta',
                         orderable: false,
                         searchable: false
-                     }
+                    }
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",
@@ -129,6 +122,4 @@
                             }
             });
     </script>
-
-
 @endsection

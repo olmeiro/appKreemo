@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
 @section('body')
-
-
 <html>
 <head>
     <title>Crud laravel Ajax con datatables</title>
@@ -12,12 +9,10 @@
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="container justify-content-center col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
                 <strong>Estados de cotización</strong>
-
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEstado">Crear estado</a>
             </div>
             <div class="card-body table-responsive">
@@ -39,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -68,7 +62,6 @@
             </div>
         </div>
     </div>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
@@ -79,7 +72,6 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
@@ -171,40 +163,33 @@
             });
             Swal.fire({
                     title:'Registro exitoso',text:'Estado de Cotización !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
                     padding:'1rem',
-                    //background:'#000',
                     backdrop:true,
-                    //toast: true,
                     position:'center',
                         });
             }else{
                 Swal.fire({
                     title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
                     padding:'1rem',
-                    //background:'#000',
                     backdrop:true,
-                    //toast: true,
                     position:'center',
                 });
         }
-
         });
         $('body').on('click', '.deleteEstadoCotizacion', function (e) {
     e.preventDefault();
 
     Swal.fire({
-      title: '¿Está seguro que desea eliminar?',
-      type: 'warning',
-      showCloseButton: true,
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminarlo!',
-      cancelButtonText: 'Cancelar',
-  }).then((choice) => {
-      if (choice.value === true) {
+        title: '¿Está seguro que desea eliminar?',
+        type: 'warning',
+        showCloseButton: true,
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminarlo!',
+        cancelButtonText: 'Cancelar',
+    }).then((choice) => {
+        if (choice.value === true) {
         var estadoCotizacion_id = $(this).data("id");
         var token = $("meta[name='csrf-token']").attr("content");
         $.ajax({
@@ -217,7 +202,6 @@
             success: function (data) {
                 table.draw();
             },
-
         }).done(function(data){
                 if(data && data.ok){
                     Swal.fire({
@@ -240,36 +224,15 @@
             });
         }
     });
-       /*  $('body').on('click', '.deleteEstadoCotizacion', function (e) {
-            e.preventDefault();
-            var x = confirm("Estas seguro de eliminar el registro !");
-            if(x){
-            var estadoCotizacion_id = $(this).data("id");
-            $.ajax({
-                type: "DELETE",
-                url: "{{ route('ajaxestado.store') }}"+'/'+estadoCotizacion_id,
-                success: function (data) {
-                    table.draw();
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                }
-            });
-            }else{
-                return false;
-            } */
-        });
-
+    });
     });
 </script>
 </html>
 @endsection
-
 @section('style')
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
 <script>
     function soloLetras(e) {
     key = e.keyCode || e.which;

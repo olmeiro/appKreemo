@@ -1,40 +1,8 @@
 @extends('layouts.app')
-
-
 @section('body')
-
 <body>
     <div class="container">
-
         <h4 align="center" class="titulo" data-toggle="popover" title="Manual de usuarios" data-placement="top" data-content="">Manual de usuario</h4>
-            <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand">Módulos</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="/manual/usuarios">Usuarios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/manual/clientes">Clientes</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/manual/visitas">Visitas</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/manual/cotizacion">Cotización</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/manual/maquinaria">Maquinaria</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/manual/encuesta">Encuesta</a>
-                </li>
-                </ul>
-            </div>
-            </nav> -->
         <div class="card-deck">
                 <div class="card text-center">
                             <div class="card-header text-white" style="background-color: #616A6B">
@@ -47,7 +15,6 @@
                                 </div>
                             </div>
                 </div>
-
                 <div class="card text-center">
                             <div class="card-header text-white" style="background-color: #616A6B">
                                     {{-- Módulo clientes --}}
@@ -67,7 +34,6 @@
                                 </div>
                             </div>
                 </div>
-
                 <div class="card text-center">
                     <div class="card-header text-white" style="background-color: #616A6B"">
                             {{-- Módulo estadisticas --}}
@@ -77,7 +43,6 @@
                     <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
                         <a  target="_blanck" href="https://whatfix.com/#!flows/cmo-ingresar-al-mdulo-estadsticas-y-ver-su-contenido/eb7a6960-1ec9-11eb-a268-3e2a4292da47/">¿Cómo ingresar al módulo estadísticas y ver su contenido?</a>
                     </div>
-
                     </div>
                 </div>
         </div>
@@ -98,7 +63,6 @@
                             </div>
                             </div>
                 </div>
-
                 <div class="card text-center">
                             <div class="card-header text-white" style="background-color: #616A6B">
                                     {{-- Módulo servicio --}}
@@ -114,7 +78,6 @@
                             </div>
                             </div>
                 </div>
-
                 <div class="card text-center">
                     <div class="card-header text-white" style="background-color: #616A6B">
                             {{-- Módulo visitas --}}
@@ -164,18 +127,9 @@
                         </div>
                 </div>
             </div>
-
-
         </div>
-
-
-
     @yield("body2")
-
-
     </div>
-
-
 </body>
 @endsection
 @section('style')

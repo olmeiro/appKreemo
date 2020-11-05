@@ -1,18 +1,12 @@
 @extends('layouts.app')
-
 @section('meta')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
-
 @section('body')
-
 <div class="card col">
     <div id='calendar'>
     </div>
 </div>
-
-<!-- Modal para crear un servicio en full calendar -->
-
 <div class="modal fade" id="agendaservicio_modal" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
@@ -166,7 +160,6 @@
         </div>
     </div>
 </div>
-
 @endsection
 @section("style")
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
@@ -175,7 +168,6 @@
 <link href='{{ asset("assets/dashboard/assets/fullcalendar/main.min.css")}}'rel='stylesheet'/>
 <link href="{{ asset('css/styleMaquiOperario.css') }}" rel="stylesheet">
 @endsection
-
 @section("scripts")
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script src="{{ asset('assets/dashboard/js/tooltips.js') }}"></script>
@@ -195,7 +187,6 @@
                 },
             },
     });
-
     flatpickr("#fechafin", {
         minDate: "today",
         maxDate: "",
@@ -216,11 +207,8 @@
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/main.min.js")}}'></script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/locales/es.js")}}'></script>
 <script src='{{ asset("assets/dashboard/assets/fullcalendar/moment.min.js")}}'></script>
-
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
 <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
 <script src="{{ asset('js/validacionServicio.js') }}"></script>
 @endsection
-

@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('body')
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
@@ -25,7 +24,6 @@
                             </div>
                             <div class="col">
                                 <div class="form-group">
-
                                     <label for="">Hora inicial</label>
                                     <input type="time" class="form-control" id="horainicio">
                                 </div>
@@ -84,7 +82,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -119,7 +116,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -146,25 +142,18 @@
                                 </div>
                             </div>
                         </div>
-                       
                             <button type="submit" class="btn btn-success float-right">Editar</button>
                             <button type="button" href="/servicio/listarservicio" class="btn btn-primary">Volver</button>
-                   
                 </form>
             </div>
     </div>
 </div>
 @endsection
 @section("scripts")
-
-
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
- <script src="{{ asset('js/validacionListaChequeo.js') }}"></script>
-
+<script src="{{ asset('js/validacionListaChequeo.js') }}"></script>
 @endsection
 @section('style')
- 
-    <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
+<link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection

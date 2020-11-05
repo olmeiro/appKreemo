@@ -1,10 +1,8 @@
 @extends('layouts.app')
-
 @section('body')
 <html>
 <head>
     <title>Operario</title>
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" />
     <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -16,14 +14,12 @@
     <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script> --}}
 </head>
 <body oncopy="return false" onpaste="return false">
-
 <div class="container">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
                 <strong>Operarios</strong>
                 <button type="button" class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewOperario">Crear operario</button>
             </div>
-
             <div class="card-body table-responsive">
                 <table class="table table-bordered data-table table-striped border" id="tbl_operario" style="width: 100%;">
                     <thead>
@@ -41,7 +37,6 @@
             </div>
         </div>
 </div>
-
 <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -73,9 +68,7 @@
                             @enderror
                             <label class="validacion" id="validacion_apellido2"></label>
                     </div>
-
                 </div>
-
                 <div class="row">
                     <div class="form-group col-md-6">
                             <label for="documento">Documento</label>
@@ -96,17 +89,14 @@
                             <label class="validacion" id="validacion_celular2"></label>
                         </div>
                 </div>
-
                 <div  align="center">
                     <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Guardar</button>
-
                 </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
@@ -247,11 +237,8 @@ $(function () {
         });
                 Swal.fire({
                         title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                           //width: '50%',
                         padding:'1rem',
-                           //background:'#000',
                         backdrop:true,
-                           //toast: true,
                         position:'center',
                             });
                     $("#validacion_nombre").text("");
@@ -266,14 +253,10 @@ $(function () {
         }else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
-
         }
     });
 

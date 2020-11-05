@@ -1,11 +1,9 @@
 @extends('layouts.app')
-
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
 @endsection
-
 @section('body')
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
@@ -17,9 +15,7 @@
         @csrf
         <input type="hidden" name="id" value="{{$obra->id}}"/>
         <input value="{{$obra->idempresa}}" type="hidden" class="form-control @error('nombre') is-invalid @enderror"  name="idempresa" id="idempresa">
-
             <div class="row">
-              
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Nombre</label>
@@ -30,9 +26,6 @@
                         <label class="validacion" for="valNombre" id="valNombre"></label>
                     </div>
                 </div>
-
-                
-
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Dirección</label>
@@ -43,8 +36,6 @@
                         <label class="validacion" for="valDireccion" id="valDireccion"></label>
                     </div>
                 </div>
-
-
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Telefono #1</label>
@@ -55,8 +46,6 @@
                         <label class="validacion" for="valTelefono1" id="valTelefono1"></label>
                     </div>
                 </div>
-
-
                 <div class="col-6">
                     <div class="form-group">
                         <label for="">Correo #1</label>
@@ -67,8 +56,6 @@
                         <label class="validacion" for="valCorreo1" id="valCorreo1"></label>
                     </div>
                 </div>
-
-
             </div>
             <div class="col 12">
                 <button type="submit" class="btn btn-success float-lg-right" id="crearObra">Actualizar</button>
@@ -78,7 +65,6 @@
         </div>
     </div>
 @endsection
-
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionObra.js') }}"></script>

@@ -1,10 +1,7 @@
 @extends('layouts.app')
-
 @section('meta')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-
 @endsection
-
 @section('body')
 <div class="container">
     <div class="card">
@@ -32,7 +29,6 @@
         </div>
     </div>
 </div>
-    <!-- Add and Edit customer modal -->
 <div class="modal fade" id="crud-modal" aria-hidden="true" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -85,7 +81,6 @@
                                     <option value="3">Supervisor</option>
                                 </select>
                                 <label class="validacion" id="valrol"></label>
-                            <!-- <input type="text" name="rol" id="rol" class="form-control" placeholder="Rol"onchange="validate()" > -->
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
@@ -97,8 +92,6 @@
         </div>
     </div>
 </div>
-
-    <!-- Show user modal -->
     <div class="modal fade" id="crud-modal-show" aria-hidden="true" >
         <div class="modal-dialog ">
             <div class="modal-content"  >
@@ -113,9 +106,8 @@
                             <tr height="50px"><td><strong>Nombre:</strong></td><td id="sname"></td></tr>
                             <tr height="50px"><td><strong>Email:</strong></td><td id="semail"></td></tr>
                             <tr height="50px"><td><strong>Rol:</strong></td><td id="srol"></td></tr>
-
                             <tr>
-                                <td></td><td style="text-align: right "><a href="" class="btn btn-danger" data-dismiss="modal">OK</a> </td></tr>
+                            <td></td><td style="text-align: right "><a href="" class="btn btn-danger" data-dismiss="modal">OK</a> </td></tr>
                         </table>
                     </div>
                     </div>
@@ -123,7 +115,6 @@
             </div>
         </div>
     </div>
-
 @endsection
 @section('style')
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
@@ -131,7 +122,6 @@
 <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
 @endsection
-
 @section('scripts')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
@@ -140,12 +130,11 @@
 <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script>
-
-   $(function () {
+    $(function () {
     $.ajaxSetup({
-          headers: {
-              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-          }
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
     });
     var table = $('.data-table').DataTable({
     processing: true,
@@ -160,8 +149,6 @@
     {data: 'estado', name: 'estado'},
     {data: 'action', name: 'action', orderable: false, searchable: false},
     {data: 'cambiar', name: 'cambiar'},
-
-
     ],
     "language":{
                             "sProcessing":     "Procesando...",
@@ -192,16 +179,12 @@
                             }
                             }
     });
-
-    /* When click New customer button */
     $('#new-user').click(function () {
     $('#btn-save').val("create-user");
     $('#user').trigger("reset");
     $('#userCrudModal').html("Crear usuario");
     $('#crud-modal').modal('show');
     });
-
-    /* Edit customer */
     $('body').on('click', '#edit-user', function () {
     var user_id = $(this).data('id');
     $.get('users/'+user_id+'/edit', function (data) {
@@ -215,27 +198,21 @@
     $('#email').val(data.email);
     $('#pw').val(data.password);
     $('#rol').val(data.rol_id);
-
     })
     });
-
-    /* Show customer */
     $('body').on('click', '#show-user', function () {
     var user_id = $(this).data('id');
     $.get('users/'+user_id, function (data) {
     $('#sname').html(data.name);
     $('#semail').html(data.email);
     $('#srol').html(data.rolname);
-
     })
     $('#userCrudModal-show').html("Detalles de usuario");
     $('#crud-modal-show').modal('show');
     });
-
     $('#btn-save').click(function (e) {
         e.preventDefault();
         let validado = 0;
-
         if($("#name").val().length == 0)
          {
              $("#valname").text("* Debe ingresar el nombre");
@@ -245,7 +222,6 @@
              $("#valname").text("");
              validado++;
          }
-
          if($("#lastname").val().length == 0)
          {
              $("#vallast").text("* Debe ingresar el apellido");
@@ -255,9 +231,7 @@
              $("#vallast").text("");
              validado++;
          }
-
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
-
          if($("#email").val().length == 0 || !emailRegex.test($("#email").val()))
          {
              $("#valemail").text("* Ingrese un correo válido.");
@@ -267,41 +241,35 @@
              $("#valemail").text("");
              validado++;
          }
-
-         if( $("#pw").val() == 0 )
-         {
-             $("#valpw").text("* Debe introducir la contraseña");
-         }
-         else
-         {
-             $("#valpw").text("");
-             validado++;
-         }
-
-         if( $("#rol").val() == 0 )
-         {
-             $("#valrol").text("* Debe elegir un rol");
-         }
-         else
-         {
-             $("#valrol").text("");
-             validado++;
-         }
-
-         console.log("validado: " + validado);
-
-         if (validado==5){
-         $.ajax({
+        if( $("#pw").val() == 0 )
+        {
+            $("#valpw").text("* Debe introducir la contraseña");
+        }
+        else
+        {
+            $("#valpw").text("");
+            validado++;
+        }
+        if( $("#rol").val() == 0 )
+        {
+            $("#valrol").text("* Debe elegir un rol");
+        }
+        else
+        {
+            $("#valrol").text("");
+            validado++;
+        }
+        console.log("validado: " + validado);
+        if (validado==5){
+        $.ajax({
             data: $('#user').serialize(),
             url: "{{ route('users.store') }}",
             type: "POST",
             dataType: 'json',
             success: function (data) {
-
                 $('#user').trigger("reset");
                 $('#crud-modal').modal('hide');
                 table.draw();
-
             },
             error: function (data) {
                 console.log('Error:', data);
@@ -317,7 +285,6 @@
                    //toast: true,
                 position:'center',
                     });
-
         } else{
             Swal.fire({
                 title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
@@ -329,18 +296,10 @@
                 position:'center',
             });
         }
-
     });
-
-
-
-    /* Delete customer */
-
     $('body').on('click', '#delete-user', function (e) {
         e.preventDefault();
-
             x =  confirm("Está seguro que quiere eliminar ?");
-
             if (x){
                 var user_id = $(this).data("id");
                 var token = $("meta[name='csrf-token']").attr("content");
@@ -352,7 +311,6 @@
                 "_token": token,
                 },
                 success: function (data) {
-
                 table.ajax.reload();
                 },
                 error: function (data) {
@@ -365,29 +323,24 @@
             return false;
             }
         });
-
     });
-
     function limpiar(){
         $("input").val("");
         $("select").val("0");
         $("label").text("");
     }
-
     function soloLetras(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
     letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
     especiales = [8, 37, 39, 46],
     tecla_especial = false;
-
     for (var i in especiales) {
     if (key == especiales[i]) {
         tecla_especial = true;
         break;
         }
     }
-
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
     return false;}
     }
