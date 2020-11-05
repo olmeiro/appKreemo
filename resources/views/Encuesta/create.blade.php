@@ -37,7 +37,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Empresa</label>
                             <label class="validacion" for="constructora" id="valConstructora"></label>
-                            <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{$empresa[0]->nombre}}">
+                            <input type="text" class="form-control @error('constructora') is-invalid @enderror" id="constructora" name="constructora" value="{{$empresa[0]->nombre}}" readonly>
                             @error('constructora')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -48,7 +48,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Correo</label>
                             <label class="validacion" for="correo" id="valCorreo"></label>
-                            <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{$empresa[0]->correo1}}">
+                            <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{$empresa[0]->correo1}}" readonly>
                             @error('correo')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -57,7 +57,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Celular</label>
                             <label class="validacion" for="celular" id="valCelular"></label>
-                            <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" value="{{$empresa[0]->telefono1}}">
+                            <input type="tel" class="form-control @error('celular') is-invalid @enderror" id="celular" name="celular" value="{{$empresa[0]->telefono1}}" readonly>
                             @error('celular')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror

@@ -13,20 +13,20 @@
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal2">Crear contacto</button>
         </div>
         <div class="card-body justify-content-lg-center table-responsive">
-        @include('flash::message')
-        <h4 id="mensaje"></h4>
+            @include('flash::message')
+            <h4 id="mensaje"></h4>
             <table id="tbl_contacto" class="table table-bordered table-striped " style="width: 100%;">
                 <thead>
-                <tr>
-                    <th>Obra</th>
-                    <th>Tipo contacto</th>
-                    <th>Nombre</th>
-                    <th>Primer apellido</th>
-                    <th>Teléfono 1</th>
-                    <th>Correo 1</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
+                    <tr>
+                        <th>Obra</th>
+                        <th>Tipo contacto</th>
+                        <th>Nombre</th>
+                        <th>Primer apellido</th>
+                        <th>Teléfono 1</th>
+                        <th>Correo 1</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
                 </thead>
                 <tbody>
 
@@ -42,27 +42,27 @@
             <div class="modal-content">
                 @include('flash::message')
                 <form class="col-md-12 " action="" method="POST" id="frmTipoContacto">
-                @csrf
-                <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title">Crear tipo de contacto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar1()">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <h5>Defina el tipo de contacto</h5>
-                    <div class="form-group">
-                        <label for="">Tipo de contacto</label>
-                        <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror" onkeypress="return soloLetras(event)"  name="tipocontacto" id="tipocontacto" onchange="validate()">
-                        @error('tipocontacto')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                        <label class="validacion" for="tipocontacto" id="valTipoContacto"></label>
+                    @csrf
+                    <div class="modal-header text-white" style="background-color: #616A6B">
+                        <h5 class="modal-title">Crear tipo de contacto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar1()">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" id="crearTipoContacto" class="btn btn-success">Crear</button>
-                </div>
+                    <div class="modal-body">
+                        <h5>Defina el tipo de contacto</h5>
+                        <div class="form-group">
+                            <label for="">Tipo de contacto</label>
+                            <input type="text" class="form-control @error('tipocontacto') is-invalid @enderror" onkeypress="return soloLetras(event)"  name="tipocontacto" id="tipocontacto" onchange="validate()">
+                            @error('tipocontacto')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror
+                            <label class="validacion" for="tipocontacto" id="valTipoContacto"></label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="crearTipoContacto" class="btn btn-success">Crear</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -79,7 +79,7 @@
                 <div class="modal-body">
                     @include('flash::message')
                     <form class="form-signin col-md-12" action="" method="POST" name="" id="frmContacto">
-                    @csrf
+                        @csrf
                         <div id="smartwizard">
                             <ul>
                                 <li><a href="#step-1">Paso 1<br /><small>Defina el tipo de contacto</small></a></li>
@@ -148,8 +148,8 @@
                                             <input type="number" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="documento" id="documento">
                                             @error('documento')
                                                 <div class="invalid-feedback">{{ $message }}</div>
-                                            @enderror <label class="validacion" for="documento" id="valDocumento"></label></div>
-
+                                            @enderror <label class="validacion" for="documento" id="valDocumento"></label>
+                                        </div>
                                     </div>
                                 </div>
                                 <div id="step-3" class="">
@@ -188,13 +188,9 @@
                                         <button type="button" id="crearContacto" class="btn btn-success">Crear</button>
                                     </div>
                                 </div>
-
                             </div>
-
-
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
@@ -214,15 +210,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="card-body">
-                    @include('flash::message')
+                        @include('flash::message')
                         <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
                             <thead>
-                            <tr>
-                                <th>N°</th>
-                                <th>Tipo de Contacto</th>
-                                <th>Modificar</th>
-                                <th>Eliminar</th>
-                            </tr>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Tipo de Contacto</th>
+                                    <th>Modificar</th>
+                                    <th>Eliminar</th>
+                                </tr>
                             </thead>
                             <tbody>
 
@@ -237,150 +233,140 @@
 <!-- Modal para editar contacto -->
 
     <div class="modal fade" id="exampleModal4" data-backdrop="static"  tabindex="-1" aria-labelledby="exampleModal4" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h4 class="modal-title" id="clienteEditModal"></h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <div class="card-header">
-                            <strong>x</strong>
-                        </div>
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-white" style="background-color: #616A6B">
+                    <h4 class="modal-title" id="clienteEditModal"></h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <div class="card-header">
+                        <strong>x</strong>
                     </div>
-                    <div class="modal-body">
-                        <div class="card-body">
+                </div>
+                <div class="modal-body">
+                    <div class="card-body">
                         <form class="editContact" name="clienteForm" id="editForm" action="/cliente/guardaredit" method="POST" >
-                        @csrf
-                        <input type="hidden" name="cliente_id" id="cliente_id" >
-
+                            @csrf
+                            <input type="hidden" name="cliente_id" id="cliente_id" >
                             <div class="row">
-                            <div class="col-6">
-
-                            <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="">Tipo de contacto</label>
-                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidtipocontacto" id="cidtipocontacto">
-                                                <option value="0">Seleccione</option>
-                                                @foreach($tipoContacto as $key =>$value)
-                                                    <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="">Tipo de contacto</label>
+                                                <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidtipocontacto" id="cidtipocontacto">
+                                                    <option value="0">Seleccione</option>
+                                                    @foreach($tipoContacto as $key =>$value)
+                                                        <option value="{{ $value->id }}">{{ $value->tipocontacto}}</option>
+                                                    @endforeach
+                                                </select>
+                                                @error('idtipocontacto')
+                                                    <div class="invalid-feedback">{{ $message }} ></div>
+                                                @enderror
+                                                <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="">Obra</label>
+                                                <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidobra" id="cidobra">
+                                                <option value="0">Seleccione Obra</option>
+                                                @foreach($obra as $key =>$value)
+                                                    <option value="{{ $value->id }}">{{ $value->nombre}}</option>
                                                 @endforeach
-                                            </select>
-                                            @error('idtipocontacto')
-                                                <div class="invalid-feedback">{{ $message }} ></div>
-                                            @enderror
-                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="">Obra</label>
-                                            <select class="form-control @error('idtipocontacto') is-invalid @enderror" name="cidobra" id="cidobra">
-                                            <option value="0">Seleccione Obra</option>
-                                            @foreach($obra as $key =>$value)
-                                                <option value="{{ $value->id }}">{{ $value->nombre}}</option>
-                                            @endforeach
-                                            </select>
-                                            @error('idtipocontacto')
-                                                <div class="invalid-feedback">{{ $message }} ></div>
-                                            @enderror
-                                            <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                                </select>
+                                                @error('idtipocontacto')
+                                                    <div class="invalid-feedback">{{ $message }} ></div>
+                                                @enderror
+                                                <label class="validacion" for="idtipocontacto" id="valContacto"></label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Nombre</label>
-                                        <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="cnombre" id="cnombre" onchange="validate()" onkeypress="return soloLetras(event)">
-                                        @error('nombre')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="cnombre" id="valCNombre"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Nombre</label>
+                                            <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="cnombre" id="cnombre" onchange="validate()" onkeypress="return soloLetras(event)">
+                                            @error('nombre')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="cnombre" id="valCNombre"></label>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Primer apellido</label>
-                                        <input type="text" class="form-control @error('apellido1') is-invalid @enderror"  name="capellido1" id="capellido1" onchange="validate()" onkeypress="return soloLetras(event)">
-                                        @error('apellido1')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="capellido1" id="valCApellido1"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Primer apellido</label>
+                                            <input type="text" class="form-control @error('apellido1') is-invalid @enderror"  name="capellido1" id="capellido1" onchange="validate()" onkeypress="return soloLetras(event)">
+                                            @error('apellido1')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="capellido1" id="valCApellido1"></label>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Segundo apellido</label>
-                                        <input type="text" class="form-control @error('apellido2') is-invalid @enderror"  name="capellido2" id="capellido2" onchange="validate()" onkeypress="return soloLetras(event)">
-                                        @error('apellido2')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="capellido2" id="valCApellido2"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Segundo apellido</label>
+                                            <input type="text" class="form-control @error('apellido2') is-invalid @enderror"  name="capellido2" id="capellido2" onchange="validate()" onkeypress="return soloLetras(event)">
+                                            @error('apellido2')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="capellido2" id="valCApellido2"></label>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Documento</label>
-                                        <input type="number" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="cdocumento" id="cdocumento" onchange="validate()">
-                                        @error('documento')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="cdocumento" id="valCDocumento"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Documento</label>
+                                            <input type="number" class="form-control @error('documento') is-invalid @enderror solo_numeros"  name="cdocumento" id="cdocumento" onchange="validate()">
+                                            @error('documento')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="cdocumento" id="valCDocumento"></label>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Teléfono #1</label>
-                                        <input type="number" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="ctelefono1" id="ctelefono1" onchange="validate()">
-                                        @error('telefono1')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="ctelefono1" id="valTel1"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Teléfono #1</label>
+                                            <input type="number" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="ctelefono1" id="ctelefono1" onchange="validate()">
+                                            @error('telefono1')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="ctelefono1" id="valTel1"></label>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Teléfono #2</label>
-                                        <input type="number" class="form-control @error('telefono2') is-invalid @enderror solo_numeros"  name="ctelefono2" id="ctelefono2" onchange="validate()">
-                                        @error('telefono2')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="ctelefono2" id="valTel2"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Teléfono #2</label>
+                                            <input type="number" class="form-control @error('telefono2') is-invalid @enderror solo_numeros"  name="ctelefono2" id="ctelefono2" onchange="validate()">
+                                            @error('telefono2')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="ctelefono2" id="valTel2"></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-group">
-                                        <label for="">Correo #1</label>
-                                        <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="ccorreo1" id="ccorreo1" onchange="validate()">
-                                        @error('correo1')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="ccorreo1" id="valCCorreo1"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Correo #1</label>
+                                            <input type="text" class="form-control @error('correo1') is-invalid @enderror"  name="ccorreo1" id="ccorreo1" onchange="validate()">
+                                            @error('correo1')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="ccorreo1" id="valCCorreo1"></label>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-6">
-                                <div class="form-group">
-                                        <label for="">Correo #2</label>
-                                        <input type="text" class="form-control @error('correo2') is-invalid @enderror"  name="ccorreo2" id="ccorreo2" onchange="validate()">
-                                        @error('correo2')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                        <label class="validacion" for="ccorreo2" id="valCCorreo2"></label>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="">Correo #2</label>
+                                            <input type="text" class="form-control @error('correo2') is-invalid @enderror"  name="ccorreo2" id="ccorreo2" onchange="validate()">
+                                            @error('correo2')
+                                                <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                            <label class="validacion" for="ccorreo2" id="valCCorreo2"></label>
+                                        </div>
                                     </div>
-                                </div>
-
-                                </div>
                             </div>
-                                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                                    <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary float-lg-right" disabled>Editar</button>
-                                </div>
-                            </form>
-                        </div>
+                            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                                        <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary float-lg-right" disabled>Editar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
     </div>
 
 
@@ -401,20 +387,20 @@
                 ajax: '/cliente/listar',
                 columns: [
                     {
-                     data: 'obra',
-                     name: 'obra',
-                     orderable: true,
-                     searchable: true
+                        data: 'obra',
+                        name: 'obra',
+                        orderable: true,
+                        searchable: true
                     },
                     {
-                     data: 'tipocontacto',
-                     name: 'tipocontacto',
-                     orderable: false,
-                     searchable: false
+                        data: 'tipocontacto',
+                        name: 'tipocontacto',
+                        orderable: false,
+                        searchable: false
                     },
                     {
-                     data: 'nombre',
-                     name: 'nombre'
+                        data: 'nombre',
+                        name: 'nombre'
                     },
                     {
                         data: 'apellido1',
@@ -478,12 +464,12 @@
                 ajax: '/tipocontacto/listar',
                 columns: [
                     {
-                     data: 'id',
-                     name: 'id'
+                        data: 'id',
+                        name: 'id'
                     },
                     {
-                     data: 'tipocontacto',
-                     name: 'tipocontacto'
+                        data: 'tipocontacto',
+                        name: 'tipocontacto'
                     },
                     {
                         data: 'editar',
