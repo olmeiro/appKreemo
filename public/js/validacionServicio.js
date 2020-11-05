@@ -28,7 +28,6 @@ $(function(){
         var today = moment(new Date()).format("YYYY-MM-DD");
         if(check < today)
         {
-            //alert("No puedes agendar aquí");
             Swal.fire('No puedes agendar aquí');
         }
         else
@@ -41,17 +40,14 @@ $(function(){
             $("#fechafin").val(fechafin);
             $("#horainicio").val(horainicio);
             $("#horafin").val(horafin);
-
             $("#agendaservicio_modal").modal();
             calendar.unselect();
         }
 
-
-      },
+    },
 
       eventClick: function(info) {
 
-        //alert("hola soy modal");
         console.log(info);
         console.log(info.event.id);
         console.log(info.event.start);
@@ -89,7 +85,6 @@ $(function(){
 
     eventSources: [
 
-        // your event source
         {
           url: '/servicio/show', // use the `url` property
           textColor: 'red' , // an option!
@@ -105,11 +100,7 @@ $(function(){
             }
         }
         }
-
-        // any other sources...
-
-      ]
-
+    ]
 
     }),
 
@@ -117,20 +108,16 @@ $(function(){
 
     $("#btnAgregar").click(function(){
         ObjEvento=recolectarDatosGUI("POST");
-        //console.log(ObjEvento);
-
         EnviarInformacion('',ObjEvento);
     });
 
     $("#btnBorrar").click(function(){
         ObjEvento=recolectarDatosGUI("DELETE");
-        //console.log(ObjEvento);
         EnviarInformacion('/'+$("#id").val(),ObjEvento);
     });
 
     $("#btnModificaa").click(function(){
         ObjEvento=recolectarDatosGUI("PATCH");
-
         EnviarInformacion('/'+$("#id").val(),ObjEvento);
     });
 
@@ -154,7 +141,6 @@ $(function(){
 
         return(nuevoEvento);
     }
-
 
     function EnviarInformacion(accion, objEvento){
         let validado = 0;
@@ -244,16 +230,12 @@ $(function(){
                     calendar.refetchEvents();
                     Swal.fire({
                         title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                           //width: '50%',
                         padding:'1rem',
-                           //background:'#000',
                         backdrop:true,
-                           //toast: true,
                         position:'center',
                             });
 
                     $('#agendaservicio_modal').on('hidden.bs.modal', function () {
-                        //location.reload();
                     });
                     $("#valfecha").text("");
                     $("#valfecha2").text("");
@@ -277,18 +259,15 @@ $(function(){
         }else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
               validado = 0;}
     }
 })
 
-  function limpiar(){
+function limpiar(){
     $("#valfecha").text("");
     $("#valfecha2").text("");
     $("#valfechafin").text("");
@@ -310,7 +289,6 @@ $(function(){
     $("textarea").val("");
 }
 
-
 function darFecha()
 {
     let id = $("#idcotizacion").val();
@@ -328,33 +306,4 @@ function darFecha()
             console.log(arreglo[0].inicioBombeo)
             $("#fechainicio").val(arreglo[0].inicioBombeo);
     });
-
 }
-
-// function validarMaquina()
-// {
-//     let idmaquina = $("#idmaquina").val();
-//     let fechainicio = $("#fechainicio").val();
-//     let fechafin = $("#fechafin").val();
-//     console.log(idmaquina);
-//     console.log(fechainicio);
-//     console.log(fechafin);
-
-
-//     $.ajax({
-//         headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-//         url: '/servicio/validaMaquina',
-//         type: 'POST',
-//         data:  {
-//             id: $('#idmaquina').val(),
-//             fechainicio: $("#fechainicio").val(),
-//             fechafin: $("#fechafin").val(),
-//         },
-//     }).done(function(res) {
-//         console.log(res);
-//         // var arreglo = JSON.parse(res);
-//         //     console.log(arreglo[0].inicioBombeo)
-//         //     $("#fechainicio").val(arreglo[0].inicioBombeo);
-//     });
-// }
-

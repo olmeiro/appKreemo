@@ -11,10 +11,10 @@ function valor_total()
 function valor_totaltransporte()
 {
 
-var valor = document.getElementById('ValorTransporte').value;
-document.getElementById('AIUtrans').value= (valor)*(0.05);
-document.getElementById('IvaAIUtrans').value= ((valor)*(0.05))*(0.19);
-document.getElementById('ValorTotaltrans').value=((valor)*(0.05))*(0.19)+(1*valor);
+    var valor = document.getElementById('ValorTransporte').value;
+    document.getElementById('AIUtrans').value= (valor)*(0.05);
+    document.getElementById('IvaAIUtrans').value= ((valor)*(0.05))*(0.19);
+    document.getElementById('ValorTotaltrans').value=((valor)*(0.05))*(0.19)+(1*valor);
 }
 
 function soloLetras(e) {
@@ -26,13 +26,13 @@ function soloLetras(e) {
 
     for (var i in especiales) {
     if (key == especiales[i]) {
-        tecla_especial = true;
+    tecla_especial = true;
         break;
         }
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
+        return false;
     }
 }
 
@@ -55,8 +55,6 @@ function soloNumeros(e) {
     }
 }
 
-
-
 $(document).ready(function() {
     $("#FrmEditarCotizacion").submit(function(event){
         event.preventDefault();
@@ -65,7 +63,7 @@ $(document).ready(function() {
 
         if ($("#IdEmpresa").val() == 0) {
             $("#val_empresa").text("*");
-            $("#val_empresa2").text("Debe ingresar la Empresa");
+            $("#val_empresa2").text("Debe ingresar la empresa");
         }else{
             $("#val_empresa").text("");
             $("#val_empresa2").text("");
@@ -74,7 +72,7 @@ $(document).ready(function() {
 
         if ($("#IdEstado").val() == 0) {
             $("#val_Estado").text("*");
-            $("#val_Estado2").text("Debe Seleccionar un Estado");
+            $("#val_Estado2").text("Debe seleccionar un estado");
         }else{
             $("#val_Estado").text("");
             $("#val_Estado2").text("");
@@ -83,7 +81,7 @@ $(document).ready(function() {
 
         if ($("#IdModalidad").val() == 0) {
             $("#val_Modalidad").text("*");
-            $("#val_Modalidad2").text("Debe Seleccionar una Modalidad");
+            $("#val_Modalidad2").text("Debe seleccionar una modalidad");
         }else{
             $("#val_Modalidad").text("");
             $("#val_Modalidad2").text("");
@@ -92,7 +90,7 @@ $(document).ready(function() {
 
         if ($("#IdEtapa").val() == 0) {
             $("#val_Etapa").text("*");
-            $("#val_Etapa2").text("Debe Seleccionar una Etapa");
+            $("#val_Etapa2").text("Debe seleccionar una etapa");
         }else{
             $("#val_Etapa").text("");
             $("#val_Etapa2").text("");
@@ -101,7 +99,7 @@ $(document).ready(function() {
 
         if ($("#IdJornada").val() == 0) {
             $("#val_Jornada").text("*");
-            $("#val_Jornada2").text("Debe Seleccionar una Jornada");
+            $("#val_Jornada2").text("Debe seleccionar una jornada");
         }else{
             $("#val_Jornada").text("");
             $("#val_Jornada2").text("");
@@ -110,7 +108,7 @@ $(document).ready(function() {
 
         if ($("#IdTipo_Concreto").val() == 0) {
             $("#val_TipoConcreto").text("*");
-            $("#val_TipoConcreto2").text("Debe Seleccionar un Tipo de Concreto");
+            $("#val_TipoConcreto2").text("Debe seleccionar un tipo de concreto");
         }else{
             $("#val_TipoConcreto").text("");
             $("#val_TipoConcreto2").text("");
@@ -119,7 +117,7 @@ $(document).ready(function() {
 
         if ($("#IdObra").val() == 0) {
             $("#val_Obra").text("*");
-            $("#val_Obra2").text("Debe Seleccionar una Obra");
+            $("#val_Obra2").text("Debe seleccionar una obra");
         }else{
             $("#val_Obra").text("");
             $("#val_Obra2").text("");
@@ -128,8 +126,8 @@ $(document).ready(function() {
 
         if ($("#FechaCotizacion").val().length == 0) {
             $("#val_FechaCotizacion").text("*");
-            $("#val_FechaCotizacion2").text("Debe Seleccionar una fecha");
-            $("#val_FechaCotizacion3").text("Debe Seleccionar una fecha");
+            $("#val_FechaCotizacion2").text("Debe seleccionar una fecha");
+            $("#val_FechaCotizacion3").text("Debe seleccionar una fecha");
         }else{
             $("#val_FechaCotizacion").text("");
             $("#val_FechaCotizacion2").text("");
@@ -139,8 +137,8 @@ $(document).ready(function() {
 
         if ($("#InicioBombeo").val().length == 0) {
             $("#val_FechaInicio").text("*");
-            $("#val_FechaInicio2").text("Debe Seleccionar una fecha");
-            $("#val_FechaInicio3").text("Debe Seleccionar una fecha");
+            $("#val_FechaInicio2").text("Debe seleccionar una fecha");
+            $("#val_FechaInicio3").text("Debe seleccionar una fecha");
         }else{
             $("#val_FechaInicio").text("");
             $("#val_FechaInicio2").text("");
@@ -148,43 +146,10 @@ $(document).ready(function() {
             validado++;
         }
 
-        // if ($("#Ciudad").val() == 0) {
-        //     $("#val_ciudad").text("*");
-        //     $("#val_ciudad2").text("Debe ingresar la ciudad");
-        //     $("#val_ciudad3").text("Debe ingresar la ciudad");
-        // }else{
-        //     $("#val_ciudad").text("");
-        //     $("#val_ciudad2").text("");
-        //     $("#val_ciudad3").text("");
-        //     validado++;
-        // }
-
-        // if ($("#Losas").val() == 0) {
-        //     $("#val_Losas").text("*");
-        //     $("#val_Losas2").text("Debe ingresar la cantidad de losas");
-        //     $("#val_Losas3").text("Debe ingresar la cantidad de losas");
-        // }else{
-        //     $("#val_Losas").text("");
-        //     $("#val_Losas2").text("");
-        //     $("#val_Losas3").text("");
-        //     validado++;
-        // }
-
-        // if ($("#Tuberia").val() == 0) {
-        //     $("#val_Tuberia").text("*");
-        //     $("#val_Tuberia2").text("Debe ingresar la cantidad de tuberia");
-        //     $("#val_Tuberia3").text("Debe ingresar la cantidad de tuberia");
-        // }else{
-        //     $("#val_Tuberia").text("");
-        //     $("#val_Tuberia2").text("");
-        //     $("#val_Tuberia3").text("");
-        //     validado++;
-        // }
-
         if ($("#MetrosCubicos").val() == 0) {
             $("#val_Metros").text("*");
-            $("#val_Metros2").text("Debe Digitar la cantidad de Metros Cubicos");
-            $("#val_Metros3").text("Debe Digitar la cantidad de Metros Cubicos");
+            $("#val_Metros2").text("Debe digitar la cantidad de metros cúbicos");
+            $("#val_Metros3").text("Debe digitar la cantidad de metros cúbicos");
         }else{
             $("#val_Metros").text("");
             $("#val_Metros2").text("");
@@ -242,11 +207,8 @@ $(document).ready(function() {
         {
             Swal.fire({
                 title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
                     });
 
@@ -255,17 +217,11 @@ $(document).ready(function() {
         else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
-            // alert("Campos pendientes por validar");
             validado = 0;
         }
-
     });
 });
-

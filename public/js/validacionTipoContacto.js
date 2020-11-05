@@ -105,11 +105,8 @@ $(document).ready(function() {
                 {
                   Swal.fire({
                     title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                       //width: '50%',
                     padding:'1rem',
-                       //background:'#000',
                     backdrop:true,
-                       //toast: true,
                     position:'center',
                         });
                   limpiar();
@@ -119,81 +116,19 @@ $(document).ready(function() {
                 else{
                   Swal.fire({
                     title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                       //width: '50%',
                     padding:'1rem',
-                       //background:'#000',
                     backdrop:true,
-                       //toast: true,
                     position:'center',
-                });
-
+                    });
                 }
-              })
-       }
-  });
+            })
+        }
+    });
 });
 
 function limpiar(){
   $("input").val("");
 }
-
-
-
-// Eliminar Tipo Contacto
-
-// $('body').on('click', '#eliminar-tipoContacto', function (e) {
-//   e.preventDefault();
-
-//   x = confirm("Esta seguro de eliminar !");
-
-//   if (x){
-//       var tipo_id = $(this).data("id");
-//       var token = $("meta[name='csrf-token']").attr("content");
-//       $.ajax({
-//           type: "POST",
-//           url: "/tipocontacto/eliminar/"+tipo_id,
-//           data: {
-//           "id": tipo_id,
-//           "_token": token,
-//           },
-//       })
-//           .done(function(respuesta){
-//               if(respuesta && respuesta.ok){
-//                   Swal.fire({
-//                     title:'Tipo contacto eliminado.',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-//                     padding:'1rem',
-//                     backdrop:true,
-//                     position:'center',
-//                         });
-//                       var table = $('#tbl_tipocontacto').DataTable();
-//                       table.ajax.reload();
-//               } else {
-
-
-//                 Swal.fire({
-//                   title:'No se puede borrar',text:'Tipo contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-//                    padding:'1rem',
-//                   backdrop:true,
-//                   position:'center',
-//               });
-//               var table = $('#tbl_tipocontacto').DataTable();
-//                   table.ajax.reload();
-//               }
-
-//             })
-
-//   }
-//   else
-//   {
-//   return false;
-//   }
-// });
-
-// $('body').on('click', '#eliminar-tipoContacto', function (e) {
-//  eliminar();
-// });
-
-
 
 $('body').on('click', '#eliminar-tipoContacto', function (e) {
   e.preventDefault();
@@ -234,14 +169,12 @@ $('body').on('click', '#eliminar-tipoContacto', function (e) {
                     padding:'1rem',
                   backdrop:true,
                   position:'center',
-                });
-            }
-        });
-      }
+                    });
+                }
+            });
+        }
     });
-
 });
-
 
 function limpiar1()
 {
@@ -256,38 +189,32 @@ $(document).ready(function(){
          this.value = this.value.replace(/[^0-9]/g,'');
     });
 
-
-
     $(".sin_especiales").on("keyup",function(){
         this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,'');
    });
-
-
 });
 
 function soloLetras(e) {
-  var key = e.keyCode || e.which,
-  tecla = String.fromCharCode(key).toLowerCase(),
-  letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-  especiales = [8, 37, 39, 46],
-  tecla_especial = false;
+    var key = e.keyCode || e.which,
+    tecla = String.fromCharCode(key).toLowerCase(),
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+    especiales = [8, 37, 39, 46],
+    tecla_especial = false;
 
-  for (var i in especiales) {
-  if (key == especiales[i]) {
-    tecla_especial = true;
-    break;
-  }
-  }
+    for (var i in especiales) {
+    if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+    }
+}
 
-  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-  return false;
-  }
-  }
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+    }
+}
 
 function CierraPopup() {
     $("#exampleModal1").modal('hide');//ocultamos el modal
     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
   }
-
-
