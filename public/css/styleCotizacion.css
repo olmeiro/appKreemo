@@ -25,3 +25,9 @@ table tr {
 .perdida{
     color: #fff;
 }
+
+.desco{
+    border-color: red;
+    padding: 10px;
+
+}

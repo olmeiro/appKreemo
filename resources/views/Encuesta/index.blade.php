@@ -6,7 +6,7 @@
             <div class="card-header text-white float-right" style="background-color: #616A6B">
                 <strong>Encuestas</strong>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive"">
             @include('flash::message')
                 <table id="tbl_encuesta" class="table data-table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">

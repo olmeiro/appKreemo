@@ -1,0 +1,14 @@
+@media screen and (max-width: 360px) {
+	.logo {
+        display: none;
+	}
+
+}
+
+.logo{
+
+    max-width: 100%;
+    height: auto;
+}
+
+

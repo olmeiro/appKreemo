@@ -346,7 +346,8 @@
                     </div>
                 </div>
             </div>
-                <button type="submit" class="btn btn-success float-lg-right">Guardar</button>
+                <button type="submit" class="btn btn-success float-lg-left">Guardar</button>
+                <a href="/visita/listarvisitas" class="btn btn-outline-primary float-right" >Volver</a>
         </form>
     </div>
 </div>

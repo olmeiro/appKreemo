@@ -22,6 +22,7 @@
                     </div>
                 </div>
                 <button type="submit" class="btn btn-success float-left">Descargar cotización</button>
+                <a href="/cotizacion" class="btn btn-outline-primary float-right" >Volver</a>
             </form>
         </div>
     </div>

@@ -83,7 +83,7 @@
                 <div class="modal-header text-white" style="background-color: #616A6B">
                     <h5 class="modal-title" id="obraLabelModal2">Contactos de obra</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body table-responsive">
                 @include('flash::message')
                         <table id="tbl_contactos" class="table table-striped table-bordered ">
                             <thead>

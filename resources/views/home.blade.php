@@ -10,9 +10,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <img src="img/logovinicol.jpg">
+                    <img src="img/logovinicol.jpg" class="logo"  width="100%" height="100%">
                 </div>
     </div>
 </div>
+@endsection
+@section('style')
+<link href="{{ asset('css/home.css') }}" rel="stylesheet">
+
 @endsection
 
