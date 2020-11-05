@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
@@ -11,7 +10,6 @@
             <form class="form-signin col-md-12" action="/estadocotizacion/guardar" method="POST" name="FrmCrearEstado" id="FrmCrearEstado">
             @csrf
                 <div class="form-row" >
-
                     <div class="form-group col-md-12">
                         <label for="">Estado</label>
                         <label class="validacion" id="val_estado_coti"></label>
@@ -29,7 +27,6 @@
     </div>
 </div>
 <br>
-
 </body>
 @endsection
 @section('style')
@@ -39,7 +36,6 @@
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionEstadoCotizacion.js') }}"></script>
     <script src="{{ asset('sweetalert/sweetalert.min.js') }}"></script>

@@ -1,11 +1,9 @@
 @extends('layouts.app')
-
 @section('body')
 <div class="container row justify-content-center">
     <div class="card ">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Modificar Maquina</strong>
-            <!-- <a href="/tipocontacto/listar" class="btn btn-link">Listar Contacto</a> -->
         </div>
         <div class="card-body">
         @include('flash::message')
@@ -59,14 +57,10 @@
     </div>
 </div>
 @endsection
-
 @section('style')
 <link href="{{ asset('css/styleMaquiOperario.css') }}" rel="stylesheet">
 @endsection
-
 @section("scripts")
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script src="{{ asset('js/validacionMaquinaria.js') }}"></script>
 @endsection
-
-

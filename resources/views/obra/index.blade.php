@@ -1,19 +1,13 @@
 @extends('layouts.app')
-
 @section('meta')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
-
 @section('style')
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard.min.css" rel="stylesheet" type="text/css" />
     <link href="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152092/smartwizard/smart_wizard_theme_dots.min.css" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/modal/css/style.css') }}" rel="stylesheet">
 @endsection
-
 @section('body')
-
-<!-- Modal crear obra -->
-
 <div class="modal fade" data-backdrop="static" id="obraModal2" tabindex="-1" role="dialog" aria-labelledby="obraLabelModal2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -53,7 +47,6 @@
                                     <label class="validacion" for="valDireccion" id="valDireccion"></label>
                                 </div>
                             </div>
-
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
@@ -64,7 +57,6 @@
                                     <label class="validacion" for="valTelefono1" id="valTelefono1"></label>
                                 </div>
                             </div>
-
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Correo electrónico</label>
@@ -85,9 +77,6 @@
             </div>
         </div>
 </div>
-
-    <!-- Ver contactos modal -->
-
 <div class="modal fade" data-backdrop="static" id="verModal4" tabindex="-1" role="dialog" aria-labelledby="obraLabelModal2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -97,7 +86,6 @@
                 <div class="modal-body">
                 @include('flash::message')
                         <table id="tbl_contactos" class="table table-striped table-bordered ">
-                        <!-- <table class="table table-bordered" style="width: 100%;">     -->
                             <thead>
                             <tr>
                                 <th>Obra</th>
@@ -109,19 +97,13 @@
                             </tr>
                             </thead>
                             <tbody id="tbody">
-
                             </tbody>
                         </table>
-
                 </div>
             </div>
         </div>
 </div>
-
-       <!-- Editar obra -->
-
-
-       <div class="modal fade" data-backdrop="static" id="verModal5" tabindex="-1" role="dialog" aria-labelledby="verModal5" aria-hidden="true">
+        <div class="modal fade" data-backdrop="static" id="verModal5" tabindex="-1" role="dialog" aria-labelledby="verModal5" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
@@ -134,7 +116,6 @@
                     <input class="form-control" type="hidden" id="oidempresa" name="oidempresa" >
                     <input type="hidden" name="id" id="id" >
                         <div class="row">
-
                                 <div class="col 6">
                                     <label for="">Nombre obra</label>
                                     <input type="text" class="form-control @error('nombre') is-invalid @enderror"  name="nombre" id="onombre" value="{{old('nombre')}}">
@@ -153,7 +134,6 @@
                                     <label class="validacion" for="valDireccion" id="valDireccion"></label>
                                 </div>
                             </div>
-
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Teléfono</label>
@@ -164,7 +144,6 @@
                                     <label class="validacion" for="valTelefono1" id="valTelefono1"></label>
                                 </div>
                             </div>
-
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="">Correo electrónico</label>
@@ -178,18 +157,13 @@
                             </div>
                             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                                     <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary float-lg-right" disabled>Editar</button>
-                                    <!-- <a href="/obra" class="btn btn-danger">Cancelar</a> -->
                                 </div>
                         </div>
-                      
                         </form>
                 </div>
             </div>
         </div>
-
-
     <!-- lista obras -->
-
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Obras</strong>
@@ -197,10 +171,8 @@
         </div>
         <div class="card-body table-responsive">
         @include('flash::message')
-
         <h4 id="msg"></h4>
             <table id="tbl_obra" class="table table-bordered table-striped table-responsive" style="width: 100%;">
-
                 <thead>
                 <tr>
                     <th>Empresa</th>
@@ -215,16 +187,12 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
     </div>
-
 @endsection
-
 @section("scripts")
-
     <script>
         $('#tbl_obra').DataTable({
                 processing: true,
@@ -232,12 +200,12 @@
                 ajax: '/obra/listar',
                 columns: [
                     {
-                     data: 'empresa',
-                     name: 'empresa',
+                    data: 'empresa',
+                    name: 'empresa',
                     },
                     {
-                     data: 'nombre',
-                     name: 'nombre',
+                    data: 'nombre',
+                    name: 'nombre',
                     },
                     {
                         data: 'direccion',
@@ -323,20 +291,20 @@
                 ajax: url,
                 columns: [
                     {
-                     data: 'obra',
-                     name: 'obra',
+                    data: 'obra',
+                    name: 'obra',
                     },
                     {
-                     data: 'nombre',
-                     name: 'nombre',
+                    data: 'nombre',
+                    name: 'nombre',
                     },
                     {
-                     data: 'apellido1',
-                     name: 'apellido1',
+                    data: 'apellido1',
+                    name: 'apellido1',
                     },
                     {
-                     data: 'telefono1',
-                     name: 'telefono1',
+                    data: 'telefono1',
+                    name: 'telefono1',
                     },
                     {
                         data: 'correo1',
@@ -377,14 +345,10 @@
                                 "colvis": "Visibilidad"
                             }
                         }
-
                     });
-
-               });
-
+                });
             //    Eliminar contacto
-
-               $('body').on('click', '#delete-contacto', function (e) {
+                $('body').on('click', '#delete-contacto', function (e) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -428,55 +392,8 @@
                         });
                     }
                     });
-
-                // x = confirm("Esta seguro de eliminar !");
-
-                // if (x){
-                //     var contacto_id = $(this).data("id");
-                //     var token = $("meta[name='csrf-token']").attr("content");
-                //     $.ajax({
-                //         type: "POST",
-                //         url: "/cliente/eliminar/"+contacto_id,
-                //         data: {
-                //         "id": contacto_id,
-                //         "_token": token,
-                //         },
-                //     })
-                //         .done(function(respuesta){
-                //             if(respuesta && respuesta.ok){
-                //                 Swal.fire({
-                //                 title:'Contacto eliminado',text:'',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                //                 padding:'1rem',
-                //                 backdrop:true,
-                //                 position:'center',
-                //                     });
-                //                     var table = $('#tbl_contactos').DataTable();
-                //                     table.ajax.reload();
-                //             } else {
-
-
-                //             Swal.fire({
-                //                 title:'No se puede eliminar.',text:'El contacto está en uso',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                //                 padding:'1rem',
-                //                 backdrop:true,
-                //                 position:'center',
-                //             });
-                //             var table = $('#tbl_contactos').DataTable();
-                //                 table.ajax.reload();
-                //             }
-
-                //         })
-
-                //         }
-                //         else
-                //         {
-                //             return false;
-                //         }
             });
-
-
         //    editar obra
-
         $('body').on('click', '#editar-obra', function () {
                 var obra_id = $(this).data('id');
                 $.get('obra/editar/'+obra_id, function (data) {
@@ -489,17 +406,9 @@
                 $('#odireccion').val(data.direccion);
                 $('#otelefono1').val(data.telefono1);
                 $('#ocorreo1').val(data.correo1);
-
-
                 })
             });
-
-
-
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionObra.js') }}"></script>
 @endsection
-
-

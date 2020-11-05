@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
 @section('body')
-
-
 <html>
 <head>
     <title>Crud laravel Ajax con datatables</title>
@@ -12,12 +9,10 @@
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="container justify-content-cente col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
                 <strong>Tipos de concretos</strong>
-
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewTipoConcreto">Crear tipo de concreto</a>
             </div>
             <div class="card-body table-responsive">
@@ -38,7 +33,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -68,12 +62,10 @@
             </div>
         </div>
     </div>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
     $(function () {
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -118,7 +110,6 @@
                                 }
                                 }
         });
-
         $('#createNewTipoConcreto').click(function () {
             $('#saveBtn').val("create-product");
             $('#tipoConcreto_id').val('');
@@ -172,25 +163,18 @@
             });
             Swal.fire({
                     title:'Registro exitoso',text:'Tipo de Concreto !',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
                     padding:'1rem',
-                    //background:'#000',
                     backdrop:true,
-                    //toast: true,
                     position:'center',
                         });
             }else{
                 Swal.fire({
                     title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
                     padding:'1rem',
-                    //background:'#000',
                     backdrop:true,
-                    //toast: true,
                     position:'center',
                 });
         }
-
         });
         $('body').on('click', '.deleteTipoConcreto', function (e) {
         e.preventDefault();
@@ -218,7 +202,6 @@
                 success: function (data) {
                     table.draw();
                 },
-
             }).done(function(data){
                     if(data && data.ok){
                         Swal.fire({
@@ -242,8 +225,6 @@
             }
         });
     });
-
-
     });
 </script>
 </html>
@@ -252,7 +233,6 @@
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
 <script>
     function soloLetras(e) {
     key = e.keyCode || e.which;

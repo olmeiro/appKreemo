@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('body')
-
 <html>
     <head>
         <title>Crud laravel Ajax con datatables</title>
@@ -11,12 +9,10 @@
         <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body>
-
         <div class="container justify-content-cente col-md-8">
             <div class="card">
                 <div class="card-header text-white" style="background-color: #616A6B">
                     <strong>Modalidad</strong>
-
                         <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewModalidad">Crear modalidad</a>
                 </div>
                 <div class="card-body table-responsive">
@@ -37,7 +33,6 @@
                 </div>
             </div>
         </div>
-
         <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -67,7 +62,6 @@
                 </div>
             </div>
         </div>
-
     </body>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript">
@@ -171,21 +165,15 @@
                 });
                 Swal.fire({
                         title:'Registro exitoso',text:'Modalidad!',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                        //width: '50%',
                         padding:'1rem',
-                        //background:'#000',
                         backdrop:true,
-                        //toast: true,
                         position:'center',
                             });
                 }else{
                     Swal.fire({
                         title:'Error en la creación',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                        //width: '50%',
                         padding:'1rem',
-                        //background:'#000',
                         backdrop:true,
-                        //toast: true,
                         position:'center',
                     });
                 }
@@ -273,5 +261,4 @@
     $("#val_Modalidad2").text("");
     }
 </script>
-
 @endsection

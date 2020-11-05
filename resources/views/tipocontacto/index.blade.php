@@ -1,9 +1,7 @@
 @extends('layouts.app')
-
 @section('meta')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
-
 @section('body')
 <div class="container row justify-content-center">
     <div class="card">
@@ -24,14 +22,12 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 @endsection
-
 @section("scripts")
     <script>
         $('#tbl_tipocontacto').DataTable({
@@ -40,12 +36,12 @@
                 ajax: '/tipocontacto/listar',
                 columns: [
                     {
-                     data: 'id',
-                     name: 'id'
+                    data: 'id',
+                    name: 'id'
                     },
                     {
-                     data: 'tipocontacto',
-                     name: 'tipocontacto'
+                    data: 'tipocontacto',
+                    name: 'tipocontacto'
                     },
                     {
                         data: 'editar',
@@ -89,10 +85,8 @@
                             }
                 }
             });
-
             $('body').on('click', '#eliminar-tipoContacto1', function (e) {
                 e.preventDefault();
-
                 Swal.fire({
                     title: '¿Está seguro que desea eliminar?',
                     type: 'warning',
@@ -134,7 +128,6 @@
                         });
                     }
                     });
-
                 });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>

@@ -5,7 +5,6 @@
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Visitas</strong>
         </div>
-
         <div class="card-body table-responsive">
         @include('flash::message')
             <table id="tbl_visita" class="table table-bordered table-striped" style="width: 100%;">
@@ -17,23 +16,17 @@
                     <th>Fecha</th>
                     <th>Hora inicio</th>
                     <th>Hora final</th>
-                    <!-- <th>Estado</th> -->
                     <th>Descripción</th>
                     <th>Lista de chequeo</th>
-                    <!-- <th>Cambiar estado</th> -->
                 </tr>
                 </thead>
                 <tbody>
-
                 </tbody>
             </table>
         </div>
     </div>
-
 @endsection
-
 @section("scripts")
-
     <script>
         $('#tbl_visita').DataTable({
                 processing: true,
@@ -41,20 +34,20 @@
                 ajax: '/visita/listarvisitas',
                 columns: [
                     {
-                     data: 'id',
-                     name: 'id',
-                     orderable: false,
-                     searchable: false
+                    data: 'id',
+                    name: 'id',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'tipovisita',
-                     name: 'tipovisita',
-                     orderable: false,
-                     searchable: false
+                    data: 'tipovisita',
+                    name: 'tipovisita',
+                    orderable: false,
+                    searchable: false
                     },
                     {
-                     data: 'nombre_obra',
-                     name: 'nombre_obra'
+                    data: 'nombre_obra',
+                    name: 'nombre_obra'
                     },
                     {
                         data: 'fecha',
@@ -64,15 +57,10 @@
                         data: 'horainicio',
                         name: 'horainicio'
                     },
-
                     {
                         data: 'horafinal',
                         name: 'horafinal'
                     },
-                    // {
-                    //     data: 'estado',
-                    //     name: 'estado'
-                    // },
                     {
                         data: 'descripcion',
                         name: 'descripcion'
@@ -82,13 +70,7 @@
                         name: 'listaChequeo',
                         orderable: false,
                         searchable: false
-                     },
-                    //,{
-                    //     data: 'cambiar',
-                    //     name: 'cambiar',
-                    //     orderable: false,
-                    //     searchable: false
-                    //  }
+                    },
                 ],
                 "language":{
                             "sProcessing":     "Procesando...",
@@ -120,6 +102,4 @@
                             }
             });
     </script>
-
-
 @endsection

@@ -1,8 +1,5 @@
 @extends('layouts.app')
-
 @section('body')
-
-
 <html>
 <head>
     <title></title>
@@ -12,12 +9,10 @@
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="container justify-content-center col-md-8">
         <div class="card">
             <div class="card-header text-white" style="background-color: #616A6B">
                 <strong>Etapas</strong>
-
                     <a class="btn btn-outline-light float-right" href="javascript:void(0)" id="createNewEtapa">Crear etapa</a>
             </div>
             <div class="card-body table-responsive">
@@ -39,7 +34,6 @@
             </div>
         </div>
     </div>
-
     <div class="modal fade" id="ajaxModel" aria-hidden="true" data-backdrop="static">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -68,7 +62,6 @@
             </div>
         </div>
     </div>
-
 </body>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
 <script type="text/javascript">
@@ -190,7 +183,6 @@
                     position:'center',
                 });
         }
-
         });
         $('body').on('click', '.deleteEtapa', function (e) {
     e.preventDefault();
@@ -241,36 +233,15 @@
             });
         }
     });
-       /*  $('body').on('click', '.deleteEtapa', function (e) {
-            e.preventDefault();
-            var x = confirm("Estas seguro de eliminar la etapa !");
-            if(x){
-            var etapa_id = $(this).data("id");
-            $.ajax({
-                type: "DELETE",
-                url: "{{ route('ajaxetapa.store') }}"+'/'+etapa_id,
-                success: function (data) {
-                    table.draw();
-                },
-                error: function (data) {
-                    console.log('Error:', data);
-                }
-            });
-            }else{
-                return false;
-            } */
-        });
-
+    });
     });
 </script>
 </html>
 @endsection
-
 @section('style')
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
 <script>
     function soloLetras(e) {
     key = e.keyCode || e.which;

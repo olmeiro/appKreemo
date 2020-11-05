@@ -642,7 +642,6 @@
     <table class="v3" style="width:100%">
         <tr>
             <th colspan="4" class="v3">CONTACTOS</th>
-
         </tr>
         <tr class="v3">
             <td class="v3">NOMBRE</td>
@@ -663,8 +662,6 @@
             <td class="v3"><u class="p2">logística@vinicolbombeos.com</u></td>
         </tr>
     </table>
-
-
 
     <footer>
         <strong class="Pag">Pag 15</strong>

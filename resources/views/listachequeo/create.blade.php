@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('body')
-
 <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B"">
             <strong>Crear lista de chequeo</strong>
@@ -24,7 +22,6 @@
                                         <label class="validacion" id="val_idvisita"></label>
                                         <label class="validacion" id="val_idvisita"></label>
                                         <input type="text" value="{{ $id }}" id="idvisita" name="idvisita" class="form-control">
-
                                         @error('idvisita')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -180,7 +177,6 @@
                                     @enderror
                                     <label class="validacion" id="val_lineaelectrica2"></label>
                                 </div>
-
                                 <div class="form-group col-md-8">
                                 <label class="radio-inline">Señalización de escalas, volados, pilas</label> <label class="validacion" id="val_senializacion"></label>
                                 <select class="form-control @error('senializacion') is-invalid @enderror" name="senializacion" id="senializacion">
@@ -194,7 +190,6 @@
                                     <label class="validacion" id="val_senializacion2"></label>
                                 </div>
                             </div>
-
                             <div class="form-row" >
                                 <div class="form-group col-md-4">
                                 <label class="radio-inline">Iluminación nocturna</label>
@@ -209,7 +204,6 @@
                                     @enderror
                                     <label class="validacion" id="val_iluminacion2"></label>
                                 </div>
-
                                 <div class="form-group col-md-3">
                                 <label class="radio-inline">Baños</label>
                                 <label class="validacion" id="val_banios"></label>
@@ -223,7 +217,6 @@
                                     @enderror
                                     <label class="validacion" id="val_banios2"></label>
                                 </div>
-
                                 <div class="form-group col-md-5">
                                 <label class="radio-inline">Condiciones inseguras</label>
                                 <label class="validacion" id="val_condicioninsegura"></label>
@@ -327,7 +320,6 @@
                             <strong>Personal</strong>
                         </div>
                         <div class="card-body">
-
                                 <div class="form-group col-md-12">
                                     <label for="">Encargado visita</label>
                                     <label class="validacion" id="val_encargadovisita"></label>
@@ -350,7 +342,6 @@
                                     @enderror
                                     <label class="validacion" id="val_viabilidad2"></label>
                                 </div>
-
                         </div>
                     </div>
                 </div>
@@ -363,14 +354,11 @@
 @section('style')
     <link href="{{ asset('css/styleListaChequeo.css') }}" rel="stylesheet">
 @endsection
-
 @section("scripts")
-
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
 <script src="{{ asset('js/validacionListaChequeo.js') }}"></script>
-
 <script>
     function soloLetras(e) {
         var key = e.keyCode || e.which,
@@ -385,7 +373,6 @@
             break;
             }
         }
-
         if (letras.indexOf(tecla) == -1 && !tecla_especial) {
         return false;
         }
