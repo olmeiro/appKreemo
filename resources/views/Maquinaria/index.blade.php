@@ -200,7 +200,7 @@
 
         if($("#serialequipo").val()==0){
                 $("#validacion_serialequipo").text("*");
-                $("#validacion_serialequipo2").text("Debe Ingresar el serial del equipo");
+                $("#validacion_serialequipo2").text("Debe ingresar el serial del equipo");
             }else if($("#serialequipo").val().length < 7 || $("#serialequipo").val().length >= 20){
                 $("#validacion_serialequipo").text("*");
                 $("#validacion_serialequipo2").text("Debe estar entre 7 y 20 dígitos");
@@ -212,7 +212,7 @@
 
             if ($("#modelo").val()==0) {
                 $("#validacion_modelo").text("*");
-                $("#validacion_modelo2").text("Debe Ingresar el modelo");
+                $("#validacion_modelo2").text("Debe ingresar el modelo");
             }else{
                 $("#validacion_modelo").text("");
                 $("#validacion_modelo2").text("");
@@ -221,7 +221,7 @@
 
             if ($("#serialmotor").val()==0) {
                 $("#validacion_serialmotor").text("*");
-                $("#validacion_serialmotor2").text("Debe Ingresar el serial del motor");
+                $("#validacion_serialmotor2").text("Debe ingresar el serial del motor");
             }else{
                 $("#validacion_serialmotor").text("");
                 $("#validacion_serialmotor2").text("");

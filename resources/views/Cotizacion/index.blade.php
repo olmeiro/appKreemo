@@ -449,8 +449,8 @@
                 <table id="tbl_tipoconcreto" class="table table-bordered table-striped" style="width: 100%;">
                     <thead class="" align="center">
                     <tr>
-                        <th>N° concreto tipo</th>
-                        <th>Concreto tipo</th>
+                        <th>N° Tipo concreto</th>
+                        <th>Tipo concreto</th>
                     </tr>
                     </thead>
                 </table>
