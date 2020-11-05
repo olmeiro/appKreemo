@@ -9,10 +9,6 @@ $(document).ready(function(){
     });
 });
 
-// $(function () {
-//     $('[data-toggle="tooltip"]').tooltip()
-//     })
-
 function soloLetras(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
@@ -28,7 +24,7 @@ function soloLetras(e) {
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
+        return false;
     }
 }
 
@@ -47,7 +43,7 @@ function soloNumeros(e) {
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
+        return false;
     }
 }
 
@@ -142,39 +138,6 @@ $(document).ready(function() {
             validado++;
         }
 
-        // if ($("#Ciudad").val() == 0) {
-        //     $("#val_ciudad").text("*");
-        //     $("#val_ciudad2").text("Debe ingresar la ciudad");
-        //     $("#val_ciudad3").text("Debe ingresar la ciudad");
-        // }else{
-        //     $("#val_ciudad").text("");
-        //     $("#val_ciudad2").text("");
-        //     $("#val_ciudad3").text("");
-        //     validado++;
-        // }
-
-        // if ($("#Losas").val() == 0) {
-        //     $("#val_Losas").text("*");
-        //     $("#val_Losas2").text("Debe ingresar la cantidad de losas");
-        //     $("#val_Losas3").text("Debe ingresar la cantidad de losas");
-        // }else{
-        //     $("#val_Losas").text("");
-        //     $("#val_Losas2").text("");
-        //     $("#val_Losas3").text("");
-        //     validado++;
-        // }
-
-        // if ($("#Tuberia").val() == 0) {
-        //     $("#val_Tuberia").text("*");
-        //     $("#val_Tuberia2").text("Debe ingresar la cantidad de tuberia");
-        //     $("#val_Tuberia3").text("Debe ingresar la cantidad de tuberia");
-        // }else{
-        //     $("#val_Tuberia").text("");
-        //     $("#val_Tuberia2").text("");
-        //     $("#val_Tuberia3").text("");
-        //     validado++;
-        // }
-
         if ($("#MetrosCubicos").val() == 0) {
             $("#val_Metros").text("*");
             $("#val_Metros2").text("Debe Digitar la cantidad de Metros Cubicos");
@@ -237,30 +200,22 @@ $(document).ready(function() {
 
                 Swal.fire({
                     title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                    //width: '50%',
                     padding:'1rem',
-                    //background:'#000',
                     backdrop:true,
-                    //toast: true,
                     position:'center',
-                        });
+                });
 
             document.FrmCrearCotizacion.submit();
         }
         else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
-            // alert("Campos pendientes por validar");
             validado = 0;
         }
-
     });
 });
 
@@ -277,19 +232,12 @@ function traerObra()
             id: $('#IdEmpresa').val(),
         },
     }).done(function(res) {
-        var arreglo = JSON.parse(res);
 
-            // $("#IdObra").append(res.nombre);
+        var arreglo = JSON.parse(res);
 
             for (let index = 0; index < arreglo.length; index++) {
                 console.log(arreglo[index].nombre)
                 $('#IdObra').append(`<option value="${arreglo[index].id}">${arreglo[index].nombre}</option>`);
             }
-
     });
 }
-
-
-
-
-

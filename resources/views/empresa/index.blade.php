@@ -5,30 +5,29 @@
 @endsection
 
 @section('body')
-<div class="card">
+    <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Empresas</strong>
             <strong class="float-right"><button type="button" class="btn btn-outline-light float-rigth" data-toggle="modal" data-target="#exampleModal2">Crear empresa</button></strong>
-
         </div>
         <div class="card-body">
-        @include('flash::message')
-        <h4 id="msg"></h4>
+            @include('flash::message')
+            <h4 id="msg"></h4>
             <table id="tbl_empresa" class="table table-bordered table-striped table-responsive" style="width: 100%;">
                 <thead>
-                <tr>
-                    <th>NIT</th>
-                    <th>Nombre empresa</th>
-                    <th>Representante</th>
-                    <th>Dirección</th>
-                    <th>Teléfono </th>
-                    <th>Correo </th>
-                    <th>Estado</th>
-                    <th>Cambiar estado</th>
-                    <th>Agregar obra</th>
-                    <th>Editar</th>
-                    <th>Eliminar</th>
-                </tr>
+                    <tr>
+                        <th>NIT</th>
+                        <th>Nombre empresa</th>
+                        <th>Representante</th>
+                        <th>Dirección</th>
+                        <th>Teléfono </th>
+                        <th>Correo </th>
+                        <th>Estado</th>
+                        <th>Cambiar estado</th>
+                        <th>Agregar obra</th>
+                        <th>Editar</th>
+                        <th>Eliminar</th>
+                    </tr>
                 </thead>
                 <tbody>
 
@@ -42,15 +41,14 @@
     <div class="modal fade" data-backdrop="static" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                    <div class="modal-header text-white" style="background-color: #616A6B">
+                <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title" id="exampleModalLabel2">Crear empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
-            @include('flash::message')
+                </div>
+                @include('flash::message')
                 <form class="form-signin col-md-12" action="" method="POST" id="frmEmpresa">
                     @csrf
-
-                          <div class="modal-body">
-                                    <div class="row">
+                    <div class="modal-body">
+                            <div class="row">
                                             <div class="col-md-6">
                                                 <label for="">NIT o cédula</label>
                                                 <input type="text" class="form-control @error('nit') is-invalid @enderror"  name="nit" id="nit" onkeypress="return soloNumeros(event)">
@@ -67,8 +65,8 @@
                                                 @enderror
                                                 <label class="validacion" for="nombre" id="valNombre"></label>
                                             </div>
-                                    </div>
-                                    <div class="row">
+                            </div>
+                            <div class="row">
                                             <div class="col-md-6">
                                                 <label for="">Nombre representante</label>
                                                 <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="nombrerepresentante" id="nombrerepresentante" onchange="validate()" onkeypress="return soloLetras(event)">
@@ -85,8 +83,8 @@
                                             @enderror
                                                 <label class="validacion" for="direccion" id="valDireccion"></label>
                                         </div>
-                                    </div>
-                                    <div class="row">
+                            </div>
+                            <div class="row">
                                         <div class="col-md-6">
                                             <label for="">Teléfono #1</label>
                                             <input type="text" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="telefono1" id="telefono1">
@@ -103,15 +101,14 @@
                                             @enderror
                                             <label class="validacion" for="correo1" id="valCorreo1"></label>
                                         </div>
-                                    </div>
-                         </div>
-
-                            <div class="modal-footer">
-                                <button type="button" id="crearEmpresa" class="btn btn-success">Crear</button>
                             </div>
-                 </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" id="crearEmpresa" class="btn btn-success">Crear</button>
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
 
     <!-- Modal Editar Empresa -->
@@ -119,15 +116,15 @@
     <div class="modal fade" data-backdrop="static" id="exampleModal4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                     <div class="modal-header text-white" style="background-color: #616A6B">
+                <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title" id="exampleModalLabel2">Editar empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
-                    </div>
-                    <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar" method="POST">
-                        @csrf
-                        <div class="modal-body">
+                </div>
+                <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar"method="POST">
+                    @csrf
+                    <div class="modal-body">
                             <input type="hidden" name="empresa_id" id="empresa_id" >
 
-                                    <div class="row">
+                            <div class="row">
                                         <div class="col-md-6">
                                             <label for="">NIT</label>
                                             <input type="text" class="form-control @error('nit') is-invalid @enderror" onkeypress="return soloNumeros(event)"  name="enit" id="enit" onchange="validate()" >
@@ -144,8 +141,8 @@
                                             @enderror
                                             <label class="validacion" for="enombre" id="valENombre"></label>
                                         </div>
-                                    </div>
-                                    <div class="row">
+                            </div>
+                            <div class="row">
                                         <div class="col-md-6">
                                         <label for="">Nombre Representante</label>
                                         <input type="text" class="form-control @error('nombrerepresentante') is-invalid @enderror solo_letras sin_especiales"  name="enombrerepresentante" id="enombrerepresentante" onchange="validate()" onkeypress="return soloLetras(event)">
@@ -162,8 +159,8 @@
                                         @enderror
                                             <label class="validacion" for="edireccion" id="valEDireccion"></label>
                                         </div>
-                                    </div>
-                                    <div class="row">
+                            </div>
+                            <div class="row">
                                         <div class="col-md-6">
                                             <label for="">Teléfono #1</label>
                                             <input type="text" class="form-control @error('telefono1') is-invalid @enderror solo_numeros"  name="etelefono1" id="etelefono1">
@@ -188,15 +185,15 @@
                                             </select>
                                             <label class="validacion" for="eestado" id="valEEstado"></label>
                                         </div>
-                                    </div>
-                                </div>
-                            <div class="modal-footer">
-                                <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
                             </div>
-                    </form>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="submit" id="btn-save" name="btnsave" class="btn btn-primary" disabled>Editar</button>
+                    </div>
+                </form>
             </div>
-  </div>
+        </div>
+    </div>
 
 
 
@@ -211,22 +208,22 @@
 @section("scripts")
 
     <script>
-       var table = $('#tbl_empresa').DataTable({
+        var table = $('#tbl_empresa').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: '/empresa/listar',
                 columns: [
                     {
-                     data: 'nit',
-                     name: 'nit',
+                        data: 'nit',
+                        name: 'nit',
                     },
                     {
-                     data: 'nombre',
-                     name: 'nombre',
+                        data: 'nombre',
+                        name: 'nombre',
                     },
                     {
-                     data: 'nombrerepresentante',
-                     name: 'nombrerepresentante',
+                        data: 'nombrerepresentante',
+                        name: 'nombrerepresentante',
                     },
                     {
                         data: 'direccion',
@@ -315,8 +312,7 @@
                                                 break;
                                             }
                                             $(td).css('background',color);
-
-                                       }
+                                        }
                                     }
                                 ],
 
@@ -353,17 +349,6 @@
             document.clienteForm.btnsave.disabled=true
         }
     }
-
-
-
-// $('.dataTable').on('click', 'tbody td ', function() {
-
-//     //get textContent of the TD
-//     console.log('TD cell textContent : ', this.textContent)
-//     contenido = this.textContent;
-//     contenido = 'Pasivo' ? alert("cliente malo") : console.log(contenido);
-// })
-
 
     </script>
 

@@ -283,7 +283,7 @@ class CotizacionController extends Controller
             return $pdf->stream('informe.pdf');
         }else{
             Flash::error("Reporte de Cotización NO encontrado");
-            return redirect("/cotizacion");
+            return redirect("/cotizacion/informe");
         }
 
 

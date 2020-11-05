@@ -5,15 +5,14 @@
     <div class="card">
         <div class="card-header text-white" style="background-color: #616A6B">
             <strong>Cambio de estado</strong>
-
         </div>
         <div class="card-body">
-        @include('flash::message')
-        <strong>Cotización N° {{$cotizacion->id}}</strong>
-        <br>
+            @include('flash::message')
+            <strong>Cotización N° {{$cotizacion->id}}</strong>
+            <br>
             <form class="form-signin col-md-12" action="/cotizacion/estado" method="POST" name="FrmEditarEstadoCotizacion" id="FrmEditarEstadoCotizacion">
-            @csrf
-            <input type="hidden" name="id" value="{{$cotizacion->id}}"/>
+                @csrf
+                <input type="hidden" name="id" value="{{$cotizacion->id}}"/>
                 <div class="form-row" >
                     <div class="form-group col-md-12">
                         <label for="">Estado</label>
@@ -42,10 +41,8 @@
     <link href="{{ asset('css/styleCotizacion.css') }}" rel="stylesheet">
 @endsection
 @section("scripts")
-
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script src="{{ asset('js/validacionEditarEstadoCotizacion.js') }}"></script>
-
 @endsection
 
 

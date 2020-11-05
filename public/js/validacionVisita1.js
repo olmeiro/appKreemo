@@ -152,20 +152,20 @@ $(function(){
     }
 
     function EnviarInformacion(accion, objEvento){
-      let validado = 0;
-      var fecha_actual =new Date();
-      var fecha_v = new Date ($("#fecha").val());
+        let validado = 0;
+        var fecha_actual =new Date();
+        var fecha_v = new Date ($("#fecha").val());
 
-      if ($("#fecha").val().length == 0 ){
-          $("#valfecha").text("* Fecha inválida");
-      }else if(fecha_actual> fecha_v){
-          $("#valfecha").text("* Fecha inválida");
-      alert('La fecha de visita debe ser mayor a la fecha actual');
-       }
-      else{
-          $("#valfecha").text("");
-          validado++;
-      }
+        if ($("#fecha").val().length == 0 ){
+            $("#valfecha").text("* Fecha inválida");
+        }else if(fecha_actual> fecha_v){
+            $("#valfecha").text("* Fecha inválida");
+        alert('La fecha de visita debe ser mayor a la fecha actual');
+        }
+        else{
+            $("#valfecha").text("");
+            validado++;
+        }
 
         if( $("#horafinal").val().length == 0 )
         {
@@ -176,74 +176,63 @@ $(function(){
             validado++;
         }
 
-         if( $("#idobra").val() == 0 )
-         {
-             $("#valobra").text("* Debe elegir una obra");
-         } else
-         {
-             $("#valobra").text("");
-             validado++;
-         }
+        if( $("#idobra").val() == 0 )
+        {
+            $("#valobra").text("* Debe elegir una obra");
+        } else
+        {
+            $("#valobra").text("");
+            validado++;
+        }
 
-      if( $("#tipovisita").val() == 0 )
-         {
-             $("#valtipovisita").text("* Debe elegir un tipo de visita");
-         }
-         else
-         {
-             $("#valtipovisita").text("");
-             validado++;
-         }
+        if( $("#tipovisita").val() == 0 )
+        {
+            $("#valtipovisita").text("* Debe elegir un tipo de visita");
+        }
+        else
+        {
+            $("#valtipovisita").text("");
+            validado++;
+        }
 
-            if(validado ==4)
+        if(validado ==4)
+            {
+                $.ajax(
                 {
-                  $.ajax(
-                    {
-                        type:"POST",
-                        url:'/visita'+accion,
-                        data: objEvento,
-                        success:function(msg){
-                            console.log(msg); }}),
-                            $("#agenda_modal").modal('toggle');
-                            calendar.refetchEvents();
-                    Swal.fire({
-                      title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                        //width: '50%',
-                      padding:'1rem',
-                        //background:'#000',
-                      backdrop:true,
-                        //toast: true,
-                      position:'center',
-                          });
+                    type:"POST",
+                    url:'/visita'+accion,
+                    data: objEvento,
+                    success:function(msg){
+                        console.log(msg); }}),
+                        $("#agenda_modal").modal('toggle');
+                        calendar.refetchEvents();
+                Swal.fire({
+                    title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                    padding:'1rem',
+                    backdrop:true,
+                    position:'center',
+                        });
 
-            }else{
-              Swal.fire({
-                title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
-                padding:'1rem',
-                   //background:'#000',
-                backdrop:true,
-                   //toast: true,
-                position:'center',
-            });
-            validado = 0;}
+        }else{
+            Swal.fire({
+            title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
+            padding:'1rem',
+            backdrop:true,
+            position:'center',
+        });
+        validado = 0;}
     }
-    
 })
 
 function tiempofinal(){
-  let fecha = $("#fecha").val();
-  let  hora = $("#horainicio").val();
-  let tiempo = $("#tiempo").val();
-  let horafinal= moment(fecha + " "+hora).add(tiempo, 'm').format('HH:mm:ss');
-  document.getElementById("horafinal").value=(horafinal);
+    let fecha = $("#fecha").val();
+    let  hora = $("#horainicio").val();
+    let tiempo = $("#tiempo").val();
+    let horafinal= moment(fecha + " "+hora).add(tiempo, 'm').format('HH:mm:ss');
+    document.getElementById("horafinal").value=(horafinal);
 }
 
-
-
-  function limpiar(){
-
-    //$("#agenda_modal").modal('hide');
+function limpiar(){
     $("#valfecha").text("");
     $("#valobra").text("");
     $("#valtipovisita").text("");
@@ -257,4 +246,3 @@ function tiempofinal(){
     $("#id").val("0");
     $("#descripcion").val("");
 }
-

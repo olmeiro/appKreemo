@@ -6,11 +6,8 @@ $(document).ready(function(){
     autoAdjustHeight:true,
     transitionEffect:'fade',
     showStepURLhash: false,
-
     });
-
 });
-
 
 $(document).ready(function(){
 
@@ -20,9 +17,7 @@ $(document).ready(function(){
     autoAdjustHeight:true,
     transitionEffect:'fade',
     showStepURLhash: false,
-
     });
-
 });
 
 function limpiar()
@@ -39,39 +34,35 @@ function limpiar()
 
 $(document).ready(function(){
 
-  $(".solo_numeros").on("keyup",function(){
-       this.value = this.value.replace(/[^0-9]/g,'');
-  });
+    $(".solo_numeros").on("keyup",function(){
+        this.value = this.value.replace(/[^0-9]/g,'');
+    });
 
-
-
-  $(".sin_especiales").on("keyup",function(){
-      this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,'');
- });
-
-
+    $(".sin_especiales").on("keyup",function(){
+        this.value = this.value.replace(/[$%&/*-+¡?=)(/&#"!\-.|,;´¨}{[¿'|<>#]/g,'');
+    });
 });
 
 function soloLetras(e) {
-  var key = e.keyCode || e.which,
-  tecla = String.fromCharCode(key).toLowerCase(),
-  letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-  especiales = [8, 37, 39, 46],
-  tecla_especial = false;
+    var key = e.keyCode || e.which,
+    tecla = String.fromCharCode(key).toLowerCase(),
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+    especiales = [8, 37, 39, 46],
+    tecla_especial = false;
 
-  for (var i in especiales) {
-  if (key == especiales[i]) {
-    tecla_especial = true;
-    break;
-  }
-  }
+    for (var i in especiales) {
+    if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+        }
+    }
 
-  if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-  return false;
-  }
-  }
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+        return false;
+    }
+}
 
-  function validaVacio(valor) {
+function validaVacio(valor) {
     valor = valor.replace("&nbsp;", "");
     valor = valor == undefined ? "" : valor;
     if (!valor || 0 === valor.trim().length) {
@@ -79,10 +70,8 @@ function soloLetras(e) {
         }
     else {
         return false;
-        }
     }
-
-//   Validacion Crear Empresa
+}
 
 function soloNumeros(e) {
     var key = e.keyCode || e.which,
@@ -95,13 +84,13 @@ function soloNumeros(e) {
     if (key == especiales[i]) {
       tecla_especial = true;
       break;
-    }
+        }
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
+        return false;
     }
-    }
+}
 
 $(document).ready(function(){
     $("#crearEmpresa").click(function(event){
@@ -121,7 +110,7 @@ $(document).ready(function(){
 
         if(validaVacio($("#nombre").val()) || $("#nombre").val().length < 3 || $("#nombre").val().length ==  0)
         {
-            $("#valNombre").text("* Debe ingresar Razón Social.");
+            $("#valNombre").text("* Debe ingresar razón social.");
         }
         else
         {
@@ -149,34 +138,34 @@ $(document).ready(function(){
         }
 
         if(validaVacio($("#telefono1").val()) || isNaN($("#telefono1").val()))
-         {
-             $("#valTelefono1").text("* Ingrese un número de telefono válido.");
-         }
-         else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
-         {
-          $("#valTelefono1").text("* Ingrese un número de celular de 10 dígitos.");
-         }
-         else{
-             $("#valTelefono1").text("");
-             validado++;
-         }
+        {
+            $("#valTelefono1").text("* Ingrese un número de teléfono válido.");
+        }
+        else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
+        {
+        $("#valTelefono1").text("* Ingrese un número de celular de 10 dígitos.");
+        }
+        else{
+            $("#valTelefono1").text("");
+            validado++;
+        }
 
-         const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
+        const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
 
-         if(validaVacio($("#correo1").val()) || !emailRegex.test($("#correo1").val()))
-         {
-             $("#valCorreo1").text("* Ingrese un correo válido.");
-         }
-         else
-         {
-             $("#valCorreo1").text("");
-             validado++;
-         }
+        if(validaVacio($("#correo1").val()) || !emailRegex.test($("#correo1").val()))
+        {
+            $("#valCorreo1").text("* Ingrese un correo válido.");
+        }
+        else
+        {
+            $("#valCorreo1").text("");
+            validado++;
+        }
 
-         console.log("validado: " + validado);
+        console.log("validado: " + validado);
 
-         if(validado == 6)
-         {
+        if(validado == 6)
+        {
 
             var fd = new FormData(document.getElementById("frmEmpresa"));
 
@@ -194,11 +183,8 @@ $(document).ready(function(){
                   {
                     Swal.fire({
                         title:'Proceso exitoso',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                           //width: '50%',
                         padding:'1rem',
-                           //background:'#000',
                         backdrop:true,
-                           //toast: true,
                         position:'center',
                             });
                     $("#exampleModal2").modal('hide');//ocultamos el modal
@@ -207,7 +193,6 @@ $(document).ready(function(){
                     limpiar();
                     var table = $('#tbl_empresa').DataTable();
                     table.ajax.reload();
-                   // window.location.reload('/empresa');
 
                   }
                   else{
@@ -219,19 +204,14 @@ $(document).ready(function(){
          {
             Swal.fire({
                 title:'Error en el proceso',text:'Campos pendientes por validar',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
              validado = 0;
          }
     });
 });
-
-// Validacion Editar Empresa
 
 $(document).ready(function() {
     $("#editEmpresaFrm").submit(function(event){
@@ -250,7 +230,7 @@ $(document).ready(function() {
 
         if(validaVacio($("#enombre").val()) || $("#enombre").val().length < 3 || $("#enombre").val().length == 0)
         {
-            $("#valENombre").text("* Debe ingresar Razón Social.");
+            $("#valENombre").text("* Debe ingresar razón social.");
         }
         else
         {
@@ -278,30 +258,30 @@ $(document).ready(function() {
         }
 
         if(validaVacio($("#etelefono1").val()) || $("#etelefono1").val().length == 0 || isNaN($("#etelefono1").val()) || $("#etelefono1").val().length < 7 || $("#etelefono1").val().length > 10 )
-         {
-             $("#valETelefono1").text("* Ingrese un número de telefono válido.");
-         }
-         else{
-             $("#valETelefono1").text("");
-             validado++;
-         }
+        {
+            $("#valETelefono1").text("* Ingrese un número de teléfono válido.");
+        }
+        else{
+            $("#valETelefono1").text("");
+            validado++;
+        }
 
-         const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
+        const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
 
-         if($("#ecorreo1").val().length == 0 || !emailRegex.test($("#ecorreo1").val()))
-         {
-             $("#valECorreo1").text("* Ingrese un correo válido.");
-         }
-         else
-         {
-             $("#valECorreo1").text("");
-             validado++;
-         }
+        if($("#ecorreo1").val().length == 0 || !emailRegex.test($("#ecorreo1").val()))
+        {
+            $("#valECorreo1").text("* Ingrese un correo válido.");
+        }
+        else
+        {
+            $("#valECorreo1").text("");
+            validado++;
+        }
 
-         console.log("validado: " + validado);
+        console.log("validado: " + validado);
 
-         if(validado == 6)
-         {
+        if(validado == 6)
+        {
             var fd = new FormData(document.getElementById("editEmpresaFrm"));
 
             $.ajax({
@@ -312,44 +292,34 @@ $(document).ready(function() {
                 processData: false,  // tell jQuery not to process the data
                 contentType: false ,  // tell jQuery not to set contentType
                 }).done(function(respuesta){
-                  if(respuesta.ok)
-                  {
+                if(respuesta.ok)
+                {
                     Swal.fire({
                         title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                           //width: '50%',
                         padding:'1rem',
-                           //background:'#000',
                         backdrop:true,
-                           //toast: true,
                         position:'center',
                             });
-                     $("#exampleModal4").modal('hide');//ocultamos el modal
-                     $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
-                     $('.modal-backdrop').remove();//eliminamos el backdrop del modal
+                    $("#exampleModal4").modal('hide');//ocultamos el modal
+                    $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
+                    $('.modal-backdrop').remove();//eliminamos el backdrop del modal
                     var table = $('#tbl_empresa').DataTable();
                     table.ajax.reload();
-                  }
-                  else{
+                }else{
                     Swal.fire('Empresa no editada.');
-                  }
+                    }
                 })
-         }
-         else
-         {
+        }else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
-             validado = 0;
-         }
+            validado = 0;
+        }
     });
 });
-
 
 /* Delete customer */
 $('body').on('click', '#delete-empresa', function (e) {
@@ -394,11 +364,6 @@ $('body').on('click', '#delete-empresa', function (e) {
                     });
                 }
             });
-          }
-        });
+        }
+    });
 });
-
-
-
-
-
