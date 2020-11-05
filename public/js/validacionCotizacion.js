@@ -9,6 +9,9 @@ $(document).ready(function(){
     });
 });
 
+// $(function () {
+//     $('[data-toggle="tooltip"]').tooltip()
+//     })
 
 function soloLetras(e) {
     var key = e.keyCode || e.which,

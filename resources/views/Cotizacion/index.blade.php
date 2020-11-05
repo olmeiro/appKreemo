@@ -12,7 +12,7 @@
             <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
             <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a>
 
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE">Etapas</button>
+                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE" data-toggle="tooltip" data-placement="top" title="Ver las etapas">Etapas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
                 <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
@@ -69,7 +69,7 @@
                             <div id="step-1">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="">Empresa</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Selecciona la empresa">Empresa</label>
                                         <label class="validacion" id="val_empresa"></label>
                                         <select id="IdEmpresa"  name= "IdEmpresa"  class="form-control @error('IdEmpresa') is-invalid @enderror" onchange="traerObra()">
                                             <option value="0">Seleccione una Empresa</option>
@@ -83,7 +83,7 @@
                                         <label class="validacion" id="val_empresa2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Obra</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Selecciona la obra">Obra</label>
                                         <label class="validacion" id="val_Obra"></label>
                                         <select id="IdObra" name="IdObra" class="form-control">
                                         <option selected="selected">Seleccione una Obra</option>
@@ -93,7 +93,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-6">
-                                        <label for="">Estado</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Estado inicial En proceso">Estado</label>
                                         <label class="validacion" id="val_Estado"></label>
                                         <select id="IdEstado"  name= "IdEstado" class="form-control @error('IdEstado') is-invalid @enderror">
                                             <option value="1">En Proceso</option>
@@ -105,7 +105,7 @@
                                         <label class="validacion" id="val_Estado2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Modalidad</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Selecciona la modalidad">Modalidad</label>
                                         <label class="validacion" id="val_Modalidad"></label>
                                         <select id="IdModalidad"  name= "IdModalidad" class="form-control @error('IdModalidad') is-invalid @enderror">
                                             <option value="0">Seleccione una Modalidad</option>
@@ -123,7 +123,7 @@
                             <div id="step-2">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="">Jornada</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Selecciona la jornada">Jornada</label>
                                         <label class="validacion" id="val_Jornada"></label>
                                         <select id="IdJornada"  name= "IdJornada" class="form-control @error('IdJornada') is-invalid @enderror">
                                             <option value="0">Seleccione una Jornada</option>
@@ -137,7 +137,7 @@
                                         <label class="validacion" id="val_Jornada2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Etapa</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Selecciona la etapa">Etapa</label>
                                         <label class="validacion" id="val_Etapa"></label>
                                         <select id="IdEtapa"  name= "IdEtapa" class="form-control @error('IdEtapa') is-invalid @enderror">
                                             <option value="0">Seleccione una Etapa</option>
@@ -153,7 +153,7 @@
                                 </div>
                                 <div class="row mt-3">
                                     <div class="col-md-6">
-                                        <label for="">Tipo de concreto</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Selecciona el tipo de concreto">Tipo de concreto</label>
                                         <label class="validacion" id="val_TipoConcreto"></label>
                                             <select id="IdTipo_Concreto"  name= "IdTipo_Concreto" class="form-control @error('IdTipo_Concreto') is-invalid @enderror">
                                                 <option value="0">Seleccione un Tipo de Concreto</option>
@@ -167,7 +167,7 @@
                                             <label class="validacion" id="val_TipoConcreto2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Ciudad</label>
+                                        <label for=""data-toggle="tooltip" data-placement="top" title="Digita el nombre de la ciudad">Ciudad</label>
                                         <label class="validacion" id="val_ciudad"></label>
                                         <input type="text" class="form-control @error('Ciudad') is-invalid @enderror" onkeypress="return soloLetras(event)" id="Ciudad" name="Ciudad" value="{{old('Ciudad')}}">
                                         @error('Ciudad')
@@ -181,7 +181,7 @@
                             <div id="step-3" class="">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="FechaCotizacion">Fecha de cotización</label>
+                                        <label for="FechaCotizacion" data-toggle="tooltip" data-placement="top" title="Fecha de la cotización">Fecha de cotización</label>
                                         <label class="validacion" id="val_FechaCotizacion"></label>
                                         <input type="data" data-date-format="yy-m-d" class="form-control calendarioI @error('FechaCotizacion') is-invalid @enderror " id="FechaCotizacion" name="FechaCotizacion" value="{{old('FechaCotizacion')}}">
                                         @error('FechaCotizacion')
@@ -190,7 +190,7 @@
                                         <label class="validacion" id="val_FechaCotizacion2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="InicioBombeo">Fecha de inicio bombeo</label>
+                                        <label for="InicioBombeo" data-toggle="tooltip" data-placement="top" title="Fecha de inicio del servicio">Fecha de inicio bombeo</label>
                                         <label class="validacion" id="val_FechaInicio"></label>
                                         <input type="date" data-date-format="yy-m-d" class="form-control @error('InicioBombeo') is-invalid @enderror" id="InicioBombeo" name="InicioBombeo" value="{{old('InicioBombeo')}}">
                                         @error('InicioBombeo')
@@ -201,9 +201,8 @@
 
                                 </div>
                                 <div class="row mt-3">
-
                                     <div class="col-md-6">
-                                        <label for="">Cantidad de losas</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Campo numerico NO obligatorio">Cantidad de losas <i class="fas fa-info-circle"></i></label>
                                         <label class="validacion" id="val_Losas"></label>
                                         <input type="text" class="form-control @error('Losas') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Losas" name="Losas" value="{{old('Losas')}}">
                                         @error('Losas')
@@ -212,7 +211,7 @@
                                         <label class="validacion" id="val_Losas2"></label>
                                     </div>
                                     <div class="col-md-6">
-                                        <label for="">Cantidad de tubería</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Campo numerico NO obligatorio">Cantidad de tubería <i class="fas fa-info-circle"></i></label>
                                         <label class="validacion" id="val_Tuberia"></label>
                                         <input type="text" class="form-control @error('Tuberia') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Tuberia" name="Tuberia" value="{{old('Tuberia')}}">
                                         @error('Tuberia')
@@ -225,7 +224,7 @@
                             <div id="step-4" class="">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="">Cantidad de metros<sup>3</sup></label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Campo numerico OBLIGATORIO">Cantidad de metros<sup>3</sup> <i class="fas fa-info-circle"></i></label>
                                         <label class="validacion" id="val_Metros"></label>
                                         <input type="text" class="form-control @error('MetrosCubicos') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="MetrosCubicos" name="MetrosCubicos" >
                                         @error('MetrosCubicos')
@@ -234,7 +233,7 @@
                                         <label class="validacion" id="val_Metros2"></label>
                                     </div>
                                     <div class="col-md-4">
-                                        <label for="">Valor metro<sup>3</sup></label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Campo numerico OBLIGATORIO">Valor metro<sup>3</sup> <i class="fas fa-info-circle"></i></label>
                                         <label class="validacion" id="val_ValorMetro"></label>
                                         <input type="text" class="form-control @error('ValorMetro') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorMetro" name="ValorMetro"  onchange="valor_total()">
                                         @error('ValorMetro')
@@ -245,7 +244,7 @@
                                     <div class="col-md-4">
                                         <label for="">AIU</label>
                                         <label class="validacion" id="val_AIU"></label>
-                                        <input type="text" class="form-control @error('AIU') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIU" name="AIU" readonly>
+                                        <input type="text" class="form-control @error('AIU') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIU" name="AIU" readonly data-toggle="tooltip" data-placement="top" title="Valor del AIU 5% del subtotal">
                                         @error('AIU')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -256,7 +255,7 @@
                                     <div class="col-md-4">
                                         <label for="">Subtotal</label>
                                         <label class="validacion" id="val_SubTotal"></label>
-                                        <input type="text" class="form-control @error('Subtotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Subtotal" name="Subtotal" readonly>
+                                        <input type="text" class="form-control @error('Subtotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="Subtotal" name="Subtotal" readonly data-toggle="tooltip" data-placement="top" title="Cantidad de metros X valor metro">
                                         @error('Subtotal')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -265,7 +264,7 @@
                                     <div class="col-md-4">
                                         <label for="">IVA al AIU</label>
                                         <label class="validacion" id="val_IvaAIU"></label>
-                                        <input type="text" class="form-control @error('IvaAIU') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIU" name="IvaAIU" readonly>
+                                        <input type="text" class="form-control @error('IvaAIU') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIU" name="IvaAIU" readonly data-toggle="tooltip" data-placement="top" title="Valor del 19% del AIU">
                                         @error('IvaAIU')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -274,7 +273,7 @@
                                     <div class="col-md-4">
                                         <label for="">Valor total</label>
                                         <label class="validacion" id="val_ValorTotal"></label>
-                                        <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotal" name="ValorTotal" readonly>
+                                        <input type="text" class="form-control @error('ValorTotal') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotal" name="ValorTotal" readonly data-toggle="tooltip" data-placement="top" title="Subtotal + iva al AIU">
                                         @error('ValorTotal')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -285,7 +284,7 @@
                             <div id="step-5" class="">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <label for="">Valor transporte</label>
+                                        <label for="" data-toggle="tooltip" data-placement="top" title="Valor del transporte de ida a la obra">Valor transporte</label>
                                         <label class="validacion" id="val_Valtrans"></label>
                                         <input type="text" class="form-control @error('ValorTransporte') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="ValorTransporte" name="ValorTransporte"  onchange="valor_totaltransporte()">
                                         @error('ValorTransporte')
@@ -296,7 +295,7 @@
                                     <div class="col-md-6">
                                         <label for="">AIU transporte</label>
                                         <label class="validacion" id="val_AIUtrans"></label>
-                                        <input type="text" class="form-control @error('AIUtrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIUtrans" name="AIUtrans" readonly>
+                                        <input type="text" class="form-control @error('AIUtrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="AIUtrans" name="AIUtrans" readonly data-toggle="tooltip" data-placement="top" title="Valor del AIU: 5% del transporte">
                                         @error('AIUtrans')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -307,7 +306,7 @@
                                     <div class="col-md-6">
                                         <label for="">IVA al AIU transporte</label>
                                         <label class="validacion" id="val_IvaAIUtrans"></label>
-                                        <input type="text" class="form-control @error('IvaAIUtrans') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIUtrans" name="IvaAIUtrans" readonly>
+                                        <input type="text" class="form-control @error('IvaAIUtrans') is-invalid @enderror " onkeypress="return soloNumeros(event)" id="IvaAIUtrans" name="IvaAIUtrans" readonly data-toggle="tooltip" data-placement="top" title="Valor del 19%  al AIU del transporte">
                                         @error('IvaAIUtrans')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -316,7 +315,7 @@
                                     <div class="col-md-6">
                                         <label for="">Valor total transporte</label>
                                         <label class="validacion" id="val_ValorTotaltrans"></label>
-                                        <input type="text" class="form-control @error('ValorTotaltrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotaltrans" name="ValorTotaltrans" readonly>
+                                        <input type="text" class="form-control @error('ValorTotaltrans') is-invalid @enderror" onkeypress="return soloNumeros(event)" id="ValorTotaltrans" name="ValorTotaltrans" readonly data-toggle="tooltip" data-placement="top" title="Valor transporte + valor iva al AIU">
                                         @error('ValorTotaltrans')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
@@ -327,7 +326,7 @@
                             <div id="step-6" class="">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="validationTextarea">Notas propuesta</label>
+                                        <label for="validationTextarea" data-toggle="tooltip" data-placement="top" title="Notas generadas para adjuntar a la propuesta comercial">Notas propuesta <i class="fas fa-info-circle"></i></label>
                                         <textarea class="form-control @error('Observaciones') is-invalid @enderror " id="Observaciones" name="Observaciones" placeholder="Ingresa notas de la propuesta economica" ></textarea>
                                         @error('Observaciones')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -336,7 +335,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <label for="validationTextarea">Notas letra chica</label>
+                                        <label for="validationTextarea" data-toggle="tooltip" data-placement="top" title="Notas generadas para adjuntar a la letra chica">Notas letra chica <i class="fas fa-info-circle"></i></label>
                                         <textarea class="form-control @error('Observaciones2') is-invalid @enderror " id="Observaciones2" name="Observaciones2" placeholder="Ingresa las notas de la letra chica" ></textarea>
                                         @error('Observaciones2')
                                         <div class="invalid-feedback">{{ $message }}</div>
@@ -691,6 +690,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.12/dist/sweetalert2.all.min.js"></script>
     <script type="text/javascript" src="https://res.cloudinary.com/dxfq3iotg/raw/upload/v1581152197/smartwizard/jquery.smartWizard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/modal/js/modal.js') }}"></script>
     <script src="{{ asset('assets/modal/js/cotizacion.js') }}"></script>
     <script src="{{ asset('js/validacionCotizacion.js') }}"></script>
