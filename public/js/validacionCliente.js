@@ -64,7 +64,7 @@ $(document).ready(function() {
 
         if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
         {
-            $("#valTelefono1").text("* Ingrese un número de telefono válido");
+            $("#valTelefono1").text("* Ingrese un número de teléfono válido");
         }
         else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
         {
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
         if($("#telefono2").val().length == 0 || isNaN($("#telefono2").val()))
         {
-            $("#valTelefono2").text("* Ingrese un número de telefono válido");
+            $("#valTelefono2").text("* Ingrese un número de teléfono válido");
         }
         else if(!(/^\d{7,10}$/.test($("#telefono2").val())))
         {
@@ -226,7 +226,7 @@ $(document).ready(function() {
 
         if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
         {
-            $("#valTelefono1").text("* Ingrese un número de telefono válido");
+            $("#valTelefono1").text("* Ingrese un número de teléfono válido");
         }
         else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
         {
@@ -239,7 +239,7 @@ $(document).ready(function() {
 
         if($("#telefono2").val().length == 0 || isNaN($("#telefono2").val()))
         {
-            $("#valTelefono2").text("* Ingrese un número de telefono válido");
+            $("#valTelefono2").text("* Ingrese un número de teléfono válido");
         }
         else if(!(/^\d{7,10}$/.test($("#telefono2").val())))
         {
@@ -382,7 +382,7 @@ $(document).ready(function() {
 
         if($("#ctelefono1").val().length == 0 || isNaN($("#ctelefono1").val()))
         {
-            $("#valTel1").text("* Ingrese un número de telefono válido");
+            $("#valTel1").text("* Ingrese un número de teléfono válido");
         }
         else if(!(/^\d{7,10}$/.test($("#ctelefono1").val())))
         {
@@ -395,7 +395,7 @@ $(document).ready(function() {
 
         if($("#ctelefono2").val().length == 0 || isNaN($("#ctelefono2").val()))
         {
-            $("#valTel2").text("* Ingrese un número de telefono válido");
+            $("#valTel2").text("* Ingrese un número de teléfono válido");
         }
         else if(!(/^\d{7,10}$/.test($("#ctelefono2").val())))
         {
