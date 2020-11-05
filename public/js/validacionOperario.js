@@ -56,5 +56,3 @@ function limpiar(){
     $("#validacion_celular2").text("");
     $("input").val("");
 }
-
-

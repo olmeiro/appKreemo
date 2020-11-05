@@ -25,8 +25,6 @@ $(document).ready(function(){
             validado++;
         }
 
-        //-----------------------------
-
         if($("#direccion").val().length == 0 || $("#direccion").val().length > 30)
         {
             $("#valDireccion").text("* Debe ingresar dirección de la obra.")
@@ -36,12 +34,9 @@ $(document).ready(function(){
             validado++;
         }
 
-        //-----------------------------
-
-
         if($("#telefono1").val().length == 0 || isNaN($("#telefono1").val()))
          {
-             $("#valTelefono1").text("* Ingrese un número de telefono de la obra.");
+             $("#valTelefono1").text("* Ingrese un número de teléfono de la obra.");
          }
          else if(!(/^\d{7,10}$/.test($("#telefono1").val())))
          {
@@ -51,8 +46,6 @@ $(document).ready(function(){
              $("#valTelefono1").text("");
              validado++;
          }
-
-        //-----------------------------
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
 
@@ -72,11 +65,8 @@ $(document).ready(function(){
         {
             Swal.fire({
                 title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
                     });
             document.frmCreateObra.submit();
@@ -85,17 +75,12 @@ $(document).ready(function(){
         else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
-            // alert("Campos pendientes por validar");
             validado = 0;
         }
-
     })
 })
 
@@ -128,8 +113,6 @@ $(document).ready(function(){
             validado++;
         }
 
-        //-----------------------------
-
         if($("#odireccion").val().length == 0 || $("#odireccion").val().length > 30)
         {
             $("#valDireccion").text("* Debe ingresar dirección de la obra.")
@@ -139,12 +122,9 @@ $(document).ready(function(){
             validado++;
         }
 
-        //-----------------------------
-
-
         if($("#otelefono1").val().length == 0 || isNaN($("#otelefono1").val()))
         {
-            $("#valTelefono1").text("* Ingrese un número de telefono de la obra.");
+            $("#valTelefono1").text("* Ingrese un número de teléfono de la obra.");
         }
         else if(!(/^\d{7,10}$/.test($("#otelefono1").val())))
         {
@@ -154,8 +134,6 @@ $(document).ready(function(){
             $("#valTelefono1").text("");
             validado++;
         }
-
-        //-----------------------------
 
          const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
 
@@ -170,8 +148,6 @@ $(document).ready(function(){
          }
 
         console.log('validado: '+ validado);
-
-
 
         if (validado == 5)
         {
@@ -192,51 +168,36 @@ $(document).ready(function(){
                     {
                         Swal.fire({
                             title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                               //width: '50%',
                             padding:'1rem',
-                               //background:'#000',
                             backdrop:true,
-                               //toast: true,
                             position:'center',
                                 });
                        $("#verModal5").modal('hide');//ocultamos el modal
                        $('body').removeClass('modal-open');//eliminamos la clase del body para poder hacer scroll
                        $('.modal-backdrop').remove();//eliminamos el backdrop del modal
-                       //$("#mensaje").text("Contacto creado")
                       var table = $('#tbl_obra').DataTable();
                       table.ajax.reload();
                     }
                     else{
                         Swal.fire({
                             title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                               //width: '50%',
                             padding:'1rem',
-                               //background:'#000',
                             backdrop:true,
-                               //toast: true,
                             position:'center',
                         });
                     }
-                  })
-         }
-         else
-         {
+                })
+        }else{
             Swal.fire({
                 title:'Error en el proceso.',text:'Campos pendientes por validar.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
-                   //width: '50%',
                 padding:'1rem',
-                   //background:'#000',
                 backdrop:true,
-                   //toast: true,
                 position:'center',
             });
              validado = 0;
-         }
-
+        }
     })
 })
-
-
 
 $(document).ready(function(){
 
@@ -265,7 +226,7 @@ function soloLetras(e) {
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
+        return false;
     }
 }
 
@@ -284,7 +245,7 @@ function soloNumeros(e) {
     }
 
     if (letras.indexOf(tecla) == -1 && !tecla_especial) {
-    return false;
+        return false;
     }
 }
 
@@ -326,20 +287,17 @@ $('body').on('click', '#delete-obra', function (e) {
               "_token": token,
               },
           }).done(function(respuesta){
-                  if(respuesta.ok){
+            if(respuesta.ok){
 
-                                    Swal.fire({
-                                        title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
-                                        //width: '50%',
-                                        padding:'1rem',
-                                        //background:'#000',
-                                        backdrop:true,
-                                        //toast: true,
-                                        position:'center',
-                                            });
-                          var table = $('#tbl_obra').DataTable();
-                          table.ajax.reload();
-                  } else {
+                Swal.fire({
+                title:'Proceso exitoso.',icon:'success',footer:'<span class="validacion">Kreemo Solution Systems',
+                padding:'1rem',
+                backdrop:true,
+                position:'center',
+                    });
+                var table = $('#tbl_obra').DataTable();
+                table.ajax.reload();
+                } else {
                     Swal.fire({
                       title:'No se puede borrar.', icon: 'info', text:'La obra está en uso.',icon:'error',footer:'<span class="validacion">Kreemo Solution Systems',
                         padding:'1rem',
@@ -348,9 +306,6 @@ $('body').on('click', '#delete-obra', function (e) {
                     });
                 }
             });
-          }
-        });
-
-
+        }
+    });
 });
-
