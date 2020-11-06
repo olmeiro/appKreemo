@@ -123,8 +123,8 @@
                         <label class="validacion" id="valdescripcion2"></label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary float-right" style="margin-left:10px;">Editar Servicio</button>
-                <a href="/servicio/listarservicio" class="btn btn-ligth float-right">Volver</a>
+                <button type="submit" class="btn btn-primary float-left" style="margin-left:10px;">Editar Servicio</button>
+                <a href="/servicio/listarservicio" class="btn btn-outline-primary float-right">Volver</a>
             </form>
         </div>
     </div>

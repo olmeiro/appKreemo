@@ -304,8 +304,8 @@
                     </div>
                 </div>
             </div>
-                <button type="submit" class="btn btn-success">Guardar Encuesta</button>
-                <a href="/encuesta" class="btn btn-outline-primary" >Volver</a>
+                <button type="submit" class="btn btn-success float-left">Guardar Encuesta</button>
+                <a href="/servicio/listarservicio" class="btn btn-outline-primary float-right" >Volver</a>
         </form>
     </div>
 </div>

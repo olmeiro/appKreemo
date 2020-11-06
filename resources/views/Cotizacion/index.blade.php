@@ -9,18 +9,22 @@
     <div class="card">
         <div class="card-header text-white float-right" style="background-color: #616A6B">
             <strong>Cotizaciones</strong>
-            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
-            <a class="btn btn-outline-light float-right" href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a>
 
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE" data-toggle="tooltip" data-placement="top" title="Ver las etapas">Etapas</button>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
-                <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalE" data-toggle="tooltip" data-placement="top" title="Ver las etapas">Etapas</button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalJ">Jornadas</button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalM">Modalidad</button>
+            <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModalC">Tipos de concreto</button>
+
+            <button type="button" class="btn btn-outline-light float-right" data-toggle="modal" data-target="#exampleModal">Crear cotización</button>
+            <a class="btn btn-outline-light float-right"  href="/cotizacion/informe"><i class="fas fa-file-pdf"> </i> Descargar cotización</a>
+
+
+
 
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             @include('flash::message')
-            <table id="tbl_cotizacion" class="table table-bordered table-striped table-responsive" style="width: 100%;">
+            <table id="tbl_cotizacion" class="table table-bordered table-striped " style="width: 100%;">
                 <thead class="" align="center">
                 <tr>
                     <th>Cot. N°</th>

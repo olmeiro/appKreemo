@@ -209,7 +209,7 @@
                     </div>
                 </div>
                 <div class="modal-body">
-                    <div class="card-body">
+                    <div class="card-body table-responsive">
                         @include('flash::message')
                         <table id="tbl_tipocontacto" class="table table-bordered" style="width: 100%;">
                             <thead>

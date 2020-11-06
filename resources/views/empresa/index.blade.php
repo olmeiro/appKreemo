@@ -10,10 +10,10 @@
             <strong>Empresas</strong>
             <strong class="float-right"><button type="button" class="btn btn-outline-light float-rigth" data-toggle="modal" data-target="#exampleModal2">Crear empresa</button></strong>
         </div>
-        <div class="card-body">
+        <div class="card-body table-responsive">
             @include('flash::message')
             <h4 id="msg"></h4>
-            <table id="tbl_empresa" class="table table-bordered table-striped table-responsive" style="width: 100%;">
+            <table id="tbl_empresa" class="table table-bordered table-striped " style="width: 100%;">
                 <thead>
                     <tr>
                         <th>NIT</th>

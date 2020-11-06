@@ -18,7 +18,7 @@
             <div class="card-header text-white float-right" style="background-color: #616A6B">
                 <strong>Reporte</strong>
             </div>
-            <div class="card-body">
+            <div class="card-body table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
