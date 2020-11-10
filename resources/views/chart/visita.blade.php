@@ -19,10 +19,10 @@
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
-                            <th>id</th>
-                            <th>viabilidad</th>
-                            <th>id visita</th>
-                            <th>numero planilla</th>
+                            <th>N°</th>
+                            <th>Viabilidad</th>
+                            <th>N° visita</th>
+                            <th>Número planilla</th>
                             <th>Nombre obra</th>
                         </tr>
                         <tbody id="tbody" class="" align="center">

@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-row" >
                         <div class="form-group col-md-4">
-                            <label for="">Correo</label>
+                            <label for="">Correo electrónico</label>
                             <label class="validacion" for="correo" id="valCorreo"></label>
                             <input type="text" class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo" value="{{$empresa[0]->correo1}}" readonly>
                             @error('correo')
@@ -86,7 +86,7 @@
                         <div class="col-sm-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos, siendo 1 en menor puntaje y 5 el mayor puntaje</p>
+                                    <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos, siendo 1 el menor puntaje y 5 el mayor puntaje</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -161,7 +161,7 @@
                         <div class="col-sm-4">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>2.</b> tuvo algún inconveniente durante la prestación del servicio</p>
+                                    <p><b>2.</b> ¿Tuvo algún inconveniente durante la prestación del servicio?</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -188,7 +188,7 @@
                         <div class="col-sm-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>3.</b> Si la <u>respuesta 2</u> fué SI, describa la situación:</p>
+                                    <p><b>3.</b> Si la <b>respuesta 2</b> fue SI, describa la situación:</p>
                                     <label class="validacion" for="respuesta3" id="valRespuesta3"></label>
                                 </div>
                                 <div class="card-body">
@@ -209,7 +209,7 @@
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>4.</b> El trato que recibe del personal en general de VINICOL BOMBEOS es adecuado, amable y se ajusta a lo que usted espera como cliente.</p>
+                                    <p><b>4.</b> El trato que recibió del personal en general de VINICOL BOMBEOS es adecuado, amable y se ajusta a lo que usted espera como cliente.</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -233,7 +233,7 @@
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>5.</b> Que aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado. </p>
+                                    <p><b>5.</b> ¿Qué aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado?. </p>
                                     <label class="validacion" for="respuesta5" id="valRespuesta5"></label>
                                 </div>
                                 <div class="card-body">
@@ -255,7 +255,7 @@
                         <div class="col-sm-5">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>6.</b> Volvería Usted a Utilizar los servicios de VINICOL BOMBEOS</p>
+                                    <p><b>6.</b> ¿Volvería a utilizar los servicios de VINICOL BOMBEOS?.</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -279,7 +279,7 @@
                         <div class="col-sm-7">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>7.</b> Recomendaría A VINICOL BOMBEOS para que otras empresas contrataran nuestros servicios?</p>
+                                    <p><b>7.</b> ¿Recomendaría a VINICOL BOMBEOS para que otras empresas contraten nuestros servicios?.</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
@@ -304,8 +304,8 @@
                     </div>
                 </div>
             </div>
-                <button type="submit" class="btn btn-success float-left">Guardar Encuesta</button>
-                <a href="/servicio/listarservicio" class="btn btn-outline-primary float-right" >Volver</a>
+                <button type="submit" class="btn btn-success float-right">Guardar encuesta</button>
+                <a href="/servicio/listarservicio" class="btn btn-outline-primary float-left" >Volver</a>
         </form>
     </div>
 </div>

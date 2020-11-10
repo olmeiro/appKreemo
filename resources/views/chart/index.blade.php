@@ -18,7 +18,7 @@
                                     @endforeach
                                 </select>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">Generar graficos</button>
+                                    <button class="btn btn-outline-secondary" type="submit">Generar gráficos</button>
                                 </div>
                             </div>
                             <label class="validacion" id="val_empresa"></label>
@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
-                            <th>Cotizacion N°</th>
+                            <th>N° Cotizacion</th>
                             <th>Fecha</th>
                             <th>Valor</th>
                             <th>Empresa</th>
@@ -132,7 +132,7 @@
                 data: {
                     labels:nombre_obra,
                     datasets: [{
-                        label: 'Valor cotizacion',
+                        label: 'Valor cotización',
                         data: valortotal,
                         backgroundColor: colores,
                         borderColor: colores,
