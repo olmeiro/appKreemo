@@ -20,14 +20,14 @@
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="">Nombre del director de la obra</label>
+                <label for="">Nombre (Quien responde la encuesta)</label>
                 <input type="text" class="form-control @error('directorobra') is-invalid @enderror" readonly id="directorobra" name="directorobra" value="{{ $encuesta->directorobra }}">
                 @error('directorobra')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="">Constructora</label>
+                <label for="">Empresa</label>
                 <input type="text" class="form-control @error('constructora') is-invalid @enderror" readonly id="constructora" name="constructora" value="{{ $encuesta->constructora }}">
                 @error('constructora')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -36,7 +36,7 @@
             </div>
             <div class="form-row" >
             <div class="form-group col-md-4">
-                <label for="">Correo</label>
+                <label for="">Correo electrónico</label>
                 <input type="text" class="form-control @error('correo') is-invalid @enderror" readonly id="correo" name="correo" value="{{ $encuesta->correo }}">
                 @error('correo')
                 <div class="invalid-feedback">{{ $message }}</div>
@@ -61,7 +61,7 @@
             <br>
                 <h2>Preguntas</h2>
             <br>
-                <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos</p>
+                <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos, siendo 1 el menor puntaje y 5 el mayor puntaje</p>
             <div class="form-row" >
             <div class="form-group col-md-3">
                 <label for="">Puntualidad</label>
@@ -92,7 +92,7 @@
                 @enderror
             </div>
             </div>
-                <p><b>2.</b> tuvo algun inconveniente durante la prestación del servicio</p>
+                <p><b>2.</b> ¿Tuvo algún inconveniente durante la prestación del servicio?</p>
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI - NO</label>
@@ -102,7 +102,7 @@
                 @enderror
             </div>
             </div>
-                <p><b>3.</b> Si la <u>respuesta 2</u> fué SI, describa la situación:</p>
+                <p><b>3.</b> Si la <b>respuesta 2</b> fué SI, describa la situación:</p>
             <div class="form-row">
                 <div class="form-group col-md-12">
                 <textarea class="form-control @error('respuesta3') is-invalid @enderror" readonly id="respuesta3" name="respuesta3" placeholder="Ingresa las observaciones" value="">{{ $encuesta->respuesta3 }}</textarea>
@@ -111,7 +111,7 @@
                 @enderror
             </div>
             </div>
-                <p><b>4.</b> El trato que recibe del personal en general de VINICOL BOMBEOS es adecuado, amable y se ajusta a lo que usted espera como cliente.</p>
+                <p><b>4.</b> El trato que recibió del personal en general de VINICOL BOMBEOS es adecuado, amable y se ajusta a lo que usted espera como cliente.</p>
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI - NO</label>
@@ -121,7 +121,7 @@
                 @enderror
             </div>
             </div>
-                <p><b>5.</b> Que aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado. </p>
+                <p><b>5.</b> ¿Qué aspectos considera usted que deban mejorar en la empresa VINICOL BOMBEOS para sentir total satisfacción con el servicio prestado?. </p>
             <div class="form-row">
                 <div class="form-group col-md-12">
                 <textarea class="form-control @error('respuesta5') is-invalid @enderror " readonly id="respuesta5" name="respuesta5" placeholder="Ingresa las observaciones" value="{{old('respuesta5')}}">{{ $encuesta->respuesta5 }}</textarea>
@@ -130,7 +130,7 @@
                 @enderror
             </div>
             </div>
-                <p><b>6.</b> Volvería Usted a Utilizar los servicios de VINICOL BOMBEOS</p>
+                <p><b>6.</b> ¿Volvería a utilizar los servicios de VINICOL BOMBEOS?.</p>
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI - NO</label>
@@ -140,7 +140,7 @@
                 @enderror
             </div>
             </div>
-                <p><b>7.</b> Recomendaría A VINICOL BOMBEOS para que otras empresas contrataran nuestros servicios?</p>
+                <p><b>7.</b> ¿Recomendaría a VINICOL BOMBEOS para que otras empresas contraten nuestros servicios?.</p>
             <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="">SI - NO</label>

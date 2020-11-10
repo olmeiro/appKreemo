@@ -4,7 +4,7 @@
     <div class="container">
         <div class="card col-md-5">
                 <div class="card-header ">
-                    <strong>Estados de cotizacion</strong>
+                    <strong>Estados de cotización</strong>
                 </div>
                 <div class="card-body">
                     @include('flash::message')
@@ -18,7 +18,7 @@
                                     @endforeach
                                 </select>
                                 <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">Generar graficos</button>
+                                    <button class="btn btn-outline-secondary" type="submit">Generar gráficos</button>
                                 </div>
                             </div>
                             <label class="validacion" id="val_estado"></label>
@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
-                            <th>Cotizacion N°</th>
+                            <th>N° Cotizacion </th>
                             <th>Fecha</th>
                             <th>Valor</th>
                             <th>Empresa</th>
@@ -136,7 +136,7 @@
                 data: {
                     labels:nombre_obra,
                     datasets: [{
-                        label: 'Estados de cotizacion',
+                        label: 'Estados de cotización',
                         data: valortotal,
                         backgroundColor: colores,
                         borderColor: colores,

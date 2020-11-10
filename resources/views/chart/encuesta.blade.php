@@ -22,10 +22,10 @@
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
-                            <th>N° Encuesta</th>
-                            <th>N° Servicio</th>
+                            <th>N° encuesta</th>
+                            <th>N° servicio</th>
                             <th>Obra</th>
-                            <th>Tuvo Inconveniente</th>
+                            <th>Incoveniente</th>
                             <th>Descripción</th>
                         </tr>
                         <tbody id="tbody" class="" align="center">

@@ -25,7 +25,7 @@
                             <th>N° Encuesta</th>
                             <th>N° Servicio</th>
                             <th>Obra</th>
-                            <th>Recomendaria</th>
+                            <th>Recomendaría</th>
                         </tr>
                         <tbody id="tbody" class="" align="center">
 

@@ -25,7 +25,7 @@
                             <th>N° Encuesta</th>
                             <th>N° Servicio</th>
                             <th>Obra</th>
-                            <th>Volvería a VB</th>
+                            <th>Volvería a Vinicol Bombeos</th>
                         </tr>
                         <tbody id="tbody" class="" align="center">
 
