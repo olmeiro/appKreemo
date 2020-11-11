@@ -29,7 +29,7 @@ class EncuestaController extends Controller
         return DataTables::of($encuesta)
 
         ->addColumn('eliminar', function ($encuesta) {
-            return '<a class="btn btn-primary btn-sm" href="/encuesta/ver/'.$encuesta->id.'">Ver Encuesta</a>';
+            return '<a class="btn btn-primary btn-sm" href="/encuesta/ver/'.$encuesta->id.'">Ver encuesta</a>';
         })
         ->rawColumns(['eliminar'])
         ->make(true);

@@ -12,8 +12,8 @@
                     <thead class="" align="center">
                     <tr>
                         <th>N° Servicio</th>
-                        <th>Nombre director</th>
-                        <th>Constructora</th>
+                        <th>Realizada a:</th>
+                        <th>Empresa</th>
                         <th>Celular</th>
                         <th>Fecha encuesta</th>
                         <th>Ver encuesta</th>
