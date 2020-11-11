@@ -183,7 +183,7 @@ class ServicioController extends Controller
                         "operario2"=>$value->idoperario2,
                         "descripcion"=>$value->descripcion,
                         "title"=>"Maq N° ".$value->idmaquina." - Obra N° ".$value->idobra,
-                        "backgroundColor"=>$value->estado ==1 ? "#5EFA10" : "FAF31E",
+                        "backgroundColor"=>$value->estado ==1 ? "#61B74B" : "#FAF31E",
                         "textColor"=>"#fff"
                     ];
                     }
