@@ -39,7 +39,7 @@
                 <table class="table table-bordered table-striped">
                     <thead class="" align="center">
                         <tr>
-                            <th>N° Cotizacion </th>
+                            <th>N° Cotización </th>
                             <th>Fecha</th>
                             <th>Valor</th>
                             <th>Empresa</th>
