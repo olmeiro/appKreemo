@@ -86,7 +86,7 @@
                         <div class="col-sm-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos, siendo 1 el menor puntaje y 5 el mayor puntaje</p>
+                                    <p><b>1.</b> Califique de 1 a 5 los siguientes aspectos prestados por Vinicol Bombeos, siendo 1 el menor puntaje y 5 el mayor puntaje.</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="form-row" >
