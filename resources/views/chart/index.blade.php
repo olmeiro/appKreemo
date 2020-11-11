@@ -97,6 +97,7 @@
                 }).done(function(res){
 
                     var arreglo = JSON.parse(res);
+                    $('#tbody').empty();
                     for(var x= 0; x<arreglo.length;x++){
                         var todo = '<tr><td>'+arreglo[x].id+'</td>';
                         todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
@@ -125,9 +126,15 @@
 
 
         function generarGrafica(nombre_obra, valortotal,colores){
+
             var ctx = document.getElementById('myChart').getContext('2d');
 
-                var myChart = new Chart(ctx, {
+            if (window.grafica) {
+                    window.grafica.clear();
+                    window.grafica.destroy();
+                }
+
+                window.grafica = new Chart(ctx, {
                 type: 'bar',
                 data: {
                     labels:nombre_obra,
