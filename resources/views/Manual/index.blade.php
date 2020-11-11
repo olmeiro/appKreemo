@@ -35,9 +35,9 @@
                             </div>
                 </div>
                 <div class="card text-center">
-                    <div class="card-header text-white" style="background-color: #616A6B"">
-                            {{-- Módulo estadisticas --}}
-                            <button type="button" class="btn btn-outline-light float-center" data-toggle="popover" title="Módulo estadisticas" data-content="Aqui puedes ver el funcionamiento de este módulo">Módulo estadisticas</button>
+                    <div class="card-header text-white" style="background-color: #616A6B">
+                            {{-- Módulo estadísticas --}}
+                            <button type="button" class="btn btn-outline-light float-center" data-toggle="popover" title="Módulo estadisticas" data-content="Aqui puedes ver el funcionamiento de este módulo">Módulo estadísticas</button>
                     </div>
                     <div class="card-body">
                     <div data-widget-type=deck data-flow="793195f0-1e28-11eb-8b0a-3e2a4292da47">
