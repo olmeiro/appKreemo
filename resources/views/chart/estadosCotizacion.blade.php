@@ -98,6 +98,7 @@
 
 
                 var arreglo = JSON.parse(res);
+                $('#tbody').empty();
                 for(var x= 0; x<arreglo.length;x++){
                     var todo = '<tr><td>'+arreglo[x].id+'</td>';
                     todo+='<td>'+arreglo[x].fechaCotizacion+'</td>';
@@ -153,6 +154,7 @@
                     }
                 }
             });
+
         }
 
         function generarNumero(numero){
