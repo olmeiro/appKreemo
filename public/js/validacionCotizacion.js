@@ -31,8 +31,8 @@ function soloLetras(e) {
 function soloNumeros(e) {
     var key = e.keyCode || e.which,
     tecla = String.fromCharCode(key).toLowerCase(),
-    letras = " 0123456789",
-    especiales = [8, 37, 39, 46],
+    letras = "0123456789",
+    especiales = [],
     tecla_especial = false;
 
     for (var i in especiales) {
@@ -116,47 +116,74 @@ $(document).ready(function() {
             validado++;
         }
 
+        if ($("#Ciudad").val().length > 30) {
+            $("#val_ciudad").text("*");
+            $("#val_ciudad2").text("Nombre con maximo 30 caracteres");
+        }else{
+            $("#val_ciudad").text("");
+            $("#val_ciudad2").text("");
+            validado++;
+        }
+
+
+
         if ($("#FechaCotizacion").val().length == 0) {
             $("#val_FechaCotizacion").text("*");
             $("#val_FechaCotizacion2").text("Debe seleccionar una fecha");
-            $("#val_FechaCotizacion3").text("Debe seleccionar una fecha");
         }else{
             $("#val_FechaCotizacion").text("");
             $("#val_FechaCotizacion2").text("");
-            $("#val_FechaCotizacion3").text("");
             validado++;
         }
 
         if ($("#InicioBombeo").val().length == 0) {
             $("#val_FechaInicio").text("*");
             $("#val_FechaInicio2").text("Debe seleccionar una fecha");
-            $("#val_FechaInicio3").text("Debe seleccionar una fecha");
         }else{
             $("#val_FechaInicio").text("");
             $("#val_FechaInicio2").text("");
-            $("#val_FechaInicio3").text("");
+            validado++;
+        }
+
+        if ($("#Losas").val().length > 2) {
+            $("#val_Losas").text("*");
+            $("#val_Losas2").text("Las losas no deben ser superiores a 99.");
+        }else{
+            $("#val_Losas").text("");
+            $("#val_Losas2").text("");
+            validado++;
+        }
+
+        if ($("#Tuberia").val().length > 3) {
+            $("#val_Tuberia").text("*");
+            $("#val_Tuberia2").text("La tuberia no debe superar los 999 mts");
+        }else{
+            $("#val_Tuberia").text("");
+            $("#val_Tuberia2").text("");
             validado++;
         }
 
         if ($("#MetrosCubicos").val() == 0) {
             $("#val_Metros").text("*");
             $("#val_Metros2").text("Debe digitar la cantidad de metros cubicos");
-            $("#val_Metros3").text("Debe digitar la cantidad de metros cubicos");
+        }else if($("#MetrosCubicos").val().length > 3){
+            $("#val_Metros").text("*");
+            $("#val_Metros2").text("Los metros no deben superr los 999 mts");
         }else{
             $("#val_Metros").text("");
             $("#val_Metros2").text("");
-            $("#val_Metros3").text("");
             validado++;
         }
 
         if ($("#ValorMetro").val() == 0) {
             $("#val_ValorMetro").text("*");
             $("#val_ValorMetro2").text("Debe digitar  el valor");
-            $("#val_ValorMetro3").text("Debe digitar  el valor");
+        }else if($("#ValorMetro").val().length > 6){
+            $("#val_ValorMetro").text("*");
+            $("#val_ValorMetro2").text("El valor del mt no debe ser mayor de 40000");
         }else{
             $("#val_ValorMetro").text("");
             $("#val_ValorMetro2").text("");
-            $("#val_ValorMetro3").text("");
             validado++;
         }
 
@@ -195,7 +222,16 @@ $(document).ready(function() {
             validado++;
         }
 
-        if (validado==15)
+        if ($("#ValorTransporte").val().length > 8) {
+            $("#val_Valtrans").text("*");
+            $("#val_Valtrans2").text("El valor del transporte no debe superar los 99.999.999");
+        }else{
+            $("#val_Valtrans").text("");
+            $("#val_Valtrans2").text("");
+            validado++;
+        }
+
+        if (validado==19)
         {
 
                 Swal.fire({

@@ -294,7 +294,7 @@
                                         @error('ValorTransporte')
                                         <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
-                                        <label class="validacion" id="val_Valtrans"></label>
+                                        <label class="validacion" id="val_Valtrans2"></label>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="">AIU transporte</label>
