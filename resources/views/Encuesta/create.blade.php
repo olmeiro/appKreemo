@@ -19,7 +19,7 @@
                         <div class="form-group col-md-4">
                             <label for="">N° servicio</label>
                             <label class="validacion" for="idservicio" id="valIdServicio"></label>
-                            <input type="text" value="{{ $id ?? '' }}" id="idservicio" name="idservicio" class="form-control">
+                            <input type="text" value="{{ $id ?? '' }}" id="idservicio" name="idservicio" class="form-control" readonly>
                             @error('idservicio')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -28,7 +28,7 @@
                         <div class="form-group col-md-4">
                             <label for="">Nombre (Quien responde la encuesta)</label>
                             <label class="validacion" for="directorobra" id="valDirectorObra"></label>
-                            <input type="text" class="form-control @error('directorobra') is-invalid @enderror" id="directorobra" name="directorobra" value="{{old('directorobra')}}">
+                            <input type="text" class="form-control @error('directorobra') is-invalid @enderror" onkeypress="return soloLetras(event)" id="directorobra" name="directorobra" value="{{old('directorobra')}}">
                             @error('directorobra')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
