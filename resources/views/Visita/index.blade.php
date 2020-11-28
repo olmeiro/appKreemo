@@ -12,9 +12,7 @@
     <div class="modal-content">
         <div class="modal-header text-white" style="background-color: #616A6B">
             <h5 class="modal-title">Datos de la visita</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar()">
-            <span aria-hidden="true">&times;</span>
-            </button>
+            <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
         </div>
         <div class="modal-body">
         <form id="FrmAgenda">
