@@ -27,7 +27,8 @@
             <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h5 class="modal-title" id="exampleModalLabel">Crear lista de chequeo</h5> <button type="button" class="close" data-dismiss="modal" aria-label="Close"> <span aria-hidden="true">&times;</span> </button>
+                        <h5 class="modal-title" id="exampleModalLabel">Crear lista de chequeo</h5> 
+                        <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                     </div>
                     <div class="modal-body">
                         @include('flash::message')
