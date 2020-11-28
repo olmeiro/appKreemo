@@ -34,6 +34,7 @@ class LoginController extends Controller
 
         if ($response = $this->loggedOut($request)) {
             return $response;
+            redirect('/login');
         }
 
         return $request->wantsJson()
