@@ -41,12 +41,13 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 @include('flash::message')
+                <div class="modal-header text-white" style="background-color: #616A6B">
+                    <h5 class="modal-title">Crear tipo de contacto</h5>
+                    <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
+                </div>
                 <form class="col-md-12 " action="" method="POST" id="frmTipoContacto">
                     @csrf
-                    <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h5 class="modal-title">Crear tipo de contacto</h5>
-                        <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
-                    </div>
+
                     <div class="modal-body">
                         <h5>Defina el tipo de contacto</h5>
                         <div class="form-group">
@@ -202,9 +203,7 @@
                 <div class="modal-header text-white" style="background-color: #616A6B">
                     <h4>Tipos de contactos</h4>
                     <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
-                    <div class="card-header">
-                        <strong>x</strong>
-                    </div>
+
                 </div>
                 <div class="modal-body">
                     <div class="card-body table-responsive">
