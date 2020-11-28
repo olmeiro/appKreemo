@@ -45,9 +45,7 @@
                     @csrf
                     <div class="modal-header text-white" style="background-color: #616A6B">
                         <h5 class="modal-title">Crear tipo de contacto</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="limpiar1()">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                     </div>
                     <div class="modal-body">
                         <h5>Defina el tipo de contacto</h5>
@@ -74,7 +72,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title" id="exampleModalLabel2">Crear contacto</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="exampleModalLabel2">Crear contacto</h5> <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                 </div>
                 <div class="modal-body">
                     @include('flash::message')
@@ -203,7 +201,7 @@
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
                     <h4>Tipos de contactos</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                     <div class="card-header">
                         <strong>x</strong>
                     </div>
@@ -237,7 +235,7 @@
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
                     <h4 class="modal-title" id="clienteEditModal"></h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                     <div class="card-header">
                         <strong>x</strong>
                     </div>

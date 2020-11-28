@@ -12,7 +12,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title" id="obraLabelModal2">Crear obra</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="obraLabelModal2">Crear obra</h5> <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                 </div>
                 <div class="modal-body">
                     @include('flash::message')
@@ -81,7 +81,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                    <h5 class="modal-title" id="obraLabelModal2">Contactos de obra</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                    <h5 class="modal-title" id="obraLabelModal2">Contactos de obra</h5> <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                 </div>
                 <div class="modal-body table-responsive">
                 @include('flash::message')
@@ -107,7 +107,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                <h4 class="modal-title" id="obraCrudModal"></h4> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                <h4 class="modal-title" id="obraCrudModal"></h4> <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                 </div>
                 <div class="modal-body">
                     @include('flash::message')

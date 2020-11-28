@@ -42,7 +42,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h5 class="modal-title" id="exampleModalLabel2">Crear empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                        <h5 class="modal-title" id="exampleModalLabel2">Crear empresa</h5> <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                 </div>
                 @include('flash::message')
                 <form class="form-signin col-md-12" action="" method="POST" id="frmEmpresa">
@@ -117,7 +117,7 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header text-white" style="background-color: #616A6B">
-                        <h5 class="modal-title" id="exampleModalLabel2">Editar empresa</h5> <button type="button" class="close" data-dismiss="modal"  aria-label="Close" onclick="limpiar()"> <span aria-hidden="true">&times;</span> </button>
+                        <h5 class="modal-title" id="exampleModalLabel2">Editar empresa</h5> <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
                 </div>
                 <form class="editEmpresa" name="empresaForm" id="editEmpresaFrm" action="/empresa/guardar"method="POST">
                     @csrf
