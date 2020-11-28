@@ -64,13 +64,13 @@
                                 <label class="validacion" id="valemail"></label>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                             <strong>Contraseña:</strong>
                             <input type="password" name="pw" id="pw" class="form-control">
                             <label class="validacion" id="valpw"></label>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="col-md-6">
                             <div >
                                 <strong>Rol:</strong>
@@ -198,7 +198,7 @@
     $('#name').val(data.name);
     $('#lastname').val(data.lastname);
     $('#email').val(data.email);
-    $('#pw').val(data.password);
+    // $('#pw').val(data.password);
     $('#rol').val(data.rol_id);
     })
     });
@@ -243,15 +243,15 @@
              $("#valemail").text("");
              validado++;
          }
-        if( $("#pw").val() == 0 )
-        {
-            $("#valpw").text("* Debe introducir la contraseña");
-        }
-        else
-        {
-            $("#valpw").text("");
-            validado++;
-        }
+        // if( $("#pw").val() == 0 )
+        // {
+        //     $("#valpw").text("* Debe introducir la contraseña");
+        // }
+        // else
+        // {
+        //     $("#valpw").text("");
+        //     validado++;
+        // }
         if( $("#rol").val() == 0 )
         {
             $("#valrol").text("* Debe elegir un rol");
@@ -262,7 +262,7 @@
             validado++;
         }
         console.log("validado: " + validado);
-        if (validado==5){
+        if (validado==4){
         $.ajax({
             data: $('#user').serialize(),
             url: "{{ route('users.store') }}",
