@@ -196,7 +196,7 @@ $(document).ready(function(){
 
                   }
                   else{
-                    Swal.fire('No se puedo crear la nueva empresa.');
+                    Swal.fire('No se puede crear la nueva empresa.');
                   }
                 })
          }
