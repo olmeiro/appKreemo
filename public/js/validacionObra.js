@@ -25,7 +25,7 @@ $(document).ready(function(){
             validado++;
         }
 
-        if($("#direccion").val().length == 0 || $("#direccion").val().length > 30)
+        if($("#direccion").val().length == 0 || $("#direccion").val().length > 100)
         {
             $("#valDireccion").text("* Debe ingresar dirección de la obra.")
         }
@@ -113,7 +113,7 @@ $(document).ready(function(){
             validado++;
         }
 
-        if($("#odireccion").val().length == 0 || $("#odireccion").val().length > 30)
+        if($("#odireccion").val().length == 0 || $("#odireccion").val().length > 100)
         {
             $("#valDireccion").text("* Debe ingresar dirección de la obra.")
         }
