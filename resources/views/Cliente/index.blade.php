@@ -236,9 +236,6 @@
                 <div class="modal-header text-white" style="background-color: #616A6B">
                     <h4 class="modal-title" id="clienteEditModal"></h4>
                     <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
-                    <div class="card-header">
-                        <strong>x</strong>
-                    </div>
                 </div>
                 <div class="modal-body">
                     <div class="card-body">

@@ -12,7 +12,7 @@
         <div class="modal-content">
             <div class="modal-header text-white" style="background-color: #616A6B">
                 <h5 class="modal-title">Crear servicio</h5>
-                <a href="" class="btn btn-secondary" data-dismiss="modal">X</a>
+                <a href="" class="btn btn-secondary" data-dismiss="modal" >X</a>
             </div>
             <div class="modal-body">
                 <form id="FrmAgendaServicio">
