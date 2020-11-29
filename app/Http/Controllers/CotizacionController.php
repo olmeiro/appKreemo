@@ -280,7 +280,8 @@ class CotizacionController extends Controller
 
             $pdf = PDF::loadView('pdf.cotizacion', compact('cotizacion', 'input'));
 
-            return $pdf->stream('informe.pdf');
+            return $pdf->download('informe.pdf');
+            // return $pdf->stream('informe.pdf');
         }else{
             Flash::error("Reporte de Cotización NO encontrado");
             return redirect("/cotizacion/informe");
