@@ -136,7 +136,7 @@
         <table class="vini" style="width:100%">
             <tr class="vini" >
             <!-- <th class="foto" rowspan="3"><img src="{{ asset('http://127.0.0.1:8000/assets/dashboard/assets/img/logovinicol.jpg') }}" style="width: 150px; height: 100px"></th> -->
-            <th class="foto" rowspan="3"><img src="" style="width: 150px; height: 100px"></th>
+            <th class="foto" rowspan="3"><img src="" style="width: 150px; height: 100px">Vinicol</th>
             <td class="vini" >PROPUESTA COMERCIAL</td>
                 <td class="vini" >VERSIÓN 001</td>
             </tr>
