@@ -391,7 +391,7 @@ $(document).ready(function() {
 
         if($("#ctelefono2").val().length == 0 || isNaN($("#ctelefono2").val()))
         {
-            $("#valTel2").text("* Ingrese un número de teléfono válido");
+            $("#valTel2").text("* Ingrese un número de teléfono válido, campo no obligatorio.");
         }
         else if(!(/^\d{7,10}$/.test($("#ctelefono2").val())))
         {
@@ -399,7 +399,6 @@ $(document).ready(function() {
         }
         else{
             $("#valTel2").text("");
-            validado++;
         }
 
         const emailRegex = new RegExp(/^[-\w.%+]{1,64}@(?:[A-Z0-9-]{1,63}\.){1,125}[A-Z]{2,63}$/i);
@@ -416,17 +415,16 @@ $(document).ready(function() {
 
         if($("#ccorreo2").val().length == 0 || !emailRegex.test($("#ccorreo2").val()))
         {
-            $("#valCCorreo2").text("* Ingrese un correo válido.");
+            $("#valCCorreo2").text("* Ingrese un correo válido, campo no obligatorio.");
         }
         else
         {
             $("#valCCorreo2").text("");
-            validado++;
         }
 
         console.log("validado: " + validado);
 
-        if(validado == 9)
+        if(validado == 7)
         {
             var fd = new FormData(document.getElementById("editForm"));
 
