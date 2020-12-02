@@ -23,8 +23,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login">Ingresar</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">Registrar</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/home">Ir a Home</a></li>
+                        <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/register">Registrar</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/home">Ir a Home</a></li> -->
                     </ul>
                 </div>
             </div>
