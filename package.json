@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@coreui/icons": "^1.0.1",
-        "datatables.net": "^1.10.21",
+        "datatables.net": "^1.10.22",
         "flatpickr": "^4.6.6",
         "nodejs": "0.0.0"
     }
